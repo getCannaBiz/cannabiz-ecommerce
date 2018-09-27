@@ -1,13 +1,22 @@
 <?php
-/*
-Plugin Name: WP Dispensary's Shopping Cart
-Plugin URI: https://www.wpdispensary.com
-Description: Adds ecommerce capabilities to the WP Dispensary menu management plugin.
-Version: 0.1
-License: GPL
-Author: WP Dispenary
-Author URI: https://www.wpdispensary.com
-*/
+/**
+ * The plugin bootstrap file
+ *
+ * @link         https://www.wpdispensary.com
+ * @since        1.0.0
+ * @package      WPD_Ecommerce
+ *
+ * Plugin Name:  WP Dispensary's eCommerce
+ * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
+ * Description:  Adds shopping cart capabilities to the WP Dispensary menu management plugin.
+ * Version:      0.1
+ * Author:       WP Dispenary
+ * Author URI:   https://www.wpdispensary.com
+ * License:      GPL-2.0+
+ * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:  wpd-ecommerce
+ * Domain Path:  /languages
+ */
 
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
