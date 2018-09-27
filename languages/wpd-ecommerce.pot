@@ -1,0 +1,258 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Dispensary's eCommerce\n"
+"POT-Creation-Date: 2018-09-27 17:02-0400\n"
+"PO-Revision-Date: 2018-09-27 17:02-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-ecommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: cart/cart-widget.php:17
+msgid "Shopping Cart"
+msgstr ""
+
+#: cart/cart-widget.php:19
+msgid "Display your cart details"
+msgstr ""
+
+#: cart/cart-widget.php:34
+msgid "Widget Title:"
+msgstr ""
+
+#: checkout/checkout-shortcode.php:24 patients/patient-account-shortcode.php:22
+msgid "The Email you entered is not valid. Please try again."
+msgstr ""
+
+#: checkout/checkout-shortcode.php:26 patients/patient-account-shortcode.php:24
+msgid "This email is already used by another user. Try a different one."
+msgstr ""
+
+#: checkout/checkout-shortcode.php:56 patients/patient-account-shortcode.php:56
+msgid "First Name"
+msgstr ""
+
+#: checkout/checkout-shortcode.php:60 patients/patient-account-shortcode.php:60
+msgid "Last Name"
+msgstr ""
+
+#: checkout/checkout-shortcode.php:65 patients/patient-account-shortcode.php:65
+msgid "E-mail"
+msgstr ""
+
+#: checkout/checkout-shortcode.php:134
+msgid "Place Order"
+msgstr ""
+
+#: orders/orders-metaboxes.php:12
+msgid "Order Details"
+msgstr ""
+
+#: orders/orders-post-type.php:6
+msgctxt "Post Type General Name"
+msgid "Orders"
+msgstr ""
+
+#: orders/orders-post-type.php:7
+msgctxt "Post Type Singular Name"
+msgid "Order"
+msgstr ""
+
+#: orders/orders-post-type.php:8
+msgid "Orders"
+msgstr ""
+
+#: orders/orders-post-type.php:9 orders/orders-post-type.php:50
+msgid "Order"
+msgstr ""
+
+#: orders/orders-post-type.php:10
+msgid "Order Archives"
+msgstr ""
+
+#: orders/orders-post-type.php:11
+msgid "Order Attributes"
+msgstr ""
+
+#: orders/orders-post-type.php:12
+msgid "Parent Order:"
+msgstr ""
+
+#: orders/orders-post-type.php:13
+msgid "All Orders"
+msgstr ""
+
+#: orders/orders-post-type.php:14
+msgid "Add New Order"
+msgstr ""
+
+#: orders/orders-post-type.php:15
+msgid "Add New"
+msgstr ""
+
+#: orders/orders-post-type.php:16
+msgid "New Order"
+msgstr ""
+
+#: orders/orders-post-type.php:17
+msgid "Edit Order"
+msgstr ""
+
+#: orders/orders-post-type.php:18
+msgid "Update Order"
+msgstr ""
+
+#: orders/orders-post-type.php:19
+msgid "View Order"
+msgstr ""
+
+#: orders/orders-post-type.php:20
+msgid "View Orders"
+msgstr ""
+
+#: orders/orders-post-type.php:21
+msgid "Search Order"
+msgstr ""
+
+#: orders/orders-post-type.php:22
+msgid "Not found"
+msgstr ""
+
+#: orders/orders-post-type.php:23
+msgid "Not found in Trash"
+msgstr ""
+
+#: orders/orders-post-type.php:24
+msgid "Featured Image"
+msgstr ""
+
+#: orders/orders-post-type.php:25
+msgid "Set featured image"
+msgstr ""
+
+#: orders/orders-post-type.php:26
+msgid "Remove featured image"
+msgstr ""
+
+#: orders/orders-post-type.php:27
+msgid "Use as featured image"
+msgstr ""
+
+#: orders/orders-post-type.php:28
+msgid "Insert into order"
+msgstr ""
+
+#: orders/orders-post-type.php:29
+msgid "Uploaded to this order"
+msgstr ""
+
+#: orders/orders-post-type.php:30
+msgid "Orders list"
+msgstr ""
+
+#: orders/orders-post-type.php:31
+msgid "Orders list navigation"
+msgstr ""
+
+#: orders/orders-post-type.php:32
+msgid "Filter orders list"
+msgstr ""
+
+#: orders/orders-post-type.php:51
+msgid "View your store's order history"
+msgstr ""
+
+#: patients/patient-account-details.php:14
+#: patients/patient-account-details.php:68
+#: patients/patient-account-details.php:113
+msgid "Year of birth"
+msgstr ""
+
+#: patients/patient-account-details.php:33
+#: patients/patient-account-details.php:88
+msgid "<strong>ERROR</strong>: Please enter your year of birth."
+msgstr ""
+
+#: patients/patient-account-details.php:37
+#: patients/patient-account-details.php:92
+msgid "<strong>ERROR</strong>: You must be born after 1900."
+msgstr ""
+
+#: patients/patient-account-details.php:64
+#: patients/patient-account-details.php:109
+msgid "Personal Information"
+msgstr ""
+
+#: patients/patient-account-details.php:68
+msgid "(required)"
+msgstr ""
+
+#: patients/patient-account-shortcode.php:16
+msgid "The passwords you entered do not match.  Your password was not updated."
+msgstr ""
+
+#: patients/patient-account-shortcode.php:70
+msgid "Password"
+msgstr ""
+
+#: patients/patient-account-shortcode.php:74
+msgid "Repeat Password"
+msgstr ""
+
+#: patients/patient-account-shortcode.php:79
+msgid "Update"
+msgstr ""
+
+#: templates/single-item.php:101 wpd-ecommerce.php:240
+msgid "Add to cart"
+msgstr ""
+
+#: wpd-ecommerce.php:78
+msgid "Checkout"
+msgstr ""
+
+#: wpd-ecommerce.php:88
+msgid "Order Complete"
+msgstr ""
+
+#: wpd-ecommerce.php:98
+msgid "Cart"
+msgstr ""
+
+#: wpd-ecommerce.php:108
+msgid "My Account"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's eCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/ecommerce"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Adds shopping cart capabilities to the WP Dispensary menu management plugin."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispenary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr ""
