@@ -1,9 +1,9 @@
 <?php
 // Add Checkout Shortcode.
-function wpd_shopping_cart_checkout_shortcode() {
+function wpd_ecommerce_checkout_shortcode() {
 
     // Verify that there's an active session.
-	if ( ! empty( $_SESSION['wpd_shopping_cart'] ) ) {
+	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
         global $current_user, $wp_roles;
 
         /**
@@ -48,7 +48,7 @@ function wpd_shopping_cart_checkout_shortcode() {
 
         } ?>
         
-        <?php wpd_shopping_cart_checkout_success(); ?>
+        <?php wpd_ecommerce_checkout_success(); ?>
 
         <form method="post" id="checkout" class="wpd-cart form checkout" action="<?php the_permalink(); ?>">
 
@@ -76,7 +76,7 @@ function wpd_shopping_cart_checkout_shortcode() {
         $str .= '</thead>';
         $str .= '<tbody>';
 
-        foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ):
+        foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
             $i    = new Item( $id, '', '', '' );
             $item_old_id = preg_replace( '/[^0-9.]+/', '', $id );
             $weight_option2 = preg_replace( '/[0-9]+/', '', $id );
@@ -121,12 +121,12 @@ function wpd_shopping_cart_checkout_shortcode() {
         endforeach;
 
 
-        $total_price = ( number_format((float)$_SESSION['wpd_shopping_cart']->vat, 2, '.', ',' ) + $_SESSION['wpd_shopping_cart']->sum );
+        $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
         /**
          * @todo filter text
          */
-        $str .= "<tr><td><strong>Subtotal</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_shopping_cart']->sum, 2, '.', ',' ) . "</td></tr>";
+        $str .= "<tr><td><strong>Subtotal</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
         $str .= "<tr><td><strong>Total</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
         $str .= "</tbody>";
         $str .= "</table>";
@@ -141,12 +141,12 @@ function wpd_shopping_cart_checkout_shortcode() {
 		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-cart return">Return to Menu</a></p>';
 	}
 }
-add_shortcode( 'wpd_checkout', 'wpd_shopping_cart_checkout_shortcode' );
+add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
 
 /**
  * Fire this off when the order is a success.
  */
-function wpd_shopping_cart_checkout_success() {
+function wpd_ecommerce_checkout_success() {
 
     $page_date        = date( 'Y-m-d H:i:s' );
     $current_user     = wp_get_current_user();
@@ -170,7 +170,7 @@ function wpd_shopping_cart_checkout_success() {
         $str .= '</thead>';
         $str .= '<tbody>';
 
-        foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ):
+        foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
             $i    = new Item( $id, '', '', '' );
             $item_old_id = preg_replace( '/[^0-9.]+/', '', $id );
             $weight_option2 = preg_replace( '/[0-9]+/', '', $id );

@@ -10,7 +10,7 @@ get_header(); ?>
             <?php
             if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
                 echo "<div class='wpd-cart-single-notifications'>";
-                echo wpd_shopping_cart_notifications();
+                echo wpd_ecommerce_notifications();
                 echo "</div>";
             } ?>
             <div class="entry-header wpd-cart-shelfItem">
@@ -53,7 +53,7 @@ get_header(); ?>
                     <?php if ( ! empty( $regular_price ) ) { ?>
                         <?php if ( 'flowers' === get_post_type() ) { ?>
                             <?php
-                            printf( '<select name="wpd_shopping_cart_flowers_prices" id="wpd_shopping_cart_flowers_prices" class="widefat">' );
+                            printf( '<select name="wpd_ecommerce_flowers_prices" id="wpd_ecommerce_flowers_prices" class="widefat">' );
                             printf( '<option value="">Choose a weight</option>' );
                             foreach ( $regular_price as $name => $price ) {
                                 printf( '<option value="'. esc_html( $price ) . '">' . esc_html( $name ) . '</option>' );
@@ -69,19 +69,19 @@ get_header(); ?>
                     /**
                      * Add Items to Cart
                      */
-                    if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_shopping_cart_flowers_prices'] ) ) {
+                    if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
                         $qtty = $_POST['qtty'];
 
                         /**
                          * ID's
                          */
                         $old_id = $post->ID;
-                        $new_id = $post->ID . '' . $_POST['wpd_shopping_cart_flowers_prices'];
+                        $new_id = $post->ID . '' . $_POST['wpd_ecommerce_flowers_prices'];
 
                         /**
                          * Prices
                          */
-                        $new_price = $_POST['wpd_shopping_cart_flowers_prices'];
+                        $new_price = $_POST['wpd_ecommerce_flowers_prices'];
                         $old_price = get_post_meta( $old_id, $new_price, true );
 
                         /**

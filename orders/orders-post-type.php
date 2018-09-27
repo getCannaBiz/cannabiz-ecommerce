@@ -74,14 +74,14 @@ add_action( 'init', 'wpd_orders', 0 );
 
 // Adds Orders admin submenu link.
 function wpd_admin_menu_orders() {
-	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Shopping Cart Orders', 'Orders', 'manage_options', 'edit.php?post_type=wpd_orders', null );
+	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s eCommerce orders', 'Orders', 'manage_options', 'edit.php?post_type=wpd_orders', null );
 }
 add_action( 'admin_menu', 'wpd_admin_menu_orders', 10 );
 
 /**
  * Disable Quick Edit links for Orders admin page.
  */
-function wpd_shopping_cart_disable_quick_edit( $actions = array(), $post = null ) {
+function wpd_ecommerce_disable_quick_edit( $actions = array(), $post = null ) {
 
     // Abort if the post type is not "Orders"
     if ( ! is_post_type_archive( 'wpd_orders' ) ) {
@@ -97,5 +97,5 @@ function wpd_shopping_cart_disable_quick_edit( $actions = array(), $post = null 
     return $actions;
 
 }
-add_filter( 'post_row_actions', 'wpd_shopping_cart_disable_quick_edit', 10, 2 );
-add_filter( 'page_row_actions', 'wpd_shopping_cart_disable_quick_edit', 10, 2 );
+add_filter( 'post_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );
+add_filter( 'page_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );

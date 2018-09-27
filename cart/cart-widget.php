@@ -14,9 +14,9 @@ class My_Cart_Widget extends WP_Widget {
 
 		parent::__construct(
 			'wpd_cart_widget',
-			__( 'Shopping Cart', 'wp-dispensary' ),
+			__( 'Shopping Cart', 'wpd-ecommerce' ),
 			array(
-				'description' => __( 'Display your cart details', 'wp-dispensary' ),
+				'description' => __( 'Display your cart details', 'wpd-ecommerce' ),
 				'classname'   => 'wp-dispensary-cart-widget',
 			)
 		);
@@ -31,7 +31,7 @@ class My_Cart_Widget extends WP_Widget {
 		$instance = wp_parse_args( (array) $instance, $defaults );
 	    ?>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Widget Title:', 'wp-dispensary' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Widget Title:', 'wpd-ecommerce' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_html( $instance['title'] ); ?>" />
 		</p>
 		<?php
@@ -57,9 +57,9 @@ class My_Cart_Widget extends WP_Widget {
 		if ( ! has_shortcode( $content, 'wpd_cart' ) ) {
 
 			// If cart isn't empty, display the widget.
-			if ( ! empty( $_SESSION['wpd_shopping_cart'] ) ) {
+			if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
 		
-				do_action( 'wpd_shopping_cart_widget_before' );
+				do_action( 'wpd_ecommerce_widget_before' );
 
 				echo $before_widget;
 
@@ -74,7 +74,7 @@ class My_Cart_Widget extends WP_Widget {
 				$str  = '<table class="wpd-cart widget">';
 				$str .= '<tbody>';
 				
-				foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ):
+				foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
 					$i    = new Item( $id, '', '', '' );
 					$item_old_id = preg_replace( '/[^0-9.]+/', '', $id );
 					$weight_option2 = preg_replace( '/[0-9]+/', '', $id );
@@ -120,7 +120,7 @@ class My_Cart_Widget extends WP_Widget {
 				$str .= "</tbody>";
 				$str .= "</table>";
 		
-				$str .= "<p class='wpd-cart-widget subtotal'><strong>Subtotal:</strong> " . CURRENCY . number_format( $_SESSION['wpd_shopping_cart']->sum, 2, '.', ',' ) . "</p>";
+				$str .= "<p class='wpd-cart-widget subtotal'><strong>Subtotal:</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
 
 				/**
 				 * @todo make the Cart/Checkout links work with Settings option, and/or default
@@ -131,7 +131,7 @@ class My_Cart_Widget extends WP_Widget {
 
 				echo $after_widget;
 
-				do_action( 'wpd_shopping_cart_widget_after' );
+				do_action( 'wpd_ecommerce_widget_after' );
 
 			} else {
 				// Do nothing.

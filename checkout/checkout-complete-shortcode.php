@@ -1,6 +1,6 @@
 <?php
 // Add Checkout Shortcode.
-function wpd_shopping_cart_checkout_complete_shortcode() {
+function wpd_ecommerce_checkout_complete_shortcode() {
 
     global $current_user;
 
@@ -27,4 +27,4 @@ function wpd_shopping_cart_checkout_complete_shortcode() {
     }
 
 }
-add_shortcode( 'wpd_checkout_complete', 'wpd_shopping_cart_checkout_complete_shortcode' );
+add_shortcode( 'wpd_checkout_complete', 'wpd_ecommerce_checkout_complete_shortcode' );

@@ -45,8 +45,8 @@ class Cart {
 	 * Remove Item
 	 */
 	function remove_item( $item_id ) {
-		if ( isset ( ${$this->method}['wpd_shopping_cart_flowers_prices'] ) ) {
-			$new_id = $item_id . '' . ${$this->method}['wpd_shopping_cart_flowers_prices'];
+		if ( isset ( ${$this->method}['wpd_ecommerce_flowers_prices'] ) ) {
+			$new_id = $item_id . '' . ${$this->method}['wpd_ecommerce_flowers_prices'];
 		} else {
 			$new_id = $item_id;
 		}
@@ -155,7 +155,7 @@ class Cart {
 	/**
 	 * Display shopping cart on CART page.
 	 */
-	public function wpd_shopping_cart_page() {
+	public function wpd_ecommerce_page() {
 		$str = '<table class="wpd-cart">';
 
 		$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';

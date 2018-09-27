@@ -1,11 +1,11 @@
 <?php
 // Add Cart Shortcode.
-function wpd_shopping_cart_shortcode() {
-	if ( ! empty( $_SESSION['wpd_shopping_cart'] ) ) {
+function wpd_ecommerce_shortcode() {
+	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
 		$str  = '<table class="wpd-cart">';
 		$str .= '<thead><tr><td></td><td></td><td>Product</td><td>Price</td><td>Quantity</td><td>Total</td></tr></thead>';
 		$str .= '<tbody>';
-		foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ):
+		foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
 			$i    = new Item( $id, '', '', '' );
 			$item_old_id = preg_replace( '/[^0-9.]+/', '', $id );
 			$weight_option2 = preg_replace( '/[0-9]+/', '', $id );
@@ -52,15 +52,15 @@ function wpd_shopping_cart_shortcode() {
 		$str .= "</tbody>";
 		$str .= "</table>";
 
-		$total_price = ( number_format((float)$_SESSION['wpd_shopping_cart']->vat, 2, '.', ',' ) + $_SESSION['wpd_shopping_cart']->sum );
+		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
 		$str .= "<div class='wpd-cart-wrap'>";
 		$str .= "<div class='cart-totals'>";
 		$str .= "<h2>Cart Totals</h2>";
 		$str .= "<table class='wpd-cart totals'>";
 		$str .= "<tbody>";
-		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_shopping_cart']->sum, 2, '.', ',' ) . "</td></tr>";
-		$str .= "<tr><th class='cart_vat'><span class='vat'>VAT</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_shopping_cart']->vat, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_vat'><span class='vat'>VAT</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) . "</td></tr>";
 		$str .= "<tr><th class='cart_total'><span class='total'>Total</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 		$str .= "</tbody>";
 		$str .= "</table>";
@@ -75,4 +75,4 @@ function wpd_shopping_cart_shortcode() {
 		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-cart return">Return to Menu</a></p>';
 	}
 }
-add_shortcode( 'wpd_cart', 'wpd_shopping_cart_shortcode' );
+add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );

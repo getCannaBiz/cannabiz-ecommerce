@@ -20,8 +20,8 @@ class Item {
 
 			$item_names = array();
 
-			if ( isset( $_SESSION['wpd_shopping_cart'] ) ) {
-				foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ) {
+			if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
+				foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
 					$item_names[] = $id;
 				}
 
@@ -39,7 +39,7 @@ class Item {
 
 			$item_names = array();
 
-			foreach( $_SESSION['wpd_shopping_cart']->item_array as $id=>$amount ) {
+			foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
 				$item_names[] = $id;
 			}
 

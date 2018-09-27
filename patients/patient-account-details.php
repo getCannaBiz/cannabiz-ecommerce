@@ -4,8 +4,8 @@
  * Front end registration
  */
 
-add_action( 'register_form', 'wpd_shopping_cart_registration_form' );
-function wpd_shopping_cart_registration_form() {
+add_action( 'register_form', 'wpd_ecommerce_registration_form' );
+function wpd_ecommerce_registration_form() {
 
 	$year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
 
@@ -26,8 +26,8 @@ function wpd_shopping_cart_registration_form() {
 	<?php
 }
 
-add_filter( 'registration_errors', 'wpd_shopping_cart_registration_errors', 10, 3 );
-function wpd_shopping_cart_registration_errors( $errors, $sanitized_user_login, $user_email ) {
+add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
+function wpd_ecommerce_registration_errors( $errors, $sanitized_user_login, $user_email ) {
 
 	if ( empty( $_POST['year_of_birth'] ) ) {
 		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
@@ -40,8 +40,8 @@ function wpd_shopping_cart_registration_errors( $errors, $sanitized_user_login, 
 	return $errors;
 }
 
-add_action( 'user_register', 'wpd_shopping_cart_user_register' );
-function wpd_shopping_cart_user_register( $user_id ) {
+add_action( 'user_register', 'wpd_ecommerce_user_register' );
+function wpd_ecommerce_user_register( $user_id ) {
 	if ( ! empty( $_POST['year_of_birth'] ) ) {
 		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
 	}
@@ -51,8 +51,8 @@ function wpd_shopping_cart_user_register( $user_id ) {
  * Back end registration
  */
 
-add_action( 'user_new_form', 'wpd_shopping_cart_admin_registration_form' );
-function wpd_shopping_cart_admin_registration_form( $operation ) {
+add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
+function wpd_ecommerce_admin_registration_form( $operation ) {
 	if ( 'add-new-user' !== $operation ) {
 		// $operation may also be 'add-existing-user' (multisite, I believe!?)
 		return;
@@ -82,8 +82,8 @@ function wpd_shopping_cart_admin_registration_form( $operation ) {
 	<?php
 }
 
-add_action( 'user_profile_update_errors', 'wpd_shopping_cart_user_profile_update_errors', 10, 3 );
-function wpd_shopping_cart_user_profile_update_errors( $errors, $update, $user ) {
+add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );
+function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
 	if ( empty( $_POST['year_of_birth'] ) ) {
 		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
 	}
@@ -93,17 +93,17 @@ function wpd_shopping_cart_user_profile_update_errors( $errors, $update, $user )
 	}
 }
 
-add_action( 'edit_user_created_user', 'wpd_shopping_cart_user_register' );
+add_action( 'edit_user_created_user', 'wpd_ecommerce_user_register' );
 
 
 /**
  * Back end display
  */
 
-add_action( 'show_user_profile', 'wpd_shopping_cart_show_extra_profile_fields' );
-add_action( 'edit_user_profile', 'wpd_shopping_cart_show_extra_profile_fields' );
+add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
 
-function wpd_shopping_cart_show_extra_profile_fields( $user ) {
+function wpd_ecommerce_show_extra_profile_fields( $user ) {
 	$year = get_the_author_meta( 'year_of_birth', $user->ID );
 	?>
 	<h3><?php esc_html_e( 'Personal Information', 'wp-dispensary' ); ?></h3>
@@ -127,10 +127,10 @@ function wpd_shopping_cart_show_extra_profile_fields( $user ) {
 	<?php
 }
 
-add_action( 'personal_options_update', 'wpd_shopping_cart_update_profile_fields' );
-add_action( 'edit_user_profile_update', 'wpd_shopping_cart_update_profile_fields' );
+add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
+add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
 
-function wpd_shopping_cart_update_profile_fields( $user_id ) {
+function wpd_ecommerce_update_profile_fields( $user_id ) {
 	if ( ! current_user_can( 'edit_user', $user_id ) ) {
 		return false;
 	}
