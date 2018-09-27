@@ -1,0 +1,8 @@
+/**
+ * WP Dispensary's Shopping Cart CSS
+ * For the public facing website.
+ */
+
+select#wpd_shopping_cart_flowers_prices {
+    margin-bottom: 24px;
+}
