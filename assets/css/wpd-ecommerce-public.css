@@ -1,0 +1,286 @@
+/**
+ * WP Dispensary's eCommerce CSS
+ * For the public facing website.
+ */
+
+/** Quantity input field */
+form.wpd-ecommerce input#qtty {
+    padding: 5px;
+    width: 3.20em;
+}
+
+/** Add to Cart button */
+form.wpd-ecommerce input#add_item_btn {
+    margin-left: 6px;
+    padding: 7px 15px;
+}
+
+/** Flower Prices select field */
+select#wpd_ecommerce_flowers_prices {
+    margin-bottom: 24px;
+}
+
+/** Price Display on Products */
+p.price {
+    color: #76BD1D;
+    font-size: 1.245em;
+}
+
+/** Return to Cart button */
+a.button.wpd-ecommerce.return {
+	padding: 7px 15px;
+}
+
+/** Cart Remove Button */
+table.wpd-ecommerce a.remove {
+    border: 0;
+    border-radius: 100%;
+    color: red!important;
+    font-size: 100%;
+    font-weight: 700;
+    height: 1em;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    width: 1em;
+}
+
+/** Cart Table Alignment */
+table.wpd-ecommerce thead tr td, table.wpd-ecommerce tbody tr td {
+    text-align: left;
+}
+
+table.wpd-ecommerce tbody tr td:first-child {
+    text-align: center;
+}
+
+/** Cart Style */
+
+table.wpd-ecommerce thead {
+	border: 1px solid #DDD;
+}
+
+table.wpd-ecommerce tbody tr {
+    border-bottom: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+}
+
+table.wpd-ecommerce td {
+	padding: 12px 12px;
+	vertical-align: middle;
+}
+
+table.wpd-ecommerce thead tr {
+	font-weight: 700;
+}
+
+table.wpd-ecommerce tbody td input[type="number"] {
+    padding: 3px 6px;
+    text-align: center;
+    width: 3.5em;
+}
+
+/** Cart Page Totals Box */
+
+.wpd-ecommerce-wrap {
+	float: left;
+	position: relative;
+	width: 100%;
+}
+
+.wpd-ecommerce-wrap .cart-totals {
+    float: right;
+    width: 48%;
+}
+
+table.wpd-ecommerce.totals th {
+    padding: 10px;
+}
+
+table.wpd-ecommerce.totals tbody {
+    border-top: 1px solid #DDD;
+}
+
+.wpd-ecommerce-wrap .cart-totals p.wpd-ecommerce.buttons a {
+    text-align: center;
+    width: 100%;
+}
+
+/** Cart Widget Style */
+
+table.wpd-ecommerce.widget {
+    box-shadow: none;
+	font-size: .850em;
+}
+
+.widget.wp-dispensary-cart-widget h2.widget-title {
+    margin-bottom: 0;
+}
+
+table.wpd-ecommerce.widget a {
+	font-weight: 700;
+}
+
+table.wpd-ecommerce.widget tbody {
+    border-bottom: 1px solid #DDD;
+}
+
+table.wpd-ecommerce.widget tbody tr {
+	border: 0;
+}
+
+/** Cart Widget Text Align */
+
+table.wpd-ecommerce.widget tbody tr td {
+	text-align: left;
+	padding: 12px 0;
+}
+
+table.wpd-ecommerce.widget tbody tr td:first-child {
+	padding: 12px 12px 12px 0;
+}
+
+table.wpd-ecommerce.widget tbody tr td:last-child {
+	padding: 12px 0 12px 12px;
+    text-align: right;
+}
+
+/** Cart Widget Amount */
+
+table.wpd-ecommerce.widget tbody td span.amount {
+	color: #999;
+}
+
+/** Cart Widget Buttons */
+
+p.wpd-ecommerce-widget.buttons a.button {
+    padding: 7px 15px;
+}
+
+/** Cart Checkout */
+
+table.wpd-ecommerce.widget.checkout tbody tr {
+    border-bottom: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
+}
+
+table.wpd-ecommerce.widget.checkout tbody tr td:first-child img {
+    margin-right: 10px;
+}
+
+table.wpd-ecommerce.widget.checkout tbody tr td:first-child {
+    padding: 12px;
+}
+
+table.wpd-ecommerce.widget.checkout tbody tr td:last-child {
+    text-align: left;
+}
+
+h2.wpd-ecommerce.patient-title {
+    font-size: 48px;
+    margin-top: 0;
+}
+
+h3.wpd-ecommerce.patient-title {
+    font-size: 36px;
+}
+
+/** Notifications */
+.wpd-ecommerce-notifications {
+    background-color: #f8f8f8;
+    border-top: 4px solid #454545;
+    color: #454545;
+	line-height: 33px;
+    list-style: none outside;
+    margin: 0;
+    padding: 1em 2em 1em 3.5em;
+    position: relative;
+    width: auto;
+    word-wrap: break-word;
+}
+
+.wpd-ecommerce-notifications.success {
+	border-top: 4px solid #76BD1D;
+}
+
+.wpd-ecommerce-notifications a.button {
+    float: right;
+    padding: 7px 15px;
+}
+
+/** Single Item Template */
+
+.wpd-ecommerce-single-notifications {
+    display: block;
+    padding: 24px 24px 0 24px;
+    width: 100%;
+}
+
+.entry-header.wpd-ecommerce-shelfItem {
+	border: 0;
+    float: left;
+    padding: 24px;
+	text-align: left;
+    width: 100%;
+}
+
+.wpd-ecommerce-shelfItem .image-wrapper {
+    float: left;
+    width: 47%;
+}
+
+.wpd-ecommerce-shelfItem .product-details {
+    float: right;
+    width: 47%;
+}
+
+.wpd-ecommerce-shelfItem .product-details header.entry-header {
+    border-top: 0;
+    padding: 0;
+    text-align: left;
+}
+
+
+.wpd-ecommerce-shelfItem .product-details header.entry-header form.wpd-ecommerce {
+	text-align: left;
+}
+
+.wpd-ecommerce-shelfItem .product-details header.entry-header h1 {
+    margin-top: 0;
+}
+
+.entry-content.wpd-ecommerce-shelfContent {
+	text-align: left;
+}
+
+p.wpd-ecommerce-categories,
+p.wpd-ecommerce-sku,
+p.wpd-ecommerce-sale-price {
+    font-size: 0.85em;
+}
+
+/** My Account Form */
+
+form.wpd-ecommerce.form p:first-child {
+    margin-top: 18px;
+}
+
+form.wpd-ecommerce.form .form-row.first,
+form.wpd-ecommerce.form .form-row.last {
+    float: left;
+    overflow: visible;
+    width: 48%;
+}
+
+form.wpd-ecommerce.form .form-row.last {
+	float: right;
+}
+
+/** Form Required Label */
+
+form.wpd-ecommerce.form .form-row label span.required {
+    color: red;
+    margin-left: 2px;
+}
