@@ -9,11 +9,11 @@ get_header(); ?>
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <?php
             if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
-                echo "<div class='wpd-cart-single-notifications'>";
+                echo "<div class='wpd-ecommerce-single-notifications'>";
                 echo wpd_ecommerce_notifications();
                 echo "</div>";
             } ?>
-            <div class="entry-header wpd-cart-shelfItem">
+            <div class="entry-header wpd-ecommerce-shelfItem">
                 <div class="image-wrapper">
                 <?php
                 if ( has_post_thumbnail()) {
@@ -27,7 +27,7 @@ get_header(); ?>
                     </header>
 
                     <!-- ADD TO CART -->
-                    <form name="add_to_cart" class="wpd-cart" method="post">
+                    <form name="add_to_cart" class="wpd-ecommerce" method="post">
 
                     <?php
                     // Prices.
@@ -61,7 +61,7 @@ get_header(); ?>
                             print( '</select>' );
                             ?>
                         <?php } else { ?>
-                        <p class="wpd-cart price"><?php echo CURRENCY; ?><?php echo number_format( $regular_price, 2, '.', ',' ); ?></p>
+                        <p class="wpd-ecommerce price"><?php echo CURRENCY; ?><?php echo number_format( $regular_price, 2, '.', ',' ); ?></p>
                         <?php } ?>
                     <?php } ?>
 
@@ -101,10 +101,10 @@ get_header(); ?>
                         <input type="submit" class="item_add" id="add_item_btn" value="<?php echo __( 'Add to cart' ); ?>" name="add_me" />
                     </form>
 
-                    <!-- <p class="wpd-cart-sku"><strong>SKU:</strong> <?php //echo esc_html( get_post_meta( get_the_ID(), 'product_sku', true ) ); ?> </p> -->
+                    <!-- <p class="wpd-ecommerce-sku"><strong>SKU:</strong> <?php //echo esc_html( get_post_meta( get_the_ID(), 'product_sku', true ) ); ?> </p> -->
 
                     <?php if ( ! empty( $sale_price ) ) : ?>
-                    <p class="wpd-cart-sale-price"><?php echo esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) ); ?></p>
+                    <p class="wpd-ecommerce-sale-price"><?php echo esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) ); ?></p>
                     <?php endif; ?>
 
                     <?php
@@ -113,27 +113,27 @@ get_header(); ?>
                      * then loop through them and add the name to the category term id
                      */
 					if ( 'flowers' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
                     } elseif ( 'concentrates' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'concentrates_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'concentrates_category', "","<br>" ) . '</p>';    
                     } elseif ( 'edibles' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'edibles_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'edibles_category', "","<br>" ) . '</p>';    
                     } elseif ( 'topicals' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'topicals_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'topicals_category', "","<br>" ) . '</p>';    
                     } elseif ( 'prerolls' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
                     } elseif ( 'growers' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-cart-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'growers_category', "","<br>" ) . '</p>';    
+                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'growers_category', "","<br>" ) . '</p>';    
                     } else {
                         // Do nothing.
                     }
                     ?>
 
                 </div><!-- / .product-details -->
-            </div><!-- / .wpd-cart-shelfItem -->
-            <div class="entry-content wpd-cart-shelfContent">
+            </div><!-- / .wpd-ecommerce-shelfItem -->
+            <div class="entry-content wpd-ecommerce-shelfContent">
                 <?php the_content(); ?>
-            </div><!-- / wpd-cart-shelfContent -->
+            </div><!-- / wpd-ecommerce-shelfContent -->
         </div>
     <?php endwhile; ?>
     </main>

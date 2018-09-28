@@ -71,7 +71,7 @@ class My_Cart_Widget extends WP_Widget {
 					$title = '';
 				}
 
-				$str  = '<table class="wpd-cart widget">';
+				$str  = '<table class="wpd-ecommerce widget">';
 				$str .= '<tbody>';
 				
 				foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
@@ -115,17 +115,17 @@ class My_Cart_Widget extends WP_Widget {
 
 					$total_price = $amount * $regular_price;
 	
-					$str .=	"<tr><td><a href='?remove=" . $i->id . "' class='wpd-cart-widget remove'>x</a></td><td><a href='" . $i->permalink . "' class='wpd-cart-widget title'>" . $i->title . "" . $weightname . "</a> - " . $amount . " x <span class='wpd-cart-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td><td>" . $i->thumbnail . "</td></tr>";
+					$str .=	"<tr><td><a href='?remove=" . $i->id . "' class='wpd-ecommerce-widget remove'>x</a></td><td><a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> - " . $amount . " x <span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td><td>" . $i->thumbnail . "</td></tr>";
 				endforeach;
 				$str .= "</tbody>";
 				$str .= "</table>";
 		
-				$str .= "<p class='wpd-cart-widget subtotal'><strong>Subtotal:</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
+				$str .= "<p class='wpd-ecommerce-widget subtotal'><strong>Subtotal:</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
 
 				/**
 				 * @todo make the Cart/Checkout links work with Settings option, and/or default
 				 */
-				$str .= "<p class='wpd-cart-widget buttons'><a href='" . get_bloginfo( 'url' ) . "/cart' class='button'>View cart</a> <a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Checkout</a></p>";
+				$str .= "<p class='wpd-ecommerce-widget buttons'><a href='" . get_bloginfo( 'url' ) . "/cart' class='button'>View cart</a> <a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Checkout</a></p>";
 
 				echo $str;
 

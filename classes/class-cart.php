@@ -117,7 +117,7 @@ class Cart {
 	 * String
 	 */
 	public function __toString() {
-		$str = '<table class="wpd-cart">';
+		$str = '<table class="wpd-ecommerce">';
 
 		//$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';
 		$str .= '<tbody>';
@@ -156,7 +156,7 @@ class Cart {
 	 * Display shopping cart on CART page.
 	 */
 	public function wpd_ecommerce_page() {
-		$str = '<table class="wpd-cart">';
+		$str = '<table class="wpd-ecommerce">';
 
 		$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';
 		$str .= '<tbody>';

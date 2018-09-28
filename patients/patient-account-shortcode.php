@@ -48,9 +48,9 @@ function wpd_patient_account_shortcode() {
 	}
 	?>
 
-	<h2 class='wpd-cart patient-title'>Account Details</h2>
+	<h2 class='wpd-ecommerce patient-title'>Account Details</h2>
 
-	<form method="post" id="patients" class="wpd-cart form patient-account" action="<?php the_permalink(); ?>">
+	<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
 
 		<p class="form-row first form-first-name">
 			<label for="first-name"><?php _e('First Name', 'wp-dispensary' ); ?><span class="required">*</span></label>

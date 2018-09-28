@@ -14,7 +14,7 @@ function wpd_ecommerce_checkout_complete_shortcode() {
         echo "<h3>Order Complete (#" . $_GET['id'] . ")</h3>";
         echo "<p>Thank you. Your order has been received.</p>";
 
-        echo "<h3 class='wpd-cart patient-order'>Your Order</h3>";
+        echo "<h3 class='wpd-ecommerce patient-order'>Your Order</h3>";
         echo get_post_meta( $_GET['id'], 'wpd_order_details', true );
     } else {
         echo "<h2>Unauthorized Access</h2>";

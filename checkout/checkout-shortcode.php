@@ -11,12 +11,12 @@ function wpd_ecommerce_checkout_shortcode() {
          * 
          * @todo Make text filterable for developers
          */
-        echo "<h2 class='wpd-cart patient-title'>Delivery Address</h2>";
+        echo "<h2 class='wpd-ecommerce patient-title'>Delivery Address</h2>";
 
         $error = array();
 
         /* If checkout is submitted, do something specific . */
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'wpd-shopping-cart-checkout' ) {
+        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
 
             /** Update Email Address */
             if ( ! empty( $_POST['email'] ) ) {
@@ -50,7 +50,7 @@ function wpd_ecommerce_checkout_shortcode() {
         
         <?php wpd_ecommerce_checkout_success(); ?>
 
-        <form method="post" id="checkout" class="wpd-cart form checkout" action="<?php the_permalink(); ?>">
+        <form method="post" id="checkout" class="wpd-ecommerce form checkout" action="<?php the_permalink(); ?>">
 
             <p class="form-row first form-first-name">
                 <label for="first-name"><?php _e('First Name', 'wp-dispensary' ); ?><span class="required">*</span></label>
@@ -68,9 +68,9 @@ function wpd_ecommerce_checkout_shortcode() {
 
         <?php
 
-        echo "<h3 class='wpd-cart patient-order'>Your Order</h3>";
+        echo "<h3 class='wpd-ecommerce patient-order'>Your Order</h3>";
 
-        $str  = '<table class="wpd-cart widget checkout">';
+        $str  = '<table class="wpd-ecommerce widget checkout">';
         $str .= '<thead>';
         $str .= '<tr><td>Product</td><td>Total</td></tr>';
         $str .= '</thead>';
@@ -117,7 +117,7 @@ function wpd_ecommerce_checkout_shortcode() {
 
             $total_price = $amount * $regular_price;
 
-            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-cart-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-cart-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
+            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
         endforeach;
 
 
@@ -131,14 +131,14 @@ function wpd_ecommerce_checkout_shortcode() {
         $str .= "</tbody>";
         $str .= "</table>";
 
-        $str .= "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wp-dispensary' ) . "' />" . wp_nonce_field( 'wpd-shopping-cart-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-shopping-cart-checkout' /></p>";
+        $str .= "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wp-dispensary' ) . "' />" . wp_nonce_field( 'wpd-ecommerce-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-ecommerce-checkout' /></p>";
         $str .= "</form>";
 
         echo $str;
 
 	} else {
 		echo '<p>You can checkout after adding some products to your cart.</p>';
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-cart return">Return to Menu</a></p>';
+		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-ecommerce return">Return to Menu</a></p>';
 	}
 }
 add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
@@ -158,13 +158,13 @@ function wpd_ecommerce_checkout_success() {
     $customer_id = $current_user->ID;
 
     /* If checkout is submitted, do something specific . */
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'wpd-shopping-cart-checkout' ) {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
 
         $str  = '';
 
-        echo "<h3 class='wpd-cart patient-order'>Your Order</h3>";
+        echo "<h3 class='wpd-ecommerce patient-order'>Your Order</h3>";
 
-        $str  = '<table class="wpd-cart widget checkout">';
+        $str  = '<table class="wpd-ecommerce widget checkout">';
         $str .= '<thead>';
         $str .= '<tr><td>Product</td><td>Total</td></tr>';
         $str .= '</thead>';
@@ -211,7 +211,7 @@ function wpd_ecommerce_checkout_success() {
 
             $total_price = $amount * $regular_price;
 
-            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-cart-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-cart-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
+            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
         endforeach;
 

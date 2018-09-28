@@ -4,7 +4,7 @@
  *
  * @link         https://www.wpdispensary.com
  * @since        1.0.0
- * @package      WPD_Ecommerce
+ * @package      WPD_eCommerce
  *
  * Plugin Name:  WP Dispensary's eCommerce
  * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
@@ -125,7 +125,7 @@ register_activation_hook( __FILE__, 'add_ecommerce_pages_activation' );
  * @return      void
  */
 function wpd_ecommerce_load_admin_scripts() {
-	wp_enqueue_style( 'wpd-shopping-cart-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-shopping-cart-admin.css' );
+	wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
 
@@ -136,7 +136,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
  * @return      void
  */
 function wpd_ecommerce_load_public_scripts() {
-	wp_enqueue_style( 'wpd-shopping-cart-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-shopping-cart-public.css' );
+	wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.css' );
 }
 add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
 
@@ -233,14 +233,14 @@ function wpd_ecommerce_form_output() {
 	/**
 	 * Add to Cart Form
 	 */
-	$str.='<form name="add_to_cart" class="wpd-cart" method="post">';
+	$str.='<form name="add_to_cart" class="wpd-ecommerce" method="post">';
 	// $str.='<label for="qtty">' . __( 'Quantity:' ) . '</label>';
 	$str.='<input type="number" name="qtty" id="qtty" value="' . $qtty . '" />';
 	$str.='<input type="hidden" name="flowerprice" id="flowerprice" value="' . $_POST['wpd_ecommerce_flowers_prices'] . '" />';
 	$str.='<input type="submit" name="add_me" id="add_item_btn" value="' . __( 'Add to cart' ). '" />';
 	$str.='</form>';
 
-	return $str;	
+	return $str;
 }
 
 /**
@@ -249,7 +249,7 @@ function wpd_ecommerce_form_output() {
 function wpd_ecommerce_form_price_output() {
 	global $post;
 	$i    = new Item( $post->ID );
-	$str  = '<p class="price"><span class="wpd-cart price">' . CURRENCY . $i->price . '</span></p>';
+	$str  = '<p class="price"><span class="wpd-ecommerce price">' . CURRENCY . $i->price . '</span></p>';
 	return $str;
 }
 
@@ -275,7 +275,7 @@ function wpd_ecommerce_box_filter( $content ) {
 function wpd_ecommerce_notifications() {
 	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers' ) ) ) ) {
 		$str  = '';
-		$str .= '<div class="wpd-cart-notifications success">This product has been successfully added to your cart <a href="' . get_bloginfo( 'url' ) . '/cart" class="button">View Cart</a></div>';
+		$str .= '<div class="wpd-ecommerce-notifications success">This product has been successfully added to your cart <a href="' . get_bloginfo( 'url' ) . '/cart" class="button">View Cart</a></div>';
 	}
 	return $str;
 }
