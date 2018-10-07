@@ -42,7 +42,7 @@ function wpd_ecommerce_shortcode() {
 
 			} else {
 				$regular_price = '';
-				$weightname = '';
+				$weightname    = '';
 			}
 
 			// print_r( $i );

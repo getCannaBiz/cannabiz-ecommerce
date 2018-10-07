@@ -153,7 +153,7 @@ function wpd_ecommerce_checkout_success() {
     $page_date        = date( 'Y-m-d H:i:s' );
     $current_user     = wp_get_current_user();
 
-    $customer_details = '';
+    $customer_details  = '';
     $customer_details .= '<p><strong>Name:</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
     $customer_details .= '<p><strong>Email:</strong> ' . $current_user->user_email . '</p>';
 
@@ -224,11 +224,11 @@ function wpd_ecommerce_checkout_success() {
 
         // Create order object.
         $wpd_order = array(
-            'post_type'     => 'wpd_orders',
-            'post_status'   => 'publish',
-            'post_author'   => 1,
-			'date'          => $page_date, // YYYY-MM-DDTHH:MM:SS
-            'meta_input'    => array(
+            'post_type'   => 'wpd_orders',
+            'post_status' => 'publish',
+            'post_author' => 1,
+			'date'        => $page_date, // YYYY-MM-DDTHH:MM:SS
+            'meta_input'  => array(
 				'wpd_order_details'          => $str,
                 'wpd_order_customer_details' => $customer_details,
                 'wpd_order_customer_id'      => $customer_id
@@ -252,9 +252,9 @@ function wpd_ecommerce_checkout_success() {
 
         // If it's desired to kill the session, also delete the session cookie.
         // Note: This will destroy the session, and not just the session data!
-        if (ini_get("session.use_cookies")) {
+        if ( ini_get("session.use_cookies" ) ) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
+            setcookie( session_name(), '', time() - 42000,
                 $params["path"], $params["domain"],
                 $params["secure"], $params["httponly"]
             );
