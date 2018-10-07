@@ -26,6 +26,17 @@ get_header(); ?>
                         <h1 class="item_name"><?php the_title(); ?></h1>
                     </header>
 
+                    <?php
+                    // Display Item types.
+                    echo "<p class='wpd-ecommerce item-types'>";
+                    // Display Strain Type
+                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', "","<br>" ) . "</span>";
+                    // Display Shelf Type
+                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', "","<br>" ) . "</span>";
+
+                    echo "</p>";
+                    ?>
+
                     <!-- ADD TO CART -->
                     <form name="add_to_cart" class="wpd-ecommerce" method="post">
 
@@ -111,28 +122,6 @@ get_header(); ?>
                     <?php if ( ! empty( $sale_price ) ) : ?>
                     <p class="wpd-ecommerce-sale-price"><?php echo esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) ); ?></p>
                     <?php endif; ?>
-
-                    <?php
-                    /**
-                     * @todo make an array of all post type names,
-                     * then loop through them and add the name to the category term id
-                     */
-					if ( 'flowers' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
-                    } elseif ( 'concentrates' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'concentrates_category', "","<br>" ) . '</p>';    
-                    } elseif ( 'edibles' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'edibles_category', "","<br>" ) . '</p>';    
-                    } elseif ( 'topicals' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'topicals_category', "","<br>" ) . '</p>';    
-                    } elseif ( 'prerolls' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'flowers_category', "","<br>" ) . '</p>';    
-                    } elseif ( 'growers' === get_post_type( get_the_ID() ) ) {
-                        echo '<p class="wpd-ecommerce-categories"><strong>Categories:</strong> ' . get_the_term_list( get_the_ID(), 'growers_category', "","<br>" ) . '</p>';    
-                    } else {
-                        // Do nothing.
-                    }
-                    ?>
 
                 </div><!-- / .product-details -->
             </div><!-- / .wpd-ecommerce-shelfItem -->

@@ -17,7 +17,10 @@ form.wpd-ecommerce input#add_item_btn {
 
 /** Flower Prices select field */
 select#wpd_ecommerce_flowers_prices {
-    margin-bottom: 24px;
+    border-radius: 3px;
+    font-size: 0.85em;
+    margin-bottom: 12px;
+    padding: 10px;
 }
 
 /** Price Display on Products */
@@ -248,6 +251,7 @@ h3.wpd-ecommerce.patient-title {
 }
 
 .wpd-ecommerce-shelfItem .product-details header.entry-header h1 {
+    margin-bottom: 12px;
     margin-top: 0;
 }
 
@@ -259,6 +263,14 @@ p.wpd-ecommerce-categories,
 p.wpd-ecommerce-sku,
 p.wpd-ecommerce-sale-price {
     font-size: 0.85em;
+}
+
+p.wpd-ecommerce.item-types {
+    font-size: 0.85em;
+}
+
+p.wpd-ecommerce.item-types span {
+    margin-right: 10px;
 }
 
 /** My Account Form */
