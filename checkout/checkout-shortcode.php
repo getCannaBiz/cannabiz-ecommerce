@@ -89,16 +89,18 @@ function wpd_ecommerce_checkout_shortcode() {
             } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
                 $regular_price = esc_html( get_post_meta( $item_old_id, $weight_option2, true ) );
 
-                /**
-                 * @todo make flower_names through the entier plugin filterable.
-                 */
-                $flower_names = array(
-                    '1 g'    => '_gram',
-                    '1/8 oz' => '_eighth',
-                    '1/4 oz' => '_quarter',
-                    '1/2 oz' => '_halfounce',
-                    '1 oz'   => '_ounce',
-                );
+				/**
+				 * @todo make flower_names through the entier plugin filterable.
+				 */
+				$flower_names = array(
+					'1 g'    => '_gram',
+					'2 g'    => '_twograms',
+					'1/8 oz' => '_eighth',
+					'5 g'    => '_fivegrams',
+					'1/4 oz' => '_quarter',
+					'1/2 oz' => '_halfounce',
+					'1 oz'   => '_ounce',
+				);
 
                 $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
                 $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
@@ -183,16 +185,18 @@ function wpd_ecommerce_checkout_success() {
             } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
                 $regular_price = esc_html( get_post_meta( $item_old_id, $weight_option2, true ) );
 
-                /**
-                 * @todo make flower_names through the entier plugin filterable.
-                 */
-                $flower_names = array(
-                    '1 g'    => '_gram',
-                    '1/8 oz' => '_eighth',
-                    '1/4 oz' => '_quarter',
-                    '1/2 oz' => '_halfounce',
-                    '1 oz'   => '_ounce',
-                );
+				/**
+				 * @todo make flower_names through the entier plugin filterable.
+				 */
+				$flower_names = array(
+					'1 g'    => '_gram',
+					'2 g'    => '_twograms',
+					'1/8 oz' => '_eighth',
+					'5 g'    => '_fivegrams',
+					'1/4 oz' => '_quarter',
+					'1/2 oz' => '_halfounce',
+					'1 oz'   => '_ounce',
+				);
 
                 $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
                 $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );

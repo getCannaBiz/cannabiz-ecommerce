@@ -64,7 +64,9 @@ class Item {
 			$regular_price = '';
 			$flower_prices = array(
 				'1 g'    => esc_html( get_post_meta( $my_post->ID, '_gram', true ) ),
+				'2 g'    => esc_html( get_post_meta( $my_post->ID, '_twograms', true ) ),
 				'1/8 oz' => esc_html( get_post_meta( $my_post->ID, '_eighth', true ) ),
+				'5 g'    => esc_html( get_post_meta( $my_post->ID, '_fivegrams', true ) ),
 				'1/4 oz' => esc_html( get_post_meta( $my_post->ID, '_quarter', true ) ),
 				'1/2 oz' => esc_html( get_post_meta( $my_post->ID, '_halfounce', true ) ),
 				'1 oz'   => esc_html( get_post_meta( $my_post->ID, '_ounce', true ) ),

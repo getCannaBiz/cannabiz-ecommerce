@@ -36,14 +36,19 @@ get_header(); ?>
                     } elseif ( 'topicals' === get_post_type() ) {
                         $regular_price = esc_html( get_post_meta( get_the_ID(), '_pricetopical', true ) );
                     } elseif ( 'flowers' === get_post_type() ) {
-                        $flower_prices = array(
+                        /**
+                         * @todo make flower_names through the entier plugin filterable.
+                         */
+                        $flower_names = array(
                             '1 g'    => '_gram',
+                            '2 g'    => '_twograms',
                             '1/8 oz' => '_eighth',
+                            '5 g'    => '_fivegrams',
                             '1/4 oz' => '_quarter',
                             '1/2 oz' => '_halfounce',
                             '1 oz'   => '_ounce',
                         );
-                        $regular_price = $flower_prices;
+                        $regular_price = $flower_names;
                     } else {
                         $regular_price = '';
                     }

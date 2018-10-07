@@ -23,7 +23,9 @@ function wpd_ecommerce_shortcode() {
 				 */
 				$flower_names = array(
 					'1 g'    => '_gram',
+					'2 g'    => '_twograms',
 					'1/8 oz' => '_eighth',
+					'5 g'    => '_fivegrams',
 					'1/4 oz' => '_quarter',
 					'1/2 oz' => '_halfounce',
 					'1 oz'   => '_ounce',
