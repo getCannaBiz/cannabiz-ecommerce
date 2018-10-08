@@ -27,14 +27,10 @@ get_header(); ?>
                     </header>
 
                     <?php
-                    // Display Item types.
-                    echo "<p class='wpd-ecommerce item-types'>";
-                    // Display Strain Type
-                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', "","<br>" ) . "</span>";
-                    // Display Shelf Type
-                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', "","<br>" ) . "</span>";
-
-                    echo "</p>";
+                    // Display Flower Prices.
+                    if ( 'flowers' === get_post_type() ) {
+                        echo "<span class='wpd-ecommerce prices-flowers'>" . wpd_flowers_prices_simple() . "</span>";
+                    }
                     ?>
 
                     <!-- ADD TO CART -->
@@ -112,10 +108,43 @@ get_header(); ?>
                         $qtty = 1;
                     }
                     ?>
-
                         <input type="number" name="qtty" id="qtty" value="1" class="item_Quantity" />
-                        <input type="submit" class="item_add" id="add_item_btn" value="<?php echo __( 'Add to cart' ); ?>" name="add_me" />
+                        <input type="submit" class="item_add" id="add_item_btn" value="<?php echo __( 'Add to cart', 'wpd-ecommerce' ); ?>" name="add_me" />
                     </form>
+
+                    <?php
+                    // Display Item types.
+                    echo "<div class='wpd-ecommerce item-types'>";
+                    // Display Strain Type
+                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', 'Strain type: ', ', ' ) . "</span>";
+                    // Display Shelf Type
+                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', '', ', ' ) . "</span>";
+
+                    echo "</div>";
+
+                    echo "<div class='wpd-ecommerce item-details'>";
+                    /**
+                     * @todo action hook here for people to add details before thc/cbd
+                     */
+                    if ( get_post_meta( get_the_ID(), '_thc', true ) ) {
+                        $wpdthc = '<span class="wpd-ecommerce thc">' . __( 'THC', 'wp-dispensary' ) . ': ' . get_post_meta( get_the_id(), '_thc', true ) . '%</span>';
+                    } else {
+                        $wpdthc = '';
+                    }
+                    if ( get_post_meta( get_the_ID(), '_cbd', true ) ) {
+                        $wpdcbd = '<span class="wpd-ecommerce cbd">' . __( 'CBD', 'wp-dispensary' ) . ': ' . get_post_meta( get_the_id(), '_cbd', true ) . '%</span>';
+                    } else {
+                        $wpdcbd = '';
+                    }
+                    /**
+                     * @todo add additional details here, depending on menu type
+                     */
+                    //echo $wpdthc . $wpdcbd;
+                    /**
+                     * @todo action hook here for people to add details after thc/cbd
+                     */
+                    echo "</div>";
+                    ?>
 
                     <!-- <p class="wpd-ecommerce-sku"><strong>SKU:</strong> <?php //echo esc_html( get_post_meta( get_the_ID(), 'product_sku', true ) ); ?> </p> -->
 

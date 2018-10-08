@@ -265,11 +265,54 @@ p.wpd-ecommerce-sale-price {
     font-size: 0.85em;
 }
 
-p.wpd-ecommerce.item-types {
+/** Single item - Item types */
+.wpd-ecommerce.item-types {
     font-size: 0.85em;
+    margin-top: 12px;
 }
 
-p.wpd-ecommerce.item-types span {
+.wpd-ecommerce.item-types span {
+    margin-right: 10px;
+}
+
+/** Single item - Shelf type */
+span.wpd-ecommerce.shelf-type {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+}
+
+span.wpd-ecommerce.shelf-type a,
+span.wpd-ecommerce.shelf-type a:visited {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    color: #999;
+    display: inline-block;
+    padding: 10px;
+}
+
+span.wpd-ecommerce.shelf-type a:active,
+span.wpd-ecommerce.shelf-type a:focus,
+span.wpd-ecommerce.shelf-type a:hover {
+    color: #454545;
+}
+
+/** Single Itme - Prices (flowers) */
+span.wpd-ecommerce.prices-flowers {
+    color: #76BD1D;
+    display: inline-block;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+/** Single Item - THC & CBD */
+span.wpd-ecommerce.thc,
+span.wpd-ecommerce.cbd {
+    border-radius: 3px;
+    background: #ddd;
+    color: #888;
+    font-size: 0.85em;
+    padding: 6px 12px;
     margin-right: 10px;
 }
 
