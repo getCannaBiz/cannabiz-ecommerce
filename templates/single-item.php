@@ -68,12 +68,12 @@ get_header(); ?>
                             printf( '<select name="wpd_ecommerce_flowers_prices" id="wpd_ecommerce_flowers_prices" class="widefat">' );
                             printf( '<option value="">Choose a weight</option>' );
                             foreach ( $regular_price as $name => $price ) {
-                                printf( '<option value="'. esc_html( $price ) . '">' . esc_html( $name ) . '</option>' );
+                                printf( '<option value="'. esc_html( $price ) . '">' . esc_html( $name ) . ' - ' . esc_html( $price ) . '</option>' );
                             }
                             print( '</select>' );
                             ?>
                         <?php } else { ?>
-                        <p class="wpd-ecommerce price"><?php echo CURRENCY; ?><?php echo number_format( $regular_price, 2, '.', ',' ); ?></p>
+                        <p class="wpd-ecommerce price"><?php echo wpd_currency_code() ?><?php echo number_format( $regular_price, 2, '.', ',' ); ?></p>
                         <?php } ?>
                     <?php } ?>
 
@@ -116,30 +116,35 @@ get_header(); ?>
                     // Display Item types.
                     echo "<div class='wpd-ecommerce item-types'>";
                     // Display Strain Type
-                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', 'Strain type: ', ', ' ) . "</span>";
+                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', '', ', ' ) . "</span>";
                     // Display Shelf Type
                     echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', '', ', ' ) . "</span>";
-
+                    // End item-types div.
                     echo "</div>";
 
                     echo "<div class='wpd-ecommerce item-details'>";
                     /**
                      * @todo action hook here for people to add details before thc/cbd
                      */
-                    if ( get_post_meta( get_the_ID(), '_thc', true ) ) {
-                        $wpdthc = '<span class="wpd-ecommerce thc">' . __( 'THC', 'wp-dispensary' ) . ': ' . get_post_meta( get_the_id(), '_thc', true ) . '%</span>';
-                    } else {
-                        $wpdthc = '';
+                    // Get compounds.
+                    $compounds = wpd_compounds_simple( $type = '%', null );
+
+                    // Create empty variable.
+                    $showcompounds = '';
+
+                    // Loop through each compound, and append it to variable.
+                    foreach ( $compounds as $compound => $value ) {
+                        $showcompounds .= '<span class="wpd-productinfo ' . $compound . '"><strong>' . __( $compound, 'wp-dispensary' ) . ':</strong> ' . $value . '</span>';
                     }
-                    if ( get_post_meta( get_the_ID(), '_cbd', true ) ) {
-                        $wpdcbd = '<span class="wpd-ecommerce cbd">' . __( 'CBD', 'wp-dispensary' ) . ': ' . get_post_meta( get_the_id(), '_cbd', true ) . '%</span>';
-                    } else {
-                        $wpdcbd = '';
-                    }
+
+                    $showcompounds = $showcompounds;
+
                     /**
-                     * @todo add additional details here, depending on menu type
+                     * @todo edit this to hide the compound details from regular table data output.
+                     * and display it here instead, where it could be seen as a cleaner/upgraded style.
                      */
-                    //echo $wpdthc . $wpdcbd;
+                    //echo $showcompounds;
+
                     /**
                      * @todo action hook here for people to add details after thc/cbd
                      */

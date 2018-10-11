@@ -3,26 +3,6 @@
  * For the public facing website.
  */
 
-/** Quantity input field */
-form.wpd-ecommerce input#qtty {
-    padding: 5px;
-    width: 3.20em;
-}
-
-/** Add to Cart button */
-form.wpd-ecommerce input#add_item_btn {
-    margin-left: 6px;
-    padding: 7px 15px;
-}
-
-/** Flower Prices select field */
-select#wpd_ecommerce_flowers_prices {
-    border-radius: 3px;
-    font-size: 0.85em;
-    margin-bottom: 12px;
-    padding: 10px;
-}
-
 /** Price Display on Products */
 p.price {
     color: #76BD1D;
@@ -259,6 +239,33 @@ h3.wpd-ecommerce.patient-title {
 	text-align: left;
 }
 
+/** Flower Prices select field */
+select#wpd_ecommerce_flowers_prices {
+    border-radius: 3px;
+    float: left;
+    font-size: 0.85em;
+    margin-right: 2%;
+    padding: 10px;
+    width: 45%;
+}
+
+/** Quantity input field */
+form.wpd-ecommerce input#qtty {
+    float: left;
+    font-size: 0.85em;
+    margin-right: 1%;
+    padding: 10px;
+    width: 4.20em;
+}
+
+/** Add to Cart button */
+form.wpd-ecommerce input#add_item_btn {
+    font-size: 0.95em;
+    margin-left: 6px;
+    padding: 10px 15px;
+}
+
+/** Extra product info */
 p.wpd-ecommerce-categories,
 p.wpd-ecommerce-sku,
 p.wpd-ecommerce-sale-price {
@@ -297,23 +304,30 @@ span.wpd-ecommerce.shelf-type a:hover {
     color: #454545;
 }
 
+/** Single item - Strain type */
+
+span.wpd-ecommerce.strain-type a,
+span.wpd-ecommerce.strain-type a:visited {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    color: #999;
+    display: inline-block;
+    padding: 10px;
+}
+
+span.wpd-ecommerce.strain-type a:active,
+span.wpd-ecommerce.strain-type a:focus,
+span.wpd-ecommerce.strain-type a:hover {
+    color: #454545;
+}
+
+
 /** Single Itme - Prices (flowers) */
 span.wpd-ecommerce.prices-flowers {
     color: #76BD1D;
     display: inline-block;
     font-size: 18px;
     margin-bottom: 12px;
-}
-
-/** Single Item - THC & CBD */
-span.wpd-ecommerce.thc,
-span.wpd-ecommerce.cbd {
-    border-radius: 3px;
-    background: #ddd;
-    color: #888;
-    font-size: 0.85em;
-    padding: 6px 12px;
-    margin-right: 10px;
 }
 
 /** My Account Form */
