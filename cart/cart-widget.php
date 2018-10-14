@@ -117,7 +117,7 @@ class My_Cart_Widget extends WP_Widget {
 
 					$total_price = $amount * $regular_price;
 	
-					$str .=	"<tr><td><a href='?remove=" . $i->id . "' class='wpd-ecommerce-widget remove'>x</a></td><td><a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> - " . $amount . " x <span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td><td>" . $i->thumbnail . "</td></tr>";
+					$str .=	"<tr><td><button id='wpd_ecommerce_remove_product' href='?remove=" . $i->id . "' class='wpd-ecommerce-widget remove'>x</button></td><td><a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> - " . $amount . " x <span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td><td>" . $i->thumbnail . "</td></tr>";
 				endforeach;
 				$str .= "</tbody>";
 				$str .= "</table>";
