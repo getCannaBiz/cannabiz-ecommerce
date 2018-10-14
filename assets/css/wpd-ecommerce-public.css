@@ -239,6 +239,17 @@ h3.wpd-ecommerce.patient-title {
 	text-align: left;
 }
 
+/** Vendors */
+.wpd-ecommerce.vendors a,
+.wpd-ecommerce.vendors a:visited {
+    font-size: 0.85em;
+    color: #AAA;
+}
+
+.wpd-ecommerce.vendors a:hover {
+    color: #454545;
+}
+
 /** Flower Prices select field */
 select#wpd_ecommerce_flowers_prices {
     border-radius: 3px;

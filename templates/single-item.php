@@ -22,6 +22,21 @@ get_header(); ?>
                 ?>
                 </div>
                 <div class="product-details">
+                    <?php
+                    /**
+                     * @todo add this to an action hook.
+                     * @todo replace this with the action hook
+                     * This will keep the template cleaner for developers building custom layouts.
+                     */
+                    // Get vendors.
+                    if ( get_the_term_list( get_the_ID(), 'vendor', true ) ) {
+                        $wpdvendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendor', '', ', ', '' ) . '</span>';
+                    } else {
+                        $wpdvendors = '';
+                    }
+                    // Display vendors.
+                    echo $wpdvendors;
+                    ?>
                     <header class="entry-header">
                         <h1 class="item_name"><?php the_title(); ?></h1>
                     </header>
@@ -113,6 +128,10 @@ get_header(); ?>
                     </form>
 
                     <?php
+                    /**
+                     * @todo add these details in via the do_action:
+                     * wpd_ecommerce_item_details_before
+                     */
                     // Display Item types.
                     echo "<div class='wpd-ecommerce item-types'>";
                     // Display Strain Type
@@ -122,10 +141,12 @@ get_header(); ?>
                     // End item-types div.
                     echo "</div>";
 
+                    do_action( 'wpd_ecommerce_item_details_before' );
+
                     echo "<div class='wpd-ecommerce item-details'>";
-                    /**
-                     * @todo action hook here for people to add details before thc/cbd
-                     */
+
+                    do_action( 'wpd_ecommerce_item_details_inside_before' );
+
                     // Get compounds.
                     $compounds = wpd_compounds_simple( $type = '%', null );
 
@@ -145,22 +166,22 @@ get_header(); ?>
                      */
                     //echo $showcompounds;
 
-                    /**
-                     * @todo action hook here for people to add details after thc/cbd
-                     */
+                    do_action( 'wpd_ecommerce_item_details_inside_after' );
+
                     echo "</div>";
+
+                    do_action( 'wpd_ecommerce_item_details_after' );
+
                     ?>
-
-                    <!-- <p class="wpd-ecommerce-sku"><strong>SKU:</strong> <?php //echo esc_html( get_post_meta( get_the_ID(), 'product_sku', true ) ); ?> </p> -->
-
-                    <?php if ( ! empty( $sale_price ) ) : ?>
-                    <p class="wpd-ecommerce-sale-price"><?php echo esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) ); ?></p>
-                    <?php endif; ?>
 
                 </div><!-- / .product-details -->
             </div><!-- / .wpd-ecommerce-shelfItem -->
             <div class="entry-content wpd-ecommerce-shelfContent">
-                <?php the_content(); ?>
+                <?php
+                    do_action( 'wpd_ecommerce_single_item_content_before' );
+                    the_content();
+                    do_action( 'wpd_ecommerce_single_item_content_after' );
+                ?>
             </div><!-- / wpd-ecommerce-shelfContent -->
         </div>
     <?php endwhile; ?>
