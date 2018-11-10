@@ -82,24 +82,26 @@ class Cart {
 			$i = new Item( $item_id, '', '', '', '' );
 
 			if ( 'edibles' === get_post_type( $i->product_id ) ) {
-				$regular_price  = esc_html( get_post_meta( $i->product_id, '_priceeach', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'topicals' === get_post_type( $i->product_id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->product_id, '_pricetopical', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'prerolls' === get_post_type( $i->product_id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->product_id, '_priceeach', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'tinctures' === get_post_type( $i->product_id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->product_id, '_priceeach', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'gear' === get_post_type( $i->product_id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->product_id, '_priceeach', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'growers' === get_post_type( $i->product_id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->product_id, '_priceeach', true ) );
+				$regular_price = $i->price_quantity;
 			} elseif ( 'flowers' === get_post_type( $i->product_id ) ) {
 				$regular_price = $i->price_flower;
+			} elseif ( 'concentrates' === get_post_type( $i->product_id ) ) {
+				$regular_price = $i->price_concentrate;
 			} else {
 				$regular_price = '';
 			}
 
-			print_r( $i );
+			//print_r( $i );
 
 			$this->sum += ( $regular_price ) * $item_count;
 		endforeach;

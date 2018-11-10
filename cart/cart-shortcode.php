@@ -6,17 +6,28 @@ function wpd_ecommerce_shortcode() {
 		$str .= '<thead><tr><td></td><td></td><td>Product</td><td>Price</td><td>Quantity</td><td>Total</td></tr></thead>';
 		$str .= '<tbody>';
 		foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
-			$i    = new Item( $id, '', '', '' );
-			$item_old_id = preg_replace( '/[^0-9.]+/', '', $id );
-			$weight_option2 = preg_replace( '/[0-9]+/', '', $id );
+			$i             = new Item( $id, '', '', '' );
+			$item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
+			$item_meta_key = preg_replace( '/[0-9]+/', '', $id );
+
 			if ( in_array( get_post_type( $item_old_id ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
-				$regular_price  = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
-				$weightname = '';
+				$units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
+				$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
+				if ( '_priceperpack' === $item_meta_key ) {
+					$weightname = ' - ' . $units_per_pack . ' pack';
+				} else {
+					$weightname = '';
+				}
 			} elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
-				$regular_price = esc_html( get_post_meta( $item_old_id, '_pricetopical', true ) );
-				$weightname = '';
+				$units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
+				$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
+				if ( '_priceperpack' === $item_meta_key ) {
+					$weightname = ' - ' . $units_per_pack . ' pack';
+				} else {
+					$weightname = '';
+				}
 			} elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
-				$regular_price = esc_html( get_post_meta( $item_old_id, $weight_option2, true ) );
+				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
 				/**
 				 * @todo make flower_names through the entier plugin filterable.
@@ -36,13 +47,40 @@ function wpd_ecommerce_shortcode() {
 
 				foreach ( $flower_names as $value=>$key ) {
 					if ( $key == $flower_weight_cart ) {
+						/**
+						 * @todo change value to actual amount instead of just variable name
+						 */
 						$weightname = " - " . $value;
 					}
 				}
+			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
+				/**
+				 * @todo make concentrate_names through the entier plugin filterable.
+				 */
+				$concentrates_names = array(
+					'1/2 g'  => '_halfgram',
+					'1 g'    => '_gram',
+					'2 g'    => '_twograms',
+				);
+
+				$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
+				$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
+
+				foreach ( $concentrates_names as $value=>$key ) {
+					if ( $key == $concentrate_weight_cart ) {
+						/**
+						 * @todo change value to actual amount instead of just variable name
+						 */
+						$weightname = " - " . $value;
+					}
+				}
+				if ( '_priceeach' === $concentrate_weight_cart ) {
+					$weightname = '';
+				}
 			} else {
-				$regular_price = '';
-				$weightname    = '';
+				// Do nothing.
 			}
 
 			// print_r( $i );

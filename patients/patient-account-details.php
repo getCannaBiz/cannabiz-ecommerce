@@ -2,13 +2,10 @@
 
 /**
  * Front end registration
+ * @todo see if this is for the wp-register.php default
  */
-
-add_action( 'register_form', 'wpd_ecommerce_registration_form' );
 function wpd_ecommerce_registration_form() {
-
-	$year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
-
+	$birth_year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
 	?>
 	<p>
 		<label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wp-dispensary' ) ?><br/>
@@ -18,62 +15,83 @@ function wpd_ecommerce_registration_form() {
 			       step="1"
 			       id="year_of_birth"
 			       name="year_of_birth"
-			       value="<?php echo esc_attr( $year ); ?>"
+			       value="<?php echo esc_attr( $birth_year ); ?>"
 			       class="input"
 			/>
 		</label>
 	</p>
 	<?php
 }
+add_action( 'register_form', 'wpd_ecommerce_registration_form' );
 
-add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
+/**
+ * Registration Errors
+ */
 function wpd_ecommerce_registration_errors( $errors, $sanitized_user_login, $user_email ) {
 
+	// Error - no birth date.
 	if ( empty( $_POST['year_of_birth'] ) ) {
 		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
 	}
 
+	// Error - age requirement.
 	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
 		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wp-dispensary' ) );
 	}
 
 	return $errors;
 }
+add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
 
-add_action( 'user_register', 'wpd_ecommerce_user_register' );
+/**
+ * User Registration - Update user data
+ */
 function wpd_ecommerce_user_register( $user_id ) {
+	// Year of birth.
 	if ( ! empty( $_POST['year_of_birth'] ) ) {
 		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
 	}
+	// Phone number.
+	if ( ! empty( $_POST['phone_number'] ) ) {
+		update_user_meta( $user_id, 'phone_number', $_POST['phone_number'] );
+	}
 }
+add_action( 'user_register', 'wpd_ecommerce_user_register' );
+add_action( 'edit_user_created_user', 'wpd_ecommerce_user_register' );
 
 /**
  * Back end registration
  */
-
-add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
 function wpd_ecommerce_admin_registration_form( $operation ) {
 	if ( 'add-new-user' !== $operation ) {
 		// $operation may also be 'add-existing-user' (multisite, I believe!?)
 		return;
 	}
-
-	$year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
-
 	?>
-	<h3><?php esc_html_e( 'Personal Information', 'wp-dispensary' ); ?></h3>
+	<h3><?php esc_html_e( 'Additional Details', 'wp-dispensary' ); ?></h3>
 
 	<table class="form-table">
+		<tr>
+			<th><label for="phone_number"><?php esc_html_e( 'Phone number', 'wp-dispensary' ); ?></label></th>
+			<td>
+				<input type="tel"
+			       id="phone_number"
+			       name="phone_number"
+			       value=""
+			       class="regular-text"
+				/>
+			</td>
+		</tr>
 		<tr>
 			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wp-dispensary' ); ?></label> <span class="description"><?php esc_html_e( '(required)', 'wp-dispensary' ); ?></span></th>
 			<td>
 				<input type="number"
 			       min="1900"
-			       max="2017"
+			       max="2018"
 			       step="1"
 			       id="year_of_birth"
 			       name="year_of_birth"
-			       value="<?php echo esc_attr( $year ); ?>"
+			       value=""
 			       class="regular-text"
 				/>
 			</td>
@@ -81,30 +99,13 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
 	</table>
 	<?php
 }
-
-add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );
-function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
-	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
-	}
-
-	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wp-dispensary' ) );
-	}
-}
-
-add_action( 'edit_user_created_user', 'wpd_ecommerce_user_register' );
-
+add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
 
 /**
- * Back end display
+ * User Profile  Backend fields
  */
-
-add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
-add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
-
 function wpd_ecommerce_show_extra_profile_fields( $user ) {
-	$year = get_the_author_meta( 'year_of_birth', $user->ID );
+	$birth_year = get_the_author_meta( 'year_of_birth', $user->ID );
 	?>
 	<h3><?php esc_html_e( 'Personal Information', 'wp-dispensary' ); ?></h3>
 
@@ -118,7 +119,7 @@ function wpd_ecommerce_show_extra_profile_fields( $user ) {
 			       step="1"
 			       id="year_of_birth"
 			       name="year_of_birth"
-			       value="<?php echo esc_attr( $year ); ?>"
+			       value="<?php echo esc_attr( $birth_year ); ?>"
 			       class="regular-text"
 				/>
 			</td>
@@ -126,10 +127,55 @@ function wpd_ecommerce_show_extra_profile_fields( $user ) {
 	</table>
 	<?php
 }
+add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
+add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
 
-add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
-add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
+/**
+ * User Profile - Remove Website
+ */
+function wpd_ecommerce_remove_user_profile_field_css() {
+    echo '<style>tr.user-url-wrap{ display: none; }</style>';
+}
+add_action( 'admin_head-user-edit.php', 'wpd_ecommerce_remove_user_profile_field_css' );
+add_action( 'admin_head-profile.php',   'wpd_ecommerce_remove_user_profile_field_css' );
 
+/**
+ * Backend - Contact Info
+ */
+function wpd_ecommerce_show_contact_info_fields( $user ) {
+
+	// Remove website field.
+    unset( $fields['url'] );
+
+	// Add Phone number.
+	$fields['phone_number'] = __( 'Phone number' );
+
+	// Add Address line 1.
+	$fields['address_line_1'] = __( 'Address line 1' );
+
+	// Add Address line 2.
+	$fields['address_line_2'] = __( 'Address line 2' );
+
+	// Add City.
+	$fields['city'] = __( 'City' );
+
+	// Add State / County.
+	$fields['state_county'] = __( 'State / County' );
+
+	// Add Postcode/ZIP.
+	$fields['postcode_zip'] = __( 'Postcode / ZIP' );
+
+	// Add Country.
+	$fields['country'] = __( 'Country' );
+
+    // Return the amended contact fields.
+    return $fields;
+}
+add_action( 'user_contactmethods', 'wpd_ecommerce_show_contact_info_fields' );
+
+/**
+ * User Profile - Update Fields
+ */
 function wpd_ecommerce_update_profile_fields( $user_id ) {
 	if ( ! current_user_can( 'edit_user', $user_id ) ) {
 		return false;
@@ -139,3 +185,19 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
 		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
 	}
 }
+add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
+add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
+
+/**
+ * User Profile - Update Errors
+ */
+function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
+	if ( empty( $_POST['year_of_birth'] ) ) {
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
+	}
+
+	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wp-dispensary' ) );
+	}
+}
+add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );

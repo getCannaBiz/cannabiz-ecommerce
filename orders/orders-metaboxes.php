@@ -9,7 +9,7 @@
 function wpd_ecommerce_order_details_metaboxes() {
 	add_meta_box(
 		'wpdispensary_compounds',
-		__( 'Order Details', 'wp-dispensary' ),
+		__( 'Order details', 'wp-dispensary' ),
 		'wpd_ecommerce_order_details_build',
 		'wpd_orders',
 		'normal',
@@ -34,9 +34,8 @@ function wpd_ecommerce_order_details_build() {
 	$order_customer_address = get_post_meta( $post->ID, 'wpd_order_customer_address', true );
 	$order_customer_id      = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
 
-
 	echo '<div class="order-details-box">';
-	echo '<p><strong>Order Status:</strong></p>';
+	echo '<p><strong>' . __( 'Order status', 'wp-dispensary' ) . ':</strong></p>';
 
 	$terms = array( 'Pending', 'Processing', 'Completed', 'Cancelled', 'Refunded' );
 
@@ -55,18 +54,18 @@ function wpd_ecommerce_order_details_build() {
 	echo '</div>';
 
 	echo '<div class="order-details-box">';
-	echo '<p><strong>Customer:</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">profile</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">view orders &rarr;</a></p>';
+	echo '<p><strong>' . __( 'Customer', 'wp-dispensary' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">profile</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">view orders &rarr;</a></p>';
 	wp_dropdown_users( array( 'name' => 'customer', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
 	echo '</div>';
 
 	echo '<div class="order-details-box">';
-	echo '<p><strong>Delivery Address:</strong></p>';
+	echo '<p><strong>' . __( 'Delivery address', 'wp-dispensary' ) . ':</strong></p>';
 	echo '<p>Address will display here</p>';
 	echo '</div>';
 
 
 	echo '<div class="order-details-box wide-box">';
-	echo '<p><strong>Order Details:</strong></p>';
+	echo '<p><strong>' . __( 'Order details', 'wp-dispensary' ) . ':</strong></p>';
 	echo $order_details;
 	echo '</div>';
 

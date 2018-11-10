@@ -15,7 +15,9 @@ a.button.wpd-ecommerce.return {
 }
 
 /** Cart Remove Button */
-table.wpd-ecommerce a.remove {
+table.wpd-ecommerce a.remove,
+#wpd_ecommerce_remove_product {
+    background: transparent;
     border: 0;
     border-radius: 100%;
     color: red!important;
@@ -23,13 +25,15 @@ table.wpd-ecommerce a.remove {
     font-weight: 700;
     height: 1em;
     line-height: 1;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     width: 1em;
 }
 
 /** Cart Table Alignment */
-table.wpd-ecommerce thead tr td, table.wpd-ecommerce tbody tr td {
+table.wpd-ecommerce thead tr td,
+table.wpd-ecommerce tbody tr td {
     text-align: left;
 }
 
@@ -250,8 +254,10 @@ h3.wpd-ecommerce.patient-title {
     color: #454545;
 }
 
-/** Flower Prices select field */
-select#wpd_ecommerce_flowers_prices {
+/** Product Prices select field */
+select#wpd_ecommerce_product_prices,
+select#wpd_ecommerce_flowers_prices,
+select#wpd_ecommerce_concentrates_prices {
     border-radius: 3px;
     float: left;
     font-size: 0.85em;
@@ -289,7 +295,7 @@ p.wpd-ecommerce-sale-price {
     margin-top: 12px;
 }
 
-.wpd-ecommerce.item-types span {
+.wpd-ecommerce.item-types span a {
     margin-right: 10px;
 }
 
@@ -332,11 +338,28 @@ span.wpd-ecommerce.strain-type a:hover {
     color: #454545;
 }
 
+/** Single item - Categories */
+
+span.wpd-ecommerce.category a,
+span.wpd-ecommerce.category a:visited {
+    background: rgba(0,0,0,0.05);
+    border-radius: 3px;
+    color: #999;
+    display: inline-block;
+    padding: 10px;
+}
+
+span.wpd-ecommerce.category a:active,
+span.wpd-ecommerce.category a:focus,
+span.wpd-ecommerce.category a:hover {
+    color: #454545;
+}
+
 
 /** Single Itme - Prices (flowers) */
 span.wpd-ecommerce.prices-flowers {
     color: #76BD1D;
-    display: inline-block;
+    display: block;
     font-size: 18px;
     margin-bottom: 12px;
 }
@@ -363,4 +386,17 @@ form.wpd-ecommerce.form .form-row.last {
 form.wpd-ecommerce.form .form-row label span.required {
     color: red;
     margin-left: 2px;
+}
+
+/** Form Password Label */
+
+form.wpd-ecommerce.form .form-row label em {
+    color: #AAA;
+    font-weight: 400;
+}
+
+/** Form Address line */
+
+input#address_line_2 {
+    margin-top: 12px;
 }

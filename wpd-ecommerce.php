@@ -28,7 +28,7 @@ define( 'DEV', FALSE );
 
 // Define some things for the cart.
 define( 'VAT', 0.16 );
-define( 'CURRENCY', '$' );
+define( 'CURRENCY', wpd_currency_code() );
 
 // Includes for Classes.
 include_once( dirname(__FILE__).'/classes/class-cart.php' );
@@ -47,6 +47,7 @@ include_once( dirname(__FILE__).'/patients/patient-account-details.php' );
 include_once( dirname(__FILE__).'/patients/patient-account-shortcode.php' );
 
 // Includes for Orders.
+include_once( dirname(__FILE__).'/orders/orders-database.php' );
 include_once( dirname(__FILE__).'/orders/orders-post-type.php' );
 include_once( dirname(__FILE__).'/orders/orders-metaboxes.php' );
 
@@ -57,21 +58,25 @@ function wpd_ecommerce_output_buffer() {
 add_action( 'init', 'wpd_ecommerce_output_buffer' );
 
 // Add Patient User Role on Plugin Activation.
-function add_patient_user_role_activation() {
+function wpd_ecommerce_add_patient_user_role_activation() {
 	add_role( 'patient', 'Patient', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
 }
-register_activation_hook( __FILE__, 'add_patient_user_role_activation' );
+register_activation_hook( __FILE__, 'wpd_ecommerce_add_patient_user_role_activation' );
 
-function add_ecommerce_pages_activation() {
+function wpd_ecommerce_add_ecommerce_pages_activation() {
 	/**
 	 * Create Required Pages
 	 *
 	 * @since 1.0
 	 */
 	if ( ! current_user_can( 'activate_plugins' ) ) return;
+
 	global $wpdb;
+
+	// Get current user.
+	$current_user = wp_get_current_user();
+
 	if ( null === $wpdb->get_row( "SELECT post_name FROM {$wpdb->prefix}posts WHERE post_name = 'dispensary-menu'", 'ARRAY_A' ) ) {
-		$current_user = wp_get_current_user();
 
 		// create checkout page.
 		$page_checkout = array(
@@ -116,7 +121,18 @@ function add_ecommerce_pages_activation() {
 	}
 
 }
-register_activation_hook( __FILE__, 'add_ecommerce_pages_activation' );
+register_activation_hook( __FILE__, 'wpd_ecommerce_add_ecommerce_pages_activation' );
+
+/**
+ * Create orders database table on install
+ * 
+ * @since       1.0.0
+ */
+function wpd_ecommerce_db_install() {
+	// Run function.
+	wpd_ecommerce_orders_database_install();
+}
+register_activation_hook( __FILE__, 'wpd_ecommerce_db_install' );
 
 /**
  * Load admin scripts and styles
@@ -125,7 +141,7 @@ register_activation_hook( __FILE__, 'add_ecommerce_pages_activation' );
  * @return      void
  */
 function wpd_ecommerce_load_admin_scripts() {
-	wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.css' );
+	wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.min.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
 
@@ -136,7 +152,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
  * @return      void
  */
 function wpd_ecommerce_load_public_scripts() {
-	wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.css' );
+	wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css' );
 }
 add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
 
@@ -238,6 +254,7 @@ function wpd_ecommerce_form_output() {
 	$str.='<input type="number" name="qtty" id="qtty" value="' . $qtty . '" />';
 	$str.='<input type="hidden" name="flowerprice" id="flowerprice" value="' . $_POST['wpd_ecommerce_flowers_prices'] . '" />';
 	$str.='<input type="submit" name="add_me" id="add_item_btn" value="' . __( 'Add to cart' ). '" />';
+	$str.='<strong>TESTING</strong>';
 	$str.='</form>';
 
 	return $str;
@@ -258,7 +275,7 @@ function wpd_ecommerce_form_price_output() {
  */
 function wpd_ecommerce_box_filter( $content ) {
 	global $wpdb;
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_filter_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers' ) ) ) ) {
+	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_filter_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
 		$original = $content;
 		$content  = '';
 		$content .= wpd_ecommerce_form_price_output();
@@ -273,7 +290,7 @@ function wpd_ecommerce_box_filter( $content ) {
  * Cart Notifications
  */
 function wpd_ecommerce_notifications() {
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers' ) ) ) ) {
+	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
 		$str  = '';
 		$str .= '<div class="wpd-ecommerce-notifications success">This product has been successfully added to your cart <a href="' . get_bloginfo( 'url' ) . '/cart" class="button">View Cart</a></div>';
 	}
@@ -285,7 +302,7 @@ function wpd_ecommerce_notifications() {
  * Custom Templates
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
-    if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers' ) ) ) ) {
+    if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_post_type_templates', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
@@ -294,7 +311,7 @@ function wpd_ecommerce_include_template_function( $template_path ) {
             } else {
                 $template_path = plugin_dir_path( __FILE__ ) . '/templates/single-item.php';
             }
-        } else if( is_archive() ) {
+        } elseif ( is_archive() ) {
             if ( $theme_file = locate_template( array ( 'archive-items.php' ) ) ) {
                 $template_path = $theme_file;
             } else {
@@ -312,9 +329,9 @@ function wpd_ecommerce_clear_cart() {
 
         // If it's desired to kill the session, also delete the session cookie.
         // Note: This will destroy the session, and not just the session data!
-        if (ini_get("session.use_cookies")) {
+        if ( ini_get( "session.use_cookies" ) ) {
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
+            setcookie( session_name(), '', time() - 42000,
                 $params["path"], $params["domain"],
                 $params["secure"], $params["httponly"]
             );
