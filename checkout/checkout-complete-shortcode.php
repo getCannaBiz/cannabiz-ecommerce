@@ -18,23 +18,6 @@ function wpd_ecommerce_checkout_complete_shortcode() {
 
         $get_id = $_GET['id'];
 
-        // Get row's from database with current $wpd_order_id.
-        $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id}", ARRAY_A );
-        print_r( $get_order_data );
-
-        foreach ( $get_order_data as $item_id ) {
-            $get_order_details = get_post( $item_id['order_item_id'] );
-
-            //var_dump( $get_order_details );
-        }    
-
-        echo "<br /><br /><strong>Order Item Data</strong>";
-
-        $get_order_item_data = $wpdb->get_row(
-            "SELECT item_id FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id}", ARRAY_A
-        );
-        print_r( $get_order_item_data );
-
         echo "<h3 class='wpd-ecommerce patient-order'>Your Order</h3>";
         echo get_post_meta( $_GET['id'], 'wpd_order_details', true );
     } else {

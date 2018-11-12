@@ -308,7 +308,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = ' - ' . $units_per_pack . ' pack';
+                $weightname = $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -329,7 +329,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = ' - ' . $units_per_pack . ' pack';
+                $weightname = $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -358,7 +358,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = " - " . $value;
+                    $weightname = $value;
                 }
             }
 
@@ -382,7 +382,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = " - " . $value;
+                    $weightname = $value;
                 }
             }
             if ( '_priceeach' === $concentrate_weight_cart ) {
@@ -398,10 +398,22 @@ function wpd_ecommerce_checkout_success() {
         $total_price = $amount * $regular_price;
 
         // Order name.
-        $order_item_name = $i->title . $weightname;
+        $order_item_name = $i->title . ' - ' . $weightname;
 
         // Add order details to array.
-        $wpd_orders_data[$item_old_id] = $order_item_name;
+        $wpd_orders_data[$i->id] = $order_item_name;
+
+        // Get cart item data.
+        $array_insert[] = array(
+            'order_item_id'       => $i->id,
+            'order_item_name'     => $i->title,
+            'item_id'             => $item_old_id,
+            'item_variation'      => $item_meta_key,
+            'item_variation_name' => $weightname,
+            'quantity'            => $amount,
+            'single_price'        => $regular_price,
+            'total_price'         => $total_price,
+        );
 
         $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
@@ -426,10 +438,13 @@ function wpd_ecommerce_checkout_success() {
     // Insert the order into the database.
     $wpd_order_id = wp_insert_post( $wpd_order );
 
-    // Insert database stuff here.
     global $wpdb;
 
-    // Insert order details into table.
+    /**
+     * Insert order details into wpd_orders table.
+     *
+     * @since 1.0.0
+     */
     foreach ( $wpd_orders_data as $id=>$name ) {
         $wpdb->insert( $wpdb->prefix . 'wpd_orders', array(
             'order_item_id'   => $id,
@@ -441,37 +456,29 @@ function wpd_ecommerce_checkout_success() {
     // Get row's from database with current $wpd_order_id.
     $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$wpd_order_id}", ARRAY_A );
 
-    // Loop through get_order_data.
-    foreach ( $get_order_data as $item_id ) {
+    /**
+     * Loop through each item in the order
+     */
+    $i = -1;
+    // Loop through each product in the database.
+    foreach( $get_order_data as $order_value ) {
+        $i++;
+        $order_id_key = $order_value['item_id'];
+        $array        = array_values( $array_insert );
 
-        // Loop through current session cart.
-        foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
-            $i             = new Item( $id, '', '', '' );
-            $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
-            $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
+        // Get key/value of each array result.
+        foreach( $array[$i] as $key => $value ) {
 
-            // Get cart item data.
-            $array_insert = array(
-                'item_variation' => $item_meta_key,
-                'total_price'    => $total_price,
-                'quantity'       => $amount,
-                'order_item_id'  => $id,
-            );
+            // Does this 4 times.
+            $wpdb->insert( $wpdb->prefix . 'wpd_orders_meta', array(
+                'item_id'    => $order_id_key,
+                'meta_key'   => $key,
+                'meta_value' => $value,
+            ));
 
-
-            $get_order_item_data = $wpdb->get_row( "SELECT item_id FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$wpd_order_id}", ARRAY_A );
-    
-            // Insert to wpd_orders_meta table.
-            foreach ( $array_insert as $key=>$value ) {
-                $wpdb->insert( $wpdb->prefix . 'wpd_orders_meta', array(
-                    'item_id'    => $get_order_item_data['item_id'],
-                    'meta_key'   => $key,
-                    'meta_value' => $value,
-                ));
-            }
-        endforeach;
-
+        }
     }
+
 
     // This updates the new order with custom title, etc.
     $updated_post = array(
