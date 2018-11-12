@@ -52,7 +52,7 @@ function wpd_ecommerce_checkout_complete_shortcode() {
 
             $order_item_meta_id = $order_item['item_id'];
 
-            echo "<h4>Item #" . $order_item_meta_id . "</h4>";
+            echo "<h4>Item #" . $order_item_meta_id . " - i " . $i . "</h4>";
 
             // Get row's from database with current $wpd_order_id.
             $get_order_item_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders_meta WHERE item_id = {$order_item_meta_id}", ARRAY_A );
@@ -62,52 +62,121 @@ function wpd_ecommerce_checkout_complete_shortcode() {
 
             //print_r( $get_order_item_data );
 
+            /**
+             * This newArray combines all of the meta data for each product
+             * 
+             * Used to loop through and output the new array value's by KEY name
+             */
+            $newArray = array();
+
+            foreach ($get_order_item_data as $entry) {
+                $newArray[$entry['meta_key']] = $entry['meta_value'];
+            }
+
+            echo "<strong>newArray:</strong>";
+
+            echo "<pre>";
+            print_r( $newArray );
+            echo "</pre>";
+
+            echo "<strong>New Array Output:</strong> " . $newArray['total_price'] . "</strong>";
+            
+
             //echo "<br /><br />";
 
-           // echo "<pre>";
-            //print_r( $array );
-            //echo "</pre>";
+            echo "<pre>";
+            print_r( $array );
+            echo "</pre>";
 
             //echo "<br /><br />";
 
             //echo key( $get_order_item_data[$i] );
 
+            //echo $get_order_item_data[$i];
+
+            echo "<strong>TEST: " . $array[$i]['meta_key'] . "</strong>";
+
+            $number = -1;
+
             // Loop through each product in the database.
-            foreach( $get_order_item_data as $order_key=>$order_data ) {
-
-                //print_r( $order_data );
-
-                if ( 'item_id' == $order_data['meta_key'] ) {
-                    echo "<p><strong>ID: " . $order_data['meta_value'] . "</strong></p>";
+            foreach( $get_order_item_data as $order_key=>$order_value ) {
+                $number++;
+/*
+                $get_order_item_data_new = $wpdb->get_results( "SELECT meta_value FROM {$wpdb->prefix}wpd_orders_meta WHERE item_id = {$order_value}", ARRAY_A );
+                echo "<h6><strong>Get Order Item Array</strong></h6>";
+                echo "<pre>";
+                print_r( $get_order_item_data_new );
+                echo "</pre>";
+    
+                $num = -1;
+    
+                // Loop through each product in the database.
+                foreach( $get_order_item_data[$i] as $order_key=>$order_value ) {
+                    $num++;
+                    echo $orderkey;
                 }
+    
+                echo "<h6><strong>Item Array</strong></h6>";
+                echo "<pre>";
+                print_r( $get_order_item_data[$number] );
+                echo "</pre>";
+
+                echo "<h6><strong>Get Order Item Array</strong></h6>";
+                //echo "<pre>";
+                print_r( $get_order_item_data );
+
+                //echo "</pre>";
+                echo "<p><strong>Order Key:</strong> " . $order_value[$i]['meta_value'] . "</p>";
+
+                //echo "<strong>Test:</strong> " . $order_key['order_item_name'] . "<br />";
 
                 if ( 'order_item_id' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Order Item ID: " . $order_data['meta_value'] . "</strong></p>";
+                    $order_item_id = $order_data['meta_value'];
+                    echo "<strong>Order Item ID:</strong> " . $order_data['meta_value'] . "<br />";
                 }
 
                 if ( 'order_item_name' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Item Name: " . $order_data['meta_value'] . "</strong></p>";
-                }
-
-                if ( 'item_variation' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Item Variation: " . $order_data['meta_value'] . "</strong></p>";
+                    $order_item_name = $order_data['meta_value'];
+                    echo "<strong>Name:</strong> " . $order_data['meta_value'] . "<br />";
                 }
 
                 if ( 'order_item_variation_name' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Variation Name: " . $order_data['meta_value'] . "</strong></p>";
+                    $order_item_variation_name = $order_data['meta_value'];
+                    echo " - " . $order_data['meta_value'];
+                }
+
+
+                if ( 'item_id' == $order_data['meta_key'] ) {
+                    $item_id = $order_data['meta_value'];
+                    echo "<strong>ID:</strong> " . $order_data['meta_value'] . "<br />";
+                }
+
+                if ( 'item_variation' == $order_data['meta_key'] ) {
+                    $item_variation = $order_data['meta_value'];
+                    echo "<strong>Item Variation:</strong> " . $order_data['meta_value'] . "<br />";
                 }
 
                 if ( 'quantity' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Quantity: " . $order_data['meta_value'] . "</strong></p>";
+                    $quantity = $order_data['meta_value'];
+                    echo "<strong>Quantity:</strong> " . $order_data['meta_value'] . "<br />";
                 }
 
                 if ( 'single_price' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Single: " . $order_data['meta_value'] . "</strong></p>";
+                    $single_price = $order_data['meta_value'];
+                    echo "<strong>Single:</strong> " . $order_data['meta_value'] . "<br />";
                 }
 
                 if ( 'total_price' == $order_data['meta_key'] ) {
-                    echo "<p><strong>Total: " . $order_data['meta_value'] . "</strong></p>";
+                    $total_price = $order_data['meta_value'];
+                    echo "<strong>Total:</strong> " . wpd_currency_code() . $order_data['meta_value'] . "<br />";
                 }
+                */
+                /*
+                echo "<h3>" . $order_item_name . "<span>" . $order_item_variation_name . "</span></h3>";
+                echo "<p>";
+                echo "<strong>Price:</strong> " . wpd_currency_code() . $single_price . " x " . $quantity . " = " . wpd_currency_code() . $total_price;
+                echo "</p>";
+                */
 
                 /*
                 echo "<p>Order Key and Order Data: <strong>" . $order_key . "</strong> - ";
