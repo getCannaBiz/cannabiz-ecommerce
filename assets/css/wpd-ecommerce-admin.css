@@ -3,9 +3,56 @@
  * for the admin dashboard.
  */
 
-table.wpd-ecommerce.widget.checkout {
+/** Order Table */
+
+table.wpd-ecommerce {
     width: 100%;
 }
+
+/** Cart Table Alignment */
+table.wpd-ecommerce thead tr td,
+table.wpd-ecommerce tbody tr td {
+    text-align: left;
+}
+
+table.wpd-ecommerce tbody tr td:first-child {
+    text-align: center;
+}
+
+/** Cart Style */
+
+table.wpd-ecommerce thead {
+	border: 1px solid #DDD;
+}
+
+table.wpd-ecommerce tbody tr {
+    border-bottom: 1px solid #DDD;
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+}
+
+table.wpd-ecommerce td {
+	padding: 12px 12px;
+	vertical-align: middle;
+}
+
+table.wpd-ecommerce thead tr {
+	font-weight: 700;
+}
+
+table.wpd-ecommerce tbody td input[type="number"] {
+    padding: 3px 6px;
+    text-align: center;
+    width: 3.5em;
+}
+
+/** Orders Table image */
+
+table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
+    max-width: 50px;
+}
+
+/** Remove margin from metabox */
 
 body.post-type-wpd_orders #post-body-content {
     margin-bottom: 0;

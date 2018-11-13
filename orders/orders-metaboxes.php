@@ -66,7 +66,7 @@ function wpd_ecommerce_order_details_build() {
 
 	echo '<div class="order-details-box wide-box">';
 	echo '<p><strong>' . __( 'Order details', 'wpd-ecommerce' ) . ':</strong></p>';
-	echo $order_details;
+	echo wpd_ecommerce_table_order_data( $post->ID );
 	echo '</div>';
 
 }
