@@ -59,11 +59,11 @@ function wpd_ecommerce_checkout_complete_shortcode() {
          * @todo add an action hook for developers to customize this page
          */
         echo "<h3>Order Complete (#" . $get_id . ")</h3>";
-        echo "<p>" . __( 'Thank you. Your order has been received.', 'wp-dispensary' ) . "</p>";
+        echo "<p>" . __( 'Thank you. Your order has been received.', 'wpd-ecommerce' ) . "</p>";
         /**
          * @todo add an action hook for developers to customize this page
          */
-        echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your Order', 'wp-dispensary' ) . "</h3>";
+        echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your Order', 'wpd-ecommerce' ) . "</h3>";
         echo wpd_ecommerce_table_order_data( $get_id );
         /**
          * @todo add an action hook for developers to customize this page

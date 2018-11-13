@@ -8,7 +8,7 @@ function wpd_ecommerce_registration_form() {
 	$birth_year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
 	?>
 	<p>
-		<label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wp-dispensary' ) ?><br/>
+		<label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ) ?><br/>
 			<input type="number"
 			       min="1900"
 			       max="2018"
@@ -31,12 +31,12 @@ function wpd_ecommerce_registration_errors( $errors, $sanitized_user_login, $use
 
 	// Error - no birth date.
 	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) );
 	}
 
 	// Error - age requirement.
 	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wp-dispensary' ) );
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
 	}
 
 	return $errors;
@@ -68,11 +68,11 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
 		return;
 	}
 	?>
-	<h3><?php esc_html_e( 'Additional Details', 'wp-dispensary' ); ?></h3>
+	<h3><?php esc_html_e( 'Additional Details', 'wpd-ecommerce' ); ?></h3>
 
 	<table class="form-table">
 		<tr>
-			<th><label for="phone_number"><?php esc_html_e( 'Phone number', 'wp-dispensary' ); ?></label></th>
+			<th><label for="phone_number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label></th>
 			<td>
 				<input type="tel"
 			       id="phone_number"
@@ -83,7 +83,7 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
 			</td>
 		</tr>
 		<tr>
-			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wp-dispensary' ); ?></label> <span class="description"><?php esc_html_e( '(required)', 'wp-dispensary' ); ?></span></th>
+			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ); ?></label> <span class="description"><?php esc_html_e( '(required)', 'wpd-ecommerce' ); ?></span></th>
 			<td>
 				<input type="number"
 			       min="1900"
@@ -107,11 +107,11 @@ add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
 function wpd_ecommerce_show_extra_profile_fields( $user ) {
 	$birth_year = get_the_author_meta( 'year_of_birth', $user->ID );
 	?>
-	<h3><?php esc_html_e( 'Personal Information', 'wp-dispensary' ); ?></h3>
+	<h3><?php esc_html_e( 'Personal Information', 'wpd-ecommerce' ); ?></h3>
 
 	<table class="form-table">
 		<tr>
-			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wp-dispensary' ); ?></label></th>
+			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ); ?></label></th>
 			<td>
 				<input type="number"
 			       min="1900"
@@ -193,11 +193,11 @@ add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
  */
 function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
 	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wp-dispensary' ) );
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) );
 	}
 
 	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wp-dispensary' ) );
+		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
 	}
 }
 add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );

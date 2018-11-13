@@ -363,7 +363,7 @@ get_header(); ?>
 
                     // Loop through each compound, and append it to variable.
                     foreach ( $compounds as $compound => $value ) {
-                        $showcompounds .= '<span class="wpd-productinfo ' . $compound . '"><strong>' . __( $compound, 'wp-dispensary' ) . ':</strong> ' . $value . '</span>';
+                        $showcompounds .= '<span class="wpd-productinfo ' . $compound . '"><strong>' . __( $compound, 'wpd-ecommerce' ) . ':</strong> ' . $value . '</span>';
                     }
 
                     $showcompounds = $showcompounds;

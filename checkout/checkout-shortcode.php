@@ -14,9 +14,9 @@ function wpd_ecommerce_checkout_shortcode() {
             /** Update Email Address */
             if ( ! empty( $_POST['email'] ) ) {
                 if ( ! is_email( esc_attr( $_POST['email'] ) ) )
-                    $error[] = __( 'The Email you entered is not valid. Please try again.', 'wp-dispensary' );
+                    $error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
                 elseif( email_exists( esc_attr( $_POST['email'] ) ) != $current_user->ID )
-                    $error[] = __( 'This email is already used by another user. Try a different one.', 'wp-dispensary' );
+                    $error[] = __( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
                 else {
                     wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => esc_attr( $_POST['email'] ) ) );
                 }
@@ -48,7 +48,7 @@ function wpd_ecommerce_checkout_shortcode() {
 
         <form method="post" id="checkout" class="wpd-ecommerce form checkout" action="<?php the_permalink(); ?>">
 
-		<h3 class='wpd-ecommerce patient-title'><?php _e( 'Billing details', 'wp-dispensary' ); ?></h3>
+		<h3 class='wpd-ecommerce patient-title'><?php _e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
         <?php
         /**
@@ -56,21 +56,21 @@ function wpd_ecommerce_checkout_shortcode() {
          */
         ?>
         <p class="form-row first form-first-name">
-            <label for="first-name"><?php _e('First Name', 'wp-dispensary' ); ?><span class="required">*</span></label>
+            <label for="first-name"><?php _e('First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
         </p><!-- .form-first-name -->
         <p class="form-row last form-last-name">
-            <label for="last-name"><?php _e('Last Name', 'wp-dispensary' ); ?><span class="required">*</span></label>
+            <label for="last-name"><?php _e('Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
         </p><!-- .form-last-name -->
 
         <p class="form-row form-email">
-            <label for="email"><?php _e( 'E-mail', 'wp-dispensary' ); ?><span class="required">*</span></label>
+            <label for="email"><?php _e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
         </p><!-- .form-email -->
 
         <p class="form-row form-phone-number">
-            <label for="phone-number"><?php _e( 'Phone number', 'wp-dispensary' ); ?></label>
+            <label for="phone-number"><?php _e( 'Phone number', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
         </p><!-- .form-phone-number -->
 
@@ -81,28 +81,28 @@ function wpd_ecommerce_checkout_shortcode() {
         ?>
 
         <p class="form-row form-address-line">
-            <label for="address-line"><?php _e( 'Street address', 'wp-dispensary' ); ?></label>
-            <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php _e( 'House number and street name', 'wp-dispensary' ); ?>" />
-            <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php _e( 'Apartment, unit, etc. (optional)', 'wp-dispensary' ); ?>" />
+            <label for="address-line"><?php _e( 'Street address', 'wpd-ecommerce' ); ?></label>
+            <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php _e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
+            <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php _e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
         </p><!-- .form-address-line -->
 
         <p class="form-row form-city">
-            <label for="email"><?php _e( 'City', 'wp-dispensary' ); ?></label>
+            <label for="email"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
         </p><!-- .form-city -->
 
         <p class="form-row form-state-county">
-            <label for="email"><?php _e( 'State / County', 'wp-dispensary' ); ?></label>
+            <label for="email"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="state-county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
         </p><!-- .form-state-county -->
 
         <p class="form-row form-postcode-zip">
-            <label for="email"><?php _e( 'Postcode / ZIP', 'wp-dispensary' ); ?></label>
+            <label for="email"><?php _e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
         </p><!-- .form-postcode-zip -->
 
         <p class="form-row form-country">
-            <label for="email"><?php _e( 'Country', 'wp-dispensary' ); ?></label>
+            <label for="email"><?php _e( 'Country', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="country" type="text" id="country" value="<?php the_author_meta( 'country', $current_user->ID ); ?>" />
         </p><!-- .form-phone-country -->
 
@@ -112,7 +112,7 @@ function wpd_ecommerce_checkout_shortcode() {
         */
         ?>
 
-		<h3 class='wpd-ecommerce patient-order'><?php _e( 'Your order', 'wp-dispensary' ); ?></h3>
+		<h3 class='wpd-ecommerce patient-order'><?php _e( 'Your order', 'wpd-ecommerce' ); ?></h3>
 
         <?php
         /**
@@ -247,7 +247,7 @@ function wpd_ecommerce_checkout_shortcode() {
         $str .= "</tbody>";
         $str .= "</table>";
 
-        $str .= "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wp-dispensary' ) . "' />" . wp_nonce_field( 'wpd-ecommerce-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-ecommerce-checkout' /></p>";
+        $str .= "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wpd-ecommerce' ) . "' />" . wp_nonce_field( 'wpd-ecommerce-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-ecommerce-checkout' /></p>";
         $str .= "</form>";
 
         echo $str;
