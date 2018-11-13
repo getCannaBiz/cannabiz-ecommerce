@@ -308,7 +308,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = $units_per_pack . ' pack';
+                $weightname = ' - ' . $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -329,7 +329,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = $units_per_pack . ' pack';
+                $weightname = ' - ' . $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -358,7 +358,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = $value;
+                    $weightname = ' - ' . $value;
                 }
             }
 
@@ -382,7 +382,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = $value;
+                    $weightname = ' - ' . $value;
                 }
             }
             if ( '_priceeach' === $concentrate_weight_cart ) {
@@ -398,21 +398,24 @@ function wpd_ecommerce_checkout_success() {
         $total_price = $amount * $regular_price;
 
         // Order name.
-        $order_item_name = $i->title . ' - ' . $weightname;
+        $order_item_name = $i->title . $weightname;
 
         // Add order details to array.
         $wpd_orders_data[$i->id] = $order_item_name;
 
         // Get cart item data.
         $array_insert[] = array(
-            'order_item_id'       => $i->id,
-            'order_item_name'     => $i->title,
-            'item_id'             => $item_old_id,
-            'item_variation'      => $item_meta_key,
-            'item_variation_name' => $weightname,
-            'quantity'            => $amount,
-            'single_price'        => $regular_price,
-            'total_price'         => $total_price,
+            'order_item_id'        => $i->id,
+            'order_item_name'      => $i->title,
+            'item_id'              => $item_old_id,
+            'item_url'             => $i->permalink,
+            'item_image_url'       => get_the_post_thumbnail_url( $i->id, 'full' ),
+            'item_image_url_thumb' => get_the_post_thumbnail_url( $i->id, 'thumbnail' ),
+            'item_variation'       => $item_meta_key,
+            'item_variation_name'  => $weightname,
+            'quantity'             => $amount,
+            'single_price'         => $regular_price,
+            'total_price'          => $total_price,
         );
 
         $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";

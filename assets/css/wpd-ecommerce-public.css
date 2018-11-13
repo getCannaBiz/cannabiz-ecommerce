@@ -400,3 +400,9 @@ form.wpd-ecommerce.form .form-row label em {
 input#address_line_2 {
     margin-top: 12px;
 }
+
+/** Orders Table image */
+
+table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
+    max-width: 50px;
+}
