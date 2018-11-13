@@ -30,6 +30,9 @@ define( 'DEV', FALSE );
 define( 'VAT', 0.16 );
 define( 'CURRENCY', wpd_currency_code() );
 
+// Includes for Helper Functions.
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
+
 // Includes for Classes.
 include_once( dirname(__FILE__).'/classes/class-cart.php' );
 include_once( dirname(__FILE__).'/classes/class-item.php' );
