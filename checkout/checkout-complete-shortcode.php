@@ -31,7 +31,7 @@ function wpd_ecommerce_table_order_data( $order_id ) {
 
         // Set the item variation name.
         if ( '' != $newArray['item_variation_name'] ) {
-            $var_name = $newArray['item_variation_name'];
+            $var_name = ' - ' . $newArray['item_variation_name'];
         } else {
             $var_name = '';
         }

@@ -143,7 +143,7 @@ function wpd_ecommerce_checkout_shortcode() {
                 }
 
                 if ( '_priceperpack' === $item_meta_key ) {
-                    $weightname = ' - ' . $units_per_pack . ' pack';
+                    $weightname = $units_per_pack . ' pack';
                 } else {
                     $weightname = '';
                 }
@@ -164,7 +164,7 @@ function wpd_ecommerce_checkout_shortcode() {
                 }
 
                 if ( '_priceperpack' === $item_meta_key ) {
-                    $weightname = ' - ' . $units_per_pack . ' pack';
+                    $weightname = $units_per_pack . ' pack';
                 } else {
                     $weightname = '';
                 }
@@ -308,7 +308,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = ' - ' . $units_per_pack . ' pack';
+                $weightname = $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -329,7 +329,7 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = ' - ' . $units_per_pack . ' pack';
+                $weightname = $units_per_pack . ' pack';
             } else {
                 $weightname = '';
             }
@@ -358,7 +358,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = ' - ' . $value;
+                    $weightname = $value;
                 }
             }
 
@@ -382,7 +382,7 @@ function wpd_ecommerce_checkout_success() {
                     /**
                      * @todo change value to actual amount instead of just variable name
                      */
-                    $weightname = ' - ' . $value;
+                    $weightname = $value;
                 }
             }
             if ( '_priceeach' === $concentrate_weight_cart ) {
