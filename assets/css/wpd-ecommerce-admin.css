@@ -6,6 +6,7 @@
 /** Order Table */
 
 table.wpd-ecommerce {
+    border-collapse: collapse;
     width: 100%;
 }
 
@@ -63,16 +64,19 @@ body.post-type-wpd_orders #post-body-content {
     float: left;
     width: 31.333%;
     margin-right: 2%;
+    margin-bottom: 12px;
 }
 
 @media screen and (max-width: 767px) {
     .order-details-box {
         width: 100%;
-        margin-right:0;
+        margin-right: 0;
+        margin-bottom: 0;
     }
 }
 
 .order-details-box.wide-box {
     width: 100%;
     margin-right: 0;
+    margin-top: 12px;
 }

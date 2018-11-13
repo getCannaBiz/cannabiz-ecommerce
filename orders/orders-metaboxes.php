@@ -1,6 +1,6 @@
 <?php
 /**
- * Order Details metabox
+ * Order details metabox
  *
  * Adds the order details metabox.
  *
@@ -35,20 +35,20 @@ function wpd_ecommerce_order_details_build() {
 	$order_customer_id      = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
 
 	echo '<div class="order-details-box">';
-	echo '<p><strong>' . __( 'Order status', 'wpd-ecommerce' ) . ':</strong></p>';
+	echo '<p><strong>' . __( 'Status', 'wpd-ecommerce' ) . ':</strong></p>';
 
 	// Get array of order statuses.
-	$terms = wpd_ecommerce_get_order_statuses();
+	$statuses = wpd_ecommerce_get_order_statuses();
 
-	if ( $terms ) {
-		printf( '<select name="wpd_order_status" id="wpd_order_status" class="widefat">' );
-		foreach ( $terms as $key=>$term ) {
+	if ( $statuses ) {
+		print( '<select name="wpd_order_status" id="wpd_order_status" class="widefat">' );
+		foreach ( $statuses as $key=>$value ) {
 			if ( esc_html( $key ) != $order_status ) {
 				$order_status_selected = '';
 			} else {
 				$order_status_selected = 'selected="selected"';
 			}
-			printf( '<option value="%s" ' . esc_html( $order_status_selected ) . '>%s</option>', esc_html( $key ), esc_html( $term ) );
+			printf( '<option value="%s" ' . esc_html( $order_status_selected ) . '>%s</option>', esc_html( $key ), esc_html( $value ) );
 		}
 		print( '</select>' );
 	}
@@ -56,18 +56,31 @@ function wpd_ecommerce_order_details_build() {
 
 	echo '<div class="order-details-box">';
 	echo '<p><strong>' . __( 'Customer', 'wpd-ecommerce' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">profile</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">view orders &rarr;</a></p>';
-	wp_dropdown_users( array( 'name' => 'customer', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
+	wp_dropdown_users( array( 'name' => 'wpd_order_customer_id', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
 	echo '</div>';
 
 	echo '<div class="order-details-box">';
-	echo '<p><strong>' . __( 'Delivery address', 'wpd-ecommerce' ) . ':</strong></p>';
-	echo '<p>Address will display here</p>';
+	echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
+
+	$user_info = get_userdata( $order_customer_id );
+
+	if ( '' != $user_info->address_line_1 ) {
+		echo $user_info->address_line_1 . "<br />";
+	}
+	if ( '' != $user_info->address_line_2 ) {
+		echo $user_info->address_line_2 . "<br />";
+	}
+	echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
+	if ( '' != $user_info->phone_number ) {
+		echo "<p><strong>Phone number:</strong></p>";
+		echo "<a href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
+	}
+
 	echo '</div>';
 
 
 	echo '<div class="order-details-box wide-box">';
-	echo '<p><strong>' . __( 'Order details', 'wpd-ecommerce' ) . ':</strong></p>';
-	echo wpd_ecommerce_table_order_data( $post->ID );
+	echo wpd_ecommerce_table_order_data( $post->ID, $user_info->ID );
 	echo '</div>';
 
 }
@@ -104,7 +117,7 @@ function wpd_ecommerce_save_order_details( $post_id, $post ) {
 
 	/** Add values of $wpd_ecommerce_order_meta as custom fields */
 
-	foreach ( $wpd_ecommerce_order_meta as $key => $value ) { /** Cycle through the $thccbd_meta array! */
+	foreach ( $wpd_ecommerce_order_meta as $key => $value ) { /** Cycle through the array! */
 		if ( 'revision' === $post->post_type ) { /** Don't store custom data twice */
 			return;
 		}
