@@ -32,7 +32,20 @@ function wpd_ecommerce_get_order_statuses() {
  * 
  * @since 1.0
  */
-function wpd_ecommerce_table_order_data( $order_id ) {
+function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
+    // Get customer ID from order.
+    $customer_id = get_post_meta( $order_id, 'wpd_order_customer_id', true );
+
+    // Return false if they don't match.
+    if ( $user_id != $customer_id ) {
+        return false;
+    }
+
+    // Return false if current user does not have admin capabilities.
+    if ( ! current_user_can( 'manage_options' ) ) {
+        return false;
+    }
+
     global $wpdb;
 
     // Get row's from database with current $wpd_order_id.

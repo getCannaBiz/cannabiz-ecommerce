@@ -19,7 +19,7 @@ function wpd_ecommerce_checkout_complete_shortcode() {
          * @todo add an action hook for developers to customize this page
          */
         echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your Order', 'wpd-ecommerce' ) . "</h3>";
-        echo wpd_ecommerce_table_order_data( $get_id );
+        echo wpd_ecommerce_table_order_data( $get_id, $current_user->ID );
         /**
          * @todo add an action hook for developers to customize this page
          */
