@@ -9,6 +9,25 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Get all order statuses.
+ *
+ * @since 1.0
+ * @return array
+ */
+function wpd_ecommerce_get_order_statuses() {
+	$order_statuses = array(
+		'wpd-pending'    => _x( 'Pending', 'Order status', 'wpd-ecommerce' ),
+		'wpd-processing' => _x( 'Processing', 'Order status', 'wpd-ecommerce' ),
+		'wpd-on-hold'    => _x( 'On hold', 'Order status', 'wpd-ecommerce' ),
+		'wpd-completed'  => _x( 'Completed', 'Order status', 'wpd-ecommerce' ),
+		'wpd-cancelled'  => _x( 'Cancelled', 'Order status', 'wpd-ecommerce' ),
+		'wpd-refunded'   => _x( 'Refunded', 'Order status', 'wpd-ecommerce' ),
+		'wpd-failed'     => _x( 'Failed', 'Order status', 'wpd-ecommerce' ),
+	);
+	return apply_filters( 'wpd_ecommerce_order_statuses', $order_statuses );
+}
+
+/**
  * Helper function - display order item details in table format
  * 
  * @since 1.0

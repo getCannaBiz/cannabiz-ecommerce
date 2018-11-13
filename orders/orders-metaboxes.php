@@ -28,7 +28,7 @@ function wpd_ecommerce_order_details_build() {
 	echo '<input type="hidden" name="wpd_ecommerce_order_details_meta_noncename" id="wpd_ecommerce_order_details_meta_noncename" value="' .
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
-	/** Get the thccbd data if its already been entered */
+	/** Get the data if its already been entered */
 	$order_status           = get_post_meta( $post->ID, 'wpd_order_status', true );
 	$order_details          = get_post_meta( $post->ID, 'wpd_order_details', true );
 	$order_customer_address = get_post_meta( $post->ID, 'wpd_order_customer_address', true );
@@ -37,17 +37,18 @@ function wpd_ecommerce_order_details_build() {
 	echo '<div class="order-details-box">';
 	echo '<p><strong>' . __( 'Order status', 'wpd-ecommerce' ) . ':</strong></p>';
 
-	$terms = array( 'Pending', 'Processing', 'Completed', 'Cancelled', 'Refunded' );
+	// Get array of order statuses.
+	$terms = wpd_ecommerce_get_order_statuses();
 
 	if ( $terms ) {
 		printf( '<select name="wpd_order_status" id="wpd_order_status" class="widefat">' );
-		foreach ( $terms as $term ) {
-			if ( esc_html( $term ) != $wpd_coupon_type ) {
+		foreach ( $terms as $key=>$term ) {
+			if ( esc_html( $key ) != $order_status ) {
 				$order_status_selected = '';
 			} else {
 				$order_status_selected = 'selected="selected"';
 			}
-			printf( '<option value="%s" ' . esc_html( $order_status_selected ) . '>%s</option>', esc_html( $term ), esc_html( $term ) );
+			printf( '<option value="%s" ' . esc_html( $order_status_selected ) . '>%s</option>', esc_html( $key ), esc_html( $term ) );
 		}
 		print( '</select>' );
 	}
