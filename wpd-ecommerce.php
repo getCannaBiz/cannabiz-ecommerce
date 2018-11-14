@@ -180,21 +180,9 @@ wpd_ecommerce_load_session();
 // wpd_ecommerce parameters will be saved in the database.
 function wpd_ecommerce_add_options() {
 	// wpd_ecommerce_add_options: add options to DB for this plugin
-	add_option( 'wpd_ecommerce_nb_widgets', '75' );
-	// add_option('wpd_ecommerce_...','...');
+	add_option( 'wpd_ecommerce_account_page', home_url() . '/account/' );
 }
 wpd_ecommerce_add_options();
-
-// wpd_ecommerce_show_html will generate the (HTML) output.
-function wpd_ecommerce_show_html( $param1 = 0, $param2 = "test" ) {
-	global $wpdb;
-	// get your parameter values from the database.
-	$wpd_ecommerce_nb_widgets = get_option( 'wpd_ecommerce_nb_widgets' );
-	// generate $wpd_ecommerce_html based on ...
-	// (your code).
-	// content will be added when function 'wpd_ecommerce_show_html()' is called.
-	return $wpd_ecommerce_html;
-}
 
 // initialise the cart session, if it exist, unserialize it, otherwise make it.
 if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
@@ -331,11 +319,35 @@ function wpd_ecommerce_include_template_function( $template_path ) {
                 $template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-items.php';
             }
         }
+	}
+	// Orders templates.
+	if ( 'wpd_orders' === get_post_type() ) {
+        if ( is_single() ) {
+            // checks if the file exists in the theme first,
+            // otherwise serve the file from the plugin
+            if ( $theme_file = locate_template( array ( 'single-order.php' ) ) ) {
+                $template_path = $theme_file;
+            } else {
+                $template_path = plugin_dir_path( __FILE__ ) . '/templates/single-order.php';
+            }
+        } elseif ( is_archive() ) {
+            if ( $theme_file = locate_template( array ( 'archive-orders.php' ) ) ) {
+                $template_path = $theme_file;
+            } else {
+                $template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-orders.php';
+            }
+        }
     }
-    return $template_path;
+
+	return $template_path;
 }
 add_filter( 'template_include', 'wpd_ecommerce_include_template_function', 1 );
 
+/**
+ * Clear the cart
+ * 
+ * @since 1.0
+ */
 function wpd_ecommerce_clear_cart() {
         // Unset all of the session variables.
         $_SESSION = array();

@@ -177,19 +177,24 @@ h3.wpd-ecommerce.patient-title {
 /** Notifications */
 .wpd-ecommerce-notifications {
     background-color: #f8f8f8;
-    border-top: 4px solid #454545;
     color: #454545;
 	line-height: 33px;
     list-style: none outside;
     margin: 0;
-    padding: 1em 2em 1em 3.5em;
+    padding: 1em 1.5em 1em 1.5em;
     position: relative;
     width: auto;
     word-wrap: break-word;
 }
 
 .wpd-ecommerce-notifications.success {
-	border-top: 4px solid #76BD1D;
+    background-color: #76BD1D;
+    color: #FFF;
+}
+
+.wpd-ecommerce-notifications.error {
+    background-color: red;
+    color: #FFF;
 }
 
 .wpd-ecommerce-notifications a.button {
@@ -407,15 +412,22 @@ table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
     max-width: 50px;
 }
 
-/** Account login form */
+/** Account page forms */
 
-form#wpd-ecommerce-login input#wp-submit {
-    padding: 12px 24px;
+.wpd-ecommerce-login-form {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+}
+
+.wpd-ecommerce-login-registration {
+    float: left;
+    width: 48%;
+    margin-left: 2%;
 }
 
 form#wpd-ecommerce-login {
-    float: left;
-    width: 50%;
+    width: 100%;
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
@@ -423,8 +435,14 @@ form#wpd-ecommerce-login {
 }
 
 @media screen and (max-width:768px) {
-    form#wpd-ecommerce-login {
+    .wpd-ecommerce-login-form,
+    .wpd-ecommerce-registration-form {
         margin: 0 0 12px 0;
         width: 100%;
     }
+}
+
+/** Login form button */
+form#wpd-ecommerce-login input#wp-submit {
+    padding: 12px 24px;
 }

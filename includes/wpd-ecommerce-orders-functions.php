@@ -43,7 +43,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
 
     // Return false if current user does not have admin capabilities.
     if ( ! current_user_can( 'manage_options' ) ) {
-        return false;
+        // return false;
     }
 
     global $wpdb;

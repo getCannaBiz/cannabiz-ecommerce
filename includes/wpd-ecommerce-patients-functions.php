@@ -52,3 +52,37 @@ function wpd_ecommerce_disable_author_archives_for_customers() {
 	}
 }
 add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_customers' );
+
+/**
+ * Prevent wp-login.php
+ */
+function wpd_ecommerce_prevent_wp_login() {
+
+    global $pagenow;
+
+    /**
+     * @todo check and only run this for patients.
+     */
+
+    // Check if a $_GET['action'] is set, and if so, load it into $action variable
+    $action = ( isset( $_GET['action'] ) ) ? $_GET['action'] : '';
+
+    // Check if we're on the login page, and ensure the action is not 'logout'
+    if ( $pagenow == 'wp-login.php' && ( ! $action || ( $action && ! in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass' ) ) ) ) ) {
+
+        $page = home_url() . '/account/?login=failed';
+
+        wp_redirect( $page );
+    }
+}
+add_action( 'init', 'wpd_ecommerce_prevent_wp_login' );
+
+/**
+ * Login failed redirect
+ */
+function login_failed() {
+    //$login_page = home_url() . '/account/';
+    //wp_redirect( $login_page . '?login=failed' );
+    //exit;
+}
+add_action( 'wp_login_failed', 'login_failed' );

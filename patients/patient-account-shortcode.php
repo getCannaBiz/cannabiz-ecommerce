@@ -11,23 +11,30 @@ function wpd_patient_account_shortcode() {
 
 		$args['form_id'] = 'wpd-ecommerce-login';
 
+		echo "<div class='wpd-ecommerce-login-form'>";
+
+		echo "<h3>Login</h3>";
+		if ( 'failed' === $_GET['login'] ) {
+			echo "<p class='wpd-ecommerce-notifications error'><strong>LOGIN FAILED DUMMY</strong></p>";
+		}
 		echo wp_login_form( $args );
+		echo "</div>";
 
 	} else {
 		/* If account details were saved, update patient account. */
 		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
 
 			/* Update user password. */
-			if ( !empty($_POST['pass1'] ) && !empty( $_POST['pass2'] ) ) {
+			if ( ! empty( $_POST['pass1'] ) && ! empty( $_POST['pass2'] ) ) {
 				if ( $_POST['pass1'] == $_POST['pass2'] )
 					wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => esc_attr( $_POST['pass1'] ) ) );
 				else
-					$error[] = __( 'The passwords you entered do not match.  Your password was not updated.', 'wp-dispensary');
+					$error[] = __( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
 			}
 
 			/* Update user email address */
 			if ( ! empty( $_POST['email'] ) ) {
-				if ( ! is_email(esc_attr( $_POST['email'] ) ) )
+				if ( ! is_email( esc_attr( $_POST['email'] ) ) )
 					$error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
 				elseif( email_exists( esc_attr( $_POST['email'] ) ) != $current_user->id )
 					$error[] = __( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
@@ -55,7 +62,6 @@ function wpd_patient_account_shortcode() {
 				update_user_meta( $current_user->ID, 'postal_zip', esc_attr( $_POST['postal_zip'] ) );
 			if ( ! empty( $_POST['country'] ) )
 				update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
-
 			if ( ! empty( $_POST['description'] ) )
 				update_user_meta( $current_user->ID, 'description', esc_attr( $_POST['description'] ) );
 
@@ -71,7 +77,7 @@ function wpd_patient_account_shortcode() {
 		}
 		?>
 
-<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
+		<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
 
 			<h3 class='wpd-ecommerce patient-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
 
@@ -81,11 +87,11 @@ function wpd_patient_account_shortcode() {
 			 */
 			?>
 			<p class="form-row first form-first-name">
-				<label for="first-name"><?php _e('First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+				<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 				<input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
 			</p><!-- .form-first-name -->
 			<p class="form-row last form-last-name">
-				<label for="last-name"><?php _e('Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+				<label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 				<input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
 			</p><!-- .form-last-name -->
 
@@ -148,7 +154,7 @@ function wpd_patient_account_shortcode() {
 				<input class="text-input" name="pass1" type="password" id="pass1" />
 			</p><!-- .form-password -->
 			<p class="form-row form-last form-password">
-				<label for="pass2"><?php _e('Repeat Password', 'wp-dispensary'); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></label>
+				<label for="pass2"><?php _e( 'Repeat Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></label>
 				<input class="text-input" name="pass2" type="password" id="pass2" />
 			</p><!-- .form-password -->
 
@@ -165,7 +171,7 @@ function wpd_patient_account_shortcode() {
 			?>
 
 		</form><!-- #patients -->
-<?php
+	<?php
 	}
 }
 add_shortcode( 'wpd_account', 'wpd_patient_account_shortcode' );
