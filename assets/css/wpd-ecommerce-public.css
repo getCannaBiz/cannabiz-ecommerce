@@ -406,3 +406,25 @@ input#address_line_2 {
 table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
     max-width: 50px;
 }
+
+/** Account login form */
+
+form#wpd-ecommerce-login input#wp-submit {
+    padding: 12px 24px;
+}
+
+form#wpd-ecommerce-login {
+    float: left;
+    width: 50%;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 1px solid #DDD;
+}
+
+@media screen and (max-width:768px) {
+    form#wpd-ecommerce-login {
+        margin: 0 0 12px 0;
+        width: 100%;
+    }
+}

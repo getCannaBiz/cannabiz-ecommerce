@@ -59,24 +59,54 @@ body.post-type-wpd_orders #post-body-content {
     margin-bottom: 0;
 }
 
-.order-details-box {
+.order-details-box,
+.order-item-details-box {
     position: relative;
     float: left;
     width: 31.333%;
-    margin-right: 2%;
+    margin-left: 2%;
     margin-bottom: 12px;
 }
 
+.order-item-details-box.first {
+    margin-left: 0%;
+    width: 31.333%;
+}
+
+#post-body.columns-2 #postbox-container-1 .order-details-box,
+#post-body.columns-2 #postbox-container-1 .order-item-details-box {
+    margin-left: 0;
+    width: 100%;
+}
+
 @media screen and (max-width: 767px) {
-    .order-details-box {
+    .order-details-box,
+    .order-item-details-box,
+    .order-item-details-box.first {
         width: 100%;
-        margin-right: 0;
+        margin-left: 0;
         margin-bottom: 0;
     }
 }
 
 .order-details-box.wide-box {
     width: 100%;
-    margin-right: 0;
+    margin-left: 0;
     margin-top: 12px;
+}
+
+/** Order and customer details metaboxes */
+div#wpd_ecommerce_order_item_details .inside,
+div#wpd_ecommerce_order_patient_details .inside,
+div#wpd_ecommerce_order_status .inside {
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+/** Order total */
+.order-item-details-box.first h3 {
+    margin-top: 6px;
+    margin-bottom: 0;
 }

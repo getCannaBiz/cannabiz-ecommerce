@@ -32,6 +32,7 @@ define( 'CURRENCY', wpd_currency_code() );
 
 // Includes for Helper Functions.
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
 
 // Includes for Classes.
 include_once( dirname(__FILE__).'/classes/class-cart.php' );
@@ -305,7 +306,16 @@ function wpd_ecommerce_notifications() {
  * Custom Templates
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
-    if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_post_type_templates', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
+
+	/**
+	 * @todo add Orders template (single-order/archive-orders)
+	 * 
+	 * This will make the front end display the order details
+	 * Also, checking to make sure they're administrator or attached customer ID
+	 */
+
+	 // WP Dispensary products.
+	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_post_type_templates', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin

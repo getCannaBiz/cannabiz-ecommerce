@@ -52,7 +52,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id}", ARRAY_A );
 
     $str  = '<table class="wpd-ecommerce">';
-    $str .= '<thead><tr><td></td><td>Product</td><td>Price</td><td>Quantity</td><td>Total</td></tr></thead>';
+    $str .= '<thead><tr><td></td><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr></thead>';
     $str .= '<tbody>';
 
     // Loop through each product in the database.

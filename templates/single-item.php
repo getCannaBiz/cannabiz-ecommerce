@@ -116,7 +116,7 @@ get_header(); ?>
                             print( '</select>' );
 
                             $weight_gram      = get_post_meta( get_the_ID(), '_gram', true );
-                            $weight_twograms  = get_post_meta( get_the_ID(), '_grams', true );
+                            $weight_twograms  = get_post_meta( get_the_ID(), '_twograms', true );
                             $weight_eighth    = get_post_meta( get_the_ID(), '_eighth', true );
                             $weight_fivegrams = get_post_meta( get_the_ID(), '_fivegrams', true );
                             $weight_quarter   = get_post_meta( get_the_ID(), '_quarter', true );
