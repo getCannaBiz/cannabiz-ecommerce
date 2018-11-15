@@ -12,11 +12,8 @@ get_header(); ?>
              * @todo add this to an action hook
              * @todo replace this with the action hook
              */
-            if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
-                echo "<div class='wpd-ecommerce-single-notifications'>";
-                echo wpd_ecommerce_notifications();
-                echo "</div>";
-            } ?>
+            echo wpd_ecommerce_notifications();
+            ?>
             <div class="entry-header wpd-ecommerce-shelfItem">
                 <div class="image-wrapper">
                 <?php

@@ -13,6 +13,23 @@ if ( is_user_logged_in() ) {
     $order_items       = get_post_meta( get_the_ID(), 'wpd_order_items', true );
     $status_names      = wpd_ecommerce_get_order_statuses();
     $status            = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
+    $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
+
+    if ( $user->ID != $order_customer_id && 'administrator' === $role[0] ) {
+        // Administrators who are NOT the customer
+    } elseif ( $user->ID === $order_customer_id && 'administrator' === $role[0] ) {
+        // Administrators who ARE the customer
+    } elseif ( $user->ID != $order_customer_id && 'patient' === $role[0] ) {
+        // Patients who are ARE NOT the customer.
+        wp_redirect( home_url() . '/account/' );
+    } elseif ( $user->ID == $order_customer_id ) {
+        // If current user IS the customer.
+    } else {
+        // If not patient or admin, redirect to account page.
+        if ( 'patient' != $role[0] && 'administrator' != $role[0] ) {
+            wp_redirect( home_url() . '/account/' );
+        }
+    }
 ?>
 
 <div id="primary" class="col-lg-8 content-area">
@@ -20,7 +37,7 @@ if ( is_user_logged_in() ) {
         <?php while ( have_posts() ) : the_post(); ?>
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <header class="entry-header">
-                <h1 class="item_name"><?php the_title(); ?> <span class='wpd-ecommerce order-status<?php echo ' ' . $status; ?>'><?php echo $status_names[$status]; ?></span></h1>
+                <h1 class="item_name"><?php the_title(); ?><?php echo $status_display; ?></h1>
             </header>
             <div class="entry-content order-details">
                 <?php

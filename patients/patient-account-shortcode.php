@@ -100,8 +100,8 @@ function wpd_patient_account_shortcode() {
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
 
 				<?php
-					$user = wp_get_current_user();
-					$role = ( array ) $user->roles;
+					$user   = wp_get_current_user();
+					$role   = ( array ) $user->roles;
 
 					// If user is administrator.
 					if ( 'administrator' === $role[0] ) {
@@ -212,9 +212,10 @@ function wpd_patient_account_shortcode() {
 					<?php
 					while ( $the_query->have_posts() ) : $the_query->the_post();
 
-					$total        = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
-					$status_names = wpd_ecommerce_get_order_statuses();
-					$status       = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
+					$total          = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
+					$status_names   = wpd_ecommerce_get_order_statuses();
+					$status         = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
+					$status_display = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
 
 					if ( empty( $status ) ) {
 						$status = 'wpd-pending';
@@ -222,7 +223,7 @@ function wpd_patient_account_shortcode() {
 
 					$table .= "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
-						<td> " . get_the_date() . "<td><span class='status " . $status . "'>" . $status_names[$status] . "</span></td>
+						<td> " . get_the_date() . "<td>" . $status_display . "</td>
 						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
 						<td><a href='' class='button'>Reorder</a>
 					</tr>";

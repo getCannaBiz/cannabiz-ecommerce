@@ -679,7 +679,7 @@ body.single-wpd_orders .entry-header h1 {
 
 /** Orders page - front end order display - status */
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status {
+body.single-wpd_orders .entry-header h1 span.status {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 16px;
@@ -693,7 +693,7 @@ body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status {
     box-sizing: border-box;
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status:before {
+body.single-wpd_orders .entry-header h1 span.status:before {
     color: #AAA;
     font-family: FontAwesome;
     font-size: 16px;
@@ -702,36 +702,36 @@ body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status:before {
     -webkit-font-smoothing: antialiased;
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-completed {
+body.single-wpd_orders .entry-header h1 span.status.wpd-completed {
     color: #76BD1D;
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-completed:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-completed:before {
     content: "\f058";
     color: #76BD1D;
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-pending:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-pending:before {
     content: "\f017";
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-processing:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-processing:before {
     content: "\f110";
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-on-hold:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-on-hold:before {
     content: "\f256";
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-cancelled:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-cancelled:before {
     content: "\f05e";
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-refunded:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-refunded:before {
     content: "\f119";
 }
 
-body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-failed:before {
+body.single-wpd_orders .entry-header h1 span.status.wpd-failed:before {
     content: "\f00d";
 }
 

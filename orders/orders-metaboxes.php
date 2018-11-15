@@ -47,11 +47,11 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '<p><strong>' . __( 'Status', 'wpd-ecommerce' ) . ':</strong></p>';
 
 	// Get array of order statuses.
-	$statuses = wpd_ecommerce_get_order_statuses();
+	$status_names = wpd_ecommerce_get_order_statuses();
 
-	if ( $statuses ) {
+	if ( $status_names ) {
 		print( '<select name="wpd_order_status" id="wpd_order_status" class="widefat">' );
-		foreach ( $statuses as $key=>$value ) {
+		foreach ( $status_names as $key=>$value ) {
 			if ( esc_html( $key ) != $order_status ) {
 				$order_status_selected = '';
 			} else {

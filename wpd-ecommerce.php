@@ -31,6 +31,7 @@ define( 'VAT', 0.16 );
 define( 'CURRENCY', wpd_currency_code() );
 
 // Includes for Helper Functions.
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
 
@@ -170,9 +171,9 @@ function wpd_ecommerce_load_session() {
 		$_SESSION = null;
 	}
 	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( !$_SESSION ) ) {
-		session_start([
+		session_start( [
 			'cookie_lifetime' => 86400,
-		]);
+		] );
 	}
 }
 wpd_ecommerce_load_session();
@@ -278,25 +279,6 @@ function wpd_ecommerce_box_filter( $content ) {
 }
 //add_filter( 'the_content', 'wpd_ecommerce_box_filter' );
 
-/**
- * Cart Notifications
- */
-function wpd_ecommerce_notifications() {
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
-
-		// Check if cart widget is active.
-		if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
-			$view_cart_button = '<a href="' . get_bloginfo( 'url' ) . '/cart" class="button">View Cart</a>';
-		} else {
-			$view_cart_button = '';
-		}
-
-		$str  = '';
-		$str .= '<div class="wpd-ecommerce-notifications success">This product has been successfully added to your cart ' . $view_cart_button . '<a href="' . get_bloginfo( 'url' ) . '/dispensary-menu" class="button">Continue Shopping</a></div>';
-	}
-	return $str;
-}
-//add_filter( 'the_content', 'wpd_ecommerce_notifications' );
 
 /**
  * Custom Templates

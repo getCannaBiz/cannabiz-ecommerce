@@ -85,7 +85,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
 }
 
 /**
- * Update messages for Orders.
+ * Customize the filter for orders updated messages.
  * 
  * @since 1.0
  */
@@ -109,3 +109,62 @@ function wpd_ecommerce_order_updated_messages( $messages ) {
     return $messages;
 }
 add_filter( 'post_updated_messages', 'wpd_ecommerce_order_updated_messages' );
+
+/**
+ * Display order statuses in a variety of ways
+ * 
+ * If passing 'span' to $display, make sure to add an $order_id
+ * 
+ * @since 1.0
+ * @return string
+ */
+function wpd_ecommerce_order_statuses( $order_id, $display = NULL, $classes = NULL ) {
+
+    // Order ID.
+    if ( NULL == $order_id ) {
+        //$order_id = $post->ID;
+    }
+
+    $wpd_order_status = get_post_meta( $order_id, 'wpd_order_status', TRUE );
+    $status_names     = wpd_ecommerce_get_order_statuses();
+    //$classes          = '';
+
+    // Default style.
+    if ( NULL === $display ) {
+        $display = 'span'; /** @todo add filter here so themes/plugins can auto-change default for any order status without a display. */
+    }
+
+    /**
+     * Span style.
+     * 
+     * @since 1.0
+     * @return string
+     */
+    if ( 'span' === $display ) {
+        $str = "<span class='wpd-ecommerce status" . " " . $wpd_order_status . "'>" . $status_names[$wpd_order_status] . "</span>";
+        return $str;
+    }
+
+    /**
+     * Select style.
+     * 
+     * @since 1.0
+     * @return string
+     */
+    if ( 'select' === $display ) {
+        if ( $status_names ) {
+            $str .= '<select name="wpd_order_status classes' . $classes . '" id="wpd_order_status" class="widefat">';
+            foreach ( $status_names as $key=>$value ) {
+                if ( esc_html( $key ) != $wpd_order_status ) {
+                    $order_status_selected = '';
+                } else {
+                    $order_status_selected = 'selected="selected"';
+                }
+                $str .= '<option value="' . esc_html( $key ) .'" ' . esc_html( $order_status_selected ) . '>' . esc_html( $value ) .'</option>';
+            }
+            $str .= '</select>';
+        }
+        return $str;
+    }
+
+}
