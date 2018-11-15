@@ -21,6 +21,9 @@ function wpd_patient_account_shortcode() {
 		echo "</div>";
 
 	} else {
+		/**
+		 * @todo move this to another helper function so it's cleaner here
+		 */
 		/* If account details were saved, update patient account. */
 		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
 
@@ -77,100 +80,267 @@ function wpd_patient_account_shortcode() {
 		}
 		?>
 
-		<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
+		<div class="wpd-ecommerce patient-account">
+			<input class="account-links" id="tab1" type="radio" name="tabs" checked>
+			<label class="account-links" for="tab1">Dashboard</label>
 
-			<h3 class='wpd-ecommerce patient-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
+			<input class="account-links" id="tab2" type="radio" name="tabs">
+			<label class="account-links" for="tab2">Orders</label>
 
-			<?php
-			/**
-			 * @todo add action_hook here
-			 */
-			?>
-			<p class="form-row first form-first-name">
-				<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-				<input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
-			</p><!-- .form-first-name -->
-			<p class="form-row last form-last-name">
-				<label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-				<input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
-			</p><!-- .form-last-name -->
+			<input class="account-links" id="tab3" type="radio" name="tabs">
+			<label class="account-links" for="tab3">Details</label>
 
-			<p class="form-row form-email">
-				<label for="email"><?php _e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-				<input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
-			</p><!-- .form-email -->
+	<!--
+			<input class="account-links" id="tab4" type="radio" name="tabs">
+			<label class="account-links" for="tab4">Another One</label>
+	-->
 
-			<p class="form-row form-phone-number">
-				<label for="email"><?php _e( 'Phone number', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
-			</p><!-- .form-phone-number -->
+			<section id="content1">
 
-			<p class="form-row form-address-line-1">
-				<label for="email"><?php _e( 'Address line 1', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" />
-			</p><!-- .form-address-line-1 -->
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
 
-			<p class="form-row form-address-line-2">
-				<label for="email"><?php _e( 'Address line 2', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" />
-			</p><!-- .form-address-line-2 -->
+				<?php
+					$user = wp_get_current_user();
+					$role = ( array ) $user->roles;
 
-			<p class="form-row form-city">
-				<label for="email"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
-			</p><!-- .form-city -->
+					// If user is administrator.
+					if ( 'administrator' === $role[0] ) {
 
-			<p class="form-row form-state-county">
-				<label for="email"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="state-county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
-			</p><!-- .form-state-county -->
+						$today = getdate();
 
-			<p class="form-row form-postcode-zip">
-				<label for="email"><?php _e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
-			</p><!-- .form-postcode-zip -->
+						// Daily orders.
+						$date_query_daily = array(
+							array(
+								'year'  => $today['year'],
+								'month' => $today['mon'],
+								'day'   => $today['mday'],
+							),
+						);
 
-			<p class="form-row form-country">
-				<label for="email"><?php _e( 'Country', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="country" type="text" id="country" value="<?php the_author_meta( 'country', $current_user->ID ); ?>" />
-			</p><!-- .form-phone-country -->
+						$date_query_yesterday = date( 'd', strtotime("-1 days") );
 
-			<?php
-			/**
-			 * @todo add action_hook here
-			 */
-			?>
+						// Weekly orders.
+						$date_query_weekly = array(
+							array(
+								'year' => date( 'Y' ),
+								'week' => date( 'W' ),
+							),
+						);
 
-			<h3 class='wpd-ecommerce patient-title'><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
+						$args = array(
+							'nopaging'    => TRUE,
+							'post_status' => 'publish',
+							'post_type'   => 'wpd_orders',
+							'order'       => 'ASC',
+							'date_query'  => $date_query_weekly,
+							'meta_query'  => array(
+								array(
+									'key' => 'wpd_order_total_price',
+								),
+							),
+						);
+						$the_query = new WP_Query( $args );
+						?>
 
-			<?php
-			/**
-			 * @todo add action_hook here
-			 */
-			?>
+						<?php
+						if ( $the_query->have_posts() ) :
+							while ( $the_query->have_posts() ) : $the_query->the_post();
+								// Add item's total price to the total_earnings array.
+								$total_earnings[] = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
+							endwhile;
+							wp_reset_postdata();
+						else : endif;
+						
+						/*
+						echo "<pre>";
+						print_r( $total_earnings );
+						echo "</pre>";
+						*/
 
-			<p class="form-row form-first form-password">
-				<label for="pass1"><?php _e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
-				<input class="text-input" name="pass1" type="password" id="pass1" />
-			</p><!-- .form-password -->
-			<p class="form-row form-last form-password">
-				<label for="pass2"><?php _e( 'Repeat Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></label>
-				<input class="text-input" name="pass2" type="password" id="pass2" />
-			</p><!-- .form-password -->
+						$order_count   = $the_query->post_count;
+						$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
+						$total_final   = array_sum( $total_earnings );
 
-			<p class="form-submit">
-				<input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e( 'Update', 'wpd-ecommerce' ); ?>" />
-				<?php wp_nonce_field( 'update-user' ) ?>
-				<input name="action" type="hidden" id="action" value="update-user" />
-			</p><!-- .form-submit -->
+						echo "<div class='wpd-ecommerce account-administrator patients'>" . $patient_count . "<span>Patients</span></div>";
+						echo "<div class='wpd-ecommerce account-administrator orders'>" . $order_count . "<span>Orders</span></div>";
+						echo "<div class='wpd-ecommerce account-administrator earnings'>" . CURRENCY . number_format((float)$total_final, 2, '.', ',' ) . "<span>This Week</span></div>";
+					}
+				?>
 
-			<?php
-			/**
-			 * @todo add action_hook here
-			 */
-			?>
+				<?php
 
-		</form><!-- #patients -->
+					// Patient name based on specific profile info.
+					if ( '' !== $user->first_name && '' !== $user->last_name ) {
+						$patient_name = $user->first_name . '  ' . $user->last_name;
+					} elseif ( '' !== $user->display_name ) {
+						$patient_name = $user->display_name;
+					} else {
+						$patient_name = $user->user_nicename;
+					}
+				?>
+				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url(); ?>">Log out</a>)</p>
+				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+			</section>
+
+			<section id="content2">
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Order history', 'wpd-ecommerce' ); ?></h3>
+				<table class="wpd-ecommerce patient-orders">
+					<thead>
+						<td>ID</td>
+						<td>Date</td>
+						<td>Status</td>
+						<td>Total</td>
+						<td>Action</td>
+					</thead>
+					<tbody>
+					<?php
+						$user = wp_get_current_user();
+						$args = array(
+							'post_type'  => 'wpd_orders',
+							'meta_query' => array(
+								array(
+									'key'   => 'wpd_order_customer_id',
+									'value' => $user->ID,
+								),
+							),
+						);
+						$the_query = new WP_Query( $args );
+					?>
+					<?php if ( $the_query->have_posts() ) : ?>
+				
+					<!-- the loop -->
+					<?php
+					while ( $the_query->have_posts() ) : $the_query->the_post();
+
+					$total        = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
+					$status_names = wpd_ecommerce_get_order_statuses();
+					$status       = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
+
+					if ( empty( $status ) ) {
+						$status = 'wpd-pending';
+					}
+
+					$table .= "<tr>
+						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
+						<td> " . get_the_date() . "<td><span class='status " . $status . "'>" . $status_names[$status] . "</span></td>
+						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
+						<td><a href='' class='button'>Reorder</a>
+					</tr>";
+
+					endwhile;
+					endif;
+					?>
+					<!-- end of the loop -->
+
+					<?php wp_reset_postdata(); ?>
+
+					<?php echo $table; ?>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="content3">
+				<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
+
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
+
+				<?php
+				/**
+				 * @todo add action_hook here
+				 */
+				?>
+				<p class="form-row first form-first-name">
+					<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
+				</p><!-- .form-first-name -->
+				<p class="form-row last form-last-name">
+					<label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
+				</p><!-- .form-last-name -->
+
+				<p class="form-row form-email">
+					<label for="email"><?php _e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
+				</p><!-- .form-email -->
+
+				<p class="form-row form-phone-number">
+					<label for="email"><?php _e( 'Phone number', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
+				</p><!-- .form-phone-number -->
+
+				<p class="form-row form-address-line-1">
+					<label for="email"><?php _e( 'Address line 1', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" />
+				</p><!-- .form-address-line-1 -->
+
+				<p class="form-row form-address-line-2">
+					<label for="email"><?php _e( 'Address line 2', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" />
+				</p><!-- .form-address-line-2 -->
+
+				<p class="form-row form-city">
+					<label for="email"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
+				</p><!-- .form-city -->
+
+				<p class="form-row form-state-county">
+					<label for="email"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="state-county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
+				</p><!-- .form-state-county -->
+
+				<p class="form-row form-postcode-zip">
+					<label for="email"><?php _e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
+				</p><!-- .form-postcode-zip -->
+
+				<p class="form-row form-country">
+					<label for="email"><?php _e( 'Country', 'wpd-ecommerce' ); ?></label>
+					<input class="text-input" name="country" type="text" id="country" value="<?php the_author_meta( 'country', $current_user->ID ); ?>" />
+				</p><!-- .form-phone-country -->
+
+				<?php
+				/**
+				* @todo add action_hook here
+				*/
+				?>
+
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
+
+				<?php
+				/**
+				* @todo add action_hook here
+				*/
+				?>
+
+				<p class="form-row form-first form-password">
+					<label for="pass1"><?php _e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
+					<input class="text-input" name="pass1" type="password" id="pass1" />
+				</p><!-- .form-password -->
+				<p class="form-row form-last form-password">
+					<label for="pass2"><?php _e( 'Repeat Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
+					<input class="text-input" name="pass2" type="password" id="pass2" />
+				</p><!-- .form-password -->
+
+				<p class="form-submit">
+					<input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e( 'Update', 'wpd-ecommerce' ); ?>" />
+					<?php wp_nonce_field( 'update-user' ) ?>
+					<input name="action" type="hidden" id="action" value="update-user" />
+				</p><!-- .form-submit -->
+				<?php
+				/**
+				* @todo add action_hook here
+				*/
+				?>
+				</form><!-- #patients -->
+			</section>
+	<!--
+			<section id="content4">
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Another one', 'wpd-ecommerce' ); ?></h3>
+				<p>This will probably end up being a "Drivers" tab for delivery drivers, or "Inventory" tab for administrators.</p>
+			</section>
+	-->
+		</div>
+
 	<?php
 	}
 }

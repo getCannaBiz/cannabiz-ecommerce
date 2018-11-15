@@ -233,7 +233,7 @@ get_header(); ?>
                     /**
                      * Add Items to Cart
                      */
-                    if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
+                    if ( is_singular( 'flowers' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_flowers_prices'] ) {
                         $qtty = $_POST['qtty'];
 
                         /**
@@ -253,7 +253,7 @@ get_header(); ?>
                          */
                         add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
-                    } elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+                    } elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_concentrates_prices'] ) {
                         $qtty = $_POST['qtty'];
 
                         /**
@@ -273,7 +273,7 @@ get_header(); ?>
                          */
                         add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
-                    } elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+                    } elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_product_prices'] ) {
                         $qtty = $_POST['qtty'];
 
                         /**
@@ -295,7 +295,10 @@ get_header(); ?>
 
                         // ID.
                         $old_id = $post->ID;
-                        if ( empty( $new_price ) ) {
+
+                        // Setup ID if SOMETHING is not done.
+                        // This is where the check for adding to cart should come into play.
+                        if ( empty( $new_id ) ) {
                             if ( 'topicals' === get_post_type() ) {
                                 $new_id = $post->ID . '_pricetopical';
                             } else {
@@ -305,20 +308,44 @@ get_header(); ?>
                             $new_id = $post->ID . $wpd_product_meta_key;
                         }
 
-
                         // Pricing.
-                        $new_price = $_POST['wpd_ecommerce_product_prices'];
+                        $new_price           = $_POST['wpd_ecommerce_product_prices'];
+                        $concentrates_prices = $_POST['wpd_ecommerce_concentrates_prices'];
+
                         if ( empty( $new_price ) ) {
                             if ( 'topicals' === get_post_type() ) {
-                                $old_price = get_post_meta( $old_id, '_pricetopical', true );
-                            } else {
-                                $old_price = get_post_meta( $old_id, '_priceeach', true );
+
+                                $old_price    = get_post_meta( $old_id, '_pricetopical', true );
+                                $single_price = get_post_meta( $old_id, '_pricetopical', true );
+                                $pack_price   = get_post_meta( $old_id, '_priceperpack', true );
+
+                                var_dump( $new_price );
+                                echo "...<br />...";
+                                print_r( $new_price );
+
+                                if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
+                                    add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                                }
+
+                            } elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+
+                                $single_price = get_post_meta( $old_id, '_priceeach', true );
+                                $pack_price   = get_post_meta( $old_id, '_priceperpack', true );
+
+                                var_dump( $new_price );
+                                echo "...<br />...";
+                                print_r( $new_price );
+
+                                if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
+                                    add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                                }
+
                             }
                         } else {
                             $old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
+                            // add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
                         }
- 
-                        add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+
                     } else {
                         $qtty = 1;
                     }

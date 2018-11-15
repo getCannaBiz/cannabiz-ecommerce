@@ -178,6 +178,7 @@ h3.wpd-ecommerce.patient-title {
 .wpd-ecommerce-notifications {
     background-color: #f8f8f8;
     color: #454545;
+    font-size: 13px;
 	line-height: 33px;
     list-style: none outside;
     margin: 0;
@@ -188,17 +189,22 @@ h3.wpd-ecommerce.patient-title {
 }
 
 .wpd-ecommerce-notifications.success {
-    background-color: #76BD1D;
-    color: #FFF;
+    margin-bottom: 0;
 }
 
-.wpd-ecommerce-notifications.error {
-    background-color: red;
-    color: #FFF;
+.wpd-ecommerce-notifications.success:before {
+    color: #76bd1d;
+    content: "\f058";
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-right: 6px;
+    -webkit-font-smoothing: antialiased;
 }
 
 .wpd-ecommerce-notifications a.button {
     float: right;
+    font-size: 14px !important;
+    margin-left: 5px;
     padding: 7px 15px;
 }
 
@@ -445,4 +451,372 @@ form#wpd-ecommerce-login {
 /** Login form button */
 form#wpd-ecommerce-login input#wp-submit {
     padding: 12px 24px;
+}
+
+/** Account page tabs */
+
+div.wpd-ecommerce.patient-account section {
+    display: none;
+    padding: 20px 0 0;
+    border-top: 1px solid #76bd1d;
+}
+
+div.wpd-ecommerce.patient-account input.account-links {
+    display: none;
+}
+
+div.wpd-ecommerce.patient-account label.account-links {
+    display: inline-block;
+    margin: 0 0 -1px;
+    padding: 10px 15px;
+    font-weight: 600;
+    text-align: center;
+    color: #AAA;
+    border: 1px solid transparent;
+}
+
+div.wpd-ecommerce.patient-account label.account-links:before {
+    font-family: fontawesome;
+    font-weight: normal;
+    margin-right: 10px;
+}
+
+div.wpd-ecommerce.patient-account label.account-links[for*='1']:before { content: "\f015"; }
+div.wpd-ecommerce.patient-account label.account-links[for*='2']:before { content: "\f0d6"; }
+div.wpd-ecommerce.patient-account label.account-links[for*='3']:before { content: "\f007"; }
+div.wpd-ecommerce.patient-account label.account-links[for*='4']:before { content: "\f138"; }
+
+div.wpd-ecommerce.patient-account label.account-links:hover {
+    color: #76bd1d;
+    cursor: pointer;
+}
+
+div.wpd-ecommerce.patient-account input.account-links:checked + label.account-links {
+    color: #76bd1d;
+    border: 1px solid #76bd1d;
+    border-top: 2px solid #76bd1d;
+    border-bottom: 1px solid #fff;
+}
+
+div.wpd-ecommerce.patient-account #tab1:checked ~ #content1,
+div.wpd-ecommerce.patient-account #tab2:checked ~ #content2,
+div.wpd-ecommerce.patient-account #tab3:checked ~ #content3,
+div.wpd-ecommerce.patient-account #tab4:checked ~ #content4 {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    div.wpd-ecommerce.patient-account label.account-links {
+        font-size: 0;
+    }
+    div.wpd-ecommerce.patient-account label.account-links:before {
+        margin: 0;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    div.wpd-ecommerce.patient-account label.account-links {
+        padding: 15px;
+    }
+}
+
+.wpd-ecommerce.patient-account h3.wpd-ecommerce.patient-title {
+    margin-top: 12px;
+}
+
+/** Account page - orders table */
+
+table.wpd-ecommerce.patient-orders {
+    font-size: 14px;
+}
+
+table.wpd-ecommerce.patient-orders tbody tr td:first-child {
+    padding-right: 0;
+    text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+    table.wpd-ecommerce.patient-orders tr td:last-child {
+        max-width: 80px;
+    }
+}
+
+@media screen and (max-width:768px) {
+    table.wpd-ecommerce tr td:nth-child(2) {
+        max-width: 80px;
+        font-size:13px;
+    }
+    table.wpd-ecommerce.patient-orders tbody td a.button {
+        padding: 10px 5px !important;
+    }
+}
+
+/** Account page - orders table button */
+
+table.wpd-ecommerce.patient-orders tbody td a.button {
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+/** Account page - orders table status */
+
+table.wpd-ecommerce.patient-orders tbody td span.status {
+    text-align: left;
+    display: block;
+    padding: 10px 0;
+    font-size: 13px;
+    border-radius: 3px;
+}
+
+/** Account page - order table statuses */
+
+table.wpd-ecommerce.patient-orders tbody td span.status:before {
+    color: #454545;
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-right: 6px;
+    padding-right: 2px;
+    -webkit-font-smoothing: antialiased;
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-pending:before {
+    content: "\f017";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-processing:before {
+    content: "\f110";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-on-hold:before {
+    content: "\f256";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-completed:before {
+    content: "\f058";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-cancelled:before {
+    content: "\f05e";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-refunded:before {
+    content: "\f119";
+}
+
+table.wpd-ecommerce.patient-orders tbody td span.status.wpd-failed:before {
+    content: "\f00d";
+}
+
+/** Account page - Administrators */
+
+.wpd-ecommerce.account-administrator.earnings {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: #71BD1D;
+    color: #FFF;
+    float: left;
+    font-size: 24px;
+    margin-left: 2%;
+    margin-bottom: 24px;
+    padding: 20px;
+    text-align: center;
+    width: 48%;
+}
+
+.wpd-ecommerce.account-administrator.earnings span {
+    display: block;
+    font-size: 16px;
+}
+
+.wpd-ecommerce.account-administrator.orders {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: #DDD;
+    color: #454545;
+    float: left;
+    font-size: 24px;
+    margin-left: 0;
+    margin-bottom: 24px;
+    padding: 20px;
+    text-align: center;
+    width: 24%;
+}
+
+.wpd-ecommerce.account-administrator.orders span {
+    display: block;
+    font-size: 16px;
+}
+
+.wpd-ecommerce.account-administrator.patients {
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: #DDD;
+    color: #454545;
+    float: left;
+    font-size: 24px;
+    margin-right: 2%;
+    margin-bottom: 24px;
+    padding: 20px;
+    text-align: center;
+    width: 24%;
+}
+
+.wpd-ecommerce.account-administrator.patients span {
+    display: block;
+    font-size: 16px;
+}
+
+body.single-wpd_orders .entry-header {
+    text-align: left;
+}
+
+body.single-wpd_orders .entry-header h1 {
+    position: relative;
+}
+
+/** Orders page - front end order display - status */
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 10px 0;
+    top: 6px;
+    position: absolute;
+    border-radius: 3px;
+    color: #AAA;
+    margin-left: 24px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status:before {
+    color: #AAA;
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-right: 6px;
+    padding-right: 2px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-completed {
+    color: #76BD1D;
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-completed:before {
+    content: "\f058";
+    color: #76BD1D;
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-pending:before {
+    content: "\f017";
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-processing:before {
+    content: "\f110";
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-on-hold:before {
+    content: "\f256";
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-cancelled:before {
+    content: "\f05e";
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-refunded:before {
+    content: "\f119";
+}
+
+body.single-wpd_orders .entry-header h1 span.wpd-ecommerce.order-status.wpd-failed:before {
+    content: "\f00d";
+}
+
+body.single-wpd_orders .entry-content.order-details .patient-address {
+    float: left;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+body.single-wpd_orders .entry-content.order-details .patient-contact {
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+body.single-wpd_orders .entry-content.order-details .patient-contact a.email-address:before {
+    content: "\f0e0";
+    margin-right: 6px;
+}
+
+body.single-wpd_orders .entry-content.order-details .patient-contact a.phone-number:before {
+    content: "\f3cd";
+    margin-right: 6px;
+}
+
+body.single-wpd_orders .entry-content.order-details .order-info {
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+@media screen and (max-width:768px) {
+    body.single-wpd_orders .entry-content.order-details .patient-address,
+    body.single-wpd_orders .entry-content.order-details .patient-contact,
+    body.single-wpd_orders .entry-content.order-details .order-info {
+        width: 100%;
+        margin: 0 0 24px 0;
+    }
+}
+
+/** Order complete page */
+
+.entry-content .wpd-ecommerce.order-complete {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+
+.entry-content .wpd-ecommerce.order-complete .patient-address {
+    float: left;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+.entry-content .wpd-ecommerce.order-complete .patient-contact {
+    float: left;
+    margin-left: 2%;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+.entry-content .wpd-ecommerce.order-complete .patient-contact a.email-address:before {
+    content: "\f0e0";
+    margin-right: 6px;
+}
+
+.entry-content .wpd-ecommerce.order-complete .patient-contact a.phone-number:before {
+    content: "\f3cd";
+    margin-right: 6px;
+}
+
+.entry-content .wpd-ecommerce.order-complete .order-info {
+    float: left;
+    margin-right: 2%;
+    margin-bottom: 24px;
+    width: 31.333%;
+}
+
+@media screen and (max-width:768px) {
+    .entry-content .wpd-ecommerce.order-complete .patient-address,
+    .entry-content .wpd-ecommerce.order-complete .patient-contact,
+    .entry-content .wpd-ecommerce.order-complete .order-info {
+        width: 100%;
+        margin: 0 0 24px 0;
+    }
 }

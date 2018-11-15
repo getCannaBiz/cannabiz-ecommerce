@@ -110,3 +110,10 @@ div#wpd_ecommerce_order_status .inside {
     margin-top: 6px;
     margin-bottom: 0;
 }
+
+/** Order details h2 title removal */
+
+div#wpd_ecommerce_order_item_details h2.ui-sortable-handle,
+div#wpd_ecommerce_order_item_details button.handlediv {
+    display: none;
+}

@@ -9,7 +9,7 @@ function wpd_ecommerce_checkout_shortcode() {
         $error = array();
 
         /* If checkout is submitted, do something specific . */
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
+        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
 
             /** Update Email Address */
             if ( ! empty( $_POST['email'] ) ) {
@@ -289,6 +289,9 @@ function wpd_ecommerce_checkout_success() {
     $str .= '</thead>';
     $str .= '<tbody>';
 
+    /**
+     * Loop through each item in the cart
+     */
     foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
         $i             = new Item( $id, '', '', '' );
         $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
@@ -398,13 +401,15 @@ function wpd_ecommerce_checkout_success() {
         $total_price = $amount * $regular_price;
 
         // Order name.
-        $order_item_name = $i->title . $weightname;
+        $order_item_name = $i->title . ' - ' . $weightname;
 
         // Add order details to array.
-        $wpd_orders_data[$i->id] = $order_item_name;
+        $wpd_orders_data[] = array(
+            $i->id => $order_item_name
+        );
 
         // Get cart item data.
-        $array_insert[] = array(
+        $orders_meta_insert[] = array(
             'order_item_id'        => $i->id,
             'order_item_name'      => $i->title,
             'item_id'              => $item_old_id,
@@ -415,8 +420,11 @@ function wpd_ecommerce_checkout_success() {
             'item_variation_name'  => $weightname,
             'quantity'             => $amount,
             'single_price'         => $regular_price,
-            'total_price'          => $total_price,
+            'total_price'          => $total_price
         );
+
+        // Add item quantity to array.
+        $total_items[] = $amount;
 
         $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
@@ -425,7 +433,20 @@ function wpd_ecommerce_checkout_success() {
     $str .= "</tbody>";
     $str .= "</table>";
 
-    // Create order object.
+    // Total price.
+    $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+
+    // Create orders array.
+    $orders_insert   = array();
+    $orders_insert[] = array(
+        'order_subtotal' => number_format((float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ),
+        'order_total'    => number_format((float)$total_price, 2, '.', ',' ),
+        'order_items'    => array_sum( $total_items )
+    );
+
+    /**
+     * Create new ORDER in WordPress
+     */
     $wpd_order = array(
         'post_type'   => 'wpd_orders',
         'post_status' => 'publish',
@@ -434,11 +455,15 @@ function wpd_ecommerce_checkout_success() {
         'meta_input'  => array(
             'wpd_order_details'          => $str, // @todo get this to save all product data correctly when saving the order.
             'wpd_order_customer_details' => $customer_details,
-            'wpd_order_customer_id'      => $customer_id
+            'wpd_order_customer_id'      => $customer_id,
+            'wpd_order_status'           => 'wpd-processing',
+            'wpd_order_total_price'      => number_format((float)$total_price, 2, '.', ',' ),
+            'wpd_order_subtotal_price'   => number_format((float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ),
+            'wpd_order_items'            => array_sum( $total_items )
         ),
     );
 
-    // Insert the order into the database.
+    // Insert the order into WordPress.
     $wpd_order_id = wp_insert_post( $wpd_order );
 
     global $wpdb;
@@ -448,38 +473,66 @@ function wpd_ecommerce_checkout_success() {
      *
      * @since 1.0.0
      */
-    foreach ( $wpd_orders_data as $id=>$name ) {
+
+    // Get orders data.
+    $orders_data    = array_values( $wpd_orders_data );
+    $orders_details = array_values( $orders_insert );
+
+    $od = -1;
+
+    // loop through cart.
+    foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
+        $od++;
+
+        // Loop through order items.
+        foreach ( $orders_data[$od] as $id=>$name ) {
+            // Insert data into database.
+            $wpdb->insert( $wpdb->prefix . 'wpd_orders', array(
+                'order_id'    => $wpd_order_id,
+                'order_type'  => 'product',
+                'order_key'   => $id,
+                'order_value' => $name,
+            ) );
+        }
+
+    endforeach;
+
+    // Get order details.
+    foreach ( $orders_details[0] as $id=>$name ) {
         $wpdb->insert( $wpdb->prefix . 'wpd_orders', array(
-            'order_item_id'   => $id,
-            'order_item_name' => $name,
-            'order_id'        => $wpd_order_id,
-        ));
+            'order_id'    => $wpd_order_id,
+            'order_type'  => 'details',
+            'order_key'   => $id,
+            'order_value' => $name,
+        ) );
     }
 
     // Get row's from database with current $wpd_order_id.
-    $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$wpd_order_id}", ARRAY_A );
+    $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$wpd_order_id} AND order_type = 'product'", ARRAY_A );
+
+    $od++;
 
     /**
-     * Loop through each item in the order
+     * Add order meta to each order item in database
      */
     $i = -1;
+
     // Loop through each product in the database.
     foreach( $get_order_data as $order_value ) {
         $i++;
         $order_id_key = $order_value['item_id'];
-        $array        = array_values( $array_insert );
+        $array        = array_values( $orders_meta_insert );
 
         // Get key/value of each array result.
         foreach( $array[$i] as $key => $value ) {
-
             // Does this 4 times.
             $wpdb->insert( $wpdb->prefix . 'wpd_orders_meta', array(
                 'item_id'    => $order_id_key,
                 'meta_key'   => $key,
                 'meta_value' => $value,
             ));
-
         }
+    
     }
 
 

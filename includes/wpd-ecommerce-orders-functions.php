@@ -49,7 +49,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     global $wpdb;
 
     // Get row's from database with current $wpd_order_id.
-    $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id}", ARRAY_A );
+    $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'product'", ARRAY_A );
 
     $str  = '<table class="wpd-ecommerce">';
     $str .= '<thead><tr><td></td><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr></thead>';
@@ -83,3 +83,29 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
 
     return $str;
 }
+
+/**
+ * Update messages for Orders.
+ * 
+ * @since 1.0
+ */
+function wpd_ecommerce_order_updated_messages( $messages ) {
+    if ( 'wpd_orders' === get_post_type() ) {
+        $messages['post'] = array(
+            0 => '', // Unused. Messages start at index 1.
+            1 => sprintf( __( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post_ID ) ) ),
+            2 => __( 'Custom field updated.' ),
+            3 => __( 'Custom field deleted.' ),
+            4 => __( 'Order updated.' ),
+            5 => isset( $_GET['revision'] ) ? sprintf( __( 'Order restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+            6 => sprintf( __( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post_ID ) ) ),
+            7 => __( 'Order saved.' ),
+            8 => sprintf( __( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+            9 => sprintf( __( 'Order scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview order</a>' ),
+            date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
+            10 => sprintf( __( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+        );
+    }
+    return $messages;
+}
+add_filter( 'post_updated_messages', 'wpd_ecommerce_order_updated_messages' );

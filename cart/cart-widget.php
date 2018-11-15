@@ -191,7 +191,7 @@ class My_Cart_Widget extends WP_Widget {
 				/**
 				 * @todo make the Cart/Checkout links work with Settings option, and/or default
 				 */
-				$str .= "<p class='wpd-ecommerce-widget buttons'><a href='" . get_bloginfo( 'url' ) . "/cart' class='button'>View cart</a> <a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Checkout</a></p>";
+				$str .= "<p class='wpd-ecommerce-widget buttons'><a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Checkout</a></p>";
 
 				echo $str;
 

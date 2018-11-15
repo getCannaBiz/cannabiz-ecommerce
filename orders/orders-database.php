@@ -26,9 +26,10 @@ function wpd_ecommerce_orders_database_install() {
     // Orders Table SQL.
 	$orders_table_sql = "CREATE TABLE $order_table_name (
 		item_id mediumint(9) NOT NULL AUTO_INCREMENT,
-		order_item_id tinytext NOT NULL,
-		order_item_name tinytext NOT NULL,
 		order_id tinytext NOT NULL,
+		order_type tinytext NOT NULL,
+		order_key tinytext NOT NULL,
+		order_value tinytext NOT NULL,
 		PRIMARY KEY  (item_id)
     ) $charset_collate;";
 
@@ -58,7 +59,7 @@ function wpd_ecommerce_orders_database_install() {
  */
 function wpd_ecommerce_orders_add_order() {
 	global $wpdb;
-	
+
 	$welcome_name = 'Mr. WordPress';
 	$welcome_text = 'Congratulations, you just completed the installation!';
 	

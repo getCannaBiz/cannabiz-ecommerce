@@ -26,14 +26,17 @@ function wpd_ecommerce_order_item_details_build() {
 
 	$order_customer_id = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
 	$user_info         = get_userdata( $order_customer_id );
+	$order_subtotal    = get_post_meta( $post->ID, 'wpd_order_subtotal_price', true );
+	$order_total       = get_post_meta( $post->ID, 'wpd_order_total_price', true );
+	$order_items       = get_post_meta( $post->ID, 'wpd_order_items', true );
 
 	/** Noncename needed to verify where the data originated */
 	echo '<input type="hidden" name="wpd_ecommerce_order_item_details_meta_noncename" id="wpd_ecommerce_order_item_details_meta_noncename" value="' .
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	echo '<div class="order-item-details-box first">';
-	echo '<h1>Order #' . $post->ID . '</h1>';
-	echo '<h3>Total: $249.99</h3>';
+	echo '<h1>Order #' . $post->ID . ' details</h1>';
+	echo '<h3>Total: ' . CURRENCY . $order_total . '</h3>';
 	echo '</div>';
 
 	/** Get the data if its already been entered */
@@ -227,4 +230,4 @@ function wpd_ecommerce_save_order_patient_details( $post_id, $post ) {
 
 }
 
-add_action( 'save_post', 'wpd_ecommerce_save_patient_details', 1, 2 ); // Save the custom fields.
+add_action( 'save_post', 'wpd_ecommerce_save_order_patient_details', 1, 2 ); // Save the custom fields.
