@@ -9,14 +9,12 @@ function wpd_patient_account_shortcode() {
 	// Display login/register forms
 	if ( ! is_user_logged_in() ) {
 
+		echo wpd_ecommerce_notifications();
+
 		$args['form_id'] = 'wpd-ecommerce-login';
 
 		echo "<div class='wpd-ecommerce-login-form'>";
-
 		echo "<h3>Login</h3>";
-		if ( 'failed' === $_GET['login'] ) {
-			echo "<p class='wpd-ecommerce-notifications error'><strong>LOGIN FAILED DUMMY</strong></p>";
-		}
 		echo wp_login_form( $args );
 		echo "</div>";
 
@@ -150,12 +148,6 @@ function wpd_patient_account_shortcode() {
 							endwhile;
 							wp_reset_postdata();
 						else : endif;
-						
-						/*
-						echo "<pre>";
-						print_r( $total_earnings );
-						echo "</pre>";
-						*/
 
 						$order_count   = $the_query->post_count;
 						$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );

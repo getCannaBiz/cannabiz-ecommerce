@@ -26,12 +26,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Development mode.
 define( 'DEV', FALSE );
 
-// Define some things for the cart.
-define( 'VAT', 0.16 );
+/**
+ * @todo make these number filterable
+ * and customizable in settings by admin
+ */
+
+// Define sales tax.
+define( 'SALES_TAX', 0.06 );
+
+// Define excise tax.
+define( 'EXCISE_TAX', 0.10 );
+
+// Define currency code.
 define( 'CURRENCY', wpd_currency_code() );
 
 // Includes for Helper Functions.
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
 
@@ -62,12 +73,23 @@ function wpd_ecommerce_output_buffer() {
 }
 add_action( 'init', 'wpd_ecommerce_output_buffer' );
 
-// Add Patient User Role on Plugin Activation.
+/**
+ * @todo look over caps options for users and 
+ * set up the patient user role to work exactly how
+ * I want it and need it to
+ */
+
+ // Add Patient User Role on Plugin Activation.
 function wpd_ecommerce_add_patient_user_role_activation() {
 	add_role( 'patient', 'Patient', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
 }
 register_activation_hook( __FILE__, 'wpd_ecommerce_add_patient_user_role_activation' );
 
+/**
+ * Add custom pages on plugin activation.
+ * 
+ * @since 1.0
+ */
 function wpd_ecommerce_add_ecommerce_pages_activation() {
 	/**
 	 * Create Required Pages
@@ -164,6 +186,10 @@ add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
 /**
  * Load Session
  *
+ * @todo move this to another file and allow setting for cookie time.
+ * 
+ * possible move to the activation file where all of those codes can run
+ * 
  * @since       1.0.0
  */
 function wpd_ecommerce_load_session() {
@@ -178,7 +204,13 @@ function wpd_ecommerce_load_session() {
 }
 wpd_ecommerce_load_session();
 
-// wpd_ecommerce parameters will be saved in the database.
+/**
+ * Custom database options
+ * 
+ * @todo move this to the registration functions file.
+ * 
+ * @since 1.0
+ */
 function wpd_ecommerce_add_options() {
 	// wpd_ecommerce_add_options: add options to DB for this plugin
 	add_option( 'wpd_ecommerce_account_page', home_url() . '/account/' );
@@ -199,98 +231,11 @@ if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 	$GLOBALS['wpd_ecommerce'] = new Cart;
 }
 
-/**
- * Add Items to Cart
- */
-function add_items_to_cart( $item_id, $count, $old_id, $new_price, $old_price ) {
-	if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
-		$c = new Cart;
-		$c->add_item( $item_id, $count, $old_id, $new_price, $old_price );
-		$_SESSION['wpd_ecommerce'] = $c;
-	else:
-		$_SESSION['wpd_ecommerce']->add_item( $item_id, $count, $old_id, $new_price, $old_price );
-	endif;
-}
-
-/**
- * Display the Add to Cart form
- */
-function wpd_ecommerce_form_output() {
-	global $post;
-
-	/**
-	 * Add Items to Cart
-	 */
-	if ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
-		$qtty = $_POST['qtty'];
-		add_items_to_cart( $post->ID, $qtty, $old_id, $new_price, $old_price );
-	} else {
-		$qtty = 1;
-	}
-
-	$str = "";
-	
-	/**
-	 * Development Info.
-	 */
-	if ( DEV ) :
-		$str .= "<div id='dev_info'>\r\n";
-		$str .= "Session ID: " . session_id();
-		$str .= "</div>\r\n";
-	endif;
-	
-	/**
-	 * Add to Cart Form
-	 */
-	$str.='<form name="add_to_cart" class="wpd-ecommerce" method="post">';
-	// $str.='<label for="qtty">' . __( 'Quantity:' ) . '</label>';
-	$str.='<input type="number" name="qtty" id="qtty" value="' . $qtty . '" />';
-	$str.='<input type="hidden" name="flowerprice" id="flowerprice" value="' . $_POST['wpd_ecommerce_flowers_prices'] . '" />';
-	$str.='<input type="submit" name="add_me" id="add_item_btn" value="' . __( 'Add to cart' ). '" />';
-	$str.='<strong>TESTING</strong>';
-	$str.='</form>';
-
-	return $str;
-}
-
-/**
- * Cart Price Output
- */
-function wpd_ecommerce_form_price_output() {
-	global $post;
-	$i    = new Item( $post->ID );
-	$str  = '<p class="price"><span class="wpd-ecommerce price">' . CURRENCY . $i->price . '</span></p>';
-	return $str;
-}
-
-/**
- * Cart Box Filter
- */
-function wpd_ecommerce_box_filter( $content ) {
-	global $wpdb;
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_filter_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
-		$original = $content;
-		$content  = '';
-		$content .= wpd_ecommerce_form_price_output();
-		$content .= wpd_ecommerce_form_output();
-		$content .= $original;
-	}
-	return $content;
-}
-//add_filter( 'the_content', 'wpd_ecommerce_box_filter' );
-
 
 /**
  * Custom Templates
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
-
-	/**
-	 * @todo add Orders template (single-order/archive-orders)
-	 * 
-	 * This will make the front end display the order details
-	 * Also, checking to make sure they're administrator or attached customer ID
-	 */
 
 	 // WP Dispensary products.
 	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_post_type_templates', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
@@ -310,6 +255,7 @@ function wpd_ecommerce_include_template_function( $template_path ) {
             }
         }
 	}
+
 	// Orders templates.
 	if ( 'wpd_orders' === get_post_type() ) {
         if ( is_single() ) {
@@ -332,33 +278,3 @@ function wpd_ecommerce_include_template_function( $template_path ) {
 	return $template_path;
 }
 add_filter( 'template_include', 'wpd_ecommerce_include_template_function', 1 );
-
-/**
- * Clear the cart
- * 
- * @since 1.0
- */
-function wpd_ecommerce_clear_cart() {
-        // Unset all of the session variables.
-        $_SESSION = array();
-
-        // If it's desired to kill the session, also delete the session cookie.
-        // Note: This will destroy the session, and not just the session data!
-        if ( ini_get( "session.use_cookies" ) ) {
-            $params = session_get_cookie_params();
-            setcookie( session_name(), '', time() - 42000,
-                $params["path"], $params["domain"],
-                $params["secure"], $params["httponly"]
-            );
-        }
-
-        // Finally, destroy the session.
-        session_destroy();
-}
-
-/**
- * If/When a button is added to clear a whole cart.
- */
-if ( isset( $_POST['clear_cart'] ) ) {
-	wpd_ecommerce_clear_cart();
-}

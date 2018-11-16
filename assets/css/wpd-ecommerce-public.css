@@ -208,6 +208,20 @@ h3.wpd-ecommerce.patient-title {
     padding: 7px 15px;
 }
 
+.wpd-ecommerce-notifications.failed {
+    margin-bottom: 0;
+}
+
+.wpd-ecommerce-notifications.failed:before {
+    color: red;
+    content: "\f057";
+    font-family: FontAwesome;
+    font-size: 16px;
+    margin-right: 6px;
+    -webkit-font-smoothing: antialiased;
+}
+
+
 /** Single Item Template */
 
 .wpd-ecommerce-single-notifications {
@@ -819,4 +833,14 @@ body.single-wpd_orders .entry-content.order-details .order-info {
         width: 100%;
         margin: 0 0 24px 0;
     }
+}
+
+/** Completed order table display */
+
+table.completed-order-details tbody tr td:first-child {
+    max-width: 40px;
+}
+
+table.completed-order-details tbody tr td {
+    padding: 5px 0;
 }

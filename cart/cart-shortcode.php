@@ -92,7 +92,7 @@ function wpd_ecommerce_shortcode() {
 		$str .= "</tbody>";
 		$str .= "</table>";
 
-		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' )  + $_SESSION['wpd_ecommerce']->sum );
 
 		$str .= "<div class='wpd-ecommerce-wrap'>";
 		$str .= "<div class='cart-totals'>";
@@ -100,7 +100,8 @@ function wpd_ecommerce_shortcode() {
 		$str .= "<table class='wpd-ecommerce totals'>";
 		$str .= "<tbody>";
 		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
-		$str .= "<tr><th class='cart_vat'><span class='vat'>VAT</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->vat, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>Sales tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>Excise tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
 		$str .= "<tr><th class='cart_total'><span class='total'>Total</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 		$str .= "</tbody>";
 		$str .= "</table>";

@@ -25,6 +25,14 @@ get_header(); ?>
                 }
                 ?>
                 </div>
+                <?php
+                /**
+                 * @todo make these two filterable somehow, so they can be
+                 * switched to be left/right aligned with each other, for the 
+                 * people who want the content on the left and pictures on the right.
+                 * 
+                 */
+                ?>
                 <div class="product-details">
                     <?php
                     /**
@@ -248,7 +256,7 @@ get_header(); ?>
                         /**
                          * Add items to cart
                          */
-                        add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                        wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
                     } elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_concentrates_prices'] ) {
                         $qtty = $_POST['qtty'];
@@ -268,7 +276,7 @@ get_header(); ?>
                         /**
                          * Add items to cart
                          */
-                        add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                        wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
                     } elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_product_prices'] ) {
                         $qtty = $_POST['qtty'];
@@ -285,7 +293,7 @@ get_header(); ?>
                         $new_price = $_POST['wpd_ecommerce_product_prices'];
                         $old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
 
-                        add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                        wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
                     } elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
                         $qtty = $_POST['qtty'];
@@ -321,7 +329,7 @@ get_header(); ?>
                                 print_r( $new_price );
 
                                 if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
-                                    add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                                    wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
                                 }
 
                             } elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
@@ -334,13 +342,13 @@ get_header(); ?>
                                 print_r( $new_price );
 
                                 if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
-                                    add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                                    wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
                                 }
 
                             }
                         } else {
                             $old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
-                            // add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+                            // wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
                         }
 
                     } else {

@@ -85,7 +85,7 @@ function wpd_ecommerce_notifications() {
 				}
 			} else {
 				$old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
-				// add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+				// wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 			}
 
 		} else {
@@ -93,6 +93,12 @@ function wpd_ecommerce_notifications() {
 		}
 
 	}
+
+	// Display failed login message.
+	if ( 'failed' === $_GET['login'] ) {
+		$str .= '<div class="wpd-ecommerce-notifications failed">The username or password is wrong. Try again :)</div>';
+	}
+
 	return $str;
 }
 //add_filter( 'the_content', 'wpd_ecommerce_notifications' );
@@ -126,13 +132,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 		foreach ( $get_order_item_data as $entry ) {
 			$newArray[$entry['meta_key']] = $entry['meta_value'];
 		}
-	
-		/*
-		echo "<pre>";
-		print_r( $newArray );
-		echo "</pre>";
-		*/
-	
+		
 		// Create quantity array.
 		if ( '' != $newArray['quantity'] ) {
 			$quantity[$newArray['order_item_id']] = $newArray['quantity'];
@@ -177,30 +177,12 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 	
 		$item_old_id   = preg_replace( '/[^0-9.]+/', '', $item );
 		$item_meta_key = preg_replace( '/[0-9]+/', '', $item );
-	
-		/*
-		echo "<pre>";
-		print_r( $item_qty );
-		echo "</pre>";
-		echo "<p><strong>ID:</strong> " . $item_old_id . " ... ";
-		echo "<strong>Key:</strong> " . $item_meta_key . "</p>";
-		*/
-	
+		
 		// Loop through ID's.
 		foreach ( $item_qty as $item=>$value ) {
 			$quantities[] = $value;
 		}
 	}
-	
-	//        echo "<pre>";
-	//        print_r( $quanties );
-	//        echo "</pre>";
-	
-	//        echo "<pre>";
-	//        print_r( $quantity );
-	//        echo "</pre>";
-	
-	//        echo "<p><strong>Order Quantity:</strong> " . array_sum( $quantity ) . "</strong></p>";
 	
 	// Loop through quantity array.
 	foreach ( $quantity as $key=>$value ) {
@@ -215,58 +197,48 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 		 */
 		if ( 'flowers' === get_post_type( $item_old_id ) ) {
 	
-			echo "<p><strong>FLOWERS: </strong></p>";
-	
 			// Get current inventory count.
 			$old_inventory = get_post_meta( $item_old_id, '_inventory_flowers', true );
 	
-			//echo "<p><strong>FLOWERS: </strong>" . $value . " - " . $item_meta_key . "</p>";
 			if ( '_gram' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 g x " . $value . "</p>";
-				echo "<p>Total: " . $total . "g</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
 			} elseif ( '_twograms' == $item_meta_key ) {
 				$total = 2 * $value;
-				echo "<p>2 g x " . $value . "</p>";
-				echo "<p>Total: " . $total . "g</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
 			} elseif ( '_eighth' == $item_meta_key ) {
 				$total = 3.5 * $value;
-				echo "<p>1/8 oz x " . $value . "</p>";
-				echo "<p>Total: " . $total . "g</p>";
+
+				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
-				// insert update_post_meta here with old inventory - $total 
 			} elseif ( '_fivegrams' == $item_meta_key ) {
 				$total = 5 * $value;
-				echo "<p>5 g x " . $value . "</p>";
-				echo "<p>Total: " . $total . "g</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
 			} elseif ( '_quarter' == $item_meta_key ) {
 				$total = 7 * $value;
-				echo "<p>1/4 oz x " . $value . "</p>";
-				echo "<p>Total: " . $total . "g</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
 			} elseif ( '_halfounce' == $item_meta_key ) {
 				$total = 14 * $value;
-				echo "<p>1/2 oz x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
 			} elseif ( '_ounce' == $item_meta_key ) {
 				$total = 28 * $value;
-				echo "<p>1 oz x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
+
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, '_inventory_flowers', $new_inventory, $old_inventory );
@@ -274,117 +246,241 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 				// Do nothing.
 			}
 		} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
-			echo "<strong>CONCENTRATES: </strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_concentrates_each', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_concentrates_each', $new_inventory, $old_inventory );
+
 			} elseif ( '_halfgram' == $item_meta_key ) {
 				$total = 0.5 * $value;
-				echo "<p>1/2 g</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_concentrates', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_concentrates', $new_inventory, $old_inventory );
+
 			} elseif ( '_gram' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 g</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_concentrates', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_concentrates', $new_inventory, $old_inventory );
+
 			} elseif ( '_twograms' == $item_meta_key ) {
 				$total = 2 * $value;
-				echo "<p>2 g</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_concentrates', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_concentrates', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'edibles' === get_post_type( $item_old_id ) ) {
-			echo "<strong>EDIBLES: </strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_edibles', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_edibles', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_edibles', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_edibles', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'prerolls' === get_post_type( $item_old_id ) ) {
-			echo "<strong>PRE-ROLLS: </strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_prerolls', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_prerolls', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+				
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_prerolls', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_prerolls', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
-			echo "<strong>TOPICALS: </strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_pricetopical' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_topicals', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_topicals', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_topicals', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_topicals', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'growers' === get_post_type( $item_old_id ) ) {
-			echo "<strong>GROWERS: </strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				if ( get_post_meta( $item_old_id, 'inventory_seeds' ) ) {
+					$old_inventory = get_post_meta( $item_old_id, '_inventory_seeds', true );
+				} elseif ( get_post_meta( $item_old_id, 'inventory_clones' ) ) {
+					$old_inventory = get_post_meta( $item_old_id, '_inventory_clones', true );
+				} else {
+					// Do nothing.
+				}
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_growers', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_growers', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_growers', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'gear' === get_post_type( $item_old_id ) ) {
-			echo "<strong>GEAR:</strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
+				// Multiple item quantity by 1.
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_gear', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_gear', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_gear', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_gear', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}
 		} elseif ( 'tinctures' === get_post_type( $item_old_id ) ) {
-			echo "<strong>TINCTURES:</strong>" . $value . " - " . $item_meta_key . "</p>";
+
 			if ( '_priceeach' == $item_meta_key ) {
+				// Multiply item quantity by one.
 				$total = 1 * $value;
-				echo "<p>1 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_tinctures', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_tinctures', $new_inventory, $old_inventory );
+
 			} elseif ( '_priceperpack' == $item_meta_key ) {
-				$total = 2 * $value; // @todo get #1 changed for actual _unitsperpack
-				echo "<p>2 x " . $value . "</p>";
-				echo "<p>Total: " . $total . "</p>";
-				// insert update_post_meta here with old inventory - $total 
+
+				// Units per pack.
+				if ( get_post_meta( $item_old_id, '_unitsperpack', true ) ) {
+					$per_pack = get_post_meta( $item_old_id, '_unitsperpack', true );
+				} else {
+					$per_pack = 1;
+				}
+
+				// Multiple item quantity by _unitsperpack.
+				$total = $per_pack * $value;
+
+				// Get current inventory count.
+				$old_inventory = get_post_meta( $item_old_id, '_inventory_tinctures', true );
+				$new_inventory = $old_inventory - $total;
+
+				update_post_meta( $item_old_id, '_inventory_tinctures', $new_inventory, $old_inventory );
+
 			} else {
 				// Do nothing.
 			}

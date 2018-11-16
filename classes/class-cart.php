@@ -12,13 +12,15 @@ class Cart {
 	var $items; 
 	//The cart lines themselves
 	var $item_array;
-	//The vat calculation
-	var $vat;
-	
+	//The sales calculation
+	var $sales_tax;
+	//The excise calculation
+	var $excise_tax;	
 	
 	function __construct() {		
 		$this->sum        = 0;
-		$this->vat        = 0;
+		$this->sales_tax  = 0;
+		$this->excise_tax = 0;
 		$this->lines      = 0;
 		$this->items      = 0;
 		$this->item_array = array();		
@@ -45,6 +47,10 @@ class Cart {
 	 * Remove Item
 	 */
 	function remove_item( $item_id ) {
+		/**
+		 * @todo check the method name and run checks to make new_id for every
+		 * menu type to make sure items are removed (or maybe it's not even needed?)
+		 */
 		if ( isset ( ${$this->method}['wpd_ecommerce_flowers_prices'] ) ) {
 			$new_id = $item_id . '' . ${$this->method}['wpd_ecommerce_flowers_prices'];
 		} else {
@@ -105,14 +111,22 @@ class Cart {
 
 			$this->sum += ( $regular_price ) * $item_count;
 		endforeach;
-		$this->calculate_vat();
+		$this->calculate_sales_tax();
+		$this->calculate_excise_tax();
 	}
 	
 	/**
-	 * Calculate VAT
+	 * Calculate sales tax.
 	 */
-	function calculate_vat() {
-		$this->vat = ( $this->sum ) * VAT;
+	function calculate_sales_tax() {
+		$this->sales_tax = ( $this->sum ) * SALES_TAX;
+	}
+	
+	/**
+	 * Calculate sales tax.
+	 */
+	function calculate_excise_tax() {
+		$this->excise_tax = ( $this->sum ) * EXCISE_TAX;
 	}
 	
 	/**
@@ -147,8 +161,9 @@ class Cart {
 
 		$str .= "<ul id='cart_totals'>";
 		$str .= "<li class='cart_sum'>Sum: " . CURRENCY . $this->sum . "</li>";
-		$str .= "<li class='cart_vat'>Vat: " . CURRENCY . $this->vat . "</li>";
-		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->vat + $this->sum ) . "</li>";
+		$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
+		$str .= "<li class='cart_excise_tax'>Excise Tax: " . CURRENCY . $this->excise_tax . "</li>";
+		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->sum ) . "</li>";
 		$str .= "</ul>";
 
 		return $str;	
@@ -180,8 +195,8 @@ class Cart {
 
 		$str .= "<ul id='cart_totals'>";
 		$str .= "<li class='cart_sum'>Sum: " . CURRENCY . $this->sum . "</li>";
-		$str .= "<li class='cart_vat'>Vat: " . CURRENCY . $this->vat . "</li>";
-		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->vat + $this->sum ) . "</li>";
+		$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
+		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->sum ) . "</li>";
 		$str .= "</ul>";
 
 		return $str;
