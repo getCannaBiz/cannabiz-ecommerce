@@ -132,6 +132,19 @@ function wpd_ecommerce_notifications() {
 		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The registration info you entered is incorrect.</div>';
 	}
 
+	// Display order thank you message.
+	if ( 'thank-you' === $_GET['order'] ) {
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Thank You:</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
+	}
+
+	// Display order thank you message.
+	if ( $_GET['remove_item'] ) {
+		$_SESSION['wpd_ecommerce']->remove_item( $_GET['remove_item'] );
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Itemn removed:</strong> The item has been successfully removed.</div>';
+		wp_redirect( get_bloginfo( 'url' ) . '/cart/' );
+	}
+
+
 	/**
 	 * Coupon Codes
 	 * 

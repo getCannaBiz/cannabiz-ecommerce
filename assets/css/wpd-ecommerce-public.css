@@ -878,3 +878,25 @@ table.wpd-ecommerce.order-details td:last-child {
 table.wpd-ecommerce.order-details tbody {
     border-top: 1px solid #DDD;
 }
+
+/**
+ *
+ */
+body.post-type-archive-concentrates .hentry, body.post-type-archive-edibles .hentry, body.post-type-archive-flowers .hentry, body.post-type-archive-gear .hentry, body.post-type-archive-growers .hentry, body.post-type-archive-prerolls .hentry, body.post-type-archive-tinctures .hentry, body.post-type-archive-topicals .hentry, body.tax-allergens .hentry, body.tax-aroma .hentry, body.tax-concentrates_category .hentry, body.tax-condition .hentry, body.tax-edibles_category .hentry, body.tax-effect .hentry, body.tax-flavor .hentry, body.tax-flowers_category .hentry, body.tax-growers_category .hentry, body.tax-ingredients .hentry, body.tax-symptom .hentry, body.tax-topicals_category .hentry, body.tax-vendor .hentry, body.tax-wpd_gear_category .hentry, body.tax-wpd_tinctures_category .hentry {
+    width: 100% !important;
+}
+
+.wpd-row {
+    padding: 12px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.wpdshortcode {
+    padding: 10px;
+}
+
+.wpdshortcode:nth-child(3n+3) {
+    margin: 12px 0;
+}

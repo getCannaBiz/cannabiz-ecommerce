@@ -77,6 +77,7 @@ include_once( dirname(__FILE__).'/includes/wpd-ecommerce-core-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-template-functions.php' );
 
 // Includes for Classes.
 include_once( dirname(__FILE__).'/classes/class-cart.php' );
@@ -295,11 +296,11 @@ if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 if ( ! empty( $_SESSION ) ) {
 	$_SESSION['wpd_ecommerce']->calculate_cart_sum();
 
-
+/*
 	echo "<pre>";
 	print_r( $_SESSION );
 	echo "</pre>";
-
+*/
 }
 
 /**

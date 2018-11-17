@@ -54,20 +54,28 @@ if ( is_user_logged_in() ) {
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <header class="entry-header">
                 <h1 class="item_name"><?php the_title(); ?><?php echo $status_display; ?></h1>
+                <?php
+                    // Include notifications.
+                    echo wpd_ecommerce_notifications();
+                ?>
             </header>
             <div class="entry-content order-details">
                 <?php
+                    // Get user info.
                     $user_info = get_userdata( $order_customer_id );
 
                     echo '<div class="order-info">';
                     echo "<p><strong>Date:</strong><br /> " . get_the_date() . "</p>";
+                    if ( '' != $user_info->first_name ) {
+                        $first_name = $user_info->first_name;
+                    }
+                    if ( '' != $user_info->last_name ) {
+                        $last_name  = $user_info->last_name;
+                    }
+                    echo "<p><strong>Name:</strong><br /> " . $first_name . ' ' . $last_name . "</p>";
                     echo '</div>';
                     echo '<div class="patient-address">';
                     echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
-
-                    if ( '' != $user_info->first_name ) {
-                        echo $user_info->first_name . " ";
-                    }
 
                     if ( '' != $user_info->last_name ) {
                         echo $user_info->last_name . "<br />";
@@ -125,6 +133,7 @@ if ( is_user_logged_in() ) {
 </div>
 <?php
 } else {
+    // Redirect non-logged in users.
     wp_redirect( home_url() . '/account/' );
 }
 ?>

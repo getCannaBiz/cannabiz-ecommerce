@@ -2,7 +2,7 @@
 /**
  * WP Dispensary's Cart Widget
  */
-class My_Cart_Widget extends WP_Widget {
+class WPD_eCommerce_Widget extends WP_Widget {
 	/**
 	 * Constructor
 	 *
@@ -57,7 +57,7 @@ class My_Cart_Widget extends WP_Widget {
 		if ( ! has_shortcode( $content, 'wpd_cart' ) && ! has_shortcode( $content, 'wpd_checkout' ) ) {
 
 			// If cart isn't empty, display the widget.
-			if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
+			if ( 0 != $_SESSION['wpd_ecommerce']->lines ) {
 		
 				do_action( 'wpd_ecommerce_widget_before' );
 
@@ -218,6 +218,6 @@ class My_Cart_Widget extends WP_Widget {
  * @return      void
  */
 function wpd_cart_register_widget() {
-	register_widget( 'My_Cart_Widget' );
+	register_widget( 'WPD_eCommerce_Widget' );
 }
 add_action( 'widgets_init', 'wpd_cart_register_widget' );
