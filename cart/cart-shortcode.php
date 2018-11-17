@@ -2,9 +2,16 @@
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
 	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
-		$str  = '<table class="wpd-ecommerce">';
-		$str .= '<thead><tr><td></td><td></td><td>Product</td><td>Price</td><td>Quantity</td><td>Total</td></tr></thead>';
+
+		// Include notifications.
+		echo wpd_ecommerce_notifications();
+
+		$str  = '';
+		$str .= do_action( 'wpd_ecommerce_cart_table_before' );
+		$str .= '<table class="wpd-ecommerce cart">';
+		$str .= '<thead><tr><td></td><td></td><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr></thead>';
 		$str .= '<tbody>';
+		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_before' );
 		foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
 			$i             = new Item( $id, '', '', '' );
 			$item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
@@ -89,17 +96,33 @@ function wpd_ecommerce_shortcode() {
 
 			$str .=	"<tr><td><a href='" . get_the_permalink() . "?remove_item=" . $id . "' class='remove'>x</a></td><td>" . $i->thumbnail . "</td><td><a href='" . $i->permalink . "'>" . $i->title . "" . $weightname . "</a></td><td>" . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . "</td><td><input id='quantity' name='quantity' class='wpd-ecommerce-quantity' type='number' value='" . $amount . "' /></td><td>" . CURRENCY . number_format((float)$total_price, 2, '.', ',' ) . "</td></tr>";
 		endforeach;
+		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_after' );
+		$str .= "<tr><td colspan='6'>
+		<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
+		<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
+		<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
+		 . wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
+		"</form>
+		</td></tr>";
 		$str .= "</tbody>";
 		$str .= "</table>";
+		$str .= do_action( 'wpd_ecommerce_cart_table_after' );
 
 		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' )  + $_SESSION['wpd_ecommerce']->sum );
 
+		$str .= do_action( 'wpd_ecommerce_cart_wrap_before' );
+
 		$str .= "<div class='wpd-ecommerce-wrap'>";
+		$str .= do_action( 'wpd_ecommerce_cart_totals_before' );
 		$str .= "<div class='cart-totals'>";
+		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_before' );
 		$str .= "<h2>Cart Totals</h2>";
 		$str .= "<table class='wpd-ecommerce totals'>";
 		$str .= "<tbody>";
 		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
+			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>Coupon:<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>Remove?</a>)</td></tr>";
+		}
 		if ( NULL != defined( 'SALES_TAX' ) ) {
 			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>Sales tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
 		}
@@ -110,8 +133,11 @@ function wpd_ecommerce_shortcode() {
 		$str .= "</tbody>";
 		$str .= "</table>";
 		$str .= "<p class='wpd-ecommerce buttons'><a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Proceed to Checkout</a></p>";
+		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_after' );
 		$str .= "</div>";
+		$str .= do_action( 'wpd_ecommerce_cart_totals_after' );
 		$str .= "</div>";
+		$str .= do_action( 'wpd_ecommerce_cart_wrap_after' );
 
 		return $str;
 

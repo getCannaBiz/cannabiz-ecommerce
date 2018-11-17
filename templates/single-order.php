@@ -14,6 +14,22 @@ if ( is_user_logged_in() ) {
     $status_names      = wpd_ecommerce_get_order_statuses();
     $status            = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
     $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
+    $get_id            = get_the_ID();
+
+    $get_order_amount = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
+    $order_coupon_amount = $get_order_amount[0]['order_value'];
+
+    //print_r( $get_order_amount );
+
+    $get_sales_tax = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
+    $order_sales_tax = $get_sales_tax[0]['order_value'];
+
+    //print_r( $get_sales_tax );
+
+    $get_excise_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_excise_tax'", ARRAY_A );
+    $order_excise_tax = $get_excise_tax[0]['order_value'];
+
+    //print_r( $get_sales_tax );
 
     if ( $user->ID != $order_customer_id && 'administrator' === $role[0] ) {
         // Administrators who are NOT the customer
@@ -41,16 +57,13 @@ if ( is_user_logged_in() ) {
             </header>
             <div class="entry-content order-details">
                 <?php
+                    $user_info = get_userdata( $order_customer_id );
+
                     echo '<div class="order-info">';
-                    echo '<p><strong>' . __( 'Details', 'wpd-ecommerce' ) . ':</strong></p>';
-                    echo "<p>" . get_the_date() . "<br />";
-                    echo "Subtotal: " . CURRENCY . $order_subtotal . "<br />";
-                    echo "Total: " . CURRENCY . $order_total . "</p>";
+                    echo "<p><strong>Date:</strong><br /> " . get_the_date() . "</p>";
                     echo '</div>';
                     echo '<div class="patient-address">';
                     echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
-
-                    $user_info = get_userdata( $order_customer_id );
 
                     if ( '' != $user_info->first_name ) {
                         echo $user_info->first_name . " ";
@@ -68,10 +81,7 @@ if ( is_user_logged_in() ) {
                         echo $user_info->address_line_2 . "<br />";
                     }
                     echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
-                    echo '</div>';
-
-                    echo '<div class="patient-contact">';
-                    echo "<p><strong>Contact:</strong></p>";
+                    echo "<p><strong>Contact:</strong><br />";
                     if ( '' != $user_info->user_email ) {
                         echo "<a class='email-address' href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a><br />";
                     }
@@ -79,10 +89,28 @@ if ( is_user_logged_in() ) {
                     if ( '' != $user_info->phone_number ) {
                         echo "<a class='phone-number' href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
                     }
+                    echo '</p>';
+                    echo '</div>';
+
+                    echo '<div class="patient-contact">';
+                    echo '<table class="wpd-ecommerce order-details"><tbody>';
+                    echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
+                    if ( ! empty( $order_coupon_amount ) ) {
+                        echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
+                    }
+                    if ( ! empty( $order_sales_tax ) ) {
+                        echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
+                    }
+                    if ( ! empty( $order_excise_tax ) ) {
+                        echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
+                    }
+                    echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
+                    echo '</tbody></table>';
                     echo '</div>';
                 ?>
             <?php
                 if ( 'patient' === $role[0] ) {
+                    echo "<h3>Order items</h3>";
                     echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
                 } elseif ( 'administrator' === $role[0] ) {
                     echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );

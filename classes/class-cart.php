@@ -18,15 +18,41 @@ class Cart {
 	var $excise_tax;	
 	
 	function __construct() {		
-		$this->sum        = 0;
-		$this->sales_tax  = 0;
-		$this->excise_tax = 0;
-		$this->lines      = 0;
-		$this->items      = 0;
-		$this->item_array = array();		
+		$this->sum           = 0;
+		$this->sales_tax     = 0;
+		$this->excise_tax    = 0;
+		$this->coupon_code   = 0;
+		$this->coupon_amount = 0;
+		$this->lines         = 0;
+		$this->items         = 0;
+		$this->item_array    = array();		
 	}
 	
 	private $method = '_POST';
+
+	/**
+	 * Update subtotal with coupon.
+	 */
+	function add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp ) {
+		$this->coupon_code   = $coupon_code;
+		if ( 'Flat Rate' == $coupon_type ) {
+			$coupon_total = $coupon_amount;
+		} elseif ( 'Percentage' == $coupon_type ) {
+			$coupon_test = $coupon_amount * 0.01;
+			$coupon_total = $this->sum * $coupon_test;
+		}
+		$this->coupon_amount = $coupon_total;
+		$this->sum           = $this->sum - $coupon_amount;
+	}
+
+	/**
+	 * Update subtotal when removing coupon.
+	 */
+	function remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp ) {
+		$this->coupon_code   = 0;
+		$this->coupon_amount = 0;
+		$this->sum           = $this->sum + $coupon_amount;
+	}
 
 	/*
 	 * 	The function gets an item id (which is a post id) and 
@@ -121,7 +147,7 @@ class Cart {
 	}
 	
 	/**
-	 * Calculate sales tax.
+	 * Calculate excise tax.
 	 */
 	function calculate_excise_tax() {
 		$this->excise_tax = ( $this->sum ) * EXCISE_TAX;

@@ -228,12 +228,29 @@ function wpd_ecommerce_load_session() {
 	if ( ! isset( $_SESSION ) ) {
 		$_SESSION = null;
 	}
+
+	/**
+	 * @todo run checks in user settings on how long to set cookie.
+	 */
+	$one_hour     = ( 86400 / 60 ) / 24;
+	$three_hours  = ( 86400 / 60 ) / 8;
+	$six_hours    = ( 86400 / 60 ) / 4;
+	$twelve_hours = ( 86400 / 60 ) / 2;
+	$one_day      = 86400;
+
+	/*
+	echo $one_hour;
+	echo ' --- ' . $three_hours;
+	*/
+
 	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( !$_SESSION ) ) {
-		session_name( 'wpd_ecommerce' );
-		session_start( [
-			'cookie_lifetime' => 86400,
-		] );
-	}
+
+		// Set session name.
+		session_name( 'wpd_ecommerce' );		
+		// Start session and set cookie for 1 day.
+		session_start( [ 'cookie_lifetime' => 86400, ] );
+
+	}	
 }
 wpd_ecommerce_load_session();
 
@@ -266,15 +283,23 @@ if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 }
 
 /**
+ * Calculate cart sum
+ * 
+ * This calculates the 
+ * 
+ * Create 
+ * Cart class creates 
+ * 
  * @todo make sure this is fast/loading properly.
  */
 if ( ! empty( $_SESSION ) ) {
 	$_SESSION['wpd_ecommerce']->calculate_cart_sum();
 
+
 	echo "<pre>";
 	print_r( $_SESSION );
 	echo "</pre>";
-	
+
 }
 
 /**

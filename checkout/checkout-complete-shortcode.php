@@ -40,6 +40,7 @@ function wpd_ecommerce_checkout_complete_shortcode() {
             echo '<div class="order-info">';
             echo '<table class="completed-order-details"><tbody>';
             echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
+            echo "<tr><td><strong>Coupon:</strong></td><td>- " . CURRENCY . $order_coupon_amount . "</td></tr>";
             echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
             echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
             echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";

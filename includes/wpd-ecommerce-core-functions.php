@@ -127,9 +127,63 @@ function wpd_ecommerce_notifications() {
 		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The username or password you entered is incorrect.</div>';
 	}
 
-	// Display failed login message.
+	// Display failed register message.
 	if ( 'failed' === $_GET['register'] ) {
 		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The registration info you entered is incorrect.</div>';
+	}
+
+	/**
+	 * Coupon Codes
+	 * 
+	 * If coupon code is added to the cart, do something specific.
+	 * 
+	 * @todo move the coupon creation code to another file
+	 * @since 1.0
+	 */
+	if ( isset( $_POST['coupon_code'] ) && ! empty( $_POST['coupon_code'] ) && isset( $_POST['add_coupon'] ) ) {
+
+		 // Loop through coupons.
+		$coupons_args = array(
+			'numberposts' => 1,
+			'meta_key'    => 'wpd_coupon_code',
+			'meta_value'  => $_POST['coupon_code'],
+			'post_type'   => 'coupons'
+		);
+		$coupons_loop = get_posts( $coupons_args );
+
+		//print_r( $coupons_loop );
+
+		if ( 0 == count( $coupons_loop ) ) {
+			$str = '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> Coupon code "' . $_POST['coupon_code'] . '" does not exist</div>';
+		}
+
+		foreach( $coupons_loop as $coupon ) : setup_postdata( $coupon );
+
+		$coupon_code   = get_post_meta( $coupon->ID, 'wpd_coupon_code', TRUE );
+		$coupon_amount = get_post_meta( $coupon->ID, 'wpd_coupon_amount', TRUE );
+		$coupon_type   = get_post_meta( $coupon->ID, 'wpd_coupon_type', TRUE );
+		$coupon_exp    = get_post_meta( $coupon->ID, 'wpd_coupon_exp', TRUE );
+
+		// Add coupon to the cart.
+		$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
+
+		echo $coupon_code . $coupon_amount . $coupon_type;
+		
+		// Run a code to update the subtotal in the $_SESSION['wpd_ecommerce]->apply_coupon 
+		$str = '<div class="wpd-ecommerce-notifications success"><strong>Success:</strong> Coupon code has been applied</div>';
+
+		endforeach;
+	}
+
+	// Remove the item from cart.
+	if ( isset( $_SESSION['wpd_ecommerce'] ) && $_SESSION['wpd_ecommerce']->coupon_code === $_GET['remove_coupon'] ) {
+		$_SESSION['wpd_ecommerce']->remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
+		wp_redirect( get_the_permalink() );
+	}
+
+	// If the coupon code form is submitted but no code was input.
+	if ( isset( $_POST['coupon_code'] ) && empty( $_POST['coupon_code'] ) && isset( $_POST['add_coupon'] ) ) {
+		$str = '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> Please enter a coupon code</div>';
 	}
 
 	return $str;

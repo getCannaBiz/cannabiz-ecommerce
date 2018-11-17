@@ -324,9 +324,11 @@ get_header(); ?>
                                 $single_price = get_post_meta( $old_id, '_pricetopical', true );
                                 $pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
+                                /*
                                 var_dump( $new_price );
                                 echo "...<br />...";
                                 print_r( $new_price );
+                                */
 
                                 if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
                                     wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
@@ -337,9 +339,11 @@ get_header(); ?>
                                 $single_price = get_post_meta( $old_id, '_priceeach', true );
                                 $pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
+                                /*
                                 var_dump( $new_price );
                                 echo "...<br />...";
                                 print_r( $new_price );
+                                */
 
                                 if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
                                     wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
