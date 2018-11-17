@@ -9,9 +9,9 @@ function wpd_patient_account_shortcode() {
 	// Display login/register forms
 	if ( ! is_user_logged_in() ) {
 
-		echo wpd_ecommerce_notifications();
-
 		$args['form_id'] = 'wpd-ecommerce-login';
+
+		echo wpd_ecommerce_notifications();
 
 		echo "<div class='wpd-ecommerce-login-form'>";
 		echo "<h3>Login</h3>";
@@ -170,7 +170,7 @@ function wpd_patient_account_shortcode() {
 						$patient_name = $user->user_nicename;
 					}
 				?>
-				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url(); ?>">Log out</a>)</p>
+				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
 				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
 			</section>
 

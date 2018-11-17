@@ -296,7 +296,7 @@ form.wpd-ecommerce input#qtty {
     float: left;
     font-size: 0.85em;
     margin-right: 1%;
-    padding: 10px;
+    padding: 10px 5px 10px 10px;
     width: 4.20em;
 }
 

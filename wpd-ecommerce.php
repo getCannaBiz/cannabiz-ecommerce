@@ -31,17 +31,49 @@ define( 'DEV', FALSE );
  * and customizable in settings by admin
  */
 
-// Define sales tax.
-define( 'SALES_TAX', 0.06 );
+/**
+ * WP Dispensary eCommerce
+ * 
+ * @since 1.0
+ */
+function wpd_ecommerce() {
 
-// Define excise tax.
-define( 'EXCISE_TAX', 0.10 );
+	/**
+	 * Access all settings
+	 */
+	$wpd_settings = get_option( 'wpdas_general' );
 
-// Define currency code.
-define( 'CURRENCY', wpd_currency_code() );
+	//print_r( $wpd_settings );	
+
+	// Check if WP Dispensary setting is set.
+	if ( ! isset( $wpd_settings['wpd_ecommerce_sales_tax'] ) ) {
+		define( 'SALES_TAX', NULL );
+	} else {
+		// Create sales tax.
+		$sales_tax = $wpd_settings['wpd_ecommerce_sales_tax'] * 0.01;
+
+		// Define sales tax.
+		define( 'SALES_TAX', $sales_tax );
+	}
+
+	if ( ! isset( $wpd_settings['wpd_ecommerce_excise_tax'] ) ) {
+		define( 'EXCISE_TAX', NULL );
+	} else {
+		// Create excise tax.
+		$excise_tax = $wpd_settings['wpd_ecommerce_excise_tax'] * 0.01;
+
+		// Define excise tax.
+		define( 'EXCISE_TAX', $excise_tax );
+	}
+
+	// Define currency code.
+	define( 'CURRENCY', wpd_currency_code() );
+
+}
+wpd_ecommerce();
 
 // Includes for Helper Functions.
-include_once( dirname(__FILE__).'/includes/wpd-ecommerce-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-core-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
@@ -197,6 +229,7 @@ function wpd_ecommerce_load_session() {
 		$_SESSION = null;
 	}
 	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( !$_SESSION ) ) {
+		session_name( 'wpd_ecommerce' );
 		session_start( [
 			'cookie_lifetime' => 86400,
 		] );
@@ -205,19 +238,20 @@ function wpd_ecommerce_load_session() {
 wpd_ecommerce_load_session();
 
 /**
- * Custom database options
- * 
- * @todo move this to the registration functions file.
- * 
- * @since 1.0
+ * Destroy Session Logout
+ *
+ * @since       1.0
  */
-function wpd_ecommerce_add_options() {
-	// wpd_ecommerce_add_options: add options to DB for this plugin
-	add_option( 'wpd_ecommerce_account_page', home_url() . '/account/' );
+function wpd_ecommerce_logout() {
+	wpd_ecommerce_destroy_session( TRUE );
 }
-wpd_ecommerce_add_options();
+add_action( 'wp_logout', 'wpd_ecommerce_logout' );
 
-// initialise the cart session, if it exist, unserialize it, otherwise make it.
+/**
+ * initialise the cart session, if it exist, unserialize it, otherwise make it.
+ * 
+ * @todo see if this can be removed
+ */
 if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 	if ( is_object( $_SESSION['wpd_ecommerce'] ) ) {
 		$GLOBALS['wpd_ecommerce'] = $_SESSION['wpd_ecommerce'];
@@ -231,9 +265,22 @@ if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 	$GLOBALS['wpd_ecommerce'] = new Cart;
 }
 
+/**
+ * @todo make sure this is fast/loading properly.
+ */
+if ( ! empty( $_SESSION ) ) {
+	$_SESSION['wpd_ecommerce']->calculate_cart_sum();
+
+	echo "<pre>";
+	print_r( $_SESSION );
+	echo "</pre>";
+	
+}
 
 /**
  * Custom Templates
+ * 
+ * @since 1.0
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
 
@@ -278,3 +325,17 @@ function wpd_ecommerce_include_template_function( $template_path ) {
 	return $template_path;
 }
 add_filter( 'template_include', 'wpd_ecommerce_include_template_function', 1 );
+
+/**
+ * Custom database options
+ * 
+ * @todo move this to the registration functions file.
+ * 
+ * @since 1.0
+ */
+function wpd_ecommerce_add_options() {
+	// wpd_ecommerce_add_options: add options to DB for this plugin
+	add_option( 'wpd_ecommerce_account_page', home_url() . '/account/' );
+}
+wpd_ecommerce_add_options();
+

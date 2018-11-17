@@ -47,17 +47,8 @@ class Cart {
 	 * Remove Item
 	 */
 	function remove_item( $item_id ) {
-		/**
-		 * @todo check the method name and run checks to make new_id for every
-		 * menu type to make sure items are removed (or maybe it's not even needed?)
-		 */
-		if ( isset ( ${$this->method}['wpd_ecommerce_flowers_prices'] ) ) {
-			$new_id = $item_id . '' . ${$this->method}['wpd_ecommerce_flowers_prices'];
-		} else {
-			$new_id = $item_id;
-		}
-		$this->items -= $this->item_array[$new_id];
-		unset( $this->item_array["$new_id"] );
+		$this->items -= $this->item_array[$item_id];
+		unset( $this->item_array["$item_id"] );
 		$this->lines--;
 		$this->calculate_cart_sum();
 	}
@@ -111,8 +102,15 @@ class Cart {
 
 			$this->sum += ( $regular_price ) * $item_count;
 		endforeach;
-		$this->calculate_sales_tax();
-		$this->calculate_excise_tax();
+
+		// Calculate sales tax.
+		if ( defined( 'SALES_TAX' ) ) {
+			$this->calculate_sales_tax();
+		}
+		// Calculate excise tax.
+		if ( defined( 'EXCISE_TAX' ) ) {
+			$this->calculate_excise_tax();
+		}
 	}
 	
 	/**
@@ -161,8 +159,14 @@ class Cart {
 
 		$str .= "<ul id='cart_totals'>";
 		$str .= "<li class='cart_sum'>Sum: " . CURRENCY . $this->sum . "</li>";
-		$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
-		$str .= "<li class='cart_excise_tax'>Excise Tax: " . CURRENCY . $this->excise_tax . "</li>";
+		if ( ! defined( 'EXCISE_TAX' ) ) {
+			// Do nothing.
+		} else {
+			$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
+		}
+		if ( defined( 'EXCISE_TAX' ) ) {
+			$str .= "<li class='cart_excise_tax'>Excise Tax: " . CURRENCY . $this->excise_tax . "</li>";
+		}
 		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->sum ) . "</li>";
 		$str .= "</ul>";
 

@@ -2,6 +2,7 @@
 // Add Checkout Shortcode.
 function wpd_ecommerce_checkout_shortcode() {
 
+if ( is_user_logged_in() ) {
     // Verify that there's an active session.
 	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
         global $current_user, $wp_roles;
@@ -241,8 +242,12 @@ function wpd_ecommerce_checkout_shortcode() {
          * @todo filter text
          */
         $str .= "<tr><td><strong>Subtotal</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
-        $str .= "<tr><td><strong>Sales tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
-        $str .= "<tr><td><strong>Excise tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+        if ( NULL != defined( 'SALES_TAX' ) ) {
+            $str .= "<tr><td><strong>Sales tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
+        }
+        if ( NULL != defined( 'EXCISE_TAX' ) ) {
+            $str .= "<tr><td><strong>Excise tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+        }
         $str .= "<tr><td><strong>Total</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 
         $str .= "</tbody>";
@@ -260,6 +265,7 @@ function wpd_ecommerce_checkout_shortcode() {
          */
 		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-ecommerce return">Return to Menu</a></p>';
 	}
+} // is user logged in
 }
 add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
 
@@ -555,24 +561,16 @@ function wpd_ecommerce_checkout_success() {
     );
     wp_update_post( $updated_post );
 
-    // Unset all of the session variables.
-    $_SESSION = array();
 
-    // If it's desired to kill the session, also delete the session cookie.
-    // Note: This will destroy the session, and not just the session data!
-    if ( ini_get("session.use_cookies" ) ) {
-        $params = session_get_cookie_params();
-        setcookie( session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
-        );
-    }
+    /**
+     * Destroy session
+     * 
+     * @since 1.0
+     */
+    wpd_ecommerce_destroy_session();
 
-    // Finally, destroy the session.
-    session_destroy();
-
-    // Redirect to Thank You Page after order.
-    wp_redirect( get_bloginfo( 'url' ) . '/order-complete/?id=' . $wpd_order_id );
+    // Redirect to the order page.
+    wp_redirect( get_bloginfo( 'url' ) . '/order/' . $wpd_order_id );
 
     exit;
 }

@@ -9,6 +9,34 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Destroy Session
+ * 
+ * @since       1.0.0
+ */
+function wpd_ecommerce_destroy_session( $eat_cookies = NULL ) {
+	// Unset all of the session variables.
+	$_SESSION = array();
+
+	/**
+	 * Destroy cookies
+	 * 
+	 * If it's desired to kill the session, also delete the session cookie.
+	 */
+	if ( TRUE == $eat_cookies ) {
+		if ( ini_get("session.use_cookies" ) ) {
+			$params = session_get_cookie_params();
+			setcookie( session_name(), '', time() - 42000,
+				$params["path"], $params["domain"],
+				$params["secure"], $params["httponly"]
+			);
+		}
+	}
+
+	// Finally, destroy the session.	
+    session_destroy();
+}
+
+/**
  * WP Dispensary eCommerce notifications.
  *
  * @since 1.0
@@ -96,7 +124,12 @@ function wpd_ecommerce_notifications() {
 
 	// Display failed login message.
 	if ( 'failed' === $_GET['login'] ) {
-		$str .= '<div class="wpd-ecommerce-notifications failed">The username or password is wrong. Try again :)</div>';
+		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The username or password you entered is incorrect.</div>';
+	}
+
+	// Display failed login message.
+	if ( 'failed' === $_GET['register'] ) {
+		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The registration info you entered is incorrect.</div>';
 	}
 
 	return $str;
