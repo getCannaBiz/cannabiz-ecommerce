@@ -137,13 +137,19 @@ function wpd_ecommerce_notifications() {
 		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Thank You:</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
 	}
 
-	// Display order thank you message.
+	// Remove an item from the cart
 	if ( $_GET['remove_item'] ) {
 		$_SESSION['wpd_ecommerce']->remove_item( $_GET['remove_item'] );
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Itemn removed:</strong> The item has been successfully removed.</div>';
-		wp_redirect( get_bloginfo( 'url' ) . '/cart/' );
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Item removed:</strong> The item has been successfully removed.</div>';
 	}
 
+	// Add an item from the cart
+	if ( $_GET['add_item'] ) {
+		$_SESSION['wpd_ecommerce']->add_item( $_GET['add_item'], 1, '', '', '' );
+		$str .= '<div class="wpd-ecommerce-single-notifications">';
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Item added:</strong> The item has been successfully added to your cart.</div>';
+		$str .= '</div>';
+	}
 
 	/**
 	 * Coupon Codes
@@ -179,11 +185,9 @@ function wpd_ecommerce_notifications() {
 
 		// Add coupon to the cart.
 		$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
-
-		echo $coupon_code . $coupon_amount . $coupon_type;
 		
 		// Run a code to update the subtotal in the $_SESSION['wpd_ecommerce]->apply_coupon 
-		$str = '<div class="wpd-ecommerce-notifications success"><strong>Success:</strong> Coupon code has been applied</div>';
+		echo '<div class="wpd-ecommerce-notifications success"><strong>Success:</strong> Coupon code has been applied</div>';
 
 		endforeach;
 	}

@@ -101,14 +101,15 @@ get_header(); ?>
                     }
 
                     $sale_price = esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) );
+
                     ?>
+
+                    <p class='wpd-ecommerce price'><?php wpd_all_prices_simple( NULL, FALSE ); ?></p>
 
                     <?php if ( ! empty( $regular_price ) ) { ?>
 
                         <?php if ( 'flowers' === get_post_type() ) { ?>
                             <?php
-                            // Display Prices.
-                            echo "<p class='wpd-ecommerce price'>" . wpd_flowers_prices_simple() . "</p>";
 
                             // Select a weight.
                             printf( '<select name="wpd_ecommerce_flowers_prices" id="wpd_ecommerce_flowers_prices" class="widefat">' );
@@ -148,8 +149,6 @@ get_header(); ?>
                             ?>
                         <?php } elseif ( 'concentrates' === get_post_type() ) { ?>
                             <?php
-                            // Display Prices.
-                            echo "<p class='wpd-ecommerce price'>" . wpd_concentrates_prices_simple() . "</p>";
 
                             // Price each (not a weight based price).
                             $price_each = get_post_meta( get_the_ID(), '_priceeach', true );
@@ -188,23 +187,6 @@ get_header(); ?>
                             if ( ! empty( $pack_price ) ) { ?>
                                 <?php
 
-                                // Price.
-                                if ( 'edibles' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_edibles_prices_simple() . "</p>";
-                                } elseif ( 'prerolls' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_prerolls_prices_simple() . "</p>";
-                                } elseif ( 'topicals' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_topicals_prices_simple() . "</p>";
-                                } elseif ( 'topicals' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_topicals_prices_simple() . "</p>";
-                                } elseif ( 'growers' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_growers_prices_simple() . "</p>";
-                                } elseif ( 'gear' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_gear_prices_simple() . "</p>";
-                                } elseif ( 'tinctures' === get_post_type() ) {
-                                    echo "<p class='wpd-ecommerce price'>" . wpd_tinctures_prices_simple() . "</p>";
-                                }
-
                                 // Select a quantity.
                                 print( '<select name="wpd_ecommerce_product_prices" id="wpd_ecommerce_product_prices" class="widefat">' );
                                 printf( '<option value="" disabled selected>Choose a quantity</option>' );
@@ -228,7 +210,6 @@ get_header(); ?>
 
                                 ?>
                             <?php } else { ?>
-                                <p class="wpd-ecommerce price"><?php echo wpd_currency_code(); ?><?php echo number_format( $regular_price, 2, '.', ',' ); ?></p>
                             <?php } ?>
                         <?php } ?>
 
@@ -392,23 +373,9 @@ get_header(); ?>
                     do_action( 'wpd_ecommerce_item_details_inside_before' );
 
                     // Get compounds.
-                    $compounds = wpd_compounds_simple( $type = '%', null );
+                    $compounds = wpd_compounds_simple( $type = '%', array() );
 
-                    // Create empty variable.
-                    $showcompounds = '';
-
-                    // Loop through each compound, and append it to variable.
-                    foreach ( $compounds as $compound => $value ) {
-                        $showcompounds .= '<span class="wpd-productinfo ' . $compound . '"><strong>' . __( $compound, 'wpd-ecommerce' ) . ':</strong> ' . $value . '</span>';
-                    }
-
-                    $showcompounds = $showcompounds;
-
-                    /**
-                     * @todo edit this to hide the compound details from regular table data output.
-                     * and display it here instead, where it could be seen as a cleaner/upgraded style.
-                     */
-                    //echo $showcompounds;
+                    $showcompounds = $compounds;
 
                     do_action( 'wpd_ecommerce_item_details_inside_after' );
 

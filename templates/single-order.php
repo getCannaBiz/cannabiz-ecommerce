@@ -4,7 +4,15 @@ Copy this file into your theme to customize
 */
 get_header(); ?>
 <?php
-if ( is_user_logged_in() ) {
+
+do_action( 'wpd_ecommerce_orders_single_order_before' );
+
+if ( ! is_user_logged_in() ) {
+    // Redirect non-logged in users.
+    wp_redirect( home_url() . '/account/' );
+    return;
+}
+
     $user              = wp_get_current_user();
     $role              = ( array ) $user->roles;
     $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
@@ -65,21 +73,19 @@ if ( is_user_logged_in() ) {
                     $user_info = get_userdata( $order_customer_id );
 
                     echo '<div class="order-info">';
-                    echo "<p><strong>Date:</strong><br /> " . get_the_date() . "</p>";
+                    echo '<p><strong>Date:</strong></p>';
+                    echo '<p>' . get_the_date() . '</p>';
                     if ( '' != $user_info->first_name ) {
                         $first_name = $user_info->first_name;
                     }
                     if ( '' != $user_info->last_name ) {
                         $last_name  = $user_info->last_name;
                     }
-                    echo "<p><strong>Name:</strong><br /> " . $first_name . ' ' . $last_name . "</p>";
+                    echo "<p><strong>Name:</strong></p>";
+                    echo '<p>' . $first_name . ' ' . $last_name . '</p>';
                     echo '</div>';
                     echo '<div class="patient-address">';
                     echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
-
-                    if ( '' != $user_info->last_name ) {
-                        echo $user_info->last_name . "<br />";
-                    }
 
                     if ( '' != $user_info->address_line_1 ) {
                         echo $user_info->address_line_1 . "<br />";
@@ -89,7 +95,7 @@ if ( is_user_logged_in() ) {
                         echo $user_info->address_line_2 . "<br />";
                     }
                     echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
-                    echo "<p><strong>Contact:</strong><br />";
+                    echo '<p>';
                     if ( '' != $user_info->user_email ) {
                         echo "<a class='email-address' href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a><br />";
                     }
@@ -103,7 +109,7 @@ if ( is_user_logged_in() ) {
                     echo '<div class="patient-contact">';
                     echo '<table class="wpd-ecommerce order-details"><tbody>';
                     echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
-                    if ( ! empty( $order_coupon_amount ) ) {
+                    if ( '0.00' !== $order_coupon_amount ) {
                         echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
                     }
                     if ( ! empty( $order_sales_tax ) ) {
@@ -131,12 +137,6 @@ if ( is_user_logged_in() ) {
         <?php endwhile; ?>
     </main>
 </div>
-<?php
-} else {
-    // Redirect non-logged in users.
-    wp_redirect( home_url() . '/account/' );
-}
-?>
 
 <?php wp_reset_query(); ?>
 <?php get_sidebar(); ?>

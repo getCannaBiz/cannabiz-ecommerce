@@ -55,7 +55,7 @@ class Cart {
 	}
 
 	/*
-	 * 	The function gets an item id (which is a post id) and 
+	 * 	The function gets an item id and 
 	 * 	the amounts of items and adds it to the cart
 	 */ 
 	function add_item( $item_id, $count, $old_id, $new_price, $old_price ) {
@@ -232,6 +232,7 @@ class Cart {
 		return $str;
 	}
 }
+
 /*
 $c = new Cart();
 print_r($c);

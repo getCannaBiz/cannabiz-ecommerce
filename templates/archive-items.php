@@ -37,19 +37,35 @@ $title               = $vendor_name->name;
 //    echo $vendor_name;
 
 /**
- * Check if vendor is searched.
+ * Taxonomy check.
  * 
  * @since 1.0
  */
-if ( ! empty( $_GET['vendor'] ) ) {
+if ( is_tax() ) {
+
+    // Get current info.
+    $tax = $wp_query->get_queried_object();
+
+    //print_r( $tax );
+
+    $taxonomy             = $tax->taxonomy;
+    $taxonomy_slug        = $tax->slug;
+    $taxonomy_name        = $tax->name;
+    $taxonomy_count       = $tax->count;
+    $taxonomy_description = $tax->description;
+
     $tax_query = array(
         'relation' => 'AND',
     );
     $tax_query[] = array(
-        'taxonomy' => 'vendor',
+        'taxonomy' => $taxonomy,
         'field'    => 'slug',
-        'terms'    => $_GET['vendor'],
+        'terms'    => $taxonomy_slug,
     );
+
+    $menu_type_name        = $taxonomy_name;
+    $menu_type_description = $taxonomy_description;
+
 } else {
     $tax_query = '';
 }
@@ -74,6 +90,8 @@ if ( ! empty( $_GET['vendor'] ) ) {
     $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
     $page_title = __( $vendor_name->name, 'wpd-ecommerce' );
     $menu_type_name = $page_title;
+} elseif( is_tax() ) {
+    
 } else {
     // Get post type.
     $post_type = get_post_type();
@@ -118,7 +136,7 @@ if ( ! empty( $_GET['vendor'] ) ) {
                 <?php
                     $count      = 0;
                     $perrow     = ( empty( $options['perrow'] ) ) ? 3 : $options['perrow'];
-                    $item_width = ( empty( $options['perrow'] ) ) ? 33 : ( 100 / $options['perrow'] ) - 1;
+                    $item_width = ( empty( $options['perrow'] ) ) ? 32 : ( 100 / $options['perrow'] ) - 1;
                     
                     // Get the posts.
                     $loop = new WP_Query(
@@ -156,28 +174,52 @@ if ( ! empty( $_GET['vendor'] ) ) {
                         $showimage                    = '<a href="' . get_permalink() . '"><img src="' . $defaultimg . '" alt="' . __( 'Menu - Edible', 'wp-dispensary' ) . '" /></a>';
                     }
                 ?>
-
-                <?php;
-
-                //print_r( $testing_this );
-                /**
-                 * @todo
-                 * 
-                 * Add the shortcode layout here, and customize it
-                 */
-                ?>
-                <div class="wpdshortcode item" style="width:<?php echo ceil( $item_width ); ?>%;">
-                    <?php echo $showimage; ?>
-                    <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
-                    <?php esc_html( get_wpd_all_prices_simple( NULL ) ); ?>
-                    <?php esc_html( wpd_compounds_simple( $post_type_slug, array( 'thc', 'cbd' ) ) ); ?>
-                </div><!-- // .wpdshortcode item -->
-                <?php
-                    $count++;
-                    endwhile;
-                ?>
+                    <?php do_action( 'wpd_ecommerce_archive_items_product_before' ); ?>
+                    <div class="wpdshortcode item" style="width:<?php echo ceil( $item_width ); ?>%;">
+                        <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
+                        <?php echo $showimage; ?>
+                        <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
+                        <?php
+                            wpd_all_prices_simple( NULL, TRUE );
+                            /**
+                             * @todo add customization filter for this to include items in the array spot.
+                             */
+                            //esc_html( wpd_compounds_simple( $post_type_slug, array() ) );
+                        ?>
+                        <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
+                    </div><!-- // .wpdshortcode item -->
+                    <?php do_action( 'wpd_ecommerce_archive_items_product_after' ); ?>
+                    <?php
+                        $count++;
+                        endwhile;
+                    ?>
+                    <div class="wpd-page-numbers">
+                    <?php
+                        // Get total number of pages
+                        global $wp_query;
+                        $total = $wp_query->max_num_pages;
+                        // Only paginate if we have more than one page
+                        if ( $total > 1 )  {
+                            // Get the current page
+                            if ( ! $current_page = get_query_var( 'paged' ) )
+                                $current_page = 1;
+                                $format = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : 'page/%#%/';
+                                echo paginate_links( array(
+                                    'base'      => get_pagenum_link(1) . '%_%',
+                                    'format'    => $format,
+                                    'current'   => $current_page,
+                                    'total'     => $total,
+                                    'mid_size'  => 4,
+                                    'prev_text' => '&larr;',
+                                    'next_text' => '&rarr;',
+                                    'type'      => 'list'
+                                ) );
+                        }
+                        //the_posts_navigation();
+                    ?>
+                    </div><!-- // .wpd-page-links -->
                 </div><!-- // .row -->
-            </div><!-- // .item -->
+            </div><!-- // .item-wrapper -->
         </div><!-- // #post -->
     </div><!-- // .wpdispensary -->
     <?php endif; ?>

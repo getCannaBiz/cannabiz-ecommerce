@@ -30,7 +30,7 @@ function wpd_ecommerce_clear_cart() {
  * run the isset below to output a message about the cart
  * being cleaned out.
  */
-if ( isset( $_POST['clear_cart'] ) ) {
+if ( isset( $_GET['clear_cart'] ) ) {
     wpd_ecommerce_clear_cart();
 }
 
@@ -47,18 +47,4 @@ function wpd_ecommerce_add_items_to_cart( $item_id, $count, $old_id, $new_price,
 	else:
 		$_SESSION['wpd_ecommerce']->add_item( $item_id, $count, $old_id, $new_price, $old_price );
 	endif;
-}
-
-/**
- * Cart Price Output
- * Get's cart item by post ID
- * possibly use this? maybe not.
- * 
- * @todo move to the functions file
- */
-function wpd_ecommerce_form_price_output() {
-	global $post;
-	$i    = new Item( $post->ID );
-	$str  = '<p class="price"><span class="wpd-ecommerce price">' . CURRENCY . $i->price . '</span></p>';
-	return $str;
 }

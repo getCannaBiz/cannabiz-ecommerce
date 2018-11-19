@@ -27,11 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'DEV', FALSE );
 
 /**
- * @todo make these number filterable
- * and customizable in settings by admin
- */
-
-/**
  * WP Dispensary eCommerce
  * 
  * @since 1.0
@@ -78,6 +73,7 @@ include_once( dirname(__FILE__).'/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-template-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-archive-items-functions.php' );
 
 // Includes for Classes.
 include_once( dirname(__FILE__).'/classes/class-cart.php' );
@@ -247,9 +243,12 @@ function wpd_ecommerce_load_session() {
 	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( !$_SESSION ) ) {
 
 		// Set session name.
-		session_name( 'wpd_ecommerce' );		
+		session_name( 'wpd_ecommerce' );
+		session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
 		// Start session and set cookie for 1 day.
-		session_start( [ 'cookie_lifetime' => 86400, ] );
+		session_start( [
+			'cookie_lifetime' => 86400,
+		] );
 
 	}	
 }
@@ -286,10 +285,7 @@ if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 /**
  * Calculate cart sum
  * 
- * This calculates the 
- * 
- * Create 
- * Cart class creates 
+ * This calculates the cart total on page load.
  * 
  * @todo make sure this is fast/loading properly.
  */

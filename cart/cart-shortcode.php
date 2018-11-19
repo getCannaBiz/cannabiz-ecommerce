@@ -6,26 +6,6 @@ function wpd_ecommerce_shortcode() {
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
 
-
-		echo '<form role="search" method="get" class="search-form" action="' . get_bloginfo( 'url' ) . '">';
-
-		// Search option #1 not working right now
-		echo '<input type="search" class="search-field" placeholder="' . esc_attr_x( 'Search Business or Service', 'wpd-ecommerce' ) . '" value="' . get_query_var( 'vendor' ) . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />';
-
-		$location_args = array( 
-			'taxonomy'          => 'vendor', 
-			'value_field'       => 'slug', 
-			'name'              => 'vendor', 
-			'show_option_none'  => __( 'Select Vendor', 'wpd-ecommerce' ), 
-			'option_none_value' => '0', 
-			'order'             => 'ASC', 
-			'hide_empty'        => 0
-		);
-
-		wp_dropdown_categories( $location_args );
-		echo '<input type="submit" class="button" style="width: 100%;" value="' . __( 'Search', 'wpd-ecommerce' ) . '" />';
-		echo '</form>';
-
 		$str  = '';
 		$str .= do_action( 'wpd_ecommerce_cart_table_before' );
 		$str .= '<table class="wpd-ecommerce cart">';

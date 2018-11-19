@@ -4,8 +4,8 @@
  */
 
 /** Price Display on Products */
-p.price {
-    color: #76BD1D;
+p.wpd-ecommerce.price span.wpd-productinfo {
+    color: #76bd1d;
     font-size: 1.245em;
 }
 
@@ -220,7 +220,6 @@ h3.wpd-ecommerce.patient-title {
     margin-right: 6px;
     -webkit-font-smoothing: antialiased;
 }
-
 
 /** Single Item Template */
 
@@ -882,7 +881,28 @@ table.wpd-ecommerce.order-details tbody {
 /**
  *
  */
-body.post-type-archive-concentrates .hentry, body.post-type-archive-edibles .hentry, body.post-type-archive-flowers .hentry, body.post-type-archive-gear .hentry, body.post-type-archive-growers .hentry, body.post-type-archive-prerolls .hentry, body.post-type-archive-tinctures .hentry, body.post-type-archive-topicals .hentry, body.tax-allergens .hentry, body.tax-aroma .hentry, body.tax-concentrates_category .hentry, body.tax-condition .hentry, body.tax-edibles_category .hentry, body.tax-effect .hentry, body.tax-flavor .hentry, body.tax-flowers_category .hentry, body.tax-growers_category .hentry, body.tax-ingredients .hentry, body.tax-symptom .hentry, body.tax-topicals_category .hentry, body.tax-vendor .hentry, body.tax-wpd_gear_category .hentry, body.tax-wpd_tinctures_category .hentry {
+body.post-type-archive-concentrates .hentry,
+body.post-type-archive-edibles .hentry,
+body.post-type-archive-flowers .hentry,
+body.post-type-archive-gear .hentry,
+body.post-type-archive-growers .hentry,
+body.post-type-archive-prerolls .hentry,
+body.post-type-archive-tinctures .hentry,
+body.post-type-archive-topicals .hentry,
+body.tax-allergens .hentry, body.tax-aroma .hentry,
+body.tax-concentrates_category .hentry, 
+body.tax-condition .hentry,
+body.tax-edibles_category .hentry, 
+body.tax-effect .hentry,
+body.tax-flavor .hentry, 
+body.tax-flowers_category .hentry,
+body.tax-growers_category .hentry,
+body.tax-ingredients .hentry,
+body.tax-symptom .hentry,
+body.tax-topicals_category .hentry,
+body.tax-vendor .hentry,
+body.tax-wpd_gear_category .hentry,
+body.tax-wpd_tinctures_category .hentry {
     width: 100% !important;
 }
 
@@ -898,5 +918,88 @@ body.post-type-archive-concentrates .hentry, body.post-type-archive-edibles .hen
 }
 
 .wpdshortcode:nth-child(3n+3) {
+    margin: 12px 2%;
+}
+
+@media screen and (max-width: 600px) {
+    .wpdshortcode.item {
+        width: 100% !important;
+    }
+    .image-wrapper img {
+        margin: 0 auto;
+        display: block;
+    }
+    .wpd-ecommerce-shelfItem .product-details,
+    .wpd-ecommerce-shelfItem .image-wrapper {
+        width: 100%;
+    }
+    form.wpd-ecommerce {
+        margin-bottom: 24px;
+    }
+}
+
+
+/** Pagination */
+
+.wpd-page-numbers {
+    float: left;
+    padding: 12px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.wpd-page-numbers .page-numbers {
+    width: 100%;
+}
+
+.hentry .wpd-page-numbers ul.page-numbers {
+    margin: 0;
+    padding: 0;
+}
+
+.hentry ul.wpd-page-numbers li:before {
+    display: none;
+}
+
+.wpd-page-numbers .page-numbers li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.wpd-page-numbers .page-numbers li a,
+.wpd-page-numbers .page-numbers li a:visited {
+    color: #454545;
+}
+
+.wpd-page-numbers .page-numbers li a:hover {
+    color: #222;
+}
+
+.wpd-page-numbers .page-numbers.current,
+.wpd-page-numbers .page-numbers.dots {
+    background: #EEE;
+    box-shadow: none;
+    color: #454545;
+    padding: 5px 10px;
+}
+
+/** Archive and shortcode buttons */
+
+a.button.wpd-buy-btn,
+a.button.wpd-buy-btn:visited {
+    background: transparent;
+    border: 1px solid #76BD1D;
+    box-shadow: none;
+    color: #76BD1D;
+    float: left;
     margin: 12px 0;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: center;
+}
+
+a.button.wpd-buy-btn:hover {
+    background: #76BD1D;
+    border: 1px solid #76BD1D;
+    color: #FFF;
 }
