@@ -18,6 +18,14 @@ function wpd_patient_account_shortcode() {
 		echo wp_login_form( $args );
 		echo "</div>";
 
+		/**
+		 * @todo add setting in dashboard to turn this on/off.
+		 */
+		echo "<div class='wpd-ecommerce-register-form'>";
+		echo "<h3>Register</h3>";
+		echo wp_login_form( $args );
+		echo "</div>";
+
 	} else {
 		/**
 		 * @todo move this to another helper function so it's cleaner here
@@ -96,11 +104,24 @@ function wpd_patient_account_shortcode() {
 			<section id="content1">
 
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
-
 				<?php
 					$user   = wp_get_current_user();
 					$role   = ( array ) $user->roles;
+				
+					// Patient name based on specific profile info.
+					if ( '' !== $user->first_name && '' !== $user->last_name ) {
+						$patient_name = $user->first_name . '  ' . $user->last_name;
+					} elseif ( '' !== $user->display_name ) {
+						$patient_name = $user->display_name;
+					} else {
+						$patient_name = $user->user_nicename;
+					}
+				?>
 
+				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
+				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+
+				<?php
 					// If user is administrator.
 					if ( 'administrator' === $role[0] ) {
 
@@ -157,21 +178,64 @@ function wpd_patient_account_shortcode() {
 						echo "<div class='wpd-ecommerce account-administrator orders'>" . $order_count . "<span>Orders</span></div>";
 						echo "<div class='wpd-ecommerce account-administrator earnings'>" . CURRENCY . number_format((float)$total_final, 2, '.', ',' ) . "<span>This Week</span></div>";
 					}
+				// If user is administrator.
+				if ( 'administrator' === $role[0] ) {
 				?>
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
+				<table class="wpd-ecommerce patient-orders">
+					<thead>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Date</td>
+						<td>Status</td>
+						<td>Total</td>
+					</thead>
+					<tbody>
+					<?php
+						$user = wp_get_current_user();
+						$args = array(
+							'post_type'  => 'wpd_orders',
+						);
+						$the_query = new WP_Query( $args );
+					?>
+					<?php if ( $the_query->have_posts() ) : ?>
+				
+					<!-- the loop -->
+					<?php
+					while ( $the_query->have_posts() ) : $the_query->the_post();
+
+					$total             = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
+					$status_names      = wpd_ecommerce_get_order_statuses();
+					$status            = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
+					$status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
+					$order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
+					$customer = get_userdata( $order_customer_id );
+
+					if ( empty( $status ) ) {
+						$status = 'wpd-pending';
+					}
+
+					$table_admin .= "<tr>
+						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
+						<td>" . $customer->first_name . ' ' . $customer->last_name . "</td>
+						<td> " . get_the_date() . "<td>" . $status_display . "</td>
+						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
+					</tr>";
+
+					endwhile;
+					endif;
+					?>
+					<!-- end of the loop -->
+
+					<?php wp_reset_postdata(); ?>
+
+					<?php echo $table_admin; ?>
+					</tbody>
+				</table>
 
 				<?php
-
-					// Patient name based on specific profile info.
-					if ( '' !== $user->first_name && '' !== $user->last_name ) {
-						$patient_name = $user->first_name . '  ' . $user->last_name;
-					} elseif ( '' !== $user->display_name ) {
-						$patient_name = $user->display_name;
-					} else {
-						$patient_name = $user->user_nicename;
-					}
+				} // end if is administrator.
 				?>
-				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
-				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
 			</section>
 
 			<section id="content2">
@@ -182,7 +246,6 @@ function wpd_patient_account_shortcode() {
 						<td>Date</td>
 						<td>Status</td>
 						<td>Total</td>
-						<td>Action</td>
 					</thead>
 					<tbody>
 					<?php
@@ -217,7 +280,6 @@ function wpd_patient_account_shortcode() {
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
 						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
-						<td><a href='' class='button'>Reorder</a>
 					</tr>";
 
 					endwhile;
@@ -233,15 +295,17 @@ function wpd_patient_account_shortcode() {
 			</section>
 
 			<section id="content3">
+
+				<?php do_action( 'wpd_ecommerce_patient_account_form_before' ); ?>
+
 				<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
+
+				<?php do_action( 'wpd_ecommerce_patient_account_form_before_inside' ); ?>
 
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
 
-				<?php
-				/**
-				 * @todo add action_hook here
-				 */
-				?>
+				<?php do_action( 'wpd_ecommerce_patient_account_contact_information_before' ); ?>
+
 				<p class="form-row first form-first-name">
 					<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 					<input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
@@ -291,19 +355,11 @@ function wpd_patient_account_shortcode() {
 					<input class="text-input" name="country" type="text" id="country" value="<?php the_author_meta( 'country', $current_user->ID ); ?>" />
 				</p><!-- .form-phone-country -->
 
-				<?php
-				/**
-				* @todo add action_hook here
-				*/
-				?>
+				<?php do_action( 'wpd_ecommerce_patient_account_contact_information_after' ); ?>
 
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
 
-				<?php
-				/**
-				* @todo add action_hook here
-				*/
-				?>
+				<?php do_action( 'wpd_ecommerce_patient_account_password_change_before' ); ?>
 
 				<p class="form-row form-first form-password">
 					<label for="pass1"><?php _e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
@@ -319,12 +375,13 @@ function wpd_patient_account_shortcode() {
 					<?php wp_nonce_field( 'update-user' ) ?>
 					<input name="action" type="hidden" id="action" value="update-user" />
 				</p><!-- .form-submit -->
-				<?php
-				/**
-				* @todo add action_hook here
-				*/
-				?>
+
+				<?php do_action( 'wpd_ecommerce_patient_account_form_inside_after' ); ?>
+
 				</form><!-- #patients -->
+
+				<?php do_action( 'wpd_ecommerce_patient_account_form_after' ); ?>
+
 			</section>
 	<!--
 			<section id="content4">

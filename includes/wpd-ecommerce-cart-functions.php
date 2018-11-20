@@ -24,17 +24,6 @@ function wpd_ecommerce_clear_cart() {
 }
 
 /**
- * If/When a button is added to clear a whole cart.
- * 
- * @todo move this to the notifications file - or at least
- * run the isset below to output a message about the cart
- * being cleaned out.
- */
-if ( isset( $_GET['clear_cart'] ) ) {
-    wpd_ecommerce_clear_cart();
-}
-
-/**
  * Add Items to Cart
  * 
  * @since 1.0

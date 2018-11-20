@@ -152,11 +152,17 @@ function wpd_ecommerce_notifications() {
 	}
 
 	/**
+	 * If a user clicks to clear the cart.
+	 */
+	if ( isset( $_GET['clear_cart'] ) ) {
+		wpd_ecommerce_clear_cart();
+	}
+
+	/**
 	 * Coupon Codes
 	 * 
 	 * If coupon code is added to the cart, do something specific.
 	 * 
-	 * @todo move the coupon creation code to another file
 	 * @since 1.0
 	 */
 	if ( isset( $_POST['coupon_code'] ) && ! empty( $_POST['coupon_code'] ) && isset( $_POST['add_coupon'] ) ) {
@@ -186,13 +192,13 @@ function wpd_ecommerce_notifications() {
 		// Add coupon to the cart.
 		$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
 		
-		// Run a code to update the subtotal in the $_SESSION['wpd_ecommerce]->apply_coupon 
+		// Display success notification.
 		echo '<div class="wpd-ecommerce-notifications success"><strong>Success:</strong> Coupon code has been applied</div>';
 
 		endforeach;
 	}
 
-	// Remove the item from cart.
+	// Remove the coupon from cart.
 	if ( isset( $_SESSION['wpd_ecommerce'] ) && $_SESSION['wpd_ecommerce']->coupon_code === $_GET['remove_coupon'] ) {
 		$_SESSION['wpd_ecommerce']->remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
 		wp_redirect( get_the_permalink() );
@@ -592,3 +598,86 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 	}
 	
 }
+
+/**
+ * Template wrap - before
+ * 
+ * @since 1.0
+ */
+function wpd_ecommerce_wrap_before() {
+	echo '<div id="primary" class="col-lg-8 content-area">
+	<main id="main" class="site-main" role="main">';
+}
+add_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+add_action( 'wpd_ecommerce_templates_single_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+
+/**
+ * Template wrap - after
+ * 
+ * @since 1.0
+ */
+function wpd_ecommerce_wrap_after() {
+	echo '</main>
+	</div>';
+}
+add_action( 'wpd_ecommerce_templates_archive_items_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
+add_action( 'wpd_ecommerce_templates_single_items_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
+
+
+$my_theme = wp_get_theme();
+/*
+echo "<pre>";
+print_r( $my_theme );
+echo "</pre>";
+
+echo $my_theme->get( 'Template' );
+*/
+$template_name = $my_theme->get( 'TextDomain' );
+
+if ( 'twentyseventeen' == $template_name ) {
+	remove_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+	remove_action( 'wpd_ecommerce_templates_single_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+	remove_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+	remove_action( 'wpd_ecommerce_templates_archive_items_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
+	remove_action( 'wpd_ecommerce_templates_single_items_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
+
+	/**
+	 * Template wrap - before
+	 * 
+	 * @since 1.0
+	 */
+	function wpd_ecommerce_wrap_before_twentyseventeen() {
+		echo '<div class="wrap"><div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">';
+	}
+	add_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_wrap_before_twentyseventeen', 10 );
+	add_action( 'wpd_ecommerce_templates_single_items_wrap_before', 'wpd_ecommerce_wrap_before_twentyseventeen', 10 );
+	add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_wrap_before_twentyseventeen', 10 );
+
+	/**
+	 * Template wrap - after
+	 * 
+	 * @since 1.0
+	 */
+	function wpd_ecommerce_wrap_after_twentyseventeen() {
+		echo '</main>
+		</div>';
+	}
+	add_action( 'wpd_ecommerce_templates_archive_items_wrap_after', 'wpd_ecommerce_wrap_after_twentyseventeen', 10 );
+	add_action( 'wpd_ecommerce_templates_single_items_wrap_after', 'wpd_ecommerce_wrap_after_twentyseventeen', 10 );
+
+} // if twentyseventeen theme
+
+function wpd_admin_settings_section_after() {
+	// Section: Pages.
+	$wpdas_object = $wpdas_obj->add_section(
+		array(
+			'id'    => 'wpdas_pages',
+			'title' => __( 'Pages', 'wp-dispensary' ),
+		)
+	);
+
+	return $wpdas_object;
+}
+add_action( 'wp_dispensary_admin_settings_sections_before', 'wpd_admin_settings_section_after' );

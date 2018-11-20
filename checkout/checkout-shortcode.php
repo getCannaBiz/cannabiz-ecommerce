@@ -2,7 +2,10 @@
 // Add Checkout Shortcode.
 function wpd_ecommerce_checkout_shortcode() {
 
-if ( is_user_logged_in() ) {
+if ( ! is_user_logged_in() ) {
+    echo '<p>You must be logged in to checkout.</p>';
+    echo '<p><a href="' . get_bloginfo( 'url' ) . '/account/" class="button wpd-ecommerce return">Login</a></p>';
+} else {
     // Verify that there's an active session.
 	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
 
@@ -249,10 +252,10 @@ if ( is_user_logged_in() ) {
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><td><strong>Coupon:<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</strong></td><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>Remove?</a>)</td></tr>";
 		}
-        if ( NULL != defined( 'SALES_TAX' ) ) {
+        if ( NULL !== SALES_TAX ) {
             $str .= "<tr><td><strong>Sales tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
         }
-        if ( NULL != defined( 'EXCISE_TAX' ) ) {
+        if ( NULL !== EXCISE_TAX ) {
             $str .= "<tr><td><strong>Excise tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
         }
         $str .= "<tr><td><strong>Total</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";

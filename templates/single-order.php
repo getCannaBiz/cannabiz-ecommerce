@@ -5,13 +5,12 @@ Copy this file into your theme to customize
 get_header(); ?>
 <?php
 
-do_action( 'wpd_ecommerce_orders_single_order_before' );
+do_action( 'wpd_ecommerce_templates_single_orders_wrap_before' );
 
 if ( ! is_user_logged_in() ) {
     // Redirect non-logged in users.
     wp_redirect( home_url() . '/account/' );
-    return;
-}
+} else {
 
     $user              = wp_get_current_user();
     $role              = ( array ) $user->roles;
@@ -55,89 +54,86 @@ if ( ! is_user_logged_in() ) {
         }
     }
 ?>
-
-<div id="primary" class="col-lg-8 content-area">
-    <main id="main" class="site-main" role="main">
-        <?php while ( have_posts() ) : the_post(); ?>
-        <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <header class="entry-header">
-                <h1 class="item_name"><?php the_title(); ?><?php echo $status_display; ?></h1>
-                <?php
-                    // Include notifications.
-                    echo wpd_ecommerce_notifications();
-                ?>
-            </header>
-            <div class="entry-content order-details">
-                <?php
-                    // Get user info.
-                    $user_info = get_userdata( $order_customer_id );
-
-                    echo '<div class="order-info">';
-                    echo '<p><strong>Date:</strong></p>';
-                    echo '<p>' . get_the_date() . '</p>';
-                    if ( '' != $user_info->first_name ) {
-                        $first_name = $user_info->first_name;
-                    }
-                    if ( '' != $user_info->last_name ) {
-                        $last_name  = $user_info->last_name;
-                    }
-                    echo "<p><strong>Name:</strong></p>";
-                    echo '<p>' . $first_name . ' ' . $last_name . '</p>';
-                    echo '</div>';
-                    echo '<div class="patient-address">';
-                    echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
-
-                    if ( '' != $user_info->address_line_1 ) {
-                        echo $user_info->address_line_1 . "<br />";
-                    }
-
-                    if ( '' != $user_info->address_line_2 ) {
-                        echo $user_info->address_line_2 . "<br />";
-                    }
-                    echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
-                    echo '<p>';
-                    if ( '' != $user_info->user_email ) {
-                        echo "<a class='email-address' href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a><br />";
-                    }
-
-                    if ( '' != $user_info->phone_number ) {
-                        echo "<a class='phone-number' href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
-                    }
-                    echo '</p>';
-                    echo '</div>';
-
-                    echo '<div class="patient-contact">';
-                    echo '<table class="wpd-ecommerce order-details"><tbody>';
-                    echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
-                    if ( '0.00' !== $order_coupon_amount ) {
-                        echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
-                    }
-                    if ( ! empty( $order_sales_tax ) ) {
-                        echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
-                    }
-                    if ( ! empty( $order_excise_tax ) ) {
-                        echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
-                    }
-                    echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
-                    echo '</tbody></table>';
-                    echo '</div>';
-                ?>
+    <?php while ( have_posts() ) : the_post(); ?>
+    <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <header class="entry-header">
+            <h1 class="item_name"><?php the_title(); ?><?php echo $status_display; ?></h1>
             <?php
-                if ( 'patient' === $role[0] ) {
-                    echo "<h3>Order items</h3>";
-                    echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
-                } elseif ( 'administrator' === $role[0] ) {
-                    echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );
-                } else {
-                    wp_redirect( home_url() . '/account/' );
-                }
+                // Include notifications.
+                echo wpd_ecommerce_notifications();
             ?>
-            </div>
-        </div>
-        <?php endwhile; ?>
-    </main>
-</div>
+        </header>
+        <div class="entry-content order-details">
+            <?php
+                // Get user info.
+                $user_info = get_userdata( $order_customer_id );
 
+                echo '<div class="order-info">';
+                echo '<p><strong>Date:</strong></p>';
+                echo '<p>' . get_the_date() . '</p>';
+                if ( '' != $user_info->first_name ) {
+                    $first_name = $user_info->first_name;
+                }
+                if ( '' != $user_info->last_name ) {
+                    $last_name  = $user_info->last_name;
+                }
+                echo "<p><strong>Name:</strong></p>";
+                echo '<p>' . $first_name . ' ' . $last_name . '</p>';
+                echo '</div>';
+                echo '<div class="patient-address">';
+                echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
+
+                if ( '' != $user_info->address_line_1 ) {
+                    echo $user_info->address_line_1 . "<br />";
+                }
+
+                if ( '' != $user_info->address_line_2 ) {
+                    echo $user_info->address_line_2 . "<br />";
+                }
+                echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
+                echo '<p>';
+                if ( '' != $user_info->user_email ) {
+                    echo "<a class='email-address' href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a><br />";
+                }
+
+                if ( '' != $user_info->phone_number ) {
+                    echo "<a class='phone-number' href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
+                }
+                echo '</p>';
+                echo '</div>';
+
+                echo '<div class="patient-contact">';
+                echo '<table class="wpd-ecommerce order-details"><tbody>';
+                echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
+                if ( '0.00' !== $order_coupon_amount ) {
+                    echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
+                }
+                if ( ! empty( $order_sales_tax ) ) {
+                    echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
+                }
+                if ( ! empty( $order_excise_tax ) ) {
+                    echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
+                }
+                echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
+                echo '</tbody></table>';
+                echo '</div>';
+            ?>
+        <?php
+            if ( 'patient' === $role[0] ) {
+                echo "<h3>Order items</h3>";
+                echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
+            } elseif ( 'administrator' === $role[0] ) {
+                echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );
+            } else {
+                wp_redirect( home_url() . '/account/' );
+            }
+        ?>
+        </div>
+    </div>
+    <?php endwhile; ?>
+<?php do_action( 'wpd_ecommerce_templates_single_orders_wrap_after' ); ?>
 <?php wp_reset_query(); ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
+
+<?php } ?>

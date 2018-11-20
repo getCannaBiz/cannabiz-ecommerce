@@ -69,6 +69,7 @@ wpd_ecommerce();
 
 // Includes for Helper Functions.
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-core-functions.php' );
+include_once( dirname(__FILE__).'/includes/wpd-ecommerce-admin-settings-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-patients-functions.php' );
@@ -85,7 +86,6 @@ include_once( dirname(__FILE__).'/cart/cart-shortcode.php' );
 
 // Includes for Checkout.
 include_once( dirname(__FILE__).'/checkout/checkout-shortcode.php' );
-include_once( dirname(__FILE__).'/checkout/checkout-complete-shortcode.php' );
 
 // Includes for Patients.
 include_once( dirname(__FILE__).'/patients/patient-account-details.php' );
@@ -108,7 +108,7 @@ add_action( 'init', 'wpd_ecommerce_output_buffer' );
  * I want it and need it to
  */
 
- // Add Patient User Role on Plugin Activation.
+// Add Patient User Role on Plugin Activation.
 function wpd_ecommerce_add_patient_user_role_activation() {
 	add_role( 'patient', 'Patient', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
 }
@@ -229,25 +229,25 @@ function wpd_ecommerce_load_session() {
 	/**
 	 * @todo run checks in user settings on how long to set cookie.
 	 */
-	$one_hour     = ( 86400 / 60 ) / 24;
-	$three_hours  = ( 86400 / 60 ) / 8;
-	$six_hours    = ( 86400 / 60 ) / 4;
-	$twelve_hours = ( 86400 / 60 ) / 2;
+	$half_hour    = 86400 / 48;
+	$one_hour     = 86400 / 24;
+	$three_hours  = 86400 / 8;
+	$six_hours    = 86400 / 4;
+	$twelve_hours = 86400 / 2;
 	$one_day      = 86400;
 
-	/*
-	echo $one_hour;
-	echo ' --- ' . $three_hours;
-	*/
+	//echo $twelve_hours;
+	//echo ' --- ' . $three_hours;
 
-	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( !$_SESSION ) ) {
+	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( ! $_SESSION ) ) {
 
 		// Set session name.
 		session_name( 'wpd_ecommerce' );
-		session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
+		//session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
 		// Start session and set cookie for 1 day.
 		session_start( [
-			'cookie_lifetime' => 86400,
+			'cookie_lifetime' => $half_hour,
+			'cookie_domain'   => get_bloginfo( 'home' ) // @todo SEE IF THIS WORKS!!!!
 		] );
 
 	}	
@@ -356,8 +356,30 @@ add_filter( 'template_include', 'wpd_ecommerce_include_template_function', 1 );
  * @since 1.0
  */
 function wpd_ecommerce_add_options() {
-	// wpd_ecommerce_add_options: add options to DB for this plugin
-	add_option( 'wpd_ecommerce_account_page', home_url() . '/account/' );
+	// Add page link options.
+	add_option( 'wpd_ecommerce_page_account', home_url() . '/account/' );
+	add_option( 'wpd_ecommerce_page_shop', home_url() . '/dispensary-menu/' );
+	add_option( 'wpd_ecommerce_page_cart', home_url() . '/cart/' );
+	add_option( 'wpd_ecommerce_page_checkout', home_url() . '/checkout/' );
+	// Add flower product weight options.
+	add_option( 'wpd_ecommerce_weight_flowers_gram', '1' );
+	add_option( 'wpd_ecommerce_weight_flowers_twograms', '2' );
+	add_option( 'wpd_ecommerce_weight_flowers_eighth', '3.5' );
+	add_option( 'wpd_ecommerce_weight_flowers_fivegrams', '5' );
+	add_option( 'wpd_ecommerce_weight_flowers_quarter', '7' );
+	add_option( 'wpd_ecommerce_weight_flowers_half', '14' );
+	add_option( 'wpd_ecommerce_weight_flowers_ounce', '28' );
+	// Add flower product weight options.
+	add_option( 'wpd_ecommerce_weight_concentrates_halfgram', '0.5' );
+	add_option( 'wpd_ecommerce_weight_concentrates_gram', '1' );
+	add_option( 'wpd_ecommerce_weight_concentrates_twograms', '2' );
+
+	// Add admin settings default options.
+	add_option( 'wpd_pages_setup_menu_page', 'dispensary-menu' );
+	add_option( 'wpd_pages_setup_cart_page', 'cart' );
+	add_option( 'wpd_pages_setup_checkout_page', 'checkout' );
+	add_option( 'wpd_pages_setup_order_account_page', 'account' );
 }
 wpd_ecommerce_add_options();
 
+//json_encode( $_SESSION['wpd_ecommerce'] );

@@ -123,7 +123,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
                         $regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
 						/**
-						 * @todo make flower_names through the entier plugin filterable.
+						 * @todo make flower_names through the entire plugin filterable.
 						 */
 						$flower_names = array(
 							'1 g'    => '_gram',
@@ -140,9 +140,6 @@ class WPD_eCommerce_Widget extends WP_Widget {
 	
 						foreach ( $flower_names as $value=>$key ) {
 							if ( $key == $flower_weight_cart ) {
-								/**
-								 * @todo change value to actual amount instead of just variable name
-								 */
 								$weightname = " - " . $value;
 							}
 						}
@@ -164,9 +161,6 @@ class WPD_eCommerce_Widget extends WP_Widget {
 	
 						foreach ( $concentrates_names as $value=>$key ) {
 							if ( $key == $concentrate_weight_cart ) {
-								/**
-								 * @todo change value to actual amount instead of just variable name
-								 */
 								$weightname = " - " . $value;
 							}
 						}

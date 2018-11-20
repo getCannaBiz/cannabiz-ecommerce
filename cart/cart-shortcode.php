@@ -37,7 +37,7 @@ function wpd_ecommerce_shortcode() {
 				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
 				/**
-				 * @todo make flower_names through the entier plugin filterable.
+				 * @todo make flower_names through the entire plugin filterable.
 				 */
 				$flower_names = array(
 					'1 g'    => '_gram',
@@ -54,9 +54,6 @@ function wpd_ecommerce_shortcode() {
 
 				foreach ( $flower_names as $value=>$key ) {
 					if ( $key == $flower_weight_cart ) {
-						/**
-						 * @todo change value to actual amount instead of just variable name
-						 */
 						$weightname = " - " . $value;
 					}
 				}
@@ -64,7 +61,7 @@ function wpd_ecommerce_shortcode() {
 				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
 				/**
-				 * @todo make concentrate_names through the entier plugin filterable.
+				 * @todo make concentrate_names through the entire plugin filterable.
 				 */
 				$concentrates_names = array(
 					'1/2 g'  => '_halfgram',
@@ -77,9 +74,6 @@ function wpd_ecommerce_shortcode() {
 
 				foreach ( $concentrates_names as $value=>$key ) {
 					if ( $key == $concentrate_weight_cart ) {
-						/**
-						 * @todo change value to actual amount instead of just variable name
-						 */
 						$weightname = " - " . $value;
 					}
 				}
@@ -123,10 +117,10 @@ function wpd_ecommerce_shortcode() {
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>Coupon:<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>Remove?</a>)</td></tr>";
 		}
-		if ( NULL != defined( 'SALES_TAX' ) ) {
+		if ( NULL !== SALES_TAX ) {
 			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>Sales tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
 		}
-		if ( NULL != defined( 'EXCISE_TAX' ) ) {
+		if ( NULL !== EXCISE_TAX ) {
 			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>Excise tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
 		}
 		$str .= "<tr><th class='cart_total'><span class='total'>Total</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
@@ -143,6 +137,9 @@ function wpd_ecommerce_shortcode() {
 
 	} else {
 		echo '<p>There\'s nothing in your cart.</p>';
+		/**
+		 * @todo change link with option from within the settings.
+		 */
 		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-ecommerce return">Return to Menu</a></p>';
 	}
 }

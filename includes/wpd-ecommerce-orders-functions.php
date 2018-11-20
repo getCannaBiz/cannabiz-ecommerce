@@ -131,7 +131,7 @@ function wpd_ecommerce_order_statuses( $order_id, $display = NULL, $classes = NU
 
     // Default style.
     if ( NULL === $display ) {
-        $display = 'span'; /** @todo add filter here so themes/plugins can auto-change default for any order status without a display. */
+        $display = 'span';
     }
 
     /**

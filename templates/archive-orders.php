@@ -6,13 +6,6 @@ get_header(); ?>
 <section id="primary" class="site-content">
     <div id="content" role="main">
         <?php
-        /**
-         * @todo add redirect here
-         * 
-         * if patient, redirect to their account page, everyone else can be redirected to dispensary-menu
-         */
-        ?>
-        <?php
             if ( is_user_logged_in() ) {
                 $user              = wp_get_current_user();
                 $role              = ( array ) $user->roles;

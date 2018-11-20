@@ -120,12 +120,8 @@ if ( ! empty( $_GET['vendor'] ) ) {
 
 //print_r( $vendor_name );
 
-/**
- * @todo wrap this outer wrap in an action hook, like WooCommerce
- */
+do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
 ?>
-<div id="primary" class="col-lg-8 content-area">
-    <main id="main" class="site-main" role="main">
 
     <?php if ( have_posts() ) : ?>
     <div class="wpdispensary">
@@ -224,12 +220,6 @@ if ( ! empty( $_GET['vendor'] ) ) {
     </div><!-- // .wpdispensary -->
     <?php endif; ?>
 
-    <?php
-    /**
-     * @todo wrap this outer wrap in an action hook, like WooCommerce
-     */
-    ?>
-    </main>
-</div>
+    <?php do_action( 'wpd_ecommerce_templates_archive_items_wrap_after' ); ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

@@ -124,9 +124,15 @@ class Cart {
 				$regular_price = '';
 			}
 
-			//print_r( $i );
+			/*
+			echo "<pre>";
+			print_r( $regular_price );
+			echo "</pre>";
+			*/
 
-			$this->sum += ( $regular_price ) * $item_count;
+			if ( ! empty( $regular_price ) ) {
+				$this->sum += ( $regular_price ) * $item_count;
+			}
 		endforeach;
 
 		// Calculate sales tax.

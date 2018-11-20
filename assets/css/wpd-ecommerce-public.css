@@ -178,13 +178,14 @@ h3.wpd-ecommerce.patient-title {
 .wpd-ecommerce-notifications {
     background-color: #f8f8f8;
     color: #454545;
+    display: inline-block;
     font-size: 13px;
 	line-height: 33px;
     list-style: none outside;
     margin: 0;
     padding: 1em 1.5em 1em 1.5em;
     position: relative;
-    width: auto;
+    width: 100%;
     word-wrap: break-word;
 }
 
@@ -232,7 +233,7 @@ h3.wpd-ecommerce.patient-title {
 .entry-header.wpd-ecommerce-shelfItem {
 	border: 0;
     float: left;
-    padding: 24px;
+    padding: 24px 24px 0 24px;
 	text-align: left;
     width: 100%;
 }
@@ -264,7 +265,9 @@ h3.wpd-ecommerce.patient-title {
 }
 
 .entry-content.wpd-ecommerce-shelfContent {
-	text-align: left;
+    float: left;
+    text-align: left;
+    width: 100%;
 }
 
 /** Vendors */
@@ -439,8 +442,8 @@ table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
     margin-right: 2%;
 }
 
-.wpd-ecommerce-login-registration {
-    float: left;
+.wpd-ecommerce-register-form {
+    float: right;
     width: 48%;
     margin-left: 2%;
 }
@@ -455,7 +458,7 @@ form#wpd-ecommerce-login {
 
 @media screen and (max-width:768px) {
     .wpd-ecommerce-login-form,
-    .wpd-ecommerce-registration-form {
+    .wpd-ecommerce-register-form {
         margin: 0 0 12px 0;
         width: 100%;
     }
@@ -683,6 +686,7 @@ table.wpd-ecommerce.patient-orders tbody td span.status.wpd-failed:before {
 }
 
 body.single-wpd_orders .entry-header {
+    border-top: 0;
     text-align: left;
 }
 
@@ -903,6 +907,7 @@ body.tax-topicals_category .hentry,
 body.tax-vendor .hentry,
 body.tax-wpd_gear_category .hentry,
 body.tax-wpd_tinctures_category .hentry {
+    margin: 0 !important;
     width: 100% !important;
 }
 
@@ -1002,4 +1007,15 @@ a.button.wpd-buy-btn:hover {
     background: #76BD1D;
     border: 1px solid #76BD1D;
     color: #FFF;
+}
+
+/** WP Dispensary Widget - Buy Now Buttons */
+
+.widget-area .widget.wp-dispensary-widget {
+    display: inline-block;
+}
+
+.widget-area .widget.wp-dispensary-widget a.button.wpd-buy-btn {
+    margin-bottom: 0;
+    margin-top: 0;
 }

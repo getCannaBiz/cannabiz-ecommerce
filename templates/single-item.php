@@ -2,9 +2,11 @@
 /*
 Copy this file into your theme to customize
 */
-get_header(); ?>
-<div id="primary" class="col-lg-8 content-area">
-    <main id="main" class="site-main" role="main">
+get_header();
+
+do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
+?>
+
     <?php while ( have_posts() ) : the_post(); ?>
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
             <?php
@@ -68,7 +70,7 @@ get_header(); ?>
                         $pack_units    = esc_html( get_post_meta( get_the_ID(), '_unitsperpack', true ) );
                     } elseif ( 'flowers' === get_post_type() ) {
                         /**
-                         * @todo make flower_names through the entier plugin filterable.
+                         * @todo make flower_names through the entire plugin filterable.
                          */
                         $flower_names = array(
                             '1 g'    => esc_html( get_post_meta( get_the_ID(), '_gram', true ) ),
@@ -84,7 +86,7 @@ get_header(); ?>
                         $pack_units    = '';
                     } elseif ( 'concentrates' === get_post_type() ) {
                         /**
-                         * @todo make concentrate_names through the entier plugin filterable.
+                         * @todo make concentrate_names through the entire plugin filterable.
                          */
                         $concentrate_names = array(
                             '1/2 g'  => esc_html( get_post_meta( get_the_ID(), '_halfgram', true ) ),
@@ -345,12 +347,13 @@ get_header(); ?>
                     </form>
 
                     <?php
-                    /**
-                     * @todo add these details in via the do_action:
-                     * wpd_ecommerce_item_details_before
-                     */
+                    do_action( 'wpd_ecommerce_item_types_before' );
+
                     // Display Item types.
                     echo "<div class='wpd-ecommerce item-types'>";
+
+                    do_action( 'wpd_ecommerce_item_types_inside_before' );
+
                     // Display Strain Type
                     echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', '', ', ' ) . "</span>";
                     // Display Shelf Type
@@ -359,12 +362,13 @@ get_header(); ?>
                     echo "<span class='wpd-ecommerce category edibles'>" . get_the_term_list( get_the_ID(), 'edibles_category', '', ', ' ) . "</span>";
                     // Display Topicals Category
                     echo "<span class='wpd-ecommerce category topicals'>" . get_the_term_list( get_the_ID(), 'topicals_category', '', ', ' ) . "</span>";
-                    // Display Gear Category
-                    echo "<span class='wpd-ecommerce category gear'>" . get_the_term_list( get_the_ID(), 'wpd_gear_category', '', ', ' ) . "</span>";
-                    // Display Tinctures Category
-                    echo "<span class='wpd-ecommerce category tinctures'>" . get_the_term_list( get_the_ID(), 'wpd_tinctures_category', '', ', ' ) . "</span>";
+
+                    do_action( 'wpd_ecommerce_item_types_inside_after' );
+
                     // End item-types div.
                     echo "</div>";
+
+                    do_action( 'wpd_ecommerce_item_types_after' );
 
                     do_action( 'wpd_ecommerce_item_details_before' );
 
@@ -396,8 +400,7 @@ get_header(); ?>
             </div><!-- / wpd-ecommerce-shelfContent -->
         </div>
     <?php endwhile; ?>
-    </main>
-</div>
+<?php do_action( 'wpd_ecommerce_templates_single_items_wrap_after' ); ?>
 <?php wp_reset_query(); ?>
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
