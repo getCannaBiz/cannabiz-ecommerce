@@ -103,7 +103,6 @@ function wpd_patient_account_shortcode() {
 
 			<section id="content1">
 
-				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
 				<?php
 					$user   = wp_get_current_user();
 					$role   = ( array ) $user->roles;
@@ -116,12 +115,17 @@ function wpd_patient_account_shortcode() {
 					} else {
 						$patient_name = $user->user_nicename;
 					}
+					?>
+				<p>Hello <strong><?php echo $patient_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
+
+				<?php					
+				// If user is administrator.
+				if ( 'administrator' !== $role[0] ) {
 				?>
-
-				<p>Hello <strong><?php echo $patient_name; ?></strong> (not <?php echo $patient_name; ?>? <a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
 				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
-
 				<?php
+				}
 					// If user is administrator.
 					if ( 'administrator' === $role[0] ) {
 

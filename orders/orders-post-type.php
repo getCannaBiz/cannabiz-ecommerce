@@ -99,3 +99,65 @@ function wpd_ecommerce_disable_quick_edit( $actions = array(), $post = null ) {
 }
 add_filter( 'post_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );
 add_filter( 'page_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );
+
+/** Hide publishing actions
+ *
+ * @since 1.0 
+ */
+function hide_publishing_actions(){
+	$my_post_type = 'wpd_orders';
+	global $post;
+	if( $post->post_type == $my_post_type ) {
+		echo '
+			<style type="text/css">
+				#misc-publishing-actions,
+				#minor-publishing-actions{
+					display:none;
+				}
+			</style>
+		';
+	}
+}
+add_action('admin_head-post.php', 'hide_publishing_actions');
+add_action('admin_head-post-new.php', 'hide_publishing_actions');
+
+/**
+ * Add the custom columns to the wpd_orders post type
+ * 
+ * @since 1.0
+ */
+function set_custom_edit_wpd_orders_columns( $columns ) {
+    unset( $columns['author'] );
+    unset( $columns['date'] );
+    $columns['wpd_orders_customer'] = __( 'Customer', 'wpd-ecommerce' );
+    $columns['wpd_orders_status']   = __( 'Status', 'wpd-ecommerce' );
+
+    return $columns;
+}
+add_filter( 'manage_wpd_orders_posts_columns', 'set_custom_edit_wpd_orders_columns' );
+
+// Add the data to the custom columns for the wpd_orders post type:
+function custom_wpd_orders_column( $column, $post_id ) {
+    switch ( $column ) {
+
+		case 'wpd_orders_customer' :
+		$order_customer_id = get_post_meta( $post_id, 'wpd_order_customer_id', true );
+		$user_info         = get_userdata( $order_customer_id );
+
+		if ( '' != $user_info->first_name ) {
+			echo $user_info->first_name . " ";
+		}
+		if ( '' != $user_info->last_name ) {
+			echo $user_info->last_name . "<br />";
+		}
+		break;
+
+        case 'wpd_orders_status' :
+		$status_display = wpd_ecommerce_order_statuses( $post_id, NULL, NULL );
+            if ( '' !== $status_display )
+                echo $status_display;
+        break;
+
+    }
+}
+add_action( 'manage_wpd_orders_posts_custom_column' , 'custom_wpd_orders_column', 10, 2 );

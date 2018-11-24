@@ -37,7 +37,11 @@ function wpd_ecommerce_archive_items_buttons() {
         }
     }
     if ( 'flowers' == $post_type || 'concentrates' == $post_type ) {
-        echo '<a href="' . get_the_permalink() . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+        if ( '' != $price_each ) {
+            echo '<a href="' . get_the_permalink() . '?add_item=' . get_the_ID() . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+        } else {
+            echo '<a href="' . get_the_permalink() . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+        }
     }
 
 }

@@ -12,20 +12,23 @@ class Cart {
 	var $items; 
 	//The cart lines themselves
 	var $item_array;
+	//The payment type calculation
+	var $payment_type_amount;
 	//The sales calculation
 	var $sales_tax;
 	//The excise calculation
 	var $excise_tax;	
 	
 	function __construct() {		
-		$this->sum           = 0;
-		$this->sales_tax     = 0;
-		$this->excise_tax    = 0;
-		$this->coupon_code   = 0;
-		$this->coupon_amount = 0;
-		$this->lines         = 0;
-		$this->items         = 0;
-		$this->item_array    = array();		
+		$this->sum                 = 0;
+		$this->payment_type_amount = 0;
+		$this->sales_tax           = 0;
+		$this->excise_tax          = 0;
+		$this->coupon_code         = 0;
+		$this->coupon_amount       = 0;
+		$this->lines               = 0;
+		$this->items               = 0;
+		$this->item_array          = array();		
 	}
 	
 	private $method = '_POST';
@@ -143,22 +146,33 @@ class Cart {
 		if ( defined( 'EXCISE_TAX' ) ) {
 			$this->calculate_excise_tax();
 		}
+		// Calculate sales tax.
+		if ( defined( 'PAYMENT_TYPE_AMOUNT' ) ) {
+			$this->calculate_payment_type_amount();
+		}
 	}
-	
+
+	/**
+	 * Calculate payment type amount.
+	 */
+	function calculate_payment_type_amount() {
+		$this->payment_type_amount = PAYMENT_TYPE_AMOUNT;
+	}
+
 	/**
 	 * Calculate sales tax.
 	 */
 	function calculate_sales_tax() {
 		$this->sales_tax = ( $this->sum ) * SALES_TAX;
 	}
-	
+
 	/**
 	 * Calculate excise tax.
 	 */
 	function calculate_excise_tax() {
 		$this->excise_tax = ( $this->sum ) * EXCISE_TAX;
 	}
-	
+
 	/**
 	 * String
 	 */
@@ -199,7 +213,7 @@ class Cart {
 		if ( defined( 'EXCISE_TAX' ) ) {
 			$str .= "<li class='cart_excise_tax'>Excise Tax: " . CURRENCY . $this->excise_tax . "</li>";
 		}
-		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->sum ) . "</li>";
+		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->payment_type_amount + $this->sum ) . "</li>";
 		$str .= "</ul>";
 
 		return $str;	

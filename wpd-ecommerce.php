@@ -61,11 +61,40 @@ function wpd_ecommerce() {
 		define( 'EXCISE_TAX', $excise_tax );
 	}
 
+	/**
+	 * Access all settings
+	 */
+	$wpd_payments = get_option( 'wpdas_payments' );
+
+	//print_r( $wpd_settings );	
+
+	/**
+	 * @todo add option to make fee ZERO if cart sum is more than X dollars
+	 */
+	// Check if WP Dispensary setting is set.
+	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_cod_checkbox'] ) {
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_cod'];
+			// Define payment_type_amount.
+			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
+			define( 'PAYMENT_TYPE_NAME', 'Delivery' );
+		} else {
+			// Define payment_type_amount.
+			define( 'PAYMENT_TYPE_AMOUNT', NULL );
+		}
+	} else {
+		// Define payment type.
+		define( 'PAYMENT_TYPE_AMOUNT', NULL );
+	}
+
 	// Define currency code.
 	define( 'CURRENCY', wpd_currency_code() );
 
 }
 wpd_ecommerce();
+
+echo PAYMENT_TYPE_AMOUNT;
 
 // Includes for Helper Functions.
 include_once( dirname(__FILE__).'/includes/wpd-ecommerce-core-functions.php' );
@@ -143,16 +172,6 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 			'post_content' => '[wpd_checkout]',
 		);
 		wp_insert_post( $page_checkout );
-
-		// create checkout complete page.
-		$page_checkout_complete = array(
-			'post_title'   => __( 'Order Complete' ),
-			'post_status'  => 'publish',
-			'post_author'  => $current_user->ID,
-			'post_type'    => 'page',
-			'post_content' => '[wpd_checkout_complete]',
-		);
-		wp_insert_post( $page_checkout_complete );
 
 		// create cart page.
 		$page_cart = array(
@@ -247,7 +266,7 @@ function wpd_ecommerce_load_session() {
 		// Start session and set cookie for 1 day.
 		session_start( [
 			'cookie_lifetime' => $half_hour,
-			'cookie_domain'   => get_bloginfo( 'home' ) // @todo SEE IF THIS WORKS!!!!
+			//'cookie_domain'   => get_bloginfo( 'home' ) // @todo SEE IF THIS WORKS!!!!
 		] );
 
 	}	
@@ -375,10 +394,10 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_concentrates_twograms', '2' );
 
 	// Add admin settings default options.
-	add_option( 'wpd_pages_setup_menu_page', 'dispensary-menu' );
-	add_option( 'wpd_pages_setup_cart_page', 'cart' );
-	add_option( 'wpd_pages_setup_checkout_page', 'checkout' );
-	add_option( 'wpd_pages_setup_order_account_page', 'account' );
+	update_option( 'wpdas_pages[wpd_pages_setup_menu_page]', 'dispensary-menu' );
+	update_option( 'wpdas_pages[wpd_pages_setup_cart_page]', 'cart' );
+	update_option( 'wpdas_pages[wpd_pages_setup_checkout_page]', 'checkout' );
+	update_option( 'wpdas_pages[wpd_pages_setup_order_account_page]', 'account' );
 }
 wpd_ecommerce_add_options();
 

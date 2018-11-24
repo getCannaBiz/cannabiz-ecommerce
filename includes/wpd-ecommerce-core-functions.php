@@ -145,7 +145,13 @@ function wpd_ecommerce_notifications() {
 
 	// Add an item from the cart
 	if ( $_GET['add_item'] ) {
-		$_SESSION['wpd_ecommerce']->add_item( $_GET['add_item'], 1, '', '', '' );
+		if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
+			$c = new Cart;
+			$c->add_item( $_GET['add_item'], 1, '', '', '' );
+			$_SESSION['wpd_ecommerce'] = $c;
+		else:
+			$_SESSION['wpd_ecommerce']->add_item( $_GET['add_item'], 1, '', '', '' );
+		endif;
 		$str .= '<div class="wpd-ecommerce-single-notifications">';
 		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Item added:</strong> The item has been successfully added to your cart.</div>';
 		$str .= '</div>';

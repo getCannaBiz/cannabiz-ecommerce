@@ -38,6 +38,14 @@ if ( ! is_user_logged_in() ) {
 
     //print_r( $get_sales_tax );
 
+    $get_payment_type_amount   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_amount'", ARRAY_A );
+    $order_payment_type_amount = $get_payment_type_amount[0]['order_value'];
+
+    $get_payment_type_name     = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
+    $order_payment_type_name   = $get_payment_type_name[0]['order_value'];
+
+    //print_r( $get_sales_tax );
+
     if ( $user->ID != $order_customer_id && 'administrator' === $role[0] ) {
         // Administrators who are NOT the customer
     } elseif ( $user->ID === $order_customer_id && 'administrator' === $role[0] ) {
@@ -113,6 +121,9 @@ if ( ! is_user_logged_in() ) {
                 }
                 if ( ! empty( $order_excise_tax ) ) {
                     echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
+                }
+                if ( ! empty( $order_payment_type_amount ) ) {
+                    echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
                 }
                 echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
                 echo '</tbody></table>';

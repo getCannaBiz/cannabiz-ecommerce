@@ -102,7 +102,7 @@ function wpd_ecommerce_shortcode() {
 		$str .= "</table>";
 		$str .= do_action( 'wpd_ecommerce_cart_table_after' );
 
-		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' )  + $_SESSION['wpd_ecommerce']->sum );
+		$total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
 		$str .= do_action( 'wpd_ecommerce_cart_wrap_before' );
 
@@ -122,6 +122,9 @@ function wpd_ecommerce_shortcode() {
 		}
 		if ( NULL !== EXCISE_TAX ) {
 			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>Excise tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+		}
+		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
+			$str .= "<tr><th class='cart_payment_type'><span class='payment_type_amount'>" . PAYMENT_TYPE_NAME . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
 		}
 		$str .= "<tr><th class='cart_total'><span class='total'>Total</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 		$str .= "</tbody>";

@@ -117,3 +117,15 @@ div#wpd_ecommerce_order_item_details h2.ui-sortable-handle,
 div#wpd_ecommerce_order_item_details button.handlediv {
     display: none;
 }
+
+/** Order details table style */
+
+table.wpd-ecommerce.order-details {
+    border-top: 1px solid #DDD;
+    margin-top: 3px;
+}
+
+table.wpd-ecommerce.order-details td:first-child {
+    text-align: left;
+    width: 50%;
+}

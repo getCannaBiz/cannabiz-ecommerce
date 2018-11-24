@@ -243,7 +243,7 @@ if ( ! is_user_logged_in() ) {
 
         endforeach;
 
-        $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+        $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
         /**
          * @todo filter text
@@ -258,6 +258,9 @@ if ( ! is_user_logged_in() ) {
         if ( NULL !== EXCISE_TAX ) {
             $str .= "<tr><td><strong>Excise tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
         }
+		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
+			$str .= "<tr><td><strong>" . PAYMENT_TYPE_NAME . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
+		}
         $str .= "<tr><td><strong>Total</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 
         $str .= "</tbody>";
@@ -451,7 +454,7 @@ function wpd_ecommerce_checkout_success() {
     $str .= "</table>";
 
     // Total price.
-    $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) +  number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+    $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
     // Coupon total.
     $coupon_total = $_SESSION['wpd_ecommerce']->coupon_amount;
@@ -459,13 +462,15 @@ function wpd_ecommerce_checkout_success() {
     // Create orders array.
     $orders_insert   = array();
     $orders_insert[] = array(
-        'order_subtotal'      => number_format((float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ),
-        'order_coupon_code'   => $_SESSION['wpd_ecommerce']->coupon_code,
-        'order_coupon_amount' => number_format((float)$coupon_total, 2, '.', ',' ),
-        'order_sales_tax'     => number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ),
-        'order_excise_tax'    => number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ),
-        'order_total'         => number_format((float)$total_price, 2, '.', ',' ),
-        'order_items'         => array_sum( $total_items )
+        'order_subtotal'            => number_format((float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ),
+        'order_coupon_code'         => $_SESSION['wpd_ecommerce']->coupon_code,
+        'order_coupon_amount'       => number_format((float)$coupon_total, 2, '.', ',' ),
+        'order_payment_type_name'   => PAYMENT_TYPE_NAME,
+        'order_payment_type_amount' => number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ),
+        'order_sales_tax'           => number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ),
+        'order_excise_tax'          => number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ),
+        'order_total'               => number_format((float)$total_price, 2, '.', ',' ),
+        'order_items'               => array_sum( $total_items )
     );
 
     /**
