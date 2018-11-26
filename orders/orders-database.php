@@ -10,7 +10,7 @@
 /**
  * Add version number to global space
  * 
- * @todo figure out if this is needed, and if so is it the best way to handle it?
+ * @since 1.0
  */
 global $wpd_orders_db_version;
 $wpd_orders_db_version = '1.0';
@@ -52,25 +52,4 @@ function wpd_ecommerce_orders_database_install() {
 
     // Add option for database version number.
 	add_option( 'wpd_orders_db_version', $wpd_orders_db_version );
-}
-
-/**
- * Function to add data from the order
- */
-function wpd_ecommerce_orders_add_order() {
-	global $wpdb;
-
-	$welcome_name = 'Mr. WordPress';
-	$welcome_text = 'Congratulations, you just completed the installation!';
-	
-	$table_name = $wpdb->prefix . 'wpd_orders';
-
-	$wpdb->insert( 
-		$table_name, 
-		array( 
-			'time' => current_time( 'mysql' ), 
-			'name' => $welcome_name, 
-			'text' => $welcome_text, 
-		) 
-	);
 }

@@ -1,7 +1,7 @@
 <?php
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
-	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
+	if ( '0' != $_SESSION['wpd_ecommerce']->items ) {
 
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
@@ -91,13 +91,21 @@ function wpd_ecommerce_shortcode() {
 			$str .=	"<tr><td><a href='" . get_the_permalink() . "?remove_item=" . $id . "' class='remove'>x</a></td><td>" . $i->thumbnail . "</td><td><a href='" . $i->permalink . "'>" . $i->title . "" . $weightname . "</a></td><td>" . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . "</td><td><input id='quantity' name='quantity' class='wpd-ecommerce-quantity' type='number' value='" . $amount . "' /></td><td>" . CURRENCY . number_format((float)$total_price, 2, '.', ',' ) . "</td></tr>";
 		endforeach;
 		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_after' );
-		$str .= "<tr><td colspan='6'>
-		<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
-		<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
-		<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
-		 . wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
-		"</form>
-		</td></tr>";
+		/**
+		 * Access all settings
+		 */
+		$wpd_general = get_option( 'wpdas_general' );
+
+		// Check if WP Dispensary setting is set.
+		if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_coupons'] ) {
+			$str .= "<tr><td colspan='6'>
+			<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
+			<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
+			<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
+			. wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
+			"</form>
+			</td></tr>";
+		}
 		$str .= "</tbody>";
 		$str .= "</table>";
 		$str .= do_action( 'wpd_ecommerce_cart_table_after' );
@@ -140,10 +148,11 @@ function wpd_ecommerce_shortcode() {
 
 	} else {
 		echo '<p>There\'s nothing in your cart.</p>';
-		/**
-		 * @todo change link with option from within the settings.
-		 */
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-ecommerce return">Return to Menu</a></p>';
+
+		$wpdas_pages   = get_option( 'wpdas_pages' );
+		$menu_page     = $wpdas_pages['wpd_pages_setup_menu_page'];
+
+		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">Return to Menu</a></p>';
 	}
 }
 add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );

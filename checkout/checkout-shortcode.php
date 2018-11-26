@@ -30,16 +30,33 @@ if ( ! is_user_logged_in() ) {
                 }
             }
 
-            /**
-             * @todo add other customer contact info here, like phone_number, address_line_1, etc.
-             */
-
             /** Update First Name */
             if ( ! empty( $_POST['first-name'] ) )
                 update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
             /** Update Last Name */
             if ( ! empty( $_POST['last-name'] ) )
                 update_user_meta( $current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
+            /** Update Phone Number */
+            if ( ! empty( $_POST['phone_number'] ) )
+                update_user_meta( $current_user->ID, 'phone_number', esc_attr( $_POST['phone_number'] ) );
+            /** Update Address Line 1 */
+            if ( ! empty( $_POST['address_line_1'] ) )
+                update_user_meta( $current_user->ID, 'address_line_1', esc_attr( $_POST['address_line_1'] ) );
+            /** Update Address Line 2 */
+            if ( ! empty( $_POST['address_line_2'] ) )
+                update_user_meta( $current_user->ID, 'address_line_2', esc_attr( $_POST['address_line_2'] ) );
+            /** Update City */
+            if ( ! empty( $_POST['city'] ) )
+                update_user_meta( $current_user->ID, 'city', esc_attr( $_POST['city'] ) );
+            /** Update State/County */
+            if ( ! empty( $_POST['state_county'] ) )
+                update_user_meta( $current_user->ID, 'state_county', esc_attr( $_POST['state_county'] ) );
+            /** Update Postcode/Zip */
+            if ( ! empty( $_POST['postcode_zip'] ) )
+                update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( $_POST['postcode_zip'] ) );
+            /** Update Country */
+            if ( ! empty( $_POST['country'] ) )
+                update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
 
             /**
              * Redirect so the page will show updated info.
@@ -54,15 +71,16 @@ if ( ! is_user_logged_in() ) {
         }
         ?>
 
+		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_before' ); ?>
+
         <form method="post" id="checkout" class="wpd-ecommerce form checkout" action="<?php the_permalink(); ?>">
+
+		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
 
 		<h3 class='wpd-ecommerce patient-title'><?php _e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
-        <?php
-        /**
-         * @todo add action_hook here
-         */
-        ?>
+		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
+
         <p class="form-row first form-first-name">
             <label for="first-name"><?php _e('First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
@@ -82,12 +100,6 @@ if ( ! is_user_logged_in() ) {
             <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
         </p><!-- .form-phone-number -->
 
-        <?php
-        /**
-         * @todo hide certain fields if owner turns off physical address
-         */
-        ?>
-
         <p class="form-row form-address-line">
             <label for="address-line"><?php _e( 'Street address', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php _e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
@@ -95,13 +107,13 @@ if ( ! is_user_logged_in() ) {
         </p><!-- .form-address-line -->
 
         <p class="form-row form-city">
-            <label for="email"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
+            <label for="city"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
         </p><!-- .form-city -->
 
         <p class="form-row form-state-county">
-            <label for="email"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="state-county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
+            <label for="state-county"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
+            <input class="text-input" name="state_county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
         </p><!-- .form-state-county -->
 
         <p class="form-row form-postcode-zip">
@@ -114,21 +126,16 @@ if ( ! is_user_logged_in() ) {
             <input class="text-input" name="country" type="text" id="country" value="<?php the_author_meta( 'country', $current_user->ID ); ?>" />
         </p><!-- .form-phone-country -->
 
-        <?php
-        /**
-        * @todo add action_hook here
-        */
-        ?>
+		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
 
 		<h3 class='wpd-ecommerce patient-order'><?php _e( 'Your order', 'wpd-ecommerce' ); ?></h3>
 
+		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
+
         <?php
-        /**
-         * @todo create new way to save order product info, instead of $str.
-         */
         $str  = '<table class="wpd-ecommerce widget checkout">';
         $str .= '<thead>';
-        $str .= '<tr><td>Product</td><td>Total</td></tr>';
+        $str .= '<tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
         $str .= '</thead>';
         $str .= '<tbody>';
 
@@ -198,9 +205,6 @@ if ( ! is_user_logged_in() ) {
 
                 foreach ( $flower_names as $value=>$key ) {
                     if ( $key == $flower_weight_cart ) {
-                        /**
-                         * @todo change value to actual amount instead of just variable name
-                         */
                         $weightname = " - " . $value;
                     }
                 }
@@ -209,7 +213,7 @@ if ( ! is_user_logged_in() ) {
                 $regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
                 /**
-                 * @todo make concentrate_names through the entier plugin filterable.
+                 * @todo make concentrate_names through the entire plugin filterable.
                  */
                 $concentrates_names = array(
                     '1/2 g' => '_halfgram',
@@ -222,9 +226,6 @@ if ( ! is_user_logged_in() ) {
 
                 foreach ( $concentrates_names as $value=>$key ) {
                     if ( $key == $concentrate_weight_cart ) {
-                        /**
-                         * @todo change value to actual amount instead of just variable name
-                         */
                         $weightname = " - " . $value;
                     }
                 }
@@ -245,23 +246,20 @@ if ( ! is_user_logged_in() ) {
 
         $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
-        /**
-         * @todo filter text
-         */
-        $str .= "<tr><td><strong>Subtotal</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+        $str .= "<tr><td><strong>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-			$str .= "<tr><td><strong>Coupon:<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</strong></td><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>Remove?</a>)</td></tr>";
+			$str .= "<tr><td><strong>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</strong></td><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}
         if ( NULL !== SALES_TAX ) {
-            $str .= "<tr><td><strong>Sales tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
+            $str .= "<tr><td><strong>" . __( 'Sales tax', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
         }
         if ( NULL !== EXCISE_TAX ) {
-            $str .= "<tr><td><strong>Excise tax</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+            $str .= "<tr><td><strong>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
         }
 		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
 			$str .= "<tr><td><strong>" . PAYMENT_TYPE_NAME . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
 		}
-        $str .= "<tr><td><strong>Total</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
+        $str .= "<tr><td><strong>" . __( 'Total', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 
         $str .= "</tbody>";
         $str .= "</table>";
@@ -272,11 +270,12 @@ if ( ! is_user_logged_in() ) {
         echo $str;
 
 	} else {
-        echo '<p>You can checkout after adding some products to your cart.</p>';
-        /**
-         * @todo make this link filterable, both for URL and button text.
-         */
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/dispensary-menu/" class="button wpd-ecommerce return">Return to Menu</a></p>';
+        echo "<p>" . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . "</p>";
+
+        $wpdas_pages = get_option( 'wpdas_pages' );
+        $menu_page   = $wpdas_pages['wpd_pages_setup_menu_page'];
+
+        echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
 	}
 } // is user logged in
 }
@@ -291,8 +290,8 @@ function wpd_ecommerce_checkout_success() {
     $current_user = wp_get_current_user();
 
     $customer_details  = '';
-    $customer_details .= '<p><strong>Name:</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
-    $customer_details .= '<p><strong>Email:</strong> ' . $current_user->user_email . '</p>';
+    $customer_details .= '<p><strong>' . __( 'Name', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
+    $customer_details .= '<p><strong>' . __( 'Email', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->user_email . '</p>';
 
     $customer_id = $current_user->ID;
 
@@ -300,12 +299,12 @@ function wpd_ecommerce_checkout_success() {
     $wpd_orders_data      = array();
     $wpd_orders_item_data = array();
 
-    echo "<h3 class='wpd-ecommerce patient-order'>Your Order</h3>";
+    echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your order', 'wpd-ecommerce' ) . "</h3>";
 
     $str  = '';
     $str  = '<table class="wpd-ecommerce widget checkout">';
     $str .= '<thead>';
-    $str .= '<tr><td>Product</td><td>Total</td></tr>';
+    $str .= '<tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
     $str .= '</thead>';
     $str .= '<tbody>';
 
@@ -378,9 +377,6 @@ function wpd_ecommerce_checkout_success() {
 
             foreach ( $flower_names as $value=>$key ) {
                 if ( $key == $flower_weight_cart ) {
-                    /**
-                     * @todo change value to actual amount instead of just variable name
-                     */
                     $weightname = $value;
                 }
             }
@@ -402,9 +398,6 @@ function wpd_ecommerce_checkout_success() {
 
             foreach ( $concentrates_names as $value=>$key ) {
                 if ( $key == $concentrate_weight_cart ) {
-                    /**
-                     * @todo change value to actual amount instead of just variable name
-                     */
                     $weightname = $value;
                 }
             }
@@ -482,7 +475,6 @@ function wpd_ecommerce_checkout_success() {
         'post_author' => 1,
         'date'        => $page_date, // YYYY-MM-DDTHH:MM:SS
         'meta_input'  => array(
-            'wpd_order_details'          => $str, // @todo get this to save all product data correctly when saving the order.
             'wpd_order_customer_details' => $customer_details,
             'wpd_order_customer_id'      => $customer_id,
             'wpd_order_status'           => 'wpd-processing',

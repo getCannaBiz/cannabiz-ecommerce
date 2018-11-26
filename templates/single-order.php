@@ -116,13 +116,13 @@ if ( ! is_user_logged_in() ) {
                 if ( '0.00' !== $order_coupon_amount ) {
                     echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
                 }
-                if ( ! empty( $order_sales_tax ) ) {
+                if ( '0.00' !== $order_sales_tax ) {
                     echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
                 }
-                if ( ! empty( $order_excise_tax ) ) {
+                if ( '0.00' !== $order_excise_tax ) {
                     echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
                 }
-                if ( ! empty( $order_payment_type_amount ) ) {
+                if ( '0.00' !== $order_payment_type_amount ) {
                     echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
                 }
                 echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";

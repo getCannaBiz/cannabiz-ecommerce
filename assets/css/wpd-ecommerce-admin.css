@@ -122,6 +122,7 @@ div#wpd_ecommerce_order_item_details button.handlediv {
 
 table.wpd-ecommerce.order-details {
     border-top: 1px solid #DDD;
+    font-size: 13px;
     margin-top: 3px;
 }
 
