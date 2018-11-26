@@ -22,7 +22,7 @@ function wpd_ecommerce_registration_form() {
 	</p>
 	<?php
 }
-add_action( 'register_form', 'wpd_ecommerce_registration_form' );
+//add_action( 'register_form', 'wpd_ecommerce_registration_form' );
 
 /**
  * Registration Errors
@@ -41,7 +41,7 @@ function wpd_ecommerce_registration_errors( $errors, $sanitized_user_login, $use
 
 	return $errors;
 }
-add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
+//add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
 
 /**
  * User Registration - Update user data
@@ -56,8 +56,8 @@ function wpd_ecommerce_user_register( $user_id ) {
 		update_user_meta( $user_id, 'phone_number', $_POST['phone_number'] );
 	}
 }
-add_action( 'user_register', 'wpd_ecommerce_user_register' );
-add_action( 'edit_user_created_user', 'wpd_ecommerce_user_register' );
+//add_action( 'user_register', 'wpd_ecommerce_user_register' );
+//add_action( 'edit_user_created_user', 'wpd_ecommerce_user_register' );
 
 /**
  * Back end registration
@@ -99,7 +99,7 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
 	</table>
 	<?php
 }
-add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
+//add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
 
 /**
  * User Profile  Backend fields
@@ -127,8 +127,8 @@ function wpd_ecommerce_show_extra_profile_fields( $user ) {
 	</table>
 	<?php
 }
-add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
-add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
+//add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
+//add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
 
 /**
  * User Profile - Remove Website
@@ -185,8 +185,8 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
 		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
 	}
 }
-add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
-add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
+//add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
+//add_action( 'edit_user_profile_update', 'wpd_ecommerce_update_profile_fields' );
 
 /**
  * User Profile - Update Errors
@@ -200,4 +200,4 @@ function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
 		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
 	}
 }
-add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );
+//add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );

@@ -1,7 +1,7 @@
 <?php
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
-	if ( '0' != $_SESSION['wpd_ecommerce']->items ) {
+	if ( NULL !== $_SESSION['wpd_ecommerce'] ) {
 
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
@@ -97,7 +97,7 @@ function wpd_ecommerce_shortcode() {
 		$wpd_general = get_option( 'wpdas_general' );
 
 		// Check if WP Dispensary setting is set.
-		if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_coupons'] ) {
+		if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
 			$str .= "<tr><td colspan='6'>
 			<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
 			<input type='text' name='coupon_code' value='' placeholder='Coupon code' />

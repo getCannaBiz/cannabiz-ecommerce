@@ -18,14 +18,6 @@ function wpd_patient_account_shortcode() {
 		echo wp_login_form( $args );
 		echo "</div>";
 
-		/**
-		 * @todo add setting in dashboard to turn this on/off.
-		 */
-		echo "<div class='wpd-ecommerce-register-form'>";
-		echo "<h3>Register</h3>";
-		echo wp_login_form( $args );
-		echo "</div>";
-
 	} else {
 		/**
 		 * @todo move this to another helper function so it's cleaner here
@@ -213,7 +205,7 @@ function wpd_patient_account_shortcode() {
 					$status            = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
 					$status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
 					$order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
-					$customer = get_userdata( $order_customer_id );
+					$customer          = get_userdata( $order_customer_id );
 
 					if ( empty( $status ) ) {
 						$status = 'wpd-pending';

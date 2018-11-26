@@ -9,7 +9,7 @@
  * Plugin Name:  WP Dispensary's eCommerce
  * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
  * Description:  Adds shopping cart capabilities to the WP Dispensary menu management plugin.
- * Version:      0.1
+ * Version:      1.0
  * Author:       WP Dispenary
  * Author URI:   https://www.wpdispensary.com
  * License:      GPL-2.0+
@@ -62,15 +62,12 @@ function wpd_ecommerce() {
 	}
 
 	/**
-	 * Access all settings
+	 * Access payments settings
 	 */
 	$wpd_payments = get_option( 'wpdas_payments' );
 
 	//print_r( $wpd_payments );
 
-	/**
-	 * @todo add option to make fee ZERO if cart sum is more than X dollars
-	 */
 	// Check if WP Dispensary setting is set.
 	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_cod_checkbox'] ) {
 		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] ) {
@@ -113,7 +110,6 @@ include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-admin-settings-func
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-orders-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-patients-functions.php' );
-include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-template-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-archive-items-functions.php' );
 
 // Includes for Classes.
@@ -256,6 +252,14 @@ function wpd_ecommerce_add_options() {
 
 	// Add admin settings default options.
 	update_option( 'wpdas_pages', $wpdas_pages );
+
+	$wpdas_display = array(
+		'wpd_hide_pricing' => 'on'
+	);
+
+	// Add admin settings default options.
+	update_option( 'wpdas_display', $wpdas_display );
+
 }
 register_activation_hook( __FILE__, 'wpd_ecommerce_add_options' );
 
@@ -286,10 +290,6 @@ add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
 
 /**
  * Load Session
- *
- * @todo move this to another file and allow setting for cookie time.
- * 
- * possible move to the activation file where all of those codes can run
  * 
  * @since       1.0.0
  */
@@ -298,9 +298,6 @@ function wpd_ecommerce_load_session() {
 		$_SESSION = null;
 	}
 
-	/**
-	 * @todo run checks in user settings on how long to set cookie.
-	 */
 	$half_hour    = 86400 / 48;
 	$one_hour     = 86400 / 24;
 	$three_hours  = 86400 / 8;
@@ -319,7 +316,6 @@ function wpd_ecommerce_load_session() {
 		// Start session and set cookie for 1 day.
 		session_start( [
 			'cookie_lifetime' => $half_hour,
-			//'cookie_domain'   => get_bloginfo( 'home' ) // @todo SEE IF THIS WORKS!!!!
 		] );
 
 	}	
@@ -338,8 +334,6 @@ add_action( 'wp_logout', 'wpd_ecommerce_logout' );
 
 /**
  * initialise the cart session, if it exist, unserialize it, otherwise make it.
- * 
- * @todo see if this can be removed
  */
 if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 	if ( is_object( $_SESSION['wpd_ecommerce'] ) ) {
@@ -413,5 +407,3 @@ function wpd_ecommerce_include_template_function( $template_path ) {
 	return $template_path;
 }
 add_filter( 'template_include', 'wpd_ecommerce_include_template_function', 1 );
-
-//json_encode( $_SESSION['wpd_ecommerce'] );

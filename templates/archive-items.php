@@ -140,7 +140,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                             'post_status' => 'publish',
                             'post_type'   => $post_type,
                             'tax_query'   => $tax_query
-    //                      'posts_per_page' => $options['perpage'] /** @todo create admin setting for this */
+                          //'posts_per_page' => $options['perpage'] /** @todo create admin setting for this */
                         )
                     );
                     /*
@@ -175,13 +175,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
                         <?php echo $showimage; ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
-                        <?php
-                            wpd_all_prices_simple( NULL, TRUE );
-                            /**
-                             * @todo add customization filter for this to include items in the array spot.
-                             */
-                            //esc_html( wpd_compounds_simple( $post_type_slug, array() ) );
-                        ?>
+                        <?php wpd_all_prices_simple( NULL, TRUE ); ?>
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
                     </div><!-- // .wpdshortcode item -->
                     <?php do_action( 'wpd_ecommerce_archive_items_product_after' ); ?>

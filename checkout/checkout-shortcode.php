@@ -559,8 +559,9 @@ function wpd_ecommerce_checkout_success() {
     }
 
     /**
-     * @todo add a function here so this is cleaner, and the inventory codes can easily be included/removed
-     * based on if the add-on is active or not.
+     * Inventory updates
+     * 
+     * @since 1.0
      */
     wpd_ecommerce_inventory_management_updates( $wpd_order_id );
 
