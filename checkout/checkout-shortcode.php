@@ -302,11 +302,11 @@ function wpd_ecommerce_checkout_success() {
     echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your order', 'wpd-ecommerce' ) . "</h3>";
 
     $str  = '';
-    $str  = '<table class="wpd-ecommerce widget checkout">';
-    $str .= '<thead>';
-    $str .= '<tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
+    $str  = '<table style="border-collapse: collapse;width: 100%;max-width: 600px;margin: 0 auto;" class="wpd-ecommerce widget checkout">';
+    $str .= '<thead style="border: 1px solid #DDD;">';
+    $str .= '<tr style="font-weight: 700;"><td style="text-align: left; padding: 10px;">' . __( 'Product', 'wpd-ecommerce' ) . '</td><td style="text-align: left;">' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
     $str .= '</thead>';
-    $str .= '<tbody>';
+    $str .= '<tbody style="border-bottom: 1px solid #DDD;">';
 
     /**
      * Loop through each item in the cart
@@ -439,7 +439,7 @@ function wpd_ecommerce_checkout_success() {
         // Add item quantity to array.
         $total_items[] = $amount;
 
-        $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
+        $str .=	"<tr style='border-bottom: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD;'><td style='padding: 12px 12px; vertical-align: middle;'>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td style='padding: 12px 12px; vertical-align: middle;'><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
     endforeach;
 
@@ -574,6 +574,48 @@ function wpd_ecommerce_checkout_success() {
     );
     wp_update_post( $updated_post );
 
+    /**
+     * Email order details to Administrator.
+     * 
+     * @since 1.0
+     */
+    $order             = $wpd_order_id;
+    $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
+    $user_info         = get_userdata( $order_customer_id );
+    $to                = get_option( 'admin_email' );
+    $subject           = 'New order: #' . $order;
+
+    $message   = '<p>Hello Administrator,</p>';
+    $message  .= '<p>' . get_bloginfo( 'name' ) . ' just received a new order from ' . $user_info->first_name . ' ' . $user_info->last_name . '.</p>';
+    $message  .= $str;
+
+    $headers[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
+    $headers[] = 'Content-Type: text/html';
+    $headers[] = 'charset=UTF-8';
+
+    wp_mail( $to, $subject, $message, $headers, '' );
+
+    /**
+     * Email order details to Patient.
+     * 
+     * @since 1.0
+     */
+    $order             = $wpd_order_id;
+    $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
+    $user_info         = get_userdata( $order_customer_id );
+    $to_patient        = $user_info->user_email;
+    $subject_patient   = 'Thank you for your order: #' . $order;
+
+    $message   = '<p>Hello ' . $user_info->first_name . ',</p>';
+    $message  .= '<p>Thank you for your order. You can see details of your order below as well as in your account at ' . get_bloginfo( 'name' ) . '</p>';
+    $message  .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
+    $message  .= $str;
+
+    $headers_patient[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
+    $headers_patient[] = 'Content-Type: text/html';
+    $headers_patient[] = 'charset=UTF-8';
+
+    wp_mail( $to_patient, $subject_patient, $message, $headers_patient, '' );
 
     /**
      * Destroy session
