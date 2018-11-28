@@ -18,6 +18,28 @@ function wpd_patient_account_shortcode() {
 		echo wp_login_form( $args );
 		echo "</div>";
 
+		if ( get_option( 'users_can_register' ) ) {
+			echo "<div class='wpd-ecommerce-register-form'>";
+			echo "<h3>" . __( 'Register', 'wpd-ecommerce' ) . "</h3>";
+			?>
+			<form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
+			<p class="register-username">
+			<label for="user_login"><?php _e( 'Username', 'wpd-ecommerce' ); ?></label>
+			<input type="text" name="user_login" value="" id="user_login" class="input" />
+			</p>
+			<p class="register-email-address">
+			<label for="user_email"><?php _e( 'Email address', 'wpd-ecommerce' ); ?></label>
+			<input type="text" name="user_email" value="" id="user_email" class="input" />
+			</p>
+			<?php do_action( 'register_form' ); ?>
+			<p class="statement"><?php _e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
+			<p class="register-submit">
+			<input type="submit" value="<?php _e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
+			</p>
+			</form>
+			<?php
+			echo "</div>";
+		} // users_can_register
 	} else {
 		/**
 		 * @todo move this to another helper function so it's cleaner here
