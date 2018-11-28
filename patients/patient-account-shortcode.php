@@ -14,7 +14,7 @@ function wpd_patient_account_shortcode() {
 		echo wpd_ecommerce_notifications();
 
 		echo "<div class='wpd-ecommerce-login-form'>";
-		echo "<h3>Login</h3>";
+		echo "<h3>" . __( 'Login', 'wpd-ecommerce' ) . "</h3>";
 		echo wp_login_form( $args );
 		echo "</div>";
 
@@ -130,14 +130,14 @@ function wpd_patient_account_shortcode() {
 						$patient_name = $user->user_nicename;
 					}
 					?>
-				<p>Hello <strong><?php echo $patient_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>">Log out</a>)</p>
+				<p><?php _e( 'Hello', 'wpd-ecommerce' ); ?> <strong><?php echo $patient_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php _e( 'Log out', 'wpd-ecommerce' ); ?></a>)</p>
 
 				<?php					
 				// If user is administrator.
 				if ( 'administrator' !== $role[0] ) {
 				?>
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
-				<p>From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
+				<p><?php _e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
 				<?php
 				}
 					// If user is administrator.
@@ -202,11 +202,11 @@ function wpd_patient_account_shortcode() {
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce patient-orders">
 					<thead>
-						<td>ID</td>
-						<td>Name</td>
-						<td>Date</td>
-						<td>Status</td>
-						<td>Total</td>
+						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Name', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Date', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Status', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Total', 'wpd-ecommerce' ); ?></td>
 					</thead>
 					<tbody>
 					<?php
@@ -260,10 +260,10 @@ function wpd_patient_account_shortcode() {
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Order history', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce patient-orders">
 					<thead>
-						<td>ID</td>
-						<td>Date</td>
-						<td>Status</td>
-						<td>Total</td>
+						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Date', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Status', 'wpd-ecommerce' ); ?></td>
+						<td><?php _e( 'Total', 'wpd-ecommerce' ); ?></td>
 					</thead>
 					<tbody>
 					<?php
@@ -403,7 +403,7 @@ function wpd_patient_account_shortcode() {
 			</section>
 	<!--
 			<section id="content4">
-				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Another one', 'wpd-ecommerce' ); ?></h3>
+				<h3 class='wpd-ecommerce patient-title'><?php //_e( 'Another one', 'wpd-ecommerce' ); ?></h3>
 				<p>This will probably end up being a "Drivers" tab for delivery drivers, or "Inventory" tab for administrators.</p>
 			</section>
 	-->
