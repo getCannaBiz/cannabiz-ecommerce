@@ -448,7 +448,8 @@ table.wpd-ecommerce img.wpd-ecommerce-orders-table-image {
     margin-left: 2%;
 }
 
-form#wpd-ecommerce-login {
+form#wpd-ecommerce-login,
+form#wpd-ecommerce-register {
     width: 100%;
     margin: 0;
     padding: 20px;
@@ -464,8 +465,9 @@ form#wpd-ecommerce-login {
     }
 }
 
-/** Login form button */
-form#wpd-ecommerce-login input#wp-submit {
+/** Login and Registration form button */
+form#wpd-ecommerce-login input#wp-submit,
+form#wpd-ecommerce-register input#register {
     padding: 12px 24px;
 }
 
