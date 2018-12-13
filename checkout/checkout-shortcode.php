@@ -200,7 +200,7 @@ if ( ! is_user_logged_in() ) {
                 $regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 
                 /**
-                 * @todo make flower_names through the entier plugin filterable.
+                 * @todo make flower_names through the entire plugin filterable.
                  */
                 $flower_names = array(
                     '1 g'    => '_gram',
@@ -597,7 +597,7 @@ function wpd_ecommerce_checkout_success() {
     $to                = get_option( 'admin_email' );
     $subject           = 'New order: #' . $order;
 
-    $message   = '<p>Hello Administrator,</p>';
+    $message   = '<p>' . __( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
     $message  .= '<p>' . get_bloginfo( 'name' ) . ' just received a new order from ' . $user_info->first_name . ' ' . $user_info->last_name . '.</p>';
     $message  .= $str;
 
