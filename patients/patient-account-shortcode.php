@@ -47,6 +47,18 @@ function wpd_patient_account_shortcode() {
 		/* If account details were saved, update patient account. */
 		if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
 
+			// Remove valid ID file from user profile.
+			if ( isset( $_POST['remove_valid_id'] ) ) {
+				// Update user meta.
+				update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_valid_id', '' );
+			}
+		
+			// Remove doctor recommendation file from user profile.
+			if ( isset( $_POST['remove_recommendation_doc'] ) ) {
+				// Update user meta.
+				update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_recommendation_doc', '' );		
+			}
+		
 			/* Update user password. */
 			if ( ! empty( $_POST['pass1'] ) && ! empty( $_POST['pass2'] ) ) {
 				if ( $_POST['pass1'] == $_POST['pass2'] )
@@ -316,7 +328,7 @@ function wpd_patient_account_shortcode() {
 
 				<?php do_action( 'wpd_ecommerce_patient_account_form_before' ); ?>
 
-				<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>">
+				<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
 
 				<?php do_action( 'wpd_ecommerce_patient_account_form_before_inside' ); ?>
 
@@ -374,6 +386,109 @@ function wpd_patient_account_shortcode() {
 				</p><!-- .form-phone-country -->
 
 				<?php do_action( 'wpd_ecommerce_patient_account_contact_information_after' ); ?>
+
+				<?php
+				$wpd_patients = get_option( 'wpdas_patients' );
+
+				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] &&
+				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] && 
+				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] && 
+				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
+					// Do nothing.
+				} else { ?>
+				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h3>
+
+				<?php do_action( 'wpd_ecommerce_patient_account_verification_before' ); ?>
+
+				<?php
+				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] ) {
+					// Do nothing.
+				} else {
+				?>
+
+				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Driverse License or Valid ID', 'woocommerce' ); ?></label>
+					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true ) ) { ?>
+					<div class="valid-id">
+						<?php
+						$valid_id = get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true );
+						if ( ! isset( $valid_id['error'] ) ) {
+							if ( ! empty( $valid_id ) ) {
+								$valid_id = $valid_id['url'];
+								echo "<a href='" . $valid_id . "' target='_blank'><img src='" . $valid_id . "' width='100' height='100' class='wpd-ecommerce-valid-id' /></a><br />";
+							}
+						} else {
+							$valid_id = $valid_id['error'];
+							echo $valid_id. '<br />';
+						}
+						?>
+						<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+					</div><!-- /.valid-id -->
+					<?php } ?>
+					<input type="file" name="wpd_ecommerce_patient_valid_id" id="reg_wpd_ecommerce_patient_valid_id" value="" />
+				</p>
+
+				<?php 
+				}
+
+				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] ) {
+					// Do nothing.
+				} else {
+				?>
+
+				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+					<label for="reg_wpd_ecommerce_patient_recommendation_doc"><?php _e( 'Doctor recommendation', 'woocommerce' ); ?></label>
+					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_doc', true ) ) { ?>
+					<div class="recommendation-doc">
+						<?php
+						$doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_doc', true );
+						if ( ! isset( $doc_rec['error'] ) ) {
+							if ( ! empty( $doc_rec ) ) {
+								$doc_rec = $doc_rec['url'];
+								echo "<a href='" . $doc_rec . "' target='_blank'><img src='" . $doc_rec . "' width='100' height='100' class='wpd-ecommerce-recommendation-doc' /></a><br />";
+							}
+						} else {
+							$doc_rec = $doc_rec['error'];
+							echo $doc_rec. '<br />';
+						}
+						?>
+						<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+					</div><!-- /.recommendation-doc -->
+					<?php } ?>
+					<input type="file" name="wpd_ecommerce_patient_recommendation_doc" id="reg_wpd_ecommerce_patient_recommendation_doc" value="" />
+				</p>
+
+				<?php 
+				}
+
+				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] ) {
+					// Do nothing.
+				} else {
+				?>
+
+				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+					<label for="reg_wpd_ecommerce_patient_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?></label>
+					<input type="text" class="input-text" name="wpd_ecommerce_patient_recommendation_num" id="reg_wpd_ecommerce_patient_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_num', true ); ?>" />
+				</p>
+
+				<?php 
+				}
+
+				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
+					// Do nothing.
+				} else {
+				?>
+
+				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+					<label for="reg_wpd_ecommerce_patient_recommendation_exp"><?php _e( 'Expiration Date', 'woocommerce' ); ?></label>
+					<input type="date" class="input-date" name="wpd_ecommerce_patient_recommendation_exp" id="reg_wpd_ecommerce_patient_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_exp', true ); ?>" />
+				</p>
+
+				<?php } // recommendation_exp ?>
+
+				<?php do_action( 'wpd_ecommerce_patient_account_verification_after' ); ?>
+
+				<?php } // if all verifications are hidden ?>
 
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
 
