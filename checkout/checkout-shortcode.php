@@ -66,8 +66,20 @@ if ( ! is_user_logged_in() ) {
                 do_action( 'edit_user_profile_update', $current_user->ID );
             }
 
-            // Run success codes.
-            wpd_ecommerce_checkout_success();
+            $wpd_general  = get_option( 'wpdas_general' );
+            $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
+
+            if ( '' !== $wpd_payments['wpd_ecommerce_checkout_minimum_order'] ) {
+                if ( $_SESSION['wpd_ecommerce']->sum >= $min_checkout ) {
+                    // Run success codes.
+                    wpd_ecommerce_checkout_success();
+                } else {
+                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . $min_checkout . '</div>';
+                    echo $str;
+                }
+            } else {
+                wpd_ecommerce_checkout_success();
+            }
         }
         ?>
 
