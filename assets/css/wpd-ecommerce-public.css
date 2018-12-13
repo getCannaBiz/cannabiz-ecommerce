@@ -465,7 +465,15 @@ form#wpd-ecommerce-register {
     }
 }
 
+/** Login and register form titles */
+
+.wpd-ecommerce-login-form h3,
+.wpd-ecommerce-register-form h3 {
+    margin-top: 0;
+}
+
 /** Login and Registration form button */
+
 form#wpd-ecommerce-login input#wp-submit,
 form#wpd-ecommerce-register input#register {
     padding: 12px 24px;
