@@ -1021,3 +1021,56 @@ a.button.wpd-buy-btn:hover {
     margin-bottom: 0;
     margin-top: 0;
 }
+
+/** WooCommerce file upload remove button */
+
+div.valid-id,
+div.recommendation-doc {
+    position: relative;
+    width: 140px;
+    display: inline-block;
+}
+
+input[type="submit"].remove-valid-id,
+input[type="submit"].remove-recommendation-doc {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: #FFF;
+    background: #FF0000;
+    border: 0;
+    padding: 10px 6.61px;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1px;
+    font-family: 'Helvetica', Arial, sans-serif;
+    text-align: center;
+}
+
+input[type="submit"].remove-valid-id:active,
+input[type="submit"].remove-valid-id:focus,
+input[type="submit"].remove-valid-id:hover,
+input[type="submit"].remove-recommendation-doc:active,
+input[type="submit"].remove-recommendation-doc:focus,
+input[type="submit"].remove-recommendation-doc:hover {
+	cursor: pointer;
+	background: #F00000;
+	color: #FFF;
+}
+
+/* WooCommerce Patient Verification File upload */
+
+img.wpd-ecommerce-recommendation-doc,
+.entry-content img.wpd-ecommerce-recommendation-doc:last-child,
+img.wpd-ecommerce-valid-id,
+.entry-content img.wpd-ecommerce-valid-id:last-child {
+	height: auto;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+input#reg_wpd_ecommerce_valid_id,
+input#reg_wpd_ecommerce_recommendation_doc {
+    width: 100%;
+}
