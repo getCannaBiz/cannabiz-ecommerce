@@ -110,6 +110,9 @@ function wpd_patient_account_shortcode() {
 				exit;
 			}
 		}
+
+		// Display notifications.
+		echo wpd_ecommerce_notifications();
 		?>
 
 		<div class="wpd-ecommerce patient-account">
