@@ -164,7 +164,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create checkout page.
 	$page_checkout = array(
-		'post_title'   => __( 'Checkout' ),
+		'post_title'   => __( 'Checkout', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',
@@ -174,7 +174,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create cart page.
 	$page_cart = array(
-		'post_title'   => __( 'Cart' ),
+		'post_title'   => __( 'Cart', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',
@@ -184,7 +184,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create account page.
 	$page_account = array(
-		'post_title'   => __( 'Account' ),
+		'post_title'   => __( 'Account', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',
@@ -198,7 +198,7 @@ register_activation_hook( __FILE__, 'wpd_ecommerce_add_ecommerce_pages_activatio
 /**
  * Create orders database table on install
  * 
- * @since       1.0.0
+ * @since 1.0
  */
 function wpd_ecommerce_db_install() {
 	// Run function.
@@ -227,7 +227,7 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_flowers_half', '14' );
 	add_option( 'wpd_ecommerce_weight_flowers_ounce', '28' );
 
-	// Add flower product weight options.
+	// Add concentrate product weight options.
 	add_option( 'wpd_ecommerce_weight_concentrates_halfgram', '0.5' );
 	add_option( 'wpd_ecommerce_weight_concentrates_gram', '1' );
 	add_option( 'wpd_ecommerce_weight_concentrates_twograms', '2' );
@@ -269,7 +269,7 @@ register_activation_hook( __FILE__, 'wpd_ecommerce_add_options' );
 /**
  * Load admin scripts and styles
  *
- * @since       1.0.0
+ * @since       1.0
  * @return      void
  */
 function wpd_ecommerce_load_admin_scripts() {
@@ -280,7 +280,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
 /**
  * Load public scripts and styles
  *
- * @since       1.0.0
+ * @since       1.0
  * @return      void
  */
 function wpd_ecommerce_load_public_scripts() {
@@ -291,7 +291,7 @@ add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
 /**
  * Load Session
  * 
- * @since       1.0.0
+ * @since       1.0
  */
 function wpd_ecommerce_load_session() {
 	if ( ! isset( $_SESSION ) ) {
@@ -325,7 +325,7 @@ wpd_ecommerce_load_session();
 /**
  * Destroy Session Logout
  *
- * @since       1.0
+ * @since 1.0
  */
 function wpd_ecommerce_logout() {
 	wpd_ecommerce_destroy_session( TRUE );
