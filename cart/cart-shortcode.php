@@ -95,10 +95,10 @@ function wpd_ecommerce_shortcode() {
 		$str .= do_action( 'wpd_ecommerce_cart_totals_before' );
 		$str .= "<div class='cart-totals'>";
 		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_before' );
-		$str .= "<h2>Cart Totals</h2>";
+		$str .= "<h2>" . __( 'Cart Totals', 'wpd-ecommerce' ) . "</h2>";
 		$str .= "<table class='wpd-ecommerce totals'>";
 		$str .= "<tbody>";
-		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_sum'><span class='subtotal'>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}

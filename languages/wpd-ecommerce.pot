@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2018-12-18 21:36-0500\n"
-"PO-Revision-Date: 2018-12-18 21:36-0500\n"
+"POT-Creation-Date: 2018-12-19 11:38-0500\n"
+"PO-Revision-Date: 2018-12-19 11:37-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -42,6 +42,15 @@ msgstr ""
 #: patients/patient-account-shortcode.php:224
 #: patients/patient-account-shortcode.php:281
 msgid "Total"
+msgstr ""
+
+#: cart/cart-shortcode.php:98
+msgid "Cart Totals"
+msgstr ""
+
+#: cart/cart-shortcode.php:101 cart/cart-widget.php:159
+#: checkout/checkout-shortcode.php:238
+msgid "Subtotal"
 msgstr ""
 
 #: cart/cart-shortcode.php:103 checkout/checkout-shortcode.php:240
@@ -82,10 +91,6 @@ msgstr ""
 
 #: cart/cart-widget.php:34
 msgid "Widget Title:"
-msgstr ""
-
-#: cart/cart-widget.php:159 checkout/checkout-shortcode.php:238
-msgid "Subtotal"
 msgstr ""
 
 #: cart/cart-widget.php:164 wpd-ecommerce.php:167
