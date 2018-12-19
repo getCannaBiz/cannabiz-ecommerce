@@ -34,51 +34,28 @@ function wpd_ecommerce_shortcode() {
 					$weightname = '';
 				}
 			} elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
-				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
-
-				/**
-				 * @todo make flower_names through the entire plugin filterable.
-				 */
-				$flower_names = array(
-					'1 g'    => '_gram',
-					'2 g'    => '_twograms',
-					'1/8 oz' => '_eighth',
-					'5 g'    => '_fivegrams',
-					'1/4 oz' => '_quarter',
-					'1/2 oz' => '_halfounce',
-					'1 oz'   => '_ounce',
-				);
-
 				$item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
-				foreach ( $flower_names as $value=>$key ) {
-					if ( $key == $flower_weight_cart ) {
-						$weightname = " - " . $value;
+				foreach ( wpd_flowers_weights_array() as $key=>$value ) {
+					if ( $value == $flower_weight_cart ) {
+						$weightname     = ' - ' . $key;
+						$regular_price  = esc_html( get_post_meta( $item_old_id, $value, true ) );
 					}
 				}
 			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
-				$regular_price = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
-
-				/**
-				 * @todo make concentrate_names through the entire plugin filterable.
-				 */
-				$concentrates_names = array(
-					'1/2 g'  => '_halfgram',
-					'1 g'    => '_gram',
-					'2 g'    => '_twograms',
-				);
-
 				$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
-				foreach ( $concentrates_names as $value=>$key ) {
-					if ( $key == $concentrate_weight_cart ) {
-						$weightname = " - " . $value;
+				foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
+					if ( $value == $concentrate_weight_cart ) {
+						$weightname     = ' - ' . $key;
+						$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 					}
 				}
 				if ( '_priceeach' === $concentrate_weight_cart ) {
-					$weightname = '';
+					$weightname     = '';
+					$regular_price  = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
 				}
 			} else {
 				// Do nothing.
