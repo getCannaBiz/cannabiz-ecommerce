@@ -150,13 +150,13 @@ class WPD_eCommerce_Widget extends WP_Widget {
 					// print_r( $i );
 
 					$total_price = $amount * $regular_price;
-	
+
 					$str .=	"<tr><td><a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> - " . $amount . " x <span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . "</span></td><td>" . $i->thumbnail . "</td></tr>";
 				endforeach;
 				$str .= "</tbody>";
 				$str .= "</table>";
 		
-				$str .= "<p class='wpd-ecommerce-widget subtotal'><strong>Subtotal:</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
+				$str .= "<p class='wpd-ecommerce-widget subtotal'><strong>" . __( 'Subtotal', 'wpd-ecommerce' ) . ":</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
 
 				$wpdas_pages   = get_option( 'wpdas_pages' );
 				$checkout_page = $wpdas_pages['wpd_pages_setup_checkout_page'];

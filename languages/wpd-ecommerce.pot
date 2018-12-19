@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2018-12-12 20:33-0500\n"
-"PO-Revision-Date: 2018-12-12 20:33-0500\n"
+"POT-Creation-Date: 2018-12-18 21:36-0500\n"
+"PO-Revision-Date: 2018-12-18 21:36-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: cart/cart-shortcode.php:12 checkout/checkout-shortcode.php:150
-#: checkout/checkout-shortcode.php:319
+#: checkout/checkout-shortcode.php:296
 #: includes/wpd-ecommerce-orders-functions.php:55
 msgid "Product"
 msgstr ""
@@ -35,12 +35,41 @@ msgstr ""
 msgid "Qty"
 msgstr ""
 
-#: cart/cart-shortcode.php:12 checkout/checkout-shortcode.php:150
-#: checkout/checkout-shortcode.php:274 checkout/checkout-shortcode.php:319
+#: cart/cart-shortcode.php:12 cart/cart-shortcode.php:114
+#: checkout/checkout-shortcode.php:150 checkout/checkout-shortcode.php:251
+#: checkout/checkout-shortcode.php:296
 #: includes/wpd-ecommerce-orders-functions.php:55
 #: patients/patient-account-shortcode.php:224
 #: patients/patient-account-shortcode.php:281
 msgid "Total"
+msgstr ""
+
+#: cart/cart-shortcode.php:103 checkout/checkout-shortcode.php:240
+msgid "Coupon"
+msgstr ""
+
+#: cart/cart-shortcode.php:103 checkout/checkout-shortcode.php:240
+msgid "Remove"
+msgstr ""
+
+#: cart/cart-shortcode.php:106 checkout/checkout-shortcode.php:243
+msgid "Sales tax"
+msgstr ""
+
+#: cart/cart-shortcode.php:109 checkout/checkout-shortcode.php:246
+msgid "Excise tax"
+msgstr ""
+
+#: cart/cart-shortcode.php:117
+msgid "Proceed to Checkout"
+msgstr ""
+
+#: cart/cart-shortcode.php:127
+msgid "There is nothing in your cart."
+msgstr ""
+
+#: cart/cart-shortcode.php:132
+msgid "Return to Menu"
 msgstr ""
 
 #: cart/cart-widget.php:17
@@ -55,7 +84,11 @@ msgstr ""
 msgid "Widget Title:"
 msgstr ""
 
-#: cart/cart-widget.php:188 wpd-ecommerce.php:167
+#: cart/cart-widget.php:159 checkout/checkout-shortcode.php:238
+msgid "Subtotal"
+msgstr ""
+
+#: cart/cart-widget.php:164 wpd-ecommerce.php:167
 msgid "Checkout"
 msgstr ""
 
@@ -132,52 +165,32 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:143 checkout/checkout-shortcode.php:314
+#: checkout/checkout-shortcode.php:143 checkout/checkout-shortcode.php:291
 msgid "Your order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:261
-msgid "Subtotal"
-msgstr ""
-
-#: checkout/checkout-shortcode.php:263
-msgid "Coupon"
-msgstr ""
-
-#: checkout/checkout-shortcode.php:263
-msgid "Remove"
-msgstr ""
-
-#: checkout/checkout-shortcode.php:266
-msgid "Sales tax"
-msgstr ""
-
-#: checkout/checkout-shortcode.php:269
-msgid "Excise tax"
-msgstr ""
-
-#: checkout/checkout-shortcode.php:279
+#: checkout/checkout-shortcode.php:256
 msgid "Place Order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:285
+#: checkout/checkout-shortcode.php:262
 msgid "You can check out after adding some products to your cart"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:290
+#: checkout/checkout-shortcode.php:267
 msgid "Return to menu"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:305
+#: checkout/checkout-shortcode.php:282
 #: patients/patient-account-shortcode.php:221
 msgid "Name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:306
+#: checkout/checkout-shortcode.php:283
 msgid "Email"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:600
+#: checkout/checkout-shortcode.php:554
 msgid "Hello Administrator"
 msgstr ""
 
@@ -199,7 +212,7 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1016
+#: includes/wpd-ecommerce-core-functions.php:1004
 msgid "Add to cart"
 msgstr ""
 

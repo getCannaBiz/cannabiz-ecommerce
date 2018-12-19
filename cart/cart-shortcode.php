@@ -100,21 +100,21 @@ function wpd_ecommerce_shortcode() {
 		$str .= "<tbody>";
 		$str .= "<tr><th class='cart_sum'><span class='subtotal'>Subtotal</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>Coupon:<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>Remove?</a>)</td></tr>";
+			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}
 		if ( NULL !== SALES_TAX ) {
-			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>Sales tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
+			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>" . __( 'Sales tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
 		}
 		if ( NULL !== EXCISE_TAX ) {
-			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>Excise tax</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
 		}
 		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
 			$str .= "<tr><th class='cart_payment_type'><span class='payment_type_amount'>" . PAYMENT_TYPE_NAME . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
 		}
-		$str .= "<tr><th class='cart_total'><span class='total'>Total</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
+		$str .= "<tr><th class='cart_total'><span class='total'>" . __( 'Total', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 		$str .= "</tbody>";
 		$str .= "</table>";
-		$str .= "<p class='wpd-ecommerce buttons'><a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>Proceed to Checkout</a></p>";
+		$str .= "<p class='wpd-ecommerce buttons'><a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>" . __( 'Proceed to Checkout', 'wpd-ecommerce' ) . "</a></p>";
 		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_after' );
 		$str .= "</div>";
 		$str .= do_action( 'wpd_ecommerce_cart_totals_after' );
@@ -124,12 +124,12 @@ function wpd_ecommerce_shortcode() {
 		return $str;
 
 	} else {
-		echo '<p>There\'s nothing in your cart.</p>';
+		echo '<p>' . __( 'There is nothing in your cart.', 'wpd-ecommerce' ) . '</p>';
 
 		$wpdas_pages   = get_option( 'wpdas_pages' );
 		$menu_page     = $wpdas_pages['wpd_pages_setup_menu_page'];
 
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">Return to Menu</a></p>';
+		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to Menu', 'wpd-ecommerce' ) . '</a></p>';
 	}
 }
 add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );
