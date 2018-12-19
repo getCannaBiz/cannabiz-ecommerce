@@ -737,30 +737,18 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 		$pack_price    = esc_html( get_post_meta( get_the_ID(), '_priceperpack', true ) );
 		$pack_units    = esc_html( get_post_meta( get_the_ID(), '_unitsperpack', true ) );
 	} elseif ( 'flowers' === get_post_type() ) {
-		/**
-		 * @todo make flower_names through the entire plugin filterable.
-		 */
-		$flower_names = array(
-			'1 g'    => esc_html( get_post_meta( get_the_ID(), '_gram', true ) ),
-			'2 g'    => esc_html( get_post_meta( get_the_ID(), '_twograms', true ) ),
-			'1/8 oz' => esc_html( get_post_meta( get_the_ID(), '_eighth', true ) ),
-			'5 g'    => esc_html( get_post_meta( get_the_ID(), '_fivegrams', true ) ),
-			'1/4 oz' => esc_html( get_post_meta( get_the_ID(), '_quarter', true ) ),
-			'1/2 oz' => esc_html( get_post_meta( get_the_ID(), '_halfounce', true ) ),
-			'1 oz'   => esc_html( get_post_meta( get_the_ID(), '_ounce', true ) ),
-		);
+		$flower_names = array();
+		foreach ( wpd_flowers_weights_array() as $key=>$value ) {
+			$flower_names[$key] = esc_html( get_post_meta( get_the_ID(), $value, true ) );
+		}
 		$regular_price = $flower_names;
 		$pack_price    = '';
 		$pack_units    = '';
 	} elseif ( 'concentrates' === get_post_type() ) {
-		/**
-		 * @todo make concentrate_names through the entire plugin filterable.
-		 */
-		$concentrate_names = array(
-			'1/2 g'  => esc_html( get_post_meta( get_the_ID(), '_halfgram', true ) ),
-			'1 g'    => esc_html( get_post_meta( get_the_ID(), '_gram', true ) ),
-			'2 g'    => esc_html( get_post_meta( get_the_ID(), '_twograms', true ) ),
-		);
+		$concentrate_names = array();
+		foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
+			$concentrate_names[$key] = esc_html( get_post_meta( get_the_ID(), $value, true ) );
+		}
 		$regular_price = $concentrate_names;
 		$pack_price    = '';
 		$pack_units    = '';
