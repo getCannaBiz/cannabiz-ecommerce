@@ -69,7 +69,7 @@ if ( ! is_user_logged_in() ) {
             $wpd_general  = get_option( 'wpdas_general' );
             $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
 
-            if ( '' !== $wpd_payments['wpd_ecommerce_checkout_minimum_order'] ) {
+            if ( '' !== $min_checkout ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= $min_checkout ) {
                     // Run success codes.
                     wpd_ecommerce_checkout_success();
@@ -531,7 +531,7 @@ function wpd_ecommerce_checkout_success() {
      */
     wpd_ecommerce_inventory_management_updates( $wpd_order_id );
 
-     // This updates the new order with custom title, etc.
+    // This updates the new order with custom title, etc.
     $updated_post = array(
         'ID'            => $wpd_order_id,
         'post_title'    => 'Order #' . $wpd_order_id,
