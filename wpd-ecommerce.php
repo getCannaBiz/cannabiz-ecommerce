@@ -80,13 +80,13 @@ function wpd_ecommerce() {
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', NULL );
 		}
-	} elseif ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
-		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {
+	} elseif ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_pop_checkbox'] ) {
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] ) {
 			// Create payment amount.
-			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
-			define( 'PAYMENT_TYPE_NAME', 'Shipping' );
+			define( 'PAYMENT_TYPE_NAME', 'In-store Pickup' );
 		} else {
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', NULL );
