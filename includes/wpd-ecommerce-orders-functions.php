@@ -90,20 +90,21 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
  * @since 1.0
  */
 function wpd_ecommerce_order_updated_messages( $messages ) {
+    global $post;
     if ( 'wpd_orders' === get_post_type() ) {
         $messages['post'] = array(
             0 => '', // Unused. Messages start at index 1.
-            1 => sprintf( __( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post_ID ) ) ),
+            1 => sprintf( __( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post->ID ) ) ),
             2 => __( 'Custom field updated.' ),
             3 => __( 'Custom field deleted.' ),
             4 => __( 'Order updated.' ),
             5 => isset( $_GET['revision'] ) ? sprintf( __( 'Order restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-            6 => sprintf( __( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post_ID ) ) ),
+            6 => sprintf( __( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post->ID ) ) ),
             7 => __( 'Order saved.' ),
-            8 => sprintf( __( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+            8 => sprintf( __( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
             9 => sprintf( __( 'Order scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview order</a>' ),
-            date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post_ID ) ) ),
-            10 => sprintf( __( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post_ID ) ) ) ),
+            date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
+            10 => sprintf( __( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
         );
     }
     return $messages;
