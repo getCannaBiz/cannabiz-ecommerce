@@ -1,3 +1,11 @@
+### 1.1.1
+
+* Bugfix error notices by switching `$post_ID` to `$post->ID` and including `global $post` in `includes/wpd-ecommerce-orders-functions.php`
+* Bugfix code that disabled `view`, `edit`, `quick edit` links, and `Add New` button in `orders/orders-post-type.php`
+* Bugfix codes that set pay on pickup price in `wpd-ecommerce.php`
+* Hide the payment method row from order details table if set to `0.00` in `orders/orders-metaboxes.php`
+* General code cleanup
+
 ### 1.1
 
 * Added minimum amount checkout setting check in `checkout/checkout-shortcode.php`
