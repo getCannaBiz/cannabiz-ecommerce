@@ -79,49 +79,6 @@ function wpd_admin_menu_orders() {
 add_action( 'admin_menu', 'wpd_admin_menu_orders', 10 );
 
 /**
- * Disable Quick Edit links for Orders admin page.
- */
-function wpd_ecommerce_disable_quick_edit( $actions = array(), $post = null ) {
-
-    // Abort if the post type is not "Orders"
-    if ( ! is_post_type_archive( 'wpd_orders' ) ) {
-        return $actions;
-    }
-
-    // Remove the Quick Edit link
-    if ( isset( $actions['inline hide-if-no-js'] ) ) {
-        unset( $actions['inline hide-if-no-js'] );
-    }
-
-    // Return the set of links without Quick Edit
-    return $actions;
-
-}
-add_filter( 'post_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );
-add_filter( 'page_row_actions', 'wpd_ecommerce_disable_quick_edit', 10, 2 );
-
-/** Hide publishing actions
- *
- * @since 1.0 
- */
-function hide_publishing_actions(){
-	$my_post_type = 'wpd_orders';
-	global $post;
-	if( $post->post_type == $my_post_type ) {
-		echo '
-			<style type="text/css">
-				#misc-publishing-actions,
-				#minor-publishing-actions{
-					display:none;
-				}
-			</style>
-		';
-	}
-}
-add_action('admin_head-post.php', 'hide_publishing_actions');
-add_action('admin_head-post-new.php', 'hide_publishing_actions');
-
-/**
  * Add the custom columns to the wpd_orders post type
  * 
  * @since 1.0
