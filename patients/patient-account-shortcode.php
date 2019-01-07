@@ -248,7 +248,7 @@ function wpd_patient_account_shortcode() {
 						$status = 'wpd-pending';
 					}
 
-					$table_admin .= "<tr>
+					$table_admin = "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
 						<td>" . $customer->first_name . ' ' . $customer->last_name . "</td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
@@ -309,7 +309,7 @@ function wpd_patient_account_shortcode() {
 						$status = 'wpd-pending';
 					}
 
-					$table .= "<tr>
+					$table = "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
 						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
