@@ -64,7 +64,7 @@ function wpd_orders() {
 		'exclude_from_search' => true,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
-		'capabilities'        => $capabilities,
+		//'capabilities'        => $capabilities,
 		'show_in_rest'        => true,
 	);
 	register_post_type( 'wpd_orders', $args );
