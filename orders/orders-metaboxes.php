@@ -71,7 +71,7 @@ function wpd_ecommerce_order_item_details_build() {
 	if ( ! empty( $order_excise_tax ) ) {
 		echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
 	}
-	if ( ! empty( $order_payment_type_amount ) ) {
+	if ( '0.00' !== $order_payment_type_amount ) {
 		echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
 	}
 	if ( ! empty( $order_sales_tax ) ) {
