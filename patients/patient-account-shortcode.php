@@ -410,7 +410,7 @@ function wpd_patient_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Driverse License or Valid ID', 'woocommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Drivers License or Valid ID', 'woocommerce' ); ?></label>
 					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true ) ) { ?>
 					<div class="valid-id">
 						<?php
