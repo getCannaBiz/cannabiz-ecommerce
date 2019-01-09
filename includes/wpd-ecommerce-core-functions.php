@@ -66,7 +66,7 @@ function wpd_ecommerce_notifications() {
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications success">This product has been successfully added to your cart ' . $view_cart_button . '<a href="' . get_bloginfo( 'url' ) . '/dispensary-menu" class="button">Continue Shopping</a></div>';
 			$str .= '</div>';
-		} elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_product_prices'] ) {
+		} elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications success">This product has been successfully added to your cart ' . $view_cart_button . '<a href="' . get_bloginfo( 'url' ) . '/dispensary-menu" class="button">Continue Shopping</a></div>';
@@ -126,28 +126,34 @@ function wpd_ecommerce_notifications() {
 	}
 
 	// Display failed login message.
-	if ( 'failed' === $_GET['login'] ) {
-		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The username or password you entered is incorrect.</div>';
+	if ( ! empty( $_GET['login'] ) ) {
+		if ( 'failed' === $_GET['login'] ) {
+			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The username or password you entered is incorrect.</div>';
+		}
 	}
 
 	// Display failed register message.
-	if ( 'failed' === $_GET['register'] ) {
-		$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The registration info you entered is incorrect.</div>';
+	if ( ! empty( $_GET['register'] ) ) {
+		if ( 'failed' === $_GET['register'] ) {
+			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> The registration info you entered is incorrect.</div>';
+		}
 	}
 
 	// Display order thank you message.
-	if ( 'thank-you' === $_GET['order'] ) {
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Thank You:</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
+	if ( ! empty( $_GET['order'] ) ) {
+		if ( 'thank-you' === $_GET['order'] ) {
+			$str .= '<div class="wpd-ecommerce-notifications success"><strong>Thank You:</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
+		}
 	}
 
 	// Remove an item from the cart
-	if ( $_GET['remove_item'] ) {
+	if ( ! empty( $_GET['remove_item'] ) ) {
 		$_SESSION['wpd_ecommerce']->remove_item( $_GET['remove_item'] );
 		$str .= '<div class="wpd-ecommerce-notifications success"><strong>Item removed:</strong> The item has been successfully removed.</div>';
 	}
 
 	// Add an item from the cart
-	if ( $_GET['add_item'] ) {
+	if ( ! empty( $_GET['add_item'] ) ) {
 		if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
 			$c = new Cart;
 			$c->add_item( $_GET['add_item'], 1, '', '', '' );
