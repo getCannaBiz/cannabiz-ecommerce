@@ -1,10 +1,16 @@
 ### 1.1.1
 
+* Added empty variables to remove Notices with WP_DEBUG in `classes/class-item.php`
+* Added empty variables to remove Notices with WP_DEBUG in `includes/wpd-ecommerce-core-functions.php`
+* Added empty variables to remove Notices with WP_DEBUG in `orders/orders-metaboxes.php`
 * Bugfix error notices by switching `$post_ID` to `$post->ID` and including `global $post` in `includes/wpd-ecommerce-orders-functions.php`
 * Bugfix code that disabled `view`, `edit`, `quick edit` links, and `Add New` button in `orders/orders-post-type.php`
 * Bugfix codes that set pay on pickup price in `wpd-ecommerce.php`
+* Bugfix removed custom capabilites for Orders in `orders/orders-post-type.php`
 * Hide the payment method row from order details table if set to `0.00` in `orders/orders-metaboxes.php`
-* General code cleanup
+* Updated recent order tables variable in `patients/patient-account-shortcode.php`
+* Updated Drivers misspelling on Account page in `patients/patient-account-shortcode.php`
+* Updated with general code cleanup
 
 ### 1.1
 
