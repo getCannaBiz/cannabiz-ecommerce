@@ -229,7 +229,9 @@ function wpd_patient_account_shortcode() {
 						$args = array(
 							'post_type'  => 'wpd_orders',
 						);
-						$the_query = new WP_Query( $args );
+						$the_query   = new WP_Query( $args );
+						// Create empty table_admin variable.
+						$table_admin = '';
 					?>
 					<?php if ( $the_query->have_posts() ) : ?>
 				
@@ -248,7 +250,7 @@ function wpd_patient_account_shortcode() {
 						$status = 'wpd-pending';
 					}
 
-					$table_admin = "<tr>
+					$table_admin .= "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
 						<td>" . $customer->first_name . ' ' . $customer->last_name . "</td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
@@ -293,6 +295,8 @@ function wpd_patient_account_shortcode() {
 							),
 						);
 						$the_query = new WP_Query( $args );
+						// Create empty table variable.
+						$table     = '';
 					?>
 					<?php if ( $the_query->have_posts() ) : ?>
 				
@@ -309,7 +313,7 @@ function wpd_patient_account_shortcode() {
 						$status = 'wpd-pending';
 					}
 
-					$table = "<tr>
+					$table .= "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
 						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
