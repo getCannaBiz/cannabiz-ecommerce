@@ -43,6 +43,9 @@ function wpd_ecommerce_destroy_session( $eat_cookies = NULL ) {
  * @return string
  */
 function wpd_ecommerce_notifications() {
+
+	$str = '';
+
 	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
 
 		// Check if cart widget is active.

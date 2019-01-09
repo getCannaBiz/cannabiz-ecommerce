@@ -35,6 +35,11 @@ class Item {
 				} else {
 					$flower_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
 				}
+
+				// Set concentrate price to NULL to avoid `Notice`.
+				$concentrate_prices = NULL;
+				// Set concentrate price to NULL to avoid `Notice`.
+				$concentrate_price_choice = NULL;
 			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
 				if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 					foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
@@ -49,6 +54,11 @@ class Item {
 				} else {
 					$concentrate_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
 				}
+
+				// Set flower price to NULL to avoid `Notice`.
+				$flower_price_choice = NULL;
+				// Set concentrate price to NULL to avoid `Notice`.
+				$concentrate_prices = NULL;
 			} else {
 				if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 					foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
@@ -63,6 +73,11 @@ class Item {
 				} else {
 					$product_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
 				}
+
+				// Set flower price to NULL to avoid `Notice`.
+				$flower_price_choice = NULL;
+				// Set concentrate price to NULL to avoid `Notice`.
+				$concentrate_price_choice = NULL;
 			}
 
 		} else {
@@ -107,9 +122,11 @@ class Item {
 			$flower_prices        = wpd_flowers_prices_array( $my_post->ID );
 			$product_price_choice = '';
 		} elseif ( 'concentrates' === get_post_type( $my_post->ID ) ) {
-			$regular_price      = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
-			$pack_price         = '';
-			$concentrate_prices = array(
+			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
+			$pack_price           = '';
+			$flower_prices        = '';
+			$product_price_choice = '';
+			$concentrate_prices   = array(
 				'1/2 g' => esc_html( get_post_meta( $my_post->ID, '_halfgram', true ) ),
 				'1 g'   => esc_html( get_post_meta( $my_post->ID, '_gram', true ) ),
 				'2 g'   => esc_html( get_post_meta( $my_post->ID, '_twograms', true ) ),
