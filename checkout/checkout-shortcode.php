@@ -233,7 +233,11 @@ if ( ! is_user_logged_in() ) {
 
         endforeach;
 
-        $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+        // Get taxes (if any).
+        $wpd_sales_tax  = number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );
+        $wpd_excise_tax = number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' );
+
+        $total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
         $str .= "<tr><td><strong>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
