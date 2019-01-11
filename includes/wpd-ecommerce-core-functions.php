@@ -788,6 +788,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 			}
 			print( '</select>' );
 
+			// Flower prices.
 			$weight_gram      = get_post_meta( get_the_ID(), '_gram', true );
 			$weight_twograms  = get_post_meta( get_the_ID(), '_twograms', true );
 			$weight_eighth    = get_post_meta( get_the_ID(), '_eighth', true );
@@ -796,6 +797,24 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 			$weight_halfounce = get_post_meta( get_the_ID(), '_halfounce', true );
 			$weight_ounce     = get_post_meta( get_the_ID(), '_ounce', true );
 
+			// Heavyweight prices.
+			$weight_twoounces    = get_post_meta( get_the_ID(), '_twoounces', true );
+			$weight_quarterpound = get_post_meta( get_the_ID(), '_quarterpound', true );
+			$weight_halfpound    = get_post_meta( get_the_ID(), '_halfpound', true );
+			$weight_onepound     = get_post_meta( get_the_ID(), '_onepound', true );
+			$weight_twopounds    = get_post_meta( get_the_ID(), '_twopounds', true );
+			$weight_threepounds  = get_post_meta( get_the_ID(), '_threepounds', true );
+			$weight_fourpounds   = get_post_meta( get_the_ID(), '_fourpounds', true );
+			$weight_fivepounds   = get_post_meta( get_the_ID(), '_fivepounds', true );
+			$weight_sixpounds    = get_post_meta( get_the_ID(), '_sixpounds', true );
+			$weight_sevenpounds  = get_post_meta( get_the_ID(), '_sevenpounds', true );
+			$weight_eightpounds  = get_post_meta( get_the_ID(), '_eightpounds', true );
+			$weight_ninepounds   = get_post_meta( get_the_ID(), '_ninepounds', true );
+			$weight_tenpounds    = get_post_meta( get_the_ID(), '_tenpounds', true );
+			$weight_elevenpounds = get_post_meta( get_the_ID(), '_elevenpounds', true );
+			$weight_twelvepounds = get_post_meta( get_the_ID(), '_twelvepounds', true );
+
+			// Set Flower weight meta key.
 			if ( $weight_gram === $_POST['wpd_ecommerce_flowers_prices'] ) {
 				$wpd_flower_meta_key = '_gram';
 			} elseif ( $weight_twograms === $_POST['wpd_ecommerce_flowers_prices'] ) {
@@ -810,6 +829,36 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 				$wpd_flower_meta_key = '_halfounce';
 			} elseif ( $weight_ounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
 				$wpd_flower_meta_key = '_ounce';
+			} elseif ( $weight_twoounces === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_twoounces';
+			} elseif ( $weight_quarterpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_quarterpound';
+			} elseif ( $weight_halfpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_halfpound';
+			} elseif ( $weight_onepound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_onepound';
+			} elseif ( $weight_twopounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_twopounds';
+			} elseif ( $weight_threepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_threpounds';
+			} elseif ( $weight_fourpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_fourpounds';
+			} elseif ( $weight_fivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_fivepounds';
+			} elseif ( $weight_sixpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_sixpounds';
+			} elseif ( $weight_sevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_sevenpounds';
+			} elseif ( $weight_eightpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_eightpounds';
+			} elseif ( $weight_ninepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_ninepounds';
+			} elseif ( $weight_tenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_tenpounds';
+			} elseif ( $weight_elevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_elevenpounds';
+			} elseif ( $weight_twelvepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+				$wpd_flower_meta_key = '_twelvepounds';
 			} else {
 				$wpd_flower_meta_key = '';
 			}
