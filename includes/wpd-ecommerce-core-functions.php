@@ -834,52 +834,56 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 			$weight_twelvepounds = get_post_meta( get_the_ID(), '_twelvepounds', true );
 
 			// Set Flower weight meta key.
-			if ( $weight_gram === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_gram';
-			} elseif ( $weight_twograms === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_twograms';
-			} elseif ( $weight_eighth === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_eighth';
-			} elseif ( $weight_fivegrams === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_fivegrams';
-			} elseif ( $weight_quarter === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_quarter';
-			} elseif ( $weight_halfounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_halfounce';
-			} elseif ( $weight_ounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_ounce';
-			} elseif ( $weight_twoounces === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_twoounces';
-			} elseif ( $weight_quarterpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_quarterpound';
-			} elseif ( $weight_halfpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_halfpound';
-			} elseif ( $weight_onepound === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_onepound';
-			} elseif ( $weight_twopounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_twopounds';
-			} elseif ( $weight_threepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_threpounds';
-			} elseif ( $weight_fourpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_fourpounds';
-			} elseif ( $weight_fivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_fivepounds';
-			} elseif ( $weight_sixpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_sixpounds';
-			} elseif ( $weight_sevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_sevenpounds';
-			} elseif ( $weight_eightpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_eightpounds';
-			} elseif ( $weight_ninepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_ninepounds';
-			} elseif ( $weight_tenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_tenpounds';
-			} elseif ( $weight_elevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_elevenpounds';
-			} elseif ( $weight_twelvepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-				$wpd_flower_meta_key = '_twelvepounds';
+			if ( ! empty( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
+				if ( $weight_gram === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_gram';
+				} elseif ( $weight_twograms === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twograms';
+				} elseif ( $weight_eighth === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_eighth';
+				} elseif ( $weight_fivegrams === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fivegrams';
+				} elseif ( $weight_quarter === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_quarter';
+				} elseif ( $weight_halfounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_halfounce';
+				} elseif ( $weight_ounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_ounce';
+				} elseif ( $weight_twoounces === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twoounces';
+				} elseif ( $weight_quarterpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_quarterpound';
+				} elseif ( $weight_halfpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_halfpound';
+				} elseif ( $weight_onepound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_onepound';
+				} elseif ( $weight_twopounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twopounds';
+				} elseif ( $weight_threepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_threpounds';
+				} elseif ( $weight_fourpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fourpounds';
+				} elseif ( $weight_fivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fivepounds';
+				} elseif ( $weight_sixpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_sixpounds';
+				} elseif ( $weight_sevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_sevenpounds';
+				} elseif ( $weight_eightpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_eightpounds';
+				} elseif ( $weight_ninepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_ninepounds';
+				} elseif ( $weight_tenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_tenpounds';
+				} elseif ( $weight_elevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_elevenpounds';
+				} elseif ( $weight_twelvepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twelvepounds';
+				} else {
+					$wpd_flower_meta_key = '';
+				}
 			} else {
-				$wpd_flower_meta_key = '';
+				// Do nothing.
 			}
 			?>
 		<?php } elseif ( 'concentrates' === get_post_type() ) { ?>
@@ -904,24 +908,25 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 				$weight_gram      = get_post_meta( get_the_ID(), '_gram', true );
 				$weight_twograms  = get_post_meta( get_the_ID(), '_twograms', true );
 
-				if ( $weight_halfgram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
-					$wpd_concentrate_meta_key = '_halfgram';
-				} elseif ( $weight_gram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
-					$wpd_concentrate_meta_key = '_gram';
-				} elseif ( $weight_twograms === $_POST['wpd_ecommerce_concentrates_prices'] ) {
-					$wpd_concentrate_meta_key = '_twograms';
+				if ( ! empty( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+					if ( $weight_halfgram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_halfgram';
+					} elseif ( $weight_gram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_gram';
+					} elseif ( $weight_twograms === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_twograms';
+					} else {
+						$wpd_concentrate_meta_key = '';
+					}
 				} else {
-					$wpd_concentrate_meta_key = '';
+					// Do nothing.
 				}
 			} else {
 				// Do nothing.
 			}
 			?>
-		<?php } else { ?>
-			<?php
-			if ( ! empty( $pack_price ) ) { ?>
-				<?php
-
+		<?php } else {
+			if ( ! empty( $pack_price ) ) {
 				// Select a quantity.
 				print( '<select name="wpd_ecommerce_product_prices" id="wpd_ecommerce_product_prices" class="widefat">' );
 				printf( '<option value="" disabled selected>' . __( 'Choose a quantity', 'wpd-ecommerce' ) . '</option>' );
@@ -933,20 +938,21 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 				$price_topical  = get_post_meta( get_the_ID(), '_pricetopical', true );
 				$price_per_pack = get_post_meta( get_the_ID(), '_priceperpack', true );
 
-				if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
-					$wpd_product_meta_key = '_priceeach';
-				} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
-					$wpd_product_meta_key = '_pricetopical';
-				} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
-					$wpd_product_meta_key = '_priceperpack';
-				} else {
-					$wpd_product_meta_key = '_priceeach';
+				if ( ! empty( $_POST['wpd_ecommerce_product_prices'] ) ) {
+					if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_priceeach';
+					} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_pricetopical';
+					} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_priceperpack';
+					} else {
+						$wpd_product_meta_key = '_priceeach';
+					}
 				}
-
-				?>
-			<?php } else { ?>
-			<?php } ?>
-		<?php } ?>
+			} else {
+				// Do nothing.
+			}
+		} ?>
 
 	<?php } ?>
 
