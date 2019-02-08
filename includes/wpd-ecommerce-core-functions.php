@@ -214,9 +214,26 @@ function wpd_ecommerce_notifications() {
 	}
 
 	// Remove the coupon from cart.
-	if ( isset( $_SESSION['wpd_ecommerce'] ) && $_SESSION['wpd_ecommerce']->coupon_code === $_GET['remove_coupon'] ) {
-		$_SESSION['wpd_ecommerce']->remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
-		wp_redirect( get_the_permalink() );
+	if ( ! empty( $_SESSION['wpd_ecommerce']->coupon_code ) ) {
+
+		// Get the coupon code to remove.
+		if ( ! empty( $_GET['remove_coupon'] ) ) {
+			$remove_coupon = $_GET['remove_coupon'];
+		} else {
+			$remove_coupon = '';
+		}
+
+		// Remove the code from the cart and redirect back.
+		if ( $_SESSION['wpd_ecommerce']->coupon_code === $remove_coupon ) {
+			// Remove coupon.
+			$_SESSION['wpd_ecommerce']->remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
+			// Redirect back.
+			wp_redirect( get_the_permalink() );
+		} else {
+			// Do nothing.
+		}
+	} else {
+		// Do nothing.
 	}
 
 	// If the coupon code form is submitted but no code was input.
