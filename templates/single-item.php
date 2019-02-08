@@ -44,13 +44,13 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                     do_action( 'wpd_ecommerce_item_types_inside_before' );
 
                     // Display Strain Type
-                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', '', ', ' ) . "</span>";
+                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', '', '' ) . "</span>";
                     // Display Shelf Type
-                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', '', ', ' ) . "</span>";
+                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', '', '' ) . "</span>";
                     // Display Edibles Category
-                    echo "<span class='wpd-ecommerce category edibles'>" . get_the_term_list( get_the_ID(), 'edibles_category', '', ', ' ) . "</span>";
+                    echo "<span class='wpd-ecommerce category edibles'>" . get_the_term_list( get_the_ID(), 'edibles_category', '', '' ) . "</span>";
                     // Display Topicals Category
-                    echo "<span class='wpd-ecommerce category topicals'>" . get_the_term_list( get_the_ID(), 'topicals_category', '', ', ' ) . "</span>";
+                    echo "<span class='wpd-ecommerce category topicals'>" . get_the_term_list( get_the_ID(), 'topicals_category', '', '' ) . "</span>";
 
                     do_action( 'wpd_ecommerce_item_types_inside_after' );
 
