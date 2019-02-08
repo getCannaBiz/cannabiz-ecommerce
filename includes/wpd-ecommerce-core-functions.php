@@ -208,7 +208,7 @@ function wpd_ecommerce_notifications() {
 		$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
 		
 		// Display success notification.
-		echo '<div class="wpd-ecommerce-notifications success"><strong>Success:</strong> Coupon code has been applied</div>';
+		echo '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
 
 		endforeach;
 	}
@@ -221,7 +221,7 @@ function wpd_ecommerce_notifications() {
 
 	// If the coupon code form is submitted but no code was input.
 	if ( isset( $_POST['coupon_code'] ) && empty( $_POST['coupon_code'] ) && isset( $_POST['add_coupon'] ) ) {
-		$str = '<div class="wpd-ecommerce-notifications failed"><strong>Error:</strong> Please enter a coupon code</div>';
+		$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
 	}
 
 	return $str;
