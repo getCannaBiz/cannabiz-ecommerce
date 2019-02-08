@@ -721,6 +721,8 @@ add_action( 'wp_dispensary_admin_settings_sections_before', 'wpd_admin_settings_
  * @since 1.0
  */
 function wpd_ecommerce_single_items_vendors() {
+	global $post;
+
 	// Get vendors.
 	if ( get_the_term_list( get_the_ID(), 'vendor', true ) ) {
 		$wpdvendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendor', '', ', ', '' ) . '</span>';
