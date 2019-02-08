@@ -56,8 +56,14 @@ class WPD_eCommerce_Widget extends WP_Widget {
 		// Check content for wpd_cart shortcode.
 		if ( ! has_shortcode( $content, 'wpd_cart' ) && ! has_shortcode( $content, 'wpd_checkout' ) ) {
 
+			if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
+				$line_check = $_SESSION['wpd_ecommerce']->lines;
+			} else {
+				$line_check = '';
+			}
+
 			// If cart isn't empty, display the widget.
-			if ( 0 != $_SESSION['wpd_ecommerce']->lines ) {
+			if ( 0 != $line_check ) {
 		
 				do_action( 'wpd_ecommerce_widget_before' );
 
