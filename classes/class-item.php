@@ -112,15 +112,18 @@ class Item {
 			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
 			$pack_price           = esc_html( get_post_meta( $my_post->ID, '_priceperpack', true ) );
 			$flower_prices        = '';
+			$concentrate_prices   = '';
 		} elseif ( 'topicals' === get_post_type( $my_post->ID ) ) {
 			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_pricetopical', true ) );
 			$pack_price           = esc_html( get_post_meta( $my_post->ID, '_priceperpack', true ) );
 			$flower_prices        = '';
+			$concentrate_prices   = '';
 		} elseif ( 'flowers' === get_post_type( $my_post->ID ) ) {
 			$regular_price        = '';
 			$pack_price           = '';
 			$flower_prices        = wpd_flowers_prices_array( $my_post->ID );
 			$product_price_choice = '';
+			$concentrate_prices   = '';
 		} elseif ( 'concentrates' === get_post_type( $my_post->ID ) ) {
 			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
 			$pack_price           = '';
