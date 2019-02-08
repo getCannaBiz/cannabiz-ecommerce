@@ -48,11 +48,11 @@ function wpd_ecommerce_archive_items_buttons() {
 add_action( 'wpd_ecommerce_archive_items_product_inside_after', 'wpd_ecommerce_archive_items_buttons' );
 add_action( 'wpd_shortcode_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
 
-add_action( 'wpd_flowers_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_concentrates_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_edibles_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_prerolls_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_topicals_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_growers_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_gear_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_tinctures_widget_inside_loop_after', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_flowers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_concentrates_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_edibles_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_prerolls_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_topicals_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_growers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_gear_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+add_action( 'wpd_tinctures_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
