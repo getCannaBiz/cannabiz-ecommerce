@@ -79,7 +79,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 
 				$str  = '<table class="wpd-ecommerce widget">';
 				$str .= '<tbody>';
-				
+
 				foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
 					$i             = new Item( $id, '', '', '' );
 					$item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );

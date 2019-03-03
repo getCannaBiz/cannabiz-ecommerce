@@ -318,7 +318,7 @@ function wpd_ecommerce_load_session() {
 			'cookie_lifetime' => $half_hour,
 		] );
 
-	}	
+	}
 }
 wpd_ecommerce_load_session();
 
