@@ -117,13 +117,13 @@ function wpd_patient_account_shortcode() {
 
 		<div class="wpd-ecommerce patient-account">
 			<input class="account-links" id="tab1" type="radio" name="tabs" checked>
-			<label class="account-links" for="tab1">Dashboard</label>
+			<label class="account-links" for="tab1"><?php _e( 'Dashboard', 'wpd-ecommerce' ); ?></label>
 
 			<input class="account-links" id="tab2" type="radio" name="tabs">
-			<label class="account-links" for="tab2">Orders</label>
+			<label class="account-links" for="tab2"><?php _e( 'Orders', 'wpd-ecommerce' ); ?></label>
 
 			<input class="account-links" id="tab3" type="radio" name="tabs">
-			<label class="account-links" for="tab3">Details</label>
+			<label class="account-links" for="tab3"><?php _e( 'Details', 'wpd-ecommerce' ); ?></label>
 
 	<!--
 			<input class="account-links" id="tab4" type="radio" name="tabs">
