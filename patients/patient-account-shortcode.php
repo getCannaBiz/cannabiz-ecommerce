@@ -205,7 +205,12 @@ function wpd_patient_account_shortcode() {
 
 						$order_count   = $the_query->post_count;
 						$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
-						$total_final   = array_sum( $total_earnings );
+
+						if ( isset( $total_earnings ) ) {
+							$total_final = array_sum( $total_earnings );
+						} else {
+							$total_final = '0';
+						}
 
 						echo "<div class='wpd-ecommerce account-administrator patients'>" . $patient_count . "<span>Patients</span></div>";
 						echo "<div class='wpd-ecommerce account-administrator orders'>" . $order_count . "<span>Orders</span></div>";
