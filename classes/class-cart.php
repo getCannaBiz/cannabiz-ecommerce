@@ -41,8 +41,8 @@ class Cart {
 		if ( 'Flat Rate' == $coupon_type ) {
 			$coupon_total = $coupon_amount;
 		} elseif ( 'Percentage' == $coupon_type ) {
-			$coupon_test = $coupon_amount * 0.01;
-			$coupon_total = $this->sum * $coupon_test;
+			$coupon_percentage = $coupon_amount * 0.01;
+			$coupon_total      = $this->sum * $coupon_percentage;
 		}
 		$this->coupon_amount = $coupon_total;
 		$this->sum           = $this->sum - $coupon_amount;
