@@ -86,12 +86,11 @@ if ( '' !== $order_by ) {
  * @since 1.0
  */
 if ( ! empty( $_GET['vendor'] ) ) {
-    echo "<h1>TESTING</h1>";
-    $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-    $page_title = __( $vendor_name->name, 'wpd-ecommerce' );
+    $vendor_name    = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+    $page_title     = __( $vendor_name->name, 'wpd-ecommerce' );
     $menu_type_name = $page_title;
-} elseif( is_tax() ) {
-    
+} elseif ( is_tax() ) {
+    // Do nothing.
 } else {
     // Get post type.
     $post_type = get_post_type();
