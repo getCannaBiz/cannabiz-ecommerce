@@ -244,7 +244,7 @@ function wpd_ecommerce_add_options() {
 	update_option( 'wpdas_payments', $wpdas_payments );
 
 	$wpdas_pages = array(
-		'wpd_pages_setup_menu_page'     => 'dispensary-menu',
+		'wpd_pages_setup_menu_page'     => 'menu',
 		'wpd_pages_setup_cart_page'     => 'cart',
 		'wpd_pages_setup_checkout_page' => 'checkout',
 		'wpd_pages_setup_account_page'  => 'account',
