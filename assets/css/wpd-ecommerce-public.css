@@ -272,6 +272,10 @@ h3.wpd-ecommerce.patient-title {
     width: 100%;
 }
 
+.entry-content.wpd-ecommerce-shelfContent footer.entry-footer {
+    display: none;
+}
+
 /** Vendors */
 .wpd-ecommerce.vendors a,
 .wpd-ecommerce.vendors a:visited {
