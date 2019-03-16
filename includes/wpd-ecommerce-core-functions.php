@@ -792,7 +792,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 
 	?>
 
-	<p class='wpd-ecommerce price'><?php wpd_all_prices_simple( NULL, FALSE ); ?></p>
+	<p class='wpd-ecommerce price'><?php wpd_all_prices_simple( get_the_ID(), FALSE ); ?></p>
 
 	<?php if ( ! empty( $regular_price ) ) { ?>
 
