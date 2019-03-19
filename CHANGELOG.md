@@ -17,6 +17,7 @@
 * Updated total earnings in admin account page to check variable and if empty, make total earnings zero in `patients/patient-account-shortcode.php`
 * Updated default menu page slug for WPD v2.6+ new shortcode & page in `wpd-ecommerce.php`
 * Updated helper functions to pass the product ID in `includes/wpd-ecommerce-core-functions.php`
+* Updated prices helper function to pass the product ID in `templates/archive-items.php`
 * Updated helper functions to pass the product ID in `includes/wpd-ecommerce-archive-items-functions.php`
 * Updated CSS to hide entry footer on eCommerce product pages in `assets/wpd-ecommerce-public.css`
 * Updated `.pot` file with new text strings for translation in `languages/wpd-ecommerce.pot`
