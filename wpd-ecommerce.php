@@ -9,7 +9,7 @@
  * Plugin Name:  WP Dispensary's eCommerce
  * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
  * Description:  Adds shopping cart capabilities to the WP Dispensary menu management plugin.
- * Version:      1.1.1
+ * Version:      1.2
  * Author:       WP Dispenary
  * Author URI:   https://www.wpdispensary.com
  * License:      GPL-2.0+
@@ -40,7 +40,7 @@ function wpd_ecommerce() {
 
 	//print_r( $wpd_settings );	
 
-	// Check if WP Dispensary setting is set.
+	// Define sales tax (if any).
 	if ( ! isset( $wpd_settings['wpd_ecommerce_sales_tax'] ) ) {
 		define( 'SALES_TAX', NULL );
 	} else {
@@ -51,6 +51,7 @@ function wpd_ecommerce() {
 		define( 'SALES_TAX', $sales_tax );
 	}
 
+	// Define excise tax (if any).
 	if ( ! isset( $wpd_settings['wpd_ecommerce_excise_tax'] ) ) {
 		define( 'EXCISE_TAX', NULL );
 	} else {
@@ -237,8 +238,6 @@ function wpd_ecommerce_add_options() {
 		'wpd_ecommerce_checkout_payments_cod'             => '',
 		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'off',
 		'wpd_ecommerce_checkout_payments_pop'             => '',
-		'wpd_ecommerce_checkout_payments_ground_checkbox' => 'off',
-		'wpd_ecommerce_checkout_payments_ground'          => '',
 	);
 
 	update_option( 'wpdas_payments', $wpdas_payments );
