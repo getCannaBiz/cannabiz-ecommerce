@@ -174,7 +174,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
                         <?php echo $showimage; ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
-                        <?php wpd_all_prices_simple( NULL, TRUE ); ?>
+                        <?php wpd_all_prices_simple( get_the_ID(), NULL, TRUE ); ?>
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
                     </div><!-- // .wpdshortcode item -->
                     <?php do_action( 'wpd_ecommerce_archive_items_product_after' ); ?>
