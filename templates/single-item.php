@@ -67,7 +67,7 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                     do_action( 'wpd_ecommerce_item_details_inside_before' );
 
                     // Get compounds.
-                    $compounds = wpd_compounds_simple( $type = '%', array() );
+                    $compounds = wpd_compounds_simple( get_the_ID(), $type = '%', array() );
 
                     $showcompounds = $compounds;
 
