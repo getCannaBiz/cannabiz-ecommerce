@@ -27,8 +27,11 @@ $thumbnail_id        = get_post_thumbnail_id();
 $thumbnail_url_array = wp_get_attachment_image_src( $thumbnail_id, $image_size, false );
 $thumbnail_url       = $thumbnail_url_array[0];
 $querytitle          = get_the_title();
-$vendor_name         = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-$title               = $vendor_name->name;
+
+if ( ! empty( $_GET['vendor'] ) ) {
+    $vendor_name         = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+    $title               = $vendor_name->name;
+}
 
 //print_r( $vendor_name );
 
@@ -68,16 +71,6 @@ if ( is_tax() ) {
 
 } else {
     $tax_query = '';
-}
-
-/**
- * Set order_by.
- * 
- * @since 1.0
- */
-if ( '' !== $order_by ) {
-        $order    = $order_by;
-        $ordernew = 'ASC';
 }
 
 /**
