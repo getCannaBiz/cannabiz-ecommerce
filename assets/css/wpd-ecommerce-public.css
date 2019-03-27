@@ -899,7 +899,7 @@ table.wpd-ecommerce.order-details tbody {
 }
 
 /**
- *
+ * Override CannaBiz width for archive pages.
  */
 body.post-type-archive-concentrates .hentry,
 body.post-type-archive-edibles .hentry,
@@ -909,7 +909,8 @@ body.post-type-archive-growers .hentry,
 body.post-type-archive-prerolls .hentry,
 body.post-type-archive-tinctures .hentry,
 body.post-type-archive-topicals .hentry,
-body.tax-allergens .hentry, body.tax-aroma .hentry,
+body.tax-allergens .hentry,
+body.tax-aroma .hentry,
 body.tax-concentrates_category .hentry, 
 body.tax-condition .hentry,
 body.tax-edibles_category .hentry, 
@@ -922,7 +923,8 @@ body.tax-symptom .hentry,
 body.tax-topicals_category .hentry,
 body.tax-vendor .hentry,
 body.tax-wpd_gear_category .hentry,
-body.tax-wpd_tinctures_category .hentry {
+body.tax-shelf_type .hentry,
+body.tax-strain_type .hentry {
     margin: 0 !important;
     width: 100% !important;
 }
