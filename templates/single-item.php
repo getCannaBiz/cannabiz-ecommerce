@@ -18,7 +18,8 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                 <?php
                 if ( has_post_thumbnail() ) {
                     $wpd_ecommerce_single_item_image_size = 'wpd-small';
-                    echo the_post_thumbnail( apply_filters( 'wpd_ecommerce_single_item_image_size', $wpd_ecommerce_single_item_image_size ) );
+                    $the_post_thumbnail = apply_filters( 'wpd_ecommerce_single_item_image_size', $wpd_ecommerce_single_item_image_size );
+                    echo '<a href="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '"><img src="' . get_the_post_thumbnail_url( get_the_ID(), $the_post_thumbnail ) . '" alt="' . get_the_title() . '" /></a>';
                 } else {
                     $wpd_ecommerce_single_item_no_image = get_bloginfo( 'url' ) . '/wp-content/plugins/wp-dispensary/public/images/wpd-medium.jpg';
                     echo '<img src="' . apply_filters( 'wpd_ecommerce_single_item_no_image', $wpd_ecommerce_single_item_no_image ) . '" alt="' . get_the_title() . '" />';
