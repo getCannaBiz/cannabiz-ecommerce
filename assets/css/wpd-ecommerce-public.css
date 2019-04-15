@@ -81,6 +81,13 @@ table.wpd-ecommerce tbody td input[type="number"] {
     width: 48%;
 }
 
+@media screen and (max-width: 600px ) {
+    .wpd-ecommerce-wrap .cart-totals {
+        float: left;
+        width: 100%;
+    }
+}
+
 table.wpd-ecommerce.totals th {
     padding: 10px;
 }
@@ -255,7 +262,6 @@ h3.wpd-ecommerce.patient-title {
     padding: 0;
     text-align: left;
 }
-
 
 .wpd-ecommerce-shelfItem .product-details header.entry-header form.wpd-ecommerce {
 	text-align: left;
