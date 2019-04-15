@@ -13,13 +13,22 @@ function wpd_patient_account_shortcode() {
 
 		echo wpd_ecommerce_notifications();
 
+		do_action( 'wpd_ecommerce_patient_account_login_form_before' );
+
 		echo "<div class='wpd-ecommerce-login-form'>";
+		do_action( 'wpd_ecommerce_patient_account_login_form_before_inside' );
 		echo "<h3>" . __( 'Login', 'wpd-ecommerce' ) . "</h3>";
 		echo wp_login_form( $args );
+		do_action( 'wpd_ecommerce_patient_account_login_form_after_inside' );
 		echo "</div>";
 
+		do_action( 'wpd_ecommerce_patient_account_login_form_after' );
+
 		if ( get_option( 'users_can_register' ) ) {
+			do_action( 'wpd_ecommerce_patient_account_register_form_before' );
+
 			echo "<div class='wpd-ecommerce-register-form'>";
+			do_action( 'wpd_ecommerce_patient_account_register_form_before_inside' );
 			echo "<h3>" . __( 'Register', 'wpd-ecommerce' ) . "</h3>";
 			?>
 			<form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
@@ -38,7 +47,11 @@ function wpd_patient_account_shortcode() {
 			</p>
 			</form>
 			<?php
+			do_action( 'wpd_ecommerce_patient_account_register_form_after_inside' );
 			echo "</div>";
+
+			do_action( 'wpd_ecommerce_patient_account_register_form_after' );
+
 		} // users_can_register
 	} else {
 		/**
