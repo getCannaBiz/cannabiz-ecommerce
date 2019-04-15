@@ -302,8 +302,9 @@ function wpd_patient_account_shortcode() {
 					</thead>
 					<tbody>
 					<?php
-						$user = wp_get_current_user();
-						$args = array(
+						$table = '';
+						$user  = wp_get_current_user();
+						$args  = array(
 							'post_type'  => 'wpd_orders',
 							'meta_query' => array(
 								array(
@@ -313,8 +314,6 @@ function wpd_patient_account_shortcode() {
 							),
 						);
 						$the_query = new WP_Query( $args );
-						// Create empty table variable.
-						$table     = '';
 					?>
 					<?php if ( $the_query->have_posts() ) : ?>
 				
