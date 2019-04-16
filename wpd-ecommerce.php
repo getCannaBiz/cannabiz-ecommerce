@@ -319,7 +319,7 @@ function wpd_ecommerce_load_session() {
 
 		// Start session and set cookie for 1 day.
 		session_start( [
-			'cookie_lifetime' => $half_hour,
+			'cookie_lifetime' => apply_filters( 'wpd_ecommerce_cookie_lifetime', $half_hour ),
 		] );
 
 	}
