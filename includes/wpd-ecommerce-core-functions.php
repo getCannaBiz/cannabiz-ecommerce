@@ -845,9 +845,6 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 		$pack_price    = '';
 		$pack_units    = '';
 	}
-
-	$sale_price = esc_html( get_post_meta( get_the_ID(), 'product_sale_price', true ) );
-
 	?>
 
 	<p class='wpd-ecommerce price'><?php wpd_all_prices_simple( get_the_ID(), FALSE ); ?></p>
