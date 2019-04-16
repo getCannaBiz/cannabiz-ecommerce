@@ -810,12 +810,25 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_header_before', 'wpd_eco
  * 
  * @since 1.0
  */
-function wpd_ecommerce_add_to_cart_form() { ?>
-	<!-- ADD TO CART -->
-	<form name="add_to_cart" class="wpd-ecommerce" method="post">
+function wpd_ecommerce_add_to_cart_form() {
 
-	<?php
-	// Prices.
+	// Get WPD settings from General tab.
+	$wpdas_general = get_option( 'wpdas_general' );
+
+	// Check if user is required to be logged in to shop.
+	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
+		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
+	} else {
+		$login_to_shop = NULL;
+	}
+
+	// Get WPD settings from Pages tab.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+
+	// Create account page URL variable.
+	$account_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_account_page'];
+
+	// Set prices.
 	if ( in_array( get_post_type( get_the_ID() ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
 		$regular_price = esc_html( get_post_meta( get_the_ID(), '_priceeach', true ) );
 		$pack_price    = esc_html( get_post_meta( get_the_ID(), '_priceperpack', true ) );
@@ -847,7 +860,20 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 	}
 	?>
 
+	<!-- ADD TO CART -->
+	<form name="add_to_cart" class="wpd-ecommerce" method="post">
+
 	<p class='wpd-ecommerce price'><?php wpd_all_prices_simple( get_the_ID(), FALSE ); ?></p>
+
+	<?php
+	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
+		$str_login  = '<div class="wpd-ecommerce-notifications">';
+		$str_login .= '<div class="wpd-ecommerce-notifications failed">You must be <a href="' . $account_page . '">logged in</a> to place an order</div>';
+		$str_login .= '</div>';
+		echo $str_login;
+	} else { ?>
+
+	<fieldset>
 
 	<?php if ( ! empty( $regular_price ) ) { ?>
 
@@ -1125,6 +1151,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 
 			} elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 
+				$old_price    = get_post_meta( $old_id, $wpd_product_meta_key, true );
 				$single_price = get_post_meta( $old_id, '_priceeach', true );
 				$pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
@@ -1150,6 +1177,8 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 	?>
 		<input type="number" name="qtty" id="qtty" value="1" class="item_Quantity" />
 		<input type="submit" class="item_add" id="add_item_btn" value="<?php echo __( 'Add to cart', 'wpd-ecommerce' ); ?>" name="add_me" />
+	</fieldset>
+	<?php } ?>
 	</form>
 <?php }
 add_action( 'wpd_ecommerce_templates_single_items_entry_title_after', 'wpd_ecommerce_add_to_cart_form' );
