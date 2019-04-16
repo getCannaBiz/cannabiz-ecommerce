@@ -234,10 +234,10 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_concentrates_twograms', '2' );
 
 	$wpdas_payments = array(
-		'wpd_ecommerce_checkout_payments_cod_checkbox'    => 'off',
-		'wpd_ecommerce_checkout_payments_cod'             => '',
-		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'off',
-		'wpd_ecommerce_checkout_payments_pop'             => '',
+		'wpd_ecommerce_checkout_payments_cod_checkbox' => 'off',
+		'wpd_ecommerce_checkout_payments_cod'          => '',
+		'wpd_ecommerce_checkout_payments_pop_checkbox' => 'off',
+		'wpd_ecommerce_checkout_payments_pop'          => '',
 	);
 
 	update_option( 'wpdas_payments', $wpdas_payments );
@@ -297,6 +297,9 @@ function wpd_ecommerce_load_session() {
 		$_SESSION = null;
 	}
 
+	/**
+	 * @todo add Settings select options for admin to choose theirs for the cookie lifetime below
+	 */
 	$half_hour    = 86400 / 48;
 	$one_hour     = 86400 / 24;
 	$three_hours  = 86400 / 8;
@@ -311,7 +314,9 @@ function wpd_ecommerce_load_session() {
 
 		// Set session name.
 		session_name( 'wpd_ecommerce' );
-		//session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
+
+		// session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
+
 		// Start session and set cookie for 1 day.
 		session_start( [
 			'cookie_lifetime' => $half_hour,
