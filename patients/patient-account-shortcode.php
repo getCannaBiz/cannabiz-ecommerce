@@ -225,9 +225,9 @@ function wpd_patient_account_shortcode() {
 							$total_final = '0';
 						}
 
-						echo "<div class='wpd-ecommerce account-administrator patients'>" . $patient_count . "<span>Patients</span></div>";
-						echo "<div class='wpd-ecommerce account-administrator orders'>" . $order_count . "<span>Orders</span></div>";
-						echo "<div class='wpd-ecommerce account-administrator earnings'>" . CURRENCY . number_format((float)$total_final, 2, '.', ',' ) . "<span>This Week</span></div>";
+						echo "<div class='wpd-ecommerce account-administrator patients'>" . $patient_count . "<span>" . apply_filters( 'wpd_ecommerce_account_admin_patients_text', 'Patients' ) . "</span></div>";
+						echo "<div class='wpd-ecommerce account-administrator orders'>" . $order_count . "<span>" . __('Orders', 'wpd-ecommerce' ) . "</span></div>";
+						echo "<div class='wpd-ecommerce account-administrator earnings'>" . CURRENCY . number_format((float)$total_final, 2, '.', ',' ) . "<span>" . __( 'This Week', 'wpd-ecommerce' ) . "</span></div>";
 					}
 				// If user is administrator.
 				if ( 'administrator' === $role[0] ) {
