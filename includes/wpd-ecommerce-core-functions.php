@@ -46,6 +46,32 @@ function wpd_ecommerce_notifications() {
 
 	global $post;
 
+	// Get pages data from settings page.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+
+	// Get menu page selected by website owner.
+	$menu_page = $wpdas_pages['wpd_pages_setup_menu_page'];
+
+	// Get WPD settings from General tab.
+	$wpdas_general = get_option( 'wpdas_general' );
+
+	// Check if user needs to be logged in to shop.
+	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
+		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
+	} else {
+		$login_to_shop = NULL;
+	}
+
+	// Get WPD settings from Pages tab.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+
+	// Create account page URL variable.
+	$account_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_account_page'];
+
+	// Create cart page URL variable.
+	$cart_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_cart_page'];
+
+	// Begin data.
 	$str = '';
 
 	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
