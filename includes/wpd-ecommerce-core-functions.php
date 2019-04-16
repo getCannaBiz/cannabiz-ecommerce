@@ -160,7 +160,7 @@ function wpd_ecommerce_notifications() {
 					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . get_bloginfo( 'url' ) . '/dispensary-menu" class="button">Continue Shopping</a></div>';
+						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 						$str .= '</div>';
 					}
 				} elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
@@ -170,7 +170,7 @@ function wpd_ecommerce_notifications() {
 					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . get_bloginfo( 'url' ) . '/dispensary-menu" class="button">Continue Shopping</a></div>';
+						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 						$str .= '</div>';
 					}
 				}
@@ -1022,7 +1022,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 	/**
 	 * Add Items to Cart
 	 */
-	if ( is_singular( 'flowers' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_flowers_prices'] ) {
+	if ( is_singular( 'flowers' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
 		$qtty = $_POST['qtty'];
 
 		/**
@@ -1042,7 +1042,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 		 */
 		wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 
-	} elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_concentrates_prices'] ) {
+	} elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
 		$qtty = $_POST['qtty'];
 
 		/**
