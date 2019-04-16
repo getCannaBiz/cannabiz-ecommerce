@@ -74,7 +74,7 @@ function wpd_ecommerce_notifications() {
 	// Begin data.
 	$str = '';
 
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) ) {
+	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', wpd_menu_types_simple( TRUE ) ) ) ) {
 
 		// Check if cart widget is active.
 		if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
