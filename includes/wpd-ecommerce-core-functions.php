@@ -83,6 +83,30 @@ function wpd_ecommerce_notifications() {
 			$view_cart_button = '';
 		}
 
+		// Please select a weight notification for flowers.
+		if ( is_singular( 'flowers' ) && isset( $_POST['add_me'] ) && ! isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a weight notification for concentrates.
+		if ( is_singular( 'concentrates' ) && isset( $_POST['add_me'] ) && ! isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a weight notification for edibles.
+		if ( is_singular( 'edibles' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}	
+
 		// Successfully added item to cart.
 		if ( is_singular( 'flowers' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && NULL !== $_POST['wpd_ecommerce_flowers_prices'] ) {
 			// Begin wrapper around notifications.
