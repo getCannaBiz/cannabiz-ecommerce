@@ -78,7 +78,7 @@ function wpd_ecommerce_notifications() {
 
 		// Check if cart widget is active.
 		if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
-			$view_cart_button = '<a href="' . get_bloginfo( 'url' ) . '/cart" class="button">' . __( 'View Cart', 'wpd-ecommerce' ) . '</a>';
+			$view_cart_button = '<a href="' . $cart_page . '" class="button">' . __( 'View Cart', 'wpd-ecommerce' ) . '</a>';
 		} else {
 			$view_cart_button = '';
 		}
