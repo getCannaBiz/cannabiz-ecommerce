@@ -6,6 +6,14 @@
  * 
  * @since 1.0
  */
+
+/**
+ * Archive Buttons
+ * 
+ * Add to cart functionality for blocks, shortcodes, and widgets
+ * 
+ * @since 1.0
+ */
 function wpd_ecommerce_archive_items_buttons( $product_id ) {
 
     if ( NULL == $product_id ) {
@@ -50,17 +58,46 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     }
 
 }
-add_action( 'wpd_ecommerce_archive_items_product_inside_after', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_shortcode_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
 
-add_action( 'wpd_flowers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_concentrates_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_edibles_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_prerolls_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_topicals_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_growers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_gear_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
-add_action( 'wpd_tinctures_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+/**
+ * Require login to shop
+ * 
+ * This will hide the add to cart functionality if option is 
+ * selected in the admin settings
+ * 
+ * @since 1.3
+ */
+function wpd_ecommerce_item_buttons() {
+
+	// Get WPD settings from General tab.
+	$wpdas_general = get_option( 'wpdas_general' );
+
+    // Check if user is required to be logged in to shop.
+	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
+		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
+	} else {
+		$login_to_shop = NULL;
+	}
+
+    // Check if user is required to login to shop.
+	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
+        // Do nothing.
+    } else {
+        // Add buttons to the various shortcodes, archives, and widgets..
+        add_action( 'wpd_ecommerce_archive_items_product_inside_after', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_shortcode_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_flowers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_concentrates_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_edibles_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_prerolls_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_topicals_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_growers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_gear_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        add_action( 'wpd_tinctures_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+    }
+
+}
+add_action( 'plugins_loaded', 'wpd_ecommerce_item_buttons' );
 
 /**
  * Product Buttons
