@@ -563,6 +563,12 @@ div.wpd-ecommerce.patient-account #tab4:checked ~ #content4 {
     margin-top: 12px;
 }
 
+form.wpd-ecommerce.form.checkout p.form-row.form-country select#country,
+form.wpd-ecommerce.form.patient-account p.form-row.form-country select#country {
+    padding: 10px;
+    height: auto;
+}
+
 /** Account page - orders table */
 
 table.wpd-ecommerce.patient-orders {
