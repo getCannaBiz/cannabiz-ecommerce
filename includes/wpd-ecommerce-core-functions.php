@@ -863,13 +863,20 @@ function wpd_ecommerce_add_to_cart_form() {
 	<!-- ADD TO CART -->
 	<form name="add_to_cart" class="wpd-ecommerce" method="post">
 
-	<p class='wpd-ecommerce price'><?php wpd_all_prices_simple( get_the_ID(), FALSE ); ?></p>
-
 	<?php
+	// Generate display price HTML.
+	$display_price = '<p class="wpd-ecommerce price">' . get_wpd_all_prices_simple( get_the_ID(), FALSE ) . '</p>';
+
+	// Display filtered single price.
+	echo apply_filters( 'wpd_ecommerce_single_item_price', $display_price );
+
+	// Check if user is required to login to shop.
 	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
 		$str_login  = '<div class="wpd-ecommerce-notifications">';
 		$str_login .= '<div class="wpd-ecommerce-notifications failed">You must be <a href="' . $account_page . '">logged in</a> to place an order</div>';
 		$str_login .= '</div>';
+
+		// Display login notification.
 		echo $str_login;
 	} else { ?>
 
