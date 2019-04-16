@@ -920,7 +920,7 @@ function wpd_ecommerce_add_to_cart_form() { ?>
 				} elseif ( $weight_twopounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
 					$wpd_flower_meta_key = '_twopounds';
 				} elseif ( $weight_threepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
-					$wpd_flower_meta_key = '_threpounds';
+					$wpd_flower_meta_key = '_threepounds';
 				} elseif ( $weight_fourpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
 					$wpd_flower_meta_key = '_fourpounds';
 				} elseif ( $weight_fivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
