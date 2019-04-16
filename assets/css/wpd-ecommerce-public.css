@@ -293,6 +293,16 @@ h3.wpd-ecommerce.patient-title {
     color: #454545;
 }
 
+/** Add to cart form notification (for non-logged in users) */
+form.wpd-ecommerce .wpd-ecommerce-notifications {
+    padding: 5px 11px;
+    margin-bottom: 0;
+}
+
+form.wpd-ecommerce .wpd-ecommerce-notifications.failed {
+    margin-bottom: 0;
+}
+
 /** Product Prices select field */
 select#wpd_ecommerce_product_prices,
 select#wpd_ecommerce_flowers_prices,
