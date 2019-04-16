@@ -260,10 +260,10 @@ if ( ! is_user_logged_in() ) {
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><td><strong>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</strong></td><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}
-        if ( NULL !== SALES_TAX ) {
+        if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
             $str .= "<tr><td><strong>" . __( 'Sales tax', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
         }
-        if ( NULL !== EXCISE_TAX ) {
+        if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
             $str .= "<tr><td><strong>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
         }
 		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
