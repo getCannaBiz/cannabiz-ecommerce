@@ -140,8 +140,16 @@ function wpd_ecommerce_notifications() {
 			}
 
 			// Pricing.
-			$new_price           = $_POST['wpd_ecommerce_product_prices'];
-			$concentrates_prices = $_POST['wpd_ecommerce_concentrates_prices'];
+			if ( isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+				$new_price = $_POST['wpd_ecommerce_product_prices'];
+			} else {
+				$new_price = NULL;
+			}
+			if ( isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+				$concentrates_prices = $_POST['wpd_ecommerce_concentrates_prices'];
+			} else {
+				$concentrates_prices = NULL;
+			}
 
 			if ( empty( $new_price ) ) {
 				if ( 'topicals' === get_post_type() ) {
