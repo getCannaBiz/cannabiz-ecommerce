@@ -1,3 +1,32 @@
+# Changelog
+
+### 1.3
+* Added 8 action hooks in the patient shortcode in `patient/patient-account-shortcode.php`
+* Added `wpd_ecommerce_account_admin_patients_text` filter in `patient/patient-accont-shortcodes.php`
+* Added `wpd_ecommerce_single_item_price` filter in `includes/wpd-ecommerce-core-functions.php`
+* Added `wpd_ecommerce_cookie_lifetime` filter in `wpd-ecommerce.php`
+* Added the ID arguement to `wpd_compounds_simple` helper function in `templates/single-item.php`
+* Added price text to items in the product archive template in `templates/archive-items.php`
+* Added notifications when no weight/quantity are selected when adding to cart in `includes/wpd-ecommerce-core-functions.php`
+* Bugfix the misspelled `_threepounds` meta key in `includes/wpd-ecommerce-core-functions.php`
+* Updated notifications for Flowers and Concentrates to use `isset` instead of `!= NULL` in `includes/wpd-ecommerce-core-functions.php`
+* Updated single product images with a link to the full size image in `templates/single-item.php`
+* Updated order archive redirects to use the Pages selected in WPD Settings in `templates/archive-orders.php`
+* Updated patient account "Country" from input field to select box in `patients/patient-account-shortcode.php`
+* Updated checkout "Country" from input field to select box in `checkout/checkout-shortcode.php`
+* Updated `buy now` buttons to conditionally display with new `required to shop` setting in `includes/wpd-ecommerce-archive-item-functions.php`
+* Updated `wpd_ecommerce_box_notifications_array` filter to use `wpd_menu_types_simple` for array in `includes/wpd-ecommerce-core-functions.php`
+* Updated various links to `account`, `cart` and `menu` to user selection options in `includes/wpd-ecommerce-core-functions.php`
+* Updated `$new_price` and `$concentrate_prices` variables with default values in `includes/wpd-ecommerce-core-functions.php`
+* Updated notifications checks for Flowers and Concentrates to use `isset` instead of `!= NULL` in `includes/wpd-ecommerce-core-functions.php`
+* Updated `is_singular` check to use `wpd_menu_types_simple` helper function in `includes/wpd-ecommerce-core-functions.php`
+* Updated the `add_to_cart` form to check if `require login to shop` setting is `on` in `includes/wpd-ecommerce-core-functions.php`
+* Updated checkout page to hide sales tax and excise tax if they return `0.00` in `checkout/checkout-shortcode.php`
+* Updated archive page content width for shelf and strain types in `assets/css/wpd-ecommerce-public.css`
+* Updated cart subtotal mobile width in `assets/css/wpd-ecommerce-public.css`
+* Updated `.pot` file with new text strings for translation in `languages/wpd-ecommerce.pot`
+* General code cleanup throughout various files in the plugin
+
 ### 1.2
 * Added support for the Heavyweights add-on's weights in `includes/wpd-ecommerce-core-functions.php`
 * Added 2 filters `wpd_ecommerce_single_item_image_size` and `wpd_ecommerce_single_item_no_image` in `templates/single-item.php`
