@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2019-03-19 12:35-0400\n"
-"PO-Revision-Date: 2019-03-19 12:35-0400\n"
+"POT-Creation-Date: 2019-04-16 22:09-0400\n"
+"PO-Revision-Date: 2019-04-16 22:05-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: cart/cart-shortcode.php:12 checkout/checkout-shortcode.php:150
-#: checkout/checkout-shortcode.php:300
+#: cart/cart-shortcode.php:12 checkout/checkout-shortcode.php:167
+#: checkout/checkout-shortcode.php:317
 #: includes/wpd-ecommerce-orders-functions.php:55
 msgid "Product"
 msgstr ""
@@ -36,11 +36,11 @@ msgid "Qty"
 msgstr ""
 
 #: cart/cart-shortcode.php:12 cart/cart-shortcode.php:119
-#: checkout/checkout-shortcode.php:150 checkout/checkout-shortcode.php:255
-#: checkout/checkout-shortcode.php:300
+#: checkout/checkout-shortcode.php:167 checkout/checkout-shortcode.php:272
+#: checkout/checkout-shortcode.php:317
 #: includes/wpd-ecommerce-orders-functions.php:55
-#: patients/patient-account-shortcode.php:229
-#: patients/patient-account-shortcode.php:288
+#: patients/patient-account-shortcode.php:242
+#: patients/patient-account-shortcode.php:301
 msgid "Total"
 msgstr ""
 
@@ -49,23 +49,23 @@ msgid "Cart Totals"
 msgstr ""
 
 #: cart/cart-shortcode.php:106 cart/cart-widget.php:165
-#: checkout/checkout-shortcode.php:242
+#: checkout/checkout-shortcode.php:259
 msgid "Subtotal"
 msgstr ""
 
-#: cart/cart-shortcode.php:108 checkout/checkout-shortcode.php:244
+#: cart/cart-shortcode.php:108 checkout/checkout-shortcode.php:261
 msgid "Coupon"
 msgstr ""
 
-#: cart/cart-shortcode.php:108 checkout/checkout-shortcode.php:244
+#: cart/cart-shortcode.php:108 checkout/checkout-shortcode.php:261
 msgid "Remove"
 msgstr ""
 
-#: cart/cart-shortcode.php:111 checkout/checkout-shortcode.php:247
+#: cart/cart-shortcode.php:111 checkout/checkout-shortcode.php:264
 msgid "Sales tax"
 msgstr ""
 
-#: cart/cart-shortcode.php:114 checkout/checkout-shortcode.php:250
+#: cart/cart-shortcode.php:114 checkout/checkout-shortcode.php:267
 msgid "Excise tax"
 msgstr ""
 
@@ -97,19 +97,19 @@ msgstr ""
 msgid "Checkout"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:25 patients/patient-account-shortcode.php:73
+#: checkout/checkout-shortcode.php:25 patients/patient-account-shortcode.php:86
 msgid "The Email you entered is not valid. Please try again."
 msgstr ""
 
-#: checkout/checkout-shortcode.php:27 patients/patient-account-shortcode.php:75
+#: checkout/checkout-shortcode.php:27 patients/patient-account-shortcode.php:88
 msgid "This email is already used by another user. Try a different one."
 msgstr ""
 
 #: checkout/checkout-shortcode.php:77
-#: includes/wpd-ecommerce-core-functions.php:133
-#: includes/wpd-ecommerce-core-functions.php:140
-#: includes/wpd-ecommerce-core-functions.php:199
-#: includes/wpd-ecommerce-core-functions.php:243
+#: includes/wpd-ecommerce-core-functions.php:191
+#: includes/wpd-ecommerce-core-functions.php:198
+#: includes/wpd-ecommerce-core-functions.php:257
+#: includes/wpd-ecommerce-core-functions.php:301
 msgid "Error"
 msgstr ""
 
@@ -122,23 +122,23 @@ msgid "Billing details"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:97
-#: patients/patient-account-shortcode.php:352
+#: patients/patient-account-shortcode.php:364
 msgid "First Name"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:101
-#: patients/patient-account-shortcode.php:356
+#: patients/patient-account-shortcode.php:368
 msgid "Last Name"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:106
-#: patients/patient-account-shortcode.php:361
+#: patients/patient-account-shortcode.php:373
 msgid "E-mail"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:111 patients/patient-account-details.php:75
 #: patients/patient-account-details.php:151
-#: patients/patient-account-shortcode.php:366
+#: patients/patient-account-shortcode.php:378
 msgid "Phone number"
 msgstr ""
 
@@ -155,149 +155,166 @@ msgid "Apartment, unit, etc. (optional)"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:122 patients/patient-account-details.php:160
-#: patients/patient-account-shortcode.php:381
+#: patients/patient-account-shortcode.php:393
 msgid "City"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:127 patients/patient-account-details.php:163
-#: patients/patient-account-shortcode.php:386
+#: patients/patient-account-shortcode.php:398
 msgid "State / County"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:132 patients/patient-account-details.php:166
-#: patients/patient-account-shortcode.php:391
+#: patients/patient-account-shortcode.php:403
 msgid "Postcode / ZIP"
 msgstr ""
 
 #: checkout/checkout-shortcode.php:137 patients/patient-account-details.php:169
-#: patients/patient-account-shortcode.php:396
+#: patients/patient-account-shortcode.php:408
 msgid "Country"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:143 checkout/checkout-shortcode.php:295
+#: checkout/checkout-shortcode.php:160 checkout/checkout-shortcode.php:312
 msgid "Your order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:260
+#: checkout/checkout-shortcode.php:277
 msgid "Place Order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:266
+#: checkout/checkout-shortcode.php:283
 msgid "You can check out after adding some products to your cart"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:271
+#: checkout/checkout-shortcode.php:288
 msgid "Return to menu"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:286
-#: patients/patient-account-shortcode.php:226
+#: checkout/checkout-shortcode.php:303
+#: patients/patient-account-shortcode.php:239
 msgid "Name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:287
+#: checkout/checkout-shortcode.php:304
 msgid "Email"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:558
+#: checkout/checkout-shortcode.php:575
 msgid "Hello Administrator"
 msgstr ""
 
-#: includes/wpd-ecommerce-archive-items-functions.php:24
-#: includes/wpd-ecommerce-archive-items-functions.php:35
-#: includes/wpd-ecommerce-archive-items-functions.php:48
-#: includes/wpd-ecommerce-archive-items-functions.php:83
-#: includes/wpd-ecommerce-archive-items-functions.php:94
-#: includes/wpd-ecommerce-archive-items-functions.php:107
+#: includes/wpd-ecommerce-archive-items-functions.php:32
+#: includes/wpd-ecommerce-archive-items-functions.php:43
+#: includes/wpd-ecommerce-archive-items-functions.php:56
+#: includes/wpd-ecommerce-archive-items-functions.php:120
+#: includes/wpd-ecommerce-archive-items-functions.php:131
+#: includes/wpd-ecommerce-archive-items-functions.php:144
 msgid "Select Options"
 msgstr ""
 
-#: includes/wpd-ecommerce-archive-items-functions.php:26
-#: includes/wpd-ecommerce-archive-items-functions.php:28
-#: includes/wpd-ecommerce-archive-items-functions.php:37
-#: includes/wpd-ecommerce-archive-items-functions.php:39
-#: includes/wpd-ecommerce-archive-items-functions.php:46
-#: includes/wpd-ecommerce-archive-items-functions.php:85
-#: includes/wpd-ecommerce-archive-items-functions.php:87
-#: includes/wpd-ecommerce-archive-items-functions.php:96
-#: includes/wpd-ecommerce-archive-items-functions.php:98
-#: includes/wpd-ecommerce-archive-items-functions.php:105
+#: includes/wpd-ecommerce-archive-items-functions.php:34
+#: includes/wpd-ecommerce-archive-items-functions.php:36
+#: includes/wpd-ecommerce-archive-items-functions.php:45
+#: includes/wpd-ecommerce-archive-items-functions.php:47
+#: includes/wpd-ecommerce-archive-items-functions.php:54
+#: includes/wpd-ecommerce-archive-items-functions.php:122
+#: includes/wpd-ecommerce-archive-items-functions.php:124
+#: includes/wpd-ecommerce-archive-items-functions.php:133
+#: includes/wpd-ecommerce-archive-items-functions.php:135
+#: includes/wpd-ecommerce-archive-items-functions.php:142
 msgid "Buy Now"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:55
+#: includes/wpd-ecommerce-core-functions.php:81
 msgid "View Cart"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:64
-#: includes/wpd-ecommerce-core-functions.php:69
-#: includes/wpd-ecommerce-core-functions.php:74
-#: includes/wpd-ecommerce-core-functions.php:105
-#: includes/wpd-ecommerce-core-functions.php:115
+#: includes/wpd-ecommerce-core-functions.php:90
+#: includes/wpd-ecommerce-core-functions.php:98
+msgid "Please select a weight in order to add the product to your cart"
+msgstr ""
+
+#: includes/wpd-ecommerce-core-functions.php:106
+msgid "Please select a quantity in order to add the product to your cart"
+msgstr ""
+
+#: includes/wpd-ecommerce-core-functions.php:114
+#: includes/wpd-ecommerce-core-functions.php:119
+#: includes/wpd-ecommerce-core-functions.php:124
+#: includes/wpd-ecommerce-core-functions.php:163
+#: includes/wpd-ecommerce-core-functions.php:173
 msgid "This product has been successfully added to your cart"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:133
+#: includes/wpd-ecommerce-core-functions.php:114
+#: includes/wpd-ecommerce-core-functions.php:119
+#: includes/wpd-ecommerce-core-functions.php:124
+#: includes/wpd-ecommerce-core-functions.php:163
+#: includes/wpd-ecommerce-core-functions.php:173
+msgid "Continue Shopping"
+msgstr ""
+
+#: includes/wpd-ecommerce-core-functions.php:191
 msgid "The username or password you entered is incorrect."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:140
+#: includes/wpd-ecommerce-core-functions.php:198
 msgid "The registration info you entered is incorrect."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:147
+#: includes/wpd-ecommerce-core-functions.php:205
 msgid "Thank You"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:154
+#: includes/wpd-ecommerce-core-functions.php:212
 msgid "Item removed"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:154
+#: includes/wpd-ecommerce-core-functions.php:212
 msgid "The item has been successfully removed."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:167
+#: includes/wpd-ecommerce-core-functions.php:225
 msgid "Item added"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:167
+#: includes/wpd-ecommerce-core-functions.php:225
 msgid "The item has been successfully added to your cart."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:213
+#: includes/wpd-ecommerce-core-functions.php:271
 msgid "Success"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:213
+#: includes/wpd-ecommerce-core-functions.php:271
 msgid "Coupon code has been applied"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:243
+#: includes/wpd-ecommerce-core-functions.php:301
 msgid "Please enter a coupon code"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:712
+#: includes/wpd-ecommerce-core-functions.php:770
 msgid "Pages"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:804
+#: includes/wpd-ecommerce-core-functions.php:892
 msgid "Choose a weight"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:934
+#: includes/wpd-ecommerce-core-functions.php:1022
 msgid "Choose a quantity"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:935
+#: includes/wpd-ecommerce-core-functions.php:1023
 msgid "each"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:936
+#: includes/wpd-ecommerce-core-functions.php:1024
 msgid "pack"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1089
+#: includes/wpd-ecommerce-core-functions.php:1186
 msgid "Add to cart"
 msgstr ""
 
@@ -389,7 +406,7 @@ msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
 msgstr ""
 
 #: includes/wpd-ecommerce-patients-functions.php:194
-#: patients/patient-account-shortcode.php:411
+#: patients/patient-account-shortcode.php:440
 msgid "Verification"
 msgstr ""
 
@@ -399,18 +416,18 @@ msgstr ""
 
 #: includes/wpd-ecommerce-patients-functions.php:214
 #: includes/wpd-ecommerce-patients-functions.php:236
-#: patients/patient-account-shortcode.php:437
-#: patients/patient-account-shortcode.php:467
+#: patients/patient-account-shortcode.php:466
+#: patients/patient-account-shortcode.php:496
 msgid "x"
 msgstr ""
 
 #: includes/wpd-ecommerce-patients-functions.php:221
-#: patients/patient-account-shortcode.php:452
+#: patients/patient-account-shortcode.php:481
 msgid "Doctor recommendation"
 msgstr ""
 
 #: includes/wpd-ecommerce-patients-functions.php:243
-#: patients/patient-account-shortcode.php:482
+#: patients/patient-account-shortcode.php:511
 msgid "Recommendation number"
 msgstr ""
 
@@ -423,8 +440,8 @@ msgid "Order details"
 msgstr ""
 
 #: orders/orders-metaboxes.php:90 orders/orders-post-type.php:90
-#: patients/patient-account-shortcode.php:228
-#: patients/patient-account-shortcode.php:287
+#: patients/patient-account-shortcode.php:241
+#: patients/patient-account-shortcode.php:300
 msgid "Status"
 msgstr ""
 
@@ -446,7 +463,8 @@ msgctxt "Post Type Singular Name"
 msgid "Order"
 msgstr ""
 
-#: orders/orders-post-type.php:8 patients/patient-account-shortcode.php:123
+#: orders/orders-post-type.php:8 patients/patient-account-shortcode.php:136
+#: patients/patient-account-shortcode.php:229
 msgid "Orders"
 msgstr ""
 
@@ -579,119 +597,123 @@ msgid "Personal Information"
 msgstr ""
 
 #: patients/patient-account-details.php:154
-#: patients/patient-account-shortcode.php:371
+#: patients/patient-account-shortcode.php:383
 msgid "Address line 1"
 msgstr ""
 
 #: patients/patient-account-details.php:157
-#: patients/patient-account-shortcode.php:376
+#: patients/patient-account-shortcode.php:388
 msgid "Address line 2"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:17
+#: patients/patient-account-shortcode.php:20
 msgid "Login"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:23
-#: patients/patient-account-shortcode.php:37
+#: patients/patient-account-shortcode.php:32
+#: patients/patient-account-shortcode.php:46
 msgid "Register"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:27
+#: patients/patient-account-shortcode.php:36
 msgid "Username"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:31
+#: patients/patient-account-shortcode.php:40
 msgid "Email address"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:35
+#: patients/patient-account-shortcode.php:44
 msgid "A password will be emailed to you."
 msgstr ""
 
-#: patients/patient-account-shortcode.php:67
+#: patients/patient-account-shortcode.php:80
 msgid "The passwords you entered do not match.  Your password was not updated."
 msgstr ""
 
-#: patients/patient-account-shortcode.php:120
+#: patients/patient-account-shortcode.php:133
 msgid "Dashboard"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:126
+#: patients/patient-account-shortcode.php:139
 msgid "Details"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:148
+#: patients/patient-account-shortcode.php:161
 msgid "Hello"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:148
+#: patients/patient-account-shortcode.php:161
 msgid "Log out"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:154
+#: patients/patient-account-shortcode.php:167
 msgid "Account dashboard"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:155
+#: patients/patient-account-shortcode.php:168
 msgid ""
 "From your account dashboard you can view your order history and account "
 "details."
 msgstr ""
 
-#: patients/patient-account-shortcode.php:222
+#: patients/patient-account-shortcode.php:230
+msgid "This Week"
+msgstr ""
+
+#: patients/patient-account-shortcode.php:235
 msgid "Recent Store Orders"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:225
-#: patients/patient-account-shortcode.php:285
+#: patients/patient-account-shortcode.php:238
+#: patients/patient-account-shortcode.php:298
 msgid "ID"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:227
-#: patients/patient-account-shortcode.php:286
+#: patients/patient-account-shortcode.php:240
+#: patients/patient-account-shortcode.php:299
 msgid "Date"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:282
+#: patients/patient-account-shortcode.php:295
 msgid "Order history"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:347
+#: patients/patient-account-shortcode.php:359
 msgid "Contact information"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:422
+#: patients/patient-account-shortcode.php:451
 msgid "Drivers License or Valid ID"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:495
+#: patients/patient-account-shortcode.php:524
 msgid "Expiration Date"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:505
+#: patients/patient-account-shortcode.php:534
 msgid "Password change"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:510
+#: patients/patient-account-shortcode.php:539
 msgid "Password"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:510
-#: patients/patient-account-shortcode.php:514
+#: patients/patient-account-shortcode.php:539
+#: patients/patient-account-shortcode.php:543
 msgid "Leave blank to keep unchanged"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:514
+#: patients/patient-account-shortcode.php:543
 msgid "Repeat Password"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:519
+#: patients/patient-account-shortcode.php:548
 msgid "Update"
 msgstr ""
 
-#: templates/archive-items.php:163 templates/archive-items.php:165
-#: templates/archive-items.php:169
+#: templates/archive-items.php:156 templates/archive-items.php:158
+#: templates/archive-items.php:162
 msgid "Menu - Edible"
 msgstr ""
 
