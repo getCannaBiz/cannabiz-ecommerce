@@ -994,9 +994,17 @@ function wpd_ecommerce_add_to_cart_form() {
 				}
 				print( '</select>' );
 
-				$weight_halfgram  = get_post_meta( get_the_ID(), '_halfgram', true );
-				$weight_gram      = get_post_meta( get_the_ID(), '_gram', true );
-				$weight_twograms  = get_post_meta( get_the_ID(), '_twograms', true );
+				$weight_halfgram   = get_post_meta( get_the_ID(), '_halfgram', true );
+				$weight_gram       = get_post_meta( get_the_ID(), '_gram', true );
+				$weight_twograms   = get_post_meta( get_the_ID(), '_twograms', true );
+				$weight_threegrams = get_post_meta( get_the_ID(), '_threegrams', true );
+				$weight_fourgrams  = get_post_meta( get_the_ID(), '_fourgrams', true );
+				$weight_fivegrams  = get_post_meta( get_the_ID(), '_fivegrams', true );
+				$weight_sixgrams   = get_post_meta( get_the_ID(), '_sixgrams', true );
+				$weight_sevengrams = get_post_meta( get_the_ID(), '_sevengrams', true );
+				$weight_eightgrams = get_post_meta( get_the_ID(), '_eightgrams', true );
+				$weight_ninegrams  = get_post_meta( get_the_ID(), '_ninegrams', true );
+				$weight_tengrams   = get_post_meta( get_the_ID(), '_tengrams', true );
 
 				if ( ! empty( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
 					if ( $weight_halfgram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
@@ -1005,6 +1013,22 @@ function wpd_ecommerce_add_to_cart_form() {
 						$wpd_concentrate_meta_key = '_gram';
 					} elseif ( $weight_twograms === $_POST['wpd_ecommerce_concentrates_prices'] ) {
 						$wpd_concentrate_meta_key = '_twograms';
+					} elseif ( $weight_threegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_threegrams';
+					} elseif ( $weight_fourgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_fourgrams';
+					} elseif ( $weight_fivegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_fivegrams';
+					} elseif ( $weight_sixgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_sixgrams';
+					} elseif ( $weight_sevengrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_sevengrams';
+					} elseif ( $weight_eightgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_eightgrams';
+					} elseif ( $weight_ninegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_ninegrams';
+					} elseif ( $weight_tengrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_tengrams';
 					} else {
 						$wpd_concentrate_meta_key = '';
 					}
