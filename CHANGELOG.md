@@ -9,6 +9,7 @@
 * Added price text to items in the product archive template in `templates/archive-items.php`
 * Added notifications when no weight/quantity are selected when adding to cart in `includes/wpd-ecommerce-core-functions.php`
 * Bugfix the misspelled `_threepounds` meta key in `includes/wpd-ecommerce-core-functions.php`
+* Updated filters for concentrates prices to include heavyweights in `includes/wpd-ecommerce-core-functions.php`
 * Updated notifications for Flowers and Concentrates to use `isset` instead of `!= NULL` in `includes/wpd-ecommerce-core-functions.php`
 * Updated single product images with a link to the full size image in `templates/single-item.php`
 * Updated order archive redirects to use the Pages selected in WPD Settings in `templates/archive-orders.php`
