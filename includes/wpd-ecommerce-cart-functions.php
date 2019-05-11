@@ -37,3 +37,23 @@ function wpd_ecommerce_add_items_to_cart( $item_id, $count, $old_id, $new_price,
 		$_SESSION['wpd_ecommerce']->add_item( $item_id, $count, $old_id, $new_price, $old_price );
 	endif;
 }
+
+/**
+ * Ground shipping checkout text
+ * 
+ * @since 1.4
+ */
+function wpd_ecommerce_checkout_ground_shipping() {
+    // Get Payments Settings. 
+    $wpd_payments = get_option( 'wpdas_payments' );
+
+    // Set ground shipping instructions.
+    if ( ! empty( $wpd_payments['wpd_ecommerce_checkout_payments_ground_textarea'] ) ) {
+        $ground_shipping = esc_html( $wpd_payments['wpd_ecommerce_checkout_payments_ground_textarea'] );
+        echo '<p class="form-directions">' . $ground_shipping . '</p>';
+    } else {
+        $ground_shipping = NULL;
+    }
+
+}
+add_action( 'wpd_ecommerce_checkout_after_order_details', 'wpd_ecommerce_checkout_ground_shipping' );
