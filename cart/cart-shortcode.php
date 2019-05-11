@@ -134,7 +134,10 @@ function wpd_ecommerce_shortcode() {
 		$wpdas_pages   = get_option( 'wpdas_pages' );
 		$menu_page     = $wpdas_pages['wpd_pages_setup_menu_page'];
 
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to Menu', 'wpd-ecommerce' ) . '</a></p>';
+		/**
+		 * @todo filter the button link and the button text so devs can change easily.
+		 */
+		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
 	}
 }
 add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );
