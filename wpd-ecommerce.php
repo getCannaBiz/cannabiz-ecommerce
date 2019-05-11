@@ -92,6 +92,17 @@ function wpd_ecommerce() {
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', NULL );
 		}
+	} elseif ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
+			// Define payment_type_amount.
+			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
+			define( 'PAYMENT_TYPE_NAME', apply_filters( 'wpd_ecommerce_payment_type_name_ground', __( 'Shipping', 'wpd-ecommerce' ) ) );
+		} else {
+			// Define payment_type_amount.
+			define( 'PAYMENT_TYPE_AMOUNT', NULL );
+		}
 	} else {
 		// Define payment type.
 		define( 'PAYMENT_TYPE_AMOUNT', NULL );
