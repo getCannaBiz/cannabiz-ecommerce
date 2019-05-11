@@ -271,13 +271,17 @@ if ( ! is_user_logged_in() ) {
 		}
         $str .= "<tr><td><strong>" . __( 'Total', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 
-        $str .= "</tbody>";
-        $str .= "</table>";
-
-        $str .= "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wpd-ecommerce' ) . "' />" . wp_nonce_field( 'wpd-ecommerce-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-ecommerce-checkout' /></p>";
-        $str .= "</form>";
+        $str .= '</tbody>';
+        $str .= '</table>';
 
         echo $str;
+
+        do_action( 'wpd_ecommerce_checkout_after_order_details' );
+
+        $str2  = "<p class='form-submit'><input name='checkout-submit' type='submit' id='checkoutsubmit' class='submit button' value='" . __( 'Place Order', 'wpd-ecommerce' ) . "' />" . wp_nonce_field( 'wpd-ecommerce-checkout' ) . "<input name='action' type='hidden' id='action' value='wpd-ecommerce-checkout' /></p>";
+        $str2 .= '</form>';
+
+        echo $str2;
 
 	} else {
         echo "<p>" . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . "</p>";
@@ -285,6 +289,9 @@ if ( ! is_user_logged_in() ) {
         $wpdas_pages = get_option( 'wpdas_pages' );
         $menu_page   = $wpdas_pages['wpd_pages_setup_menu_page'];
 
+		/**
+		 * @todo filter the button link and the button text so devs can change easily.
+		 */
         echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
 	}
 } // is user logged in
