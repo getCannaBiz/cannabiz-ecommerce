@@ -87,7 +87,7 @@ function wpd_ecommerce() {
 			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
-			define( 'PAYMENT_TYPE_NAME', 'In-store Pickup' );
+			define( 'PAYMENT_TYPE_NAME', apply_filters( 'wpd_ecommerce_payment_type_name_pop', __( 'In-store Pickup', 'wpd-ecommerce' ) ) );
 		} else {
 			// Define payment_type_amount.
 			define( 'PAYMENT_TYPE_AMOUNT', NULL );
