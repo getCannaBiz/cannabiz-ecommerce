@@ -595,7 +595,7 @@ function wpd_ecommerce_checkout_success() {
     $headers[] = 'Content-Type: text/html';
     $headers[] = 'charset=UTF-8';
 
-    wp_mail( $to, $subject, $message, $headers, '' );
+    wp_mail( apply_filters( 'wpd_ecommerce_checkout_email_to_admin', $to ), apply_filters( 'wpd_ecommerce_checkout_email_subject_admin', $subject ), apply_filters( 'wpd_ecommerce_checkout_email_message_admin', $message ), $headers, '' );
 
     /**
      * Email order details to Patient.
@@ -621,7 +621,7 @@ function wpd_ecommerce_checkout_success() {
     $headers_patient[] = 'Content-Type: text/html';
     $headers_patient[] = 'charset=UTF-8';
 
-    wp_mail( $to_patient, $subject_patient, $message, $headers_patient, '' );
+    wp_mail( $to_patient, apply_filters( 'wpd_ecommerce_checkout_email_subject_patient', $subject_patient ), apply_filters( 'wpd_ecommerce_checkout_email_message_patient', $message ), $headers_patient, '' );
 
     /**
      * Destroy session
