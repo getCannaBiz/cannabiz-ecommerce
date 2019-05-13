@@ -907,21 +907,27 @@ function wpd_ecommerce_add_to_cart_form() {
 			$weight_ounce     = get_post_meta( get_the_ID(), '_ounce', true );
 
 			// Heavyweight prices.
-			$weight_twoounces    = get_post_meta( get_the_ID(), '_twoounces', true );
-			$weight_quarterpound = get_post_meta( get_the_ID(), '_quarterpound', true );
-			$weight_halfpound    = get_post_meta( get_the_ID(), '_halfpound', true );
-			$weight_onepound     = get_post_meta( get_the_ID(), '_onepound', true );
-			$weight_twopounds    = get_post_meta( get_the_ID(), '_twopounds', true );
-			$weight_threepounds  = get_post_meta( get_the_ID(), '_threepounds', true );
-			$weight_fourpounds   = get_post_meta( get_the_ID(), '_fourpounds', true );
-			$weight_fivepounds   = get_post_meta( get_the_ID(), '_fivepounds', true );
-			$weight_sixpounds    = get_post_meta( get_the_ID(), '_sixpounds', true );
-			$weight_sevenpounds  = get_post_meta( get_the_ID(), '_sevenpounds', true );
-			$weight_eightpounds  = get_post_meta( get_the_ID(), '_eightpounds', true );
-			$weight_ninepounds   = get_post_meta( get_the_ID(), '_ninepounds', true );
-			$weight_tenpounds    = get_post_meta( get_the_ID(), '_tenpounds', true );
-			$weight_elevenpounds = get_post_meta( get_the_ID(), '_elevenpounds', true );
-			$weight_twelvepounds = get_post_meta( get_the_ID(), '_twelvepounds', true );
+			$weight_twoounces        = get_post_meta( get_the_ID(), '_twoounces', true );
+			$weight_quarterpound     = get_post_meta( get_the_ID(), '_quarterpound', true );
+			$weight_halfpound        = get_post_meta( get_the_ID(), '_halfpound', true );
+			$weight_onepound         = get_post_meta( get_the_ID(), '_onepound', true );
+			$weight_twopounds        = get_post_meta( get_the_ID(), '_twopounds', true );
+			$weight_threepounds      = get_post_meta( get_the_ID(), '_threepounds', true );
+			$weight_fourpounds       = get_post_meta( get_the_ID(), '_fourpounds', true );
+			$weight_fivepounds       = get_post_meta( get_the_ID(), '_fivepounds', true );
+			$weight_sixpounds        = get_post_meta( get_the_ID(), '_sixpounds', true );
+			$weight_sevenpounds      = get_post_meta( get_the_ID(), '_sevenpounds', true );
+			$weight_eightpounds      = get_post_meta( get_the_ID(), '_eightpounds', true );
+			$weight_ninepounds       = get_post_meta( get_the_ID(), '_ninepounds', true );
+			$weight_tenpounds        = get_post_meta( get_the_ID(), '_tenpounds', true );
+			$weight_elevenpounds     = get_post_meta( get_the_ID(), '_elevenpounds', true );
+			$weight_twelvepounds     = get_post_meta( get_the_ID(), '_twelvepounds', true );
+			$weight_thirteenpounds   = get_post_meta( get_the_ID(), '_thirteenpounds', true );
+			$weight_fourteenpounds   = get_post_meta( get_the_ID(), '_fourteenpounds', true );
+			$weight_fifteenpounds    = get_post_meta( get_the_ID(), '_fifteenpounds', true );
+			$weight_twentypounds     = get_post_meta( get_the_ID(), '_twentypounds', true );
+			$weight_twentyfivepounds = get_post_meta( get_the_ID(), '_twentyfivepounds', true );
+			$weight_fiftypounds      = get_post_meta( get_the_ID(), '_fiftypounds', true );
 
 			// Set Flower weight meta key.
 			if ( ! empty( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
@@ -969,6 +975,18 @@ function wpd_ecommerce_add_to_cart_form() {
 					$wpd_flower_meta_key = '_elevenpounds';
 				} elseif ( $weight_twelvepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
 					$wpd_flower_meta_key = '_twelvepounds';
+				} elseif ( $weight_thirteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_thirteenpounds';
+				} elseif ( $weight_fourteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fourteenpounds';
+				} elseif ( $weight_fifteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fifteenpounds';
+				} elseif ( $weight_twentypounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twentypounds';
+				} elseif ( $weight_twentyfivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twentyfivepounds';
+				} elseif ( $weight_fiftypounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fiftypounds';
 				} else {
 					$wpd_flower_meta_key = '';
 				}
