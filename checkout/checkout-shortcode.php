@@ -569,6 +569,10 @@ function wpd_ecommerce_checkout_success() {
     wp_update_post( $updated_post );
 
     /**
+     * @todo mset up options for SMS (twilio) to be sent instead of email.
+     */
+
+    /**
      * Email order details to Administrator.
      * 
      * @since 1.0
@@ -579,10 +583,14 @@ function wpd_ecommerce_checkout_success() {
     $to                = get_option( 'admin_email' );
     $subject           = 'New order: #' . $order;
 
+    // Create message for the email.
     $message   = '<p>' . __( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
     $message  .= '<p>' . get_bloginfo( 'name' ) . ' just received a new order from ' . $user_info->first_name . ' ' . $user_info->last_name . '.</p>';
+
+    // Add order details to message.
     $message  .= $str;
 
+    // Create headers for the email.
     $headers[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
     $headers[] = 'Content-Type: text/html';
     $headers[] = 'charset=UTF-8';
@@ -600,11 +608,15 @@ function wpd_ecommerce_checkout_success() {
     $to_patient        = $user_info->user_email;
     $subject_patient   = 'Thank you for your order: #' . $order;
 
+    // Create message for the email.
     $message   = '<p>Hello ' . $user_info->first_name . ',</p>';
     $message  .= '<p>Thank you for your order. You can see details of your order below as well as in your account at ' . get_bloginfo( 'name' ) . '</p>';
     $message  .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
+
+    // Add order details to message.
     $message  .= $str;
 
+    // Create headers for the email.
     $headers_patient[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
     $headers_patient[] = 'Content-Type: text/html';
     $headers_patient[] = 'charset=UTF-8';
