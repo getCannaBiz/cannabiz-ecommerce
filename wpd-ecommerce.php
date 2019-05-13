@@ -114,8 +114,6 @@ function wpd_ecommerce() {
 }
 wpd_ecommerce();
 
-//echo PAYMENT_TYPE_AMOUNT;
-
 // Includes for Helper Functions.
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-core-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-admin-settings-functions.php' );
@@ -274,10 +272,12 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_concentrates_tengrams', '10' );
 
 	$wpdas_payments = array(
-		'wpd_ecommerce_checkout_payments_cod_checkbox' => 'off',
-		'wpd_ecommerce_checkout_payments_cod'          => '',
-		'wpd_ecommerce_checkout_payments_pop_checkbox' => 'off',
-		'wpd_ecommerce_checkout_payments_pop'          => '',
+		'wpd_ecommerce_checkout_payments_cod_checkbox'    => 'off',
+		'wpd_ecommerce_checkout_payments_cod'             => '',
+		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'off',
+		'wpd_ecommerce_checkout_payments_pop'             => '',
+		'wpd_ecommerce_checkout_payments_ground_checkbox' => 'off',
+		'wpd_ecommerce_checkout_payments_ground'          => '',
 	);
 
 	update_option( 'wpdas_payments', $wpdas_payments );
