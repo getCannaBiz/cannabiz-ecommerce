@@ -238,11 +238,40 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_flowers_quarter', '7' );
 	add_option( 'wpd_ecommerce_weight_flowers_half', '14' );
 	add_option( 'wpd_ecommerce_weight_flowers_ounce', '28' );
+	add_option( 'wpd_ecommerce_weight_flowers_twoounces', '56' );
+	add_option( 'wpd_ecommerce_weight_flowers_quarterpound', '112' );
+	add_option( 'wpd_ecommerce_weight_flowers_halfpound', '224' );
+	add_option( 'wpd_ecommerce_weight_flowers_onepound', '448' );
+	add_option( 'wpd_ecommerce_weight_flowers_twopounds', '896' );
+	add_option( 'wpd_ecommerce_weight_flowers_threepounds', '1344' );
+	add_option( 'wpd_ecommerce_weight_flowers_fourpounds', '1792' );
+	add_option( 'wpd_ecommerce_weight_flowers_fivepounds', '2240' );
+	add_option( 'wpd_ecommerce_weight_flowers_sixpounds', '2688' );
+	add_option( 'wpd_ecommerce_weight_flowers_sevenpounds', '3136' );
+	add_option( 'wpd_ecommerce_weight_flowers_eightpounds', '3584' );
+	add_option( 'wpd_ecommerce_weight_flowers_ninepounds', '4032' );
+	add_option( 'wpd_ecommerce_weight_flowers_tenpounds', '4480' );
+	add_option( 'wpd_ecommerce_weight_flowers_elevenpounds', '4928' );
+	add_option( 'wpd_ecommerce_weight_flowers_twelvepounds', '5376' );
+	add_option( 'wpd_ecommerce_weight_flowers_thirteenpounds', '5824' );
+	add_option( 'wpd_ecommerce_weight_flowers_fourteenpounds', '6272' );
+	add_option( 'wpd_ecommerce_weight_flowers_fifteenpounds', '6720' );
+	add_option( 'wpd_ecommerce_weight_flowers_twentypounds', '8960' );
+	add_option( 'wpd_ecommerce_weight_flowers_twentyfivepounds', '11200' );
+	add_option( 'wpd_ecommerce_weight_flowers_fiftypounds', '22400' );
 
 	// Add concentrate product weight options.
 	add_option( 'wpd_ecommerce_weight_concentrates_halfgram', '0.5' );
 	add_option( 'wpd_ecommerce_weight_concentrates_gram', '1' );
 	add_option( 'wpd_ecommerce_weight_concentrates_twograms', '2' );
+	add_option( 'wpd_ecommerce_weight_concentrates_threegrams', '3' );
+	add_option( 'wpd_ecommerce_weight_concentrates_fourgrams', '4' );
+	add_option( 'wpd_ecommerce_weight_concentrates_fivegrams', '5' );
+	add_option( 'wpd_ecommerce_weight_concentrates_sixgrams', '6' );
+	add_option( 'wpd_ecommerce_weight_concentrates_sevengrams', '7' );
+	add_option( 'wpd_ecommerce_weight_concentrates_eightgrams', '8' );
+	add_option( 'wpd_ecommerce_weight_concentrates_ninegrams', '9' );
+	add_option( 'wpd_ecommerce_weight_concentrates_tengrams', '10' );
 
 	$wpdas_payments = array(
 		'wpd_ecommerce_checkout_payments_cod_checkbox' => 'off',
