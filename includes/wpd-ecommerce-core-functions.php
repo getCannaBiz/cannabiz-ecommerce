@@ -107,22 +107,287 @@ function wpd_ecommerce_notifications() {
 			$str .= '</div>';
 		}
 
+		// Please select a quantity notification for prerolls.
+		if ( is_singular( 'prerolls' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a quantity notification for topicals.
+		if ( is_singular( 'topicals' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a quantity notification for growers.
+		if ( is_singular( 'growers' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a quantity notification for gear.
+		if ( is_singular( 'gear' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
+		// Please select a quantity notification for tinctures.
+		if ( is_singular( 'tinctures' ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+			// Begin wrapper around notifications.
+			$str .= '<div class="wpd-ecommerce-single-notifications">';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '</div>';
+		}
+
 		// Successfully added item to cart.
 		if ( is_singular( 'flowers' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
-			// Begin wrapper around notifications.
-			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
-			$str .= '</div>';
+
+			$qtty = $_POST['qtty'];
+
+			// Flower prices.
+			$weight_gram      = get_post_meta( get_the_ID(), '_gram', true );
+			$weight_twograms  = get_post_meta( get_the_ID(), '_twograms', true );
+			$weight_eighth    = get_post_meta( get_the_ID(), '_eighth', true );
+			$weight_fivegrams = get_post_meta( get_the_ID(), '_fivegrams', true );
+			$weight_quarter   = get_post_meta( get_the_ID(), '_quarter', true );
+			$weight_halfounce = get_post_meta( get_the_ID(), '_halfounce', true );
+			$weight_ounce     = get_post_meta( get_the_ID(), '_ounce', true );
+
+			// Heavyweight prices.
+			$weight_twoounces        = get_post_meta( get_the_ID(), '_twoounces', true );
+			$weight_quarterpound     = get_post_meta( get_the_ID(), '_quarterpound', true );
+			$weight_halfpound        = get_post_meta( get_the_ID(), '_halfpound', true );
+			$weight_onepound         = get_post_meta( get_the_ID(), '_onepound', true );
+			$weight_twopounds        = get_post_meta( get_the_ID(), '_twopounds', true );
+			$weight_threepounds      = get_post_meta( get_the_ID(), '_threepounds', true );
+			$weight_fourpounds       = get_post_meta( get_the_ID(), '_fourpounds', true );
+			$weight_fivepounds       = get_post_meta( get_the_ID(), '_fivepounds', true );
+			$weight_sixpounds        = get_post_meta( get_the_ID(), '_sixpounds', true );
+			$weight_sevenpounds      = get_post_meta( get_the_ID(), '_sevenpounds', true );
+			$weight_eightpounds      = get_post_meta( get_the_ID(), '_eightpounds', true );
+			$weight_ninepounds       = get_post_meta( get_the_ID(), '_ninepounds', true );
+			$weight_tenpounds        = get_post_meta( get_the_ID(), '_tenpounds', true );
+			$weight_elevenpounds     = get_post_meta( get_the_ID(), '_elevenpounds', true );
+			$weight_twelvepounds     = get_post_meta( get_the_ID(), '_twelvepounds', true );
+			$weight_thirteenpounds   = get_post_meta( get_the_ID(), '_thirteenpounds', true );
+			$weight_fourteenpounds   = get_post_meta( get_the_ID(), '_fourteenpounds', true );
+			$weight_fifteenpounds    = get_post_meta( get_the_ID(), '_fifteenpounds', true );
+			$weight_twentypounds     = get_post_meta( get_the_ID(), '_twentypounds', true );
+			$weight_twentyfivepounds = get_post_meta( get_the_ID(), '_twentyfivepounds', true );
+			$weight_fiftypounds      = get_post_meta( get_the_ID(), '_fiftypounds', true );
+
+			// Set Flower weight meta key.
+			if ( ! empty( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
+				if ( $weight_gram === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_gram';
+				} elseif ( $weight_twograms === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twograms';
+				} elseif ( $weight_eighth === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_eighth';
+				} elseif ( $weight_fivegrams === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fivegrams';
+				} elseif ( $weight_quarter === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_quarter';
+				} elseif ( $weight_halfounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_halfounce';
+				} elseif ( $weight_ounce === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_ounce';
+				} elseif ( $weight_twoounces === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twoounces';
+				} elseif ( $weight_quarterpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_quarterpound';
+				} elseif ( $weight_halfpound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_halfpound';
+				} elseif ( $weight_onepound === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_onepound';
+				} elseif ( $weight_twopounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twopounds';
+				} elseif ( $weight_threepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_threepounds';
+				} elseif ( $weight_fourpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fourpounds';
+				} elseif ( $weight_fivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fivepounds';
+				} elseif ( $weight_sixpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_sixpounds';
+				} elseif ( $weight_sevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_sevenpounds';
+				} elseif ( $weight_eightpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_eightpounds';
+				} elseif ( $weight_ninepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_ninepounds';
+				} elseif ( $weight_tenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_tenpounds';
+				} elseif ( $weight_elevenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_elevenpounds';
+				} elseif ( $weight_twelvepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twelvepounds';
+				} elseif ( $weight_thirteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_thirteenpounds';
+				} elseif ( $weight_fourteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fourteenpounds';
+				} elseif ( $weight_fifteenpounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fifteenpounds';
+				} elseif ( $weight_twentypounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twentypounds';
+				} elseif ( $weight_twentyfivepounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_twentyfiveepounds';
+				} elseif ( $weight_fiftypounds === $_POST['wpd_ecommerce_flowers_prices'] ) {
+					$wpd_flower_meta_key = '_fiftypounds';
+				} else {
+					$wpd_flower_meta_key = '';
+				}
+			}
+
+			// Get inventory.
+			$inventory = get_post_meta( $post->ID, '_inventory_flowers',  TRUE );
+
+			// Quantity X weight amount.
+			$inventory_reduction = get_option( 'wpd_ecommerce_weight_flowers' . $wpd_flower_meta_key ) * $qtty;
+
+			if ( $inventory < $inventory_reduction ) {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+				$str .= '</div>';
+			} else {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '</div>';
+			}
 		} elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
-			// Begin wrapper around notifications.
-			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
-			$str .= '</div>';
+
+			$qtty = $_POST['qtty'];
+
+			// Price each (not a weight based price).
+			$price_each = get_post_meta( get_the_ID(), '_priceeach', true );
+
+			// If price_each is empty.
+			if ( '' === $price_each ) {
+
+				$weight_halfgram   = get_post_meta( get_the_ID(), '_halfgram', true );
+				$weight_gram       = get_post_meta( get_the_ID(), '_gram', true );
+				$weight_twograms   = get_post_meta( get_the_ID(), '_twograms', true );
+				$weight_threegrams = get_post_meta( get_the_ID(), '_threegrams', true );
+				$weight_fourgrams  = get_post_meta( get_the_ID(), '_fourgrams', true );
+				$weight_fivegrams  = get_post_meta( get_the_ID(), '_fivegrams', true );
+				$weight_sixgrams   = get_post_meta( get_the_ID(), '_sixgrams', true );
+				$weight_sevengrams = get_post_meta( get_the_ID(), '_sevengrams', true );
+				$weight_eightgrams = get_post_meta( get_the_ID(), '_eightgrams', true );
+				$weight_ninegrams  = get_post_meta( get_the_ID(), '_ninegrams', true );
+				$weight_tengrams   = get_post_meta( get_the_ID(), '_tengrams', true );
+
+				if ( ! empty( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+					if ( $weight_halfgram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_halfgram';
+					} elseif ( $weight_gram === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_gram';
+					} elseif ( $weight_twograms === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_twograms';
+					} elseif ( $weight_threegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_threegrams';
+					} elseif ( $weight_fourgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_fourgrams';
+					} elseif ( $weight_fivegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_fivegrams';
+					} elseif ( $weight_sixgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_sixgrams';
+					} elseif ( $weight_sevengrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_sevengrams';
+					} elseif ( $weight_eightgrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_eightgrams';
+					} elseif ( $weight_ninegrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_ninegrams';
+					} elseif ( $weight_tengrams === $_POST['wpd_ecommerce_concentrates_prices'] ) {
+						$wpd_concentrate_meta_key = '_tengrams';
+					} else {
+						$wpd_concentrate_meta_key = '';
+					}
+				} else {
+					// Do nothing.
+				}
+				// Get inventory.
+				$inventory = get_post_meta( get_the_ID(), '_inventory_concentrates',  TRUE );
+
+				// Quantity X weight amount.
+				$inventory_reduction = get_option( 'wpd_ecommerce_weight_concentrates' . $wpd_concentrate_meta_key ) * $qtty;
+			} else {
+				// Do nothing.
+			}
+
+			// Display message for concentrates.
+			if ( $inventory < $inventory_reduction ) {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+				$str .= '</div>';
+			} else {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '</div>';
+			}
 		} elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
-			// Begin wrapper around notifications.
-			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
-			$str .= '</div>';
+
+			$qtty = $_POST['qtty'];
+
+			// ID.
+			$old_id = get_the_ID();
+
+			$price_each     = get_post_meta( get_the_ID(), '_priceeach', true );
+			$price_topical  = get_post_meta( get_the_ID(), '_pricetopical', true );
+			$price_per_pack = get_post_meta( get_the_ID(), '_priceperpack', true );
+			$units_per_pack = get_post_meta( get_the_ID(), '_unitsperpack', true );
+
+			if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
+				$wpd_product_meta_key = '1';
+			} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
+				$wpd_product_meta_key = '1';
+			} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
+				$wpd_product_meta_key = $units_per_pack;
+			} else {
+				$wpd_product_meta_key = '1';
+			}
+
+			// Get post type name.
+			$post_type = get_post_type( get_the_ID() );
+
+			if ( 'growers' === $post_type ) {
+				if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, '_inventory_seeds', TRUE );
+				} else {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, '_inventory_clones', TRUE );
+				}
+			} else {
+				// Get inventory.
+				$inventory = get_post_meta( $old_id, '_inventory_' . $post_type, TRUE );
+			}
+
+			// Quantity X weight amount.
+			$inventory_reduction = $qtty * $wpd_product_meta_key;
+
+			if ( $inventory < $inventory_reduction ) {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+				$str .= '</div>';
+			} else {
+				// Begin wrapper around notifications.
+				$str .= '<div class="wpd-ecommerce-single-notifications">';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '</div>';
+			}
 		} elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
 			// ID.
 			$old_id = $post->ID;
@@ -152,26 +417,80 @@ function wpd_ecommerce_notifications() {
 			}
 
 			if ( empty( $new_price ) ) {
+				$qtty = $_POST['qtty'];
+
 				if ( 'topicals' === get_post_type() ) {
 					$old_price    = get_post_meta( $old_id, '_pricetopical', true );
 					$single_price = get_post_meta( $old_id, '_pricetopical', true );
 					$pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
-					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
+					// Get post type name.
+					$post_type = get_post_type( $post->ID );
+
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, '_inventory_' . $post_type,  TRUE);
+
+					// Quantity X weight amount.
+					$inventory_reduction = $qtty;
+
+					if ( $inventory < $inventory_reduction ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 						$str .= '</div>';
+					} else {
+						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
+							// Begin wrapper around notifications.
+							$str .= '<div class="wpd-ecommerce-single-notifications">';
+							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+							$str .= '</div>';
+						}
 					}
 				} elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
-					$single_price = get_post_meta( $old_id, '_priceeach', true );
-					$pack_price   = get_post_meta( $old_id, '_priceperpack', true );
+					$qtty = $_POST['qtty'];
 
-					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
+					$single_price   = get_post_meta( $old_id, '_priceeach', true );
+					$pack_price     = get_post_meta( $old_id, '_priceperpack', true );
+					$units_per_pack = get_post_meta( $old_id, '_unitsperpack', true );
+
+					// Get post type name.
+					$post_type = get_post_type( get_the_ID() );
+
+					if ( 'growers' === $post_type ) {
+						if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, '_inventory_seeds', TRUE );
+						} else {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, '_inventory_clones', TRUE );
+						}
+					} else {
+						// Get inventory.
+						$inventory = get_post_meta( $old_id, '_inventory_' . $post_type,  TRUE );
+					}
+
+					if ( 'concentrates' === $post_type ) {
+						if ( get_post_meta( $old_id, '_inventory_concentrates_each', TRUE ) ) {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, '_inventory_concentrates_each', TRUE );
+						}
+					}
+
+					// Quantity X weight amount.
+					$inventory_reduction = $qtty;
+
+					if ( $inventory < $inventory_reduction ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 						$str .= '</div>';
+					} else {
+						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
+							// Begin wrapper around notifications.
+							$str .= '<div class="wpd-ecommerce-single-notifications">';
+							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+							$str .= '</div>';
+						}
 					}
 				}
 			} else {
@@ -1109,10 +1428,18 @@ function wpd_ecommerce_add_to_cart_form() {
 		$new_price = $_POST['wpd_ecommerce_flowers_prices'];
 		$old_price = get_post_meta( $old_id, $new_price, true );
 
-		/**
-		 * Add items to cart
-		 */
-		wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		// Get inventory.
+		$inventory = get_post_meta( $old_id, '_inventory_flowers',  TRUE);
+
+		// Quantity X weight amount.
+		$inventory_reduction = get_option( 'wpd_ecommerce_weight_flowers' . $wpd_flower_meta_key ) * $qtty;
+
+		if ( $inventory < $inventory_reduction ) {
+			// Do nothing.
+		} else {
+			// Add items to cart.
+			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		}
 
 	} elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
 		$qtty = $_POST['qtty'];
@@ -1129,19 +1456,43 @@ function wpd_ecommerce_add_to_cart_form() {
 		$new_price = $_POST['wpd_ecommerce_concentrates_prices'];
 		$old_price = get_post_meta( $old_id, $new_price, true );
 
-		/**
-		 * Add items to cart
-		 */
-		wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		// Get inventory.
+		$inventory = get_post_meta( $old_id, '_inventory_concentrates',  TRUE );
 
-	} elseif ( is_singular( wpd_menu_types_simple() ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		// Quantity X weight amount.
+		$inventory_reduction = get_option( 'wpd_ecommerce_weight_concentrates' . $wpd_concentrate_meta_key ) * $qtty;
+
+		if ( $inventory < $inventory_reduction ) {
+			// Do nothing.
+		} else {
+			// Add items to cart.
+			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		}
+
+	} elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 		$qtty = $_POST['qtty'];
+
+		// Prices.
+		$price_each     = get_post_meta( get_the_ID(), '_priceeach', true );
+		$price_topical  = get_post_meta( get_the_ID(), '_pricetopical', true );
+		$price_per_pack = get_post_meta( get_the_ID(), '_priceperpack', true );
+		$units_per_pack = get_post_meta( get_the_ID(), '_unitsperpack', true );
+
+		if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
+			$wpd_product_meta_key = '_priceeach';
+		} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
+			$wpd_product_meta_key = '_pricetopical';
+		} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
+			$wpd_product_meta_key = '_priceperpack';
+		} else {
+			$wpd_product_meta_key = '_priceeach';
+		}
 
 		/**
 		 * ID's
 		 */
-		$old_id = $post->ID;
-		$new_id = $post->ID . $wpd_product_meta_key;
+		$old_id = get_the_ID();
+		$new_id = $old_id . $wpd_product_meta_key;
 
 		/**
 		 * Prices
@@ -1149,7 +1500,37 @@ function wpd_ecommerce_add_to_cart_form() {
 		$new_price = $_POST['wpd_ecommerce_product_prices'];
 		$old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
 
-		wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		// Get post type name.
+		$post_type = get_post_type( $old_id );
+
+		// Set inventory variable.
+		if ( 'growers' === $post_type ) {
+			if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+				// Get inventory.
+				$inventory = get_post_meta( $old_id, '_inventory_seeds', TRUE );
+			} else {
+				// Get inventory.
+				$inventory = get_post_meta( $old_id, '_inventory_clones', TRUE );
+			}
+		} else {
+			// Get inventory.
+			$inventory = get_post_meta( $old_id, '_inventory_' . $post_type,  TRUE );
+		}
+
+		// Set inventory reduction number.
+		if ( '_priceperpack' === $wpd_product_meta_key ) {
+			// Quantity X unit amount.
+			$inventory_reduction = $qtty * $units_per_pack;
+		} else {
+			$inventory_reduction = $qtty;
+		}
+
+		if ( $inventory < $inventory_reduction ) {
+			// Do nothing.
+		} else {
+			// Add items to cart.
+			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+		}
 
 	} elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
 		$qtty = $_POST['qtty'];
@@ -1184,36 +1565,86 @@ function wpd_ecommerce_add_to_cart_form() {
 		if ( empty( $new_price ) ) {
 			if ( 'topicals' === get_post_type() ) {
 
+				// Get post type name.
+				$post_type = get_post_type( $old_id );
+
 				$old_price    = get_post_meta( $old_id, '_pricetopical', true );
 				$single_price = get_post_meta( $old_id, '_pricetopical', true );
 				$pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
-				/*
-				var_dump( $new_price );
-				echo "...<br />...";
-				print_r( $new_price );
-				*/
+				// Get inventory.
+				$inventory = get_post_meta( $old_id, '_inventory_' . $post_type,  TRUE);
 
-				if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
-					wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+				// Quantity X weight amount.
+				$inventory_reduction = $qtty;
+
+				if ( $inventory < $inventory_reduction ) {
+					// Do nothing.
+				} else {
+					// Add items to cart.
+					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
+						wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+					}
 				}
-
 			} elseif ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+
+				// Get post type name.
+				$post_type = get_post_type( $old_id );
+
+				$price_each     = get_post_meta( get_the_ID(), '_priceeach', true );
+				$price_topical  = get_post_meta( get_the_ID(), '_pricetopical', true );
+				$price_per_pack = get_post_meta( get_the_ID(), '_priceperpack', true );
+
+				if ( ! empty( $_POST['wpd_ecommerce_product_prices'] ) ) {
+					if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_priceeach';
+					} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_pricetopical';
+					} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
+						$wpd_product_meta_key = '_priceperpack';
+					} else {
+						$wpd_product_meta_key = '_priceeach';
+					}
+				} else {
+					$wpd_product_meta_key = '_priceeach';
+				}
 
 				$old_price    = get_post_meta( $old_id, $wpd_product_meta_key, true );
 				$single_price = get_post_meta( $old_id, '_priceeach', true );
 				$pack_price   = get_post_meta( $old_id, '_priceperpack', true );
 
-				/*
-				var_dump( $new_price );
-				echo "...<br />...";
-				print_r( $new_price );
-				*/
-
-				if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
-					wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+				// Set inventory variable.
+				if ( 'growers' === $post_type ) {
+					if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+						// Get inventory.
+						$inventory = get_post_meta( $old_id, '_inventory_seeds', TRUE );
+					} else {
+						// Get inventory.
+						$inventory = get_post_meta( $old_id, '_inventory_clones', TRUE );
+					}
+				} else {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, '_inventory_' . $post_type,  TRUE );
 				}
 
+				if ( 'concentrates' === $post_type ) {
+					if ( get_post_meta( $old_id, '_inventory_concentrates_each', TRUE ) ) {
+						// Get inventory.
+						$inventory = get_post_meta( $old_id, '_inventory_concentrates_each', TRUE );
+					}
+				}
+
+				// Quantity.
+				$inventory_reduction = $qtty;
+
+				if ( $inventory < $inventory_reduction ) {
+					// Do nothing.
+				} else {
+					// Add items to cart.
+					if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
+						wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
+					}
+				}
 			}
 		} else {
 			$old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
