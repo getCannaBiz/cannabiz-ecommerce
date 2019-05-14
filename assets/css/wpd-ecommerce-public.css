@@ -331,6 +331,11 @@ form.wpd-ecommerce input#add_item_btn {
     padding: 10px 15px;
 }
 
+/** Hide Pricing table */
+.wpd-ecommerce-shelfContent table.wpdispensary-table.single.pricing {
+    display: none;
+}
+
 /** Extra product info */
 p.wpd-ecommerce-categories,
 p.wpd-ecommerce-sku,
