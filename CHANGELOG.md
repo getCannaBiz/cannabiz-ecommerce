@@ -6,9 +6,10 @@
 * Added `PAYMENT_TYPE_AMOUNT` defined for Ground shipping option in `wpd-ecommerce.php`
 * Added `wpd_ecommerce_payment_type_name_delivery` filter in `wpd-ecommerce.php`
 * Added `wpd_ecommerce_payment_type_name_pop` filter in `wpd-ecommerce.php`
+* Added `wpd_ecommerce_payment_type_name_ground` filter in `wpd-ecommerce.php`
 * Added default weights for Heavyweights weights in `wpd-ecommerce.php`
 * Added default settings for ground shipping in `wpd-ecommerce.php`
-* Added 4 filters for the order success emails sent to admin and patient in `checkout/checkout-shortcode.php`
+* Added 5 filters for the order success emails sent to admin and patient in `checkout/checkout-shortcode.php`
 * Added checks for available inventory of product and display error message if patient is trying to add too much to the cart in `includes/wpd-ecommerce-core-functions.php`
 * Updated to use 13-50 pounds Heavyweights prices in `includes/wpd-ecommerce-core-functions.php`
 * Updated "Return to menu" text in cart functions in `cart/cart-shortcode.php`
