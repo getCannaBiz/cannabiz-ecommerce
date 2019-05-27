@@ -1,4 +1,12 @@
 <?php
+/**
+ * WP Dispensary eCommerce patient account shortcode
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 // Add Patient Account Shortcode.
 function wpd_patient_account_shortcode() {
 

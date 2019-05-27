@@ -1,4 +1,12 @@
 <?php
+/**
+ * WP Dispensary eCommerce cart shortcode
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
 	if ( NULL !== $_SESSION['wpd_ecommerce'] ) {

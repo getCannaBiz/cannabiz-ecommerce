@@ -2,8 +2,7 @@
 /**
  * WP Dispensary eCommerce patient helper functions
  *
- * @package WPD_eCommerce/functions
- * @version 1.0
+ * @since 1.0
  */
 
 defined( 'ABSPATH' ) || exit;

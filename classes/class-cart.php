@@ -1,7 +1,12 @@
 <?php
 /**
- * Class CART
+ * WP Dispensary eCommerce cart class
+ *
+ * @since 1.0
  */
+
+defined( 'ABSPATH' ) || exit;
+
 class Cart {
 	
 	//Total cart cost

@@ -1,7 +1,12 @@
 <?php
 /**
- * Class Item
+ * WP Dispensary eCommerce item class
+ *
+ * @since 1.0
  */
+
+defined( 'ABSPATH' ) || exit;
+
 class Item {
 
 	var $id;

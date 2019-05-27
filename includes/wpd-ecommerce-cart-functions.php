@@ -1,4 +1,11 @@
 <?php
+/**
+ * WP Dispensary eCommerce cart helper functions
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Clear the cart

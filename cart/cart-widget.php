@@ -1,5 +1,13 @@
 <?php
 /**
+ * WP Dispensary eCommerce cart widget
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
  * WP Dispensary's Cart Widget
  */
 class WPD_eCommerce_Widget extends WP_Widget {

@@ -1,5 +1,13 @@
 <?php
 /**
+ * WP Dispensary eCommerce orders metaboxes
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
+/**
  * Order item details metabox
  *
  * Adds the order details metabox.

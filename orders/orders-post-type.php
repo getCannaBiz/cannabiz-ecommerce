@@ -1,4 +1,12 @@
 <?php
+/**
+ * WP Dispensary eCommerce orders custom post type
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 // Register Custom Post Type
 function wpd_orders() {
 

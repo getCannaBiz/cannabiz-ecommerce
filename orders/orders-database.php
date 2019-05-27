@@ -7,6 +7,8 @@
  * @since    1.0
  */
 
+defined( 'ABSPATH' ) || exit;
+
 /**
  * Add version number to global space
  * 

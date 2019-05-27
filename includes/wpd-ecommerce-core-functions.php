@@ -1,9 +1,8 @@
 <?php
 /**
- * WP Dispensary eCommerce order helper functions
+ * WP Dispensary eCommerce core helper functions
  *
- * @package WPD_eCommerce/functions
- * @version 1.0
+ * @since 1.0
  */
 
 defined( 'ABSPATH' ) || exit;

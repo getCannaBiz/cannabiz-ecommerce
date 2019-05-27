@@ -1,4 +1,11 @@
 <?php
+/**
+ * WP Dispensary eCommerce patient account details
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Front end registration

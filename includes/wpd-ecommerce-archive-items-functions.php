@@ -1,11 +1,11 @@
 <?php
 /**
- * Archive items
- * 
- * These functions work on the archive-items.php file
- * 
+ * WP Dispensary eCommerce archive helper functions
+ *
  * @since 1.0
  */
+
+defined( 'ABSPATH' ) || exit;
 
 /**
  * Archive Buttons

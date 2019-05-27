@@ -1,4 +1,12 @@
 <?php
+/**
+ * WP Dispensary eCommerce checkout shortcode
+ *
+ * @since 1.0
+ */
+
+defined( 'ABSPATH' ) || exit;
+
 // Add Checkout Shortcode.
 function wpd_ecommerce_checkout_shortcode() {
 
