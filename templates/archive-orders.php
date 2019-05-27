@@ -6,15 +6,6 @@ get_header(); ?>
 <section id="primary" class="site-content">
     <div id="content" role="main">
         <?php
-            // Get pages data from settings page.
-            $wpdas_pages = get_option( 'wpdas_pages' );
-
-            // Get menu page selected by website owner.
-            $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
-
-            // Get menu page selected by website owner.
-            $menu_page = $wpdas_pages['wpd_pages_setup_menu_page'];
-
             // Redirect visitors.
             if ( is_user_logged_in() ) {
 
@@ -24,13 +15,13 @@ get_header(); ?>
 
                 // Redirect patient.
                 if ( 'patient' === $role[0] ) {
-                    wp_redirect( $account_page );
+                    wp_redirect( wpd_ecommerce_account_url() );
                 } else {
-                    wp_redirect( $menu_page );
+                    wp_redirect( wpd_ecommerce_menu_url() );
                 }
             } else {
                 // Redirect non-logged in users to menu page.
-                wp_redirect( $menu_page );
+                wp_redirect( wpd_ecommerce_menu_url() );
             }
         ?>
     </div>

@@ -172,10 +172,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 		
 				$str .= "<p class='wpd-ecommerce-widget subtotal'><strong>" . __( 'Subtotal', 'wpd-ecommerce' ) . ":</strong> " . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</p>";
 
-				$wpdas_pages   = get_option( 'wpdas_pages' );
-				$checkout_page = $wpdas_pages['wpd_pages_setup_checkout_page'];
-
-				$str .= "<p class='wpd-ecommerce-widget buttons'><a href='" . get_bloginfo( 'url' ) . "/" . $checkout_page . "' class='button'>" . __( 'Checkout', 'wpd-ecommerce' ) . "</a></p>";
+				$str .= "<p class='wpd-ecommerce-widget buttons'><a href='" . wpd_ecommerce_checkout_url() . "' class='button'>" . __( 'Checkout', 'wpd-ecommerce' ) . "</a></p>";
 
 				echo $str;
 

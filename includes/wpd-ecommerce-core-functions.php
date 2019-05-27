@@ -45,12 +45,6 @@ function wpd_ecommerce_notifications() {
 
 	global $post;
 
-	// Get pages data from settings page.
-	$wpdas_pages = get_option( 'wpdas_pages' );
-
-	// Get menu page selected by website owner.
-	$menu_page = $wpdas_pages['wpd_pages_setup_menu_page'];
-
 	// Get WPD settings from General tab.
 	$wpdas_general = get_option( 'wpdas_general' );
 
@@ -61,15 +55,6 @@ function wpd_ecommerce_notifications() {
 		$login_to_shop = NULL;
 	}
 
-	// Get WPD settings from Pages tab.
-	$wpdas_pages = get_option( 'wpdas_pages' );
-
-	// Create account page URL variable.
-	$account_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_account_page'];
-
-	// Create cart page URL variable.
-	$cart_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_cart_page'];
-
 	// Begin data.
 	$str = '';
 
@@ -77,7 +62,7 @@ function wpd_ecommerce_notifications() {
 
 		// Check if cart widget is active.
 		if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
-			$view_cart_button = '<a href="' . $cart_page . '" class="button">' . __( 'View Cart', 'wpd-ecommerce' ) . '</a>';
+			$view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . __( 'View Cart', 'wpd-ecommerce' ) . '</a>';
 		} else {
 			$view_cart_button = '';
 		}
@@ -260,7 +245,7 @@ function wpd_ecommerce_notifications() {
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( is_singular( 'concentrates' ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
@@ -332,7 +317,7 @@ function wpd_ecommerce_notifications() {
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( is_singular( array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
@@ -384,7 +369,7 @@ function wpd_ecommerce_notifications() {
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
@@ -441,7 +426,7 @@ function wpd_ecommerce_notifications() {
 						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
 							// Begin wrapper around notifications.
 							$str .= '<div class="wpd-ecommerce-single-notifications">';
-							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 							$str .= '</div>';
 						}
 					}
@@ -487,7 +472,7 @@ function wpd_ecommerce_notifications() {
 						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
 							// Begin wrapper around notifications.
 							$str .= '<div class="wpd-ecommerce-single-notifications">';
-							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . home_url() . '/' . $menu_page . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 							$str .= '</div>';
 						}
 					}
@@ -1140,12 +1125,6 @@ function wpd_ecommerce_add_to_cart_form() {
 		$login_to_shop = NULL;
 	}
 
-	// Get WPD settings from Pages tab.
-	$wpdas_pages = get_option( 'wpdas_pages' );
-
-	// Create account page URL variable.
-	$account_page = home_url() . '/' . $wpdas_pages['wpd_pages_setup_account_page'];
-
 	// Set prices.
 	if ( in_array( get_post_type( get_the_ID() ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
 		$regular_price = esc_html( get_post_meta( get_the_ID(), '_priceeach', true ) );
@@ -1191,7 +1170,7 @@ function wpd_ecommerce_add_to_cart_form() {
 	// Check if user is required to login to shop.
 	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
 		$str_login  = '<div class="wpd-ecommerce-notifications">';
-		$str_login .= '<div class="wpd-ecommerce-notifications failed">You must be <a href="' . $account_page . '">logged in</a> to place an order</div>';
+		$str_login .= '<div class="wpd-ecommerce-notifications failed">You must be <a href="' . wpd_ecommerce_account_url() . '">logged in</a> to place an order</div>';
 		$str_login .= '</div>';
 
 		// Display login notification.

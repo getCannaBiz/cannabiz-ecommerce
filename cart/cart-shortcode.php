@@ -139,13 +139,10 @@ function wpd_ecommerce_shortcode() {
 	} else {
 		echo '<p>' . __( 'There is nothing in your cart.', 'wpd-ecommerce' ) . '</p>';
 
-		$wpdas_pages   = get_option( 'wpdas_pages' );
-		$menu_page     = $wpdas_pages['wpd_pages_setup_menu_page'];
-
 		/**
 		 * @todo filter the button link and the button text so devs can change easily.
 		 */
-		echo '<p><a href="' . get_bloginfo( 'url' ) . '/' . $menu_page . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
+		echo '<p><a href="' . wpd_ecommerce_menu_url() . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
 	}
 }
 add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );

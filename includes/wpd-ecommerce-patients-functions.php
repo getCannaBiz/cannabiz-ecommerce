@@ -40,17 +40,14 @@ function wpd_ecommerce_disable_admin_dashboard() {
 
     // Redirect patients from any wp-admin page to account page.
     if ( is_admin() && 'patient' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-        wp_redirect( home_url() . '/account/' );
+        wp_redirect( wpd_ecommerce_account_url() );
         exit;
     } elseif ( is_user_logged_in() ) {
         // Do nothing for any other logged in user.
     } else {
-        $wpdas_pages  = get_option( 'wpdas_pages' );
-        $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
-
         // Redirect admin for non-logged in users.
         if ( ! is_user_logged_in() && is_admin() ) {
-            wp_redirect( home_url() . '/' . $account_page );
+            wp_redirect( wpd_ecommerce_account_url() );
             exit;
         }
     }
@@ -78,13 +75,7 @@ function wpd_ecommerce_prevent_wp_login() {
 
         // Check if we're on the login page, and ensure the action is not 'logout'
         if ( $pagenow == 'wp-login.php' && ( ! $action || ( $action && ! in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass' ) ) ) ) ) {
-
-            $wpdas_pages  = get_option( 'wpdas_pages' );
-            $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
-    
-            $page = home_url() . '/' . $account_page;
-
-            wp_redirect( $page );
+            wp_redirect( wpd_ecommerce_account_url() );
             exit;
         }
     }
@@ -98,10 +89,7 @@ add_action( 'init', 'wpd_ecommerce_prevent_wp_login' );
  * @since 1.0
  */
 function wpd_ecommerce_login_failed() {
-    $wpdas_pages  = get_option( 'wpdas_pages' );
-    $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
-
-    $login_page = home_url() . '/' . $account_page;
+    $login_page = wpd_ecommerce_account_url();
     $ref_link   = $_SERVER['HTTP_REFERER'];
 
     // Redirect logins from account page.
@@ -120,9 +108,7 @@ add_action( 'wp_login_failed', 'wpd_ecommerce_login_failed' );
 function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
     $user         = wp_get_current_user();
     $role         = ( array ) $user->roles;
-    $wpdas_pages  = get_option( 'wpdas_pages' );
-    $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
-    $login_page   = home_url() . '/' . $account_page;
+    $login_page   = wpd_ecommerce_account_url();
     $ref_link     = $_SERVER['HTTP_REFERER'];
 
     // If user is patient.
@@ -150,11 +136,9 @@ function wpd_ecommerce_disable_author_archives_for_customers() {
 	if ( is_author() ) {
         $user        = get_user_by( 'id', $author );
         $role        = ( array ) $user->roles;
-        $wpdas_pages = get_option( 'wpdas_pages' );
-        $menu_page   = $wpdas_pages['wpd_pages_setup_menu_page'];
 
 		if ( 'patient' === $role[0] ) {
-			wp_redirect( home_url() . '/' . $menu_page );
+			wp_redirect( wpd_ecommerce_menu_url() );
 		}
 	}
 }
