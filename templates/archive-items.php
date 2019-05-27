@@ -17,16 +17,6 @@ do_action( 'wpd_ecommerce_templates_archive_items_before' );
  * 
  * @since 1.0
  */
-if ( empty( $img_size ) ) {
-    $image_size = 'dispensary-image';
-} else {
-    $image_size = $img_size;
-}
-
-$thumbnail_id        = get_post_thumbnail_id();
-$thumbnail_url_array = wp_get_attachment_image_src( $thumbnail_id, $image_size, false );
-$thumbnail_url       = $thumbnail_url_array[0];
-$querytitle          = get_the_title();
 
 if ( ! empty( $_GET['vendor'] ) ) {
     $vendor_name         = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
@@ -34,8 +24,6 @@ if ( ! empty( $_GET['vendor'] ) ) {
 }
 
 //print_r( $vendor_name );
-
-//    echo $querytitle;
 
 //    echo $vendor_name;
 
@@ -145,27 +133,11 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                     while ( $loop->have_posts() ) : $loop->the_post();
 
                     echo ( $count % $perrow === 0 && $count > 0 ) ? '</div><div class="wpd-row">' : '';
-
-                    // Create variables.
-                    $thumbnail_id        = get_post_thumbnail_id();
-                    $thumbnail_url_array = wp_get_attachment_image_src( $thumbnail_id, $image_size, false );
-                    $thumbnail_url       = $thumbnail_url_array[0];
-                    if ( null === $thumbnail_url && 'full' === $image_size ) {
-                        $wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/wp-dispensary/public/images/wpd-large.jpg';
-                        $defaultimg                   = apply_filters( 'wpd_shortcodes_default_image', $wpd_shortcodes_default_image );
-                        $showimage                    = '<a href="' . get_permalink() . '"><img src="' . $defaultimg . '" alt="' . __( 'Menu - Edible', 'wp-dispensary' ) . '" /></a>';
-                    } elseif ( null !== $thumbnail_url ) {
-                        $showimage = '<a href="' . get_permalink() . '"><img src="' . $thumbnail_url . '" alt="' . __( 'Menu - Edible', 'wp-dispensary' ) . '" /></a>';
-                    } else {
-                        $wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/wp-dispensary/public/images/' . $image_size . '.jpg';
-                        $defaultimg                   = apply_filters( 'wpd_shortcodes_default_image', $wpd_shortcodes_default_image );
-                        $showimage                    = '<a href="' . get_permalink() . '"><img src="' . $defaultimg . '" alt="' . __( 'Menu - Edible', 'wp-dispensary' ) . '" /></a>';
-                    }
                 ?>
                     <?php do_action( 'wpd_ecommerce_archive_items_product_before' ); ?>
                     <div class="wpdshortcode item" style="width:<?php echo ceil( $item_width ); ?>%;">
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
-                        <?php echo $showimage; ?>
+                        <?php echo wpd_product_image( get_the_ID(), 'wpd-small' ); ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
                         <?php wpd_all_prices_simple( get_the_ID(), TRUE, TRUE ); ?>
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
