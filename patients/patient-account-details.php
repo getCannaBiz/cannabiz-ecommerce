@@ -8,59 +8,23 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Front end registration
- * @todo see if this is for the wp-register.php default
+ * Add extra fields to Account page registration form
  */
-function wpd_ecommerce_registration_form() {
-	$birth_year = ! empty( $_POST['year_of_birth'] ) ? intval( $_POST['year_of_birth'] ) : '';
-	?>
-	<p>
-		<label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ) ?><br/>
-			<input type="number"
-			       min="1900"
-			       max="2018"
-			       step="1"
-			       id="year_of_birth"
-			       name="year_of_birth"
-			       value="<?php echo esc_attr( $birth_year ); ?>"
-			       class="input"
-			/>
-		</label>
+function wpd_ecommerce_registration_form() { ?>
+	<p class="register-first-name">
+		<label for="first_name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?></label>
+		<input type="text" name="first_name" value="" id="first_name" class="input" />
 	</p>
-	<?php
-}
-//add_action( 'register_form', 'wpd_ecommerce_registration_form' );
-
-/**
- * Registration Errors
- */
-function wpd_ecommerce_registration_errors( $errors, $sanitized_user_login, $user_email ) {
-
-	// Error - no birth date.
-	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) );
-	}
-
-	// Error - age requirement.
-	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
-	}
-
-	return $errors;
-}
-//add_filter( 'registration_errors', 'wpd_ecommerce_registration_errors', 10, 3 );
+<?php }
+//add_action( 'wpd_ecommerce_patient_account_register_form_inside_top', 'wpd_ecommerce_registration_form' );
 
 /**
  * User Registration - Update user data
  */
 function wpd_ecommerce_user_register( $user_id ) {
-	// Year of birth.
-	if ( ! empty( $_POST['year_of_birth'] ) ) {
-		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
-	}
-	// Phone number.
-	if ( ! empty( $_POST['phone_number'] ) ) {
-		update_user_meta( $user_id, 'phone_number', $_POST['phone_number'] );
+	// First name.
+	if ( ! empty( $_POST['first_name'] ) ) {
+		update_user_meta( $user_id, 'first_name', $_POST['first_name'] );
 	}
 }
 //add_action( 'user_register', 'wpd_ecommerce_user_register' );
@@ -79,63 +43,15 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
 
 	<table class="form-table">
 		<tr>
-			<th><label for="phone_number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label></th>
+			<th><label for="first_name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?></label></th>
 			<td>
-				<input type="tel"
-			       id="phone_number"
-			       name="phone_number"
-			       value=""
-			       class="regular-text"
-				/>
-			</td>
-		</tr>
-		<tr>
-			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ); ?></label> <span class="description"><?php esc_html_e( '(required)', 'wpd-ecommerce' ); ?></span></th>
-			<td>
-				<input type="number"
-			       min="1900"
-			       max="2018"
-			       step="1"
-			       id="year_of_birth"
-			       name="year_of_birth"
-			       value=""
-			       class="regular-text"
-				/>
+				<input type="text" id="first_name" name="first_name" value="" class="regular-text" />
 			</td>
 		</tr>
 	</table>
 	<?php
 }
 //add_action( 'user_new_form', 'wpd_ecommerce_admin_registration_form' );
-
-/**
- * User Profile  Backend fields
- */
-function wpd_ecommerce_show_extra_profile_fields( $user ) {
-	$birth_year = get_the_author_meta( 'year_of_birth', $user->ID );
-	?>
-	<h3><?php esc_html_e( 'Personal Information', 'wpd-ecommerce' ); ?></h3>
-
-	<table class="form-table">
-		<tr>
-			<th><label for="year_of_birth"><?php esc_html_e( 'Year of birth', 'wpd-ecommerce' ); ?></label></th>
-			<td>
-				<input type="number"
-			       min="1900"
-			       max="2018"
-			       step="1"
-			       id="year_of_birth"
-			       name="year_of_birth"
-			       value="<?php echo esc_attr( $birth_year ); ?>"
-			       class="regular-text"
-				/>
-			</td>
-		</tr>
-	</table>
-	<?php
-}
-//add_action( 'show_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
-//add_action( 'edit_user_profile', 'wpd_ecommerce_show_extra_profile_fields' );
 
 /**
  * User Profile - Remove Website
