@@ -40,19 +40,22 @@ function wpd_patient_account_shortcode() {
 			echo "<h3>" . __( 'Register', 'wpd-ecommerce' ) . "</h3>";
 			?>
 			<form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
+			<?php do_action( 'wpd_ecommerce_patient_account_register_form_inside_top' ); ?>
 			<p class="register-username">
 			<label for="user_login"><?php _e( 'Username', 'wpd-ecommerce' ); ?></label>
 			<input type="text" name="user_login" value="" id="user_login" class="input" />
 			</p>
+			<?php do_action( 'wpd_ecommerce_patient_account_register_form_after_username' ); ?>
 			<p class="register-email-address">
 			<label for="user_email"><?php _e( 'Email address', 'wpd-ecommerce' ); ?></label>
 			<input type="text" name="user_email" value="" id="user_email" class="input" />
 			</p>
-			<?php do_action( 'register_form' ); ?>
+			<?php do_action( 'wpd_ecommerce_patient_account_register_form_after_email' ); ?>
 			<p class="statement"><?php _e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
 			<p class="register-submit">
 			<input type="submit" value="<?php _e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
 			</p>
+			<?php do_action( 'wpd_ecommerce_patient_account_register_form_inside_bottom' ); ?>
 			</form>
 			<?php
 			do_action( 'wpd_ecommerce_patient_account_register_form_after_inside' );
