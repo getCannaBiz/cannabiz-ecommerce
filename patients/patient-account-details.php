@@ -155,25 +155,25 @@ function wpd_ecommerce_show_contact_info_fields( $user ) {
     unset( $fields['url'] );
 
 	// Add Phone number.
-	$fields['phone_number'] = __( 'Phone number' );
+	$fields['phone_number'] = __( 'Phone number', 'wpd-ecommerce' );
 
 	// Add Address line 1.
-	$fields['address_line_1'] = __( 'Address line 1' );
+	$fields['address_line_1'] = __( 'Address line 1', 'wpd-ecommerce' );
 
 	// Add Address line 2.
-	$fields['address_line_2'] = __( 'Address line 2' );
+	$fields['address_line_2'] = __( 'Address line 2', 'wpd-ecommerce' );
 
 	// Add City.
-	$fields['city'] = __( 'City' );
+	$fields['city'] = __( 'City', 'wpd-ecommerce' );
 
 	// Add State / County.
-	$fields['state_county'] = __( 'State / County' );
+	$fields['state_county'] = __( 'State / County', 'wpd-ecommerce' );
 
 	// Add Postcode/ZIP.
-	$fields['postcode_zip'] = __( 'Postcode / ZIP' );
+	$fields['postcode_zip'] = __( 'Postcode / ZIP', 'wpd-ecommerce' );
 
 	// Add Country.
-	$fields['country'] = __( 'Country' );
+	$fields['country'] = __( 'Country', 'wpd-ecommerce' );
 
     // Return the amended contact fields.
     return $fields;
