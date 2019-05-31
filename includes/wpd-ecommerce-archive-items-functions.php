@@ -94,6 +94,8 @@ function wpd_ecommerce_item_buttons() {
         add_action( 'wpd_growers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
         add_action( 'wpd_gear_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
         add_action( 'wpd_tinctures_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
+        // The action hook below is for WPD v3.0+
+        add_action( 'wp_dispensary_widget_product_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
     }
 
 }
