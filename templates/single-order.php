@@ -77,15 +77,19 @@ if ( ! is_user_logged_in() ) {
                 $user_info = get_userdata( $order_customer_id );
 
                 echo '<div class="order-info">';
-                echo '<p><strong>Date:</strong></p>';
+                echo '<p><strong>' . __( 'Date', 'wpd-ecommerce' ) . ':</strong></p>';
                 echo '<p>' . get_the_date() . '</p>';
                 if ( '' != $user_info->first_name ) {
                     $first_name = $user_info->first_name;
+                } else {
+                    $first_name = '';
                 }
                 if ( '' != $user_info->last_name ) {
-                    $last_name  = $user_info->last_name;
+                    $last_name = $user_info->last_name;
+                } else {
+                    $last_name = '';
                 }
-                echo "<p><strong>Name:</strong></p>";
+                echo '<p><strong>' . __( 'Name', 'wpd-ecommerce' ) . ':</strong></p>';
                 echo '<p>' . $first_name . ' ' . $last_name . '</p>';
                 echo '</div>';
                 echo '<div class="patient-address">';
@@ -112,20 +116,20 @@ if ( ! is_user_logged_in() ) {
 
                 echo '<div class="patient-contact">';
                 echo '<table class="wpd-ecommerce order-details"><tbody>';
-                echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
+                echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
                 if ( '0.00' !== $order_coupon_amount ) {
-                    echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
+                    echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
                 }
                 if ( '0.00' !== $order_sales_tax ) {
-                    echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
+                    echo '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
                 }
                 if ( '0.00' !== $order_excise_tax ) {
-                    echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
+                    echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
                 }
                 if ( '0.00' !== $order_payment_type_amount ) {
                     echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
                 }
-                echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
+                echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
                 echo '</tbody></table>';
                 echo '</div>';
             ?>

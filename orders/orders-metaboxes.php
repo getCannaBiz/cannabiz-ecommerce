@@ -80,12 +80,12 @@ function wpd_ecommerce_order_item_details_build() {
 		echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
 	}
 	if ( '0.00' !== $order_excise_tax ) {
-		echo "<tr><td><strong>Excise tax:</strong></td><td>" . CURRENCY . $order_excise_tax . "</td></tr>";
+		echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
 	}
 	if ( '0.00' !== $order_sales_tax ) {
-		echo "<tr><td><strong>Sales tax:</strong></td><td>" . CURRENCY . $order_sales_tax . "</td></tr>";
+		echo '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
 	}
-	echo "<tr><td><strong>Total:</strong></td><td>" . CURRENCY . $order_total . "</td></tr>";
+	echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
 	echo '</tbody></table>';
 
 	echo '</div>';
@@ -133,13 +133,13 @@ function wpd_ecommerce_order_item_details_build() {
 	wp_dropdown_users( array( 'name' => 'wpd_order_customer_id', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
 
 	if ( '' != $user_info->user_email ) {
-		echo "<p><strong>Email address:</strong></p>";
+		echo '<p><strong>' . __( 'Email address', 'wpd-ecommerce' ) . ':</strong></p>';
 		echo "<a href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a>";
 	}
 
 	if ( '' != $user_info->phone_number ) {
-		echo "<p><strong>Phone number:</strong></p>";
-		echo "<a href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
+		echo '<p><strong>' . __( 'Phone number', 'wpd-ecommerce' ) . ':</strong></p>';
+		echo '<a href="tel:' . $user_info->phone_number . '">' . $user_info->phone_number . '</a>';
 	}
 
 	echo '</div>';
