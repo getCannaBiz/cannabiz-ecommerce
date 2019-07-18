@@ -111,8 +111,8 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                 <div class="wpd-row">
                 <?php
                     $count      = 0;
-                    $perrow     = ( empty( $options['perrow'] ) ) ? 3 : $options['perrow'];
-                    $item_width = ( empty( $options['perrow'] ) ) ? 32 : ( 100 / $options['perrow'] ) - 1;
+                    $perrow     = ( empty( $options['perrow'] ) ) ? apply_filters( 'wpd_ecommerce_template_archive_items_per_row', 3 ) : $options['perrow'];
+                    $item_width = ( empty( $options['perrow'] ) ) ? apply_filters( 'wpd_ecommerce_template_archive_item_width', 32 ) : ( 100 / $options['perrow'] ) - 1;
                     
                     // Get the posts.
                     $loop = new WP_Query(
