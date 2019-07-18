@@ -96,8 +96,8 @@ function wpd_ecommerce_shortcode() {
 		$str .= do_action( 'wpd_ecommerce_cart_table_after' );
 
 		// Get taxes (if any).
-		$wpd_sales_tax  = number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );
-		$wpd_excise_tax = number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' );
+		$wpd_sales_tax  = number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );
+		$wpd_excise_tax = number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' );
 
 		// Get total price.
 		$total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );

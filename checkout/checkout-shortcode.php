@@ -74,9 +74,11 @@ if ( ! is_user_logged_in() ) {
                 do_action( 'edit_user_profile_update', $current_user->ID );
             }
 
+            // Get minimum order checkout requirement from settings.
             $wpd_general  = get_option( 'wpdas_general' );
             $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
 
+            // Minimum checkout check.
             if ( '' !== $min_checkout ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= $min_checkout ) {
                     // Run success codes.
@@ -102,11 +104,11 @@ if ( ! is_user_logged_in() ) {
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
         <p class="form-row first form-first-name">
-            <label for="first-name"><?php _e('First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+            <label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
         </p><!-- .form-first-name -->
         <p class="form-row last form-last-name">
-            <label for="last-name"><?php _e('Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+            <label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
         </p><!-- .form-last-name -->
 
@@ -190,14 +192,10 @@ if ( ! is_user_logged_in() ) {
 
                 if ( '_priceperpack' === $item_meta_key ) {
                     $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
+                    $weight_name   = $units_per_pack . ' pack';
                 } else {
                     $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
-                }
-
-                if ( '_priceperpack' === $item_meta_key ) {
-                    $weightname = $units_per_pack . ' pack';
-                } else {
-                    $weightname = '';
+                    $weight_name = '';
                 }
 
             } elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
@@ -216,9 +214,9 @@ if ( ! is_user_logged_in() ) {
                 }
 
                 if ( '_priceperpack' === $item_meta_key ) {
-                    $weightname = $units_per_pack . ' pack';
+                    $weight_name = $units_per_pack . ' pack';
                 } else {
-                    $weightname = '';
+                    $weight_name = '';
                 }
 
             } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
@@ -227,7 +225,7 @@ if ( ! is_user_logged_in() ) {
 
                 foreach ( wpd_flowers_weights_array() as $key=>$value ) {
                     if ( $value == $flower_weight_cart ) {
-                        $weightname    = ' - ' . $key;
+                        $weight_name   = ' - ' . $key;
                         $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                     }
                 }
@@ -238,12 +236,12 @@ if ( ! is_user_logged_in() ) {
 
                 foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
                     if ( $value == $concentrate_weight_cart ) {
-                        $weightname    = ' - ' . $key;
+                        $weight_name   = ' - ' . $key;
                         $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                     }
                 }
                 if ( '_priceeach' === $concentrate_weight_cart ) {
-                    $weightname    = '';
+                    $weight_name   = '';
                     $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
                 }
             } else {
@@ -254,7 +252,7 @@ if ( ! is_user_logged_in() ) {
 
             $total_price = $amount * $regular_price;
 
-            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
+            $str .=	"<tr><td>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weight_name . "</a> x <strong>" . $amount . "</strong></td><td><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
         endforeach;
 
@@ -292,7 +290,7 @@ if ( ! is_user_logged_in() ) {
         echo $str2;
 
 	} else {
-        echo "<p>" . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . "</p>";
+        echo '<p>' . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
 
         /**
 		 * @todo filter the button link and the button text so devs can change easily.
@@ -347,14 +345,10 @@ function wpd_ecommerce_checkout_success() {
 
             if ( '_priceperpack' === $item_meta_key ) {
                 $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
+                $weight_name   = $units_per_pack . ' pack';
             } else {
                 $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
-            }
-
-            if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = $units_per_pack . ' pack';
-            } else {
-                $weightname = '';
+                $weight_name   = '';
             }
 
         } elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
@@ -373,9 +367,9 @@ function wpd_ecommerce_checkout_success() {
             }
 
             if ( '_priceperpack' === $item_meta_key ) {
-                $weightname = $units_per_pack . ' pack';
+                $weight_name = $units_per_pack . ' pack';
             } else {
-                $weightname = '';
+                $weight_name = '';
             }
 
         } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
@@ -384,7 +378,7 @@ function wpd_ecommerce_checkout_success() {
 
             foreach ( wpd_flowers_weights_array() as $key=>$value ) {
                 if ( $value == $flower_weight_cart ) {
-                    $weightname    = $key;
+                    $weight_name   = $key;
                     $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                 }
             }
@@ -395,12 +389,12 @@ function wpd_ecommerce_checkout_success() {
 
             foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
                 if ( $value == $concentrate_weight_cart ) {
-                    $weightname    = $key;
+                    $weight_name   = $key;
                     $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                 }
             }
             if ( '_priceeach' === $concentrate_weight_cart ) {
-                $weightname    = '';
+                $weight_name   = '';
                 $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
             }
         } else {
@@ -413,7 +407,7 @@ function wpd_ecommerce_checkout_success() {
         $total_price = $amount * $regular_price;
 
         // Order item name.
-        $order_item_name = $i->title . ' - ' . $weightname;
+        $order_item_name = $i->title . ' - ' . $weight_name;
 
         // Add order details to array.
         $wpd_orders_data[] = array(
@@ -429,7 +423,7 @@ function wpd_ecommerce_checkout_success() {
             'item_image_url'       => get_the_post_thumbnail_url( $i->id, 'full' ),
             'item_image_url_thumb' => get_the_post_thumbnail_url( $i->id, 'thumbnail' ),
             'item_variation'       => $item_meta_key,
-            'item_variation_name'  => $weightname,
+            'item_variation_name'  => $weight_name,
             'quantity'             => $amount,
             'single_price'         => $regular_price,
             'total_price'          => $total_price
@@ -438,7 +432,7 @@ function wpd_ecommerce_checkout_success() {
         // Add item quantity to array.
         $total_items[] = $amount;
 
-        $str .=	"<tr style='border-bottom: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD;'><td style='padding: 12px 12px; vertical-align: middle;'>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weightname . "</a> x <strong>" . $amount . "</strong></td><td style='padding: 12px 12px; vertical-align: middle;'><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
+        $str .=	"<tr style='border-bottom: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD;'><td style='padding: 12px 12px; vertical-align: middle;'>" . $i->thumbnail . "<a href='" . $i->permalink . "' class='wpd-ecommerce-widget title'>" . $i->title . "" . $weight_name . "</a> x <strong>" . $amount . "</strong></td><td style='padding: 12px 12px; vertical-align: middle;'><span class='wpd-ecommerce-widget amount'>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</span></td></tr>";
 
     endforeach;
 

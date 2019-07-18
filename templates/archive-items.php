@@ -19,8 +19,8 @@ do_action( 'wpd_ecommerce_templates_archive_items_before' );
  */
 
 if ( ! empty( $_GET['vendor'] ) ) {
-    $vendor_name         = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-    $title               = $vendor_name->name;
+    $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+    $title       = $vendor_name->name;
 }
 
 //print_r( $vendor_name );

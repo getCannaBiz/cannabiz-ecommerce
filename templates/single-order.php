@@ -23,12 +23,12 @@ if ( ! is_user_logged_in() ) {
     $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
     $get_id            = get_the_ID();
 
-    $get_order_amount = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
+    $get_order_amount    = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
     $order_coupon_amount = $get_order_amount[0]['order_value'];
 
     //print_r( $get_order_amount );
 
-    $get_sales_tax = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
+    $get_sales_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
     $order_sales_tax = $get_sales_tax[0]['order_value'];
 
     //print_r( $get_sales_tax );
@@ -41,8 +41,8 @@ if ( ! is_user_logged_in() ) {
     $get_payment_type_amount   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_amount'", ARRAY_A );
     $order_payment_type_amount = $get_payment_type_amount[0]['order_value'];
 
-    $get_payment_type_name     = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
-    $order_payment_type_name   = $get_payment_type_name[0]['order_value'];
+    $get_payment_type_name   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
+    $order_payment_type_name = $get_payment_type_name[0]['order_value'];
 
     //print_r( $get_sales_tax );
 

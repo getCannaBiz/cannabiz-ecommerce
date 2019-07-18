@@ -42,7 +42,7 @@ class Cart {
 	 * Update subtotal with coupon.
 	 */
 	function add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp ) {
-		$this->coupon_code   = $coupon_code;
+		$this->coupon_code = $coupon_code;
 		if ( 'Flat Rate' == $coupon_type ) {
 			$coupon_total = $coupon_amount;
 		} elseif ( 'Percentage' == $coupon_type ) {

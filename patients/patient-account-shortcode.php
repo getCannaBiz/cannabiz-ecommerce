@@ -193,7 +193,7 @@ function wpd_patient_account_shortcode() {
 							),
 						);
 
-						$date_query_yesterday = date( 'd', strtotime("-1 days") );
+						$date_query_yesterday = date( 'd', strtotime( '-1 days' ) );
 
 						// Weekly orders.
 						$date_query_weekly = array(

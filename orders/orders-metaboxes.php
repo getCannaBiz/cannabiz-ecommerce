@@ -50,7 +50,7 @@ function wpd_ecommerce_order_item_details_build() {
 
     //print_r( $get_order_amount );
 
-    $get_sales_tax = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
+    $get_sales_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
     $order_sales_tax = $get_sales_tax[0]['order_value'];
 
     //print_r( $get_sales_tax );
@@ -91,8 +91,8 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '</div>';
 
 	/** Get the data if its already been entered */
-	$order_status           = get_post_meta( $post->ID, 'wpd_order_status', true );
-	$order_customer_id      = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
+	$order_status      = get_post_meta( $post->ID, 'wpd_order_status', true );
+	$order_customer_id = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
 
 	echo '<div class="order-item-details-box">';
 	echo '<p><strong>' . __( 'Status', 'wpd-ecommerce' ) . ':</strong></p>';
@@ -123,6 +123,7 @@ function wpd_ecommerce_order_item_details_build() {
 	if ( '' != $user_info->address_line_2 ) {
 		echo $user_info->address_line_2 . "<br />";
 	}
+
 	echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
 
 	echo '</div>';
