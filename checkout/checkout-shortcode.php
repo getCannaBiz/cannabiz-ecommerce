@@ -575,7 +575,11 @@ function wpd_ecommerce_checkout_success() {
     wp_update_post( $updated_post );
 
     /**
-     * @todo mset up options for SMS (twilio) to be sent instead of email.
+     * @todo set up options for SMS (twilio) to be sent instead of email.
+     */
+
+    /**
+     * @todo order, user info, to, subject, etc all need to have filters applied.
      */
 
     /**

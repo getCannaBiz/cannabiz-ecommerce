@@ -68,6 +68,10 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '<input type="hidden" name="wpd_ecommerce_order_item_details_meta_noncename" id="wpd_ecommerce_order_item_details_meta_noncename" value="' .
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
+	/**
+	 * @todo add filters to all content output here, before/after table, etc.
+	 */
+
 	echo '<div class="order-item-details-box first">';
 	echo '<h1>Order #' . $post->ID . ' details</h1>';
 
