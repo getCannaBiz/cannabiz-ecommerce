@@ -24,7 +24,7 @@ function wpd_ecommerce_registration_form() { ?>
 function wpd_ecommerce_user_register( $user_id ) {
 	// First name.
 	if ( ! empty( $_POST['first_name'] ) ) {
-		update_user_meta( $user_id, 'first_name', $_POST['first_name'] );
+		update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
 	}
 }
 //add_action( 'user_register', 'wpd_ecommerce_user_register' );
