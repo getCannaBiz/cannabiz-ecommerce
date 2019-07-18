@@ -116,7 +116,7 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
  */
 function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
 	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) );
+		$errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) ) );
 	}
 
 	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
