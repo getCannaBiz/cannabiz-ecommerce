@@ -12,7 +12,7 @@ function wpd_ecommerce_checkout_shortcode() {
 
 if ( ! is_user_logged_in() ) {
     echo '<p>You must be logged in to checkout.</p>';
-    echo '<p><a href="' . get_bloginfo( 'url' ) . '/account/" class="button wpd-ecommerce return">Login</a></p>';
+    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce return">' . __( 'Login', 'wpd-ecommerce' ) . '</a></p>';
 } else {
     // Verify that there's an active session.
 	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {

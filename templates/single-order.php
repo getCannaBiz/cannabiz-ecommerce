@@ -9,7 +9,7 @@ do_action( 'wpd_ecommerce_templates_single_orders_wrap_before' );
 
 if ( ! is_user_logged_in() ) {
     // Redirect non-logged in users.
-    wp_redirect( home_url() . '/account/' );
+    wp_redirect( wpd_ecommerce_account_url() );
 } else {
 
     $user              = wp_get_current_user();
@@ -52,13 +52,13 @@ if ( ! is_user_logged_in() ) {
         // Administrators who ARE the customer
     } elseif ( $user->ID != $order_customer_id && 'patient' === $role[0] ) {
         // Patients who are ARE NOT the customer.
-        wp_redirect( home_url() . '/account/' );
+        wp_redirect( wpd_ecommerce_account_url() );
     } elseif ( $user->ID == $order_customer_id ) {
         // If current user IS the customer.
     } else {
         // If not patient or admin, redirect to account page.
         if ( 'patient' != $role[0] && 'administrator' != $role[0] ) {
-            wp_redirect( home_url() . '/account/' );
+            wp_redirect( wpd_ecommerce_account_url() );
         }
     }
 ?>
@@ -136,7 +136,7 @@ if ( ! is_user_logged_in() ) {
             } elseif ( 'administrator' === $role[0] ) {
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );
             } else {
-                wp_redirect( home_url() . '/account/' );
+                wp_redirect( wpd_ecommerce_account_url() );
             }
         ?>
         </div>
