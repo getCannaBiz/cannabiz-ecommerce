@@ -326,3 +326,18 @@ function wpd_ecommerce_patient_save_custom_profile_fields( $user_id ) {
 }
 add_action( 'edit_user_profile_update', 'wpd_ecommerce_patient_save_custom_profile_fields' );
 add_action( 'wpd_ecommerce_patient_account_verification_before', 'wpd_ecommerce_patient_save_custom_profile_fields' );
+
+/**
+ * Redirect patients on successful registration.
+ * 
+ * @since 1.5
+ */
+function wpd_ecommerce_patients_registration_redirect( $registration_redirect ) {
+    if ( TRUE == wpd_settings_patients_registration_redirect() ) {
+        // Return new redirect URL.
+        return wpd_settings_patients_registration_redirect();
+    } else {
+        // Do nothing.
+    }
+}
+add_filter( 'registration_redirect', 'wpd_ecommerce_patients_registration_redirect' );
