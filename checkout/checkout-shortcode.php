@@ -324,6 +324,8 @@ function wpd_ecommerce_checkout_success() {
 
     echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your order', 'wpd-ecommerce' ) . "</h3>";
 
+    do_action( 'wpd_ecommerce_checkout_success_your_order_table_before' );
+
     $str  = '';
     $str  = '<table style="border-collapse: collapse;width: 100%;max-width: 600px;margin: 0 auto;" class="wpd-ecommerce widget checkout">';
     $str .= '<thead style="border: 1px solid #DDD;">';
