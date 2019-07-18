@@ -444,6 +444,8 @@ function wpd_ecommerce_checkout_success() {
     $str .= "</tbody>";
     $str .= "</table>";
 
+    do_action( 'wpd_ecommerce_checkout_success_your_order_table_after' );
+
     // Total price.
     $total_price = ( number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
