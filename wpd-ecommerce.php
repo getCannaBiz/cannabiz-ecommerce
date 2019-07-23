@@ -312,6 +312,7 @@ register_activation_hook( __FILE__, 'wpd_ecommerce_add_options' );
  * @return      void
  */
 function wpd_ecommerce_load_admin_scripts() {
+	wp_enqueue_style( 'wpd-ecommerce-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
 	wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.min.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
