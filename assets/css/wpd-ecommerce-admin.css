@@ -179,3 +179,41 @@ input[type="submit"].remove-recommendation-doc:hover {
 	background: #F00000;
 	color: #FFF;
 }
+
+/** Orders page statuses */
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status:before {
+    font-family: 'FontAwesome';
+    font-size: 16px;
+    margin-right: 6px;
+    padding-right: 2px;
+    -webkit-font-smoothing: antialiased;
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-pending:before {
+    content: "\f017";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-processing:before {
+    content: "\f110";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-on-hold:before {
+    content: "\f256";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-completed:before {
+    content: "\f058";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-cancelled:before {
+    content: "\f05e";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-refunded:before {
+    content: "\f119";
+}
+
+td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-failed:before {
+    content: "\f00d";
+}

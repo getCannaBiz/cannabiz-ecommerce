@@ -94,8 +94,10 @@ add_action( 'admin_menu', 'wpd_admin_menu_orders', 10 );
 function set_custom_edit_wpd_orders_columns( $columns ) {
     unset( $columns['author'] );
     unset( $columns['date'] );
-    $columns['wpd_orders_customer'] = __( 'Customer', 'wpd-ecommerce' );
+    $columns['wpd_orders_date']     = __( 'Date', 'wpd-ecommerce' );
     $columns['wpd_orders_status']   = __( 'Status', 'wpd-ecommerce' );
+    $columns['wpd_orders_customer'] = __( 'Customer', 'wpd-ecommerce' );
+    $columns['wpd_orders_total']    = __( 'Total', 'wpd-ecommerce' );
 
     return $columns;
 }
@@ -105,23 +107,33 @@ add_filter( 'manage_wpd_orders_posts_columns', 'set_custom_edit_wpd_orders_colum
 function custom_wpd_orders_column( $column, $post_id ) {
     switch ( $column ) {
 
-		case 'wpd_orders_customer' :
-		$order_customer_id = get_post_meta( $post_id, 'wpd_order_customer_id', true );
-		$user_info         = get_userdata( $order_customer_id );
-
-		if ( '' != $user_info->first_name ) {
-			echo $user_info->first_name . " ";
-		}
-		if ( '' != $user_info->last_name ) {
-			echo $user_info->last_name . "<br />";
-		}
-		break;
+        case 'wpd_orders_date' :
+            echo get_the_date( '', $post_id );
+        break;
 
         case 'wpd_orders_status' :
 		$status_display = wpd_ecommerce_order_statuses( $post_id, NULL, NULL );
             if ( '' !== $status_display )
                 echo $status_display;
         break;
+
+		case 'wpd_orders_customer' :
+		$order_customer_id = get_post_meta( $post_id, 'wpd_order_customer_id', true );
+		$user_info         = get_userdata( $order_customer_id );
+			if ( '' != $user_info->first_name ) {
+				echo $user_info->first_name . " ";
+			}
+			if ( '' != $user_info->last_name ) {
+				echo $user_info->last_name . "<br />";
+			}
+		break;
+
+        case 'wpd_orders_total' :
+		$order_subtotal = get_post_meta( $post_id, 'wpd_order_subtotal_price', true );
+		$order_total    = get_post_meta( $post_id, 'wpd_order_total_price', true );
+			if ( '' !== $order_total )
+				echo wpd_currency_code() . $order_total;
+		break;
 
     }
 }
