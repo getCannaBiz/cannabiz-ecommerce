@@ -10,9 +10,7 @@ get_header();
 do_action( 'wpd_ecommerce_templates_archive_items_before' );
 
 /**
- * Set image size
- * 
- * @todo Move this along with the code below to run on the do_action
+ * @todo Move the code below to run on the do_action
  * from within the functions file for templates
  * 
  * @since 1.0
@@ -22,10 +20,6 @@ if ( ! empty( $_GET['vendor'] ) ) {
     $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
     $title       = $vendor_name->name;
 }
-
-//print_r( $vendor_name );
-
-//    echo $vendor_name;
 
 /**
  * Taxonomy check.
@@ -48,6 +42,7 @@ if ( is_tax() ) {
     $tax_query = array(
         'relation' => 'AND',
     );
+
     $tax_query[] = array(
         'taxonomy' => $taxonomy,
         'field'    => 'slug',
@@ -81,24 +76,10 @@ if ( ! empty( $_GET['vendor'] ) ) {
         $post_type_data = get_post_type_object( $post_type );
         $post_type_name = $post_type_data->label;
         $post_type_slug = $post_type_data->rewrite['slug'];
-        //echo $post_type_slug;
-        //echo $post_type_name;
         $menu_type_name = $post_type_name;
     }
 
-    /*
-    echo "<pre>";
-    print_r( $post_type_data );
-    echo "</pre>";
-    */
-
-    if ( is_post_type_archive( $post_type_slug ) ) {
-        //echo "<h2>Menu: " . $post_type_slug . "</h2>";
-    }
-
 }
-
-//print_r( $vendor_name );
 
 do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
 ?>
@@ -123,11 +104,6 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                           //'posts_per_page' => $options['perpage'] /** @todo create admin setting for this */
                         )
                     );
-                    /*
-                    echo "<pre>";
-                    print_r( $loop );
-                    echo "</pre>";
-                    */
 
                     // Loop through each post.
                     while ( $loop->have_posts() ) : $loop->the_post();
