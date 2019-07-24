@@ -140,6 +140,29 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                         <?php echo wpd_product_image( get_the_ID(), 'wpd-small' ); ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
                         <?php wpd_all_prices_simple( get_the_ID(), TRUE, TRUE ); ?>
+                        <?php
+                            // Get product details.
+                            $product_details = array(
+                                'thc'         => 'show',
+                                'thca'        => '',
+                                'cbd'         => 'show',
+                                'cba'         => '',
+                                'cbn'         => '',
+                                'cbg'         => '',
+                                'seed_count'  => 'show',
+                                'clone_count' => 'show',
+                                'total_thc'   => 'show',
+                                'size'        => 'show',
+                                'servings'    => '',
+                                'weight'      => 'show'
+                            );
+
+                            // Apply filters to product details.
+                            $product_details = apply_filters( 'wpd_ecommerce_template_archive_items_product_details', $product_details );
+
+                            // Return product details.
+                            wpd_product_details( get_the_ID(), $product_details );
+                        ?>
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
                     </div><!-- // .wpdshortcode item -->
                     <?php do_action( 'wpd_ecommerce_archive_items_product_after' ); ?>
