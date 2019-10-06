@@ -67,9 +67,12 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                     do_action( 'wpd_ecommerce_item_details_inside_before' );
 
                     // Get compounds.
-                    $compounds = wpd_compounds_simple( get_the_ID(), $type = '%', array() );
+                    $compounds = get_wpd_compounds_simple( get_the_ID(), $type = '%', array( 'thc', 'cbd' ) );
 
-                    $showcompounds = $compounds;
+                    // Show compounds.
+                    if ( $compounds ) {
+                        echo $compounds;
+                    }
 
                     do_action( 'wpd_ecommerce_item_details_inside_after' );
 
