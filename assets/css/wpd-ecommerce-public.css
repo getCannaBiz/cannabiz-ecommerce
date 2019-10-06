@@ -409,14 +409,35 @@ span.wpd-ecommerce.category a:hover {
     color: #454545;
 }
 
+/** Single item - Compounds */
+.wpd-ecommerce.item-details {
+    margin-top: 6px;
+}
 
-/** Single Itme - Prices (flowers) */
+/** Single item - Prices (flowers) */
 span.wpd-ecommerce.prices-flowers {
     color: #76BD1D;
     display: block;
     font-size: 18px;
     margin-bottom: 12px;
 }
+
+/** Single item - Out of stock */
+form.wpd-ecommerce span.wpd-inventory.warning {
+	background: #EEE;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	color: #999;
+	font-weight: 600;
+	float: left;
+    margin-top: 0;
+    margin-bottom: 12px;
+    position: relative;
+    padding: 10px 10px;
+	text-align: center;
+	width: 100%;
+}
+
 
 /** My Account Form */
 
