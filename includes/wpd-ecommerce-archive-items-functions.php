@@ -22,40 +22,144 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         $product_id = $product_id;
     }
 
+    // Product data.
     $post_type      = get_post_type( $product_id );
     $price_each     = get_post_meta( $product_id, '_priceeach', true );
     $price_topical  = get_post_meta( $product_id, '_pricetopical', true );
     $price_per_pack = get_post_meta( $product_id, '_priceperpack', true );
 
+    // Flowers.
+    if ( 'flowers' == $post_type ) {
+        // Create button.
+        if ( '' != $price_each ) {
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+        } else {
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+        }
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            // Remove button if inventory is empty.
+            if ( ! get_post_meta( $product_id, '_inventory_flowers', true ) ) {
+                $button = '';
+            }    
+        }
+    }
+
+    // Concentrates.
+    if ( 'concentrates' == $post_type ) {
+        // Create button.
+        if ( '' != $price_each ) {
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+        } else {
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+        }
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( '' != $price_each ) {
+                // Remove button if inventory is empty.
+                if ( ! get_post_meta( $product_id, '_inventory_concentrates_each', true ) ) {
+                    $button = '';
+                }
+            } else {
+                // Remove button if inventory is empty.
+                if ( ! get_post_meta( $product_id, '_inventory_concentrates', true ) ) {
+                    $button = '';
+                }
+            }
+        }
+    }
+
+    // Edibles, Pre-rolls, Growers, Tinctures and Gear.
     if ( 'edibles' == $post_type || 'prerolls' == $post_type || 'growers' == $post_type || 'tinctures' == $post_type || 'gear' == $post_type ) {
     	if ( '' != $price_each && '' != $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceperpack" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceperpack" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' != $price_each && '' === $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
         } else {
             // Do nothing.
         }
     }
+
+    // Edibles inventory check.
+    if ( 'edibles' == $post_type ) {
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( ! get_post_meta( $product_id, '_inventory_edibles', true ) ) {
+                $button = '';
+            }
+        }
+    }
+
+    // Pre-rolls inventory check.
+    if ( 'prerolls' == $post_type ) {
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( ! get_post_meta( $product_id, '_inventory_prerolls', true ) ) {
+                $button = '';
+            }
+        }
+    }
+
+    // Topicals.
     if ( 'topicals' == $post_type ) {
     	if ( '' != $price_topical && '' != $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' === $price_topical && '' != $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceperpack" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceperpack" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' != $price_topical && '' === $price_per_pack ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_pricetopical" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_pricetopical" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
         } else {
             // Do nothing.
         }
-    }
-    if ( 'flowers' == $post_type || 'concentrates' == $post_type ) {
-        if ( '' != $price_each ) {
-            echo '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
-        } else {
-            echo '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            // Remove button if inventory is empty.
+            if ( ! get_post_meta( $product_id, '_inventory_topicals', true ) ) {
+                $button = '';
+            }
         }
     }
+
+    // Growers inventory check.
+    if ( 'growers' == $post_type ) {
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( get_post_meta( get_the_ID(), '_clonecount', true ) ) {
+                if ( ! get_post_meta( get_the_ID(), '_inventory_clones', true ) ) {
+                    $button = '';
+                }
+            }
+            if ( get_post_meta( get_the_ID(), '_seedcount', true ) ) {
+                if ( ! get_post_meta( get_the_ID(), '_inventory_seeds', true ) ) {
+                    $button = '';
+                }
+            }
+        }
+    }
+
+    // Tinctures inventory check.
+    if ( 'tinctures' == $post_type ) {
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( ! get_post_meta( $product_id, '_inventory_tinctures', true ) ) {
+                $button = '';
+            }
+        }
+    }
+
+    // Gear inventory check.
+    if ( 'gear' == $post_type ) {
+        // Inventory management check.
+        if ( function_exists( 'run_wpd_inventory' ) ) {
+            if ( ! get_post_meta( $product_id, '_inventory_gear', true ) ) {
+                $button = '';
+            }
+        }
+    }
+
+    echo apply_filters( 'wpd_ecommerce_archive_items_buttons', $button );
 
 }
 
