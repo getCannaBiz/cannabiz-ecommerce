@@ -1,15 +1,35 @@
 # Changelog
 
+### 1.5
+* Added Font Awesome v4.7 to the admin pages in `wpd-ecommerce.php`
+* Added default settings for ground shipping in `wpd-ecommerce.php`
+* Added order `date` and `total` columns to All Orders page in `orders/orders-post-type.php`
+* Added `thc_topical` to the list of details to show for products in `templates/archive-items.php`
+* Added 2 filters for archive items template in `templates/archive-items.php`
+* Added `wpd_ecommerce_payment_type_name_ground` filter in `wpd-ecommerce.php`
+* Added `wpd_ecommerce_checkout_billing_details_form_countries` filter in `checkout/checkout-shortcode.php`
+* Added `wpd_ecommerce_patient_account_details_form_countries` filter in `patients/patient-account-shortcode.php`
+* Added `wpd_ecommerce_checkout_success_your_order_table_before` action hook in `checkout/checkout-shortcode.php`
+* Added `wpd_ecommerce_checkout_success_your_order_table_before` action hook in `checkout/checkout-shortcode.php`
+* Added `wpd_ecommerce_patients_registration_redirect` filter in `includes/wpd-ecommerce-patients-functions.php`
+* Added `wpd_ecommerce_template_archive_items_product_details` filter in `templates/archive-items.php`
+* Added compounds to the single item template in `templates/single-item.php`
+* Update buttons in shortcode with out of stock message if no inventory is available in `includes/wpd-ecommerce-archive-items-functions.php`
+* Updated add to cart form to replace it with an out of stock message if no inventory is available in `includes/wpd-ecommerce-core-functions.php`
+* Updated `.pot` file with text strings for localization in `languages/wpd-ecommerce.pot`
+* Updated the `$_POST` data to use `sanitize_text_field` function in multiple files
+* Updated redirects to use `wpd_ecommerce_account_url` helper function in multiple files
+* General code cleanup throughout various files in the plugin
+
 ### 1.4
 * Added `wpd_ecommerce_checkout_after_order_details` filter in `checkout/checkout-shortcode.php`
 * Added Ground shipping instructions text on checkout after order details in `includes/wpd-ecommerce-cart-functions.php`
 * Added `PAYMENT_TYPE_AMOUNT` defined for Ground shipping option in `wpd-ecommerce.php`
 * Added `wpd_ecommerce_payment_type_name_delivery` filter in `wpd-ecommerce.php`
 * Added `wpd_ecommerce_payment_type_name_pop` filter in `wpd-ecommerce.php`
-* Added `wpd_ecommerce_payment_type_name_ground` filter in `wpd-ecommerce.php`
 * Added default weights for Heavyweights weights in `wpd-ecommerce.php`
 * Added default settings for ground shipping in `wpd-ecommerce.php`
-* Added 5 filters for the order success emails sent to admin and patient in `checkout/checkout-shortcode.php`
+* Added 4 filters for the order success emails sent to admin and patient in `checkout/checkout-shortcode.php`
 * Added checks for available inventory of product and display error message if patient is trying to add too much to the cart in `includes/wpd-ecommerce-core-functions.php`
 * Updated to use 13-50 pounds Heavyweights prices in `includes/wpd-ecommerce-core-functions.php`
 * Updated "Return to menu" text in cart functions in `cart/cart-shortcode.php`
