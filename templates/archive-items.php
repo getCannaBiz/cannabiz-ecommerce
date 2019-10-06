@@ -128,6 +128,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                                 'seed_count'  => 'show',
                                 'clone_count' => 'show',
                                 'total_thc'   => 'show',
+                                'thc_topical' => 'show',
                                 'size'        => 'show',
                                 'servings'    => '',
                                 'weight'      => 'show'
