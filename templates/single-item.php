@@ -17,12 +17,11 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                 <div class="image-wrapper">
                 <?php
                 if ( has_post_thumbnail() ) {
-                    $wpd_ecommerce_single_item_image_size = 'wpd-small';
-                    $the_post_thumbnail = apply_filters( 'wpd_ecommerce_single_item_image_size', $wpd_ecommerce_single_item_image_size );
-                    echo '<a href="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '"><img src="' . get_the_post_thumbnail_url( get_the_ID(), $the_post_thumbnail ) . '" alt="' . get_the_title() . '" /></a>';
+                    $img_size = apply_filters( 'wpd_ecommerce_single_item_image_size', 'wpd-small' );
+                    echo '<a href="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '"><img src="' . get_the_post_thumbnail_url( get_the_ID(), $img_size ) . '" alt="' . get_the_title() . '" /></a>';
                 } else {
-                    $wpd_ecommerce_single_item_no_image = get_bloginfo( 'url' ) . '/wp-content/plugins/wp-dispensary/public/images/wpd-medium.jpg';
-                    echo '<img src="' . apply_filters( 'wpd_ecommerce_single_item_no_image', $wpd_ecommerce_single_item_no_image ) . '" alt="' . get_the_title() . '" />';
+                    $no_img = get_bloginfo( 'url' ) . '/wp-content/plugins/wp-dispensary/public/images/wpd-medium.jpg';
+                    echo '<img src="' . apply_filters( 'wpd_ecommerce_single_item_no_image', $no_img ) . '" alt="' . get_the_title() . '" />';
                 }
                 ?>
                 </div><!-- // .image-wrapper -->
@@ -41,29 +40,29 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                     do_action( 'wpd_ecommerce_item_types_before' );
 
                     // Display Item types.
-                    echo "<div class='wpd-ecommerce item-types'>";
+                    echo '<div class="wpd-ecommerce item-types">';
 
                     do_action( 'wpd_ecommerce_item_types_inside_before' );
 
-                    // Display Strain Type
-                    echo "<span class='wpd-ecommerce strain-type'>" . get_the_term_list( get_the_ID(), 'strain_type', '', '' ) . "</span>";
-                    // Display Shelf Type
-                    echo "<span class='wpd-ecommerce shelf-type'>" . get_the_term_list( get_the_ID(), 'shelf_type', '', '' ) . "</span>";
-                    // Display Edibles Category
-                    echo "<span class='wpd-ecommerce category edibles'>" . get_the_term_list( get_the_ID(), 'edibles_category', '', '' ) . "</span>";
-                    // Display Topicals Category
-                    echo "<span class='wpd-ecommerce category topicals'>" . get_the_term_list( get_the_ID(), 'topicals_category', '', '' ) . "</span>";
+                    // Display Strain Type.
+                    echo '<span class="wpd-ecommerce strain-type">' . get_the_term_list( get_the_ID(), 'strain_type', '', '' ) . '</span>';
+                    // Display Shelf Type.
+                    echo '<span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_type', '', '' ) . '</span>';
+                    // Display Edibles Category.
+                    echo '<span class="wpd-ecommerce category edibles">' . get_the_term_list( get_the_ID(), 'edibles_category', '', '' ) . '</span>';
+                    // Display Topicals Category.
+                    echo '<span class="wpd-ecommerce category topicals">' . get_the_term_list( get_the_ID(), 'topicals_category', '', '' ) . '</span>';
 
                     do_action( 'wpd_ecommerce_item_types_inside_after' );
 
                     // End item-types div.
-                    echo "</div>";
+                    echo '</div>';
 
                     do_action( 'wpd_ecommerce_item_types_after' );
 
                     do_action( 'wpd_ecommerce_item_details_before' );
 
-                    echo "<div class='wpd-ecommerce item-details'>";
+                    echo '<div class="wpd-ecommerce item-details">';
 
                     do_action( 'wpd_ecommerce_item_details_inside_before' );
 
@@ -74,10 +73,9 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
 
                     do_action( 'wpd_ecommerce_item_details_inside_after' );
 
-                    echo "</div>";
+                    echo '</div>';
 
                     do_action( 'wpd_ecommerce_item_details_after' );
-
                     ?>
 
                 </div><!-- / .product-details -->

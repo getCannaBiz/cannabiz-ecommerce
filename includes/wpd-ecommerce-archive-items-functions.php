@@ -83,7 +83,7 @@ function wpd_ecommerce_item_buttons() {
 	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
         // Do nothing.
     } else {
-        // Add buttons to the various shortcodes, archives, and widgets..
+        // Add buttons to the various shortcodes, archives, and widgets.
         add_action( 'wpd_ecommerce_archive_items_product_inside_after', 'wpd_ecommerce_archive_items_buttons' );
         add_action( 'wpd_shortcode_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
         add_action( 'wpd_flowers_widget_inside_bottom', 'wpd_ecommerce_archive_items_buttons' );
@@ -128,6 +128,7 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
             // Do nothing.
         }
     }
+
     if ( 'topicals' == $post_type ) {
     	if ( '' != $price_topical && '' != $price_per_pack ) {
             $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
@@ -139,6 +140,7 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
             // Do nothing.
         }
     }
+
     if ( 'flowers' == $post_type || 'concentrates' == $post_type ) {
         if ( '' != $price_each ) {
             $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . '_priceeach" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
