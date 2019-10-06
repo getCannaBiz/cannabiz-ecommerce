@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2019-07-17 22:44-0400\n"
-"PO-Revision-Date: 2019-07-17 22:43-0400\n"
+"POT-Creation-Date: 2019-10-06 13:59-0400\n"
+"PO-Revision-Date: 2019-10-06 13:59-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,8 @@ msgstr ""
 #: checkout/checkout-shortcode.php:180 checkout/checkout-shortcode.php:281
 #: checkout/checkout-shortcode.php:332
 #: includes/wpd-ecommerce-orders-functions.php:54
-#: orders/orders-metaboxes.php:92 patients/patient-account-shortcode.php:253
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: patients/patient-account-shortcode.php:253
 #: patients/patient-account-shortcode.php:312 templates/single-order.php:132
 msgid "Total"
 msgstr ""
@@ -207,26 +208,28 @@ msgstr ""
 msgid "Hello Administrator"
 msgstr ""
 
-#: includes/wpd-ecommerce-archive-items-functions.php:32
-#: includes/wpd-ecommerce-archive-items-functions.php:43
-#: includes/wpd-ecommerce-archive-items-functions.php:56
-#: includes/wpd-ecommerce-archive-items-functions.php:122
-#: includes/wpd-ecommerce-archive-items-functions.php:133
-#: includes/wpd-ecommerce-archive-items-functions.php:146
-msgid "Select Options"
+#: includes/wpd-ecommerce-archive-items-functions.php:35
+#: includes/wpd-ecommerce-archive-items-functions.php:52
+#: includes/wpd-ecommerce-archive-items-functions.php:77
+#: includes/wpd-ecommerce-archive-items-functions.php:79
+#: includes/wpd-ecommerce-archive-items-functions.php:110
+#: includes/wpd-ecommerce-archive-items-functions.php:112
+#: includes/wpd-ecommerce-archive-items-functions.php:228
+#: includes/wpd-ecommerce-archive-items-functions.php:230
+#: includes/wpd-ecommerce-archive-items-functions.php:240
+#: includes/wpd-ecommerce-archive-items-functions.php:242
+#: includes/wpd-ecommerce-archive-items-functions.php:250
+msgid "Buy Now"
 msgstr ""
 
-#: includes/wpd-ecommerce-archive-items-functions.php:34
-#: includes/wpd-ecommerce-archive-items-functions.php:36
-#: includes/wpd-ecommerce-archive-items-functions.php:45
-#: includes/wpd-ecommerce-archive-items-functions.php:47
+#: includes/wpd-ecommerce-archive-items-functions.php:37
 #: includes/wpd-ecommerce-archive-items-functions.php:54
-#: includes/wpd-ecommerce-archive-items-functions.php:124
-#: includes/wpd-ecommerce-archive-items-functions.php:126
-#: includes/wpd-ecommerce-archive-items-functions.php:135
-#: includes/wpd-ecommerce-archive-items-functions.php:137
-#: includes/wpd-ecommerce-archive-items-functions.php:144
-msgid "Buy Now"
+#: includes/wpd-ecommerce-archive-items-functions.php:75
+#: includes/wpd-ecommerce-archive-items-functions.php:108
+#: includes/wpd-ecommerce-archive-items-functions.php:226
+#: includes/wpd-ecommerce-archive-items-functions.php:238
+#: includes/wpd-ecommerce-archive-items-functions.php:252
+msgid "Select Options"
 msgstr ""
 
 #: includes/wpd-ecommerce-core-functions.php:65
@@ -317,23 +320,36 @@ msgstr ""
 msgid "Pages"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1189
+#: includes/wpd-ecommerce-core-functions.php:1171
+#: includes/wpd-ecommerce-core-functions.php:1180
+#: includes/wpd-ecommerce-core-functions.php:1184
+#: includes/wpd-ecommerce-core-functions.php:1193
+#: includes/wpd-ecommerce-core-functions.php:1201
+#: includes/wpd-ecommerce-core-functions.php:1209
+#: includes/wpd-ecommerce-core-functions.php:1218
+#: includes/wpd-ecommerce-core-functions.php:1222
+#: includes/wpd-ecommerce-core-functions.php:1231
+#: includes/wpd-ecommerce-core-functions.php:1239
+msgid "out of stock"
+msgstr ""
+
+#: includes/wpd-ecommerce-core-functions.php:1280
 msgid "Choose a weight"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1361
+#: includes/wpd-ecommerce-core-functions.php:1452
 msgid "Choose a quantity"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1362
+#: includes/wpd-ecommerce-core-functions.php:1453
 msgid "each"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1363
+#: includes/wpd-ecommerce-core-functions.php:1454
 msgid "pack"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1637
+#: includes/wpd-ecommerce-core-functions.php:1728
 msgid "Add to cart"
 msgstr ""
 
@@ -468,7 +484,7 @@ msgstr ""
 msgid "Address"
 msgstr ""
 
-#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:97
+#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:99
 msgid "Customer"
 msgstr ""
 
@@ -591,6 +607,11 @@ msgstr ""
 msgid "View your store's order history"
 msgstr ""
 
+#: orders/orders-post-type.php:97 patients/patient-account-shortcode.php:251
+#: patients/patient-account-shortcode.php:310 templates/single-order.php:80
+msgid "Date"
+msgstr ""
+
 #: patients/patient-account-details.php:42
 msgid "Additional Details"
 msgstr ""
@@ -667,11 +688,6 @@ msgstr ""
 #: patients/patient-account-shortcode.php:249
 #: patients/patient-account-shortcode.php:309
 msgid "ID"
-msgstr ""
-
-#: patients/patient-account-shortcode.php:251
-#: patients/patient-account-shortcode.php:310 templates/single-order.php:80
-msgid "Date"
 msgstr ""
 
 #: patients/patient-account-shortcode.php:306
