@@ -1780,7 +1780,7 @@ function wpd_ecommerce_checkout_url() {
 function wpd_ecommerce_menu_url() {
     $wpdas_pages = get_option( 'wpdas_pages' );
     $menu_page   = $wpdas_pages['wpd_pages_setup_menu_page'];
-    $menu_url    = wpd_ecommerce_menu_url();
+    $menu_url    = home_url() . '/' . $menu_page;
 
 	return apply_filters( 'wpd_ecommerce_menu_url', $menu_url );
 }
