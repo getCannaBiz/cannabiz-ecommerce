@@ -233,7 +233,7 @@ function wpd_ecommerce_notifications() {
 			}
 
 			// Get inventory.
-			$inventory = get_post_meta( $post->ID, '_inventory_flowers',  TRUE );
+			$inventory = get_post_meta( get_the_ID(), '_inventory_flowers',  TRUE );
 
 			// Quantity X weight amount.
 			$inventory_reduction = get_option( 'wpd_ecommerce_weight_flowers' . $wpd_flower_meta_key ) * $qtty;
