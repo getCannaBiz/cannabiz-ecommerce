@@ -48,11 +48,12 @@ function wpd_ecommerce_notifications() {
 	// Get WPD settings from General tab.
 	$wpdas_general = get_option( 'wpdas_general' );
 
+	// Require login to shop?
+	$login_to_shop = NULL;
+
 	// Check if user needs to be logged in to shop.
 	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
 		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
-	} else {
-		$login_to_shop = NULL;
 	}
 
 	// Begin data.
@@ -515,7 +516,7 @@ function wpd_ecommerce_notifications() {
 		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Item removed', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The item has been successfully removed.', 'wpd-ecommerce' ) .'</div>';
 	}
 
-	// Add an item from the cart
+	// Add an item to the cart
 	if ( ! empty( $_GET['add_item'] ) ) {
 		if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
 			$c = new Cart;
