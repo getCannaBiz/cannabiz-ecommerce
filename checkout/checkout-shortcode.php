@@ -265,6 +265,11 @@ if ( ! is_user_logged_in() ) {
 
         $total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
+		// Reduce coupon cost from total price.
+		if ( $_SESSION['wpd_ecommerce']->coupon_amount ) {
+			$total_price = $total_price - number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' );
+		}
+
         $str .= "<tr><td><strong>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><td><strong>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</strong></td><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
@@ -451,6 +456,11 @@ function wpd_ecommerce_checkout_success() {
 
     // Coupon total.
     $coupon_total = $_SESSION['wpd_ecommerce']->coupon_amount;
+
+    // Reduce coupon cost from total price.
+    if ( $_SESSION['wpd_ecommerce']->coupon_amount ) {
+        $total_price = $total_price - number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' );
+    }
 
     // Create orders array.
     $orders_insert   = array();

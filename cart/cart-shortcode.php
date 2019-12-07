@@ -102,6 +102,11 @@ function wpd_ecommerce_shortcode() {
 		// Get total price.
 		$total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
 
+		// Reduce coupon cost from total price.
+		if ( $_SESSION['wpd_ecommerce']->coupon_amount ) {
+			$total_price = $total_price - number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' );
+		}
+
 		$str .= do_action( 'wpd_ecommerce_cart_wrap_before' );
 
 		$str .= "<div class='wpd-ecommerce-wrap'>";
