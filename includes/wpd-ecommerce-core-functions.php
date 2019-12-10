@@ -1784,3 +1784,50 @@ function wpd_ecommerce_menu_url() {
 
 	return apply_filters( 'wpd_ecommerce_menu_url', $menu_url );
 }
+
+/**
+ * Payment types.
+ * 
+ * Get an array of the available payment types.
+ * 
+ * @since 1.6
+ * @return array $payment_types
+ */
+function wpd_ecommerce_payment_types() {
+	// Get Payments settings.
+	$wpd_payments = get_option( 'wpdas_payments' );
+	// Set empty array for payment types.
+	$payment_types = array();
+	// Check if WP Dispensary setting is set.
+	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_cod_checkbox'] ) {
+		// Check if payment method is available.
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_cod'];
+			// Add payment method to array.
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', __( 'Delivery', 'wpd-ecommerce' ) )] = $payment_amount;
+		}
+	}
+	// Check if WP Dispensary setting is set.
+	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_pop_checkbox'] ) {
+		// Check if payment method is available.
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
+			// Add payment method to array.
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', __( 'In-store pickup', 'wpd-ecommerce' ) )] = $payment_amount;
+		}
+	}
+	// Check if WP Dispensary setting is set.
+	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
+		// Check if payment method is available.
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
+			// Add payment method to array.
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_ground', __( 'Shipping', 'wpd-ecommerce' ) )] = $payment_amount;
+		}
+	}
+
+	return $payment_types;
+}
