@@ -21,7 +21,7 @@ jQuery(document).ready(function ($) {
         // Added a callback so that the call to update the UI waits until the first AJAX call is complete.
         function(data, textStatus, jqXHR) {
             // Refresh table.
-            $("table.wpd-ecommerce.widget.checkout tbody tr.total td.total-price").load( object_name.pageURL + " span.total-price");
+            $("table.wpd-ecommerce.widget.checkout tbody tr.total td.total-price").load( object_name.pageURL + " span.total-price" );
         }
         );
 
