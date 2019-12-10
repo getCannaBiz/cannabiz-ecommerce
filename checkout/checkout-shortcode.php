@@ -299,11 +299,7 @@ if ( ! is_user_logged_in() ) {
 
 	} else {
         echo '<p>' . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
-
-        /**
-		 * @todo filter the button link and the button text so devs can change easily.
-		 */
-        echo '<p><a href="' . wpd_ecommerce_menu_url() . '" class="button wpd-ecommerce return">' . __( 'Return to menu', 'wpd-ecommerce' ) . '</a></p>';
+        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', __( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
 	}
 } // is user logged in
 }
