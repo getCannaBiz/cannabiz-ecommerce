@@ -183,6 +183,14 @@ h3.wpd-ecommerce.patient-title {
     font-size: 36px;
 }
 
+table.wpd-ecommerce.widget.checkout tbody tr.payment-type {
+    color: rgba(0,0,0,0.3);
+}
+
+table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
+    color: #454545;
+}
+
 /** Notifications */
 .wpd-ecommerce-notifications {
     background-color: #f8f8f8;

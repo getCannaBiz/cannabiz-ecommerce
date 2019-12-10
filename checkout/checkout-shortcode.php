@@ -81,14 +81,23 @@ if ( ! is_user_logged_in() ) {
             // Minimum checkout check.
             if ( '' !== $min_checkout ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= $min_checkout ) {
-                    // Run success codes.
-                    wpd_ecommerce_checkout_success();
+                    if ( empty( $_POST['payment-type'] ) ) {
+                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
+                        echo $str;
+                    } else {
+                        wpd_ecommerce_checkout_success();
+                    }
                 } else {
                     $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . $min_checkout . '</div>';
                     echo $str;
                 }
             } else {
-                wpd_ecommerce_checkout_success();
+                if ( empty( $_POST['payment-type'] ) ) {
+                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
+                    echo $str;
+                } else {
+                    wpd_ecommerce_checkout_success();
+                }
             }
         }
         ?>
@@ -285,10 +294,18 @@ if ( ! is_user_logged_in() ) {
         if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
             $str .= '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
         }
-		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
-			$str .= "<tr><td><strong>" . PAYMENT_TYPE_NAME . "</strong></td><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
-		}
-        $str .= "<tr><td><strong>" . __( 'Total', 'wpd-ecommerce' ) . "</strong></td><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
+
+        // Payment type.
+        foreach ( wpd_ecommerce_payment_types() as $name => $value ) {
+            $str .= '<tr class="payment-type"><td><input type="radio" name="payment-type" id="' . $name . '" value="' . $value . '"/> <strong>' . $name . '</strong></td><td>' . CURRENCY . number_format((float)$value, 2, '.', ',' ) . '</td></tr>';
+        }
+
+        if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
+            $total_price = $total_price + PAYMENT_TYPE_AMOUNT;
+        }
+
+        // Total.
+        $str .= '<tr class="total"><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
         $str .= '</tbody>';
         $str .= '</table>';
