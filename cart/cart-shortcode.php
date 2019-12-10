@@ -117,13 +117,17 @@ function wpd_ecommerce_shortcode() {
 		$str .= "<table class='wpd-ecommerce totals'>";
 		$str .= "<tbody>";
 		$str .= "<tr><th class='cart_sum'><span class='subtotal'>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+
+		// Add the coupon.
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
 			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}
-		if ( NULL !== SALES_TAX ) {
+		// Add the sales tax.
+		if ( NULL !== $_SESSION['wpd_ecommerce']->sales_tax && 0 != $_SESSION['wpd_ecommerce']->sales_tax ) {
 			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>" . __( 'Sales tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
 		}
-		if ( NULL !== EXCISE_TAX ) {
+		// Add the excise tax.
+		if ( NULL !== $_SESSION['wpd_ecommerce']->excise_tax && 0 != $_SESSION['wpd_ecommerce']->excise_tax ) {
 			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
 		}
 		if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
