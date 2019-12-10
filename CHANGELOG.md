@@ -1,5 +1,22 @@
 # Changelog
 
+### 1.6
+* Added `wpd_ecommerce_payment_types` helper function in `includes/wpd-ecommerce-core-functions.php`
+* Added `wpd_ecommerce_checkout_return_to_menu_url` and `wpd_ecommerce_checkout_return_to_menu_text` filters in `checkout/checkout-shortcode.php`
+* Added JavaScript file with codes to update the total price when a payment type is selected in `assets/js/wpd-ecommerce-public.js`
+* Added styles for the payment types in `Your Orders` table on checkout in `assets/css/wpd-ecommerce-public.css`
+* Bugfix total price in cart when a coupon is applied in `cart/cart-shortcode.php`
+* Bugfix total price in checkout when a coupon is applied in `checkout/checkout-shortcode.php`
+* Bugfix critical error in the `wpd_ecommerce_menu_url` helper function in `inclused/wpd-ecommerce-core-functions.php`
+* Updated excise and sales tax checks to hide them if they're NULL or 0 in `cart/cart-shortcode.php`
+* Updated payment name check to only display if `payment_type_name` is set in session in `cart/cart-shortcode.php`
+* Updated checkout page to only show instructions text if Ground Shipping is activated in `includes/wpd-ecommerce-core-functions.php`
+* Updated checkout to include all active payment types as selectable options that update total price in `checkout/checkout-shortcode.php`
+* Updated javascript/AJAX to update the total price when a payment type is selected in `wpd-ecommerce.php`
+* Updated `post->ID` to use `get_the_ID()` instead in `includes/wpd-ecommerce-core-functions.php`
+* Updated `.pot` file with text strings for localization in `languages/wpd-ecommerce.pot`
+* General code cleanup throughout various files in the plugin
+
 ### 1.5
 * Added Font Awesome v4.7 to the admin pages in `wpd-ecommerce.php`
 * Added default settings for ground shipping in `wpd-ecommerce.php`
