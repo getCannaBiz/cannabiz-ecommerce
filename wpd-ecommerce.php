@@ -62,52 +62,6 @@ function wpd_ecommerce() {
 		define( 'EXCISE_TAX', $excise_tax );
 	}
 
-	/**
-	 * Access payments settings
-	 */
-	$wpd_payments = get_option( 'wpdas_payments' );
-
-	//print_r( $wpd_payments );
-
-	// Check if WP Dispensary setting is set.
-	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_cod_checkbox'] ) {
-		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] ) {
-			// Create payment amount.
-			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_cod'];
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
-			define( 'PAYMENT_TYPE_NAME', apply_filters( 'wpd_ecommerce_payment_type_name_delivery', __( 'Delivery', 'wpd-ecommerce' ) ) );
-		} else {
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', NULL );
-		}
-	} elseif ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_pop_checkbox'] ) {
-		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] ) {
-			// Create payment amount.
-			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
-			define( 'PAYMENT_TYPE_NAME', apply_filters( 'wpd_ecommerce_payment_type_name_pop', __( 'In-store Pickup', 'wpd-ecommerce' ) ) );
-		} else {
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', NULL );
-		}
-	} elseif ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
-		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {
-			// Create payment amount.
-			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', $payment_amount );
-			define( 'PAYMENT_TYPE_NAME', apply_filters( 'wpd_ecommerce_payment_type_name_ground', __( 'Shipping', 'wpd-ecommerce' ) ) );
-		} else {
-			// Define payment_type_amount.
-			define( 'PAYMENT_TYPE_AMOUNT', NULL );
-		}
-	} else {
-		// Define payment type.
-		define( 'PAYMENT_TYPE_AMOUNT', NULL );
-	}
-
 	// Define currency code.
 	define( 'CURRENCY', wpd_currency_code() );
 
