@@ -992,18 +992,7 @@ body.tax-strain_type .hentry {
     margin-bottom: 0;
 }
 
-.wpdshortcode {
-    padding: 10px;
-}
-
-.wpdshortcode:nth-child(3n+3) {
-    margin: 12px 2%;
-}
-
 @media screen and (max-width: 600px) {
-    .wpdshortcode.item {
-        width: 100% !important;
-    }
     .image-wrapper img {
         margin: 0 auto;
         display: block;
