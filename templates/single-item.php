@@ -15,15 +15,7 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
             <div class="entry-header wpd-ecommerce-shelfItem">
 
                 <div class="image-wrapper">
-                <?php
-                if ( has_post_thumbnail() ) {
-                    $img_size = apply_filters( 'wpd_ecommerce_single_item_image_size', 'wpd-small' );
-                    echo '<a href="' . get_the_post_thumbnail_url( get_the_ID(), 'full' ) . '"><img src="' . get_the_post_thumbnail_url( get_the_ID(), $img_size ) . '" alt="' . get_the_title() . '" /></a>';
-                } else {
-                    $no_img = get_bloginfo( 'url' ) . '/wp-content/plugins/wp-dispensary/public/images/wpd-medium.jpg';
-                    echo '<img src="' . apply_filters( 'wpd_ecommerce_single_item_no_image', $no_img ) . '" alt="' . get_the_title() . '" />';
-                }
-                ?>
+                    <?php wpd_product_image( get_the_ID(), 'wpd-medium' ); ?>
                 </div><!-- // .image-wrapper -->
 
                 <div class="product-details">
