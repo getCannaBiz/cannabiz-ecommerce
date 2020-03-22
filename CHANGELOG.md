@@ -1,5 +1,14 @@
 # Changelog
 
+### 1.7
+* Added `wpd_ecommerce_archive_items_product_image_size` filter in `templates/archive-items.php`
+* Bugfix added the product details filter's missing arg in `templates/archive-items.php`
+* Updated CSS to remove unnecessary styles for menu items in `assets/css/wpd-ecommerce-public.css`
+* Updated styles for account page patients, orders and earnings boxes on mobile in `assets/css/wpd-ecommerce-public.css`
+* Updated the single product template to use the `wpd_product_image` helper function in `templates/single-item.php`
+* Updated archive template to use flexbox in `templates/archive-items.php`
+* Updated flexbox styles for archive template in `assets/css/wpd-ecommerce-public.css`
+
 ### 1.6
 * Added `wpd_ecommerce_payment_types` helper function in `includes/wpd-ecommerce-core-functions.php`
 * Added `wpd_ecommerce_checkout_return_to_menu_url` and `wpd_ecommerce_checkout_return_to_menu_text` filters in `checkout/checkout-shortcode.php`
