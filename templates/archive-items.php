@@ -137,7 +137,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                             $product_details = apply_filters( 'wpd_ecommerce_template_archive_items_product_details', $product_details );
 
                             // Return product details.
-                            wpd_product_details( get_the_ID(), $product_details );
+                            wpd_product_details( get_the_ID(), $product_details, 'span' );
                         ?>
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_after' ); ?>
                     </div><!-- // .wpdshortcode item -->
