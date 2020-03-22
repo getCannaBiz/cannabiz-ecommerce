@@ -91,9 +91,8 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
             <div class="item-wrapper">
                 <div class="wpd-row">
                 <?php
-                    $count      = 0;
-                    $perrow     = ( empty( $options['perrow'] ) ) ? apply_filters( 'wpd_ecommerce_template_archive_items_per_row', 3 ) : $options['perrow'];
-                    $item_width = ( empty( $options['perrow'] ) ) ? apply_filters( 'wpd_ecommerce_template_archive_item_width', 32 ) : ( 100 / $options['perrow'] ) - 1;
+                    $count   = 0;
+                    $perrow  = ( empty( $options['perrow'] ) ) ? apply_filters( 'wpd_ecommerce_template_archive_items_per_row', 3 ) : $options['perrow'];
                     
                     // Get the posts.
                     $loop = new WP_Query(
@@ -111,7 +110,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                     echo ( $count % $perrow === 0 && $count > 0 ) ? '</div><div class="wpd-row">' : '';
                 ?>
                     <?php do_action( 'wpd_ecommerce_archive_items_product_before' ); ?>
-                    <div class="wpdshortcode item" style="width:<?php echo ceil( $item_width ); ?>%;">
+                    <div class="wpdshortcode item">
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
                         <?php echo wpd_product_image( get_the_ID(), 'wpd-small' ); ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>

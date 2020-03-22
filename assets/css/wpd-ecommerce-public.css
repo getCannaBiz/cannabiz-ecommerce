@@ -998,10 +998,11 @@ body.tax-strain_type .hentry {
 }
 
 .wpd-row {
-    padding: 12px;
-    display: inline-block;
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-bottom: 0;
+    padding: 12px;
 }
 
 @media screen and (max-width: 600px) {
