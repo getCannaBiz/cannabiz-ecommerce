@@ -138,7 +138,7 @@ function wpd_ecommerce_shortcode() {
 		$str .= "<tr><th class='cart_total'><span class='total'>" . __( 'Total', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
 		$str .= "</tbody>";
 		$str .= "</table>";
-		$str .= "<p class='wpd-ecommerce buttons'><a href='" . get_bloginfo( 'url' ) . "/checkout' class='button'>" . __( 'Proceed to Checkout', 'wpd-ecommerce' ) . "</a></p>";
+		$str .= "<p class='wpd-ecommerce buttons'><a href='" . wpd_ecommerce_checkout_url() . " class='button'>" . __( 'Proceed to Checkout', 'wpd-ecommerce' ) . "</a></p>";
 		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_after' );
 		$str .= "</div>";
 		$str .= do_action( 'wpd_ecommerce_cart_totals_after' );
