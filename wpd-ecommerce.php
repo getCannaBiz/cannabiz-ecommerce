@@ -281,13 +281,24 @@ function wpd_ecommerce_load_public_scripts() {
 	wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css' );
 	wp_enqueue_script( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/js/wpd-ecommerce-public.js', array( 'jquery' ), '1.6', false );
 
-	// Translation array data.
-	$translation_array = array(
-		'pageURL'             => get_the_permalink(),
-		'ajaxurl'             => admin_url( 'admin-ajax.php' ),
-		'PAYMENT_TYPE_AMOUNT' => $_SESSION['wpd_ecommerce']->payment_type_amount,
-		'session_data'        => $_SESSION['wpd_ecommerce']
-	);
+	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
+		// Translation array data.
+		$translation_array = array(
+			'pageURL'             => get_the_permalink(),
+			'ajaxurl'             => admin_url( 'admin-ajax.php' ),
+			'PAYMENT_TYPE_AMOUNT' => $_SESSION['wpd_ecommerce']->payment_type_amount,
+			'session_data'        => $_SESSION['wpd_ecommerce']
+		);
+	} else {
+		// Translation array data.
+		$translation_array = array(
+			'pageURL'             => get_the_permalink(),
+			'ajaxurl'             => admin_url( 'admin-ajax.php' ),
+			'PAYMENT_TYPE_AMOUNT' => '0',
+			'session_data'        => ''
+		);
+		
+	}
 
 	// Translation array filter.
 	$translation_array = apply_filters( 'wpd_ecommerce_localize_script_translation_array', $translation_array );
