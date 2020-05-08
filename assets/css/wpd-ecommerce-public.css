@@ -120,10 +120,14 @@ table.wpd-ecommerce.widget a {
 
 table.wpd-ecommerce.widget tbody {
     border-bottom: 1px solid #DDD;
+    display: block;
 }
 
 table.wpd-ecommerce.widget tbody tr {
 	border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /** Cart Widget Text Align */
