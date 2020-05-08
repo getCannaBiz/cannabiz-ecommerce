@@ -24,9 +24,6 @@ jQuery(document).ready(function ($) {
             $("table.wpd-ecommerce.widget.checkout tbody tr.total td.total-price").load( object_name.pageURL + " span.total-price" );
         }
         );
-
-        // Add session data to console log.
-        console.log( object_name.session_data );
     });
 });
 

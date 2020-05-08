@@ -65,7 +65,7 @@ add_action( 'admin_head-profile.php',   'wpd_ecommerce_remove_user_profile_field
 /**
  * Backend - Contact Info
  */
-function wpd_ecommerce_show_contact_info_fields( $user ) {
+function wpd_ecommerce_show_contact_info_fields( $fields ) {
 
 	// Remove website field.
     unset( $fields['url'] );
