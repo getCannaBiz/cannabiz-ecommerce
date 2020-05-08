@@ -274,6 +274,11 @@ function wpd_patient_account_shortcode() {
 					$status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
 					$order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
 					$customer          = get_userdata( $order_customer_id );
+					if (isset( $customer ) ) {
+						$customer_name = $customer->first_name . ' ' . $customer->last_name;
+					} else {
+						$customer_name = '';
+					}
 
 					if ( empty( $status ) ) {
 						$status = 'wpd-pending';
@@ -281,7 +286,7 @@ function wpd_patient_account_shortcode() {
 
 					$table_admin .= "<tr>
 						<td><a href='" . get_the_permalink() . "'>#" . get_the_ID() . "</a></td>
-						<td>" . $customer->first_name . ' ' . $customer->last_name . "</td>
+						<td>" . $customer_name . "</td>
 						<td> " . get_the_date() . "<td>" . $status_display . "</td>
 						<td>" . CURRENCY . number_format((float)$total, 2, '.', ',' ) . "</td>
 					</tr>";

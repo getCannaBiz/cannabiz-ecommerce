@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
-	if ( NULL !== $_SESSION['wpd_ecommerce'] ) {
+	if ( isset( $_SESSION['wpd_ecommerce'] ) && NULL !== $_SESSION['wpd_ecommerce'] ) {
 
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
@@ -81,15 +81,17 @@ function wpd_ecommerce_shortcode() {
 		 */
 		$wpd_general = get_option( 'wpdas_general' );
 
-		// Check if WP Dispensary setting is set.
-		if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
-			$str .= "<tr><td colspan='6'>
-			<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
-			<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
-			<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
-			. wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
-			"</form>
-			</td></tr>";
+		if ( ! empty( $wpd_general['wpd_ecommerce_checkout_coupons'] ) ) {
+			// Check if WP Dispensary setting is set.
+			if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
+				$str .= "<tr><td colspan='6'>
+				<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
+				<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
+				<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
+				. wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
+				"</form>
+				</td></tr>";
+			}
 		}
 		$str .= "</tbody>";
 		$str .= "</table>";

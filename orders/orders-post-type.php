@@ -120,12 +120,16 @@ function custom_wpd_orders_column( $column, $post_id ) {
 		case 'wpd_orders_customer' :
 		$order_customer_id = get_post_meta( $post_id, 'wpd_order_customer_id', true );
 		$user_info         = get_userdata( $order_customer_id );
+		if ( isset( $user_info ) ) {
 			if ( '' != $user_info->first_name ) {
-				echo $user_info->first_name . " ";
+				echo $user_info->first_name . ' ';
 			}
 			if ( '' != $user_info->last_name ) {
-				echo $user_info->last_name . "<br />";
+				echo $user_info->last_name;
 			}
+		} else {
+			// Do nothing.
+		}
 		break;
 
         case 'wpd_orders_total' :

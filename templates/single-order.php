@@ -79,15 +79,20 @@ if ( ! is_user_logged_in() ) {
                 echo '<div class="order-info">';
                 echo '<p><strong>' . __( 'Date', 'wpd-ecommerce' ) . ':</strong></p>';
                 echo '<p>' . get_the_date() . '</p>';
-                if ( '' != $user_info->first_name ) {
-                    $first_name = $user_info->first_name;
+                if ( isset( $user_info ) ) {
+                    if ( '' != $user_info->first_name ) {
+                        $first_name = $user_info->first_name;
+                    } else {
+                        $first_name = '';
+                    }
+                    if ( '' != $user_info->last_name ) {
+                        $last_name = $user_info->last_name;
+                    } else {
+                        $last_name = '';
+                    }
                 } else {
                     $first_name = '';
-                }
-                if ( '' != $user_info->last_name ) {
-                    $last_name = $user_info->last_name;
-                } else {
-                    $last_name = '';
+                    $last_name  = '';
                 }
                 echo '<p><strong>' . __( 'Name', 'wpd-ecommerce' ) . ':</strong></p>';
                 echo '<p>' . $first_name . ' ' . $last_name . '</p>';
