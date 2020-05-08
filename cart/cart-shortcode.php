@@ -135,14 +135,14 @@ function wpd_ecommerce_shortcode() {
 			$str .= "<tr><th class='cart_payment_type'><span class='payment_type_amount'>" . $_SESSION['wpd_ecommerce']->payment_type_name . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
 		}
 
-		$str .= "<tr><th class='cart_total'><span class='total'>" . __( 'Total', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $total_price, 2, '.', ',' ) . "</td></tr>";
-		$str .= "</tbody>";
-		$str .= "</table>";
-		$str .= "<p class='wpd-ecommerce buttons'><a href='" . wpd_ecommerce_checkout_url() . " class='button'>" . __( 'Proceed to Checkout', 'wpd-ecommerce' ) . "</a></p>";
+		$str .= '<tr><th class="cart_total"><span class="total">' . __( 'Total', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</td></tr>';
+		$str .= '</tbody>';
+		$str .= '</table>';
+		$str .= '<p class="wpd-ecommerce buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . __( 'Proceed to Checkout', 'wpd-ecommerce' ) . '</a></p>';
 		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_after' );
-		$str .= "</div>";
+		$str .= '</div>';
 		$str .= do_action( 'wpd_ecommerce_cart_totals_after' );
-		$str .= "</div>";
+		$str .= '</div>';
 		$str .= do_action( 'wpd_ecommerce_cart_wrap_after' );
 
 		return $str;
