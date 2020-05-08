@@ -445,10 +445,12 @@ function wpd_patient_account_shortcode() {
 				<?php
 				$wpd_patients = get_option( 'wpdas_patients' );
 
-				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] &&
-				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] && 
-				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] && 
-				'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
+				if ( empty( $wpd_patients ) ) {
+					// Do nothing.
+				} elseif ( 'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] &&
+						   'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] && 
+						   'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] && 
+						   'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
 					// Do nothing.
 				} else { ?>
 				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h3>
@@ -571,12 +573,6 @@ function wpd_patient_account_shortcode() {
 				<?php do_action( 'wpd_ecommerce_patient_account_form_after' ); ?>
 
 			</section>
-	<!--
-			<section id="content4">
-				<h3 class='wpd-ecommerce patient-title'><?php //_e( 'Another one', 'wpd-ecommerce' ); ?></h3>
-				<p>This will probably end up being a "Drivers" tab for delivery drivers, or "Inventory" tab for administrators.</p>
-			</section>
-	-->
 		</div>
 
 	<?php
