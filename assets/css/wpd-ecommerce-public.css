@@ -124,9 +124,11 @@ table.wpd-ecommerce.widget tbody {
 }
 
 table.wpd-ecommerce.widget tbody tr {
-	border: 0;
+    border: 0;
+}
+
+.wp-dispensary-cart-widget table.wpd-ecommerce.widget tbody tr {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
 }
 
