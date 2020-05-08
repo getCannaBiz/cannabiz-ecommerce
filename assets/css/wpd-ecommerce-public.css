@@ -120,6 +120,9 @@ table.wpd-ecommerce.widget a {
 
 table.wpd-ecommerce.widget tbody {
     border-bottom: 1px solid #DDD;
+}
+
+.wp-dispensary-cart-widget table.wpd-ecommerce.widget tbody {
     display: block;
 }
 

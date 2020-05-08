@@ -134,11 +134,7 @@ class Item {
 			$pack_price           = '';
 			$flower_prices        = '';
 			$product_price_choice = '';
-			$concentrate_prices   = array(
-				'1/2 g' => esc_html( get_post_meta( $my_post->ID, '_halfgram', true ) ),
-				'1 g'   => esc_html( get_post_meta( $my_post->ID, '_gram', true ) ),
-				'2 g'   => esc_html( get_post_meta( $my_post->ID, '_twograms', true ) ),
-			);
+			$concentrate_prices   = wpd_concentrates_prices_array( $my_post->ID );
 		} else {
 			// Do nothing.
 		}
