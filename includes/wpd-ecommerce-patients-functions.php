@@ -132,14 +132,16 @@ add_filter( 'login_redirect', 'wpd_ecommerce_login_redirect', 10, 3 );
  * @since 1.0
  */
 function wpd_ecommerce_disable_author_archives_for_customers() {
-	global $author;
+    global $author;
 	if ( is_author() ) {
-        $user        = get_user_by( 'id', $author );
-        $role        = ( array ) $user->roles;
+        $user = get_user_by( 'id', $author );
+        $role = ( array ) $user->roles;
 
 		if ( 'patient' === $role[0] ) {
 			wp_redirect( wpd_ecommerce_menu_url() );
-		}
+		} else {
+			// Do nothing.
+        }
 	}
 }
 add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_customers' );
