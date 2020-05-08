@@ -148,7 +148,7 @@ function wpd_ecommerce_shortcode() {
 		return $str;
 
 	} else {
-		echo '<p>' . __( 'There is nothing in your cart.', 'wpd-ecommerce' ) . '</p>';
+		echo '<p>' . apply_filters( 'wpd_ecommerce_cart_empty_message', __( 'There is nothing in your cart.', 'wpd-ecommerce' ) ) . '</p>';
 
 		/**
 		 * @todo filter the button link and the button text so devs can change easily.
