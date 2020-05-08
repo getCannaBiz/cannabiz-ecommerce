@@ -133,7 +133,7 @@ function wpd_ecommerce_shortcode() {
 			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
 		}
 		// Add the payment type / amount.
-		if ( NULL !== $_SESSION['wpd_ecommerce']->payment_type_name ) {
+		if ( isset( $_SESSION['wpd_ecommerce']->payment_type_name ) ) {
 			$str .= "<tr><th class='cart_payment_type'><span class='payment_type_amount'>" . $_SESSION['wpd_ecommerce']->payment_type_name . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
 		}
 
