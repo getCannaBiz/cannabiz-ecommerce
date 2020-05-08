@@ -76,7 +76,11 @@ if ( ! is_user_logged_in() ) {
 
             // Get minimum order checkout requirement from settings.
             $wpd_general  = get_option( 'wpdas_general' );
-            $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
+            if ( isset( $wpd_general['wpd_ecommerce_checkout_minimum_order'] ) ) {
+                $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
+            } else {
+                $min_checkout = '';
+            }
 
             // Minimum checkout check.
             if ( '' !== $min_checkout ) {
@@ -298,10 +302,6 @@ if ( ! is_user_logged_in() ) {
         // Payment type.
         foreach ( wpd_ecommerce_payment_types() as $name => $value ) {
             $str .= '<tr class="payment-type"><td><input type="radio" name="payment-type" id="' . $name . '" value="' . $value . '"/> <strong>' . $name . '</strong></td><td>' . CURRENCY . number_format((float)$value, 2, '.', ',' ) . '</td></tr>';
-        }
-
-        if ( NULL !== PAYMENT_TYPE_AMOUNT ) {
-            $total_price = $total_price + PAYMENT_TYPE_AMOUNT;
         }
 
         // Total.
