@@ -68,6 +68,18 @@ function wpd_ecommerce() {
 }
 wpd_ecommerce();
 
+// Include inventory management.
+include_once( dirname( __FILE__ ) . '/includes/extend/inventory/wpd-inventory.php' );
+
+// Include top sellers management.
+include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
+
+// Include location management.
+include_once( dirname( __FILE__ ) . '/includes/extend/locations/wpd-locations.php' );
+
+// Include heavyweights management.
+include_once( dirname( __FILE__ ) . '/includes/extend/heavyweights/wpd-heavyweights.php' );
+
 // Includes for Helper Functions.
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-core-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-admin-settings-functions.php' );

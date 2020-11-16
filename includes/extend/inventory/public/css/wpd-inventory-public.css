@@ -1,0 +1,48 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+
+.wpd-inventory {
+	background: #EEE;
+	border: 1px solid #DDD;
+	display: block;
+	padding: 0 12px;
+	margin: 0 0 12px 0;
+}
+
+/** Warning style */
+
+.wpd-inventory.warning {
+	background: #f0a2a2;
+	border: 1px solid #ee8b8b;
+}
+
+.wpd-inventory.warning p {
+	margin: 12px 0;
+	padding: 0;
+}
+
+.wpd-inventory.warning p:before {
+    content: '\f071';
+    font-family: FontAwesome;
+    margin-right: 10px;
+}
+
+/** Warning style in menu shortcodes */
+
+.wpd-menu-item span.wpd-inventory.warning,
+.wpdshortcode span.wpd-inventory.warning {
+	background: #EEE;
+	border: 1px solid #DDD;
+	border-radius: 3px;
+	color: #999;
+	font-weight: 600;
+	float: left;
+    margin-top: 12px;
+    margin-bottom: 0;
+    position: relative;
+    padding: 10px 10px;
+	text-align: center;
+	width: 100%;
+}

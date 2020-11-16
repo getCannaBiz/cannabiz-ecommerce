@@ -1,0 +1,32 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+#wpdispensary_heavyweight_prices .inside {
+    overflow: auto;
+}
+
+#wpdispensary_heavyweight_prices .inside .pricebox {
+	float: left;
+	margin: 10px 1%;
+	position: relative;
+	width: 12.25%;
+}
+
+body.post-type-concentrates #wpdispensary_heavyweight_prices .inside .pricebox {
+    width: 10.5%;
+}
+
+@media screen and (max-width: 767px) {
+	#wpdispensary_heavyweight_prices .inside .pricebox {
+		float: left;
+		margin: 10px 1%;
+		position: relative;
+		width: 23%;
+	}
+	
+	body.post-type-concentrates #wpdispensary_heavyweight_prices .inside .pricebox {
+		width: 23%;
+	}
+}

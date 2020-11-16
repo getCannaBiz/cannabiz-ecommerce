@@ -1,0 +1,27 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+
+
+/* Widget styles
+-------------------------------------------------------------- */
+
+div.widget[id*=_wpdtopsellers_] .widget-top,
+div.widget[id*=_wpdtopsellers_] .widget-top:hover {
+	border-color: #622cab;
+}
+
+div.widget[id*=_wpdtopsellers_] .widget-title,
+div.widget[id*=_wpdtopsellers_] .widget-title h3 {
+	background: #622cab;
+	color: #FFF;
+}
+
+div.widget[id*=_wpdtopsellers_] .widget-title .in-widget-title {
+	color: rgba(255,255,255,0.6);
+}
+
+div.widget[id*=_wpdtopsellers_] .widget-action {
+	color: #FFF;
+}

@@ -1,0 +1,193 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Dispensary's Inventory Management\n"
+"POT-Creation-Date: 2019-12-10 09:50-0500\n"
+"PO-Revision-Date: 2019-12-10 09:49-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-inventory.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr ""
+
+#: admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr ""
+
+#: admin/class-wpd-inventory-data-output.php:25
+#: admin/class-wpd-inventory-data-output.php:41
+#: admin/class-wpd-inventory-data-output.php:44
+#: admin/class-wpd-inventory-data-output.php:60
+#: admin/class-wpd-inventory-data-output.php:76
+#: admin/class-wpd-inventory-data-output.php:92
+#: admin/class-wpd-inventory-data-output.php:109
+#: admin/class-wpd-inventory-data-output.php:114
+#: admin/class-wpd-inventory-data-output.php:131
+#: admin/class-wpd-inventory-data-output.php:147
+msgid "In stock"
+msgstr ""
+
+#: admin/class-wpd-inventory-data-output.php:25
+#: admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr ""
+
+#: admin/class-wpd-inventory-data-output.php:44
+#: admin/class-wpd-inventory-data-output.php:60
+#: admin/class-wpd-inventory-data-output.php:76
+#: admin/class-wpd-inventory-data-output.php:92
+#: admin/class-wpd-inventory-data-output.php:109
+#: admin/class-wpd-inventory-data-output.php:131
+#: admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr ""
+
+#: admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:24
+#: admin/class-wpd-inventory-metaboxes.php:115
+#: admin/class-wpd-inventory-metaboxes.php:207
+#: admin/class-wpd-inventory-metaboxes.php:304
+#: admin/class-wpd-inventory-metaboxes.php:395
+#: admin/class-wpd-inventory-metaboxes.php:486
+#: admin/class-wpd-inventory-metaboxes.php:581
+#: admin/class-wpd-inventory-metaboxes.php:673
+msgid "Inventory management"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:50
+msgid "Available Flowers (grams)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:54
+#: admin/class-wpd-inventory-metaboxes.php:146
+#: admin/class-wpd-inventory-metaboxes.php:242
+#: admin/class-wpd-inventory-metaboxes.php:334
+#: admin/class-wpd-inventory-metaboxes.php:425
+#: admin/class-wpd-inventory-metaboxes.php:519
+#: admin/class-wpd-inventory-metaboxes.php:613
+#: admin/class-wpd-inventory-metaboxes.php:704
+msgid "Display inventory in Details table"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:142
+msgid "Available Edibles (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:234
+msgid "Available grams"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:238
+msgid "Available units"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:330
+msgid "Available Pre-rolls (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:421
+msgid "Available Topicals (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:513
+msgid "Available Seeds (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:515
+msgid "Available Clones (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:609
+msgid "Available Tinctures (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-metaboxes.php:700
+msgid "Available Gear (units)"
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:51
+msgid "Sorry, this flower is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:61
+msgid "Sorry, this edible is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:71
+msgid "Sorry, this concentrate is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:81
+msgid "Sorry, this pre-roll is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:91
+msgid "Sorry, this topical is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:102
+msgid "Sorry, this clone is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:108
+msgid "Sorry, this seed is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:119
+msgid "Sorry, this tincture is currently out of stock."
+msgstr ""
+
+#: admin/class-wpd-inventory-oos.php:129
+msgid "Sorry, this gear is currently out of stock."
+msgstr ""
+
+#: includes/wpd-inventory-functions.php:24
+#: includes/wpd-inventory-functions.php:33
+#: includes/wpd-inventory-functions.php:37
+#: includes/wpd-inventory-functions.php:46
+#: includes/wpd-inventory-functions.php:54
+#: includes/wpd-inventory-functions.php:62
+#: includes/wpd-inventory-functions.php:71
+#: includes/wpd-inventory-functions.php:75
+#: includes/wpd-inventory-functions.php:84
+#: includes/wpd-inventory-functions.php:92
+msgid "out of stock"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's Inventory Management"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/dispensary-inventory-management/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Easily manage your cannabis menu's inventory."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispensary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com/"
+msgstr ""

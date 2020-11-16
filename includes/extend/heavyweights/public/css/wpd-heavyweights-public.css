@@ -1,0 +1,12 @@
+/**
+ * All of the CSS for your public-facing functionality should be
+ * included in this file.
+ */
+table.wpdispensary-table.pricing tr.wpd-heavyweights td {
+	width: 25% !important;
+}
+
+table.wpdispensary-table.single.pricing.wpd-heavyweights {
+	float: left;
+    margin: -25px 0 24px 0;
+}

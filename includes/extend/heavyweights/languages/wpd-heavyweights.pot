@@ -1,0 +1,195 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Dispensary's Heavyweights\n"
+"POT-Creation-Date: 2019-04-21 11:45-0400\n"
+"PO-Revision-Date: 2019-04-21 11:45-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-heavyweights.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:167
+#: admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:171
+#: admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:175
+#: admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:179
+#: admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:183
+#: admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:187
+#: admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:191
+#: admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:195
+#: admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:199
+#: admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:203
+#: admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:207
+#: admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:211
+#: admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:215
+#: admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:219
+#: admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:223
+#: admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:227
+#: admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:231
+#: admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:235
+#: admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:239
+#: admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:243
+#: admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:247
+#: admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:269
+#: admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:273
+#: admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:277
+#: admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:281
+#: admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:285
+#: admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:289
+#: admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:293
+#: admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr ""
+
+#: admin/class-wpd-heavyweights-admin.php:410
+#: admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's Heavyweights"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/dispensary-heavyweights/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Add heavier weight options to your Flowers menu items"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispensary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr ""

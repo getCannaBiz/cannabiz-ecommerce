@@ -1,0 +1,222 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Dispensary's Locations\n"
+"POT-Creation-Date: 2019-01-28 14:15-0500\n"
+"PO-Revision-Date: 2019-01-28 14:14-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-locations.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-wpd-locations-shortcodes.php:285
+#: admin/class-wpd-locations-shortcodes.php:334
+#: admin/class-wpd-locations-shortcodes.php:400
+msgid "THC: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:293
+msgid "THCA: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:301
+msgid "CBD: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:309
+msgid "CBA: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:317
+msgid "CBN: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:325
+msgid "CBG: "
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:347
+msgid "Seeds:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:357
+msgid "Clones:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:365
+msgid "Size:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:371
+msgid "THC:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:377
+msgid "CBD:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:387
+msgid "Weight:"
+msgstr ""
+
+#: admin/class-wpd-locations-shortcodes.php:408
+msgid "Servings: "
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr ""
+
+#: admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:218
+msgid "Widget Title:"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:222
+msgid "Dispensary location:"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:241
+msgid "Menu item type:"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:243
+msgid "All types"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:244
+msgid "Flowers"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:245
+msgid "Concentrates"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:246
+msgid "Edibles"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:247
+msgid "Pre-rolls"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:248
+msgid "Topicals"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:249
+msgid "Growers"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:250
+msgid "Gear"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:251
+msgid "Tinctures"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:256
+msgid "Amount of items to show:"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:262
+msgid "Randomize output?"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:267
+msgid "Display featured image?"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:272
+msgid "Display item name?"
+msgstr ""
+
+#: admin/class-wpd-locations-widgets.php:277
+msgid "Display item category?"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's Locations"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/downloads/dispensary-locations"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Easily manage dispensary menus for multiple locations."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispensary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.wpdispensary.com/"
+msgstr ""

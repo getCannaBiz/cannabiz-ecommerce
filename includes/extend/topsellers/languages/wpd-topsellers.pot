@@ -1,0 +1,126 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: WP Dispensary's Top Sellers\n"
+"POT-Creation-Date: 2019-12-10 19:49-0500\n"
+"PO-Revision-Date: 2019-12-10 19:47-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-topsellers.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Top Sellers"
+msgstr ""
+
+#: admin/class-wpd-topsellers-metaboxes.php:59
+msgid "Mark this product as a top seller"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:202
+msgid "Widget Title:"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:207
+msgid "Menu item type:"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:209
+msgid "All types"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:210
+msgid "Flowers"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:211
+msgid "Concentrates"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:212
+msgid "Edibles"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:213
+msgid "Pre-rolls"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:214
+msgid "Topicals"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:215
+msgid "Growers"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:216
+msgid "Gear"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:217
+msgid "Tinctures"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:222
+msgid "Amount of items to show:"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:228
+msgid "Randomize output?"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:233
+msgid "Display featured image?"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:238
+msgid "Display item name?"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:243
+msgid "Display item category?"
+msgstr ""
+
+#: admin/class-wpd-topsellers-widgets.php:247
+msgid "Image size:"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's Top Sellers"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/downloads/dispensary-top-sellers"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Easily select and display your menu's top selling items."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WP Dispensary"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com/"
+msgstr ""
