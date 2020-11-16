@@ -248,6 +248,10 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
     -webkit-font-smoothing: antialiased;
 }
 
+.wpd-ecommerce-notifications .in-stock {
+    font-weight: 700;
+}
+
 /** Single Item Template */
 
 .wpd-ecommerce-single-notifications {
@@ -332,6 +336,47 @@ select#wpd_ecommerce_concentrates_prices {
     width: 45%;
 }
 
+select#wpd_ecommerce_flowers_prices,
+select#wpd_ecommerce_products_prices {
+    background-image:
+        linear-gradient(45deg,transparent 50%,gray 50%),
+        linear-gradient(135deg,gray 50%,transparent 50%),
+        linear-gradient(to right,#ccc,#ccc);
+    background-position:
+        calc(100% - 14px) calc(1em + 2px),
+        calc(100% - 9px) calc(1em + 2px),
+        calc(100% - 2.0em) .7em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+}
+
+select#wpd_ecommerce_flowers_prices:focus,
+select#wpd_ecommerce_products_prices:focus {
+    background-image:
+        linear-gradient(45deg,transparent 50%,#76bd43 50%),
+        linear-gradient(135deg,#76bd43 50%,transparent 50%),
+        linear-gradient(to right,#ccc,#ccc);
+    background-position:
+        calc(100% - 14px) calc(1em + 2px),
+        calc(100% - 9px) calc(1em + 2px),
+        calc(100% - 2.0em) .7em;
+    background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+    background-repeat: no-repeat;
+    -webkit-appearance: none;
+}
+
+select:-moz-focusring {
+color: transparent;
+text-shadow: 0 0 0 #000;
+}
+
 /** Quantity input field */
 form.wpd-ecommerce input#qtty {
     float: left;
@@ -339,6 +384,11 @@ form.wpd-ecommerce input#qtty {
     margin-right: 1%;
     padding: 10px 5px 10px 10px;
     width: 4.20em;
+}
+
+form.wpd-ecommerce input#qtty:focus {
+    outline: none;
+    border: 1px solid #76bd43;
 }
 
 /** Add to Cart button */
