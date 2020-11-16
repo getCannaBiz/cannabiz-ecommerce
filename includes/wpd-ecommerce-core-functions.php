@@ -241,7 +241,7 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'Available', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</span></div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
@@ -313,7 +313,7 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
@@ -365,7 +365,7 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
@@ -421,7 +421,7 @@ function wpd_ecommerce_notifications() {
 					if ( $inventory < $inventory_reduction ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 						$str .= '</div>';
 					} else {
 						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price ) {
@@ -467,7 +467,7 @@ function wpd_ecommerce_notifications() {
 					if ( $inventory < $inventory_reduction ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough available inventory for your purchase. Available inventory', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 						$str .= '</div>';
 					} else {
 						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
