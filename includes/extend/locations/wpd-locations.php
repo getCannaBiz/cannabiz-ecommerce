@@ -70,4 +70,4 @@ add_filter( "plugin_action_links_$pluginname", 'dispensary_locations_settings_li
 function dispensary_locations_add_admin_menu() {
 	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
 }
-add_action( 'admin_menu', 'dispensary_locations_add_admin_menu', 8 );
+add_action( 'admin_menu', 'dispensary_locations_add_admin_menu', 7 );
