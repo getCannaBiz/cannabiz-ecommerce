@@ -71,3 +71,17 @@ function dispensary_locations_add_admin_menu() {
 	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
 }
 add_action( 'admin_menu', 'dispensary_locations_add_admin_menu', 7 );
+
+// Keeps the WP Dispensary link list open when taxonomy submenu items are open.
+function wpd_locations_keep_taxonomy_menu_open( $parent_file ) {
+	global $current_screen;
+	// Get current screen taxonomy.
+	$taxonomy = $current_screen->taxonomy;
+	// Check taxonomies.
+	if ( 'locations' == $taxonomy ) {
+		$parent_file = 'wpd-settings';
+	}
+
+	return $parent_file;
+}
+add_action( 'parent_file', 'wpd_locations_keep_taxonomy_menu_open' );
