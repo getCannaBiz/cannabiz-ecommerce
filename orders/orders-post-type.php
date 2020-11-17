@@ -84,7 +84,7 @@ add_action( 'init', 'wpd_orders', 0 );
 function wpd_admin_menu_orders() {
 	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s eCommerce orders', 'Orders', 'manage_options', 'edit.php?post_type=wpd_orders', null );
 }
-add_action( 'admin_menu', 'wpd_admin_menu_orders', 10 );
+add_action( 'admin_menu', 'wpd_admin_menu_orders', 4 );
 
 /**
  * Add the custom columns to the wpd_orders post type
