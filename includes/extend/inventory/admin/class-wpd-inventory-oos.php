@@ -48,7 +48,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_flowers', true ) ) {
 			$content .= '<div class="wpd-inventory flowers warning">';
-			$content .= '<p>' . __( 'Sorry, this flower is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this flower is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -58,7 +58,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_edibles', true ) ) {
 			$content .= '<div class="wpd-inventory edibles warning">';
-			$content .= '<p>' . __( 'Sorry, this edible is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this edible is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -68,7 +68,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_concentrates', true ) && ! get_post_meta( get_the_ID(), '_inventory_concentrates_each', true ) ) {
 			$content .= '<div class="wpd-inventory concentrates warning">';
-			$content .= '<p>' . __( 'Sorry, this concentrate is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this concentrate is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -78,7 +78,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_prerolls', true ) ) {
 			$content .= '<div class="wpd-inventory prerolls warning">';
-			$content .= '<p>' . __( 'Sorry, this pre-roll is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this pre-roll is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -88,7 +88,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_topicals', true ) ) {
 			$content .= '<div class="wpd-inventory topicals warning">';
-			$content .= '<p>' . __( 'Sorry, this topical is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this topical is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -99,13 +99,13 @@ function wpd_out_of_stock_content( $content ) {
 		if ( get_post_meta( get_the_ID(), '_clonecount', true ) ) {
 			if ( ! get_post_meta( get_the_ID(), '_inventory_clones', true ) ) {
 				$content .= '<div class="wpd-inventory growers clones warning">';
-				$content .= '<p>' . __( 'Sorry, this clone is currently out of stock.', 'wpd-inventory' ) . '</p>';
+				$content .= '<p>' . __( 'Sorry, this clone is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 				$content .= '</div>';
 			}
 		} elseif ( get_post_meta( get_the_ID(), '_seedcount', true ) ) {
 			if ( ! get_post_meta( get_the_ID(), '_inventory_seeds', true ) ) {
 				$content .= '<div class="wpd-inventory growers seeds warning">';
-				$content .= '<p>' . __( 'Sorry, this seed is currently out of stock.', 'wpd-inventory' ) . '</p>';
+				$content .= '<p>' . __( 'Sorry, this seed is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 				$content .= '</div>';
 			}
 		}
@@ -116,7 +116,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_tinctures', true ) ) {
 			$content .= '<div class="wpd-inventory tinctures warning">';
-			$content .= '<p>' . __( 'Sorry, this tincture is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this tincture is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}
@@ -126,7 +126,7 @@ function wpd_out_of_stock_content( $content ) {
 		// Out of stock message.
 		if ( ! get_post_meta( get_the_ID(), '_inventory_gear', true ) ) {
 			$content .= '<div class="wpd-inventory gear warning">';
-			$content .= '<p>' . __( 'Sorry, this gear is currently out of stock.', 'wpd-inventory' ) . '</p>';
+			$content .= '<p>' . __( 'Sorry, this gear is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
 			$content .= '</div>';
 		}
 	}

@@ -59,7 +59,7 @@ run_wpd_locations();
 
 // Add settings link on plugin page.
 function dispensary_locations_settings_link( $links ) {
-  $settings_link = '<a href="edit-tags.php?taxonomy=locations">' . __( 'Settings', 'wpd-locations' ) . '</a>';
+  $settings_link = '<a href="edit-tags.php?taxonomy=locations">' . __( 'Settings', 'wpd-ecommerce' ) . '</a>';
   array_unshift( $links, $settings_link );
   return $links;
 }

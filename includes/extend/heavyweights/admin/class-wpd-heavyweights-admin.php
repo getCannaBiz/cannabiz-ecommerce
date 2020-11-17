@@ -116,7 +116,7 @@ function add_heavyweight_prices_metaboxes() {
 	foreach ( $screens as $screen ) {
 		add_meta_box(
 			'wpdispensary_heavyweight_prices',
-			__( 'Heavyweight Prices', 'wpd-heavyweights' ),
+			__( 'Heavyweight Prices', 'wpd-ecommerce' ),
 			'wpdispensary_heavyweight_prices',
 			$screen,
 			'normal',
@@ -164,87 +164,87 @@ function wpdispensary_heavyweight_prices() {
 
 		/** Echo out the fields */
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '2 oz', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '2 oz', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_twoounces" value="' . $twoounces  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '1/4 lb', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '1/4 lb', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_quarterpound" value="' . $quarterpound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '1/2 lb', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '1/2 lb', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_halfpound" value="' . $halfpound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '1 lb', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '1 lb', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_onepound" value="' . $onepound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '2 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '2 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_twopounds" value="' . $twopounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '3 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '3 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_threepounds" value="' . $threepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '4 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '4 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fourpounds" value="' . $fourpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '5 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '5 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fivepounds" value="' . $fivepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '6 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '6 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_sixpounds" value="' . $sixpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '7 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '7 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_sevenpounds" value="' . $sevenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '8 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '8 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_eightpounds" value="' . $eightpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '9 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '9 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_ninepounds" value="' . $ninepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '10 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '10 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_tenpounds" value="' . $tenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '11 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '11 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_elevenpounds" value="' . $elevenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '12 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '12 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_twelvepounds" value="' . $twelvepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '13 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '13 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_thirteenpounds" value="' . $thirteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '14 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '14 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fourteenpounds" value="' . $fourteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '15 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '15 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fifteenpounds" value="' . $fifteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '20 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '20 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_twentypounds" value="' . $twentypounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '25 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '25 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_twentyfivepounds" value="' . $twentyfivepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '50 lbs', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '50 lbs', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fiftypounds" value="' . $fiftypounds  . '" class="widefat" />';
 		echo '</div>';
 	} // if is ( 'flowers' )
@@ -262,35 +262,35 @@ function wpdispensary_heavyweight_prices() {
 
 		/** Echo out the fields */
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '3 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '3 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_threegrams" value="' . $threegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '4 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '4 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fourgrams" value="' . $fourgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '5 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '5 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_fivegrams" value="' . $fivegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '6 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '6 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_sixgrams" value="' . $sixgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '7 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '7 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_sevengrams" value="' . $sevengrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '8 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '8 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_eightgrams" value="' . $eightgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '9 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '9 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_ninegrams" value="' . $ninegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
-		echo '<p>' . __( '10 g', 'wpd-heavyweights' ) . '</p>';
+		echo '<p>' . __( '10 g', 'wpd-ecommerce' ) . '</p>';
 		echo '<input type="text" name="_tengrams" value="' . $tengrams  . '" class="widefat" />';
 		echo '</div>';
 	} // if is ( 'concentrates' )
@@ -407,76 +407,76 @@ function add_wpd_heavyweight_prices() {
 		) { } else {
 	?>
 	</tr>
-	<tr><td class="wpdispensary-title" colspan="6"><?php __( 'Heavyweight Pricing', 'wpd-heavyweights' ); ?></td></tr>
+	<tr><td class="wpdispensary-title" colspan="6"><?php __( 'Heavyweight Pricing', 'wpd-ecommerce' ); ?></td></tr>
 	</table>
 	<table class="wpdispensary-table single pricing wpd-heavyweights">
 	<tr>
 		<?php if ( ! get_post_meta( get_the_ID(), '_twoounces', true ) ) { } else { ?>
-			<td><span><?php __( '2 oz', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twoounces', true ); ?></td>
+			<td><span><?php __( '2 oz', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twoounces', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_quarterpound', true ) ) { } else { ?>
-			<td><span><?php __( '1/4 lb', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_quarterpound', true ); ?></td>
+			<td><span><?php __( '1/4 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_quarterpound', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_halfpound', true ) ) { } else { ?>
-			<td><span><?php __( '1/2 lb', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_halfpound', true ); ?></td>
+			<td><span><?php __( '1/2 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_halfpound', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_onepound', true ) ) { } else { ?>
-			<td><span><?php __( '1 lb', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_onepound', true ); ?></td>
+			<td><span><?php __( '1 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_onepound', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_twopounds', true ) ) { } else { ?>
-			<td><span><?php __( '2 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twopounds', true ); ?></td>
+			<td><span><?php __( '2 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twopounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_threepounds', true ) ) { } else { ?>
-			<td><span><?php __( '3 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_threepounds', true ); ?></td>
+			<td><span><?php __( '3 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_threepounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fourpounds', true ) ) { } else { ?>
-			<td><span><?php __( '4 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourpounds', true ); ?></td>
+			<td><span><?php __( '4 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourpounds', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<tr>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fivepounds', true ) ) { } else { ?>
-			<td><span><?php __( '5 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivepounds', true ); ?></td>
+			<td><span><?php __( '5 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivepounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_sixpounds', true ) ) { } else { ?>
-			<td><span><?php __( '6 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixpounds', true ); ?></td>
+			<td><span><?php __( '6 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_sevenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '7 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevenpounds', true ); ?></td>
+			<td><span><?php __( '7 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevenpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_eightpounds', true ) ) { } else { ?>
-			<td><span><?php __( '8 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightpounds', true ); ?></td>
+			<td><span><?php __( '8 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_ninepounds', true ) ) { } else { ?>
-			<td><span><?php __( '9 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninepounds', true ); ?></td>
+			<td><span><?php __( '9 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninepounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_tenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '10 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tenpounds', true ); ?></td>
+			<td><span><?php __( '10 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tenpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_elevenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '11 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_elevenpounds', true ); ?></td>
+			<td><span><?php __( '11 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_elevenpounds', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<tr>
 		<?php if ( ! get_post_meta( get_the_ID(), '_twelvepounds', true ) ) { } else { ?>
-			<td><span><?php __( '12 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twelvepounds', true ); ?></td>
+			<td><span><?php __( '12 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twelvepounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_thirteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '13 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_thirteenpounds', true ); ?></td>
+			<td><span><?php __( '13 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_thirteenpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fourteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '14 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourteenpounds', true ); ?></td>
+			<td><span><?php __( '14 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourteenpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fifteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '15 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fifteenpounds', true ); ?></td>
+			<td><span><?php __( '15 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fifteenpounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_twentypounds', true ) ) { } else { ?>
-			<td><span><?php __( '20 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentypounds', true ); ?></td>
+			<td><span><?php __( '20 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentypounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_twentyfivepounds', true ) ) { } else { ?>
-			<td><span><?php __( '25 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentyfivepounds', true ); ?></td>
+			<td><span><?php __( '25 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentyfivepounds', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fiftypounds', true ) ) { } else { ?>
-			<td><span><?php __( '50 lbs', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fiftypounds', true ); ?></td>
+			<td><span><?php __( '50 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fiftypounds', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<?php } ?>
@@ -495,31 +495,31 @@ function add_wpd_heavyweight_prices() {
 		) { } else {
 	?>
 	</tr>
-	<tr><td class="wpdispensary-title" colspan="6"><?php __( 'Heavyweight Pricing', 'wpd-heavyweights' ); ?></td></tr>
+	<tr><td class="wpdispensary-title" colspan="6"><?php __( 'Heavyweight Pricing', 'wpd-ecommerce' ); ?></td></tr>
 	</table>
 
 	<table class="wpdispensary-table single pricing wpd-heavyweights">
 	<tr>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fourgrams', true ) ) { } else { ?>
-			<td><span><?php __( '4 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourgrams', true ); ?></td>
+			<td><span><?php __( '4 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourgrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_fivegrams', true ) ) { } else { ?>
-			<td><span><?php __( '5 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivegrams', true ); ?></td>
+			<td><span><?php __( '5 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivegrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_sixgrams', true ) ) { } else { ?>
-			<td><span><?php __( '6 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixgrams', true ); ?></td>
+			<td><span><?php __( '6 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixgrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_sevengrams', true ) ) { } else { ?>
-			<td><span><?php __( '7 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevengrams', true ); ?></td>
+			<td><span><?php __( '7 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevengrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_eightgrams', true ) ) { } else { ?>
-			<td><span><?php __( '8 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightgrams', true ); ?></td>
+			<td><span><?php __( '8 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightgrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_ninegrams', true ) ) { } else { ?>
-			<td><span><?php __( '9 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninegrams', true ); ?></td>
+			<td><span><?php __( '9 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninegrams', true ); ?></td>
 		<?php } ?>
 		<?php if ( ! get_post_meta( get_the_ID(), '_tengrams', true ) ) { } else { ?>
-			<td><span><?php __( '10 g', 'wpd-heavyweights' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tengrams', true ); ?></td>
+			<td><span><?php __( '10 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tengrams', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<?php } ?>

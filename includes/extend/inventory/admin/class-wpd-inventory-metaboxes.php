@@ -21,7 +21,7 @@
 function add_inventory_flowers_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_flowers',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_flowers',
 		'flowers',
 		'side',
@@ -47,11 +47,11 @@ function wpdispensary_inventory_flowers() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available Flowers (grams)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Flowers (grams)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_flowers" value="' . $inventoryflowers  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -112,7 +112,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_flowers_meta', 1, 2 ); // 
 function add_inventory_edibles_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_edibles',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_edibles',
 		'edibles',
 		'side',
@@ -139,11 +139,11 @@ function wpdispensary_inventory_edibles() {
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
-	echo '<p>' . __( 'Available Edibles (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Edibles (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_edibles" value="' . $inventoryedibles  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -204,7 +204,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_edibles_meta', 1, 2 ); // 
 function add_inventory_concentrates_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_concentrates',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_concentrates',
 		'concentrates',
 		'side',
@@ -231,15 +231,15 @@ function wpdispensary_inventory_concentrates() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available grams', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_concentrates" value="' . $inventoryconcentrates  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available units', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available units', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_concentrates_each" value="' . $inventoryconcentrateseach  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -301,7 +301,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_concentrates_meta', 1, 2 )
 function add_inventory_prerolls_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_prerolls',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_prerolls',
 		'prerolls',
 		'side',
@@ -327,11 +327,11 @@ function wpdispensary_inventory_prerolls() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available Pre-rolls (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Pre-rolls (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_prerolls" value="' . $inventoryprerolls  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -392,7 +392,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_prerolls_meta', 1, 2 ); //
 function add_inventory_topicals_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_topicals',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_topicals',
 		'topicals',
 		'side',
@@ -418,11 +418,11 @@ function wpdispensary_inventory_topicals() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available Topicals (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Topicals (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_topicals" value="' . $inventorytopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -483,7 +483,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_topicals_meta', 1, 2 ); //
 function add_inventory_growers_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_growers',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_growers',
 		'growers',
 		'side',
@@ -510,13 +510,13 @@ function wpdispensary_inventory_growers() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
-	echo '<p>' . __( 'Available Seeds (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_seeds" value="' . $inventoryseeds  . '" class="widefat" />';
-	echo '<p>' . __( 'Available Clones (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_clones" value="' . $inventoryclones  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -578,7 +578,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_growers_meta', 1, 2 ); // 
 function add_inventory_tinctures_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_tinctures',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_tinctures',
 		'tinctures',
 		'side',
@@ -606,11 +606,11 @@ function wpdispensary_inventory_tinctures() {
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
-	echo '<p>' . __( 'Available Tinctures (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Tinctures (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_tinctures" value="' . $inventorytinctures  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -670,7 +670,7 @@ add_action( 'save_post', 'wpdispensary_save_inventory_tinctures_meta', 1, 2 ); /
 function add_inventory_gear_metaboxes() {
 	add_meta_box(
 		'wpdispensary_inventory_gear',
-		__( 'Inventory management', 'wpd-inventory' ),
+		__( 'Inventory management', 'wpd-ecommerce' ),
 		'wpdispensary_inventory_gear',
 		'gear',
 		'side',
@@ -697,11 +697,11 @@ function wpdispensary_inventory_gear() {
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
-	echo '<p>' . __( 'Available Gear (units)', 'wpd-inventory' ) . ':</p>';
+	echo '<p>' . __( 'Available Gear (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="_inventory_gear" value="' . $inventorygear  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-inventory' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }

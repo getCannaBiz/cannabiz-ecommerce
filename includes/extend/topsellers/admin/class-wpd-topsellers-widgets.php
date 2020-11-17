@@ -36,9 +36,9 @@ class wpdtopsellers_widget extends WP_Widget {
 
 		parent::__construct(
 			'wpdtopsellers_widget',
-			__( 'Dispensary Top Sellers', 'wpd-topsellers' ),
+			__( 'Dispensary Top Sellers', 'wpd-ecommerce' ),
 			array(
-				'description' => __( 'Display your top selling items', 'wpd-topsellers' ),
+				'description' => __( 'Display your top selling items', 'wpd-ecommerce' ),
 				'classname'   => 'wpd-topsellers-widget',
 			)
 		);
@@ -199,52 +199,52 @@ class wpdtopsellers_widget extends WP_Widget {
         $instance = wp_parse_args( (array) $instance, $defaults );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Widget Title:', 'wpd-topsellers' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( 'Widget Title:', 'wpd-ecommerce' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo $instance['title']; ?>" />
         </p>
 
     	<p>
-	        <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php _e( 'Menu item type:', 'wpd-topsellers' ); ?></label>
+	        <label for="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>"><?php _e( 'Menu item type:', 'wpd-ecommerce' ); ?></label>
 			<select id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>" class="widefat" style="width:100%;">
-				<option <?php if ( 'all' == $instance['type'] ) echo 'selected="selected"'; ?> value="all"><?php _e( 'All types', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'flowers' == $instance['type'] ) echo 'selected="selected"'; ?> value="flowers"><?php _e( 'Flowers', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'concentrates' == $instance['type'] ) echo 'selected="selected"'; ?> value="concentrates"><?php _e( 'Concentrates', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'edibles' == $instance['type'] ) echo 'selected="selected"'; ?> value="edibles"><?php _e( 'Edibles', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'prerolls' == $instance['type'] ) echo 'selected="selected"'; ?> value="prerolls"><?php _e( 'Pre-rolls', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'topicals' == $instance['type'] ) echo 'selected="selected"'; ?> value="topicals"><?php _e( 'Topicals', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'growers' == $instance['type'] ) echo 'selected="selected"'; ?> value="growers"><?php _e( 'Growers', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'gear' == $instance['type'] ) echo 'selected="selected"'; ?> value="gear"><?php _e( 'Gear', 'wpd-topsellers' ); ?></option>
-				<option <?php if ( 'tinctures' == $instance['type'] ) echo 'selected="selected"'; ?> value="tinctures"><?php _e( 'Tinctures', 'wpd-topsellers' ); ?></option>
+				<option <?php if ( 'all' == $instance['type'] ) echo 'selected="selected"'; ?> value="all"><?php _e( 'All types', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'flowers' == $instance['type'] ) echo 'selected="selected"'; ?> value="flowers"><?php _e( 'Flowers', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'concentrates' == $instance['type'] ) echo 'selected="selected"'; ?> value="concentrates"><?php _e( 'Concentrates', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'edibles' == $instance['type'] ) echo 'selected="selected"'; ?> value="edibles"><?php _e( 'Edibles', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'prerolls' == $instance['type'] ) echo 'selected="selected"'; ?> value="prerolls"><?php _e( 'Pre-rolls', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'topicals' == $instance['type'] ) echo 'selected="selected"'; ?> value="topicals"><?php _e( 'Topicals', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'growers' == $instance['type'] ) echo 'selected="selected"'; ?> value="growers"><?php _e( 'Growers', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'gear' == $instance['type'] ) echo 'selected="selected"'; ?> value="gear"><?php _e( 'Gear', 'wpd-ecommerce' ); ?></option>
+				<option <?php if ( 'tinctures' == $instance['type'] ) echo 'selected="selected"'; ?> value="tinctures"><?php _e( 'Tinctures', 'wpd-ecommerce' ); ?></option>
 			</select>
     	</p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php _e( 'Amount of items to show:', 'wpd-topsellers' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>"><?php _e( 'Amount of items to show:', 'wpd-ecommerce' ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'limit' ) ); ?>" type="number" name="<?php echo esc_attr( $this->get_field_name( 'limit' ) ); ?>" min="1" max="999" value="<?php echo $instance['limit']; ?>" />
         </p>
 
 	    <p>
 			<input class="checkbox" type="checkbox" <?php checked( $instance['order'], 'on' ); ?> id="<?php echo $this->get_field_id( 'order' ); ?>" name="<?php echo $this->get_field_name( 'order' ); ?>" /> 
-			<label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>"><?php _e( 'Randomize output?', 'wpd-topsellers' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'order' ) ); ?>"><?php _e( 'Randomize output?', 'wpd-ecommerce' ); ?></label>
         </p>
 		
 	    <p>
 			<input class="checkbox" type="checkbox" <?php checked( $instance['featuredimage'], 'on' ); ?> id="<?php echo $this->get_field_id( 'featuredimage' ); ?>" name="<?php echo $this->get_field_name( 'featuredimage' ); ?>" /> 
-			<label for="<?php echo esc_attr( $this->get_field_id( 'featuredimage' ) ); ?>"><?php _e( 'Display featured image?', 'wpd-topsellers' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'featuredimage' ) ); ?>"><?php _e( 'Display featured image?', 'wpd-ecommerce' ); ?></label>
         </p>
 
 	    <p>
 			<input class="checkbox" type="checkbox" <?php checked( $instance['itemname'], 'on' ); ?> id="<?php echo $this->get_field_id( 'itemname' ); ?>" name="<?php echo $this->get_field_name( 'itemname' ); ?>" /> 
-			<label for="<?php echo esc_attr( $this->get_field_id( 'itemname' ) ); ?>"><?php _e( 'Display item name?', 'wpd-topsellers' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'itemname' ) ); ?>"><?php _e( 'Display item name?', 'wpd-ecommerce' ); ?></label>
         </p>
 
 	    <p>
 			<input class="checkbox" type="checkbox" <?php checked( $instance['itemcategory'], 'on' ); ?> id="<?php echo $this->get_field_id( 'itemcategory' ); ?>" name="<?php echo $this->get_field_name( 'itemcategory' ); ?>" /> 
-			<label for="<?php echo esc_attr( $this->get_field_id( 'itemcategory' ) ); ?>"><?php _e( 'Display item category?', 'wpd-topsellers' ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'itemcategory' ) ); ?>"><?php _e( 'Display item category?', 'wpd-ecommerce' ); ?></label>
         </p>
 
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'imagesize' ) ); ?>"><?php esc_html_e( 'Image size:', 'wp-dispensary' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'imagesize' ) ); ?>"><?php esc_html_e( 'Image size:', 'wpd-ecommerce' ); ?></label>
             <?php
                 $terms = apply_filters( 'wpd_widgets_featured_image_sizes', wpd_featured_image_sizes() );
                 if ( $terms ) {

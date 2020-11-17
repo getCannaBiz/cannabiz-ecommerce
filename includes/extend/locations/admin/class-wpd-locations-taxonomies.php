@@ -31,18 +31,18 @@
 function wp_dispensary_locations() {
 
   $labels = array(
-	'name'              => _x( 'Locations', 'taxonomy general name', 'wpd-locations' ),
-	'singular_name'     => _x( 'Location', 'taxonomy singular name', 'wpd-locations' ),
-	'search_items'      => __( 'Search Locations', 'wpd-locations' ),
-	'all_items'         => __( 'All Locations', 'wpd-locations' ),
-	'parent_item'       => __( 'Parent Location', 'wpd-locations' ),
-	'parent_item_colon' => __( 'Parent Location:', 'wpd-locations' ),
-	'edit_item'         => __( 'Edit Location', 'wpd-locations' ), 
-	'update_item'       => __( 'Update Location', 'wpd-locations' ),
-	'add_new_item'      => __( 'Add New Location', 'wpd-locations' ),
-	'new_item_name'     => __( 'New Location Name', 'wpd-locations' ),
-	'not_found'         => __( 'No locations found', 'wpd-locations' ),
-	'menu_name'         => __( 'Locations', 'wpd-locations' ),
+	'name'              => _x( 'Locations', 'taxonomy general name', 'wpd-ecommerce' ),
+	'singular_name'     => _x( 'Location', 'taxonomy singular name', 'wpd-ecommerce' ),
+	'search_items'      => __( 'Search Locations', 'wpd-ecommerce' ),
+	'all_items'         => __( 'All Locations', 'wpd-ecommerce' ),
+	'parent_item'       => __( 'Parent Location', 'wpd-ecommerce' ),
+	'parent_item_colon' => __( 'Parent Location:', 'wpd-ecommerce' ),
+	'edit_item'         => __( 'Edit Location', 'wpd-ecommerce' ), 
+	'update_item'       => __( 'Update Location', 'wpd-ecommerce' ),
+	'add_new_item'      => __( 'Add New Location', 'wpd-ecommerce' ),
+	'new_item_name'     => __( 'New Location Name', 'wpd-ecommerce' ),
+	'not_found'         => __( 'No locations found', 'wpd-ecommerce' ),
+	'menu_name'         => __( 'Locations', 'wpd-ecommerce' ),
   ); 	
 
   register_taxonomy( 'locations', 

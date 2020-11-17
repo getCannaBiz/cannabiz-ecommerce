@@ -43,7 +43,7 @@ function wpd_topsellers_meta( $value ) {
 function top_sellers_add_meta_box() {
 	add_meta_box(
 		'top_sellers-top-sellers',
-		__( 'Top Sellers', 'wpd-topsellers' ),
+		__( 'Top Sellers', 'wpd-ecommerce' ),
 		'top_sellers_html',
 		apply_filters( 'wpd_top_sellers_metabox', wpd_menu_types_simple( TRUE ) ),
 		'side',
@@ -56,7 +56,7 @@ function top_sellers_html( $post ) {
 	wp_nonce_field( '_top_sellers_nonce', 'top_sellers_nonce' ); ?>
 	<p>
 		<input type="checkbox" name="wpd_topsellers" id="wpd_topsellers" value="add_wpd_topsellers" <?php echo ( wpd_topsellers_meta( 'wpd_topsellers' ) === 'add_wpd_topsellers' ) ? 'checked' : ''; ?>>
-		<label for="wpd_topsellers"><?php _e( 'Mark this product as a top seller', 'wpd-topsellers' ); ?></label>
+		<label for="wpd_topsellers"><?php _e( 'Mark this product as a top seller', 'wpd-ecommerce' ); ?></label>
 	</p>
 	<?php
 }
