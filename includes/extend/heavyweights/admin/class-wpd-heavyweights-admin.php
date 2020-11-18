@@ -111,7 +111,7 @@ class WPD_Heavyweights_Admin {
  */
 function add_heavyweight_prices_metaboxes() {
 
-	$screens = array( 'flowers', 'concentrates' );
+	$screens = array( 'products', 'flowers', 'concentrates' );
 
 	foreach ( $screens as $screen ) {
 		add_meta_box(
@@ -138,7 +138,7 @@ function wpdispensary_heavyweight_prices() {
 	echo '<input type="hidden" name="heavyweightpricesmeta_noncename" id="heavyweightpricesmeta_noncename" value="' .
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
-	if ( in_array( get_post_type(), array( 'flowers' ) ) ) {
+	if ( in_array( get_post_type(), array( 'products', 'flowers' ) ) ) {
 		/** Get the prices data if its already been entered */
 		$twoounces        = get_post_meta( $post->ID, '_twoounces', true );
 		$quarterpound     = get_post_meta( $post->ID, '_quarterpound', true );
@@ -249,7 +249,7 @@ function wpdispensary_heavyweight_prices() {
 		echo '</div>';
 	} // if is ( 'flowers' )
 
-	if ( in_array( get_post_type(), array( 'concentrates' ) ) ) {
+	if ( in_array( get_post_type(), array( 'products', 'concentrates' ) ) ) {
 		/** Get the prices data if its already been entered */
 		$threegrams = get_post_meta( $post->ID, '_threegrams', true );
 		$fourgrams  = get_post_meta( $post->ID, '_fourgrams', true );
@@ -381,7 +381,7 @@ add_action( 'save_post', 'wpdispensary_save_heavyweight_prices_meta', 1, 2 ); /*
  */
 function add_wpd_heavyweight_prices() {
 	
-	if ( in_array( get_post_type(), array( 'flowers' ) ) ) {
+	if ( in_array( get_post_type(), array( 'products', 'flowers' ) ) ) {
 		if (
 			! get_post_meta( get_the_ID(), '_twoounces', true ) &&
 			! get_post_meta( get_the_ID(), '_quarterpound', true ) &&
@@ -483,7 +483,7 @@ function add_wpd_heavyweight_prices() {
 
 	<?php } // if ( 'flowers' )
 
-	if ( in_array( get_post_type(), array( 'concentrates' ) ) ) {
+	if ( in_array( get_post_type(), array( 'products', 'concentrates' ) ) ) {
 		if (
 			! get_post_meta( get_the_ID(), '_fourgrams', true ) &&
 			! get_post_meta( get_the_ID(), '_fivegrams', true ) &&
