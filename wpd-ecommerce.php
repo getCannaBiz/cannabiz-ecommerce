@@ -426,13 +426,13 @@ function wpd_ecommerce_include_template_function( $template_path ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
-            if ( $theme_file = locate_template( array ( 'single-item.php' ) ) ) {
+            if ( $theme_file = locate_template( array( 'single-item.php' ) ) ) {
                 $template_path = $theme_file;
             } else {
                 $template_path = plugin_dir_path( __FILE__ ) . '/templates/single-item.php';
             }
         } elseif ( is_archive() ) {
-            if ( $theme_file = locate_template( array ( 'archive-items.php' ) ) ) {
+            if ( $theme_file = locate_template( array( 'archive-items.php' ) ) ) {
                 $template_path = $theme_file;
             } else {
                 $template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-items.php';

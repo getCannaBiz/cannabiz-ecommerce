@@ -73,12 +73,12 @@ function wpd_ecommerce_order_item_details_build() {
 	 */
 
 	echo '<div class="order-item-details-box first">';
-	echo '<h1>Order #' . $post->ID . ' details</h1>';
+	echo '<h1>' . sprintf( esc_attr__( 'Order #%1$s details', 'wpd-ecommerce' ), $post->ID ) . '</h1>';
 
 	echo '<table class="wpd-ecommerce order-details"><tbody>';
-	echo '<tr><td><strong>Subtotal:</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
+	echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . '::</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
 	if ( '0.00' !== $order_coupon_amount ) {
-		echo '<tr><td><strong>Coupon:</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
+		echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
 	}
 	if ( '0.00' !== $order_payment_type_amount ) {
 		echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
