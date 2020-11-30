@@ -1450,7 +1450,7 @@ function wpd_ecommerce_add_to_cart_form() {
 			if ( ! empty( $pack_price ) ) {
 				// Select a quantity.
 				print( '<select name="wpd_ecommerce_product_prices" id="wpd_ecommerce_product_prices" class="widefat">' );
-				printf( '<option value="" disabled selected>' . __( 'Choose a quantity', 'wpd-ecommerce' ) . '</option>' );
+				printf( '<option value="" disabled selected>' . __( 'Choose quantity', 'wpd-ecommerce' ) . '</option>' );
 				printf( '<option value="'. esc_html( $regular_price ) . '">' . CURRENCY . esc_html( $regular_price ) . ' - ' . __( 'each', 'wpd-ecommerce' ) . '</option>' );
 				printf( '<option value="'. esc_html( $pack_price ) . '">' . CURRENCY . esc_html( $pack_price ) . ' - ' . esc_html( $pack_units ) . ' ' . __( 'pack', 'wpd-ecommerce' ) . '</option>' );
 				print( '</select>' );

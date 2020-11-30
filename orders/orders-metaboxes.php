@@ -76,7 +76,7 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '<h1>' . sprintf( esc_attr__( 'Order #%1$s details', 'wpd-ecommerce' ), $post->ID ) . '</h1>';
 
 	echo '<table class="wpd-ecommerce order-details"><tbody>';
-	echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . '::</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
+	echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
 	if ( '0.00' !== $order_coupon_amount ) {
 		echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
 	}

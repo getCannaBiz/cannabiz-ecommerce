@@ -211,7 +211,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                 if ( ! isset( $doc_rec['error'] ) ) {
                     if ( ! empty( $doc_rec ) ) {
                         $doc_rec = $doc_rec['url'];
-                        echo "<a href='" . $doc_rec . "' target='_blank'><img src='" . $doc_rec . "' width='100' height='100' class='wpd-details-recommendation-doc' /></a><br />";
+                        echo '<a href="' . $doc_rec . '" target="_blank"><img src="' . $doc_rec . '" width="100" height="100" class="wpd-details-recommendation-doc" /></a><br />';
                     }
                 } else {
                     $doc_rec = $doc_rec['error'];
