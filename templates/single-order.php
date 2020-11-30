@@ -140,7 +140,7 @@ if ( ! is_user_logged_in() ) {
             ?>
         <?php
             if ( 'patient' === $role[0] ) {
-                echo "<h3>Order items</h3>";
+                echo '<h3>' . __( 'Order items', 'wpd-ecommerce' ) . '</h3>';
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
             } elseif ( 'administrator' === $role[0] ) {
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );
