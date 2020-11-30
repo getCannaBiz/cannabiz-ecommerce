@@ -159,7 +159,7 @@ function wpd_patient_account_shortcode() {
 				<?php
 					$user = wp_get_current_user();
 					$role = ( array ) $user->roles;
-				
+
 					// Patient name based on specific profile info.
 					if ( '' !== $user->first_name && '' !== $user->last_name ) {
 						$patient_name = $user->first_name . '  ' . $user->last_name;

@@ -41,7 +41,7 @@ function wpd_ecommerce() {
 	//print_r( $wpd_settings );	
 
 	// Define sales tax (if any).
-	if ( ! isset( $wpd_settings['wpd_ecommerce_sales_tax'] ) ) {
+	if ( ! isset( $wpd_settings['wpd_ecommerce_sales_tax'] ) || '' == $wpd_settings['wpd_ecommerce_sales_tax'] ) {
 		define( 'SALES_TAX', NULL );
 	} else {
 		// Create sales tax.
@@ -52,7 +52,7 @@ function wpd_ecommerce() {
 	}
 
 	// Define excise tax (if any).
-	if ( ! isset( $wpd_settings['wpd_ecommerce_excise_tax'] ) ) {
+	if ( ! isset( $wpd_settings['wpd_ecommerce_excise_tax'] ) || '' == $wpd_settings['wpd_ecommerce_excise_tax'] ) {
 		define( 'EXCISE_TAX', NULL );
 	} else {
 		// Create excise tax.

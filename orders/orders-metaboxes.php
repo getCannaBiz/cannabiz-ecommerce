@@ -76,12 +76,12 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '<h1>Order #' . $post->ID . ' details</h1>';
 
 	echo '<table class="wpd-ecommerce order-details"><tbody>';
-	echo "<tr><td><strong>Subtotal:</strong></td><td>" . CURRENCY . $order_subtotal . "</td></tr>";
+	echo '<tr><td><strong>Subtotal:</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
 	if ( '0.00' !== $order_coupon_amount ) {
-		echo "<tr><td><strong>Coupon:</strong></td><td>-" . CURRENCY . $order_coupon_amount . "</td></tr>";
+		echo '<tr><td><strong>Coupon:</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
 	}
 	if ( '0.00' !== $order_payment_type_amount ) {
-		echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
+		echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
 	}
 	if ( '0.00' !== $order_excise_tax ) {
 		echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
@@ -122,13 +122,13 @@ function wpd_ecommerce_order_item_details_build() {
 	$user_info = get_userdata( $order_customer_id );
 
 	if ( '' != $user_info->address_line_1 ) {
-		echo $user_info->address_line_1 . "<br />";
+		echo $user_info->address_line_1 . '<br />';
 	}
 	if ( '' != $user_info->address_line_2 ) {
-		echo $user_info->address_line_2 . "<br />";
+		echo $user_info->address_line_2 . '<br />';
 	}
 
-	echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
+	echo $user_info->city . ', ' . $user_info->state_county . ' ' . $user_info->postcode_zip . '<br />';
 
 	echo '</div>';
 
@@ -138,7 +138,7 @@ function wpd_ecommerce_order_item_details_build() {
 
 	if ( '' != $user_info->user_email ) {
 		echo '<p><strong>' . __( 'Email address', 'wpd-ecommerce' ) . ':</strong></p>';
-		echo "<a href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a>";
+		echo '<a href="mailto:' . $user_info->user_email . '">' . $user_info->user_email . '</a>';
 	}
 
 	if ( '' != $user_info->phone_number ) {
@@ -201,5 +201,4 @@ function wpd_ecommerce_save_order_item_details( $post_id, $post ) {
 	}
 
 }
-
 add_action( 'save_post', 'wpd_ecommerce_save_order_item_details', 1, 2 ); // Save the custom fields.

@@ -101,20 +101,20 @@ if ( ! is_user_logged_in() ) {
                 echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
 
                 if ( '' != $user_info->address_line_1 ) {
-                    echo $user_info->address_line_1 . "<br />";
+                    echo $user_info->address_line_1 . '<br />';
                 }
 
                 if ( '' != $user_info->address_line_2 ) {
-                    echo $user_info->address_line_2 . "<br />";
+                    echo $user_info->address_line_2 . '<br />';
                 }
-                echo $user_info->city . ", " . $user_info->state_county . " " . $user_info->postcode_zip . "<br />";
+                echo $user_info->city . ', ' . $user_info->state_county . ' ' . $user_info->postcode_zip . '<br />';
                 echo '<p>';
                 if ( '' != $user_info->user_email ) {
-                    echo "<a class='email-address' href='mailto:" . $user_info->user_email . "'>" . $user_info->user_email . "</a><br />";
+                    echo '<a class="email-address" href="mailto:' . $user_info->user_email . '">' . $user_info->user_email . '</a><br />';
                 }
 
                 if ( '' != $user_info->phone_number ) {
-                    echo "<a class='phone-number' href='tel:" . $user_info->phone_number . "'>" . $user_info->phone_number . "</a>";
+                    echo '<a class="phone-number" href="tel:' . $user_info->phone_number . '">' . $user_info->phone_number . '</a>';
                 }
                 echo '</p>';
                 echo '</div>';
@@ -132,7 +132,7 @@ if ( ! is_user_logged_in() ) {
                     echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
                 }
                 if ( '0.00' !== $order_payment_type_amount ) {
-                    echo "<tr><td><strong>" . $order_payment_type_name . ":</strong></td><td>" . CURRENCY . $order_payment_type_amount . "</td></tr>";
+                    echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
                 }
                 echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
                 echo '</tbody></table>';
@@ -151,9 +151,13 @@ if ( ! is_user_logged_in() ) {
         </div>
     </div>
     <?php endwhile; ?>
-<?php do_action( 'wpd_ecommerce_templates_single_orders_wrap_after' ); ?>
-<?php wp_reset_query(); ?>
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+
+do_action( 'wpd_ecommerce_templates_single_orders_wrap_after' );
+
+wp_reset_query();
+
+get_sidebar();
+get_footer(); ?>
 
 <?php } ?>

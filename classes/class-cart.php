@@ -203,23 +203,23 @@ class Cart {
 			} else {
 				$regular_price = '';
 			}
-			$str .=	"<tr><td><a href='" . $i->permalink . "'>" . $i->title . "</a></td><td>" . CURRENCY . $regular_price . "</td><td>" . $amount . "</td></tr>";
+			$str .=	'<tr><td><a href="' . $i->permalink . '">' . $i->title . '</a></td><td>' . CURRENCY . $regular_price . '</td><td>' . $amount . '</td></tr>';
 		endforeach;
-		$str .= "</tbody>";
-		$str .= "</table>";
+		$str .= '</tbody>';
+		$str .= '</table>';
 
-		$str .= "<ul id='cart_totals'>";
-		$str .= "<li class='cart_sum'>Sum: " . CURRENCY . $this->sum . "</li>";
+		$str .= '<ul id="cart_totals">';
+		$str .= '<li class="cart_sum">Sum: ' . CURRENCY . $this->sum . '</li>';
 		if ( ! defined( 'EXCISE_TAX' ) ) {
 			// Do nothing.
 		} else {
-			$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
+			$str .= '<li class="cart_sales_tax">Sales Tax: ' . CURRENCY . $this->sales_tax . '</li>';
 		}
 		if ( defined( 'EXCISE_TAX' ) ) {
-			$str .= "<li class='cart_excise_tax'>Excise Tax: " . CURRENCY . $this->excise_tax . "</li>";
+			$str .= '<li class="cart_excise_tax">Excise Tax: ' . CURRENCY . $this->excise_tax . '</li>';
 		}
-		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->payment_type_amount + $this->sum ) . "</li>";
-		$str .= "</ul>";
+		$str .= '<li class="cart_total"><span class="caption">Total:</span>' . CURRENCY . ( $this->sales_tax + $this->excise_tax + $this->payment_type_amount + $this->sum ) . '</li>';
+		$str .= '</ul>';
 
 		return $str;	
 	}
@@ -243,16 +243,16 @@ class Cart {
 			} else {
 				$regular_price = '';
 			}
-			$str .=	"<tr><td><a href='" . $i->permalink . "'>" . $i->title . "</a></td><td>" . CURRENCY . $regular_price . "</td><td>" . $amount . "</td></tr>";
+			$str .=	'<tr><td><a href="' . $i->permalink . '">' . $i->title . '</a></td><td>' . CURRENCY . $regular_price . '</td><td>' . $amount . '</td></tr>';
 		endforeach;
-		$str .= "</tbody>";
-		$str .= "</table>";
+		$str .= '</tbody>';
+		$str .= '</table>';
 
-		$str .= "<ul id='cart_totals'>";
-		$str .= "<li class='cart_sum'>Sum: " . CURRENCY . $this->sum . "</li>";
-		$str .= "<li class='cart_sales_tax'>Sales Tax: " . CURRENCY . $this->sales_tax . "</li>";
-		$str .= "<li class='cart_total'><span class='caption'>Total:</span>". CURRENCY . ( $this->sales_tax + $this->sum ) . "</li>";
-		$str .= "</ul>";
+		$str .= '<ul id="cart_totals">';
+		$str .= '<li class="cart_sum">Sum: ' . CURRENCY . $this->sum . '</li>';
+		$str .= '<li class="cart_sales_tax">Sales Tax: ' . CURRENCY . $this->sales_tax . '</li>';
+		$str .= '<li class="cart_total"><span class="caption">Total:</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
+		$str .= '</ul>';
 
 		return $str;
 	}

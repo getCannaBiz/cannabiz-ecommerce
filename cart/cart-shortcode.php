@@ -73,7 +73,7 @@ function wpd_ecommerce_shortcode() {
 
 			$total_price = $amount * $regular_price;
 
-			$str .=	"<tr><td><a href='" . get_the_permalink() . "?remove_item=" . $id . "' class='remove'>x</a></td><td>" . $i->thumbnail . "</td><td><a href='" . $i->permalink . "'>" . $i->title . "" . $weightname . "</a></td><td>" . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . "</td><td><input id='quantity' name='quantity' class='wpd-ecommerce-quantity' type='number' value='" . $amount . "' /></td><td>" . CURRENCY . number_format((float)$total_price, 2, '.', ',' ) . "</td></tr>";
+			$str .=	'<tr><td><a href="' . get_the_permalink() . '?remove_item=' . $id . '" class="remove">x</a></td><td>' . $i->thumbnail . '</td><td><a href="' . $i->permalink . '">' . $i->title . $weightname . '</a></td><td>' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</td><td><input id="quantity" name="quantity" class="wpd-ecommerce-quantity" type="number" value="' . $amount . '" /></td><td>' . CURRENCY . number_format( (float)$total_price, 2, '.', ',' ) . '</td></tr>';
 		endforeach;
 		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_after' );
 		/**
@@ -84,17 +84,17 @@ function wpd_ecommerce_shortcode() {
 		if ( ! empty( $wpd_general['wpd_ecommerce_checkout_coupons'] ) ) {
 			// Check if WP Dispensary setting is set.
 			if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
-				$str .= "<tr><td colspan='6'>
-				<form class='wpd-ecommerce-apply-coupon' name='apply_coupon' method='post'>
-				<input type='text' name='coupon_code' value='' placeholder='Coupon code' />
-				<input type='submit' class='button' name='add_coupon' value='Apply coupon' />"
+				$str .= '<tr><td colspan="6">
+				<form class="wpd-ecommerce-apply-coupon" name="apply_coupon" method="post">
+				<input type="text" name="coupon_code" value="" placeholder="Coupon code" />
+				<input type="submit" class="button" name="add_coupon" value="Apply coupon" />'
 				. wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
-				"</form>
-				</td></tr>";
+				'</form>
+				</td></tr>';
 			}
 		}
-		$str .= "</tbody>";
-		$str .= "</table>";
+		$str .= '</tbody>';
+		$str .= '</table>';
 		$str .= do_action( 'wpd_ecommerce_cart_table_after' );
 
 		// Get taxes (if any).
@@ -111,30 +111,30 @@ function wpd_ecommerce_shortcode() {
 
 		$str .= do_action( 'wpd_ecommerce_cart_wrap_before' );
 
-		$str .= "<div class='wpd-ecommerce-wrap'>";
+		$str .= '<div class="wpd-ecommerce-wrap">';
 		$str .= do_action( 'wpd_ecommerce_cart_totals_before' );
-		$str .= "<div class='cart-totals'>";
+		$str .= '<div class="cart-totals">';
 		$str .= do_action( 'wpd_ecommerce_cart_totals_inside_before' );
-		$str .= "<h2>" . __( 'Cart Totals', 'wpd-ecommerce' ) . "</h2>";
-		$str .= "<table class='wpd-ecommerce totals'>";
-		$str .= "<tbody>";
-		$str .= "<tr><th class='cart_sum'><span class='subtotal'>" . __( 'Subtotal', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . "</td></tr>";
+		$str .= '<h2>' . __( 'Cart Totals', 'wpd-ecommerce' ) . '</h2>';
+		$str .= '<table class="wpd-ecommerce totals">';
+		$str .= '<tbody>';
+		$str .= '<tr><th class="cart_sum"><span class="subtotal">' . __( 'Subtotal', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
 
 		// Add the coupon.
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-			$str .= "<tr><th class='cart_coupon'><span class='coupon_code'>" . __( 'Coupon', 'wpd-ecommerce' ) . ":<br />" . $_SESSION['wpd_ecommerce']->coupon_code . "</span></th><td>-" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
+			$str .= '<tr><th class="cart_coupon"><span class="coupon_code">' . __( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</span></th><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . ' (<a href="' . get_the_permalink() . '?remove_coupon=' . $_SESSION['wpd_ecommerce']->coupon_code . '">' . __( 'Remove', 'wpd-ecommerce' ) . '?</a>)</td></tr>';
 		}
 		// Add the sales tax.
 		if ( NULL !== $_SESSION['wpd_ecommerce']->sales_tax && 0 != $_SESSION['wpd_ecommerce']->sales_tax ) {
-			$str .= "<tr><th class='cart_sales_tax'><span class='sales_tax'>" . __( 'Sales tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . "</td></tr>";
+			$str .= '<tr><th class="cart_sales_tax"><span class="sales_tax">' . __( 'Sales tax', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
 		}
 		// Add the excise tax.
 		if ( NULL !== $_SESSION['wpd_ecommerce']->excise_tax && 0 != $_SESSION['wpd_ecommerce']->excise_tax ) {
-			$str .= "<tr><th class='cart_excise_tax'><span class='excise_tax'>" . __( 'Excise tax', 'wpd-ecommerce' ) . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . "</td></tr>";
+			$str .= '<tr><th class="cart_excise_tax"><span class="excise_tax">' . __( 'Excise tax', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
 		}
 		// Add the payment type / amount.
 		if ( isset( $_SESSION['wpd_ecommerce']->payment_type_name ) ) {
-			$str .= "<tr><th class='cart_payment_type'><span class='payment_type_amount'>" . $_SESSION['wpd_ecommerce']->payment_type_name . "</span></th><td>" . CURRENCY . number_format((float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . "</td></tr>";
+			$str .= '<tr><th class="cart_payment_type"><span class="payment_type_amount">' . $_SESSION['wpd_ecommerce']->payment_type_name . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . '</td></tr>';
 		}
 
 		$str .= '<tr><th class="cart_total"><span class="total">' . __( 'Total', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</td></tr>';

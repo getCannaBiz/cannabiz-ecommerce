@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
 function wpd_ecommerce_checkout_shortcode() {
 
 if ( ! is_user_logged_in() ) {
-    echo '<p>' .__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
+    echo '<p>' . __( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
     echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce return">' . __( 'Login', 'wpd-ecommerce' ) . '</a></p>';
 } else {
     // Verify that there's an active session.
@@ -345,7 +345,7 @@ function wpd_ecommerce_checkout_success() {
     $wpd_orders_data      = array();
     $wpd_orders_item_data = array();
 
-    echo "<h3 class='wpd-ecommerce patient-order'>" . __( 'Your order', 'wpd-ecommerce' ) . "</h3>";
+    echo '<h3 class="wpd-ecommerce patient-order">' . __( 'Your order', 'wpd-ecommerce' ) . '</h3>';
 
     do_action( 'wpd_ecommerce_checkout_success_your_order_table_before' );
 
@@ -464,8 +464,8 @@ function wpd_ecommerce_checkout_success() {
 
     endforeach;
 
-    $str .= "</tbody>";
-    $str .= "</table>";
+    $str .= '</tbody>';
+    $str .= '</table>';
 
     do_action( 'wpd_ecommerce_checkout_success_your_order_table_after' );
 

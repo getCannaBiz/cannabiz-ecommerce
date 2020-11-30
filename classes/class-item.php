@@ -140,11 +140,12 @@ class Item {
 		}
 
 		// Create.
-		$this->id             = $item_id;
-		$this->product_id     = $item_old_id;
-		$this->title          = $my_post->post_title;
-		$this->permalink      = get_the_permalink( $item_id );
-
+		$this->id         = $item_id;
+		$this->product_id = $item_old_id;
+		$this->title      = $my_post->post_title;
+		$this->permalink  = get_the_permalink( $item_id );
+		$this->thumbnail  = get_the_post_thumbnail( $item_id, array( 30, 30 ), '' );
+		// Set prices.
 		$this->price              = $regular_price;
 		$this->price_per_pack     = $pack_price;
 		$this->price_flowers      = $flower_prices;
@@ -152,7 +153,6 @@ class Item {
 		$this->price_concentrates = $concentrate_prices;
 		$this->price_concentrate  = $concentrate_price_choice;
 		$this->price_quantity     = $product_price_choice;
-		$this->thumbnail          = get_the_post_thumbnail( $item_id, array( 30, 30 ), '' );
  	}
 
 	/*
