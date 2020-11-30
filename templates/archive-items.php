@@ -151,15 +151,16 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                         // Get total number of pages
                         global $wp_query;
                         $total = $wp_query->max_num_pages;
-                        // Only paginate if we have more than one page
+                        // Only paginate if we have more than one page.
                         if ( $total > 1 )  {
-                            // Get the current page
-                            if ( ! $current_page = get_query_var( 'paged' ) )
+                            // Get the current page.
+                            if ( ! $current_page = get_query_var( 'paged' ) ) {
                                 $current_page = 1;
-                                $format = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : 'page/%#%/';
+                                $link_format  = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : '/page/%#%/';
+                                // Display pagination links.
                                 echo paginate_links( array(
                                     'base'      => get_pagenum_link(1) . '%_%',
-                                    'format'    => $format,
+                                    'format'    => $link_format,
                                     'current'   => $current_page,
                                     'total'     => $total,
                                     'mid_size'  => 4,
@@ -167,8 +168,8 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                                     'next_text' => '&rarr;',
                                     'type'      => 'list'
                                 ) );
+                            }
                         }
-                        //the_posts_navigation();
                     ?>
                     </div><!-- // .wpd-page-links -->
                 </div><!-- // .row -->
@@ -178,5 +179,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
     <?php endif; ?>
 
     <?php do_action( 'wpd_ecommerce_templates_archive_items_wrap_after' ); ?>
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+
+get_sidebar();
+get_footer();
