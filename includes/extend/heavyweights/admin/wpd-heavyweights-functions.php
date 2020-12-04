@@ -74,20 +74,20 @@ function wpd_heavyweights_flowers_weights_low() {
 
 	$pricinglow = '';
 
-    if ( get_post_meta( get_the_ID(), '_gram', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_gram', true );
-	} elseif ( get_post_meta( get_the_ID(), '_twograms', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_twograms', true );
-	} elseif ( get_post_meta( get_the_ID(), '_eighth', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_eighth', true );
-	} elseif ( get_post_meta( get_the_ID(), '_fivegrams', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_fivegrams', true );
-	} elseif ( get_post_meta( get_the_ID(), '_quarter', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_quarter', true );
-	} elseif ( get_post_meta( get_the_ID(), '_halfounce', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_halfounce', true );
-	} elseif ( get_post_meta( get_the_ID(), '_ounce', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), '_ounce', true );
+    if ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_gram', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_two_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_eighth', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_eighth', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_five_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_ounce', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_half_ounce', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_half_ounce', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_ounce', true ) ) {
+		$pricinglow = get_post_meta( get_the_ID(), 'price_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), '_twoounces', true ) ) {
 		$pricinglow = get_post_meta( get_the_ID(), '_twoounces', true );
 	} elseif ( get_post_meta( get_the_ID(), '_threeounces', true ) ) {
@@ -208,20 +208,20 @@ function wpd_heavyweights_flowers_weights_high() {
 		$pricinghigh = get_post_meta( get_the_ID(), '_threeounces', true );
 	} elseif ( get_post_meta( get_the_ID(), '_twoounces', true ) ) {
 		$pricinghigh = get_post_meta( get_the_ID(), '_twoounces', true );
-	} elseif ( get_post_meta( get_the_ID(), '_ounce', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_ounce', true );
-	} elseif ( get_post_meta( get_the_ID(), '_halfounce', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_halfounce', true );
-	} elseif ( get_post_meta( get_the_ID(), '_quarter', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_quarter', true );
-	} elseif ( get_post_meta( get_the_ID(), '_fivegrams', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_fivegrams', true );
-	} elseif ( get_post_meta( get_the_ID(), '_eighth', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_eigth', true );
-	} elseif ( get_post_meta( get_the_ID(), '_twograms', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_twograms', true );
-	} elseif ( get_post_meta( get_the_ID(), '_gram', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), '_gram', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_ounce', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_ounce', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_half_ounce', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_half_ounce', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_ounce', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_five_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_eighth', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_eigth', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_two_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+		$pricinghigh = get_post_meta( get_the_ID(), 'price_gram', true );
 	} else {
         // Do nothing.
 	}
@@ -244,12 +244,12 @@ function wpd_heavyweights_concentrates_weights_low() {
 
 	$pricinglow = '';
 
-    if ( get_post_meta( get_the_ID(), '_halfgram', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), '_halfgram', true );
-    } elseif ( get_post_meta( get_the_ID(), '_gram', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), '_gram', true );
-    } elseif ( get_post_meta( get_the_ID(), '_twograms', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), '_twograms', true );
+    if ( get_post_meta( get_the_ID(), 'price_half_gram', true ) ) {
+        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_half_gram', true );
+    } elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
+    } elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
     } elseif ( get_post_meta( get_the_ID(), '_threegrams', true ) ) {
         $pricinglow = $currency_code . get_post_meta( get_the_ID(), '_threegrams', true );
     } elseif ( get_post_meta( get_the_ID(), '_fourgrams', true ) ) {
@@ -302,10 +302,10 @@ function wpd_heavyweights_concentrates_weights_high() {
         $pricinghigh = $currency_code . get_post_meta( get_the_ID(), '_fourgrams', true );
     } elseif ( get_post_meta( get_the_ID(), '_threegrams', true ) ) {
         $pricinghigh = $currency_code . get_post_meta( get_the_ID(), '_threegrams', true );
-    } elseif ( get_post_meta( get_the_ID(), '_twograms', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), '_twograms', true );
-    } elseif ( get_post_meta( get_the_ID(), '_gram', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), '_gram', true );
+    } elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
+    } elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
     } else {
         // Do nothing.
     }
