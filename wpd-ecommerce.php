@@ -422,7 +422,7 @@ if ( ! empty( $_SESSION ) ) {
 function wpd_ecommerce_include_template_function( $template_path ) {
 
 	 // WP Dispensary products.
-	if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_post_type_templates', wpd_menu_types_simple( TRUE ) ) ) ) {
+	if ( 'products' === get_post_type() ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,
             // otherwise serve the file from the plugin
