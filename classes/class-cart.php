@@ -112,24 +112,10 @@ class Cart {
 
 			$i = new Item( $item_id, '', '', '', '' );
 
-			if ( 'edibles' === get_post_type( $i->product_id ) ) {
+			$regular_price = '';
+
+			if ( 'products' === get_post_type( $i->product_id ) ) {
 				$regular_price = $i->price_quantity;
-			} elseif ( 'topicals' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			} elseif ( 'prerolls' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			} elseif ( 'tinctures' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			} elseif ( 'gear' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			} elseif ( 'growers' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			} elseif ( 'flowers' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_flower;
-			} elseif ( 'concentrates' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_concentrate;
-			} else {
-				$regular_price = '';
 			}
 
 			/*
@@ -188,18 +174,8 @@ class Cart {
 		$str .= '<tbody>';
 		foreach( $this->item_array as $id=>$amount ):
 			$i    = new Item( $id, '', '', '' );
-			if ( 'edibles' === get_post_type( $i->id ) ) {
-				$regular_price  = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
-			} elseif ( 'topicals' === get_post_type( $i->id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_pricetopical', true ) );
-			} elseif ( 'prerolls' === get_post_type( $i->id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
-			} elseif ( 'tinctures' === get_post_type( $i->id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
-			} elseif ( 'gear' === get_post_type( $i->id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
-			} elseif ( 'growers' === get_post_type( $i->id ) ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
+			if ( 'products' === get_post_type( $i->id ) ) {
+				$regular_price  = esc_html( get_post_meta( $i->id, 'price_each', true ) );
 			} else {
 				$regular_price = '';
 			}
@@ -233,12 +209,10 @@ class Cart {
 		$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';
 		$str .= '<tbody>';
 		foreach( $this->item_array as $id=>$amount ):
-			$i    = new Item( $id, '', '', '' );
-			if ( in_array( get_post_type( $i->id ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
+			$i = new Item( $id, '', '', '' );
+			if ( in_array( get_post_meta( $i->id, 'product_type', true ), array( 'edibles', 'prerolls', 'growers', 'topicals', 'gear', 'tinctures' ) ) ) {
 				$regular_price  = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
-			} elseif ( 'topicals' === get_post_type() ) {
-				$regular_price = esc_html( get_post_meta( $i->id, '_pricetopical', true ) );
-			} elseif ( 'flowers' === get_post_type() ) {
+			} elseif ( 'flowers' === get_post_meta( $i->id, 'product_type', true ) ) {
 				$regular_price = $i->price_flower;
 			} else {
 				$regular_price = '';

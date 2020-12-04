@@ -26,7 +26,7 @@ class Item {
 
 		if ( empty( $new_price ) ) {
 
-			if ( 'flowers' === get_post_type( $item_old_id ) ) {
+			if ( 'products' === get_post_type( $item_old_id ) && 'flowers' == get_post_meta( $item_old_id, 'product_type', true ) ) {
 				if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 					foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
 						$item_names[] = $id;
@@ -45,7 +45,7 @@ class Item {
 				$concentrate_prices = NULL;
 				// Set concentrate price to NULL to avoid `Notice`.
 				$concentrate_price_choice = NULL;
-			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+			} elseif ( 'products' === get_post_type( $item_old_id ) && 'concentrates' == get_post_meta( $item_old_id, 'product_type', true ) ) {
 				if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 					foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ) {
 						$item_names[] = $id;
@@ -91,13 +91,13 @@ class Item {
 				$item_names[] = $id;
 			}
 
-			if ( 'flowers' === get_post_type( $item_old_id ) ) {
+			if ( 'products' === get_post_type( $item_old_id ) && 'flowers' == get_post_meta( $item_old_id, 'product_type', true ) ) {
 				foreach( $item_names as $item=>$value ) {
 					if ( $value == $item_id ) {
 						$flower_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
 					}
 				}
-			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+			} elseif ( 'products' === get_post_type( $item_old_id ) && 'flowers' == get_post_meta( $item_old_id, 'product_type', true ) ) {
 				foreach( $item_names as $item=>$value ) {
 					if ( $value == $item_id ) {
 						$concentrate_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
@@ -113,24 +113,24 @@ class Item {
 		}
 
 		// Get prices.
-		if ( in_array( get_post_type( $my_post->ID ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
-			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
-			$pack_price           = esc_html( get_post_meta( $my_post->ID, '_priceperpack', true ) );
+		if ( in_array( get_post_meta( $my_post->ID, 'product_type', true ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
+			$regular_price        = esc_html( get_post_meta( $my_post->ID, 'price_each', true ) );
+			$pack_price           = esc_html( get_post_meta( $my_post->ID, 'price_per_pack', true ) );
 			$flower_prices        = '';
 			$concentrate_prices   = '';
-		} elseif ( 'topicals' === get_post_type( $my_post->ID ) ) {
+		} elseif ( 'topicals' === get_post_meta( $my_post->ID, 'product_type', true ) ) {
 			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_pricetopical', true ) );
 			$pack_price           = esc_html( get_post_meta( $my_post->ID, '_priceperpack', true ) );
 			$flower_prices        = '';
 			$concentrate_prices   = '';
-		} elseif ( 'flowers' === get_post_type( $my_post->ID ) ) {
+		} elseif ( 'flowers' === get_post_meta( $my_post->ID, 'product_type', true ) ) {
 			$regular_price        = '';
 			$pack_price           = '';
 			$flower_prices        = wpd_flowers_prices_array( $my_post->ID );
 			$product_price_choice = '';
 			$concentrate_prices   = '';
-		} elseif ( 'concentrates' === get_post_type( $my_post->ID ) ) {
-			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_priceeach', true ) );
+		} elseif ( 'concentrates' === get_post_meta( $my_post->ID, 'product_type', true ) ) {
+			$regular_price        = esc_html( get_post_meta( $my_post->ID, 'price_each', true ) );
 			$pack_price           = '';
 			$flower_prices        = '';
 			$product_price_choice = '';
