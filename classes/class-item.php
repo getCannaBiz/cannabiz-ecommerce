@@ -113,14 +113,9 @@ class Item {
 		}
 
 		// Get prices.
-		if ( in_array( get_post_meta( $my_post->ID, 'product_type', true ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
+		if ( in_array( get_post_meta( $my_post->ID, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 			$regular_price        = esc_html( get_post_meta( $my_post->ID, 'price_each', true ) );
 			$pack_price           = esc_html( get_post_meta( $my_post->ID, 'price_per_pack', true ) );
-			$flower_prices        = '';
-			$concentrate_prices   = '';
-		} elseif ( 'topicals' === get_post_meta( $my_post->ID, 'product_type', true ) ) {
-			$regular_price        = esc_html( get_post_meta( $my_post->ID, '_pricetopical', true ) );
-			$pack_price           = esc_html( get_post_meta( $my_post->ID, '_priceperpack', true ) );
 			$flower_prices        = '';
 			$concentrate_prices   = '';
 		} elseif ( 'flowers' === get_post_meta( $my_post->ID, 'product_type', true ) ) {

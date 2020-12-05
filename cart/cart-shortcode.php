@@ -25,23 +25,15 @@ function wpd_ecommerce_shortcode() {
 			$item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
 			$item_meta_key = preg_replace( '/[0-9]+/', '', $id );
 
-			if ( in_array( get_post_type( $item_old_id ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
-				$units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
+			if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+				$units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
 				$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
-				if ( '_priceperpack' === $item_meta_key ) {
+				if ( 'price_per_pack' === $item_meta_key ) {
 					$weightname = ' - ' . $units_per_pack . ' pack';
 				} else {
 					$weightname = '';
 				}
-			} elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
-				$units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
-				$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
-				if ( '_priceperpack' === $item_meta_key ) {
-					$weightname = ' - ' . $units_per_pack . ' pack';
-				} else {
-					$weightname = '';
-				}
-			} elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
+			} elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 				$item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -51,7 +43,7 @@ function wpd_ecommerce_shortcode() {
 						$regular_price  = esc_html( get_post_meta( $item_old_id, $value, true ) );
 					}
 				}
-			} elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+			} elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 				$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -61,9 +53,9 @@ function wpd_ecommerce_shortcode() {
 						$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 					}
 				}
-				if ( '_priceeach' === $concentrate_weight_cart ) {
+				if ( 'price_each' === $concentrate_weight_cart ) {
 					$weightname     = '';
-					$regular_price  = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
+					$regular_price  = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
 				}
 			} else {
 				// Do nothing.

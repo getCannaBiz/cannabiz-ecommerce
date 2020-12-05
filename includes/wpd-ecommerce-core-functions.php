@@ -109,7 +109,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for growers.
-		if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -117,7 +117,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for gear.
-		if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -125,7 +125,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for tinctures.
-		if ( is_singular( 'products' ) && '' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), '_priceperpack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -403,9 +403,9 @@ function wpd_ecommerce_notifications() {
 				if ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 					$qtty = $_POST['qtty'];
 
-					$single_price   = get_post_meta( $old_id, '_priceeach', true );
-					$pack_price     = get_post_meta( $old_id, '_priceperpack', true );
-					$units_per_pack = get_post_meta( $old_id, '_unitsperpack', true );
+					$single_price   = get_post_meta( $old_id, 'price_each', true );
+					$pack_price     = get_post_meta( $old_id, 'price_per_pack', true );
+					$units_per_pack = get_post_meta( $old_id, 'units_per_pack', true );
 
 					// Get product type name.
 					$product_type = get_post_meta( $old_id, 'product_type', true );
@@ -426,7 +426,7 @@ function wpd_ecommerce_notifications() {
 					if ( 'concentrates' === $product_type ) {
 						if ( get_post_meta( $old_id, 'inventory_units', TRUE ) ) {
 							// Get inventory.
-							$inventory = get_post_meta( $old_id, '_inventory_concentrates_each', TRUE );
+							$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
 						}
 					}
 
@@ -781,7 +781,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 
 				// Get current inventory count.
@@ -813,7 +813,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 				
 				// Get current inventory count.
@@ -844,7 +844,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 
 				// Get current inventory count.
@@ -882,7 +882,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 
 				// Get current inventory count.
@@ -915,7 +915,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 
 				// Get current inventory count.
@@ -948,7 +948,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 					$per_pack = 1;
 				}
 
-				// Multiple item quantity by _unitsperpack.
+				// Multiple item quantity by units_per_pack.
 				$total = $per_pack * $value;
 
 				// Get current inventory count.

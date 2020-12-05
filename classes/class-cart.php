@@ -206,12 +206,12 @@ class Cart {
 	public function wpd_ecommerce_page() {
 		$str = '<table class="wpd-ecommerce">';
 
-		$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';
+		$str .= '<thead><tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td></tr></thead>';
 		$str .= '<tbody>';
 		foreach( $this->item_array as $id=>$amount ):
 			$i = new Item( $id, '', '', '' );
-			if ( in_array( get_post_meta( $i->id, 'product_type', true ), array( 'edibles', 'prerolls', 'growers', 'topicals', 'gear', 'tinctures' ) ) ) {
-				$regular_price  = esc_html( get_post_meta( $i->id, '_priceeach', true ) );
+			if ( in_array( get_post_meta( $i->id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+				$regular_price  = esc_html( get_post_meta( $i->id, 'price_each', true ) );
 			} elseif ( 'flowers' === get_post_meta( $i->id, 'product_type', true ) ) {
 				$regular_price = $i->price_flower;
 			} else {

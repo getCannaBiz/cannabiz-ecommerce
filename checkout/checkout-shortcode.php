@@ -69,7 +69,7 @@ if ( ! is_user_logged_in() ) {
             /**
              * Redirect so the page will show updated info.
              */
-            if ( count( $error ) == 0 ) {
+            if ( 0 == count( $error ) ) {
                 //action hook for plugins and extra fields saving
                 do_action( 'edit_user_profile_update', $current_user->ID );
             }
@@ -199,43 +199,22 @@ if ( ! is_user_logged_in() ) {
             $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
             $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
 
-            if ( in_array( get_post_type( $item_old_id ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
+            if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 
-                $units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
+                $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
 
                 $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
                 $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
 
-                if ( '_priceperpack' === $item_meta_key ) {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
+                if ( 'price_per_pack' === $item_meta_key ) {
+                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
                     $weight_name   = $units_per_pack . ' pack';
                 } else {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
+                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
                     $weight_name = '';
                 }
 
-            } elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
-
-                $units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
-
-                $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
-                $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
-
-                if ( '_pricetopical' === $item_meta_key ) {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_pricetopical', true ) );
-                } elseif ( '_priceperpack' === $item_meta_key ) {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
-                } elseif ( '_priceeach' === $item_meta_key ) {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
-                }
-
-                if ( '_priceperpack' === $item_meta_key ) {
-                    $weight_name = $units_per_pack . ' pack';
-                } else {
-                    $weight_name = '';
-                }
-
-            } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
+            } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
                 $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
                 $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -246,7 +225,7 @@ if ( ! is_user_logged_in() ) {
                     }
                 }
 
-            } elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+            } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
                 $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
                 $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -256,9 +235,9 @@ if ( ! is_user_logged_in() ) {
                         $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                     }
                 }
-                if ( '_priceeach' === $concentrate_weight_cart ) {
+                if ( 'price_each' === $concentrate_weight_cart ) {
                     $weight_name   = '';
-                    $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
+                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
                 }
             } else {
                 // Do nothing.
@@ -364,43 +343,22 @@ function wpd_ecommerce_checkout_success() {
         $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
         $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
 
-        if ( in_array( get_post_type( $item_old_id ), array( 'edibles', 'prerolls', 'growers', 'gear', 'tinctures' ) ) ) {
+        if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 
-            $units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
+            $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
 
             $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
             $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
 
-            if ( '_priceperpack' === $item_meta_key ) {
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
+            if ( 'price_per_pack' === $item_meta_key ) {
+                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
                 $weight_name   = $units_per_pack . ' pack';
             } else {
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
+                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
                 $weight_name   = '';
             }
 
-        } elseif ( 'topicals' === get_post_type( $item_old_id ) ) {
-
-            $units_per_pack = esc_html( get_post_meta( $item_old_id, '_unitsperpack', true ) );
-
-            $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
-            $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
-
-            if ( '_pricetopical' === $item_meta_key ) {
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_pricetopical', true ) );
-            } elseif ( '_priceperpack' === $item_meta_key ) {
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_priceperpack', true ) );
-            } elseif ( '_priceeach' === $item_meta_key ) {
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
-            }
-
-            if ( '_priceperpack' === $item_meta_key ) {
-                $weight_name = $units_per_pack . ' pack';
-            } else {
-                $weight_name = '';
-            }
-
-        } elseif ( 'flowers' === get_post_type( $item_old_id ) ) {
+        } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
             $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
             $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -411,7 +369,7 @@ function wpd_ecommerce_checkout_success() {
                 }
             }
 
-        } elseif ( 'concentrates' === get_post_type( $item_old_id ) ) {
+        } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
             $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
             $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
@@ -421,9 +379,9 @@ function wpd_ecommerce_checkout_success() {
                     $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
                 }
             }
-            if ( '_priceeach' === $concentrate_weight_cart ) {
+            if ( 'price_each' === $concentrate_weight_cart ) {
                 $weight_name   = '';
-                $regular_price = esc_html( get_post_meta( $item_old_id, '_priceeach', true ) );
+                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
             }
         } else {
             // Do nothing.

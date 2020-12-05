@@ -13,12 +13,12 @@ function wpd_inventory_oos_shortcode_warnings() {
     $out_of_stock = '';
 
     // Variables.
-    $price_each     = get_post_meta( get_the_ID(), '_priceeach', true );
-    $price_topical  = get_post_meta( get_the_ID(), '_pricetopical', true );
-    $price_per_pack = get_post_meta( get_the_ID(), '_priceperpack', true );
+    $price_each     = get_post_meta( get_the_ID(), 'price_each', true );
+    $price_topical  = get_post_meta( get_the_ID(), 'price_each', true );
+    $price_per_pack = get_post_meta( get_the_ID(), 'price_per_pack', true );
 
     // Flowers out of stock.
-    if ( 'flowers' == get_post_type( get_the_ID() ) ) {
+    if ( 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), '_inventory_flowers', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
@@ -26,45 +26,45 @@ function wpd_inventory_oos_shortcode_warnings() {
     }
 
     // Concentrates out of stock.
-    if ( 'concentrates' == get_post_type( get_the_ID() ) ) {
+    if ( 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( '' != $price_each ) {
-            if ( ! get_post_meta( get_the_ID(), '_inventory_concentrates_each', true ) ) {
+            if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
                 $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         } else {
-            if ( ! get_post_meta( get_the_ID(), '_inventory_concentrates', true ) ) {
+            if ( ! get_post_meta( get_the_ID(), 'inventory_grams', true ) ) {
                 $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         }
     }
 
     // Edibles out of stock.
-    if ( 'edibles' == get_post_type( get_the_ID() ) ) {
+    if ( 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
-        if ( ! get_post_meta( get_the_ID(), '_inventory_edibles', true ) ) {
+        if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
         }
     }
 
     // Pre-rolls out of stock.
-    if ( 'prerolls' == get_post_type( get_the_ID() ) ) {
+    if ( 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
-        if ( ! get_post_meta( get_the_ID(), '_inventory_prerolls', true ) ) {
+        if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
         }
     }
 
     // Topicals out of stock.
-    if ( 'topicals' == get_post_type( get_the_ID() ) ) {
+    if ( 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
-        if ( ! get_post_meta( get_the_ID(), '_inventory_topicals', true ) ) {
+        if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
         }
     }
 
     // Growers out of stock.
-    if ( 'growers' == get_post_type( get_the_ID() ) ) {
+    if ( 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( get_post_meta( get_the_ID(), '_clonecount', true ) ) {
             if ( ! get_post_meta( get_the_ID(), '_inventory_clones', true ) ) {
@@ -78,7 +78,7 @@ function wpd_inventory_oos_shortcode_warnings() {
     }
 
     // Tinctures out of stock.
-    if ( 'tinctures' == get_post_type( get_the_ID() ) ) {
+    if ( 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), '_inventory_tinctures', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
@@ -86,7 +86,7 @@ function wpd_inventory_oos_shortcode_warnings() {
     }
 
     // Gear out of stock.
-    if ( 'gear' == get_post_type( get_the_ID() ) ) {
+    if ( 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), '_inventory_gear', true ) ) {
             $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
