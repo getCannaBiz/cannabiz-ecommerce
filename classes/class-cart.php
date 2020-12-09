@@ -112,17 +112,7 @@ class Cart {
 
 			$i = new Item( $item_id, '', '', '', '' );
 
-			$regular_price = '';
-
-			if ( 'products' === get_post_type( $i->product_id ) ) {
-				$regular_price = $i->price_quantity;
-			}
-
-			/*
-			echo "<pre>";
-			print_r( $regular_price );
-			echo "</pre>";
-			*/
+			$regular_price = $i->price_quantity;
 
 			if ( ! empty( $regular_price ) ) {
 				$this->sum += ( $regular_price ) * $item_count;
@@ -173,13 +163,18 @@ class Cart {
 		//$str .= '<thead><tr><td>Product</td><td>Price</td><td>Qty</td></tr></thead>';
 		$str .= '<tbody>';
 		foreach( $this->item_array as $id=>$amount ):
-			$i    = new Item( $id, '', '', '' );
-			if ( 'products' === get_post_type( $i->id ) ) {
-				$regular_price  = esc_html( get_post_meta( $i->id, 'price_each', true ) );
-			} else {
-				$regular_price = '';
+			// Get Item data.
+			$i = new Item( $id, '', '', '' );
+			// Price each.
+			$product_price = esc_html( get_post_meta( $i->id, 'price_each', true ) );
+			// Price per pack.
+			$price_per_pack = esc_html( get_post_meta( $i->id, 'price_per_pack', true ) );
+			// Update product price.
+			if ( $price_per_pack ) {
+				$product_price = $price_per_pack;
 			}
-			$str .=	'<tr><td><a href="' . $i->permalink . '">' . $i->title . '</a></td><td>' . CURRENCY . $regular_price . '</td><td>' . $amount . '</td></tr>';
+			// Add item to table.
+			$str .=	'<tr><td><a href="' . $i->permalink . '">' . $i->title . '</a></td><td>' . CURRENCY . $product_price . '</td><td>' . $amount . '</td></tr>';
 		endforeach;
 		$str .= '</tbody>';
 		$str .= '</table>';

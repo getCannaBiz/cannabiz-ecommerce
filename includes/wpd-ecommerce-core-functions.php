@@ -329,13 +329,10 @@ function wpd_ecommerce_notifications() {
 			$old_id = get_the_ID();
 
 			$price_each     = get_post_meta( get_the_ID(), 'price_each', true );
-			$price_topical  = get_post_meta( get_the_ID(), 'price_each', true );
 			$price_per_pack = get_post_meta( get_the_ID(), 'price_per_pack', true );
 			$units_per_pack = get_post_meta( get_the_ID(), 'units_per_pack', true );
 
 			if ( $price_each === $_POST['wpd_ecommerce_product_prices'] ) {
-				$wpd_product_meta_key = '1';
-			} elseif ( $price_topical === $_POST['wpd_ecommerce_product_prices'] ) {
 				$wpd_product_meta_key = '1';
 			} elseif ( $price_per_pack === $_POST['wpd_ecommerce_product_prices'] ) {
 				$wpd_product_meta_key = $units_per_pack;
@@ -347,16 +344,32 @@ function wpd_ecommerce_notifications() {
 			$product_type = get_post_meta( get_the_ID(), 'product_type', true );
 
 			if ( 'growers' === $product_type ) {
-				if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+				if ( get_post_meta( $old_id, 'inventory_seeds', TRUE ) ) {
 					// Get inventory.
-					$inventory = get_post_meta( $old_id, '_inventory_seeds', TRUE );
+					$inventory = get_post_meta( $old_id, 'inventory_seeds', TRUE );
 				} else {
 					// Get inventory.
-					$inventory = get_post_meta( $old_id, '_inventory_clones', TRUE );
+					$inventory = get_post_meta( $old_id, 'inventory_clones', TRUE );
+				}
+			} elseif ( 'flowers' === $product_type ) {
+				if ( get_post_meta( $old_id, 'inventory_grams', TRUE ) ) {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, 'inventory_grams', TRUE );
+				} else {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
+				}
+			} elseif ( 'concentrates' === $product_type ) {
+				if ( get_post_meta( $old_id, 'inventory_grams', TRUE ) ) {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, 'inventory_grams', TRUE );
+				} else {
+					// Get inventory.
+					$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
 				}
 			} else {
 				// Get inventory.
-				$inventory = get_post_meta( $old_id, '_inventory_' . $product_type, TRUE );
+				$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
 			}
 
 			// Quantity X weight amount.
@@ -408,27 +421,37 @@ function wpd_ecommerce_notifications() {
 					$units_per_pack = get_post_meta( $old_id, 'units_per_pack', true );
 
 					// Get product type name.
-					$product_type = get_post_meta( $old_id, 'product_type', true );
+					$product_type = get_post_meta( get_the_ID(), 'product_type', true );
 
 					if ( 'growers' === $product_type ) {
-						if ( get_post_meta( $old_id, '_inventory_seeds', TRUE ) ) {
+						if ( get_post_meta( $old_id, 'inventory_seeds', TRUE ) ) {
 							// Get inventory.
 							$inventory = get_post_meta( $old_id, 'inventory_seeds', TRUE );
 						} else {
 							// Get inventory.
 							$inventory = get_post_meta( $old_id, 'inventory_clones', TRUE );
 						}
-					} else {
-						// Get inventory.
-						$inventory = get_post_meta( $old_id, 'inventory_units',  TRUE );
-					}
-
-					if ( 'concentrates' === $product_type ) {
-						if ( get_post_meta( $old_id, 'inventory_units', TRUE ) ) {
+					} elseif ( 'flowers' === $product_type ) {
+						if ( get_post_meta( $old_id, 'inventory_grams', TRUE ) ) {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, 'inventory_grams', TRUE );
+						} else {
 							// Get inventory.
 							$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
 						}
+					} elseif ( 'concentrates' === $product_type ) {
+						if ( get_post_meta( $old_id, 'inventory_grams', TRUE ) ) {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, 'inventory_grams', TRUE );
+						} else {
+							// Get inventory.
+							$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
+						}
+					} else {
+						// Get inventory.
+						$inventory = get_post_meta( $old_id, 'inventory_units', TRUE );
 					}
+
 
 					// Quantity X weight amount.
 					$inventory_reduction = $qtty;
@@ -1180,12 +1203,12 @@ function wpd_ecommerce_add_to_cart_form() {
     // Growers out of stock.
     if ( 'products' == get_post_type( get_the_ID() ) && 'growers' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
-        if ( get_post_meta( get_the_ID(), '_clonecount', true ) ) {
-            if ( ! get_post_meta( get_the_ID(), '_inventory_clones', true ) ) {
+        if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
+            if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
                 $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
             }
-        } elseif ( get_post_meta( get_the_ID(), '_seedcount', true ) ) {
-            if ( ! get_post_meta( get_the_ID(), '_inventory_seeds', true ) ) {
+        } elseif ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
+            if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
                 $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
             }
         }
@@ -1493,7 +1516,11 @@ function wpd_ecommerce_add_to_cart_form() {
 		$old_price = get_post_meta( $old_id, $new_price, true );
 
 		// Get inventory.
-		$inventory = get_post_meta( $old_id, 'inventory_grams',  TRUE );
+		$inventory       = get_post_meta( $old_id, 'inventory_grams',  TRUE );
+		$inventory_units = get_post_meta( $old_id, 'inventory_units',  TRUE );
+		if ( ! $inventory_units ) {
+			$inventory = $inventory_units;
+		}
 
 		// Quantity X weight amount.
 		$inventory_reduction = get_option( 'wpd_ecommerce_weight_concentrates' . $wpd_concentrate_meta_key ) * $qtty;
