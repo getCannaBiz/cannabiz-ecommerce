@@ -3,14 +3,14 @@ msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2019-12-09 20:32-0500\n"
-"PO-Revision-Date: 2019-12-09 20:31-0500\n"
+"POT-Creation-Date: 2020-12-31 08:34-0500\n"
+"PO-Revision-Date: 2020-12-31 08:33-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.1\n"
+"X-Generator: Poedit 2.4.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wpd-ecommerce.php\n"
@@ -19,69 +19,72 @@ msgstr ""
 "esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
 "_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
 
-#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:189
-#: checkout/checkout-shortcode.php:355
+#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:193
+#: checkout/checkout-shortcode.php:334 classes/class-cart.php:204
 #: includes/wpd-ecommerce-orders-functions.php:54
 msgid "Product"
 msgstr ""
 
-#: cart/cart-shortcode.php:20 includes/wpd-ecommerce-orders-functions.php:54
+#: cart/cart-shortcode.php:20 classes/class-cart.php:204
+#: includes/wpd-ecommerce-orders-functions.php:54
 msgid "Price"
 msgstr ""
 
-#: cart/cart-shortcode.php:20 includes/wpd-ecommerce-orders-functions.php:54
+#: cart/cart-shortcode.php:20 classes/class-cart.php:204
+#: includes/wpd-ecommerce-orders-functions.php:54
 msgid "Qty"
 msgstr ""
 
-#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:138
-#: checkout/checkout-shortcode.php:189 checkout/checkout-shortcode.php:308
-#: checkout/checkout-shortcode.php:355
+#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:132
+#: checkout/checkout-shortcode.php:193 checkout/checkout-shortcode.php:287
+#: checkout/checkout-shortcode.php:334
 #: includes/wpd-ecommerce-orders-functions.php:54
 #: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
 #: patients/patient-account-shortcode.php:253
-#: patients/patient-account-shortcode.php:312 templates/single-order.php:132
+#: patients/patient-account-shortcode.php:318 templates/single-order.php:137
 msgid "Total"
 msgstr ""
 
-#: cart/cart-shortcode.php:116
+#: cart/cart-shortcode.php:110
 msgid "Cart Totals"
 msgstr ""
 
-#: cart/cart-shortcode.php:119 cart/cart-widget.php:173
-#: checkout/checkout-shortcode.php:284 templates/single-order.php:119
+#: cart/cart-shortcode.php:113 cart/cart-widget.php:152
+#: checkout/checkout-shortcode.php:267 orders/orders-metaboxes.php:79
+#: templates/single-order.php:124
 msgid "Subtotal"
 msgstr ""
 
-#: cart/cart-shortcode.php:123 checkout/checkout-shortcode.php:287
-#: templates/single-order.php:121
+#: cart/cart-shortcode.php:117 checkout/checkout-shortcode.php:270
+#: orders/orders-metaboxes.php:81 templates/single-order.php:126
 msgid "Coupon"
 msgstr ""
 
-#: cart/cart-shortcode.php:123 checkout/checkout-shortcode.php:287
+#: cart/cart-shortcode.php:117 checkout/checkout-shortcode.php:270
 msgid "Remove"
 msgstr ""
 
-#: cart/cart-shortcode.php:127 checkout/checkout-shortcode.php:291
-#: orders/orders-metaboxes.php:90 templates/single-order.php:124
+#: cart/cart-shortcode.php:121 checkout/checkout-shortcode.php:274
+#: orders/orders-metaboxes.php:90 templates/single-order.php:129
 msgid "Sales tax"
 msgstr ""
 
-#: cart/cart-shortcode.php:131 checkout/checkout-shortcode.php:295
-#: orders/orders-metaboxes.php:87 templates/single-order.php:127
+#: cart/cart-shortcode.php:125 checkout/checkout-shortcode.php:278
+#: orders/orders-metaboxes.php:87 templates/single-order.php:132
 msgid "Excise tax"
 msgstr ""
 
-#: cart/cart-shortcode.php:141
+#: cart/cart-shortcode.php:135
 msgid "Proceed to Checkout"
 msgstr ""
 
-#: cart/cart-shortcode.php:151
+#: cart/cart-shortcode.php:145
 msgid "There is nothing in your cart."
 msgstr ""
 
-#: cart/cart-shortcode.php:156 checkout/checkout-shortcode.php:324
+#: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:303
 msgid "Return to menu"
 msgstr ""
 
@@ -94,10 +97,12 @@ msgid "Display your cart details"
 msgstr ""
 
 #: cart/cart-widget.php:42
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:218
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:202
 msgid "Widget Title:"
 msgstr ""
 
-#: cart/cart-widget.php:175 wpd-ecommerce.php:131
+#: cart/cart-widget.php:154 wpd-ecommerce.php:143
 msgid "Checkout"
 msgstr ""
 
@@ -117,104 +122,604 @@ msgstr ""
 msgid "This email is already used by another user. Try a different one."
 msgstr ""
 
-#: checkout/checkout-shortcode.php:85 checkout/checkout-shortcode.php:91
-#: checkout/checkout-shortcode.php:96
-#: includes/wpd-ecommerce-core-functions.php:495
-#: includes/wpd-ecommerce-core-functions.php:502
-#: includes/wpd-ecommerce-core-functions.php:561
-#: includes/wpd-ecommerce-core-functions.php:605
+#: checkout/checkout-shortcode.php:89 checkout/checkout-shortcode.php:95
+#: checkout/checkout-shortcode.php:100
+#: includes/wpd-ecommerce-core-functions.php:487
+#: includes/wpd-ecommerce-core-functions.php:494
+#: includes/wpd-ecommerce-core-functions.php:553
+#: includes/wpd-ecommerce-core-functions.php:597
 msgid "Error"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:85 checkout/checkout-shortcode.php:96
+#: checkout/checkout-shortcode.php:89 checkout/checkout-shortcode.php:100
 msgid "Please select a payment type."
 msgstr ""
 
-#: checkout/checkout-shortcode.php:91
+#: checkout/checkout-shortcode.php:95
 msgid "The minimum order amount required to checkout is"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:111
+#: checkout/checkout-shortcode.php:115
 msgid "Billing details"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:116 patients/patient-account-details.php:15
+#: checkout/checkout-shortcode.php:120 patients/patient-account-details.php:15
 #: patients/patient-account-details.php:46
-#: patients/patient-account-shortcode.php:375
+#: patients/patient-account-shortcode.php:381
 msgid "First Name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:120
-#: patients/patient-account-shortcode.php:379
+#: checkout/checkout-shortcode.php:124
+#: patients/patient-account-shortcode.php:385
 msgid "Last Name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:125
-#: patients/patient-account-shortcode.php:384
+#: checkout/checkout-shortcode.php:129
+#: patients/patient-account-shortcode.php:390
 msgid "E-mail"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:130 orders/orders-metaboxes.php:145
+#: checkout/checkout-shortcode.php:134 orders/orders-metaboxes.php:145
 #: patients/patient-account-details.php:74
-#: patients/patient-account-shortcode.php:389
+#: patients/patient-account-shortcode.php:395
 msgid "Phone number"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:135
+#: checkout/checkout-shortcode.php:139
 msgid "Street address"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:136
+#: checkout/checkout-shortcode.php:140
 msgid "House number and street name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:137
+#: checkout/checkout-shortcode.php:141
 msgid "Apartment, unit, etc. (optional)"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:141 patients/patient-account-details.php:83
-#: patients/patient-account-shortcode.php:404
+#: checkout/checkout-shortcode.php:145 patients/patient-account-details.php:77
+#: patients/patient-account-shortcode.php:410
 msgid "City"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:146 patients/patient-account-details.php:86
-#: patients/patient-account-shortcode.php:409
+#: checkout/checkout-shortcode.php:150 patients/patient-account-details.php:78
+#: patients/patient-account-shortcode.php:415
 msgid "State / County"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:151 patients/patient-account-details.php:89
-#: patients/patient-account-shortcode.php:414
+#: checkout/checkout-shortcode.php:155 patients/patient-account-details.php:79
+#: patients/patient-account-shortcode.php:420
 msgid "Postcode / ZIP"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:156 patients/patient-account-details.php:92
-#: patients/patient-account-shortcode.php:419
+#: checkout/checkout-shortcode.php:160 patients/patient-account-details.php:80
+#: patients/patient-account-shortcode.php:425
 msgid "Country"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:182 checkout/checkout-shortcode.php:348
+#: checkout/checkout-shortcode.php:186 checkout/checkout-shortcode.php:327
 msgid "Your order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:317
+#: checkout/checkout-shortcode.php:296
 msgid "Place Order"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:323
+#: checkout/checkout-shortcode.php:302
 msgid "You can check out after adding some products to your cart"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:339
-#: patients/patient-account-shortcode.php:250 templates/single-order.php:92
+#: checkout/checkout-shortcode.php:318
+#: patients/patient-account-shortcode.php:250 templates/single-order.php:97
 msgid "Name"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:340
+#: checkout/checkout-shortcode.php:319
 msgid "Email"
 msgstr ""
 
-#: checkout/checkout-shortcode.php:625
+#: checkout/checkout-shortcode.php:583
 msgid "Hello Administrator"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:167
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:171
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:175
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:179
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:183
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:187
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:191
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:195
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:199
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:203
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:207
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:211
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:215
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:219
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:223
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:227
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:231
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:235
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:239
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:243
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:247
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:269
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:273
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:277
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:281
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:285
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:289
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:293
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr ""
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:410
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+#: includes/wpd-ecommerce-core-functions.php:316
+#: includes/wpd-ecommerce-core-functions.php:381
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "In stock"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:115
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:207
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:304
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:395
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:486
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:581
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:673
+msgid "Inventory management"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:50
+msgid "Available Flowers (grams)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:54
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:146
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:242
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:334
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:425
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:519
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:613
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:704
+msgid "Display inventory in Details table"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:142
+msgid "Available Edibles (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:234
+msgid "Available grams"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:238
+msgid "Available units"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:330
+msgid "Available Pre-rolls (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:421
+msgid "Available Topicals (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:513
+msgid "Available Seeds (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:515
+msgid "Available Clones (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:609
+msgid "Available Tinctures (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:700
+msgid "Available Gear (units)"
+msgstr ""
+
+#: includes/extend/inventory/admin/class-wpd-inventory-oos.php:52
+msgid "Sorry, this flower is currently out of stock."
+msgstr ""
+
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:24
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:33
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:37
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:46
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:54
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:62
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:71
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:75
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:84
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:92
+#: includes/wpd-ecommerce-core-functions.php:1161
+#: includes/wpd-ecommerce-core-functions.php:1170
+#: includes/wpd-ecommerce-core-functions.php:1174
+#: includes/wpd-ecommerce-core-functions.php:1183
+#: includes/wpd-ecommerce-core-functions.php:1191
+#: includes/wpd-ecommerce-core-functions.php:1199
+#: includes/wpd-ecommerce-core-functions.php:1208
+#: includes/wpd-ecommerce-core-functions.php:1212
+#: includes/wpd-ecommerce-core-functions.php:1221
+#: includes/wpd-ecommerce-core-functions.php:1229
+msgid "out of stock"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:285
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:334
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:400
+msgid "THC: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:293
+msgid "THCA: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:301
+msgid "CBD: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:309
+msgid "CBA: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:317
+msgid "CBN: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:325
+msgid "CBG: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:347
+msgid "Seeds:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:357
+msgid "Clones:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:365
+msgid "Size:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:371
+msgid "THC:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:377
+msgid "CBD:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:387
+msgid "Weight:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:408
+msgid "Servings: "
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:222
+msgid "Dispensary location:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:241
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:207
+msgid "Menu item type:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:243
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:209
+msgid "All types"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:244
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:210
+msgid "Flowers"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:245
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:211
+msgid "Concentrates"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:246
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:212
+msgid "Edibles"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:247
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:213
+msgid "Pre-rolls"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:248
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:214
+msgid "Topicals"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:249
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:215
+msgid "Growers"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:250
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:216
+msgid "Gear"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:251
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:217
+msgid "Tinctures"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:256
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:222
+msgid "Amount of items to show:"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:262
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:228
+msgid "Randomize output?"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:267
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:233
+msgid "Display featured image?"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:272
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:238
+msgid "Display item name?"
+msgstr ""
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:277
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:243
+msgid "Display item category?"
+msgstr ""
+
+#: includes/extend/locations/wpd-locations.php:62
+msgid "Settings"
+msgstr ""
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Top Sellers"
+msgstr ""
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:59
+msgid "Mark this product as a top seller"
+msgstr ""
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr ""
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr ""
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:247
+msgid "Image size:"
 msgstr ""
 
 #: includes/wpd-ecommerce-archive-items-functions.php:35
@@ -225,9 +730,7 @@ msgstr ""
 #: includes/wpd-ecommerce-archive-items-functions.php:112
 #: includes/wpd-ecommerce-archive-items-functions.php:228
 #: includes/wpd-ecommerce-archive-items-functions.php:230
-#: includes/wpd-ecommerce-archive-items-functions.php:240
-#: includes/wpd-ecommerce-archive-items-functions.php:242
-#: includes/wpd-ecommerce-archive-items-functions.php:250
+#: includes/wpd-ecommerce-archive-items-functions.php:238
 msgid "Buy Now"
 msgstr ""
 
@@ -236,8 +739,7 @@ msgstr ""
 #: includes/wpd-ecommerce-archive-items-functions.php:75
 #: includes/wpd-ecommerce-archive-items-functions.php:108
 #: includes/wpd-ecommerce-archive-items-functions.php:226
-#: includes/wpd-ecommerce-archive-items-functions.php:238
-#: includes/wpd-ecommerce-archive-items-functions.php:252
+#: includes/wpd-ecommerce-archive-items-functions.php:240
 msgid "Select Options"
 msgstr ""
 
@@ -261,116 +763,102 @@ msgstr ""
 
 #: includes/wpd-ecommerce-core-functions.php:244
 #: includes/wpd-ecommerce-core-functions.php:316
-#: includes/wpd-ecommerce-core-functions.php:368
-#: includes/wpd-ecommerce-core-functions.php:424
-#: includes/wpd-ecommerce-core-functions.php:470
-msgid ""
-"There is not enough available inventory for your purchase. Available "
-"inventory"
+#: includes/wpd-ecommerce-core-functions.php:381
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "There is not enough inventory for your purchase."
+msgstr ""
+
+#: includes/wpd-ecommerce-core-functions.php:244
+msgid "Available"
 msgstr ""
 
 #: includes/wpd-ecommerce-core-functions.php:249
 #: includes/wpd-ecommerce-core-functions.php:321
-#: includes/wpd-ecommerce-core-functions.php:373
-#: includes/wpd-ecommerce-core-functions.php:430
-#: includes/wpd-ecommerce-core-functions.php:476
+#: includes/wpd-ecommerce-core-functions.php:386
+#: includes/wpd-ecommerce-core-functions.php:468
 msgid "This product has been successfully added to your cart"
 msgstr ""
 
 #: includes/wpd-ecommerce-core-functions.php:249
 #: includes/wpd-ecommerce-core-functions.php:321
-#: includes/wpd-ecommerce-core-functions.php:373
-#: includes/wpd-ecommerce-core-functions.php:430
-#: includes/wpd-ecommerce-core-functions.php:476
+#: includes/wpd-ecommerce-core-functions.php:386
+#: includes/wpd-ecommerce-core-functions.php:468
 msgid "Continue Shopping"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:495
+#: includes/wpd-ecommerce-core-functions.php:487
 msgid "The username or password you entered is incorrect."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:502
+#: includes/wpd-ecommerce-core-functions.php:494
 msgid "The registration info you entered is incorrect."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:509
+#: includes/wpd-ecommerce-core-functions.php:501
 msgid "Thank You"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:516
+#: includes/wpd-ecommerce-core-functions.php:508
 msgid "Item removed"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:516
+#: includes/wpd-ecommerce-core-functions.php:508
 msgid "The item has been successfully removed."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:529
+#: includes/wpd-ecommerce-core-functions.php:521
 msgid "Item added"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:529
+#: includes/wpd-ecommerce-core-functions.php:521
 msgid "The item has been successfully added to your cart."
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:575
+#: includes/wpd-ecommerce-core-functions.php:567
 msgid "Success"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:575
+#: includes/wpd-ecommerce-core-functions.php:567
 msgid "Coupon code has been applied"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:605
+#: includes/wpd-ecommerce-core-functions.php:597
 msgid "Please enter a coupon code"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1074
+#: includes/wpd-ecommerce-core-functions.php:1067
 msgid "Pages"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1172
-#: includes/wpd-ecommerce-core-functions.php:1181
-#: includes/wpd-ecommerce-core-functions.php:1185
-#: includes/wpd-ecommerce-core-functions.php:1194
-#: includes/wpd-ecommerce-core-functions.php:1202
-#: includes/wpd-ecommerce-core-functions.php:1210
-#: includes/wpd-ecommerce-core-functions.php:1219
-#: includes/wpd-ecommerce-core-functions.php:1223
-#: includes/wpd-ecommerce-core-functions.php:1232
-#: includes/wpd-ecommerce-core-functions.php:1240
-msgid "out of stock"
-msgstr ""
-
-#: includes/wpd-ecommerce-core-functions.php:1281
+#: includes/wpd-ecommerce-core-functions.php:1270
 msgid "Choose a weight"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1453
-msgid "Choose a quantity"
+#: includes/wpd-ecommerce-core-functions.php:1442
+msgid "Choose quantity"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1454
+#: includes/wpd-ecommerce-core-functions.php:1443
 msgid "each"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1455
+#: includes/wpd-ecommerce-core-functions.php:1444
 msgid "pack"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1729
+#: includes/wpd-ecommerce-core-functions.php:1689
 msgid "Add to cart"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1808
+#: includes/wpd-ecommerce-core-functions.php:1768
 msgid "Delivery"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1818
+#: includes/wpd-ecommerce-core-functions.php:1778
 msgid "In-store pickup"
 msgstr ""
 
-#: includes/wpd-ecommerce-core-functions.php:1828
+#: includes/wpd-ecommerce-core-functions.php:1788
 msgid "Shipping"
 msgstr ""
 
@@ -461,33 +949,33 @@ msgstr ""
 msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:177
-#: patients/patient-account-shortcode.php:454
+#: includes/wpd-ecommerce-patients-functions.php:179
+#: patients/patient-account-shortcode.php:462
 msgid "Verification"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:182
+#: includes/wpd-ecommerce-patients-functions.php:184
 msgid "Drivers license or Valid ID"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:197
-#: includes/wpd-ecommerce-patients-functions.php:219
-#: patients/patient-account-shortcode.php:480
-#: patients/patient-account-shortcode.php:510
+#: includes/wpd-ecommerce-patients-functions.php:199
+#: includes/wpd-ecommerce-patients-functions.php:221
+#: patients/patient-account-shortcode.php:488
+#: patients/patient-account-shortcode.php:518
 msgid "x"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:204
-#: patients/patient-account-shortcode.php:495
+#: includes/wpd-ecommerce-patients-functions.php:206
+#: patients/patient-account-shortcode.php:503
 msgid "Doctor recommendation"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:226
-#: patients/patient-account-shortcode.php:525
+#: includes/wpd-ecommerce-patients-functions.php:228
+#: patients/patient-account-shortcode.php:533
 msgid "Recommendation number"
 msgstr ""
 
-#: includes/wpd-ecommerce-patients-functions.php:232
+#: includes/wpd-ecommerce-patients-functions.php:234
 msgid "Expiration date"
 msgstr ""
 
@@ -495,13 +983,18 @@ msgstr ""
 msgid "Order details"
 msgstr ""
 
+#: orders/orders-metaboxes.php:76
+#, php-format
+msgid "Order #%1$s details"
+msgstr ""
+
 #: orders/orders-metaboxes.php:102 orders/orders-post-type.php:98
 #: patients/patient-account-shortcode.php:252
-#: patients/patient-account-shortcode.php:311
+#: patients/patient-account-shortcode.php:317
 msgid "Status"
 msgstr ""
 
-#: orders/orders-metaboxes.php:120 templates/single-order.php:96
+#: orders/orders-metaboxes.php:120 templates/single-order.php:101
 msgid "Address"
 msgstr ""
 
@@ -629,7 +1122,7 @@ msgid "View your store's order history"
 msgstr ""
 
 #: orders/orders-post-type.php:97 patients/patient-account-shortcode.php:251
-#: patients/patient-account-shortcode.php:310 templates/single-order.php:80
+#: patients/patient-account-shortcode.php:316 templates/single-order.php:80
 msgid "Date"
 msgstr ""
 
@@ -637,21 +1130,21 @@ msgstr ""
 msgid "Additional Details"
 msgstr ""
 
-#: patients/patient-account-details.php:77
-#: patients/patient-account-shortcode.php:394
+#: patients/patient-account-details.php:75
+#: patients/patient-account-shortcode.php:400
 msgid "Address line 1"
 msgstr ""
 
-#: patients/patient-account-details.php:80
-#: patients/patient-account-shortcode.php:399
+#: patients/patient-account-details.php:76
+#: patients/patient-account-shortcode.php:405
 msgid "Address line 2"
 msgstr ""
 
-#: patients/patient-account-details.php:119
+#: patients/patient-account-details.php:107
 msgid "<strong>ERROR</strong>: Please enter your year of birth."
 msgstr ""
 
-#: patients/patient-account-details.php:123
+#: patients/patient-account-details.php:111
 msgid "<strong>ERROR</strong>: You must be born after 1900."
 msgstr ""
 
@@ -707,52 +1200,56 @@ msgid "Recent Store Orders"
 msgstr ""
 
 #: patients/patient-account-shortcode.php:249
-#: patients/patient-account-shortcode.php:309
+#: patients/patient-account-shortcode.php:315
 msgid "ID"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:306
+#: patients/patient-account-shortcode.php:312
 msgid "Order history"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:370
+#: patients/patient-account-shortcode.php:376
 msgid "Contact information"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:465
+#: patients/patient-account-shortcode.php:473
 msgid "Drivers License or Valid ID"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:538
+#: patients/patient-account-shortcode.php:546
 msgid "Expiration Date"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:548
+#: patients/patient-account-shortcode.php:556
 msgid "Password change"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:553
+#: patients/patient-account-shortcode.php:561
 msgid "Password"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:553
-#: patients/patient-account-shortcode.php:557
+#: patients/patient-account-shortcode.php:561
+#: patients/patient-account-shortcode.php:565
 msgid "Leave blank to keep unchanged"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:557
+#: patients/patient-account-shortcode.php:565
 msgid "Repeat Password"
 msgstr ""
 
-#: patients/patient-account-shortcode.php:562
+#: patients/patient-account-shortcode.php:570
 msgid "Update"
 msgstr ""
 
-#: wpd-ecommerce.php:141
+#: templates/single-order.php:143
+msgid "Order items"
+msgstr ""
+
+#: wpd-ecommerce.php:153
 msgid "Cart"
 msgstr ""
 
-#: wpd-ecommerce.php:151
+#: wpd-ecommerce.php:163
 msgid "Account"
 msgstr ""
 
