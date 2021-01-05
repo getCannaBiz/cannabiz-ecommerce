@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
-"POT-Creation-Date: 2020-12-31 08:53-0500\n"
-"PO-Revision-Date: 2020-12-31 08:53-0500\n"
+"POT-Creation-Date: 2021-01-05 10:15-0500\n"
+"PO-Revision-Date: 2021-01-05 10:15-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -81,12 +81,10 @@ msgid "Proceed to Checkout"
 msgstr "Finalizar compra"
 
 #: cart/cart-shortcode.php:145
-#, fuzzy
 msgid "There is nothing in your cart."
 msgstr "No hay nada en tu carrito."
 
 #: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:303
-#, fuzzy
 msgid "Return to menu"
 msgstr "Volver al menú"
 
@@ -134,12 +132,10 @@ msgstr ""
 #: includes/wpd-ecommerce-core-functions.php:494
 #: includes/wpd-ecommerce-core-functions.php:553
 #: includes/wpd-ecommerce-core-functions.php:597
-#, fuzzy
 msgid "Error"
 msgstr "Error"
 
 #: checkout/checkout-shortcode.php:89 checkout/checkout-shortcode.php:100
-#, fuzzy
 msgid "Please select a payment type."
 msgstr "Seleccione un tipo de pago."
 
@@ -182,7 +178,6 @@ msgid "House number and street name"
 msgstr "Nombre de la Calle, Número Exterior e Interior"
 
 #: checkout/checkout-shortcode.php:141
-#, fuzzy
 msgid "Apartment, unit, etc. (optional)"
 msgstr "Apartamento, unidad, etc. (opcional)"
 
@@ -232,7 +227,6 @@ msgid "Hello Administrator"
 msgstr "Hola administrador"
 
 #: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
-#, fuzzy
 msgid "Heavyweight Prices"
 msgstr "Precios de peso pesado"
 
