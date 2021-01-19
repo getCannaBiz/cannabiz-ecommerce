@@ -1791,3 +1791,28 @@ function wpd_ecommerce_payment_types() {
 
 	return $payment_types;
 }
+
+/**
+ * WPD Admin Settings - Cookie lifetime
+ *
+ * @since  1.8
+ * @return int
+ */
+function get_wpd_cookie_lifetime() {
+	// Access all WP Dispensary Advanced Settings.
+	$wpd_settings = get_option( 'wpdas_advanced' );
+
+	// Check cookie lifetime settings.
+	if ( isset ( $wpd_settings['wpd_settings_cookie_lifetime'] ) && '' !== $wpd_settings['wpd_settings_cookie_lifetime'] ) {
+		$wpd_cookie_lifetime = $wpd_settings['wpd_settings_cookie_lifetime'];
+	} else {
+		// Default cookie lifetime.
+		$wpd_cookie_lifetime = 'one_hour';
+	}
+
+	// Create filterable cookie lifetime.
+	$wpd_cookie_lifetime = apply_filters( 'wpd_cookie_lifetime', $wpd_cookie_lifetime );
+
+	// Return the cookie lifetime.
+	return $wpd_cookie_lifetime;
+}
