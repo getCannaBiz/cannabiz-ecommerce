@@ -87,8 +87,8 @@ class wpdlocations_widget extends WP_Widget {
 				/** 
 				 * @todo add filter to post types.
 				 */
-				$post_type = array( 'products', 'flowers', 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' );
-			} else { 
+				$post_type = apply_filters( 'wpd_ecommerce_locations_widget_post_types', array( 'products' ) );
+			} else {
 				$post_type = $type;
 			}
 
