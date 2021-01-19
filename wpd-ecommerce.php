@@ -348,29 +348,14 @@ function wpd_ecommerce_load_session() {
 		$_SESSION = null;
 	}
 
-	/**
-	 * @todo add Settings select options for admin to choose theirs for the cookie lifetime below
-	 */
-	$half_hour    = 86400 / 48;
-	$one_hour     = 86400 / 24;
-	$three_hours  = 86400 / 8;
-	$six_hours    = 86400 / 4;
-	$twelve_hours = 86400 / 2;
-	$one_day      = 86400;
-
-	//echo $twelve_hours;
-	//echo ' --- ' . $three_hours;
-
 	if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( ! $_SESSION ) ) {
 
 		// Set session name.
 		session_name( 'wpd_ecommerce' );
 
-		// session_set_cookie_params( $one_hour, get_bloginfo('home' ) );
-
-		// Start session and set cookie for 1 day.
+		// Start session and set cookie time from WPD Settings.
 		session_start( [
-			'cookie_lifetime' => apply_filters( 'wpd_ecommerce_cookie_lifetime', $half_hour ),
+			'cookie_lifetime' => apply_filters( 'wpd_ecommerce_cookie_lifetime', get_wpd_cookie_lifetime() ),
 		] );
 
 	}
