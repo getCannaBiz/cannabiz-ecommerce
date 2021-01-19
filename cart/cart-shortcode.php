@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
 
 // Add Cart Shortcode.
 function wpd_ecommerce_shortcode() {
-	if ( isset( $_SESSION['wpd_ecommerce'] ) && NULL !== $_SESSION['wpd_ecommerce'] ) {
+	if ( isset( $_SESSION['wpd_ecommerce'] ) && NULL !== $_SESSION['wpd_ecommerce'] && 0 != $_SESSION['wpd_ecommerce']->items ) {
 
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
