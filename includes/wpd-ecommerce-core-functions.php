@@ -1810,6 +1810,30 @@ function get_wpd_cookie_lifetime() {
 		$wpd_cookie_lifetime = 'one_hour';
 	}
 
+	// Cookie times.
+	$half_hour    = 86400 / 48;
+	$one_hour     = 86400 / 24;
+	$three_hours  = 86400 / 8;
+	$six_hours    = 86400 / 4;
+	$twelve_hours = 86400 / 2;
+	$one_day      = 86400;
+
+	if ( 'half_hour' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $half_hour;
+	} elseif ( 'one_hour' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $one_hour;
+	} elseif ( 'three_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $three_hours;
+	} elseif ( 'six_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $six_hours;
+	} elseif ( 'twelve_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $twelve_hours;
+	} elseif ( 'one_day' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $one_day;
+	} else {
+		// Do nothing.
+	}
+
 	// Create filterable cookie lifetime.
 	$wpd_cookie_lifetime = apply_filters( 'wpd_cookie_lifetime', $wpd_cookie_lifetime );
 
