@@ -84,9 +84,6 @@ class wpdlocations_widget extends WP_Widget {
 			$location = $instance['location'];
 
 			if ( 'all' == $type ) {
-				/** 
-				 * @todo add filter to post types.
-				 */
 				$post_type = apply_filters( 'wpd_ecommerce_locations_widget_post_types', array( 'products' ) );
 			} else {
 				$post_type = $type;

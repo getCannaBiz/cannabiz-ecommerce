@@ -7,79 +7,10 @@
  */
 get_header();
 
+// Get archive template data.
+$archive_data = wpd_ecommerce_archive_template_data();
+
 do_action( 'wpd_ecommerce_templates_archive_items_before' );
-
-/**
- * @todo Move the code below to run on the do_action
- * from within the functions file for templates
- * 
- * @since 1.0
- */
-
-if ( ! empty( $_GET['vendor'] ) ) {
-    $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-    $title       = $vendor_name->name;
-}
-
-/**
- * Taxonomy check.
- * 
- * @since 1.0
- */
-if ( is_tax() ) {
-
-    // Get current info.
-    $tax = $wp_query->get_queried_object();
-
-    //print_r( $tax );
-
-    $taxonomy             = $tax->taxonomy;
-    $taxonomy_slug        = $tax->slug;
-    $taxonomy_name        = $tax->name;
-    $taxonomy_count       = $tax->count;
-    $taxonomy_description = $tax->description;
-
-    $tax_query = array(
-        'relation' => 'AND',
-    );
-
-    $tax_query[] = array(
-        'taxonomy' => $taxonomy,
-        'field'    => 'slug',
-        'terms'    => $taxonomy_slug,
-    );
-
-    $menu_type_name        = $taxonomy_name;
-    $menu_type_description = $taxonomy_description;
-
-} else {
-    $tax_query = '';
-}
-
-/**
- * Set vendor page title.
- * 
- * @since 1.0
- */
-if ( ! empty( $_GET['vendor'] ) ) {
-    $vendor_name    = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-    $page_title     = __( $vendor_name->name, 'wpd-ecommerce' );
-    $menu_type_name = $page_title;
-} elseif ( is_tax() ) {
-    // Do nothing.
-} else {
-    // Get post type.
-    $post_type = get_post_type();
-
-    // Create post type variables.
-    if ( $post_type ) {
-        $post_type_data = get_post_type_object( $post_type );
-        $post_type_name = $post_type_data->label;
-        $post_type_slug = $post_type_data->rewrite['slug'];
-        $menu_type_name = $post_type_name;
-    }
-
-}
 
 do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
 ?>
@@ -87,7 +18,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
     <?php if ( have_posts() ) : ?>
     <div class="wpdispensary">
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <h2 class="wpd-title"><?php _e( $menu_type_name, 'wpd-ecommerce' ); ?></h2>
+            <h2 class="wpd-title"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
             <div class="item-wrapper">
                 <div class="wpd-row">
                 <?php
@@ -98,8 +29,8 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                     $loop = new WP_Query(
                         array(
                             'post_status' => 'publish',
-                            'post_type'   => $post_type,
-                            'tax_query'   => $tax_query
+                            'post_type'   => $archive_data['post_type'],
+                            'tax_query'   => $archive_data['tax_query']
                           //'posts_per_page' => $options['perpage'] /** @todo create admin setting for this */
                         )
                     );

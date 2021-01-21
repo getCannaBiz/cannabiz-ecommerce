@@ -243,3 +243,88 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
 
     return $str;
 }
+
+/**
+ * Archive template data
+ * 
+ * Helper function to return specific data that's used in the Archive template
+ * 
+ * @since  1.8
+ * @return array
+ */
+function wpd_ecommerce_archive_template_data() {
+    if ( ! empty( $_GET['vendor'] ) ) {
+        $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+        $title       = $vendor_name->name;
+    }
+    
+    /**
+     * Taxonomy check.
+     * 
+     * @since 1.0
+     */
+    if ( is_tax() ) {
+
+        global $wp_query;
+        // Get current info.
+        $tax = $wp_query->get_queried_object();
+    
+        //print_r( $tax );
+    
+        $taxonomy             = $tax->taxonomy;
+        $taxonomy_slug        = $tax->slug;
+        $taxonomy_name        = $tax->name;
+        $taxonomy_count       = $tax->count;
+        $taxonomy_description = $tax->description;
+    
+        $tax_query = array(
+            'relation' => 'AND',
+        );
+    
+        $tax_query[] = array(
+            'taxonomy' => $taxonomy,
+            'field'    => 'slug',
+            'terms'    => $taxonomy_slug,
+        );
+    
+        $menu_type_name        = $taxonomy_name;
+        $menu_type_description = $taxonomy_description;
+    
+    } else {
+        $tax_query = '';
+    }
+    
+    /**
+     * Set vendor page title.
+     * 
+     * @since 1.0
+     */
+    if ( ! empty( $_GET['vendor'] ) ) {
+        $vendor_name    = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+        $page_title     = __( $vendor_name->name, 'wpd-ecommerce' );
+        $menu_type_name = $page_title;
+    } elseif ( is_tax() ) {
+        // Do nothing.
+    } else {
+        // Get post type.
+        $post_type = get_post_type();
+    
+        // Create post type variables.
+        if ( $post_type ) {
+            $post_type_data = get_post_type_object( $post_type );
+            $post_type_name = $post_type_data->label;
+            $post_type_slug = $post_type_data->rewrite['slug'];
+            $menu_type_name = $post_type_name;
+        }
+    
+    }
+
+    // Build data array.
+    $data = array(
+        'menu_type_name' => $menu_type_name,
+        'post_type'      => $post_type,
+        'tax_query'      => $tax_query
+    );
+
+    return $data;
+}
