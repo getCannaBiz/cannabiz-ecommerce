@@ -700,43 +700,43 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 			$old_inventory = get_post_meta( $item_old_id, 'inventory_grams', true );
 	
 			if ( 'price_gram' == $item_meta_key ) {
-				$total = 1 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_gram' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_two_grams' == $item_meta_key ) {
-				$total = 2 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_twograms' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_eighth' == $item_meta_key ) {
-				$total = 3.5 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_eighth' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_five_grams' == $item_meta_key ) {
-				$total = 5 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_fivegrams' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_quarter_ounce' == $item_meta_key ) {
-				$total = 7 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_quarter' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_half_ounce' == $item_meta_key ) {
-				$total = 14 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_half' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 			} elseif ( 'price_ounce' == $item_meta_key ) {
-				$total = 28 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_flowers_ounce' ) * $value;
 
 				// insert update_post_meta here with old inventory - $total 
 				$new_inventory = $old_inventory - $total;
@@ -756,7 +756,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 				update_post_meta( $item_old_id, 'inventory_units', $new_inventory, $old_inventory );
 
 			} elseif ( 'price_half_gram' == $item_meta_key ) {
-				$total = 0.5 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_concentrates_half_gram' ) * $value;
 
 				// Get current inventory count.
 				$old_inventory = get_post_meta( $item_old_id, 'inventory_grams', true );
@@ -765,7 +765,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 
 			} elseif ( 'price_gram' == $item_meta_key ) {
-				$total = 1 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_concentrates_gram' ) * $value;
 
 				// Get current inventory count.
 				$old_inventory = get_post_meta( $item_old_id, 'inventory_grams', true );
@@ -774,7 +774,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 				update_post_meta( $item_old_id, 'inventory_grams', $new_inventory, $old_inventory );
 
 			} elseif ( 'price_two_grams' == $item_meta_key ) {
-				$total = 2 * $value;
+				$total = get_option( 'wpd_ecommerce_weight_concentrates_twograms' ) * $value;
 
 				// Get current inventory count.
 				$old_inventory = get_post_meta( $item_old_id, 'inventory_grams', true );
