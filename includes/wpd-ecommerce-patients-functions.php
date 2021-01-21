@@ -84,6 +84,86 @@ function wpd_ecommerce_prevent_wp_login() {
 add_action( 'init', 'wpd_ecommerce_prevent_wp_login' );
 
 /**
+ * Patient dashboard - update user data
+ * 
+ * @return void
+ */
+function wpd_ecommerce_update_user_patient_dashboard() {
+    global $current_user;
+
+    // Create array.
+    $error = array();
+
+    /* If account details were saved, update patient account. */
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
+
+        // Remove valid ID file from user profile.
+        if ( isset( $_POST['remove_valid_id'] ) ) {
+            // Update user meta.
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_valid_id', '' );
+        }
+    
+        // Remove doctor recommendation file from user profile.
+        if ( isset( $_POST['remove_recommendation_doc'] ) ) {
+            // Update user meta.
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_recommendation_doc', '' );		
+        }
+    
+        /* Update user password. */
+        if ( ! empty( $_POST['pass1'] ) && ! empty( $_POST['pass2'] ) ) {
+            if ( $_POST['pass1'] == $_POST['pass2'] )
+                wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( $_POST['pass1'] ) ) );
+            else
+                $error[] = __( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
+        }
+
+        /* Update user email address */
+        if ( ! empty( $_POST['email'] ) ) {
+            if ( ! is_email( sanitize_text_field( $_POST['email'] ) ) )
+                $error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
+            elseif( email_exists( sanitize_text_field( $_POST['email'] ) ) != $current_user->id )
+                $error[] = __( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
+            else {
+                wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( $_POST['email'] ) ) );
+            }
+        }
+
+        /* Update user information */
+        if ( ! empty( $_POST['first-name'] ) )
+            update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( $_POST['first-name'] ) );
+        if ( ! empty( $_POST['last-name'] ) )
+            update_user_meta($current_user->ID, 'last_name', sanitize_text_field( $_POST['last-name'] ) );
+        if ( ! empty( $_POST['phone_number'] ) )
+            update_user_meta( $current_user->ID, 'phone_number', sanitize_text_field( $_POST['phone_number'] ) );
+        if ( ! empty( $_POST['address_line_1'] ) )
+            update_user_meta( $current_user->ID, 'address_line_1', sanitize_text_field( $_POST['address_line_1'] ) );
+        if ( ! empty( $_POST['address_line_2'] ) )
+            update_user_meta( $current_user->ID, 'address_line_2', sanitize_text_field( $_POST['address_line_2'] ) );
+        if ( ! empty( $_POST['city'] ) )
+            update_user_meta( $current_user->ID, 'city', sanitize_text_field( $_POST['city'] ) );
+        if ( ! empty( $_POST['state_county'] ) )
+            update_user_meta( $current_user->ID, 'state_county', sanitize_text_field( $_POST['state_county'] ) );
+        if ( ! empty( $_POST['postal_zip'] ) )
+            update_user_meta( $current_user->ID, 'postal_zip', sanitize_text_field( $_POST['postal_zip'] ) );
+        if ( ! empty( $_POST['country'] ) )
+            update_user_meta( $current_user->ID, 'country', sanitize_text_field( $_POST['country'] ) );
+        if ( ! empty( $_POST['description'] ) )
+            update_user_meta( $current_user->ID, 'description', sanitize_text_field( $_POST['description'] ) );
+
+        /**
+         * Redirect so the page will show updated info.
+         */
+        if ( 0 == count( $error ) ) {
+            // Action hook for plugins and extra fields saving
+            do_action( 'edit_user_profile_update', $current_user->ID );
+            wp_redirect( wpd_ecommerce_account_url() . '?profile_saved' );
+            exit;
+        }
+    }
+}
+add_action( 'init', 'wpd_ecommerce_update_user_patient_dashboard' );
+
+/**
  * Login failed redirect
  * 
  * @since 1.0
