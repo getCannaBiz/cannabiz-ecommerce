@@ -113,8 +113,9 @@ function custom_wpd_orders_column( $column, $post_id ) {
 
         case 'wpd_orders_status' :
 		$status_display = wpd_ecommerce_order_statuses( $post_id, NULL, NULL );
-            if ( '' !== $status_display )
-                echo $status_display;
+		if ( '' !== $status_display ) {
+			echo $status_display;
+		}
         break;
 
 		case 'wpd_orders_customer' :
@@ -135,8 +136,9 @@ function custom_wpd_orders_column( $column, $post_id ) {
         case 'wpd_orders_total' :
 		$order_subtotal = get_post_meta( $post_id, 'wpd_order_subtotal_price', true );
 		$order_total    = get_post_meta( $post_id, 'wpd_order_total_price', true );
-			if ( '' !== $order_total )
-				echo wpd_currency_code() . $order_total;
+		if ( '' !== $order_total ) {
+			echo wpd_currency_code() . $order_total;
+		}
 		break;
 
     }

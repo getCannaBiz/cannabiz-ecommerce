@@ -179,13 +179,13 @@ function wpd_ecommerce_save_order_item_details( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$wpd_ecommerce_order_meta['wpd_order_status']           = $_POST['wpd_order_status'];
-	$wpd_ecommerce_order_meta['wpd_order_customer_id']      = $_POST['wpd_order_customer_id'];
-	$wpd_ecommerce_order_meta['wpd_order_customer_address'] = $_POST['wpd_order_customer_address'];
+	$order_meta['wpd_order_status']           = $_POST['wpd_order_status'];
+	$order_meta['wpd_order_customer_id']      = $_POST['wpd_order_customer_id'];
+	$order_meta['wpd_order_customer_address'] = $_POST['wpd_order_customer_address'];
 
-	/** Add values of $wpd_ecommerce_order_meta as custom fields */
+	/** Add values of $order_meta as custom fields */
 
-	foreach ( $wpd_ecommerce_order_meta as $key => $value ) { /** Cycle through the array! */
+	foreach ( $order_meta as $key => $value ) { /** Cycle through the array! */
 		if ( 'revision' === $post->post_type ) { /** Don't store custom data twice */
 			return;
 		}

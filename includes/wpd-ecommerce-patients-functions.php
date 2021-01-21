@@ -189,7 +189,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                 if ( ! isset( $valid_id['error'] ) ) {
                     if ( ! empty( $valid_id ) ) {
                         $valid_id = $valid_id['url'];
-                        echo "<a href='" . $valid_id . "' target='_blank'><img src='" . $valid_id . "' width='100' height='100' class='wpd-details-recommendation-doc' /></a><br />";
+                        echo '<a href="' . $valid_id . '" target="_blank"><img src="' . $valid_id . '" width="100" height="100" class="wpd-details-recommendation-doc" /></a><br />';
                     }
                 } else {
                     $valid_id = $valid_id['error'];

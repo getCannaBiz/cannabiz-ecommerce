@@ -78,7 +78,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
         $str .=	'<td><img src="' . $newArray['item_image_url_thumb'] . '" alt ="' . $newArray['order_item_name'] . '" class="wpd-ecommerce-orders-table-image" / ></td><td><a href="' . $newArray['item_url'] . '">' . $newArray['order_item_name'] . $var_name . '</a></td><td>' . CURRENCY . number_format( (float)$newArray['single_price'], 2, '.', ',' ) . '</td><td>' . $newArray['quantity'] . '</td><td>' . CURRENCY . number_format( (float)$newArray['total_price'], 2, '.', ',' ) . '</td></tr>';
     }
 
-    $str .= "</tbody></table>";
+    $str .= '</tbody></table>';
 
     return $str;
 }
