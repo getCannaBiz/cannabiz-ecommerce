@@ -597,6 +597,11 @@ function wpd_ecommerce_notifications() {
 		$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
 	}
 
+	// Display order thank you message.
+	if ( isset( $_GET['profile_saved'] ) ) {
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Details Saved', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Your profile settings have been successfully saved', 'wpd-ecommerce' ) . '</div>';
+	}
+
 	return $str;
 }
 //add_filter( 'the_content', 'wpd_ecommerce_notifications' );
@@ -692,7 +697,6 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 		/**
 		 * This is where I loop through the cart items
 		 * to multiply the quantity by the meta_key
-		 * @todo use the get_option() values for quantities that these are multiplied by
 		 */
 		if ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 	
