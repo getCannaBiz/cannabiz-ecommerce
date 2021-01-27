@@ -1085,8 +1085,8 @@ function wpd_ecommerce_single_items_vendors() {
 	global $post;
 
 	// Get vendors.
-	if ( get_the_term_list( get_the_ID(), 'vendor', true ) ) {
-		$wpdvendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendor', '', ', ', '' ) . '</span>';
+	if ( get_the_term_list( get_the_ID(), 'vendors', true ) ) {
+		$wpdvendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendors', '', ', ', '' ) . '</span>';
 	} else {
 		$wpdvendors = '';
 	}
