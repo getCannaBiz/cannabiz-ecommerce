@@ -565,10 +565,6 @@ function wpd_ecommerce_checkout_success() {
      */
 
     /**
-     * @todo order, user info, to, subject, etc all need to have filters applied.
-     */
-
-    /**
      * Email order details to Administrator.
      * 
      * @since 1.0
@@ -577,11 +573,11 @@ function wpd_ecommerce_checkout_success() {
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
     $to                = get_option( 'admin_email' );
-    $subject           = 'New order: #' . $order;
+    $subject           = __( 'New order: #', 'wpd-ecommerce' ) . $order;
 
     // Create message for the email.
     $message   = '<p>' . __( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
-    $message  .= '<p>' . get_bloginfo( 'name' ) . ' just received a new order from ' . $user_info->first_name . ' ' . $user_info->last_name . '.</p>';
+    $message  .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'wpd-ecommerce' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
 
     // Add order details to message.
     $message  .= $str;

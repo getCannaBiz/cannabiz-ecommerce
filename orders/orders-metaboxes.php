@@ -63,7 +63,7 @@ function wpd_ecommerce_order_item_details_build() {
 
 	$get_payment_type_name     = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
 	$order_payment_type_name   = $get_payment_type_name[0]['order_value'];
-	
+
 	/** Noncename needed to verify where the data originated */
 	echo '<input type="hidden" name="wpd_ecommerce_order_item_details_meta_noncename" id="wpd_ecommerce_order_item_details_meta_noncename" value="' .
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
