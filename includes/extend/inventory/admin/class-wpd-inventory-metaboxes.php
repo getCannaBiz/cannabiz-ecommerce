@@ -42,8 +42,8 @@ function wpdispensary_inventory_flowers() {
 
 	/** Get the inventory data if its already been entered */
 	$inventoryflowers = get_post_meta( $post->ID, '_inventory_flowers', true );
-	$inventorydisplay = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck   = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventorydisplay = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck   = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
@@ -51,7 +51,7 @@ function wpdispensary_inventory_flowers() {
 	echo '<input type="text" name="_inventory_flowers" value="' . $inventoryflowers  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -79,7 +79,7 @@ function wpdispensary_save_inventory_flowers_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 	$inventory_meta['_inventory_flowers']    = $_POST['_inventory_flowers'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -133,9 +133,9 @@ function wpdispensary_inventory_edibles() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventoryedibles = get_post_meta( $post->ID, '_inventory_edibles', true );
-    $inventorydisplay = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck   = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventoryedibles = get_post_meta( $post->ID, 'inventory_units', true );
+    $inventorydisplay = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck   = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
@@ -143,7 +143,7 @@ function wpdispensary_inventory_edibles() {
 	echo '<input type="text" name="_inventory_edibles" value="' . $inventoryedibles  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -170,8 +170,8 @@ function wpdispensary_save_inventory_edibles_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_edibles']    = $_POST['_inventory_edibles'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_units']    = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -224,10 +224,10 @@ function wpdispensary_inventory_concentrates() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventoryconcentrates     = get_post_meta( $post->ID, '_inventory_concentrates', true );
-	$inventoryconcentrateseach = get_post_meta( $post->ID, '_inventory_concentrates_each', true );
-    $inventorydisplay          = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck            = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventoryconcentrates     = get_post_meta( $post->ID, 'inventory_grams', true );
+	$inventoryconcentrateseach = get_post_meta( $post->ID, 'inventory_units', true );
+    $inventorydisplay          = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck            = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
@@ -239,7 +239,7 @@ function wpdispensary_inventory_concentrates() {
 	echo '<input type="text" name="_inventory_concentrates_each" value="' . $inventoryconcentrateseach  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -266,9 +266,9 @@ function wpdispensary_save_inventory_concentrates_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_concentrates']      = $_POST['_inventory_concentrates'];
-	$inventory_meta['_inventory_concentrates_each'] = $_POST['_inventory_concentrates_each'];
-	$inventory_meta['wpd_inventory_display']        = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_grams']   = $_POST['inventory_grams'];
+	$inventory_meta['inventory_units']   = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -321,9 +321,9 @@ function wpdispensary_inventory_prerolls() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventoryprerolls = get_post_meta( $post->ID, '_inventory_prerolls', true );
-    $inventorydisplay  = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck    = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventoryprerolls = get_post_meta( $post->ID, 'inventory_units', true );
+    $inventorydisplay  = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck    = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
@@ -331,7 +331,7 @@ function wpdispensary_inventory_prerolls() {
 	echo '<input type="text" name="_inventory_prerolls" value="' . $inventoryprerolls  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -358,8 +358,8 @@ function wpdispensary_save_inventory_prerolls_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_prerolls']   = $_POST['_inventory_prerolls'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_units']   = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -412,9 +412,9 @@ function wpdispensary_inventory_topicals() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventorytopicals = get_post_meta( $post->ID, '_inventory_topicals', true );
-    $inventorydisplay  = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck    = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventorytopicals = get_post_meta( $post->ID, 'inventory_units', true );
+    $inventorydisplay  = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck    = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
@@ -422,7 +422,7 @@ function wpdispensary_inventory_topicals() {
 	echo '<input type="text" name="_inventory_topicals" value="' . $inventorytopicals  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -449,8 +449,8 @@ function wpdispensary_save_inventory_topicals_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_topicals']   = $_POST['_inventory_topicals'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_units']   = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -503,10 +503,10 @@ function wpdispensary_inventory_growers() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventoryseeds   = get_post_meta( $post->ID, '_inventory_seeds', true );
-	$inventoryclones  = get_post_meta( $post->ID, '_inventory_clones', true );
-    $inventorydisplay = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck   = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventoryseeds   = get_post_meta( $post->ID, 'inventory_seeds', true );
+	$inventoryclones  = get_post_meta( $post->ID, 'inventory_clones', true );
+    $inventorydisplay = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck   = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory">';
@@ -516,7 +516,7 @@ function wpdispensary_inventory_growers() {
 	echo '<input type="text" name="_inventory_clones" value="' . $inventoryclones  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -543,9 +543,9 @@ function wpdispensary_save_inventory_growers_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_seeds']      = $_POST['_inventory_seeds'];
-	$inventory_meta['_inventory_clones']     = $_POST['_inventory_clones'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_seeds']      = $_POST['inventory_seeds'];
+	$inventory_meta['inventory_clones']     = $_POST['inventory_clones'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -600,9 +600,9 @@ function wpdispensary_inventory_tinctures() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventorytinctures = get_post_meta( $post->ID, '_inventory_tinctures', true );
-	$inventorydisplay   = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck     = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventorytinctures = get_post_meta( $post->ID, 'inventory_units', true );
+	$inventorydisplay   = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck     = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
@@ -610,7 +610,7 @@ function wpdispensary_inventory_tinctures() {
 	echo '<input type="text" name="_inventory_tinctures" value="' . $inventorytinctures  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -637,8 +637,8 @@ function wpdispensary_save_inventory_tinctures_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_tinctures']  = $_POST['_inventory_tinctures'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_units']  = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
@@ -691,9 +691,9 @@ function wpdispensary_inventory_gear() {
 	wp_create_nonce( plugin_basename( __FILE__ ) ) . '" />';
 
 	/** Get the inventory data if its already been entered */
-	$inventorygear    = get_post_meta( $post->ID, '_inventory_gear', true );
-	$inventorydisplay = get_post_meta( $post->ID , 'wpd_inventory_display', true );
-	$inventorycheck   = checked( $inventorydisplay, 'add_wpd_inventory_display', false );
+	$inventorygear    = get_post_meta( $post->ID, 'inventory_units', true );
+	$inventorydisplay = get_post_meta( $post->ID , 'inventory_display', true );
+	$inventorycheck   = checked( $inventorydisplay, 'add_inventory_display', false );
 
 	/** Echo out the fields */
 	echo '<div class="pricebox">';
@@ -701,7 +701,7 @@ function wpdispensary_inventory_gear() {
 	echo '<input type="text" name="_inventory_gear" value="' . $inventorygear  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory">';
-	echo '<p><input type="checkbox" name="wpd_inventory_display" id="wpd_inventory_display" value="add_wpd_inventory_display" '. $inventorycheck .'><label for="wpd_inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }
@@ -728,8 +728,8 @@ function wpdispensary_save_inventory_gear_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['_inventory_gear']       = $_POST['_inventory_gear'];
-	$inventory_meta['wpd_inventory_display'] = $_POST['wpd_inventory_display'];
+	$inventory_meta['inventory_units']       = $_POST['inventory_units'];
+	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
 
