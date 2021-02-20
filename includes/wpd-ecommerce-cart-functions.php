@@ -67,3 +67,20 @@ function wpd_ecommerce_checkout_ground_shipping() {
 
 }
 add_action( 'wpd_ecommerce_checkout_after_order_details', 'wpd_ecommerce_checkout_ground_shipping' );
+
+/**
+ * AJAX function to update payment type amount on checkout page.
+ * 
+ * @since 1.6
+ * @return void
+ */
+function wpd_ecommerce_checkout_settings() {
+	// Get metavalue (payment type cost).
+	$metavalue = $_POST['metavalue'];
+	$metaname  = $_POST['metaname'];
+	$_SESSION['wpd_ecommerce']->payment_type_amount = $metavalue;
+	$_SESSION['wpd_ecommerce']->payment_type_name   = $metaname;
+    exit;
+}
+add_action( 'wp_ajax_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings' );
+add_action('wp_ajax_nopriv_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings');
