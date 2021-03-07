@@ -25,7 +25,6 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     // Product data.
     $post_type      = get_post_type( $product_id );
     $price_each     = get_post_meta( $product_id, 'price_each', true );
-    $price_topical  = get_post_meta( $product_id, 'price_each', true );
     $price_per_pack = get_post_meta( $product_id, 'price_per_pack', true );
 
     // Flowers.
@@ -69,7 +68,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         }
     }
 
-    // Edibles, Pre-rolls, Growers, Tinctures and Gear.
+    // Edibles, Pre-rolls, Growers, Tinctures, Gear, Growers.
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'tinctures', 'gear', 'growers' ) ) ) {
     	if ( '' != $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
@@ -104,11 +103,11 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
 
     // Topicals.
     if ( 'topicals' == get_post_meta( $product_id, 'product_type', true ) ) {
-    	if ( '' != $price_topical && '' != $price_per_pack ) {
+    	if ( '' != $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . __( 'Select Options', 'wpd-ecommerce' ) . '</a>';
-        } elseif ( '' === $price_topical && '' != $price_per_pack ) {
+        } elseif ( '' === $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
-        } elseif ( '' != $price_topical && '' === $price_per_pack ) {
+        } elseif ( '' != $price_each && '' === $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . __( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
         } else {
             // Do nothing.
@@ -126,11 +125,13 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     if ( 'growers' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
+            // Clone count.
             if ( get_post_meta( get_the_ID(), 'clonecount', true ) ) {
                 if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
                     $button = '';
                 }
             }
+            // Seed count.
             if ( get_post_meta( get_the_ID(), 'seedcount', true ) ) {
                 if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
                     $button = '';
@@ -216,7 +217,6 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
 
     $post_type      = get_post_type( $product_id );
     $price_each     = get_post_meta( $product_id, 'price_each', true );
-    $price_topical  = get_post_meta( $product_id, 'price_topical', true );
     $price_per_pack = get_post_meta( $product_id, 'price_per_pack', true );
 
     $str = '';
@@ -253,8 +253,8 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
  * @return array
  */
 function wpd_ecommerce_archive_template_data() {
-    if ( ! empty( $_GET['vendor'] ) ) {
-        $vendor_name = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
+    if ( ! empty( $_GET['vendors'] ) ) {
+        $vendor_name = get_term_by( 'slug', $_GET['vendors'], 'vendors' );
         $title       = $vendor_name->name;
     }
     
@@ -299,9 +299,9 @@ function wpd_ecommerce_archive_template_data() {
      * 
      * @since 1.0
      */
-    if ( ! empty( $_GET['vendor'] ) ) {
-        $vendor_name    = get_term_by( 'slug', $_GET['vendor'], 'vendor' );
-        $page_title     = __( $vendor_name->name, 'wpd-ecommerce' );
+    if ( ! empty( $_GET['vendors'] ) ) {
+        $vendor_name    = get_term_by( 'slug', $_GET['vendors'], 'vendors' );
+        $page_title     = $vendor_name->name;
         $menu_type_name = $page_title;
     } elseif ( is_tax() ) {
         // Do nothing.
