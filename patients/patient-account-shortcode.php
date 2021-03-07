@@ -104,73 +104,71 @@ function wpd_patient_account_shortcode() {
 				// If user is administrator.
 				if ( 'administrator' !== $role[0] ) {
 				?>
-				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
-				<p><?php _e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
+					<h3 class="wpd-ecommerce patient-title"><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
+					<p><?php _e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
 				<?php
 				}
-					// If user is administrator.
-					if ( 'administrator' === $role[0] ) {
 
-						$today = getdate();
-
-						// Daily orders.
-						$date_query_daily = array(
-							array(
-								'year'  => $today['year'],
-								'month' => $today['mon'],
-								'day'   => $today['mday'],
-							),
-						);
-
-						$date_query_yesterday = date( 'd', strtotime( '-1 days' ) );
-
-						// Weekly orders.
-						$date_query_weekly = array(
-							array(
-								'year' => date( 'Y' ),
-								'week' => date( 'W' ),
-							),
-						);
-
-						$args = array(
-							'nopaging'    => TRUE,
-							'post_status' => 'publish',
-							'post_type'   => 'wpd_orders',
-							'order'       => 'ASC',
-							'date_query'  => $date_query_weekly,
-							'meta_query'  => array(
-								array(
-									'key' => 'wpd_order_total_price',
-								),
-							),
-						);
-						$the_query = new WP_Query( $args );
-						?>
-
-						<?php
-						if ( $the_query->have_posts() ) :
-							while ( $the_query->have_posts() ) : $the_query->the_post();
-								// Add item's total price to the total_earnings array.
-								$total_earnings[] = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
-							endwhile;
-							wp_reset_postdata();
-						else : endif;
-
-						$order_count   = $the_query->post_count;
-						$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
-
-						if ( isset( $total_earnings ) ) {
-							$total_final = array_sum( $total_earnings );
-						} else {
-							$total_final = '0';
-						}
-
-						echo '<div class="wpd-ecommerce account-administrator patients">' . $patient_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_patients_text', 'Patients' ) . '</span></div>';
-						echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . __( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
-						echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . __( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
-					}
 				// If user is administrator.
 				if ( 'administrator' === $role[0] ) {
+					// Today's date.
+					$today = getdate();
+
+					// Daily orders.
+					$date_query_daily = array(
+						array(
+							'year'  => $today['year'],
+							'month' => $today['mon'],
+							'day'   => $today['mday'],
+						),
+					);
+
+					$date_query_yesterday = date( 'd', strtotime( '-1 days' ) );
+
+					// Weekly orders.
+					$date_query_weekly = array(
+						array(
+							'year' => date( 'Y' ),
+							'week' => date( 'W' ),
+						),
+					);
+
+					$args = array(
+						'nopaging'    => TRUE,
+						'post_status' => 'publish',
+						'post_type'   => 'wpd_orders',
+						'order'       => 'ASC',
+						'date_query'  => $date_query_weekly,
+						'meta_query'  => array(
+							array(
+								'key' => 'wpd_order_total_price',
+							),
+						),
+					);
+					$the_query = new WP_Query( $args );
+					?>
+
+					<?php
+					if ( $the_query->have_posts() ) :
+						while ( $the_query->have_posts() ) : $the_query->the_post();
+							// Add item's total price to the total_earnings array.
+							$total_earnings[] = get_post_meta( get_the_ID(), 'wpd_order_total_price', TRUE );
+						endwhile;
+						wp_reset_postdata();
+					else : endif;
+
+					$order_count   = $the_query->post_count;
+					$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
+
+					if ( isset( $total_earnings ) ) {
+						$total_final = array_sum( $total_earnings );
+					} else {
+						$total_final = '0';
+					}
+
+					echo '<div class="wpd-ecommerce account-administrator patients">' . $patient_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_patients_text', 'Patients' ) . '</span></div>';
+					echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . __( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
+					echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . __( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
 				?>
 				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce patient-orders">
