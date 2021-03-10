@@ -46,6 +46,57 @@ function wpd_ecommerce_logout() {
 }
 add_action( 'wp_logout', 'wpd_ecommerce_logout' );
 
+
+/**
+ * WPD Admin Settings - Cookie lifetime
+ *
+ * @since  1.8
+ * @return int
+ */
+function get_wpd_cookie_lifetime() {
+	// Access all WP Dispensary Advanced Settings.
+	$wpd_settings = get_option( 'wpdas_advanced' );
+
+	// Check cookie lifetime settings.
+	if ( isset ( $wpd_settings['wpd_settings_cookie_lifetime'] ) && '' !== $wpd_settings['wpd_settings_cookie_lifetime'] ) {
+		$wpd_cookie_lifetime = $wpd_settings['wpd_settings_cookie_lifetime'];
+	} else {
+		// Default cookie lifetime.
+		$wpd_cookie_lifetime = 'one_hour';
+	}
+
+	// Cookie times.
+	$half_hour    = 86400 / 48;
+	$one_hour     = 86400 / 24;
+	$three_hours  = 86400 / 8;
+	$six_hours    = 86400 / 4;
+	$twelve_hours = 86400 / 2;
+	$one_day      = 86400;
+
+	if ( 'half_hour' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $half_hour;
+	} elseif ( 'one_hour' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $one_hour;
+	} elseif ( 'three_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $three_hours;
+	} elseif ( 'six_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $six_hours;
+	} elseif ( 'twelve_hours' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $twelve_hours;
+	} elseif ( 'one_day' == $wpd_cookie_lifetime ) {
+		$wpd_cookie_lifetime = $one_day;
+	} else {
+		// Do nothing.
+	}
+
+	// Create filterable cookie lifetime.
+	$wpd_cookie_lifetime = apply_filters( 'wpd_cookie_lifetime', $wpd_cookie_lifetime );
+
+	// Return the cookie lifetime.
+	return $wpd_cookie_lifetime;
+}
+
+
 /**
  * Load Session
  * 
@@ -68,31 +119,43 @@ function wpd_ecommerce_load_session() {
 
 	}
 }
-wpd_ecommerce_load_session();
+
 
 /**
- * initialise the cart session, if it exist, unserialize it, otherwise make it.
+ * Cart session
+ * 
+ * @since  2.0
+ * @return void
  */
-if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
-	if ( is_object( $_SESSION['wpd_ecommerce'] ) ) {
-		$GLOBALS['wpd_ecommerce'] = $_SESSION['wpd_ecommerce'];
+function wpd_ecommerce_cart_session() {
+	wpd_ecommerce_load_session();
+
+	/**
+	 * initialise the cart session, if it exist, unserialize it, otherwise make it.
+	 */
+	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
+		if ( is_object( $_SESSION['wpd_ecommerce'] ) ) {
+			$GLOBALS['wpd_ecommerce'] = $_SESSION['wpd_ecommerce'];
+		} else {
+			$GLOBALS['wpd_ecommerce'] = unserialize( $_SESSION['wpd_ecommerce'] );
+		}
+		if ( ! is_object( $GLOBALS['wpd_ecommerce'] ) || ( get_class( $GLOBALS['wpd_ecommerce'] ) != "wpsc_cart" ) ) {
+			$GLOBALS['wpd_ecommerce'] = new Cart;
+		}
 	} else {
-		$GLOBALS['wpd_ecommerce'] = unserialize( $_SESSION['wpd_ecommerce'] );
-	}
-	if ( ! is_object( $GLOBALS['wpd_ecommerce'] ) || ( get_class( $GLOBALS['wpd_ecommerce'] ) != "wpsc_cart" ) ) {
 		$GLOBALS['wpd_ecommerce'] = new Cart;
 	}
-} else {
-	$GLOBALS['wpd_ecommerce'] = new Cart;
+	
+	/**
+	 * Calculate cart sum
+	 * 
+	 * This calculates the cart total on page load.
+	 * 
+	 * @since 1.0
+	 */
+	if ( ! empty( $_SESSION ) ) {
+		$_SESSION['wpd_ecommerce']->calculate_cart_sum();
+	}
+	
 }
-
-/**
- * Calculate cart sum
- * 
- * This calculates the cart total on page load.
- * 
- * @since 1.0
- */
-if ( ! empty( $_SESSION ) ) {
-	$_SESSION['wpd_ecommerce']->calculate_cart_sum();
-}
+add_action( 'init', 'wpd_ecommerce_cart_session' );
