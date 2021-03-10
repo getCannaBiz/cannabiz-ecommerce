@@ -133,7 +133,7 @@ function wpd_ecommerce_order_item_details_build() {
 	echo '</div>';
 
 	echo '<div class="order-details-box">';
-	echo '<p><strong>' . __( 'Customer', 'wpd-ecommerce' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">profile</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">view orders &rarr;</a></p>';
+	echo '<p><strong>' . __( 'Customer', 'wpd-ecommerce' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">' . __( 'profile', 'wpd-ecommerce' ) . '</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">' . __( 'view orders', 'wpd-ecommerce' ) . ' &rarr;</a></p>';
 	wp_dropdown_users( array( 'name' => 'wpd_order_customer_id', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
 
 	if ( '' != $user_info->user_email ) {
