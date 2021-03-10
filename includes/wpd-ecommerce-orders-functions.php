@@ -50,8 +50,24 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     // Get row's from database with current $wpd_order_id.
     $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'product'", ARRAY_A );
 
+    // Table head.
+    $thead = array(
+        '',
+        __( 'Product', 'wpd-ecommerce' ),
+        __( 'Price', 'wpd-ecommerce' ),
+        __( 'Qty', 'wpd-ecommerce' ),
+        __( 'Total', 'wpd-ecommerce' ),
+    );
+
+    // Filter table head.
+    $thead = apply_filters( 'wpd_ecommerce_table_order_data_thead', $thead );
+
     $str  = '<table class="wpd-ecommerce">';
-    $str .= '<thead><tr><td></td><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr></thead>';
+    $str .= '<thead><tr>';
+    foreach ( $thead as $thead ) {
+        $str .= '<td>' . $thead . '</td>';
+    }
+    $str .= '</tr></thead>';
     $str .= '<tbody>';
 
     // Loop through each product in the database.
