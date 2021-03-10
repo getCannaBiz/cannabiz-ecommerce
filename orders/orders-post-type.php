@@ -103,7 +103,9 @@ function set_custom_edit_wpd_orders_columns( $columns ) {
 }
 add_filter( 'manage_wpd_orders_posts_columns', 'set_custom_edit_wpd_orders_columns' );
 
-// Add the data to the custom columns for the wpd_orders post type:
+/**
+ * Add the data to the custom columns for the wpd_orders post type
+ */
 function custom_wpd_orders_column( $column, $post_id ) {
     switch ( $column ) {
 
@@ -137,7 +139,7 @@ function custom_wpd_orders_column( $column, $post_id ) {
 		$order_subtotal = get_post_meta( $post_id, 'wpd_order_subtotal_price', true );
 		$order_total    = get_post_meta( $post_id, 'wpd_order_total_price', true );
 		if ( '' !== $order_total ) {
-			echo wpd_currency_code() . $order_total;
+			echo CURRENCY . $order_total;
 		}
 		break;
 
