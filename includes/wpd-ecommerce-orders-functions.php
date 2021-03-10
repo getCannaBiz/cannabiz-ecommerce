@@ -91,7 +91,24 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
             $var_name = '';
         }
 
-        $str .=	'<td><img src="' . $newArray['item_image_url_thumb'] . '" alt ="' . $newArray['order_item_name'] . '" class="wpd-ecommerce-orders-table-image" / ></td><td><a href="' . $newArray['item_url'] . '">' . $newArray['order_item_name'] . $var_name . '</a></td><td>' . CURRENCY . number_format( (float)$newArray['single_price'], 2, '.', ',' ) . '</td><td>' . $newArray['quantity'] . '</td><td>' . CURRENCY . number_format( (float)$newArray['total_price'], 2, '.', ',' ) . '</td></tr>';
+        // Table body rows.
+        $tbody = array(
+            '<img src="' . $newArray['item_image_url_thumb'] . '" alt ="' . $newArray['order_item_name'] . '" class="wpd-ecommerce-orders-table-image" / >',
+            '<a href="' . $newArray['item_url'] . '">' . $newArray['order_item_name'] . $var_name . '</a>',
+            CURRENCY . number_format( (float)$newArray['single_price'], 2, '.', ',' ),
+            $newArray['quantity'],
+            CURRENCY . number_format( (float)$newArray['total_price'], 2, '.', ',' )
+        );
+
+        // Filter table body row data.
+        $tbody = apply_filters( 'wpd_ecommerce_table_order_data_tbody', $tbody, $newArray );
+
+        // Table rows for tbody.
+        $str .=	'<tr>';
+        foreach ( $tbody as $tbody ) {
+            $str .= '<td>' . $tbody . '</td>';
+        }
+        $str .= '</tr>';
     }
 
     $str .= '</tbody></table>';
