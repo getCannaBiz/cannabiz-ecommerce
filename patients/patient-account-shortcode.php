@@ -123,6 +123,7 @@ function wpd_patient_account_shortcode() {
 						),
 					);
 
+					// Yesterday's orders.
 					$date_query_yesterday = date( 'd', strtotime( '-1 days' ) );
 
 					// Weekly orders.
@@ -133,6 +134,7 @@ function wpd_patient_account_shortcode() {
 						),
 					);
 
+					// WP_Query args.
 					$args = array(
 						'nopaging'    => TRUE,
 						'post_status' => 'publish',
@@ -157,7 +159,9 @@ function wpd_patient_account_shortcode() {
 						wp_reset_postdata();
 					else : endif;
 
-					$order_count   = $the_query->post_count;
+					// Get total order count.
+					$order_count = $the_query->post_count;
+					// Get total patient count.
 					$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
 
 					if ( isset( $total_earnings ) ) {
@@ -397,7 +401,7 @@ function wpd_patient_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Drivers License or Valid ID', 'woocommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Drivers License or Valid ID', 'wpd-ecommerce' ); ?></label>
 					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true ) ) { ?>
 					<div class="valid-id">
 						<?php
@@ -427,7 +431,7 @@ function wpd_patient_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_doc"><?php _e( 'Doctor recommendation', 'woocommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_patient_recommendation_doc"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></label>
 					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_doc', true ) ) { ?>
 					<div class="recommendation-doc">
 						<?php
@@ -457,7 +461,7 @@ function wpd_patient_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_num"><?php _e( 'Recommendation number', 'woocommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_patient_recommendation_num"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></label>
 					<input type="text" class="input-text" name="wpd_ecommerce_patient_recommendation_num" id="reg_wpd_ecommerce_patient_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_num', true ); ?>" />
 				</p>
 
@@ -470,7 +474,7 @@ function wpd_patient_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_exp"><?php _e( 'Expiration Date', 'woocommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_patient_recommendation_exp"><?php _e( 'Expiration Date', 'wpd-ecommerce' ); ?></label>
 					<input type="date" class="input-date" name="wpd_ecommerce_patient_recommendation_exp" id="reg_wpd_ecommerce_patient_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_exp', true ); ?>" />
 				</p>
 
