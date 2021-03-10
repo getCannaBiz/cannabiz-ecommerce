@@ -74,17 +74,9 @@ if ( ! is_user_logged_in() ) {
                 do_action( 'edit_user_profile_update', $current_user->ID );
             }
 
-            // Get minimum order checkout requirement from settings.
-            $wpd_general  = get_option( 'wpdas_general' );
-            if ( isset( $wpd_general['wpd_ecommerce_checkout_minimum_order'] ) ) {
-                $min_checkout = $wpd_general['wpd_ecommerce_checkout_minimum_order'];
-            } else {
-                $min_checkout = '';
-            }
-
             // Minimum checkout check.
-            if ( '' !== $min_checkout ) {
-                if ( $_SESSION['wpd_ecommerce']->sum >= $min_checkout ) {
+            if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
+                if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
                     if ( empty( $_POST['payment-type'] ) ) {
                         $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
@@ -92,7 +84,7 @@ if ( ! is_user_logged_in() ) {
                         wpd_ecommerce_checkout_success();
                     }
                 } else {
-                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . $min_checkout . '</div>';
+                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
                     echo $str;
                 }
             } else {

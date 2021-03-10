@@ -17,17 +17,6 @@ function wpd_ecommerce_notifications() {
 
 	global $post;
 
-	// Get WPD settings from General tab.
-	$wpdas_general = get_option( 'wpdas_general' );
-
-	// Require login to shop?
-	$login_to_shop = NULL;
-
-	// Check if user needs to be logged in to shop.
-	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
-		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
-	}
-
 	// Begin data.
 	$str = '';
 
@@ -1085,16 +1074,6 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_header_before', 'wpd_eco
  */
 function wpd_ecommerce_add_to_cart_form() {
 
-	// Get WPD settings from General tab.
-	$wpdas_general = get_option( 'wpdas_general' );
-
-	// Check if user is required to be logged in to shop.
-	if ( isset( $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'] ) ) {
-		$login_to_shop = $wpdas_general['wpd_ecommerce_cart_require_login_to_shop'];
-	} else {
-		$login_to_shop = NULL;
-	}
-
 	// Set prices.
 	if ( in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 		$regular_price = esc_html( get_post_meta( get_the_ID(), 'price_each', true ) );
@@ -1222,7 +1201,7 @@ function wpd_ecommerce_add_to_cart_form() {
 	echo apply_filters( 'wpd_ecommerce_single_item_price', $display_price );
 
 	// Check if user is required to login to shop.
-	if ( ! is_user_logged_in() && 'on' == $login_to_shop ) {
+	if ( ! is_user_logged_in() && 'on' == wpd_ecommerce_require_login_to_shop() ) {
 		$str_login  = '<div class="wpd-ecommerce-notifications">';
 		$str_login .= '<div class="wpd-ecommerce-notifications failed">You must be <a href="' . wpd_ecommerce_account_url() . '">logged in</a> to place an order</div>';
 		$str_login .= '</div>';
