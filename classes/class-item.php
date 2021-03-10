@@ -97,7 +97,7 @@ class Item {
 						$flower_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );
 					}
 				}
-			} elseif ( 'products' === get_post_type( $item_old_id ) && 'flowers' == get_post_meta( $item_old_id, 'product_type', true ) ) {
+			} elseif ( 'products' === get_post_type( $item_old_id ) && 'concentrates' == get_post_meta( $item_old_id, 'product_type', true ) ) {
 				foreach( $item_names as $item=>$value ) {
 					if ( $value == $item_id ) {
 						$concentrate_price_choice = get_post_meta( $item_old_id, $item_meta_key, true );

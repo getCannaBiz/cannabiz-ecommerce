@@ -127,7 +127,7 @@ class Cart {
 		if ( defined( 'EXCISE_TAX' ) ) {
 			$this->calculate_excise_tax();
 		}
-		// Calculate sales tax.
+		// Calculate payment type amount.
 		if ( defined( 'PAYMENT_TYPE_AMOUNT' ) ) {
 			$this->calculate_payment_type_amount();
 		}
