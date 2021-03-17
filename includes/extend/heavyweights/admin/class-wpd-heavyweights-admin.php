@@ -251,47 +251,47 @@ function wpdispensary_heavyweight_prices() {
 
 	if ( in_array( get_post_type(), array( 'products', 'concentrates' ) ) ) {
 		/** Get the prices data if its already been entered */
-		$threegrams = get_post_meta( $post->ID, '_threegrams', true );
-		$fourgrams  = get_post_meta( $post->ID, '_fourgrams', true );
-		$fivegrams  = get_post_meta( $post->ID, '_fivegrams', true );
-		$sixgrams   = get_post_meta( $post->ID, '_sixgrams', true );
-		$sevengrams = get_post_meta( $post->ID, '_sevengrams', true );
-		$eightgrams = get_post_meta( $post->ID, '_eightgrams', true );
-		$ninegrams  = get_post_meta( $post->ID, '_ninegrams', true );
-		$tengrams   = get_post_meta( $post->ID, '_tengrams', true );
+		$threegrams = get_post_meta( $post->ID, 'price_three_grams', true );
+		$fourgrams  = get_post_meta( $post->ID, 'price_four_grams', true );
+		$fivegrams  = get_post_meta( $post->ID, 'price_five_grams', true );
+		$sixgrams   = get_post_meta( $post->ID, 'price_six_grams', true );
+		$sevengrams = get_post_meta( $post->ID, 'price_seven_grams', true );
+		$eightgrams = get_post_meta( $post->ID, 'price_eight_grams', true );
+		$ninegrams  = get_post_meta( $post->ID, 'price_nine_grams', true );
+		$tengrams   = get_post_meta( $post->ID, 'price_ten_grams', true );
 
 		/** Echo out the fields */
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '3 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_threegrams" value="' . $threegrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_three_grams" value="' . $threegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '4 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fourgrams" value="' . $fourgrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_four_grams" value="' . $fourgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '5 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fivegrams" value="' . $fivegrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_five_grams" value="' . $fivegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '6 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_sixgrams" value="' . $sixgrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_six_grams" value="' . $sixgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '7 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_sevengrams" value="' . $sevengrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_seven_grams" value="' . $sevengrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '8 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_eightgrams" value="' . $eightgrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_eight_grams" value="' . $eightgrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '9 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_ninegrams" value="' . $ninegrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_nine_grams" value="' . $ninegrams  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '10 g', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_tengrams" value="' . $tengrams  . '" class="widefat" />';
+		echo '<input type="text" name="price_ten_grams" value="' . $tengrams  . '" class="widefat" />';
 		echo '</div>';
 	} // if is ( 'concentrates' )
 
@@ -320,14 +320,14 @@ function wpdispensary_save_heavyweight_prices_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$heavyweightprices_meta['_threegrams']              = esc_html( $_POST['_threegrams'] );
-	$heavyweightprices_meta['_fourgrams']               = esc_html( $_POST['_fourgrams'] );
-	$heavyweightprices_meta['_fivegrams']               = esc_html( $_POST['_fivegrams'] );
-	$heavyweightprices_meta['_sixgrams']                = esc_html( $_POST['_sixgrams'] );
-	$heavyweightprices_meta['_sevengrams']              = esc_html( $_POST['_sevengrams'] );
-	$heavyweightprices_meta['_eightgrams']              = esc_html( $_POST['_eightgrams'] );
-	$heavyweightprices_meta['_ninegrams']               = esc_html( $_POST['_ninegrams'] );
-	$heavyweightprices_meta['_tengrams']                = esc_html( $_POST['_tengrams'] );
+	$heavyweightprices_meta['price_three_grams']        = esc_html( $_POST['price_three_grams'] );
+	$heavyweightprices_meta['price_four_grams']         = esc_html( $_POST['price_four_grams'] );
+	$heavyweightprices_meta['price_five_grams']         = esc_html( $_POST['price_five_grams'] );
+	$heavyweightprices_meta['price_six_grams']          = esc_html( $_POST['price_six_grams'] );
+	$heavyweightprices_meta['price_seven_grams']        = esc_html( $_POST['price_seven_grams'] );
+	$heavyweightprices_meta['price_eight_grams']        = esc_html( $_POST['price_eight_grams'] );
+	$heavyweightprices_meta['price_nine_grams']         = esc_html( $_POST['price_nine_grams'] );
+	$heavyweightprices_meta['price_ten_grams']          = esc_html( $_POST['price_ten_grams'] );
 	$heavyweightprices_meta['price_two_ounces']         = esc_html( $_POST['price_two_ounces'] );
 	$heavyweightprices_meta['price_quarter_pound']      = esc_html( $_POST['price_quarter_pound'] );
 	$heavyweightprices_meta['price_half_pound']         = esc_html( $_POST['price_half_pound'] );
@@ -485,13 +485,13 @@ function add_wpd_heavyweight_prices() {
 
 	if ( in_array( get_post_type(), array( 'products', 'concentrates' ) ) ) {
 		if (
-			! get_post_meta( get_the_ID(), '_fourgrams', true ) &&
-			! get_post_meta( get_the_ID(), '_fivegrams', true ) &&
-			! get_post_meta( get_the_ID(), '_sixgrams', true ) &&
-			! get_post_meta( get_the_ID(), '_sevengrams', true ) &&
-			! get_post_meta( get_the_ID(), '_eightgrams', true ) &&
-			! get_post_meta( get_the_ID(), '_ninegrams', true ) &&
-			! get_post_meta( get_the_ID(), '_tengrams', true )
+			! get_post_meta( get_the_ID(), 'price_four_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_five_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_six_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_seven_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_eight_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_nine_grams', true ) &&
+			! get_post_meta( get_the_ID(), 'price_ten_grams', true )
 		) { } else {
 	?>
 	</tr>
@@ -500,26 +500,26 @@ function add_wpd_heavyweight_prices() {
 
 	<table class="wpdispensary-table single pricing wpd-heavyweights">
 	<tr>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fourgrams', true ) ) { } else { ?>
-			<td><span><?php __( '4 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourgrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_four_grams', true ) ) { } else { ?>
+			<td><span><?php __( '4 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_four_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fivegrams', true ) ) { } else { ?>
-			<td><span><?php __( '5 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivegrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_five_grams', true ) ) { } else { ?>
+			<td><span><?php __( '5 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_five_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_sixgrams', true ) ) { } else { ?>
-			<td><span><?php __( '6 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixgrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_six_grams', true ) ) { } else { ?>
+			<td><span><?php __( '6 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_six_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_sevengrams', true ) ) { } else { ?>
-			<td><span><?php __( '7 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevengrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_seven_grams', true ) ) { } else { ?>
+			<td><span><?php __( '7 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_seven_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_eightgrams', true ) ) { } else { ?>
-			<td><span><?php __( '8 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightgrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_eight_grams', true ) ) { } else { ?>
+			<td><span><?php __( '8 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_eight_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_ninegrams', true ) ) { } else { ?>
-			<td><span><?php __( '9 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninegrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_nine_grams', true ) ) { } else { ?>
+			<td><span><?php __( '9 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_nine_grams', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_tengrams', true ) ) { } else { ?>
-			<td><span><?php __( '10 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tengrams', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_ten_grams', true ) ) { } else { ?>
+			<td><span><?php __( '10 g', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_ten_grams', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<?php } ?>

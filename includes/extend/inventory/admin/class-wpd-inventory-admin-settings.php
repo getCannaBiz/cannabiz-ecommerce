@@ -836,12 +836,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_flowers', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_grams', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_flowers' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> grams";
+						$inventory        = "<input id='inventory_grams' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> grams";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_flowers', true );
-						$inventory        = '<input id="_inventory_flowers" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> grams';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_grams', true );
+						$inventory        = '<input id="inventory_grams" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> grams';
 					}
 				} elseif ( in_array( get_post_type(), array( 'concentrates' ) ) ) {
 
@@ -869,14 +869,14 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( get_post_meta( get_the_id(), '_inventory_concentrates_each', true ) ) {
-						$inventory        = '<input id="_inventory_concentrates_each" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), '_inventory_concentrates_each', true ) . '" /> units';
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_concentrates_each', true );
-					} elseif ( get_post_meta( get_the_id(), '_inventory_concentrates', true ) ) {
-						$inventory        = '<input id="_inventory_concentrates" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), '_inventory_concentrates', true ) . '" /> grams';
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_concentrates', true );
+					if ( get_post_meta( get_the_id(), 'inventory_units', true ) ) {
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), 'inventory_units', true ) . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
+					} elseif ( get_post_meta( get_the_id(), 'inventory_grams', true ) ) {
+						$inventory        = '<input id="inventory_grams" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), 'inventory_grams', true ) . '" /> grams';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_grams', true );
 					} else {
-						$inventory        = "<input id='_inventory_concentrates' name='" . get_the_id() . "' type='number' class='qty' value='0' /> grams";
+						$inventory        = "<input id='inventory_grams' name='" . get_the_id() . "' type='number' class='qty' value='0' /> grams";
 						$inventory_number = '0';
 					}
 
@@ -905,12 +905,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_edibles', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_units', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_edibles' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> units";
+						$inventory        = "<input id='inventory_units' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> units";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_edibles', true );
-						$inventory        = '<input id="_inventory_edibles" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
 				} elseif ( in_array( get_post_type(), array( 'topicals' ) ) ) {
 					// Get permalink base for Topicals.
@@ -937,12 +937,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_topicals', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_units', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_topicals' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> units";
+						$inventory        = "<input id='inventory_units' name='" . get_the_id() . "' type='number' class='qty' value='" . $inventory_number . "' /> units";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_topicals', true );
-						$inventory        = '<input id="_inventory_topicals" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
 				} elseif ( in_array( get_post_type(), array( 'prerolls' ) ) ) {
 					// Get permalink base for Pre-rolls.
@@ -969,12 +969,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_prerolls', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_units', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_prerolls' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
+						$inventory        = "<input id='inventory_units' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_prerolls', true );
-						$inventory        = '<input id="_inventory_prerolls" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), '_inventory_prerolls', true ) . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), 'inventory_units', true ) . '" /> units';
 					}
 				} elseif ( in_array( get_post_type(), array( 'growers' ) ) ) {
 					// Get permalink base for Growers.
@@ -1001,15 +1001,15 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( get_post_meta( get_the_id(), '_inventory_seeds', true ) ) {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_seeds', true );
-						$inventory        = '<input id="_inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
-					} elseif ( get_post_meta( get_the_ID(), '_inventory_clones', TRUE ) ) {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_clones', true );
-						$inventory        = '<input id="_inventory_clones" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> clones';
+					if ( get_post_meta( get_the_id(), 'inventory_seeds', true ) ) {
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_seeds', true );
+						$inventory        = '<input id="inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
+					} elseif ( get_post_meta( get_the_ID(), 'inventory_clones', TRUE ) ) {
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_clones', true );
+						$inventory        = '<input id="inventory_clones" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> clones';
 					} else {
 						$inventory_number = '0';
-						$inventory        = '<input id="_inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
+						$inventory        = '<input id="inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
 					}
 				} elseif ( in_array( get_post_type(), array( 'gear' ) ) ) {
 					// Get permalink base for Gear.
@@ -1036,12 +1036,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_gear', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_units', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_gear' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
+						$inventory        = "<input id='inventory_units' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_gear', true );
-						$inventory        = '<input id="_inventory_gear" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
 				} elseif ( in_array( get_post_type(), array( 'tinctures' ) ) ) {
 					// Get permalink base for Tinctures.
@@ -1068,12 +1068,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 							$categories = $cat->name;
 						}
 					}
-					if ( ! get_post_meta( get_the_id(), '_inventory_tinctures', true ) ) {
+					if ( ! get_post_meta( get_the_id(), 'inventory_tinctures', true ) ) {
 						$inventory_number = '0';
-						$inventory        = "<input id='_inventory_tinctures' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
+						$inventory        = "<input id='inventory_tinctures' name='" . get_the_id() . "' type='number' class='qty' value='0' /> units";
 					} else {
-						$inventory_number = get_post_meta( get_the_id(), '_inventory_tinctures', true );
-						$inventory        = '<input id="_inventory_tinctures" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
+						$inventory_number = get_post_meta( get_the_id(), 'inventory_tinctures', true );
+						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
 				}
 				$html .= '<tr><td class="action">' . get_the_ID() . '</td><td>' . $menutype . '</td><td><a href="' . get_the_permalink() . '" target="_blank">' . get_the_title() . '</a> <a href="' . admin_url( 'post.php?post=' . get_the_id() . '&action=edit' ) . '" target="_blank" class="wpd-inventory edit-link">(Edit)</a></td><td>' . $categories . '</td><td data-sort-value="' . $inventory_number . '">'. $inventory . '</span></td></tr>';
@@ -1257,72 +1257,72 @@ function wpd_inventory_settings() {
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_concentrates', true ) ) {
 			/** Update the inventory metabox for the selected concentrate with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_edibles', true ) ) {
 			/** Update the inventory metabox for the selected edible with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_prerolls', true ) ) {
 			/** Update the inventory metabox for the selected pre-roll with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_topicals', true ) ) {
 			/** Update the inventory metabox for the selected topical with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_growers', true ) ) {
 			/** Update the inventory metabox for the selected grower item with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_tinctures', true ) ) {
 			/** Update the inventory metabox for the selected tinctures with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} elseif ( $wpd_item_id === get_post_meta( $item->ID, '_selected_gear', true ) ) {
 			/** Update the inventory metabox for the selected gear with the updated stock_quantity */
 			update_post_meta( $item->ID, '_stock', $metavalue );
 			// If stock quantity is 0, change stock status.
 			if ( '0' == $metavalue ) {
-				update_post_meta( $item->ID, '_stock_status', 'outofstock' );
+				update_post_meta( $item->ID, 'stock_status', 'outofstock' );
 			} else {
-				update_post_meta( $item->ID, '_stock_status', 'instock' );
+				update_post_meta( $item->ID, 'stock_status', 'instock' );
 			}
 		} else {
 			// Do nothing.

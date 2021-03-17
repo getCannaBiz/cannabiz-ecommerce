@@ -42,10 +42,10 @@ function wpd_topsellers_meta( $value ) {
 
 function top_sellers_add_meta_box() {
 	add_meta_box(
-		'top_sellers-top-sellers',
+		'wpd_featured_product',
 		__( 'Top Sellers', 'wpd-ecommerce' ),
 		'top_sellers_html',
-		apply_filters( 'wpd_top_sellers_metabox', wpd_menu_types_simple( TRUE ) ),
+		apply_filters( 'wpd_product_featured_metabox', wpd_menu_types_simple( TRUE ) ),
 		'side',
 		'high'
 	);
@@ -53,9 +53,9 @@ function top_sellers_add_meta_box() {
 add_action( 'add_meta_boxes', 'top_sellers_add_meta_box' );
 
 function top_sellers_html( $post ) {
-	wp_nonce_field( '_top_sellers_nonce', 'top_sellers_nonce' ); ?>
+	wp_nonce_field( 'product_featured_nonce', 'top_sellers_nonce' ); ?>
 	<p>
-		<input type="checkbox" name="wpd_topsellers" id="wpd_topsellers" value="add_wpd_topsellers" <?php echo ( wpd_topsellers_meta( 'wpd_topsellers' ) === 'add_wpd_topsellers' ) ? 'checked' : ''; ?>>
+		<input type="checkbox" name="wpd_topsellers" id="wpd_topsellers" value="add_wpd_topsellers" <?php echo ( wpd_topsellers_meta( 'product_featured' ) === 'add_wpd_topsellers' ) ? 'checked' : ''; ?>>
 		<label for="wpd_topsellers"><?php _e( 'Mark this product as a top seller', 'wpd-ecommerce' ); ?></label>
 	</p>
 	<?php
@@ -63,12 +63,12 @@ function top_sellers_html( $post ) {
 
 function top_sellers_save( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	if ( ! isset( $_POST['top_sellers_nonce'] ) || ! wp_verify_nonce( $_POST['top_sellers_nonce'], '_top_sellers_nonce' ) ) return;
+	if ( ! isset( $_POST['top_sellers_nonce'] ) || ! wp_verify_nonce( $_POST['top_sellers_nonce'], 'product_featured_nonce' ) ) return;
 	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
-	if ( isset( $_POST['wpd_topsellers'] ) )
-		update_post_meta( $post_id, 'wpd_topsellers', esc_attr( $_POST['wpd_topsellers'] ) );
+	if ( isset( $_POST['product_featured'] ) )
+		update_post_meta( $post_id, 'product_featured', esc_attr( $_POST['product_featured'] ) );
 	else
-		update_post_meta( $post_id, 'wpd_topsellers', null );
+		update_post_meta( $post_id, 'product_featured', null );
 }
 add_action( 'save_post', 'top_sellers_save' );
