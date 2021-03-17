@@ -140,112 +140,112 @@ function wpdispensary_heavyweight_prices() {
 
 	if ( in_array( get_post_type(), array( 'products', 'flowers' ) ) ) {
 		/** Get the prices data if its already been entered */
-		$twoounces        = get_post_meta( $post->ID, '_twoounces', true );
-		$quarterpound     = get_post_meta( $post->ID, '_quarterpound', true );
-		$halfpound        = get_post_meta( $post->ID, '_halfpound', true );
-		$onepound         = get_post_meta( $post->ID, '_onepound', true );
-		$twopounds        = get_post_meta( $post->ID, '_twopounds', true );
-		$threepounds      = get_post_meta( $post->ID, '_threepounds', true );
-		$fourpounds       = get_post_meta( $post->ID, '_fourpounds', true );
-		$fivepounds       = get_post_meta( $post->ID, '_fivepounds', true );
-		$sixpounds        = get_post_meta( $post->ID, '_sixpounds', true );
-		$sevenpounds      = get_post_meta( $post->ID, '_sevenpounds', true );
-		$eightpounds      = get_post_meta( $post->ID, '_eightpounds', true );
-		$ninepounds       = get_post_meta( $post->ID, '_ninepounds', true );
-		$tenpounds        = get_post_meta( $post->ID, '_tenpounds', true );
-		$elevenpounds     = get_post_meta( $post->ID, '_elevenpounds', true );
-		$twelvepounds     = get_post_meta( $post->ID, '_twelvepounds', true );
-		$thirteenpounds   = get_post_meta( $post->ID, '_thirteenpounds', true );
-		$fourteenpounds   = get_post_meta( $post->ID, '_fourteenpounds', true );
-		$fifteenpounds    = get_post_meta( $post->ID, '_fifteenpounds', true );
-		$twentypounds     = get_post_meta( $post->ID, '_twentypounds', true );
-		$twentyfivepounds = get_post_meta( $post->ID, '_twentyfivepounds', true );
-		$fiftypounds      = get_post_meta( $post->ID, '_fiftypounds', true );
+		$twoounces        = get_post_meta( $post->ID, 'price_two_ounces', true );
+		$quarterpound     = get_post_meta( $post->ID, 'price_quarter_pound', true );
+		$halfpound        = get_post_meta( $post->ID, 'price_half_pound', true );
+		$onepound         = get_post_meta( $post->ID, 'price_one_pound', true );
+		$twopounds        = get_post_meta( $post->ID, 'price_two_pounds', true );
+		$threepounds      = get_post_meta( $post->ID, 'price_three_pounds', true );
+		$fourpounds       = get_post_meta( $post->ID, 'price_four_pounds', true );
+		$fivepounds       = get_post_meta( $post->ID, 'price_five_pounds', true );
+		$sixpounds        = get_post_meta( $post->ID, 'price_six_pounds', true );
+		$sevenpounds      = get_post_meta( $post->ID, 'price_seven_pounds', true );
+		$eightpounds      = get_post_meta( $post->ID, 'price_eight_pounds', true );
+		$ninepounds       = get_post_meta( $post->ID, 'price_nine_pounds', true );
+		$tenpounds        = get_post_meta( $post->ID, 'price_ten_pounds', true );
+		$elevenpounds     = get_post_meta( $post->ID, 'price_eleven_pounds', true );
+		$twelvepounds     = get_post_meta( $post->ID, 'price_twelve_pounds', true );
+		$thirteenpounds   = get_post_meta( $post->ID, 'price_thirteen_pounds', true );
+		$fourteenpounds   = get_post_meta( $post->ID, 'price_fourteen_pounds', true );
+		$fifteenpounds    = get_post_meta( $post->ID, 'price_fifteen_pounds', true );
+		$twentypounds     = get_post_meta( $post->ID, 'price_twenty_pounds', true );
+		$twentyfivepounds = get_post_meta( $post->ID, 'price_twenty_five_pounds', true );
+		$fiftypounds      = get_post_meta( $post->ID, 'price_fifty_pounds', true );
 
 		/** Echo out the fields */
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '2 oz', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_twoounces" value="' . $twoounces  . '" class="widefat" />';
+		echo '<input type="text" name="price_two_ounces" value="' . $twoounces  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '1/4 lb', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_quarterpound" value="' . $quarterpound  . '" class="widefat" />';
+		echo '<input type="text" name="price_quarter_pound" value="' . $quarterpound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '1/2 lb', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_halfpound" value="' . $halfpound  . '" class="widefat" />';
+		echo '<input type="text" name="price_half_pound" value="' . $halfpound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '1 lb', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_onepound" value="' . $onepound  . '" class="widefat" />';
+		echo '<input type="text" name="price_one_pound" value="' . $onepound  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '2 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_twopounds" value="' . $twopounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_two_pounds" value="' . $twopounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '3 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_threepounds" value="' . $threepounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_three_pounds" value="' . $threepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '4 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fourpounds" value="' . $fourpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_four_pounds" value="' . $fourpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '5 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fivepounds" value="' . $fivepounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_five_pounds" value="' . $fivepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '6 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_sixpounds" value="' . $sixpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_six_pounds" value="' . $sixpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '7 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_sevenpounds" value="' . $sevenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_seven_pounds" value="' . $sevenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '8 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_eightpounds" value="' . $eightpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_eight_pounds" value="' . $eightpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '9 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_ninepounds" value="' . $ninepounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_nine_pounds" value="' . $ninepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '10 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_tenpounds" value="' . $tenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_ten_pounds" value="' . $tenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '11 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_elevenpounds" value="' . $elevenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_eleven_pounds" value="' . $elevenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '12 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_twelvepounds" value="' . $twelvepounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_twelve_pounds" value="' . $twelvepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '13 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_thirteenpounds" value="' . $thirteenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_thirteen_pounds" value="' . $thirteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '14 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fourteenpounds" value="' . $fourteenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_fourteen_pounds" value="' . $fourteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '15 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fifteenpounds" value="' . $fifteenpounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_fifteen_pounds" value="' . $fifteenpounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '20 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_twentypounds" value="' . $twentypounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_twenty_pounds" value="' . $twentypounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '25 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_twentyfivepounds" value="' . $twentyfivepounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_twenty_five_pounds" value="' . $twentyfivepounds  . '" class="widefat" />';
 		echo '</div>';
 		echo '<div class="pricebox">';
 		echo '<p>' . __( '50 lbs', 'wpd-ecommerce' ) . '</p>';
-		echo '<input type="text" name="_fiftypounds" value="' . $fiftypounds  . '" class="widefat" />';
+		echo '<input type="text" name="price_fifty_pounds" value="' . $fiftypounds  . '" class="widefat" />';
 		echo '</div>';
 	} // if is ( 'flowers' )
 
@@ -320,35 +320,35 @@ function wpdispensary_save_heavyweight_prices_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$heavyweightprices_meta['_threegrams']       = esc_html( $_POST['_threegrams'] );
-	$heavyweightprices_meta['_fourgrams']        = esc_html( $_POST['_fourgrams'] );
-	$heavyweightprices_meta['_fivegrams']        = esc_html( $_POST['_fivegrams'] );
-	$heavyweightprices_meta['_sixgrams']         = esc_html( $_POST['_sixgrams'] );
-	$heavyweightprices_meta['_sevengrams']       = esc_html( $_POST['_sevengrams'] );
-	$heavyweightprices_meta['_eightgrams']       = esc_html( $_POST['_eightgrams'] );
-	$heavyweightprices_meta['_ninegrams']        = esc_html( $_POST['_ninegrams'] );
-	$heavyweightprices_meta['_tengrams']         = esc_html( $_POST['_tengrams'] );
-	$heavyweightprices_meta['_twoounces']        = esc_html( $_POST['_twoounces'] );
-	$heavyweightprices_meta['_quarterpound']     = esc_html( $_POST['_quarterpound'] );
-	$heavyweightprices_meta['_halfpound']        = esc_html( $_POST['_halfpound'] );
-	$heavyweightprices_meta['_onepound']         = esc_html( $_POST['_onepound'] );
-	$heavyweightprices_meta['_twopounds']        = esc_html( $_POST['_twopounds'] );
-	$heavyweightprices_meta['_threepounds']      = esc_html( $_POST['_threepounds'] );
-	$heavyweightprices_meta['_fourpounds']       = esc_html( $_POST['_fourpounds'] );
-	$heavyweightprices_meta['_fivepounds']       = esc_html( $_POST['_fivepounds'] );
-	$heavyweightprices_meta['_sixpounds']        = esc_html( $_POST['_sixpounds'] );
-	$heavyweightprices_meta['_sevenpounds']      = esc_html( $_POST['_sevenpounds'] );
-	$heavyweightprices_meta['_eightpounds']      = esc_html( $_POST['_eightpounds'] );
-	$heavyweightprices_meta['_ninepounds']       = esc_html( $_POST['_ninepounds'] );
-	$heavyweightprices_meta['_tenpounds']        = esc_html( $_POST['_tenpounds'] );
-	$heavyweightprices_meta['_elevenpounds']     = esc_html( $_POST['_elevenpounds'] );
-	$heavyweightprices_meta['_twelvepounds']     = esc_html( $_POST['_twelvepounds'] );
-	$heavyweightprices_meta['_thirteenpounds']   = esc_html( $_POST['_thirteenpounds'] );
-	$heavyweightprices_meta['_fourteenpounds']   = esc_html( $_POST['_fourteenpounds'] );
-	$heavyweightprices_meta['_fifteenpounds']    = esc_html( $_POST['_fifteenpounds'] );
-	$heavyweightprices_meta['_twentypounds']     = esc_html( $_POST['_twentypounds'] );
-	$heavyweightprices_meta['_twentyfivepounds'] = esc_html( $_POST['_twelntyfivepounds'] );
-	$heavyweightprices_meta['_fiftypounds']      = esc_html( $_POST['_fiftypounds'] );
+	$heavyweightprices_meta['_threegrams']              = esc_html( $_POST['_threegrams'] );
+	$heavyweightprices_meta['_fourgrams']               = esc_html( $_POST['_fourgrams'] );
+	$heavyweightprices_meta['_fivegrams']               = esc_html( $_POST['_fivegrams'] );
+	$heavyweightprices_meta['_sixgrams']                = esc_html( $_POST['_sixgrams'] );
+	$heavyweightprices_meta['_sevengrams']              = esc_html( $_POST['_sevengrams'] );
+	$heavyweightprices_meta['_eightgrams']              = esc_html( $_POST['_eightgrams'] );
+	$heavyweightprices_meta['_ninegrams']               = esc_html( $_POST['_ninegrams'] );
+	$heavyweightprices_meta['_tengrams']                = esc_html( $_POST['_tengrams'] );
+	$heavyweightprices_meta['price_two_ounces']         = esc_html( $_POST['price_two_ounces'] );
+	$heavyweightprices_meta['price_quarter_pound']      = esc_html( $_POST['price_quarter_pound'] );
+	$heavyweightprices_meta['price_half_pound']         = esc_html( $_POST['price_half_pound'] );
+	$heavyweightprices_meta['price_one_pound']          = esc_html( $_POST['price_one_pound'] );
+	$heavyweightprices_meta['price_two_pounds']         = esc_html( $_POST['price_two_pounds'] );
+	$heavyweightprices_meta['price_three_pounds']       = esc_html( $_POST['price_three_pounds'] );
+	$heavyweightprices_meta['price_four_pounds']        = esc_html( $_POST['price_four_pounds'] );
+	$heavyweightprices_meta['price_five_pounds']        = esc_html( $_POST['price_five_pounds'] );
+	$heavyweightprices_meta['price_six_pounds']         = esc_html( $_POST['price_six_pounds'] );
+	$heavyweightprices_meta['price_seven_pounds']       = esc_html( $_POST['price_seven_pounds'] );
+	$heavyweightprices_meta['price_eight_pounds']       = esc_html( $_POST['price_eight_pounds'] );
+	$heavyweightprices_meta['price_nine_pounds']        = esc_html( $_POST['price_nine_pounds'] );
+	$heavyweightprices_meta['price_ten_pounds']         = esc_html( $_POST['price_ten_pounds'] );
+	$heavyweightprices_meta['price_eleven_pounds']      = esc_html( $_POST['price_eleven_pounds'] );
+	$heavyweightprices_meta['price_twelve_pounds']      = esc_html( $_POST['price_twelve_pounds'] );
+	$heavyweightprices_meta['price_thirteen_pounds']    = esc_html( $_POST['price_thirteen_pounds'] );
+	$heavyweightprices_meta['price_fourteen_pounds']    = esc_html( $_POST['price_fourteen_pounds'] );
+	$heavyweightprices_meta['price_fifteen_pounds']     = esc_html( $_POST['price_fifteen_pounds'] );
+	$heavyweightprices_meta['price_twenty_pounds']      = esc_html( $_POST['price_twenty_pounds'] );
+	$heavyweightprices_meta['price_twenty_five_pounds'] = esc_html( $_POST['price_twenty_five_pounds'] );
+	$heavyweightprices_meta['price_fifty_pounds']       = esc_html( $_POST['price_fifty_pounds'] );
 
 	/** Add values of $prices_meta as custom fields */
 
@@ -383,27 +383,27 @@ function add_wpd_heavyweight_prices() {
 	
 	if ( in_array( get_post_type(), array( 'products', 'flowers' ) ) ) {
 		if (
-			! get_post_meta( get_the_ID(), '_twoounces', true ) &&
-			! get_post_meta( get_the_ID(), '_quarterpound', true ) &&
-			! get_post_meta( get_the_ID(), '_halfpound', true ) &&
-			! get_post_meta( get_the_ID(), '_onepound', true ) &&
-			! get_post_meta( get_the_ID(), '_twopounds', true ) &&
-			! get_post_meta( get_the_ID(), '_threepounds', true ) &&
-			! get_post_meta( get_the_ID(), '_fourpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_fivepounds', true ) &&
-			! get_post_meta( get_the_ID(), '_sixpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_sevenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_eightpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_ninepounds', true ) &&
-			! get_post_meta( get_the_ID(), '_tenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_elevenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_twelvepounds', true ) &&
-			! get_post_meta( get_the_ID(), '_thirteenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_fourteenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_fifteenpounds', true ) &&
-			! get_post_meta( get_the_ID(), '_twentypounds', true ) &&
-			! get_post_meta( get_the_ID(), '_twentyfivepounds', true ) &&
-			! get_post_meta( get_the_ID(), '_fiftypounds', true )
+			! get_post_meta( get_the_ID(), 'price_two_ounces', true ) &&
+			! get_post_meta( get_the_ID(), 'price_quarter_pound', true ) &&
+			! get_post_meta( get_the_ID(), 'price_half_pound', true ) &&
+			! get_post_meta( get_the_ID(), 'price_one_pound', true ) &&
+			! get_post_meta( get_the_ID(), 'price_two_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_three_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_four_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_five_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_six_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_seven_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_eight_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_nine_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_ten_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_eleven_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_twelve_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_thirteen_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_fourteen_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_fifteen_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_twenty_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true ) &&
+			! get_post_meta( get_the_ID(), 'price_fifty_pounds', true )
 		) { } else {
 	?>
 	</tr>
@@ -411,72 +411,72 @@ function add_wpd_heavyweight_prices() {
 	</table>
 	<table class="wpdispensary-table single pricing wpd-heavyweights">
 	<tr>
-		<?php if ( ! get_post_meta( get_the_ID(), '_twoounces', true ) ) { } else { ?>
-			<td><span><?php __( '2 oz', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twoounces', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_two_ounces', true ) ) { } else { ?>
+			<td><span><?php __( '2 oz', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_two_ounces', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_quarterpound', true ) ) { } else { ?>
-			<td><span><?php __( '1/4 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_quarterpound', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_quarter_pound', true ) ) { } else { ?>
+			<td><span><?php __( '1/4 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_quarter_pound', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_halfpound', true ) ) { } else { ?>
-			<td><span><?php __( '1/2 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_halfpound', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_half_pound', true ) ) { } else { ?>
+			<td><span><?php __( '1/2 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_half_pound', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_onepound', true ) ) { } else { ?>
-			<td><span><?php __( '1 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_onepound', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_one_pound', true ) ) { } else { ?>
+			<td><span><?php __( '1 lb', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_one_pound', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_twopounds', true ) ) { } else { ?>
-			<td><span><?php __( '2 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twopounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_two_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '2 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_two_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_threepounds', true ) ) { } else { ?>
-			<td><span><?php __( '3 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_threepounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_three_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '3 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_three_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fourpounds', true ) ) { } else { ?>
-			<td><span><?php __( '4 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourpounds', true ); ?></td>
-		<?php } ?>
-	</tr>
-	<tr>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fivepounds', true ) ) { } else { ?>
-			<td><span><?php __( '5 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fivepounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_sixpounds', true ) ) { } else { ?>
-			<td><span><?php __( '6 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sixpounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_sevenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '7 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_sevenpounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_eightpounds', true ) ) { } else { ?>
-			<td><span><?php __( '8 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_eightpounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_ninepounds', true ) ) { } else { ?>
-			<td><span><?php __( '9 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_ninepounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_tenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '10 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_tenpounds', true ); ?></td>
-		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_elevenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '11 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_elevenpounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_four_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '4 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_four_pounds', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<tr>
-		<?php if ( ! get_post_meta( get_the_ID(), '_twelvepounds', true ) ) { } else { ?>
-			<td><span><?php __( '12 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twelvepounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_five_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '5 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_five_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_thirteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '13 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_thirteenpounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_six_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '6 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_six_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fourteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '14 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fourteenpounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_seven_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '7 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_seven_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fifteenpounds', true ) ) { } else { ?>
-			<td><span><?php __( '15 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fifteenpounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_eight_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '8 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_eight_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_twentypounds', true ) ) { } else { ?>
-			<td><span><?php __( '20 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentypounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_nine_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '9 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_nine_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_twentyfivepounds', true ) ) { } else { ?>
-			<td><span><?php __( '25 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_twentyfivepounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_ten_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '10 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_ten_pounds', true ); ?></td>
 		<?php } ?>
-		<?php if ( ! get_post_meta( get_the_ID(), '_fiftypounds', true ) ) { } else { ?>
-			<td><span><?php __( '50 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), '_fiftypounds', true ); ?></td>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_eleven_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '11 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_eleven_pounds', true ); ?></td>
+		<?php } ?>
+	</tr>
+	<tr>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_twelve_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '12 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_twelve_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_thirteen_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '13 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_thirteen_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_fourteen_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '14 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_fourteen_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_fifteen_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '15 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_fifteen_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_twenty_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '20 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_twenty_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '25 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true ); ?></td>
+		<?php } ?>
+		<?php if ( ! get_post_meta( get_the_ID(), 'price_fifty_pounds', true ) ) { } else { ?>
+			<td><span><?php __( '50 lbs', 'wpd-ecommerce' ); ?>:</span> <?php echo wpd_currency_code(); ?><?php echo get_post_meta( get_the_ID(), 'price_fifty_pounds', true ); ?></td>
 		<?php } ?>
 	</tr>
 	<?php } ?>
