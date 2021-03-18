@@ -201,3 +201,78 @@ function wpd_ecommerce_order_statuses( $order_id, $display = NULL, $classes = NU
     }
 
 }
+
+/**
+ * Get order details
+ * 
+ * @param  int $order_id
+ * @since  1.0
+ * @return array
+ */
+function wpd_ecommerce_get_order_details( $order_id ) {
+    global $wpdb;
+    $order_customer_id = get_post_meta( $order_id, 'wpd_order_customer_id', true );
+    $order_subtotal    = get_post_meta( $order_id, 'wpd_order_subtotal_price', true );
+    $order_total       = get_post_meta( $order_id, 'wpd_order_total_price', true );
+    $order_items       = get_post_meta( $order_id, 'wpd_order_items', true );
+    $order_items_table = wpd_ecommerce_table_order_data( $order_id, $order_customer_id );
+
+    $status_names      = wpd_ecommerce_get_order_statuses();
+    $status            = get_post_meta( $order_id, 'wpd_order_status', TRUE );
+    $status_display    = wpd_ecommerce_order_statuses( $order_id, NULL, NULL );
+
+    $get_order_amount    = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
+    $order_coupon_amount = $get_order_amount[0]['order_value'];
+
+    $get_sales_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
+    $order_sales_tax = $get_sales_tax[0]['order_value'];
+
+    $get_excise_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_excise_tax'", ARRAY_A );
+    $order_excise_tax = $get_excise_tax[0]['order_value'];
+
+    $get_payment_type_amount   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_payment_type_amount'", ARRAY_A );
+    $order_payment_type_amount = $get_payment_type_amount[0]['order_value'];
+
+    $get_payment_type_name   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
+    $order_payment_type_name = $get_payment_type_name[0]['order_value'];
+
+    // Get row's from database with current $order_id.
+    $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'product'", ARRAY_A );
+
+    // Order products.
+    $order_products = array();
+
+    // Loop through each product from $get_order_data.
+    foreach( $get_order_data as $order_item ) {
+
+        // Get item number.
+        $order_item_meta_id = $order_item['item_id'];
+
+        // Get row's from database with current order number.
+        $get_order_item_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders_meta WHERE item_id = {$order_item_meta_id}", ARRAY_A );
+
+        // Loop through each order item's data, creating a new array.
+        foreach ( $get_order_item_data as $entry ) {
+            $newArray[$entry['meta_key']] = $entry['meta_value'];
+        }
+
+        // Add product data to array.
+        $order_products[] = $newArray;
+
+    }
+
+    // Order details array.
+    $details = array(
+        'customer_id'   => $order_customer_id,
+        'order_items'   => array( 'count' => $order_items, 'products' => $order_products, 'display_table' => $order_items_table ),
+        'status'        => array( 'status' => $status, 'status_display' => $status_display ),
+        'payment_type'  => array( 'amount' => $order_payment_type_amount, 'name' => $order_payment_type_name ),
+        'coupon_amount' => $order_coupon_amount,
+        'sales_tax'     => $order_sales_tax,
+        'excise_tax'    => $order_excise_tax,
+        'subtotal'      => $order_subtotal,
+        'total'         => $order_total,
+    );
+
+    return apply_filters( 'wpd_ecommerce_get_order_details', $details );
+}
