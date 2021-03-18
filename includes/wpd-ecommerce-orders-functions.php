@@ -276,3 +276,39 @@ function wpd_ecommerce_get_order_details( $order_id ) {
 
     return apply_filters( 'wpd_ecommerce_get_order_details', $details );
 }
+
+/**
+ * Single order template redirects
+ * 
+ * @return void
+ */
+function wpd_ecommerce_templates_single_order_redirects() {
+    if ( ! is_user_logged_in() ) {
+        // Redirect non-logged in users.
+        wp_redirect( wpd_ecommerce_account_url() );
+    } else {
+        // Get user details.
+        $user = wp_get_current_user();
+        $role = ( array ) $user->roles;
+
+        // Get the order details.
+        $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
+    
+        if ( $user->ID != $order_details['customer_id'] && 'administrator' === $role[0] ) {
+            // Administrators who are NOT the customer
+        } elseif ( $user->ID === $order_details['customer_id'] && 'administrator' === $role[0] ) {
+            // Administrators who ARE the customer
+        } elseif ( $user->ID != $order_details['customer_id'] && 'patient' === $role[0] ) {
+            // Patients who are ARE NOT the customer.
+            wp_redirect( wpd_ecommerce_account_url() );
+        } elseif ( $user->ID == $order_details['customer_id'] ) {
+            // If current user IS the customer.
+        } else {
+            // If not patient or admin, redirect to account page.
+            if ( 'patient' != $role[0] && 'administrator' != $role[0] ) {
+                wp_redirect( wpd_ecommerce_account_url() );
+            }
+        }
+    }
+}
+add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_templates_single_order_redirects' );
