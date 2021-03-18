@@ -7,65 +7,13 @@ get_header(); ?>
 
 do_action( 'wpd_ecommerce_templates_single_orders_wrap_before' );
 
-if ( ! is_user_logged_in() ) {
-    // Redirect non-logged in users.
-    wp_redirect( wpd_ecommerce_account_url() );
-} else {
-
-    $user              = wp_get_current_user();
-    $role              = ( array ) $user->roles;
-    $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
-    $order_subtotal    = get_post_meta( get_the_ID(), 'wpd_order_subtotal_price', true );
-    $order_total       = get_post_meta( get_the_ID(), 'wpd_order_total_price', true );
-    $order_items       = get_post_meta( get_the_ID(), 'wpd_order_items', true );
-    $status_names      = wpd_ecommerce_get_order_statuses();
-    $status            = get_post_meta( get_the_ID(), 'wpd_order_status', TRUE );
-    $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), NULL, NULL );
-    $get_id            = get_the_ID();
-
-    $get_order_amount    = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
-    $order_coupon_amount = $get_order_amount[0]['order_value'];
-
-    //print_r( $get_order_amount );
-
-    $get_sales_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_sales_tax'", ARRAY_A );
-    $order_sales_tax = $get_sales_tax[0]['order_value'];
-
-    //print_r( $get_sales_tax );
-
-    $get_excise_tax   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_excise_tax'", ARRAY_A );
-    $order_excise_tax = $get_excise_tax[0]['order_value'];
-
-    //print_r( $get_sales_tax );
-
-    $get_payment_type_amount   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_amount'", ARRAY_A );
-    $order_payment_type_amount = $get_payment_type_amount[0]['order_value'];
-
-    $get_payment_type_name   = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$get_id} AND order_type = 'details' AND order_key = 'order_payment_type_name'", ARRAY_A );
-    $order_payment_type_name = $get_payment_type_name[0]['order_value'];
-
-    //print_r( $get_sales_tax );
-
-    if ( $user->ID != $order_customer_id && 'administrator' === $role[0] ) {
-        // Administrators who are NOT the customer
-    } elseif ( $user->ID === $order_customer_id && 'administrator' === $role[0] ) {
-        // Administrators who ARE the customer
-    } elseif ( $user->ID != $order_customer_id && 'patient' === $role[0] ) {
-        // Patients who are ARE NOT the customer.
-        wp_redirect( wpd_ecommerce_account_url() );
-    } elseif ( $user->ID == $order_customer_id ) {
-        // If current user IS the customer.
-    } else {
-        // If not patient or admin, redirect to account page.
-        if ( 'patient' != $role[0] && 'administrator' != $role[0] ) {
-            wp_redirect( wpd_ecommerce_account_url() );
-        }
-    }
+// Get the order details.
+$order_details = wpd_ecommerce_get_order_details( get_the_ID() );
 ?>
     <?php while ( have_posts() ) : the_post(); ?>
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="entry-header">
-            <h1 class="item_name"><?php the_title(); ?><?php echo $status_display; ?></h1>
+            <h1 class="item_name"><?php the_title(); ?><?php echo $order_details['status']['status_display']; ?></h1>
             <?php
                 // Include notifications.
                 echo wpd_ecommerce_notifications();
@@ -74,7 +22,7 @@ if ( ! is_user_logged_in() ) {
         <div class="entry-content order-details">
             <?php
                 // Get user info.
-                $user_info = get_userdata( $order_customer_id );
+                $user_info = get_userdata( $order_details['customer_id'] );
 
                 echo '<div class="order-info">';
                 echo '<p><strong>' . __( 'Date', 'wpd-ecommerce' ) . ':</strong></p>';
@@ -121,29 +69,32 @@ if ( ! is_user_logged_in() ) {
 
                 echo '<div class="patient-contact">';
                 echo '<table class="wpd-ecommerce order-details"><tbody>';
-                echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
-                if ( '0.00' !== $order_coupon_amount ) {
-                    echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
+                echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['subtotal'] . '</td></tr>';
+                if ( '0.00' !== $order_details['coupon_amount'] ) {
+                    echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_details['coupon_amount'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_sales_tax ) {
-                    echo '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
+                if ( '0.00' !== $order_details['sales_tax'] ) {
+                    echo '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['sales_tax'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_excise_tax ) {
-                    echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
+                if ( '0.00' !== $order_details['excise_tax'] ) {
+                    echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['excise_tax'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_payment_type_amount ) {
-                    echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
+                if ( '0.00' !== $order_details['payment_type']['amount'] ) {
+                    echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
                 }
-                echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
+                echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['total'] . '</td></tr>';
                 echo '</tbody></table>';
                 echo '</div>';
             ?>
         <?php
+            $user = wp_get_current_user();
+            $role = ( array ) $user->roles;
+
+            echo '<h3>' . __( 'Order items', 'wpd-ecommerce' ) . '</h3>';
             if ( 'patient' === $role[0] ) {
-                echo '<h3>' . __( 'Order items', 'wpd-ecommerce' ) . '</h3>';
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
             } elseif ( 'administrator' === $role[0] ) {
-                echo wpd_ecommerce_table_order_data( get_the_ID(), $order_customer_id );
+                echo wpd_ecommerce_table_order_data( get_the_ID(), $order_details['customer_id'] );
             } else {
                 wp_redirect( wpd_ecommerce_account_url() );
             }
@@ -158,6 +109,4 @@ do_action( 'wpd_ecommerce_templates_single_orders_wrap_after' );
 wp_reset_query();
 
 get_sidebar();
-get_footer(); ?>
-
-<?php } ?>
+get_footer();
