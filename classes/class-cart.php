@@ -112,11 +112,18 @@ class Cart {
 
 			$i = new Item( $item_id, '', '', '', '' );
 
-			$regular_price = $i->price_quantity;
+			if (  'concentrates' === get_post_meta( $i->id, 'product_type', true ) ) {
+				$regular_price = $i->price_concentrate;
+			} elseif ( 'flowers' === get_post_meta( $i->id, 'product_type', true ) ) {
+				$regular_price = $i->price_flower;
+			} else {
+				$regular_price = $i->price_quantity;
+			}
 
 			if ( ! empty( $regular_price ) ) {
 				$this->sum += ( $regular_price ) * $item_count;
 			}
+
 		endforeach;
 
 		// Calculate sales tax.
