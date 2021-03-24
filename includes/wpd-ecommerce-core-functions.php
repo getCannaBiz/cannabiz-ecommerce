@@ -1574,7 +1574,7 @@ function wpd_ecommerce_add_to_cart_form() {
 		}
 
 		if ( empty( $new_price ) ) {
-			if ( is_singular( array( 'concentrates', 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+			if ( is_singular( 'products' ) ) {
 
 				// Get post type name.
 				$post_type = get_post_type( $old_id );
