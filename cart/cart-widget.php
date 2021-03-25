@@ -100,12 +100,14 @@ class WPD_eCommerce_Widget extends WP_Widget {
 						$item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
 						$item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
 
+						// Set the regular price.
 						if ( 'price_per_pack' === $item_meta_key ) {
 							$regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
 						} else {
 							$regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
 						}
 
+						// Set the weight name.
 						if ( 'price_per_pack' === $item_meta_key ) {
 							$weightname = ' - ' . $units_per_pack . ' pack';
 						} else {
@@ -116,22 +118,26 @@ class WPD_eCommerce_Widget extends WP_Widget {
 						$item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
 						$flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 	
+						// Loop through all registered flower weights.
 						foreach ( wpd_flowers_weights_array() as $key=>$value ) {
 							if ( $value == $flower_weight_cart ) {
-								$weightname    = " - " . $key;
+								$weightname    = ' - ' . $key;
 								$regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
 							}
 						}
 					} elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 						$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
 						$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
-	
+
+						// Loop through all registered concentrate weights.	
 						foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
 							if ( $value == $concentrate_weight_cart ) {
 								$weightname    = ' - ' . $key;
 								$regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
 							}
 						}
+
+						// Price each.
 						if ( 'price_each' === $concentrate_weight_cart ) {
 							$weightname    = '';
 							$regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
@@ -140,8 +146,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 						// Do nothing.
                     }
 
-					// print_r( $i );
-
+					// Get the total price.
 					$total_price = $amount * $regular_price;
 
 					$str .=	'<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weightname . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
