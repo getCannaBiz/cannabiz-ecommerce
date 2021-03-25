@@ -112,13 +112,7 @@ class Cart {
 
 			$i = new Item( $item_id, '', '', '', '' );
 
-			if (  'concentrates' === get_post_meta( $i->id, 'product_type', true ) ) {
-				$regular_price = $i->price_concentrate;
-			} elseif ( 'flowers' === get_post_meta( $i->id, 'product_type', true ) ) {
-				$regular_price = $i->price_flower;
-			} else {
-				$regular_price = $i->price_quantity;
-			}
+			$regular_price = $i->price_quantity;
 
 			if ( ! empty( $regular_price ) ) {
 				$this->sum += ( $regular_price ) * $item_count;
@@ -233,15 +227,3 @@ class Cart {
 		return $str;
 	}
 }
-
-/*
-$c = new Cart();
-print_r($c);
-$c->add_item(32,2);
-$c->add_item(32,2);
-print_r($c);
-$c->update_item(32,5);
-print_r($c);
-
-echo (string)$c;
-*/
