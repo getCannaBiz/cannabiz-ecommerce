@@ -47,12 +47,15 @@ function wpd_ecommerce_shortcode() {
 				$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
+				// Loop through all registered concentrate weights.
 				foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
+					// Price per weight.
 					if ( $value == $concentrate_weight_cart ) {
 						$weightname     = ' - ' . $key;
 						$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 					}
 				}
+				// Price each.
 				if ( 'price_each' === $concentrate_weight_cart ) {
 					$weightname     = '';
 					$regular_price  = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
@@ -61,13 +64,14 @@ function wpd_ecommerce_shortcode() {
 				// Do nothing.
 			}
 
-			// print_r( $i );
-
+			// Get the total price.
 			$total_price = $amount * $regular_price;
 
 			$str .=	'<tr><td><a href="' . get_the_permalink() . '?remove_item=' . $id . '" class="remove">x</a></td><td>' . $i->thumbnail . '</td><td><a href="' . $i->permalink . '">' . $i->title . $weightname . '</a></td><td>' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</td><td><input id="quantity" name="quantity" class="wpd-ecommerce-quantity" type="number" value="' . $amount . '" /></td><td>' . CURRENCY . number_format( (float)$total_price, 2, '.', ',' ) . '</td></tr>';
 		endforeach;
+
 		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_after' );
+
 		/**
 		 * Access all settings
 		 */
@@ -78,8 +82,8 @@ function wpd_ecommerce_shortcode() {
 			if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
 				$str .= '<tr><td colspan="6">
 				<form class="wpd-ecommerce-apply-coupon" name="apply_coupon" method="post">
-				<input type="text" name="coupon_code" value="" placeholder="Coupon code" />
-				<input type="submit" class="button" name="add_coupon" value="Apply coupon" />'
+				<input type="text" name="coupon_code" value="" placeholder="' . __( 'Coupon code', 'wpd-ecommerce' ) . '" />
+				<input type="submit" class="button" name="add_coupon" value="' . __( 'Apply Coupon', 'wpd-ecommerce' ) . '" />'
 				. wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
 				'</form>
 				</td></tr>';
