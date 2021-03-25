@@ -149,7 +149,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 				$str .= '</tbody>';
 				$str .= '</table>';
 		
-				$str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</p>';
+				$str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
 
 				$str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . __( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
 

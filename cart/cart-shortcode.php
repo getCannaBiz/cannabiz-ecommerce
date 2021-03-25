@@ -110,7 +110,7 @@ function wpd_ecommerce_shortcode() {
 		$str .= '<h2>' . __( 'Cart Totals', 'wpd-ecommerce' ) . '</h2>';
 		$str .= '<table class="wpd-ecommerce totals">';
 		$str .= '<tbody>';
-		$str .= '<tr><th class="cart_sum"><span class="subtotal">' . __( 'Subtotal', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
+		$str .= '<tr><th class="cart_sum"><span class="subtotal">' . __( 'Subtotal', 'wpd-ecommerce' ) . '</span></th><td>' . wpd_ecommerce_cart_subtotal() . '</td></tr>';
 
 		// Add the coupon.
 		if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
