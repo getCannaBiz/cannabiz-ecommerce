@@ -83,4 +83,14 @@ function wpd_ecommerce_checkout_settings() {
     exit;
 }
 add_action( 'wp_ajax_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings' );
-add_action('wp_ajax_nopriv_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings');
+add_action( 'wp_ajax_nopriv_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings' );
+
+/**
+ * Cart Subtotal
+ * 
+ * @since  2.0
+ * @return string
+ */
+function wpd_ecommerce_cart_subtotal() {
+    return CURRENCY . number_format( $_SESSION['wpd_ecommerce']->sum, 2, '.', ',' );
+}
