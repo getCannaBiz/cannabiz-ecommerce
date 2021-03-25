@@ -38,7 +38,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
             // Remove button if inventory is empty.
-            if ( ! get_post_meta( $product_id, 'inventory_grams', true ) ) {
+            if ( ! get_post_meta( $product_id, 'inventory_grams', true ) || 0 >= get_post_meta( $product_id, 'inventory_grams', true ) ) {
                 $button = '';
             }    
         }
@@ -56,12 +56,12 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         if ( function_exists( 'run_wpd_inventory' ) ) {
             if ( '' != $price_each ) {
                 // Remove button if inventory is empty.
-                if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
+                if ( ! get_post_meta( $product_id, 'inventory_units', true ) || 0 >= get_post_meta( $product_id, 'inventory_units', true ) ) {
                     $button = '';
                 }
             } else {
                 // Remove button if inventory is empty.
-                if ( ! get_post_meta( $product_id, 'inventory_grams', true ) ) {
+                if ( ! get_post_meta( $product_id, 'inventory_grams', true ) || 0 >= get_post_meta( $product_id, 'inventory_grams', true ) ) {
                     $button = '';
                 }
             }
@@ -81,32 +81,11 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         }
     }
 
-    // Edibles inventory check.
-    if ( 'edibles' == get_post_meta( $product_id, 'product_type', true ) ) {
+    // Inventory check.
+    if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'tinctures', 'gear' ) ) ) {
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
-            if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
-                $button = '';
-            }
-        }
-    }
-
-    // Pre-rolls inventory check.
-    if ( 'prerolls' == get_post_meta( $product_id, 'product_type', true ) ) {
-        // Inventory management check.
-        if ( function_exists( 'run_wpd_inventory' ) ) {
-            if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
-                $button = '';
-            }
-        }
-    }
-
-    // Topicals.
-    if ( 'topicals' == get_post_meta( $product_id, 'product_type', true ) ) {
-        // Inventory management check.
-        if ( function_exists( 'run_wpd_inventory' ) ) {
-            // Remove button if inventory is empty.
-            if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
+            if ( ! get_post_meta( $product_id, 'inventory_units', true ) || 0 >= get_post_meta( $product_id, 'inventory_units', true ) ) {
                 $button = '';
             }
         }
@@ -118,35 +97,15 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         if ( function_exists( 'run_wpd_inventory' ) ) {
             // Clone count.
             if ( get_post_meta( get_the_ID(), 'clonecount', true ) ) {
-                if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
+                if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
                     $button = '';
                 }
             }
             // Seed count.
             if ( get_post_meta( get_the_ID(), 'seedcount', true ) ) {
-                if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
+                if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
                     $button = '';
                 }
-            }
-        }
-    }
-
-    // Tinctures inventory check.
-    if ( 'tinctures' == get_post_meta( $product_id, 'product_type', true ) ) {
-        // Inventory management check.
-        if ( function_exists( 'run_wpd_inventory' ) ) {
-            if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
-                $button = '';
-            }
-        }
-    }
-
-    // Gear inventory check.
-    if ( 'gear' == get_post_meta( $product_id, 'product_type', true ) ) {
-        // Inventory management check.
-        if ( function_exists( 'run_wpd_inventory' ) ) {
-            if ( ! get_post_meta( $product_id, 'inventory_units', true ) ) {
-                $button = '';
             }
         }
     }

@@ -20,11 +20,11 @@
  */
 function add_inventory_flowers_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_flowers',
+		'wp_dispensary_inventory_flowers',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_flowers',
-		'flowers',
-		'side',
+		'wp_dispensary_inventory_flowers',
+		'products',
+		'normal',
 		'default'
 	);
 }
@@ -33,7 +33,7 @@ add_action( 'add_meta_boxes', 'add_inventory_flowers_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_flowers() {
+function wp_dispensary_inventory_flowers() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -81,19 +81,21 @@ function wpdispensary_save_inventory_flowers_meta( $post_id, $post ) {
 	$inventory_meta['inventory_grams']   = $_POST['inventory_grams'];
 	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
-	/** Add values of $inventory_meta as custom fields */
-
-	foreach ( $inventory_meta as $key => $value ) { /** Cycle through the $inventory_meta array! */
-		if ( $post->post_type == 'revision' ) { /** Don't store custom data twice */
+	// Save $inventory_meta as metadata.
+	foreach ( $inventory_meta as $key => $value ) {
+        // Bail on post revisions.
+		if ( 'revision' === $post->post_type ) {
 			return;
 		}
-		$value = implode( ',', (array) $value ); // If $value is an array, make it a CSV (unlikely)
-		if ( get_post_meta( $post->ID, $key, false ) ) { // If the custom field already has a value
+        $value = implode( ',', (array) $value );
+        // Check for meta value and either update or add the metadata.
+		if ( get_post_meta( $post->ID, $key, false ) ) {
 			update_post_meta( $post->ID, $key, $value );
-		} else { // If the custom field doesn't have a value
+		} else {
 			add_post_meta( $post->ID, $key, $value );
-		}
-		if ( ! $value ) { /** Delete if blank */
+        }
+        // Delete the metavalue if blank.
+		if ( ! $value ) {
 			delete_post_meta( $post->ID, $key );
 		}
 	}
@@ -111,11 +113,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_flowers_meta', 1, 2 ); // 
  */
 function add_inventory_edibles_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_edibles',
+		'wp_dispensary_inventory_edibles',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_edibles',
-		'edibles',
-		'side',
+		'wp_dispensary_inventory_edibles',
+		'products',
+		'normal',
 		'default'
 	);
 
@@ -125,7 +127,7 @@ add_action( 'add_meta_boxes', 'add_inventory_edibles_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_edibles() {
+function wp_dispensary_inventory_edibles() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -203,11 +205,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_edibles_meta', 1, 2 ); // 
  */
 function add_inventory_concentrates_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_concentrates',
+		'wp_dispensary_inventory_concentrates',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_concentrates',
-		'concentrates',
-		'side',
+		'wp_dispensary_inventory_concentrates',
+		'products',
+		'normal',
 		'default'
 	);
 }
@@ -216,7 +218,7 @@ add_action( 'add_meta_boxes', 'add_inventory_concentrates_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_concentrates() {
+function wp_dispensary_inventory_concentrates() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -300,11 +302,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_concentrates_meta', 1, 2 )
  */
 function add_inventory_prerolls_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_prerolls',
+		'wp_dispensary_inventory_prerolls',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_prerolls',
-		'prerolls',
-		'side',
+		'wp_dispensary_inventory_prerolls',
+		'products',
+		'normal',
 		'default'
 	);
 }
@@ -313,7 +315,7 @@ add_action( 'add_meta_boxes', 'add_inventory_prerolls_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_prerolls() {
+function wp_dispensary_inventory_prerolls() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -391,11 +393,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_prerolls_meta', 1, 2 ); //
  */
 function add_inventory_topicals_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_topicals',
+		'wp_dispensary_inventory_topicals',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_topicals',
-		'topicals',
-		'side',
+		'wp_dispensary_inventory_topicals',
+		'products',
+		'normal',
 		'default'
 	);
 }
@@ -404,7 +406,7 @@ add_action( 'add_meta_boxes', 'add_inventory_topicals_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_topicals() {
+function wp_dispensary_inventory_topicals() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -482,11 +484,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_topicals_meta', 1, 2 ); //
  */
 function add_inventory_growers_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_growers',
+		'wp_dispensary_inventory_growers',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_growers',
-		'growers',
-		'side',
+		'wp_dispensary_inventory_growers',
+		'products',
+		'normal',
 		'default'
 	);
 }
@@ -495,7 +497,7 @@ add_action( 'add_meta_boxes', 'add_inventory_growers_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_growers() {
+function wp_dispensary_inventory_growers() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -577,11 +579,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_growers_meta', 1, 2 ); // 
  */
 function add_inventory_tinctures_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_tinctures',
+		'wp_dispensary_inventory_tinctures',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_tinctures',
-		'tinctures',
-		'side',
+		'wp_dispensary_inventory_tinctures',
+		'products',
+		'normal',
 		'default'
 	);
 
@@ -592,7 +594,7 @@ add_action( 'add_meta_boxes', 'add_inventory_tinctures_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_tinctures() {
+function wp_dispensary_inventory_tinctures() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
@@ -637,7 +639,7 @@ function wpdispensary_save_inventory_tinctures_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['inventory_units']  = $_POST['inventory_units'];
+	$inventory_meta['inventory_units']   = $_POST['inventory_units'];
 	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
 
 	/** Add values of $inventory_meta as custom fields */
@@ -669,11 +671,11 @@ add_action( 'save_post', 'wpdispensary_save_inventory_tinctures_meta', 1, 2 ); /
  */
 function add_inventory_gear_metaboxes() {
 	add_meta_box(
-		'wpdispensary_inventory_gear',
+		'wp_dispensary_inventory_gear',
 		__( 'Inventory management', 'wpd-ecommerce' ),
-		'wpdispensary_inventory_gear',
-		'gear',
-		'side',
+		'wp_dispensary_inventory_gear',
+		'products',
+		'normal',
 		'default'
 	);
 
@@ -683,7 +685,7 @@ add_action( 'add_meta_boxes', 'add_inventory_gear_metaboxes' );
 /**
  * Building the metabox
  */
-function wpdispensary_inventory_gear() {
+function wp_dispensary_inventory_gear() {
 	global $post;
 
 	/** Noncename needed to verify where the data originated */
