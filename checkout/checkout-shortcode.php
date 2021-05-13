@@ -10,9 +10,16 @@ defined( 'ABSPATH' ) || exit;
 // Add Checkout Shortcode.
 function wpd_ecommerce_checkout_shortcode() {
 
+    // Register button.
+    $register_button = '';
+
 if ( ! is_user_logged_in() ) {
+    if ( get_option( 'users_can_register' ) ) {
+        // Register button.
+        $register_button = ' <a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce register">' . __( 'Login', 'wpd-ecommerce' ) . '</a>';
+    }
     echo '<p>' . __( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
-    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce return">' . __( 'Login', 'wpd-ecommerce' ) . '</a></p>';
+    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . __( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
 } else {
     // Verify that there's an active session.
 	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
