@@ -479,7 +479,7 @@ function wpd_ecommerce_notifications() {
 			$_SESSION['wpd_ecommerce']->add_item( $_GET['add_item'], 1, '', '', '' );
 		endif;
 		$str .= '<div class="wpd-ecommerce-single-notifications">';
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Item added', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The item has been successfully added to your cart.', 'wpd-ecommerce' ) . '</div>';
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Item added', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The item has been successfully added to your cart.', 'wpd-ecommerce' ) . ' <a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 		$str .= '</div>';
 	}
 
