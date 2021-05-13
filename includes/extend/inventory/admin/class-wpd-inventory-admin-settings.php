@@ -720,7 +720,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 				'WP Dispensary\'s Inventory Management',
 				'Inventory',
 				'manage_options',
-				'wpd-inventory',
+				'admin.php?page=wpd-inventory',
 				array( $this, 'plugin_page' )
 			);
 		}
