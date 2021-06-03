@@ -24,40 +24,39 @@ function wpd_ecommerce_shortcode() {
 			$i             = new Item( $id, '', '', '' );
 			$item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
 			$item_meta_key = preg_replace( '/[0-9]+/', '', $id );
-
+			// Set variables for various product types.
 			if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 				$units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
 				$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
+				$weight_name    = '';
+				// Price per pack.
 				if ( 'price_per_pack' === $item_meta_key ) {
-					$weightname = ' - ' . $units_per_pack . ' pack';
-				} else {
-					$weightname = '';
+					$weight_name = ' - ' . $units_per_pack . ' pack';
 				}
 			} elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 				$item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
-
+				// Loop through all registered flower weights.
 				foreach ( wpd_flowers_weights_array() as $key=>$value ) {
 					if ( $value == $flower_weight_cart ) {
-						$weightname     = ' - ' . $key;
+						$weight_name     = ' - ' . $key;
 						$regular_price  = esc_html( get_post_meta( $item_old_id, $value, true ) );
 					}
 				}
 			} elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
 				$item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
 				$concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
-
 				// Loop through all registered concentrate weights.
 				foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
 					// Price per weight.
 					if ( $value == $concentrate_weight_cart ) {
-						$weightname     = ' - ' . $key;
+						$weight_name     = ' - ' . $key;
 						$regular_price  = esc_html( get_post_meta( $item_old_id, $item_meta_key, true ) );
 					}
 				}
 				// Price each.
 				if ( 'price_each' === $concentrate_weight_cart ) {
-					$weightname     = '';
+					$weight_name     = '';
 					$regular_price  = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
 				}
 			} else {
@@ -67,7 +66,7 @@ function wpd_ecommerce_shortcode() {
 			// Get the total price.
 			$total_price = $amount * $regular_price;
 
-			$str .=	'<tr><td><a href="' . get_the_permalink() . '?remove_item=' . $id . '" class="remove">x</a></td><td>' . $i->thumbnail . '</td><td><a href="' . $i->permalink . '">' . $i->title . $weightname . '</a></td><td>' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</td><td><input id="quantity" name="quantity" class="wpd-ecommerce-quantity" type="number" value="' . $amount . '" /></td><td>' . CURRENCY . number_format( (float)$total_price, 2, '.', ',' ) . '</td></tr>';
+			$str .=	'<tr><td><a href="' . get_the_permalink() . '?remove_item=' . $id . '" class="remove">x</a></td><td>' . $i->thumbnail . '</td><td><a href="' . $i->permalink . '">' . $i->title . $weight_name . '</a></td><td>' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</td><td><input id="quantity" name="quantity" class="wpd-ecommerce-quantity" type="number" value="' . $amount . '" /></td><td>' . CURRENCY . number_format( (float)$total_price, 2, '.', ',' ) . '</td></tr>';
 		endforeach;
 
 		$str .= do_action( 'wpd_ecommerce_cart_table_inside_body_after' );

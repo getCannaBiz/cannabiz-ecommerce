@@ -64,10 +64,10 @@ class WPD_eCommerce_Widget extends WP_Widget {
 		// Check content for wpd_cart shortcode.
 		if ( ! has_shortcode( $content, 'wpd_cart' ) && ! has_shortcode( $content, 'wpd_checkout' ) ) {
 
+			$line_check = '';
+
 			if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
 				$line_check = $_SESSION['wpd_ecommerce']->lines;
-			} else {
-				$line_check = '';
 			}
 
 			// If cart isn't empty, display the widget.
@@ -96,9 +96,8 @@ class WPD_eCommerce_Widget extends WP_Widget {
 					if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 
 						$units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
-
-						$item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
-						$item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
+						$item_old_id    = preg_replace( '/[^0-9.]+/', '', $i->id );
+						$item_meta_key  = preg_replace( '/[0-9]+/', '', $i->id );
 
 						// Set the regular price.
 						if ( 'price_per_pack' === $item_meta_key ) {
@@ -107,11 +106,12 @@ class WPD_eCommerce_Widget extends WP_Widget {
 							$regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
 						}
 
+						// Weight name.
+						$weight_name = '';
+
 						// Set the weight name.
 						if ( 'price_per_pack' === $item_meta_key ) {
-							$weightname = ' - ' . $units_per_pack . ' pack';
-						} else {
-							$weightname = '';
+							$weight_name = ' - ' . $units_per_pack . ' pack';
 						}
 
                     } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
@@ -121,7 +121,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 						// Loop through all registered flower weights.
 						foreach ( wpd_flowers_weights_array() as $key=>$value ) {
 							if ( $value == $flower_weight_cart ) {
-								$weightname    = ' - ' . $key;
+								$weight_name   = ' - ' . $key;
 								$regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
 							}
 						}
@@ -132,14 +132,14 @@ class WPD_eCommerce_Widget extends WP_Widget {
 						// Loop through all registered concentrate weights.	
 						foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
 							if ( $value == $concentrate_weight_cart ) {
-								$weightname    = ' - ' . $key;
+								$weight_name   = ' - ' . $key;
 								$regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
 							}
 						}
 
 						// Price each.
 						if ( 'price_each' === $concentrate_weight_cart ) {
-							$weightname    = '';
+							$weight_name   = '';
 							$regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
 						}
 					} else {
@@ -149,7 +149,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 					// Get the total price.
 					$total_price = $amount * $regular_price;
 
-					$str .=	'<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weightname . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
+					$str .=	'<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
 				endforeach;
 				$str .= '</tbody>';
 				$str .= '</table>';

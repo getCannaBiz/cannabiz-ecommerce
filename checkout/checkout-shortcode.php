@@ -45,31 +45,31 @@ if ( ! is_user_logged_in() ) {
                 }
             }
 
-            /** Update First Name */
+            // Update First Name.
             if ( ! empty( $_POST['first-name'] ) )
                 update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
-            /** Update Last Name */
+            // Update Last Name.
             if ( ! empty( $_POST['last-name'] ) )
                 update_user_meta( $current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
-            /** Update Phone Number */
+            // Update Phone Number.
             if ( ! empty( $_POST['phone_number'] ) )
                 update_user_meta( $current_user->ID, 'phone_number', esc_attr( $_POST['phone_number'] ) );
-            /** Update Address Line 1 */
+            // Update Address Line 1.
             if ( ! empty( $_POST['address_line_1'] ) )
                 update_user_meta( $current_user->ID, 'address_line_1', esc_attr( $_POST['address_line_1'] ) );
-            /** Update Address Line 2 */
+            // Update Address Line 2.
             if ( ! empty( $_POST['address_line_2'] ) )
                 update_user_meta( $current_user->ID, 'address_line_2', esc_attr( $_POST['address_line_2'] ) );
-            /** Update City */
+            // Update City.
             if ( ! empty( $_POST['city'] ) )
                 update_user_meta( $current_user->ID, 'city', esc_attr( $_POST['city'] ) );
-            /** Update State/County */
+            // Update State/County.
             if ( ! empty( $_POST['state_county'] ) )
                 update_user_meta( $current_user->ID, 'state_county', esc_attr( $_POST['state_county'] ) );
-            /** Update Postcode/Zip */
+            // Update Postcode/Zip.
             if ( ! empty( $_POST['postcode_zip'] ) )
                 update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( $_POST['postcode_zip'] ) );
-            /** Update Country */
+            // Update Country.
             if ( ! empty( $_POST['country'] ) )
                 update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
 
