@@ -33,7 +33,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 
 	function form( $instance ) {
 		$defaults = array(
-			'title' => 'Cart',
+			'title' => __( 'Cart', 'wpd-ecommerce' ),
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );

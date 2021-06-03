@@ -220,8 +220,8 @@ class Cart {
 
 		$str .= '<ul id="cart_totals">';
 		$str .= '<li class="cart_sum">Sum: ' . CURRENCY . $this->sum . '</li>';
-		$str .= '<li class="cart_sales_tax">Sales Tax: ' . CURRENCY . $this->sales_tax . '</li>';
-		$str .= '<li class="cart_total"><span class="caption">Total:</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
+		$str .= '<li class="cart_sales_tax">' . __( 'Total', 'wpd-ecommerce' ) . ': ' . CURRENCY . $this->sales_tax . '</li>';
+		$str .= '<li class="cart_total"><span class="caption">' . __( 'Total', 'wpd-ecommerce' ) . ':</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
 		$str .= '</ul>';
 
 		return $str;
