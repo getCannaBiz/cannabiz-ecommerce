@@ -1,7 +1,7 @@
 <?php
 /*
-Copy this file into your theme to customize
-*/
+ * Copy this file into your theme to customize
+ */
 get_header(); ?>
 <?php
 

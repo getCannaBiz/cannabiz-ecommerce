@@ -1068,6 +1068,21 @@ function wpd_ecommerce_single_items_notifications(){
 add_action( 'wpd_ecommerce_templates_single_items_entry_header_before', 'wpd_ecommerce_single_items_notifications' );
 
 /**
+ * Single items - taxonomies
+ * 
+ * @return string
+ */
+function wpd_ecommerce_single_items_taxonomies() {
+	// Display Strain Type.
+	echo '<span class="wpd-ecommerce strain-type">' . get_the_term_list( get_the_ID(), 'strain_types', '', '' ) . '</span>';
+	// Display Shelf Type.
+	echo '<span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_types', '', '' ) . '</span>';
+	// Display Categories.
+	echo '<span class="wpd-ecommerce category">' . get_the_term_list( get_the_ID(), 'wpd_categories', '', '' ) . '</span>';
+}
+add_action( 'wpd_ecommerce_templates_single_items_item_types_inside', 'wpd_ecommerce_single_items_taxonomies' );
+
+/**
  * Single items - Add to cart form
  * 
  * @since 1.0
