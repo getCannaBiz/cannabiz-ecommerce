@@ -1,7 +1,7 @@
 <?php
 /*
-Copy this file into your theme to customize
-*/
+ * Copy this file into your theme to customize
+ */
 get_header();
 
 do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
@@ -36,12 +36,7 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
 
                     do_action( 'wpd_ecommerce_item_types_inside_before' );
 
-                    // Display Strain Type.
-                    echo '<span class="wpd-ecommerce strain-type">' . get_the_term_list( get_the_ID(), 'strain_types', '', '' ) . '</span>';
-                    // Display Shelf Type.
-                    echo '<span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_types', '', '' ) . '</span>';
-                    // Display Categories.
-                    echo '<span class="wpd-ecommerce category">' . get_the_term_list( get_the_ID(), 'wpd_categories', '', '' ) . '</span>';
+                    do_action( 'wpd_ecommerce_templates_single_items_item_types_inside' );
 
                     do_action( 'wpd_ecommerce_item_types_inside_after' );
 
@@ -90,7 +85,11 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
 
         </div>
     <?php endwhile; ?>
-<?php do_action( 'wpd_ecommerce_templates_single_items_wrap_after' ); ?>
-<?php wp_reset_query(); ?>
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<?php
+
+do_action( 'wpd_ecommerce_templates_single_items_wrap_after' );
+
+wp_reset_query();
+
+get_sidebar();
+get_footer();
