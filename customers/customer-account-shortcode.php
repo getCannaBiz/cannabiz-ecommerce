@@ -1,14 +1,14 @@
 <?php
 /**
- * WP Dispensary eCommerce patient account shortcode
+ * WP Dispensary eCommerce customer account shortcode
  *
  * @since 1.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
-// Add Patient Account Shortcode.
-function wpd_patient_account_shortcode() {
+// Add Customer Account Shortcode.
+function wpd_customer_account_shortcode() {
 
 	global $current_user, $wp_roles;
 
@@ -27,7 +27,7 @@ function wpd_patient_account_shortcode() {
 	} else {
 	?>
 
-		<div class="wpd-ecommerce patient-account">
+		<div class="wpd-ecommerce customer-account">
 			<input class="account-links" id="tab1" type="radio" name="tabs" checked>
 			<label class="account-links" for="tab1"><?php _e( 'Dashboard', 'wpd-ecommerce' ); ?></label>
 
@@ -48,22 +48,22 @@ function wpd_patient_account_shortcode() {
 					$user = wp_get_current_user();
 					$role = ( array ) $user->roles;
 
-					// Patient name based on specific profile info.
+					// Customer name based on specific profile info.
 					if ( '' !== $user->first_name && '' !== $user->last_name ) {
-						$patient_name = $user->first_name . '  ' . $user->last_name;
+						$customer_name = $user->first_name . '  ' . $user->last_name;
 					} elseif ( '' !== $user->display_name ) {
-						$patient_name = $user->display_name;
+						$customer_name = $user->display_name;
 					} else {
-						$patient_name = $user->user_nicename;
+						$customer_name = $user->user_nicename;
 					}
 					?>
-				<p><?php _e( 'Hello', 'wpd-ecommerce' ); ?> <strong><?php echo $patient_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php _e( 'Log out', 'wpd-ecommerce' ); ?></a>)</p>
+				<p><?php _e( 'Hello', 'wpd-ecommerce' ); ?> <strong><?php echo $customer_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php _e( 'Log out', 'wpd-ecommerce' ); ?></a>)</p>
 
 				<?php					
 				// If user is administrator.
 				if ( 'administrator' !== $role[0] ) {
 				?>
-					<h3 class="wpd-ecommerce patient-title"><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
+					<h3 class="wpd-ecommerce customer-title"><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
 					<p><?php _e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
 				<?php
 				}
@@ -120,8 +120,8 @@ function wpd_patient_account_shortcode() {
 
 					// Get total order count.
 					$order_count = $the_query->post_count;
-					// Get total patient count.
-					$patient_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'patient' ) ) );
+					// Get total customer count.
+					$customer_count = $users_count = count( get_users( array( 'fields' => array( 'ID' ), 'role' => 'customer' ) ) );
 
 					if ( isset( $total_earnings ) ) {
 						$total_final = array_sum( $total_earnings );
@@ -129,12 +129,12 @@ function wpd_patient_account_shortcode() {
 						$total_final = '0';
 					}
 
-					echo '<div class="wpd-ecommerce account-administrator patients">' . $patient_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_patients_text', 'Patients' ) . '</span></div>';
+					echo '<div class="wpd-ecommerce account-administrator customers">' . $customer_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_customers_text', 'Customers' ) . '</span></div>';
 					echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . __( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
 					echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . __( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
 				?>
-				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
-				<table class="wpd-ecommerce patient-orders">
+				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
+				<table class="wpd-ecommerce customer-orders">
 					<thead>
 						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
 						<td><?php _e( 'Name', 'wpd-ecommerce' ); ?></td>
@@ -199,8 +199,8 @@ function wpd_patient_account_shortcode() {
 			</section>
 
 			<section id="content2">
-				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Order history', 'wpd-ecommerce' ); ?></h3>
-				<table class="wpd-ecommerce patient-orders">
+				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Order history', 'wpd-ecommerce' ); ?></h3>
+				<table class="wpd-ecommerce customer-orders">
 					<thead>
 						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
 						<td><?php _e( 'Date', 'wpd-ecommerce' ); ?></td>
@@ -257,15 +257,15 @@ function wpd_patient_account_shortcode() {
 
 			<section id="content3">
 
-				<?php do_action( 'wpd_ecommerce_patient_account_form_before' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_form_before' ); ?>
 
-				<form method="post" id="patients" class="wpd-ecommerce form patient-account" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
+				<form method="post" id="customers" class="wpd-ecommerce form customer-account" action="<?php the_permalink(); ?>" enctype="multipart/form-data">
 
-				<?php do_action( 'wpd_ecommerce_patient_account_form_before_inside' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_form_before_inside' ); ?>
 
-				<h3 class='wpd-ecommerce patient-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
+				<h3 class='wpd-ecommerce customer-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
 
-				<?php do_action( 'wpd_ecommerce_patient_account_contact_information_before' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_contact_information_before' ); ?>
 
 				<p class="form-row first form-first-name">
 					<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
@@ -322,7 +322,7 @@ function wpd_patient_account_shortcode() {
 						$options = array( 'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegowina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, the Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia (Hrvatska)', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'France Metropolitan', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and Mc Donald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran (Islamic Republic of)', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, Democratic People\'s Republic of', 'Korea, Republic of', 'Kuwait', 'Kyrgyzstan', 'Lao, People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia, The Former Yugoslav Republic of', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia, Federated States of', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia (Slovak Republic)', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'St. Helena', 'St. Pierre and Miquelon', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen Islands', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan, Province of China', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands (British)', 'Virgin Islands (U.S.)', 'Wallis and Futuna Islands', 'Western Sahara', 'Yemen', 'Yugoslavia', 'Zambia', 'Zimbabwe' );
 
 						// Filter countries options.
-						$options = apply_filters( 'wpd_ecommerce_patient_account_details_form_countries', $options );
+						$options = apply_filters( 'wpd_ecommerce_customer_account_details_form_countries', $options );
 
 						// Create country select list.
 						foreach( $options as $value=>$name ) {
@@ -336,35 +336,35 @@ function wpd_patient_account_shortcode() {
 					</select>
 				</p><!-- .form-phone-country -->
 
-				<?php do_action( 'wpd_ecommerce_patient_account_contact_information_after' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_contact_information_after' ); ?>
 
 				<?php
-				$wpd_patients = get_option( 'wpdas_patients' );
+				$wpd_customers = get_option( 'wpdas_customers' );
 
-				if ( empty( $wpd_patients ) ) {
+				if ( empty( $wpd_customers ) ) {
 					// Do nothing.
 				} elseif (
-					'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] &&
-					'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] && 
-					'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] && 
-					'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
+					'on' == $wpd_customers['wpd_settings_customers_verification_drivers_license'] &&
+					'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_doc'] && 
+					'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_num'] && 
+					'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_exp'] ) {
 				} else { ?>
-				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h3>
 
-				<?php do_action( 'wpd_ecommerce_patient_account_verification_before' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_verification_before' ); ?>
 
 				<?php
-				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_drivers_license'] ) {
+				if ( 'on' == $wpd_customers['wpd_settings_customers_verification_drivers_license'] ) {
 					// Do nothing.
 				} else {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_valid_id"><?php _e( 'Drivers License or Valid ID', 'wpd-ecommerce' ); ?></label>
-					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true ) ) { ?>
+					<label for="reg_wpd_ecommerce_customer_valid_id"><?php _e( 'Drivers License or Valid ID', 'wpd-ecommerce' ); ?></label>
+					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
 					<div class="valid-id">
 						<?php
-						$valid_id = get_user_meta( $user->ID, 'wpd_ecommerce_patient_valid_id', true );
+						$valid_id = get_user_meta( $user->ID, 'wpd_ecommerce_customer_valid_id', true );
 						if ( ! isset( $valid_id['error'] ) ) {
 							if ( ! empty( $valid_id ) ) {
 								$valid_id = $valid_id['url'];
@@ -378,23 +378,23 @@ function wpd_patient_account_shortcode() {
 						<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
 					</div><!-- /.valid-id -->
 					<?php } ?>
-					<input type="file" name="wpd_ecommerce_patient_valid_id" id="reg_wpd_ecommerce_patient_valid_id" value="" />
+					<input type="file" name="wpd_ecommerce_customer_valid_id" id="reg_wpd_ecommerce_customer_valid_id" value="" />
 				</p>
 
 				<?php 
 				}
 
-				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_doc'] ) {
+				if ( 'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_doc'] ) {
 					// Do nothing.
 				} else {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_doc"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></label>
-					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_doc', true ) ) { ?>
+					<label for="reg_wpd_ecommerce_customer_recommendation_doc"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></label>
+					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
 					<div class="recommendation-doc">
 						<?php
-						$doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_doc', true );
+						$doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
 						if ( ! isset( $doc_rec['error'] ) ) {
 							if ( ! empty( $doc_rec ) ) {
 								$doc_rec = $doc_rec['url'];
@@ -408,44 +408,44 @@ function wpd_patient_account_shortcode() {
 						<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
 					</div><!-- /.recommendation-doc -->
 					<?php } ?>
-					<input type="file" name="wpd_ecommerce_patient_recommendation_doc" id="reg_wpd_ecommerce_patient_recommendation_doc" value="" />
+					<input type="file" name="wpd_ecommerce_customer_recommendation_doc" id="reg_wpd_ecommerce_customer_recommendation_doc" value="" />
 				</p>
 
 				<?php 
 				}
 
-				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_num'] ) {
+				if ( 'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_num'] ) {
 					// Do nothing.
 				} else {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_num"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></label>
-					<input type="text" class="input-text" name="wpd_ecommerce_patient_recommendation_num" id="reg_wpd_ecommerce_patient_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_num', true ); ?>" />
+					<label for="reg_wpd_ecommerce_customer_recommendation_num"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></label>
+					<input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_num', true ); ?>" />
 				</p>
 
 				<?php 
 				}
 
-				if ( 'on' == $wpd_patients['wpd_settings_patients_verification_recommendation_exp'] ) {
+				if ( 'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_exp'] ) {
 					// Do nothing.
 				} else {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_patient_recommendation_exp"><?php _e( 'Expiration Date', 'wpd-ecommerce' ); ?></label>
-					<input type="date" class="input-date" name="wpd_ecommerce_patient_recommendation_exp" id="reg_wpd_ecommerce_patient_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_patient_recommendation_exp', true ); ?>" />
+					<label for="reg_wpd_ecommerce_customer_recommendation_exp"><?php _e( 'Expiration Date', 'wpd-ecommerce' ); ?></label>
+					<input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ); ?>" />
 				</p>
 
 				<?php } // recommendation_exp ?>
 
-				<?php do_action( 'wpd_ecommerce_patient_account_verification_after' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_verification_after' ); ?>
 
 				<?php } // if all verifications are hidden ?>
 
-				<h3 class="wpd-ecommerce patient-title"><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
 
-				<?php do_action( 'wpd_ecommerce_patient_account_password_change_before' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_password_change_before' ); ?>
 
 				<p class="form-row form-first form-password">
 					<label for="pass1"><?php _e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
@@ -462,11 +462,11 @@ function wpd_patient_account_shortcode() {
 					<input name="action" type="hidden" id="action" value="update-user" />
 				</p><!-- .form-submit -->
 
-				<?php do_action( 'wpd_ecommerce_patient_account_form_inside_after' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_form_inside_after' ); ?>
 
-				</form><!-- #patients -->
+				</form><!-- #customers -->
 
-				<?php do_action( 'wpd_ecommerce_patient_account_form_after' ); ?>
+				<?php do_action( 'wpd_ecommerce_customer_account_form_after' ); ?>
 
 			</section>
 		</div>
@@ -474,4 +474,4 @@ function wpd_patient_account_shortcode() {
 	<?php
 	}
 }
-add_shortcode( 'wpd_account', 'wpd_patient_account_shortcode' );
+add_shortcode( 'wpd_account', 'wpd_customer_account_shortcode' );

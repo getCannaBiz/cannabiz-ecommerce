@@ -7,11 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Add Patient User Role on Plugin Activation.
-function wpd_ecommerce_add_patient_user_role_activation() {
-	add_role( 'patient', 'Patient', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
+// Add Customer User Role on Plugin Activation.
+function wpd_ecommerce_add_customer_user_role_activation() {
+	add_role( 'customer', 'Customer', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
 }
-register_activation_hook( __FILE__, 'wpd_ecommerce_add_patient_user_role_activation' );
+register_activation_hook( __FILE__, 'wpd_ecommerce_add_customer_user_role_activation' );
 
 /**
  * Add custom pages on plugin activation.

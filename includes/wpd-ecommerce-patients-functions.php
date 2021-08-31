@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Dispensary eCommerce patient helper functions
+ * WP Dispensary eCommerce customer helper functions
  *
  * @since 1.0
  */
@@ -8,7 +8,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Disable admin bar for patients.
+ * Disable admin bar for customers.
  *
  * @since 1.0.0
  */
@@ -19,8 +19,8 @@ function wpd_ecommerce_disable_admin_bar() {
         $user = wp_get_current_user();
         $role = ( array ) $user->roles;
 
-        // Hide admin bar for patients.
-        if ( 'patient' === $role[0] ) {
+        // Hide admin bar for customers.
+        if ( 'customer' === $role[0] ) {
             show_admin_bar( FALSE );
         } else {
             show_admin_bar( TRUE );
@@ -30,7 +30,7 @@ function wpd_ecommerce_disable_admin_bar() {
 add_action( 'after_setup_theme', 'wpd_ecommerce_disable_admin_bar' );
  
 /**
- * Disable wp-admin for patients.
+ * Disable wp-admin for customers.
  *
  * @since 1.0.0
  */
@@ -38,8 +38,8 @@ function wpd_ecommerce_disable_admin_dashboard() {
     $user = wp_get_current_user();
     $role = ( array ) $user->roles;
 
-    // Redirect patients from any wp-admin page to account page.
-    if ( is_admin() && 'patient' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+    // Redirect customers from any wp-admin page to account page.
+    if ( is_admin() && 'customer' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
         wp_redirect( wpd_ecommerce_account_url() );
         exit;
     } elseif ( is_user_logged_in() ) {
@@ -56,7 +56,7 @@ function wpd_ecommerce_disable_admin_dashboard() {
 add_action( 'init', 'wpd_ecommerce_disable_admin_dashboard' );
 
 /**
- * Prevent wp-login.php for patients
+ * Prevent wp-login.php for customers
  */
 function wpd_ecommerce_prevent_wp_login() {
 
@@ -66,9 +66,9 @@ function wpd_ecommerce_prevent_wp_login() {
     $role = ( array ) $user->roles;
 
     /**
-     * This locks down wp-login.php for patients only
+     * This locks down wp-login.php for customers only
      */
-    if ( 'patient' === $role[0] ) {
+    if ( 'customer' === $role[0] ) {
 
         // Check if a $_GET['action'] is set, and if so, load it into $action variable
         $action = ( isset( $_GET['action'] ) ) ? $_GET['action'] : '';
@@ -84,29 +84,29 @@ function wpd_ecommerce_prevent_wp_login() {
 add_action( 'init', 'wpd_ecommerce_prevent_wp_login' );
 
 /**
- * Patient dashboard - update user data
+ * Customer dashboard - update user data
  * 
  * @return void
  */
-function wpd_ecommerce_update_user_patient_dashboard() {
+function wpd_ecommerce_update_user_customer_dashboard() {
     global $current_user;
 
     // Create array.
     $error = array();
 
-    /* If account details were saved, update patient account. */
+    /* If account details were saved, update customer account. */
     if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
 
         // Remove valid ID file from user profile.
         if ( isset( $_POST['remove_valid_id'] ) ) {
             // Update user meta.
-            update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_valid_id', '' );
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_valid_id', '' );
         }
     
         // Remove doctor recommendation file from user profile.
         if ( isset( $_POST['remove_recommendation_doc'] ) ) {
             // Update user meta.
-            update_user_meta( $current_user->ID, 'wpd_ecommerce_patient_recommendation_doc', '' );		
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
         }
     
         /* Update user password. */
@@ -161,7 +161,7 @@ function wpd_ecommerce_update_user_patient_dashboard() {
         }
     }
 }
-add_action( 'init', 'wpd_ecommerce_update_user_patient_dashboard' );
+add_action( 'init', 'wpd_ecommerce_update_user_customer_dashboard' );
 
 /**
  * Login failed redirect
@@ -191,8 +191,8 @@ function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
     $login_page   = wpd_ecommerce_account_url();
     $ref_link     = $_SERVER['HTTP_REFERER'];
 
-    // If user is patient.
-    if ( 'patient' === $role[0] ) {
+    // If user is customer.
+    if ( 'customer' === $role[0] ) {
         // redirect them to another URL, in this case, the homepage 
         $redirect_to =  $login_page;
     }
@@ -207,7 +207,7 @@ function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'wpd_ecommerce_login_redirect', 10, 3 );
 
 /**
- * Disable author archives for patients.
+ * Disable author archives for customers.
  *
  * @since 1.0
  */
@@ -217,7 +217,7 @@ function wpd_ecommerce_disable_author_archives_for_customers() {
         $user = get_user_by( 'id', $author );
         $role = ( array ) $user->roles;
 
-		if ( 'patient' === $role[0] ) {
+		if ( 'customer' === $role[0] ) {
 			wp_redirect( wpd_ecommerce_menu_url() );
 		} else {
 			// Do nothing.
@@ -233,27 +233,27 @@ add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_cust
  */
 function wpd_ecommerce_add_profile_options( $profileuser ) {
     // Update recommendation number.
-    if ( isset( $_POST['wpd_ecommerce_patient_recommendation_num'] ) ) {
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_num', $_POST['wpd_ecommerce_patient_recommendation_num'] );
+    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_num'] ) ) {
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', $_POST['wpd_ecommerce_customer_recommendation_num'] );
     }
     // Update recommendation expiration date.
-    if ( isset( $_POST['wpd_ecommerce_patient_recommendation_exp'] ) ) {
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_patient_recommendation_exp'] ) );
+    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) ) {
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) );
     }
     // Remove valid ID file from user profile.
     if ( isset( $_POST['remove_valid_id'] ) ) {
         // Update user meta.
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_valid_id', '' );
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', '' );
     }
 
     // Remove doctor recommendation file from user profile.
     if ( isset( $_POST['remove_recommendation_doc'] ) ) {
         // Update user meta.
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_doc', '' );		
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
     }
 
-    $doc_rec  = get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_doc', true );
-    $valid_id = get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_valid_id', true );
+    $doc_rec  = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
+    $valid_id = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true );
     ?>
     <?php do_action( 'wpd_ecommerce_verification_title_before' ); ?>
     <h2><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h2>
@@ -263,7 +263,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     <tr>
         <th scope="row"><?php _e( 'Drivers license or Valid ID', 'wpd-ecommerce' ); ?></th>
         <td class="wpd-details-valid-id">
-            <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_valid_id', true ) ) { ?>
+            <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
             <div class="valid-id">
             <?php //var_dump( $valid_id );
                 if ( ! isset( $valid_id['error'] ) ) {
@@ -285,7 +285,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     <tr>
         <th scope="row"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></th>
         <td class="wpd-details-recommendation-doc">
-            <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_doc', true ) ) { ?>
+            <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
             <?php //var_dump( $doc_rec );
                 if ( ! isset( $doc_rec['error'] ) ) {
@@ -307,13 +307,13 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     <tr>
         <th scope="row"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></th>
         <td>
-            <input class="regular-text" type="text" name="wpd_ecommerce_patient_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_num', true ); ?>" />
+            <input class="regular-text" type="text" name="wpd_ecommerce_customer_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', true ); ?>" />
         </td>
     </tr>
     <tr>
         <th scope="row"><?php _e( 'Expiration date', 'wpd-ecommerce' ); ?></th>
         <td>
-            <input class="regular-text" type="date" name="wpd_ecommerce_patient_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_patient_recommendation_exp', true ); ?>" />
+            <input class="regular-text" type="date" name="wpd_ecommerce_customer_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', true ); ?>" />
         </td>
     </tr>
     <?php do_action( 'wpd_ecommerce_verification_table_bottom' ); ?>
@@ -329,19 +329,19 @@ add_action( 'edit_user_profile', 'wpd_ecommerce_add_profile_options' );
  * 
  * @since 1.1
  */
-function wpd_ecommerce_patient_save_custom_profile_fields( $user_id ) {
+function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
 
     // Update recommendation number.
-    if ( isset( $_POST['wpd_ecommerce_patient_recommendation_num'] ) ) {
-        update_user_meta( $user_id, 'wpd_ecommerce_patient_recommendation_num', $_POST['wpd_ecommerce_patient_recommendation_num'] );
+    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_num'] ) ) {
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_num', $_POST['wpd_ecommerce_customer_recommendation_num'] );
     }
     // Update recommendation expiration date.
-    if ( isset( $_POST['wpd_ecommerce_patient_recommendation_exp'] ) ) {
-        update_user_meta( $user_id, 'wpd_ecommerce_patient_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_patient_recommendation_exp'] ) );
+    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) ) {
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) );
     }
 
     // If no new files are uploaded, return.
-    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_ecommerce_patient_recommendation_doc'] ) &&  ! isset( $_FILES['wpd_ecommerce_patient_valid_id'] ) )
+    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_ecommerce_customer_recommendation_doc'] ) &&  ! isset( $_FILES['wpd_ecommerce_customer_valid_id'] ) )
         return;
 
     // Include file for wp_handle_upload.
@@ -358,12 +358,12 @@ function wpd_ecommerce_patient_save_custom_profile_fields( $user_id ) {
     $_POST['action'] = 'wp_handle_upload';
 
     // Get doctor recommendation file upload (if any).
-    $doc_rec = wp_handle_upload( $_FILES['wpd_ecommerce_patient_recommendation_doc'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+    $doc_rec = wp_handle_upload( $_FILES['wpd_ecommerce_customer_recommendation_doc'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $doc_rec['file'] ) ) {
         // Update doctor recommendation meta.
-        update_user_meta( $user_id, 'wpd_ecommerce_patient_recommendation_doc', $doc_rec, get_user_meta( $user_id, 'wpd_ecommerce_patient_recommendation_doc', true ) );
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_doc', $doc_rec, get_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_doc', true ) );
 
         $filename   = $doc_rec['file'];
         $title      = explode( '.', basename( $filename ) );
@@ -382,12 +382,12 @@ function wpd_ecommerce_patient_save_custom_profile_fields( $user_id ) {
     }
 
     // Get valid ID file upload (if any).
-    $valid_id = wp_handle_upload( $_FILES['wpd_ecommerce_patient_valid_id'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+    $valid_id = wp_handle_upload( $_FILES['wpd_ecommerce_customer_valid_id'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $valid_id['file'] ) ) {
         // Update doctor recommendation meta.
-        update_user_meta( $user_id, 'wpd_ecommerce_patient_valid_id', $valid_id, get_user_meta( $user_id, 'wpd_ecommerce_patient_valid_id', true ) );
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_valid_id', $valid_id, get_user_meta( $user_id, 'wpd_ecommerce_customer_valid_id', true ) );
 
         $filename   = $valid_id['file'];
         $title      = explode( '.', basename( $filename ) );
@@ -406,23 +406,23 @@ function wpd_ecommerce_patient_save_custom_profile_fields( $user_id ) {
     }
 
 }
-add_action( 'edit_user_profile_update', 'wpd_ecommerce_patient_save_custom_profile_fields' );
-add_action( 'wpd_ecommerce_patient_account_verification_before', 'wpd_ecommerce_patient_save_custom_profile_fields' );
+add_action( 'edit_user_profile_update', 'wpd_ecommerce_customer_save_custom_profile_fields' );
+add_action( 'wpd_ecommerce_customer_account_verification_before', 'wpd_ecommerce_customer_save_custom_profile_fields' );
 
 /**
- * Redirect patients on successful registration.
+ * Redirect customers on successful registration.
  * 
  * @since 1.5
  */
-function wpd_ecommerce_patients_registration_redirect( $registration_redirect ) {
-    if ( TRUE == wpd_settings_patients_registration_redirect() ) {
+function wpd_ecommerce_customers_registration_redirect( $registration_redirect ) {
+    if ( TRUE == wpd_settings_customers_registration_redirect() ) {
         // Return new redirect URL.
-        return wpd_settings_patients_registration_redirect();
+        return wpd_settings_customers_registration_redirect();
     } else {
         // Do nothing.
     }
 }
-add_filter( 'registration_redirect', 'wpd_ecommerce_patients_registration_redirect' );
+add_filter( 'registration_redirect', 'wpd_ecommerce_customers_registration_redirect' );
 
 /**
  * Login form
@@ -434,14 +434,14 @@ function wpd_ecommerce_login_form() {
 
     $args['form_id'] = 'wpd-ecommerce-login';
 
-    do_action( 'wpd_ecommerce_patient_account_login_form_before' );
+    do_action( 'wpd_ecommerce_customer_account_login_form_before' );
     echo '<div class="wpd-ecommerce-login-form">';
-    do_action( 'wpd_ecommerce_patient_account_login_form_before_inside' );
+    do_action( 'wpd_ecommerce_customer_account_login_form_before_inside' );
     echo '<h3>' . __( 'Login', 'wpd-ecommerce' ) . '</h3>';
     echo wp_login_form( $args );
-    do_action( 'wpd_ecommerce_patient_account_login_form_after_inside' );
+    do_action( 'wpd_ecommerce_customer_account_login_form_after_inside' );
     echo '</div>';
-    do_action( 'wpd_ecommerce_patient_account_login_form_after' );
+    do_action( 'wpd_ecommerce_customer_account_login_form_after' );
 
 }
 
@@ -452,34 +452,34 @@ function wpd_ecommerce_login_form() {
  * @return string
  */
 function wpd_ecommerce_register_form() {
-    do_action( 'wpd_ecommerce_patient_account_register_form_before' );
+    do_action( 'wpd_ecommerce_customer_account_register_form_before' );
 
     echo '<div class="wpd-ecommerce-register-form">';
-    do_action( 'wpd_ecommerce_patient_account_register_form_before_inside' );
+    do_action( 'wpd_ecommerce_customer_account_register_form_before_inside' );
     echo '<h3>' . __( 'Register', 'wpd-ecommerce' ) . '</h3>';
     ?>
     <form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
-    <?php do_action( 'wpd_ecommerce_patient_account_register_form_inside_top' ); ?>
+    <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_top' ); ?>
     <p class="register-username">
     <label for="user_login"><?php _e( 'Username', 'wpd-ecommerce' ); ?></label>
     <input type="text" name="user_login" value="" id="user_login" class="input" />
     </p>
-    <?php do_action( 'wpd_ecommerce_patient_account_register_form_after_username' ); ?>
+    <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_username' ); ?>
     <p class="register-email-address">
     <label for="user_email"><?php _e( 'Email address', 'wpd-ecommerce' ); ?></label>
     <input type="text" name="user_email" value="" id="user_email" class="input" />
     </p>
-    <?php do_action( 'wpd_ecommerce_patient_account_register_form_after_email' ); ?>
+    <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_email' ); ?>
     <p class="statement"><?php _e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
     <p class="register-submit">
     <input type="submit" value="<?php _e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
     </p>
-    <?php do_action( 'wpd_ecommerce_patient_account_register_form_inside_bottom' ); ?>
+    <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_bottom' ); ?>
     </form>
     <?php
-    do_action( 'wpd_ecommerce_patient_account_register_form_after_inside' );
+    do_action( 'wpd_ecommerce_customer_account_register_form_after_inside' );
     echo '</div>';
 
-    do_action( 'wpd_ecommerce_patient_account_register_form_after' );
+    do_action( 'wpd_ecommerce_customer_account_register_form_after' );
 
 }

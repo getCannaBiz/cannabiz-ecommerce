@@ -89,7 +89,7 @@ include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-core-functions.php'
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-admin-settings-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-cart-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-orders-functions.php' );
-include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-patients-functions.php' );
+include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-customers-functions.php' );
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-archive-items-functions.php' );
 
 // Includes for Classes.
@@ -103,9 +103,9 @@ include_once( dirname( __FILE__ ) . '/cart/cart-shortcode.php' );
 // Includes for Checkout.
 include_once( dirname( __FILE__ ) . '/checkout/checkout-shortcode.php' );
 
-// Includes for Patients.
-include_once( dirname( __FILE__) . '/patients/patient-account-details.php' );
-include_once( dirname( __FILE__) . '/patients/patient-account-shortcode.php' );
+// Includes for Customers.
+include_once( dirname( __FILE__) . '/customers/customer-account-details.php' );
+include_once( dirname( __FILE__) . '/customers/customer-account-shortcode.php' );
 
 // Includes for Orders.
 include_once( dirname( __FILE__ ) . '/orders/orders-database.php' );

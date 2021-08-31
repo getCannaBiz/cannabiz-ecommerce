@@ -97,7 +97,7 @@ body.post-type-wpd_orders #post-body-content {
 
 /** Order and customer details metaboxes */
 div#wpd_ecommerce_order_item_details .inside,
-div#wpd_ecommerce_order_patient_details .inside,
+div#wpd_ecommerce_order_customer_details .inside,
 div#wpd_ecommerce_order_status .inside {
     box-sizing: border-box;
     display: inline-block;

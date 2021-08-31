@@ -111,7 +111,7 @@ if ( ! is_user_logged_in() ) {
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
 
-		<h3 class='wpd-ecommerce patient-title'><?php _e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
+		<h3 class='wpd-ecommerce customer-title'><?php _e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
@@ -182,7 +182,7 @@ if ( ! is_user_logged_in() ) {
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
 
-		<h3 class='wpd-ecommerce patient-order'><?php _e( 'Your order', 'wpd-ecommerce' ); ?></h3>
+		<h3 class='wpd-ecommerce customer-order'><?php _e( 'Your order', 'wpd-ecommerce' ); ?></h3>
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
 
@@ -323,7 +323,7 @@ function wpd_ecommerce_checkout_success() {
     $wpd_orders_data      = array();
     $wpd_orders_item_data = array();
 
-    echo '<h3 class="wpd-ecommerce patient-order">' . __( 'Your order', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3 class="wpd-ecommerce customer-order">' . __( 'Your order', 'wpd-ecommerce' ) . '</h3>';
 
     do_action( 'wpd_ecommerce_checkout_success_your_order_table_before' );
 
@@ -589,15 +589,15 @@ function wpd_ecommerce_checkout_success() {
     wp_mail( apply_filters( 'wpd_ecommerce_checkout_email_to_admin', $to ), apply_filters( 'wpd_ecommerce_checkout_email_subject_admin', $subject ), apply_filters( 'wpd_ecommerce_checkout_email_message_admin', $message ), $headers, '' );
 
     /**
-     * Email order details to Patient.
+     * Email order details to Customer.
      * 
      * @since 1.0
      */
     $order             = $wpd_order_id;
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
-    $to_patient        = $user_info->user_email;
-    $subject_patient   = 'Thank you for your order: #' . $order;
+    $to_customer       = $user_info->user_email;
+    $subject_customer  = 'Thank you for your order: #' . $order;
 
     // Create message for the email.
     $message   = '<p>Hello ' . $user_info->first_name . ',</p>';
@@ -608,11 +608,11 @@ function wpd_ecommerce_checkout_success() {
     $message  .= $str;
 
     // Create headers for the email.
-    $headers_patient[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
-    $headers_patient[] = 'Content-Type: text/html';
-    $headers_patient[] = 'charset=UTF-8';
+    $headers_customer[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
+    $headers_customer[] = 'Content-Type: text/html';
+    $headers_customer[] = 'charset=UTF-8';
 
-    wp_mail( $to_patient, apply_filters( 'wpd_ecommerce_checkout_email_subject_patient', $subject_patient ), apply_filters( 'wpd_ecommerce_checkout_email_message_patient', $message ), $headers_patient, '' );
+    wp_mail( $to_customer, apply_filters( 'wpd_ecommerce_checkout_email_subject_customer', $subject_customer ), apply_filters( 'wpd_ecommerce_checkout_email_message_customer', $message ), $headers_customer, '' );
 
     /**
      * Destroy session

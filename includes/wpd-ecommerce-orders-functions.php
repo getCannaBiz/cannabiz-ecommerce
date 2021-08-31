@@ -298,14 +298,14 @@ function wpd_ecommerce_templates_single_order_redirects() {
             // Administrators who are NOT the customer
         } elseif ( $user->ID === $order_details['customer_id'] && 'administrator' === $role[0] ) {
             // Administrators who ARE the customer
-        } elseif ( $user->ID != $order_details['customer_id'] && 'patient' === $role[0] ) {
-            // Patients who are ARE NOT the customer.
+        } elseif ( $user->ID != $order_details['customer_id'] && 'customer' === $role[0] ) {
+            // Customers who are ARE NOT the customer.
             wp_redirect( wpd_ecommerce_account_url() );
         } elseif ( $user->ID == $order_details['customer_id'] ) {
             // If current user IS the customer.
         } else {
-            // If not patient or admin, redirect to account page.
-            if ( 'patient' != $role[0] && 'administrator' != $role[0] ) {
+            // If not customer or admin, redirect to account page.
+            if ( 'customer' != $role[0] && 'administrator' != $role[0] ) {
                 wp_redirect( wpd_ecommerce_account_url() );
             }
         }

@@ -45,7 +45,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
                 echo '<p><strong>' . __( 'Name', 'wpd-ecommerce' ) . ':</strong></p>';
                 echo '<p>' . $first_name . ' ' . $last_name . '</p>';
                 echo '</div>';
-                echo '<div class="patient-address">';
+                echo '<div class="customer-address">';
                 echo '<p><strong>' . __( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
 
                 if ( '' != $user_info->address_line_1 ) {
@@ -67,7 +67,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
                 echo '</p>';
                 echo '</div>';
 
-                echo '<div class="patient-contact">';
+                echo '<div class="customer-contact">';
                 echo '<table class="wpd-ecommerce order-details"><tbody>';
                 echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['subtotal'] . '</td></tr>';
                 if ( '0.00' !== $order_details['coupon_amount'] ) {
@@ -91,7 +91,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
             $role = ( array ) $user->roles;
 
             echo '<h3>' . __( 'Order items', 'wpd-ecommerce' ) . '</h3>';
-            if ( 'patient' === $role[0] ) {
+            if ( 'customer' === $role[0] ) {
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $user->ID );
             } elseif ( 'administrator' === $role[0] ) {
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $order_details['customer_id'] );

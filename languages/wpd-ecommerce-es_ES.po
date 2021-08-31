@@ -42,8 +42,8 @@ msgstr "Cantidad"
 #: checkout/checkout-shortcode.php:334
 #: includes/wpd-ecommerce-orders-functions.php:54
 #: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
-#: patients/patient-account-shortcode.php:253
-#: patients/patient-account-shortcode.php:318 templates/single-order.php:137
+#: customers/customer-account-shortcode.php:253
+#: customers/customer-account-shortcode.php:318 templates/single-order.php:137
 msgid "Total"
 msgstr "Total"
 
@@ -110,17 +110,17 @@ msgstr "Pagar"
 msgid "You must be logged in to checkout."
 msgstr "Debes iniciar sesión para realizar el pago."
 
-#: checkout/checkout-shortcode.php:15 patients/patient-account-shortcode.php:28
+#: checkout/checkout-shortcode.php:15 customers/customer-account-shortcode.php:28
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: checkout/checkout-shortcode.php:33 patients/patient-account-shortcode.php:97
+#: checkout/checkout-shortcode.php:33 customers/customer-account-shortcode.php:97
 msgid "The Email you entered is not valid. Please try again."
 msgstr ""
 "El correo electrónico que has introducido no es válido. Por favor, vuelva a "
 "intentarlo ."
 
-#: checkout/checkout-shortcode.php:35 patients/patient-account-shortcode.php:99
+#: checkout/checkout-shortcode.php:35 customers/customer-account-shortcode.php:99
 msgid "This email is already used by another user. Try a different one."
 msgstr ""
 "Este correo electrónico ya está siendo utilizado por otro usuario. Pruebe "
@@ -147,25 +147,25 @@ msgstr "La cantidad mínima de pedido requerida para pagar es"
 msgid "Billing details"
 msgstr "Detalles de facturación"
 
-#: checkout/checkout-shortcode.php:120 patients/patient-account-details.php:15
-#: patients/patient-account-details.php:46
-#: patients/patient-account-shortcode.php:381
+#: checkout/checkout-shortcode.php:120 customers/customer-account-details.php:15
+#: customers/customer-account-details.php:46
+#: customers/customer-account-shortcode.php:381
 msgid "First Name"
 msgstr "Nombre"
 
 #: checkout/checkout-shortcode.php:124
-#: patients/patient-account-shortcode.php:385
+#: customers/customer-account-shortcode.php:385
 msgid "Last Name"
 msgstr "Apellido"
 
 #: checkout/checkout-shortcode.php:129
-#: patients/patient-account-shortcode.php:390
+#: customers/customer-account-shortcode.php:390
 msgid "E-mail"
 msgstr "E-mail"
 
 #: checkout/checkout-shortcode.php:134 orders/orders-metaboxes.php:145
-#: patients/patient-account-details.php:74
-#: patients/patient-account-shortcode.php:395
+#: customers/customer-account-details.php:74
+#: customers/customer-account-shortcode.php:395
 msgid "Phone number"
 msgstr "Número de teléfono"
 
@@ -181,23 +181,23 @@ msgstr "Nombre de la Calle, Número Exterior e Interior"
 msgid "Apartment, unit, etc. (optional)"
 msgstr "Apartamento, unidad, etc. (opcional)"
 
-#: checkout/checkout-shortcode.php:145 patients/patient-account-details.php:77
-#: patients/patient-account-shortcode.php:410
+#: checkout/checkout-shortcode.php:145 customers/customer-account-details.php:77
+#: customers/customer-account-shortcode.php:410
 msgid "City"
 msgstr "Ciudad"
 
-#: checkout/checkout-shortcode.php:150 patients/patient-account-details.php:78
-#: patients/patient-account-shortcode.php:415
+#: checkout/checkout-shortcode.php:150 customers/customer-account-details.php:78
+#: customers/customer-account-shortcode.php:415
 msgid "State / County"
 msgstr "Estado / Provincia"
 
-#: checkout/checkout-shortcode.php:155 patients/patient-account-details.php:79
-#: patients/patient-account-shortcode.php:420
+#: checkout/checkout-shortcode.php:155 customers/customer-account-details.php:79
+#: customers/customer-account-shortcode.php:420
 msgid "Postcode / ZIP"
 msgstr "Código postal"
 
-#: checkout/checkout-shortcode.php:160 patients/patient-account-details.php:80
-#: patients/patient-account-shortcode.php:425
+#: checkout/checkout-shortcode.php:160 customers/customer-account-details.php:80
+#: customers/customer-account-shortcode.php:425
 msgid "Country"
 msgstr "País"
 
@@ -214,7 +214,7 @@ msgid "You can check out after adding some products to your cart"
 msgstr "Puede pagar después de agregar algunos productos a su carrito"
 
 #: checkout/checkout-shortcode.php:318
-#: patients/patient-account-shortcode.php:250 templates/single-order.php:97
+#: customers/customer-account-shortcode.php:250 templates/single-order.php:97
 msgid "Name"
 msgstr "Nombre"
 
@@ -958,33 +958,33 @@ msgstr ""
 "Borrador de pedido actualizado. <a target=\"_blank\" href=\"%s\">Orden de "
 "vista previa</a>"
 
-#: includes/wpd-ecommerce-patients-functions.php:179
-#: patients/patient-account-shortcode.php:462
+#: includes/wpd-ecommerce-customers-functions.php:179
+#: customers/customer-account-shortcode.php:462
 msgid "Verification"
 msgstr "Verificación"
 
-#: includes/wpd-ecommerce-patients-functions.php:184
+#: includes/wpd-ecommerce-customers-functions.php:184
 msgid "Drivers license or Valid ID"
 msgstr "Licencia de conducir o identificación válida"
 
-#: includes/wpd-ecommerce-patients-functions.php:199
-#: includes/wpd-ecommerce-patients-functions.php:221
-#: patients/patient-account-shortcode.php:488
-#: patients/patient-account-shortcode.php:518
+#: includes/wpd-ecommerce-customers-functions.php:199
+#: includes/wpd-ecommerce-customers-functions.php:221
+#: customers/customer-account-shortcode.php:488
+#: customers/customer-account-shortcode.php:518
 msgid "x"
 msgstr "x"
 
-#: includes/wpd-ecommerce-patients-functions.php:206
-#: patients/patient-account-shortcode.php:503
+#: includes/wpd-ecommerce-customers-functions.php:206
+#: customers/customer-account-shortcode.php:503
 msgid "Doctor recommendation"
 msgstr "Recomendación del médico"
 
-#: includes/wpd-ecommerce-patients-functions.php:228
-#: patients/patient-account-shortcode.php:533
+#: includes/wpd-ecommerce-customers-functions.php:228
+#: customers/customer-account-shortcode.php:533
 msgid "Recommendation number"
 msgstr "Número de recomendación"
 
-#: includes/wpd-ecommerce-patients-functions.php:234
+#: includes/wpd-ecommerce-customers-functions.php:234
 msgid "Expiration date"
 msgstr "Fecha de vencimiento"
 
@@ -998,8 +998,8 @@ msgid "Order #%1$s details"
 msgstr "Detalles del pedido #%1$s"
 
 #: orders/orders-metaboxes.php:102 orders/orders-post-type.php:98
-#: patients/patient-account-shortcode.php:252
-#: patients/patient-account-shortcode.php:317
+#: customers/customer-account-shortcode.php:252
+#: customers/customer-account-shortcode.php:317
 msgid "Status"
 msgstr "Estado"
 
@@ -1011,7 +1011,7 @@ msgstr "Dirección"
 msgid "Customer"
 msgstr "Cliente"
 
-#: orders/orders-metaboxes.php:140 patients/patient-account-shortcode.php:50
+#: orders/orders-metaboxes.php:140 customers/customer-account-shortcode.php:50
 msgid "Email address"
 msgstr "Dirección de correo electrónico"
 
@@ -1025,8 +1025,8 @@ msgctxt "Post Type Singular Name"
 msgid "Order"
 msgstr "Orden"
 
-#: orders/orders-post-type.php:16 patients/patient-account-shortcode.php:147
-#: patients/patient-account-shortcode.php:240
+#: orders/orders-post-type.php:16 customers/customer-account-shortcode.php:147
+#: customers/customer-account-shortcode.php:240
 msgid "Orders"
 msgstr "Pedidos"
 
@@ -1130,71 +1130,71 @@ msgstr "Lista de pedidos de filtro"
 msgid "View your store's order history"
 msgstr "Ver el historial de pedidos de su tienda"
 
-#: orders/orders-post-type.php:97 patients/patient-account-shortcode.php:251
-#: patients/patient-account-shortcode.php:316 templates/single-order.php:80
+#: orders/orders-post-type.php:97 customers/customer-account-shortcode.php:251
+#: customers/customer-account-shortcode.php:316 templates/single-order.php:80
 msgid "Date"
 msgstr "Fecha"
 
-#: patients/patient-account-details.php:42
+#: customers/customer-account-details.php:42
 msgid "Additional Details"
 msgstr "Detalles Adicionales"
 
-#: patients/patient-account-details.php:75
-#: patients/patient-account-shortcode.php:400
+#: customers/customer-account-details.php:75
+#: customers/customer-account-shortcode.php:400
 msgid "Address line 1"
 msgstr "Dirección"
 
-#: patients/patient-account-details.php:76
-#: patients/patient-account-shortcode.php:405
+#: customers/customer-account-details.php:76
+#: customers/customer-account-shortcode.php:405
 msgid "Address line 2"
 msgstr "Dirección línea 2"
 
-#: patients/patient-account-details.php:107
+#: customers/customer-account-details.php:107
 msgid "<strong>ERROR</strong>: Please enter your year of birth."
 msgstr "<strong>ERROR</strong>: ingrese su año de nacimiento."
 
-#: patients/patient-account-details.php:111
+#: customers/customer-account-details.php:111
 msgid "<strong>ERROR</strong>: You must be born after 1900."
 msgstr "<strong>ERROR</strong>: Debes nacer después de 1900."
 
-#: patients/patient-account-shortcode.php:40
-#: patients/patient-account-shortcode.php:56
+#: customers/customer-account-shortcode.php:40
+#: customers/customer-account-shortcode.php:56
 msgid "Register"
 msgstr "Registrarse"
 
-#: patients/patient-account-shortcode.php:45
+#: customers/customer-account-shortcode.php:45
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: patients/patient-account-shortcode.php:54
+#: customers/customer-account-shortcode.php:54
 msgid "A password will be emailed to you."
 msgstr "Una contraseña le será enviada por correo electrónico a usted."
 
-#: patients/patient-account-shortcode.php:91
+#: customers/customer-account-shortcode.php:91
 msgid "The passwords you entered do not match.  Your password was not updated."
 msgstr "Las contraseñas no coinciden. Su contraseña no se actualiza."
 
-#: patients/patient-account-shortcode.php:144
+#: customers/customer-account-shortcode.php:144
 msgid "Dashboard"
 msgstr "Escritorio"
 
-#: patients/patient-account-shortcode.php:150
+#: customers/customer-account-shortcode.php:150
 msgid "Details"
 msgstr "Detalles"
 
-#: patients/patient-account-shortcode.php:172
+#: customers/customer-account-shortcode.php:172
 msgid "Hello"
 msgstr "Hola"
 
-#: patients/patient-account-shortcode.php:172
+#: customers/customer-account-shortcode.php:172
 msgid "Log out"
 msgstr "Cerrar sesión"
 
-#: patients/patient-account-shortcode.php:178
+#: customers/customer-account-shortcode.php:178
 msgid "Account dashboard"
 msgstr "Panel de cuenta"
 
-#: patients/patient-account-shortcode.php:179
+#: customers/customer-account-shortcode.php:179
 msgid ""
 "From your account dashboard you can view your order history and account "
 "details."
@@ -1202,53 +1202,53 @@ msgstr ""
 "Desde el panel de su cuenta, puede ver su historial de pedidos y los "
 "detalles de su cuenta."
 
-#: patients/patient-account-shortcode.php:241
+#: customers/customer-account-shortcode.php:241
 msgid "This Week"
 msgstr "Esta semana"
 
-#: patients/patient-account-shortcode.php:246
+#: customers/customer-account-shortcode.php:246
 msgid "Recent Store Orders"
 msgstr "Pedidos recientes de la tienda"
 
-#: patients/patient-account-shortcode.php:249
-#: patients/patient-account-shortcode.php:315
+#: customers/customer-account-shortcode.php:249
+#: customers/customer-account-shortcode.php:315
 msgid "ID"
 msgstr "ID"
 
-#: patients/patient-account-shortcode.php:312
+#: customers/customer-account-shortcode.php:312
 msgid "Order history"
 msgstr "Historial de pedidos"
 
-#: patients/patient-account-shortcode.php:376
+#: customers/customer-account-shortcode.php:376
 msgid "Contact information"
 msgstr "Información de contacto"
 
-#: patients/patient-account-shortcode.php:473
+#: customers/customer-account-shortcode.php:473
 msgid "Drivers License or Valid ID"
 msgstr "Licencia de conducir o identificación válida"
 
-#: patients/patient-account-shortcode.php:546
+#: customers/customer-account-shortcode.php:546
 msgid "Expiration Date"
 msgstr "Fecha de expiración"
 
-#: patients/patient-account-shortcode.php:556
+#: customers/customer-account-shortcode.php:556
 msgid "Password change"
 msgstr "Cambiar contraseña"
 
-#: patients/patient-account-shortcode.php:561
+#: customers/customer-account-shortcode.php:561
 msgid "Password"
 msgstr "Contraseña"
 
-#: patients/patient-account-shortcode.php:561
-#: patients/patient-account-shortcode.php:565
+#: customers/customer-account-shortcode.php:561
+#: customers/customer-account-shortcode.php:565
 msgid "Leave blank to keep unchanged"
 msgstr "Dejar en blanco para mantenerlo sin cambios"
 
-#: patients/patient-account-shortcode.php:565
+#: customers/customer-account-shortcode.php:565
 msgid "Repeat Password"
 msgstr "Repite la contraseña"
 
-#: patients/patient-account-shortcode.php:570
+#: customers/customer-account-shortcode.php:570
 msgid "Update"
 msgstr "Actualizar"
 

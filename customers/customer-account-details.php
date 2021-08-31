@@ -1,6 +1,6 @@
 <?php
 /**
- * WP Dispensary eCommerce patient account details
+ * WP Dispensary eCommerce customer account details
  *
  * @since 1.0
  */
@@ -16,7 +16,7 @@ function wpd_ecommerce_registration_form() { ?>
 		<input type="text" name="first_name" value="" id="first_name" class="input" />
 	</p>
 <?php }
-//add_action( 'wpd_ecommerce_patient_account_register_form_inside_top', 'wpd_ecommerce_registration_form' );
+//add_action( 'wpd_ecommerce_customer_account_register_form_inside_top', 'wpd_ecommerce_registration_form' );
 
 /**
  * User Registration - Update user data
