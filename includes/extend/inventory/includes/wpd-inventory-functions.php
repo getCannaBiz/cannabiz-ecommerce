@@ -65,6 +65,10 @@ function wpd_inventory_oos_shortcode_warnings() {
 
     // Growers out of stock.
     if ( 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
+        // If no clone or seed count has been added.
+        if ( ! get_post_meta( get_the_ID(), 'seed_count', true ) && ! get_post_meta( get_the_ID(), 'clone_count', true ) ) {
+            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+        }
         // Add out of stock notice to output string.
         if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
