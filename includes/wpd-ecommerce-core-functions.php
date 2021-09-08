@@ -1675,8 +1675,15 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_title_after', 'wpd_ecomm
  * @return string
  */
 function wpd_ecommerce_account_url() {
-    $wpdas_pages  = get_option( 'wpdas_pages' );
-    $account_page = $wpdas_pages['wpd_pages_setup_account_page'];
+	// Get settings.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+	// Set default account page.
+	$account_page = 'account';
+	// Customize the account page.
+	if ( $wpdas_pages ) {
+		$account_page = $wpdas_pages['wpd_pages_setup_account_page'];
+	}
+	// Create the full account page URL.
     $account_url  = home_url() . '/' . $account_page;
 
 	return apply_filters( 'wpd_ecommerce_account_url', $account_url );
@@ -1688,9 +1695,16 @@ function wpd_ecommerce_account_url() {
  * @return string
  */
 function wpd_ecommerce_cart_url() {
-    $wpdas_pages = get_option( 'wpdas_pages' );
-    $cart_page   = $wpdas_pages['wpd_pages_setup_cart_page'];
-    $cart_url    = home_url() . '/' . $cart_page;
+	// Get settings.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+	// Set default cart page.
+	$cart_page = 'cart';
+	// Customize the cart page.
+	if ( $wpdas_pages ) {
+		$cart_page = $wpdas_pages['wpd_pages_setup_cart_page'];
+	}
+	// Create the full cart page URL.
+	$cart_url = home_url() . '/' . $cart_page;
 
 	return apply_filters( 'wpd_ecommerce_cart_url', $cart_url );
 }
@@ -1701,8 +1715,15 @@ function wpd_ecommerce_cart_url() {
  * @return string
  */
 function wpd_ecommerce_checkout_url() {
-    $wpdas_pages   = get_option( 'wpdas_pages' );
-    $checkout_page = $wpdas_pages['wpd_pages_setup_checkout_page'];
+	// Get settings.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+	// Set default checkout page.
+	$checkout_page = 'checkout';
+	// Customize the checkout page.
+	if ( $wpdas_pages ) {
+		$checkout_page = $wpdas_pages['wpd_pages_setup_checkout_page'];
+	}
+	// Create the full checkout page URL.
     $checkout_url  = home_url() . '/' . $checkout_page;
 
 	return apply_filters( 'wpd_ecommerce_checkout_url', $checkout_url );
@@ -1714,9 +1735,16 @@ function wpd_ecommerce_checkout_url() {
  * @return string
  */
 function wpd_ecommerce_menu_url() {
-    $wpdas_pages = get_option( 'wpdas_pages' );
-    $menu_page   = $wpdas_pages['wpd_pages_setup_menu_page'];
-    $menu_url    = home_url() . '/' . $menu_page;
+	// Get settings.
+	$wpdas_pages = get_option( 'wpdas_pages' );
+	// Set default menu page.
+	$menu_page = 'menu';
+	// Customize the menu page.
+	if ( $wpdas_pages ) {
+		$menu_page = $wpdas_pages['wpd_pages_setup_menu_page'];
+	}
+	// Create the full menu page URL.
+    $menu_url = home_url() . '/' . $menu_page;
 
 	return apply_filters( 'wpd_ecommerce_menu_url', $menu_url );
 }
