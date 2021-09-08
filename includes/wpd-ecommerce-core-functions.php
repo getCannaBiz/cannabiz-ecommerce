@@ -1172,14 +1172,20 @@ function wpd_ecommerce_add_to_cart_form() {
 
     // Growers out of stock.
     if ( 'products' == get_post_type( get_the_ID() ) && 'growers' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
+        // If no clone or seed count has been added.
+        if ( ! get_post_meta( get_the_ID(), 'seed_count', true ) && ! get_post_meta( get_the_ID(), 'clone_count', true ) ) {
+            if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) && ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
+				$out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+			}
+        }
         // Add out of stock notice to output string.
         if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
-            if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
+                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         } elseif ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
-            if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
+                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         }
     }
