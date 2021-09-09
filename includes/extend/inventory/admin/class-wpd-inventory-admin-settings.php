@@ -702,14 +702,6 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 
 		/**
 		 * Add submenu page to the Settings main menu.
-		 *
-		 * @param string $page_title
-		 * @param string $menu_title
-		 * @param string $capability
-		 * @param string $menu_slug
-		 * @param callable $function = ''
-		 * @author Ahmad Awais
-		 * @since  [version]
 		 */
 
 		// public function admin_menu( $page_title = 'Page Title', $menu_title = 'Menu Title', $capability = 'manage_options', $menu_slug = 'settings_page', $callable = 'plugin_page' ) {
@@ -718,7 +710,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			add_submenu_page(
 				'wpd-settings',
 				'WP Dispensary\'s Inventory Management',
-				__( 'Inventory', 'wpd-inventory' ),
+				__( 'Inventory', 'wpd-ecommerce' ),
 				'manage_options',
 				'wpd-inventory',
 				array( $this, 'plugin_page' )
@@ -790,11 +782,11 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			$html .= '<table id="myTable" class="tablesorter wpd-inventory">
 						<thead>
 						<tr>
-							<th>ID</th>
-							<th>Type</th>
-							<th>Product name</th>
-							<th>Categories</th>
-							<th>Stock</th>
+							<th>' . __( 'ID', 'wpd-ecommerce' ) . '</th>
+							<th>' . __( 'Type', 'wpd-ecommerce' ) . '</th>
+							<th>' . __( 'Product name', 'wpd-ecommerce' ) . '</th>
+							<th>' . __( 'Categories', 'wpd-ecommerce' ) . '</th>
+							<th>' . __( 'Stock', 'wpd-ecommerce' ) . '</th>
 						</tr>
 						</thead>
 						<tbody>';
