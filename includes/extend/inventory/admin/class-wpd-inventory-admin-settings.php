@@ -54,7 +54,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 			// Menu.
-			add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+			add_action( 'admin_menu', array( $this, 'admin_menu' ), 98 );
 
 		}
 
@@ -718,9 +718,9 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			add_submenu_page(
 				'wpd-settings',
 				'WP Dispensary\'s Inventory Management',
-				'Inventory',
+				__( 'Inventory', 'wpd-inventory' ),
 				'manage_options',
-				'admin.php?page=wpd-inventory',
+				'wpd-inventory',
 				array( $this, 'plugin_page' )
 			);
 		}
@@ -800,7 +800,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						<tbody>';
 
 			$loop = new WP_Query( array(
-				'post_type'      => array( 'flowers', 'concentrates', 'edibles', 'topicals', 'prerolls', 'growers', 'gear', 'tinctures' ),
+				'post_type'      => array( 'products' ),
 				'posts_per_page' => -1,
 			) );
 
@@ -811,23 +811,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			// Start loop.
 			if ( $loop->have_posts() ) :
 			while ( $loop->have_posts() ) : $loop->the_post();
-				if ( in_array( get_post_type(), array( 'flowers' ) ) ) {
-					// Get permalink base for Flowers.
-					$wpd_flowers_slug = get_option( 'wpd_flowers_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_flowers_slug ) {
-						$wpd_flowers_slug = 'flowers';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_flowers_slug_cap = ucfirst( $wpd_flowers_slug );
-
+				if ( 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_flowers_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'flowers_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -843,24 +832,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_grams', true );
 						$inventory        = '<input id="inventory_grams" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> grams';
 					}
-				} elseif ( in_array( get_post_type(), array( 'concentrates' ) ) ) {
-
-					// Get permalink base for Concentrates.
-					$wpd_concentrates_slug = get_option( 'wpd_concentrates_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_concentrates_slug ) {
-						$wpd_concentrates_slug = 'concentrates';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_concentrates_slug_cap = ucfirst( $wpd_concentrates_slug );
-
+				} elseif ( 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_concentrates_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'concentrates_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -880,23 +857,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = '0';
 					}
 
-				} elseif ( in_array( get_post_type(), array( 'edibles' ) ) ) {
-					// Get permalink base for Edibles.
-					$wpd_edibles_slug = get_option( 'wpd_edibles_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_edibles_slug ) {
-						$wpd_edibles_slug = 'edibles';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_edibles_slug_cap = ucfirst( $wpd_edibles_slug );
-
+				} elseif ( 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_edibles_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'edibles_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -912,23 +878,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
 						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
-				} elseif ( in_array( get_post_type(), array( 'topicals' ) ) ) {
-					// Get permalink base for Topicals.
-					$wpd_topicals_slug = get_option( 'wpd_topicals_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_topicals_slug ) {
-						$wpd_topicals_slug = 'topicals';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_topicals_slug_cap = ucfirst( $wpd_topicals_slug );
-
+				} elseif ( 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_topicals_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'topicals_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -944,23 +899,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
 						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
-				} elseif ( in_array( get_post_type(), array( 'prerolls' ) ) ) {
-					// Get permalink base for Pre-rolls.
-					$wpd_prerolls_slug = get_option( 'wpd_prerolls_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_prerolls_slug ) {
-						$wpd_prerolls_slug = 'pre-rolls';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_prerolls_slug_cap = ucfirst( $wpd_prerolls_slug );
-
+				} elseif ( 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_prerolls_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'flowers_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -976,23 +920,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
 						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . get_post_meta( get_the_id(), 'inventory_units', true ) . '" /> units';
 					}
-				} elseif ( in_array( get_post_type(), array( 'growers' ) ) ) {
-					// Get permalink base for Growers.
-					$wpd_growers_slug = get_option( 'wpd_growers_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_growers_slug ) {
-						$wpd_growers_slug = 'growers';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_growers_slug_cap = ucfirst( $wpd_growers_slug );
-
+				} elseif ( 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_growers_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Categories.
-					$categories = wp_get_object_terms( get_the_id(), 'growers_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -1011,23 +944,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = '0';
 						$inventory        = '<input id="inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
 					}
-				} elseif ( in_array( get_post_type(), array( 'gear' ) ) ) {
-					// Get permalink base for Gear.
-					$wpd_gear_slug = get_option( 'wpd_gear_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_gear_slug ) {
-						$wpd_gear_slug = 'gear';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_gear_slug_cap = ucfirst( $wpd_gear_slug );
-
+				} elseif ( 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_gear_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'wpd_gear_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
@@ -1043,23 +965,12 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_units', true );
 						$inventory        = '<input id="inventory_units" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> units';
 					}
-				} elseif ( in_array( get_post_type(), array( 'tinctures' ) ) ) {
-					// Get permalink base for Tinctures.
-					$wpd_tinctures_slug = get_option( 'wpd_tinctures_slug' );
-
-					// If custom base is empty, set default.
-					if ( '' == $wpd_tinctures_slug ) {
-						$wpd_tinctures_slug = 'tinctures';
-					}
-
-					// Capitalize first letter of new slug.
-					$wpd_tinctures_slug_cap = ucfirst( $wpd_tinctures_slug );
-
+				} elseif ( 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) ) {
 					// Menu type name.
-					$menutype = $wpd_tinctures_slug_cap;
+					$menutype = wpd_product_type_display_name( get_post_meta( get_the_ID(), 'product_type', true ) );
 
 					// Get categories.
-					$categories = wp_get_object_terms( get_the_id(), 'wpd_tinctures_category' );
+					$categories = wp_get_object_terms( get_the_id(), 'wpd_categories' );
 
 					if ( ! $categories ) {
 						$categories = '';
