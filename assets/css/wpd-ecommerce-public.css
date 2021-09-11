@@ -615,7 +615,7 @@ div.wpd-ecommerce.customer-account label.account-links {
 }
 
 div.wpd-ecommerce.customer-account label.account-links:before {
-    font-family: fontawesome;
+    font-family: 'Font Awesome 5 Free';
     font-weight: normal;
     margin-right: 10px;
 }
