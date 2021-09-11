@@ -25,7 +25,7 @@
 
 .wpd-inventory.warning p:before {
     content: '\f071';
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     margin-right: 10px;
 }
 

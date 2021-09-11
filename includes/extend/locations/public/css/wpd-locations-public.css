@@ -54,7 +54,7 @@ span.wpd-locations-widget-categories a:hover {
 ul.wpd-locations-list li:before {
     color: #454545;
     content: "\f105";
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     margin-right: 6px;
     -webkit-font-smoothing: antialiased;
 }

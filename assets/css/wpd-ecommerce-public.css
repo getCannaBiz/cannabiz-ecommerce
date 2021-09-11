@@ -223,7 +223,7 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 .wpd-ecommerce-notifications.success:before {
     color: #76bd1d;
     content: "\f058";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
     -webkit-font-smoothing: antialiased;
@@ -243,7 +243,7 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 .wpd-ecommerce-notifications.failed:before {
     color: red;
     content: "\f057";
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
     -webkit-font-smoothing: antialiased;
@@ -720,7 +720,7 @@ table.wpd-ecommerce.customer-orders tbody td span.status {
 
 table.wpd-ecommerce.customer-orders tbody td span.status:before {
     color: #454545;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
     padding-right: 2px;
@@ -853,7 +853,7 @@ body.single-wpd_orders .entry-header h1 span.status {
 
 body.single-wpd_orders .entry-header h1 span.status:before {
     color: #AAA;
-    font-family: FontAwesome;
+    font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
     padding-right: 2px;
