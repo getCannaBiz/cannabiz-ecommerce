@@ -959,7 +959,7 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
  * @since 1.0
  */
 function wpd_ecommerce_wrap_before() {
-	echo '<div id="primary" class="col-lg-8 content-area">
+	echo '<div id="primary" class="col-lg-12 content-area">
 	<main id="main" class="site-main" role="main">';
 }
 add_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
@@ -979,15 +979,8 @@ add_action( 'wpd_ecommerce_templates_archive_items_wrap_after', 'wpd_ecommerce_w
 add_action( 'wpd_ecommerce_templates_single_items_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
 add_action( 'wpd_ecommerce_templates_single_orders_wrap_after', 'wpd_ecommerce_wrap_after', 10 );
 
-
-$my_theme = wp_get_theme();
-/*
-echo "<pre>";
-print_r( $my_theme );
-echo "</pre>";
-
-echo $my_theme->get( 'Template' );
-*/
+// Get theme info.
+$my_theme      = wp_get_theme();
 $template_name = $my_theme->get( 'TextDomain' );
 
 if ( 'twentyseventeen' == $template_name ) {
