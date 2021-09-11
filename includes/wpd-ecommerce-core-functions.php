@@ -963,8 +963,18 @@ function wpd_ecommerce_wrap_before() {
 	<main id="main" class="site-main" role="main">';
 }
 add_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
-add_action( 'wpd_ecommerce_templates_single_items_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
-add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_wrap_before', 10 );
+
+/**
+ * Template wrap - before (single templates)
+ * 
+ * @since 4.0
+ */
+function wpd_ecommerce_wrap_before_single() {
+	echo '<div id="primary" class="col-lg-8 content-area">
+	<main id="main" class="site-main" role="main">';
+}
+add_action( 'wpd_ecommerce_templates_single_items_wrap_before', 'wpd_ecommerce_wrap_before_single', 10 );
+add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_wrap_before_single', 10 );
 
 /**
  * Template wrap - after
