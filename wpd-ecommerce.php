@@ -95,6 +95,7 @@ include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-archive-items-funct
 // Includes for Classes.
 include_once( dirname( __FILE__ ) . '/classes/class-cart.php' );
 include_once( dirname( __FILE__ ) . '/classes/class-item.php' );
+include_once( dirname( __FILE__ ) . '/classes/class-csv-customer-export.php' );
 
 // Includes for Cart.
 include_once( dirname( __FILE__ ) . '/cart/cart-widget.php' );
