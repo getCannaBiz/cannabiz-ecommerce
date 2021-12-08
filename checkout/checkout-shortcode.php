@@ -22,7 +22,7 @@ if ( ! is_user_logged_in() ) {
     echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . __( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
 } else {
     // Verify that there's an active session.
-	if ( ! empty( $_SESSION['wpd_ecommerce'] ) ) {
+	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 
 		// Include notifications.
 		echo wpd_ecommerce_notifications();
@@ -32,10 +32,10 @@ if ( ! is_user_logged_in() ) {
         $error = array();
 
         /* If checkout is submitted, do something specific . */
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
+        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
 
             /** Update Email Address */
-            if ( ! empty( $_POST['email'] ) ) {
+            if ( isset( $_POST['email'] ) ) {
                 if ( ! is_email( esc_attr( $_POST['email'] ) ) )
                     $error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
                 elseif( email_exists( esc_attr( $_POST['email'] ) ) != $current_user->ID )
@@ -46,31 +46,31 @@ if ( ! is_user_logged_in() ) {
             }
 
             // Update First Name.
-            if ( ! empty( $_POST['first-name'] ) )
+            if ( isset( $_POST['first-name'] ) )
                 update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
             // Update Last Name.
-            if ( ! empty( $_POST['last-name'] ) )
+            if ( isset( $_POST['last-name'] ) )
                 update_user_meta( $current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
             // Update Phone Number.
-            if ( ! empty( $_POST['phone_number'] ) )
+            if ( isset( $_POST['phone_number'] ) )
                 update_user_meta( $current_user->ID, 'phone_number', esc_attr( $_POST['phone_number'] ) );
             // Update Address Line 1.
-            if ( ! empty( $_POST['address_line_1'] ) )
+            if ( isset( $_POST['address_line_1'] ) )
                 update_user_meta( $current_user->ID, 'address_line_1', esc_attr( $_POST['address_line_1'] ) );
             // Update Address Line 2.
-            if ( ! empty( $_POST['address_line_2'] ) )
+            if ( isset( $_POST['address_line_2'] ) )
                 update_user_meta( $current_user->ID, 'address_line_2', esc_attr( $_POST['address_line_2'] ) );
             // Update City.
-            if ( ! empty( $_POST['city'] ) )
+            if ( isset( $_POST['city'] ) )
                 update_user_meta( $current_user->ID, 'city', esc_attr( $_POST['city'] ) );
             // Update State/County.
-            if ( ! empty( $_POST['state_county'] ) )
+            if ( isset( $_POST['state_county'] ) )
                 update_user_meta( $current_user->ID, 'state_county', esc_attr( $_POST['state_county'] ) );
             // Update Postcode/Zip.
-            if ( ! empty( $_POST['postcode_zip'] ) )
+            if ( isset( $_POST['postcode_zip'] ) )
                 update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( $_POST['postcode_zip'] ) );
             // Update Country.
-            if ( ! empty( $_POST['country'] ) )
+            if ( isset( $_POST['country'] ) )
                 update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
 
             /**
@@ -84,7 +84,7 @@ if ( ! is_user_logged_in() ) {
             // Minimum checkout check.
             if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
-                    if ( empty( $_POST['payment-type'] ) ) {
+                    if ( ! isset( $_POST['payment-type'] ) ) {
                         $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
@@ -95,7 +95,7 @@ if ( ! is_user_logged_in() ) {
                     echo $str;
                 }
             } else {
-                if ( empty( $_POST['payment-type'] ) ) {
+                if ( ! isset( $_POST['payment-type'] ) ) {
                     $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                     echo $str;
                 } else {
