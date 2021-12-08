@@ -516,16 +516,26 @@ function wpd_ecommerce_notifications() {
 
 		foreach( $coupons_loop as $coupon ) : setup_postdata( $coupon );
 
-		$coupon_code   = get_post_meta( $coupon->ID, 'wpd_coupon_code', TRUE );
-		$coupon_amount = get_post_meta( $coupon->ID, 'wpd_coupon_amount', TRUE );
-		$coupon_type   = get_post_meta( $coupon->ID, 'wpd_coupon_type', TRUE );
-		$coupon_exp    = get_post_meta( $coupon->ID, 'wpd_coupon_exp', TRUE );
+			// Coupon details.
+			$coupon_code   = get_post_meta( $coupon->ID, 'wpd_coupon_code', TRUE );
+			$coupon_amount = get_post_meta( $coupon->ID, 'wpd_coupon_amount', TRUE );
+			$coupon_type   = get_post_meta( $coupon->ID, 'wpd_coupon_type', TRUE );
+			$coupon_exp    = get_post_meta( $coupon->ID, 'wpd_coupon_exp', TRUE );
 
-		// Add coupon to the cart.
-		$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
-		
-		// Display success notification.
-		echo '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
+			// Apply coupon to specific product?
+			$product_selected = get_post_meta( $post->ID, 'wpd_coupons_apply_to_product', true );
+
+			// @todo display error notice if the selected product is not in the cart.
+			if ( $product_selected && '' != $product_selected ) {
+				// Display error notification.
+				echo '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Required product is not in your cart', 'wpd-ecommerce' ) . '</div>';
+			} else {
+				// Add coupon to the cart.
+				$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
+				
+				// Display success notification.
+				echo '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
+			}
 
 		endforeach;
 	}
