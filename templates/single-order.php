@@ -70,16 +70,16 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
                 echo '<div class="customer-contact">';
                 echo '<table class="wpd-ecommerce order-details"><tbody>';
                 echo '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['subtotal'] . '</td></tr>';
-                if ( '0.00' !== $order_details['coupon_amount'] ) {
+                if ( isset( $order_details['coupon_amount'] ) && '0.00' !== $order_details['coupon_amount'] ) {
                     echo '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_details['coupon_amount'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_details['sales_tax'] ) {
+                if ( isset( $order_details['sales_tax'] ) && '0.00' !== $order_details['sales_tax'] ) {
                     echo '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['sales_tax'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_details['excise_tax'] ) {
+                if ( isset( $order_details['excise_tax'] ) && '0.00' !== $order_details['excise_tax'] ) {
                     echo '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['excise_tax'] . '</td></tr>';
                 }
-                if ( '0.00' !== $order_details['payment_type']['amount'] ) {
+                if ( isset( $order_details['payment_type']['amount'] ) && '0.00' !== $order_details['payment_type']['amount'] ) {
                     echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
                 }
                 echo '<tr><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['total'] . '</td></tr>';
