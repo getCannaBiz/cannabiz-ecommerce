@@ -7,11 +7,15 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Add Customer User Role on Plugin Activation.
+// Add Customer user role.
 function wpd_ecommerce_add_customer_user_role_activation() {
-	add_role( 'customer', 'Customer', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
+    $role_set = get_option( 'wpd_ecommerce_customer_role_set' );
+    if ( ! $role_set ) {
+		add_role( 'customer', 'Customer', array( 'read' => true, 'edit_posts' => false, 'delete_posts' => false ) );
+		update_option( 'wpd_ecommerce_customer_role_set', TRUE );
+	}
 }
-register_activation_hook( __FILE__, 'wpd_ecommerce_add_customer_user_role_activation' );
+add_action( 'plugins_loaded', 'wpd_ecommerce_add_customer_user_role_activation' );
 
 /**
  * Add custom pages on plugin activation.
@@ -133,7 +137,7 @@ function wpd_ecommerce_add_options() {
 	$wpdas_payments = array(
 		'wpd_ecommerce_checkout_payments_cod_checkbox'    => 'off',
 		'wpd_ecommerce_checkout_payments_cod'             => '',
-		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'off',
+		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'on',
 		'wpd_ecommerce_checkout_payments_pop'             => '',
 		'wpd_ecommerce_checkout_payments_ground_checkbox' => 'off',
 		'wpd_ecommerce_checkout_payments_ground'          => '',
