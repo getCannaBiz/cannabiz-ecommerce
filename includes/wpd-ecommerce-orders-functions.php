@@ -312,3 +312,37 @@ function wpd_ecommerce_templates_single_order_redirects() {
     }
 }
 add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_templates_single_order_redirects' );
+
+/**
+ * Get total orders per customer
+ * 
+ * @param  $customer_id 
+ * @since  3.0
+ * @return int
+ */
+function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
+    // Bail early?
+    if ( ! $customer_id ) { return ''; }
+
+    $args = array(
+		'post_type' => 'wpd_orders',
+	);
+	$the_query = new WP_Query( $args );
+
+    // Order count.
+	$count = 0;
+
+	if ( $the_query->have_posts() ) :
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+            // Get customer ID from order.
+            $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
+            // Check if customer ID from order is the same as the arg passed through.
+			if ( $customer_id == $order_customer_id ) {
+                // Add to the count.
+				$count++;
+			}
+		endwhile;
+	endif;
+
+    return $count;
+}
