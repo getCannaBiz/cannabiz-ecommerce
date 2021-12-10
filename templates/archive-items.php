@@ -18,7 +18,14 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
     <?php if ( have_posts() ) : ?>
     <div class="wpdispensary">
         <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <h2 class="wpd-title"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
+            <?php if ( get_term_meta( get_queried_object_id(), 'vendor_logo', true ) ) { ?>
+                <div class="vendor-logo">
+                    <?php echo wp_get_attachment_image( get_term_meta( get_queried_object_id(), 'vendor_logo', true ), 'full' ); ?>
+                </div><!-- /.vendor-logo -->
+                <h2 class="wpd-title" style="display:none;"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
+            <?php } else { ?>
+                <h2 class="wpd-title"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
+            <?php } ?>
             <div class="item-wrapper">
                 <div class="wpd-row">
                 <?php
@@ -111,6 +118,4 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
 
     <?php do_action( 'wpd_ecommerce_templates_archive_items_wrap_after' ); ?>
 <?php
-
-get_sidebar();
 get_footer();
