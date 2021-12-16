@@ -39,7 +39,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         if ( function_exists( 'run_wpd_inventory' ) ) {
             // Remove button if inventory is empty.
             if ( ! get_post_meta( $product_id, 'inventory_grams', true ) || 0 >= get_post_meta( $product_id, 'inventory_grams', true ) ) {
-                $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $button = '';
             }    
         }
     }
@@ -57,12 +57,12 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
             if ( '' != $price_each ) {
                 // Remove button if inventory is empty.
                 if ( ! get_post_meta( $product_id, 'inventory_units', true ) || 0 >= get_post_meta( $product_id, 'inventory_units', true ) ) {
-                    $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                    $button = '';
                 }
             } else {
                 // Remove button if inventory is empty.
                 if ( ! get_post_meta( $product_id, 'inventory_grams', true ) || 0 >= get_post_meta( $product_id, 'inventory_grams', true ) ) {
-                    $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                    $button = '';
                 }
             }
         }
@@ -100,7 +100,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
             if ( ! get_post_meta( $product_id, 'inventory_units', true ) || 0 >= get_post_meta( $product_id, 'inventory_units', true ) ) {
-                $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $button = '';
             }
         }
     }
@@ -116,13 +116,13 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
             // Clone count.
             if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
                 if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
-                    $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                    $button = '';
                 }
             }
             // Seed count.
             if ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
                 if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-                    $button = '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                    $button = '';
                 }
             }
         }
