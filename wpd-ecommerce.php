@@ -72,7 +72,7 @@ wpd_ecommerce();
 include_once( dirname( __FILE__ ) . '/includes/extend/inventory/wpd-inventory.php' );
 
 // Include top sellers management.
-//include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
+include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
 
 // Include location management.
 //include_once( dirname( __FILE__ ) . '/includes/extend/locations/wpd-locations.php' );
