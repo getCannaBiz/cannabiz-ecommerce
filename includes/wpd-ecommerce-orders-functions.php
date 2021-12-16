@@ -346,3 +346,116 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
 
     return $count;
 }
+
+/**
+ * Get data about all orders
+ * 
+ * @param  string $start_date
+ * @param  string $end_date
+ * @since  3.0
+ * @return array
+ */
+function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
+
+	// Return data.
+	$return = array();
+
+	// Loop args.
+	$args = array(
+		'post_type'      => 'wpd_orders',
+		'posts_per_page' => 1000,
+	);
+
+	// Get all products based on $args.
+	$loop = get_posts( $args );
+
+	// Order totals.
+	$order_totals = array();
+	// Product count.
+	$product_count = array();
+	// Product data array.
+	$product_data = array();
+    // Product types.
+    $product_types = array();
+	// Product vendors array.
+    $product_taxonomies = array();
+    // Product taxonomies.
+    $taxonomies = array( 'vendors', 'shelf_types', 'strain_types', 'wpd_categories' );
+
+	// Loop through each product.
+	foreach ( $loop as $item ) {
+		$order_details = wpd_ecommerce_get_order_details( $item->ID );
+		// Add order total to array.
+		$order_totals[] = $order_details['total'];
+		// Add order product count to array.
+		$product_count[] = $order_details['order_items']['count'];
+
+		// Loop products.
+		foreach( $order_details['order_items']['products'] as $product ) {
+			// Add item quantity to array.
+            $product_data[] = array( 'id' => $product['item_id'], 'qty' => $product['quantity'] );
+            // Add product type to array.
+            $product_types[] = get_post_meta( $product['item_id'], 'product_type', true );
+
+            foreach ( $taxonomies as $tax ) {
+                // Get the taxonomies added to this product.
+                $taxonomy = get_the_terms( $product['item_id'], $tax );
+                // Check if taxonomy is added to product.
+                if ( $taxonomy ) {
+                    foreach ( $taxonomy as $taxonomy ) {
+                        // Get taxonomy ID.
+                        $the_tax = $taxonomy->term_id;
+                        // Add taxonomy to array.
+                        $product_taxonomies[$tax][] = $the_tax;
+                    }
+                }
+
+            }
+
+        }
+    }
+
+    // Item counts.
+    $item_counts = array();
+
+    // Loop through product data.
+	foreach ( $product_data as $item ) {
+		if ( ! isset( $item_counts[$item['id']] ) ) {
+			$item_counts[$item['id']] = intval( $item['qty'] );
+		} else {
+			$item_counts[$item['id']] += intval( $item['qty'] );
+		}
+	}
+
+	// Descending order.
+	//arsort( $item_counts );
+
+	// Get total orders.
+	$orders = count( $order_totals );
+	// Get total spent in all orders.
+	$total_spent = array_sum( $order_totals );
+	// Get average spent in all orders.
+	$avg_spent = $total_spent / $orders;
+	// Total product count.
+	$total_products = array_sum( $product_count );
+
+    // Add order data to the return variable.
+	$return['orders_count']                 = $orders;
+	$return['orders_total_spent']           = $total_spent;
+	$return['orders_average_spent']         = number_format( $total_spent / $orders, 2, '.', '' );
+    $return['orders_average_product_count'] = round( $total_products / $orders );
+    $return['product_counts']               = $item_counts;
+    $return['product_types']                = $product_types;
+
+    foreach ( $product_taxonomies as $key=>$val ) {
+        // Count how many times each taxonomy was purchased.
+        $product_taxonomies = array_count_values( $val );
+
+        // Sort taxonomies by count (desc).
+        //arsort( $product_taxonomies );
+        // Return taxonomy count.
+        $return[$key] = $product_taxonomies;
+    }
+
+    return apply_filters( 'wpd_ecommerce_get_orders_details', $return );
+}
