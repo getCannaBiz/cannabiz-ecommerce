@@ -369,7 +369,7 @@ add_shortcode( 'wpd-topsellers', 'wpdispensary_topsellers_shortcode' );
  * through the use of the WPD action hooks
  */
 function wpd_topsellers_icon() {
-	if ( get_post_meta( get_the_ID(), 'wpd_topsellers', true ) ) { ?>
+	if ( get_post_meta( get_the_ID(), 'product_featured', true ) ) { ?>
 		<span class="wpd-topsellers-icon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
 	<?php }
 }
@@ -380,7 +380,7 @@ add_action( 'wpd_shortcode_inside_top', 'wpd_topsellers_icon' );
  * through the use of the WPD action hooks
  */
 function wpd_topsellers_icon_single() {
-	if ( get_post_meta( get_the_ID(), 'wpd_topsellers', true ) ) { ?>
+	if ( get_post_meta( get_the_ID(), 'product_featured', true ) ) { ?>
 		<span class="wpd-topsellers-icon single"><i class="fa fa-trophy" aria-hidden="true"></i></span>
 	<?php }
 }

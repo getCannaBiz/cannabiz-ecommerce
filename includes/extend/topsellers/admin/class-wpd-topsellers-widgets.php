@@ -95,6 +95,7 @@ class wpdtopsellers_widget extends WP_Widget {
 				$post_type = $type;
 			}
 
+            // @todo update the post_type and change the type selector from above to be added to the meta_query
 			$wpdtopsellers_widget = new WP_Query(
 				array(
 					'post_type'  => $post_type,
@@ -102,8 +103,8 @@ class wpdtopsellers_widget extends WP_Widget {
 					'orderby'    => $randorder,
 					'meta_query' => array(
 						array(
-                            'key'   => 'wpd_topsellers',
-                            'value' => 'add_wpd_topsellers'
+                            'key'   => 'product_featured',
+                            'value' => 'product_featured'
 						),
 					)
 				)
@@ -123,7 +124,7 @@ class wpdtopsellers_widget extends WP_Widget {
 					echo '<span class="wpd-topsellers-widget-title"><a href="' . get_permalink( $post->ID ) . '">' . get_the_title( $post->ID ) . '</a></span>';
 				}
 				if ( 'on' == $instance['itemcategory'] ) {
-					echo '<span class="wpd-topsellers-widget-categories">' . get_the_term_list( $post->ID, 'flowers_category' ) . '</a></span>';
+					echo '<span class="wpd-topsellers-widget-categories">' . get_the_term_list( $post->ID, 'wpd_categories' ) . '</a></span>';
 				}
 				echo '</div>';
 				
