@@ -348,14 +348,15 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
 }
 
 /**
- * Get data about all orders
+ * Get order details
  * 
+ * @param  int    $customer_id
  * @param  string $start_date
  * @param  string $end_date
  * @since  3.0
  * @return array
  */
-function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
+function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', $end_date = '' ) {
 
 	// Return data.
 	$return = array();
@@ -363,11 +364,21 @@ function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
 	// Loop args.
 	$args = array(
 		'post_type'      => 'wpd_orders',
-		'posts_per_page' => 1000,
-	);
+		'posts_per_page' => -1,
+    );
 
-	// Get all products based on $args.
-	$loop = get_posts( $args );
+    if ( $customer_id ) {
+        $args['meta_query'] = array(
+            array(
+                'key'     => 'wpd_order_customer_id',
+                'value'   => $customer_id,
+                'compare' => '=',
+            )
+        );
+    }
+
+    $loop = new WP_Query( $args );
+    $loop = $loop->get_posts();
 
 	// Order totals.
 	$order_totals = array();
@@ -379,16 +390,24 @@ function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
     $product_types = array();
 	// Product vendors array.
     $product_taxonomies = array();
+    // Customer counts array.
+    $order_customers = array();
+    // Customer sales array.
+    $order_customers_sales = array();
     // Product taxonomies.
     $taxonomies = array( 'vendors', 'shelf_types', 'strain_types', 'wpd_categories' );
 
 	// Loop through each product.
 	foreach ( $loop as $item ) {
-		$order_details = wpd_ecommerce_get_order_details( $item->ID );
+        $order_details = wpd_ecommerce_get_order_details( $item->ID );
 		// Add order total to array.
 		$order_totals[] = $order_details['total'];
 		// Add order product count to array.
-		$product_count[] = $order_details['order_items']['count'];
+        $product_count[] = $order_details['order_items']['count'];
+        // Add customer to array.
+        $order_customers[] = $order_details['customer_id'];
+        // Add customer sales totals to array.
+        $order_customers_sales[$order_details['customer_id']] += $order_details['total'];
 
 		// Loop products.
 		foreach( $order_details['order_items']['products'] as $product ) {
@@ -444,6 +463,8 @@ function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
 	$return['orders_total_spent']           = $total_spent;
 	$return['orders_average_spent']         = number_format( $total_spent / $orders, 2, '.', '' );
     $return['orders_average_product_count'] = round( $total_products / $orders );
+    $return['orders_customers']             = $order_customers;
+    $return['orders_customers_sales']       = $order_customers_sales;
     $return['product_counts']               = $item_counts;
     $return['product_types']                = $product_types;
 
@@ -456,6 +477,8 @@ function wpd_ecommerce_get_orders_details( $start_date = '', $end_date = '' ) {
         // Return taxonomy count.
         $return[$key] = $product_taxonomies;
     }
+
+    //var_dump( $order_customers_sales );
 
     return apply_filters( 'wpd_ecommerce_get_orders_details', $return );
 }
