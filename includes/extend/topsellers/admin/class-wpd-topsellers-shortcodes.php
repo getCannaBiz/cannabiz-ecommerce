@@ -370,7 +370,7 @@ add_shortcode( 'wpd-topsellers', 'wpdispensary_topsellers_shortcode' );
  */
 function wpd_topsellers_icon() {
 	if ( get_post_meta( get_the_ID(), 'product_featured', true ) ) { ?>
-		<span class="wpd-topsellers-icon"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+		<span class="wpd-topsellers-icon"><i class="fas fa-trophy"></i></span>
 	<?php }
 }
 add_action( 'wpd_shortcode_inside_top', 'wpd_topsellers_icon' );
@@ -381,7 +381,7 @@ add_action( 'wpd_shortcode_inside_top', 'wpd_topsellers_icon' );
  */
 function wpd_topsellers_icon_single() {
 	if ( get_post_meta( get_the_ID(), 'product_featured', true ) ) { ?>
-		<span class="wpd-topsellers-icon single"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+		<span class="wpd-topsellers-icon single"><i class="fas fa-trophy"></i></span>
 	<?php }
 }
 add_action( 'wpd_dataoutput_before', 'wpd_topsellers_icon_single' );
