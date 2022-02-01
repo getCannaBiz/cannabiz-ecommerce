@@ -68,17 +68,33 @@ function wpd_ecommerce() {
 }
 wpd_ecommerce();
 
-// Include inventory management.
-include_once( dirname( __FILE__ ) . '/includes/extend/inventory/wpd-inventory.php' );
-
-// Include top sellers management.
-include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
-
-// Include location management.
-//include_once( dirname( __FILE__ ) . '/includes/extend/locations/wpd-locations.php' );
-
-// Include heavyweights management.
-//include_once( dirname( __FILE__ ) . '/includes/extend/heavyweights/wpd-heavyweights.php' );
+/**
+ * Include add-ons directly
+ * 
+ * @return void
+ */
+function wpd_ecommerce_include_addons() {
+	if ( ! function_exists( 'run_wpd_inventory' ) ) {
+		// Include inventory management.
+		include_once( dirname( __FILE__ ) . '/includes/extend/inventory/wpd-inventory.php' );
+	}
+	
+	if ( ! function_exists( 'run_wpd_topsellers' ) ) {
+		// Include top sellers management.
+		include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
+	}
+	
+	if ( ! function_exists( 'run_wpd_locations' ) ) {
+		// Include location management.
+		include_once( dirname( __FILE__ ) . '/includes/extend/locations/wpd-locations.php' );
+	}
+	
+	if ( ! function_exists( 'run_wpd_heavyweights' ) ) {
+		// Include heavyweights management.
+		include_once( dirname( __FILE__ ) . '/includes/extend/heavyweights/wpd-heavyweights.php' );
+	}	
+}
+add_action( 'init', 'wpd_ecommerce_include_addons' );
 
 // Includes for plugin activation.
 include_once( dirname( __FILE__ ) . '/includes/wpd-ecommerce-activation.php' );
@@ -126,7 +142,7 @@ add_action( 'init', 'wpd_ecommerce_output_buffer' );
  * @return      void
  */
 function wpd_ecommerce_load_admin_scripts() {
-	wp_enqueue_style( 'wpd-ecommerce-fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' );
+	wp_enqueue_style( 'wpd-ecommerce-fontawesome', plugin_dir_url( __FILE__ ) . 'assets/css/fontawesome.min.css' );
 	wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.min.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
@@ -139,6 +155,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
  */
 function wpd_ecommerce_load_public_scripts() {
 	wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css' );
+	wp_enqueue_style( 'wpd-ecommerce-fontawesome', plugin_dir_url( __FILE__ ) . 'assets/css/fontawesome.min.css' );
 	wp_enqueue_script( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/js/wpd-ecommerce-public.js', array( 'jquery' ), '1.6', false );
 
 	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
