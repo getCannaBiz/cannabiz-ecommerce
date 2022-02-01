@@ -183,7 +183,7 @@ input[type="submit"].remove-recommendation-doc:hover {
 /** Orders page statuses */
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status:before {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
     padding-right: 2px;
