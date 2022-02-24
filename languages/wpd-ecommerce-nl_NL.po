@@ -1,0 +1,1359 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Dispensary's eCommerce\n"
+"POT-Creation-Date: 2022-02-23 23:16-0500\n"
+"PO-Revision-Date: 2022-02-23 23:32-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-ecommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:192
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:56
+msgid "Product"
+msgstr "Product"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:57
+msgid "Price"
+msgstr "Prijs"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:58
+msgid "Qty"
+msgstr "Aantal"
+
+#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:135
+#: checkout/checkout-shortcode.php:192 checkout/checkout-shortcode.php:286
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:223
+#: classes/class-cart.php:224 customers/customer-account-shortcode.php:143
+#: customers/customer-account-shortcode.php:208
+#: includes/wpd-ecommerce-orders-functions.php:59
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: templates/single-order.php:85
+msgid "Total"
+msgstr "Totaal"
+
+#: cart/cart-shortcode.php:84
+msgid "Coupon code"
+msgstr "Kortingscode"
+
+#: cart/cart-shortcode.php:85
+msgid "Apply Coupon"
+msgstr "Kortingscode toepassen"
+
+#: cart/cart-shortcode.php:113
+msgid "Cart Totals"
+msgstr "Totaal"
+
+#: cart/cart-shortcode.php:116 cart/cart-widget.php:157
+#: checkout/checkout-shortcode.php:266 orders/orders-metaboxes.php:79
+#: templates/single-order.php:72
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+#: orders/orders-metaboxes.php:81 templates/single-order.php:74
+msgid "Coupon"
+msgstr "Coupon"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: cart/cart-shortcode.php:124 checkout/checkout-shortcode.php:273
+#: orders/orders-metaboxes.php:90 templates/single-order.php:77
+msgid "Sales tax"
+msgstr "Verkoopbelasting"
+
+#: cart/cart-shortcode.php:128 checkout/checkout-shortcode.php:277
+#: orders/orders-metaboxes.php:87 templates/single-order.php:80
+msgid "Excise tax"
+msgstr "Accijns"
+
+#: cart/cart-shortcode.php:138
+msgid "Proceed to Checkout"
+msgstr "Afrekenen"
+
+#: cart/cart-shortcode.php:148
+msgid "There is nothing in your cart."
+msgstr "Er zit niets in uw winkelwagen."
+
+#: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:302
+msgid "Return to menu"
+msgstr "Terug naar menu"
+
+#: cart/cart-widget.php:25
+msgid "Shopping Cart"
+msgstr "Winkelwagen"
+
+#: cart/cart-widget.php:27
+msgid "Display your cart details"
+msgstr "Toon uw winkelwagen details"
+
+#: cart/cart-widget.php:36 includes/wpd-ecommerce-activation.php:50
+msgid "Cart"
+msgstr "Winkelwagen"
+
+#: cart/cart-widget.php:42
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:215
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:203
+msgid "Widget Title:"
+msgstr "Widget Titel:"
+
+#: cart/cart-widget.php:159 includes/wpd-ecommerce-activation.php:40
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: checkout/checkout-shortcode.php:19 checkout/checkout-shortcode.php:22
+#: includes/wpd-ecommerce-customers-functions.php:440
+msgid "Login"
+msgstr "Inloggen"
+
+#: checkout/checkout-shortcode.php:21
+msgid "You must be logged in to checkout."
+msgstr "Je moet ingelogd zijn om af te rekenen."
+
+#: checkout/checkout-shortcode.php:40
+#: includes/wpd-ecommerce-customers-functions.php:123
+msgid "The Email you entered is not valid. Please try again."
+msgstr "Dat e-mailadres lijkt niet geldig. Probeer het opnieuw."
+
+#: checkout/checkout-shortcode.php:42
+#: includes/wpd-ecommerce-customers-functions.php:125
+msgid "This email is already used by another user. Try a different one."
+msgstr ""
+"Dit e-mailadres wordt al door een andere gebruiker gebruikt. Probeer een "
+"andere."
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:94
+#: checkout/checkout-shortcode.php:99
+#: includes/wpd-ecommerce-core-functions.php:448
+#: includes/wpd-ecommerce-core-functions.php:455
+#: includes/wpd-ecommerce-core-functions.php:514
+#: includes/wpd-ecommerce-core-functions.php:531
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Error"
+msgstr "Fout"
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:99
+msgid "Please select a payment type."
+msgstr "Selecteer een betaalmethode"
+
+#: checkout/checkout-shortcode.php:94
+msgid "The minimum order amount required to checkout is"
+msgstr "Het minimale bestelbedrag dat nodig is om af te rekenen is:"
+
+#: checkout/checkout-shortcode.php:114
+msgid "Billing details"
+msgstr "Factuurgegevens"
+
+#: checkout/checkout-shortcode.php:119
+#: customers/customer-account-details.php:15
+#: customers/customer-account-details.php:46
+#: customers/customer-account-shortcode.php:271
+msgid "First Name"
+msgstr "Voornaam"
+
+#: checkout/checkout-shortcode.php:123
+#: customers/customer-account-shortcode.php:275
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: checkout/checkout-shortcode.php:128
+#: customers/customer-account-shortcode.php:280
+msgid "E-mail"
+msgstr "E-mail"
+
+#: checkout/checkout-shortcode.php:133
+#: customers/customer-account-details.php:74
+#: customers/customer-account-shortcode.php:285 orders/orders-metaboxes.php:145
+msgid "Phone number"
+msgstr "Telefoonnummer"
+
+#: checkout/checkout-shortcode.php:138
+msgid "Street address"
+msgstr "Straatnaam"
+
+#: checkout/checkout-shortcode.php:139
+msgid "House number and street name"
+msgstr "Straatnaam"
+
+#: checkout/checkout-shortcode.php:140
+msgid "Apartment, unit, etc. (optional)"
+msgstr "Appartement, unit, etc. (optioneel)"
+
+#: checkout/checkout-shortcode.php:144
+#: customers/customer-account-details.php:77
+#: customers/customer-account-shortcode.php:300
+msgid "City"
+msgstr "Stad"
+
+#: checkout/checkout-shortcode.php:149
+#: customers/customer-account-details.php:78
+#: customers/customer-account-shortcode.php:305
+msgid "State / County"
+msgstr "Staat / Regio"
+
+#: checkout/checkout-shortcode.php:154
+#: customers/customer-account-details.php:79
+#: customers/customer-account-shortcode.php:310
+msgid "Postcode / ZIP"
+msgstr "Postcode"
+
+#: checkout/checkout-shortcode.php:159
+#: customers/customer-account-details.php:80
+#: customers/customer-account-shortcode.php:315
+msgid "Country"
+msgstr "Land"
+
+#: checkout/checkout-shortcode.php:185 checkout/checkout-shortcode.php:326
+msgid "Your order"
+msgstr "Uw bestelling"
+
+#: checkout/checkout-shortcode.php:295
+msgid "Place Order"
+msgstr "Bestelling plaatsen"
+
+#: checkout/checkout-shortcode.php:301
+msgid "You can check out after adding some products to your cart"
+msgstr ""
+"U kunt afrekenen nadat u enkele producten aan uw winkelwagen heeft toegevoegd"
+
+#: checkout/checkout-shortcode.php:317 classes/class-csv-customer-export.php:96
+#: customers/customer-account-shortcode.php:140 templates/single-order.php:45
+msgid "Name"
+msgstr "Naam"
+
+#: checkout/checkout-shortcode.php:318 classes/class-csv-customer-export.php:97
+msgid "Email"
+msgstr "E-mail"
+
+#: checkout/checkout-shortcode.php:575
+msgid "New order: #"
+msgstr "Nieuwe bestelling: #"
+
+#: checkout/checkout-shortcode.php:578
+msgid "Hello Administrator"
+msgstr "Hallo beheerder"
+
+#: checkout/checkout-shortcode.php:579
+#, php-format
+msgid "#%1$s just received a new order from #%2$s #%3$s"
+msgstr "#%1$s heeft zojuist een nieuwe bestelling ontvangen van #%2$s #%3$s"
+
+#: classes/class-csv-customer-export.php:74
+msgid "WP Dispensary's Customer Export"
+msgstr "Klantexport van WP Dispensary"
+
+#: classes/class-csv-customer-export.php:75
+msgid ""
+"Export your WP Dispensary customers as a CSV file by clicking the button "
+"below."
+msgstr ""
+"Exporteer uw WP Dispensary-klanten als een CSV-bestand door op de "
+"onderstaande knop te klikken."
+
+#: classes/class-csv-customer-export.php:76
+msgid "Export"
+msgstr "Exportieren"
+
+#: classes/class-csv-customer-export.php:95
+#: customers/customer-account-shortcode.php:139
+#: customers/customer-account-shortcode.php:205
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:785
+msgid "ID"
+msgstr "ID"
+
+#: classes/class-csv-customer-export.php:98
+msgid "Phone"
+msgstr "Telefoon"
+
+#: classes/class-csv-customer-export.php:99 orders/orders-metaboxes.php:120
+#: templates/single-order.php:49
+msgid "Address"
+msgstr "Adres"
+
+#: classes/class-csv-customer-export.php:100
+#: customers/customer-account-shortcode.php:423
+#: includes/wpd-ecommerce-customers-functions.php:308
+msgid "Recommendation number"
+msgstr "Aanbevelingsnummer"
+
+#: classes/class-csv-customer-export.php:101
+msgid "Recommendation expiration"
+msgstr "Aanbeveling verlopen"
+
+#: classes/class-csv-customer-export.php:102
+msgid "Total orders"
+msgstr "Totaal aantal bestellingen"
+
+#: customers/customer-account-details.php:42
+msgid "Additional Details"
+msgstr "Aanvullende details"
+
+#: customers/customer-account-details.php:75
+#: customers/customer-account-shortcode.php:290
+msgid "Address line 1"
+msgstr "Adresregel 1"
+
+#: customers/customer-account-details.php:76
+#: customers/customer-account-shortcode.php:295
+msgid "Address line 2"
+msgstr "Adresregel 2"
+
+#: customers/customer-account-details.php:107
+msgid "<strong>ERROR</strong>: Please enter your year of birth."
+msgstr "<strong>FOUT</strong>: voer uw geboortejaar in."
+
+#: customers/customer-account-details.php:111
+msgid "<strong>ERROR</strong>: You must be born after 1900."
+msgstr "<strong>FOUT</strong>: je moet geboren zijn na 1900."
+
+#: customers/customer-account-shortcode.php:32
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: customers/customer-account-shortcode.php:35
+#: customers/customer-account-shortcode.php:133 orders/orders-post-type.php:16
+msgid "Orders"
+msgstr "Bestellingen"
+
+#: customers/customer-account-shortcode.php:38
+msgid "Details"
+msgstr "Details"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Hello"
+msgstr "Hallo"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Log out"
+msgstr "Uitloggen"
+
+#: customers/customer-account-shortcode.php:66
+msgid "Account dashboard"
+msgstr "Account Dashboard"
+
+#: customers/customer-account-shortcode.php:67
+msgid ""
+"From your account dashboard you can view your order history and account "
+"details."
+msgstr ""
+"Vanuit uw accountdashboard kunt u uw bestelgeschiedenis en accountgegevens "
+"bekijken."
+
+#: customers/customer-account-shortcode.php:134
+msgid "This Week"
+msgstr "Deze week"
+
+#: customers/customer-account-shortcode.php:136
+msgid "Recent Store Orders"
+msgstr "Recente winkelbestellingen"
+
+#: customers/customer-account-shortcode.php:141
+#: customers/customer-account-shortcode.php:206 orders/orders-post-type.php:97
+#: templates/single-order.php:28
+msgid "Date"
+msgstr "Datum"
+
+#: customers/customer-account-shortcode.php:142
+#: customers/customer-account-shortcode.php:207 orders/orders-metaboxes.php:102
+#: orders/orders-post-type.php:98
+msgid "Status"
+msgstr "Status"
+
+#: customers/customer-account-shortcode.php:202
+msgid "Order history"
+msgstr "Bestelgeschiedenis"
+
+#: customers/customer-account-shortcode.php:266
+msgid "Contact information"
+msgstr "Contactinformatie"
+
+#: customers/customer-account-shortcode.php:352
+#: includes/wpd-ecommerce-customers-functions.php:259
+msgid "Verification"
+msgstr "Verificatie"
+
+#: customers/customer-account-shortcode.php:363
+msgid "Drivers License or Valid ID"
+msgstr "Rijbewijs of geldig identiteitsbewijs"
+
+#: customers/customer-account-shortcode.php:378
+#: customers/customer-account-shortcode.php:408
+#: includes/wpd-ecommerce-customers-functions.php:279
+#: includes/wpd-ecommerce-customers-functions.php:301
+msgid "x"
+msgstr "x"
+
+#: customers/customer-account-shortcode.php:393
+#: includes/wpd-ecommerce-customers-functions.php:286
+msgid "Doctor recommendation"
+msgstr "Aanbeveling van de dokter"
+
+#: customers/customer-account-shortcode.php:436
+msgid "Expiration Date"
+msgstr "Vervaldatum"
+
+#: customers/customer-account-shortcode.php:446
+msgid "Password change"
+msgstr "Wachtwoord wijzigen"
+
+#: customers/customer-account-shortcode.php:451
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: customers/customer-account-shortcode.php:451
+#: customers/customer-account-shortcode.php:455
+msgid "Leave blank to keep unchanged"
+msgstr "Laat leeg om ongewijzigd te laten"
+
+#: customers/customer-account-shortcode.php:455
+msgid "Repeat Password"
+msgstr "Herhaal wachtwoord"
+
+#: customers/customer-account-shortcode.php:460
+msgid "Update"
+msgstr "Bijwerken"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr "Zwaargewicht prijzen"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:167
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr "2 oz"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:171
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr "1/4 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:175
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr "1/2 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:179
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr "1 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:183
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr "2 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:187
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr "3 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:191
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr "4 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:195
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr "5 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:199
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr "6 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:203
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr "7 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:207
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr "8 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:211
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr "9 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:215
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr "10 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:219
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr "11 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:223
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr "12 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:227
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr "13 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:231
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr "14 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:235
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr "15 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:239
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr "20 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:243
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr "25 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:247
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr "50 pond"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr "3 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:269
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr "4 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:273
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr "5 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:277
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr "6 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:281
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr "7 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:285
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr "9 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:289
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr "9 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:293
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr "10 grams"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:410
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr "Zware prijzen"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr "Kies bestand"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr "Kies afbeelding"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:713
+msgid "Inventory"
+msgstr "Voorraad"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:786
+msgid "Type"
+msgstr "Type"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:787
+msgid "Product name"
+msgstr "Productnaam"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:788
+msgid "Categories"
+msgstr "Categorieën"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:789
+msgid "Stock"
+msgstr "Voorraad"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "In stock"
+msgstr "Op voorraad"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr "grammen"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr "eenheden"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+msgid "seeds"
+msgstr "zaden"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr "klonen"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
+msgid "Inventory management"
+msgstr "Voorraadmanagement"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:53
+msgid "Available Seeds (units)"
+msgstr "Beschikbare zaden (eenheden)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:55
+msgid "Available Clones (units)"
+msgstr "Beschikbare klonen (eenheden)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:59
+msgid "Available grams"
+msgstr "Beschikbare grammen"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:63
+msgid "Available units"
+msgstr "Beschikbare eenheden"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:67
+msgid "Display inventory in Details table"
+msgstr "Voorraad weergeven in tabel Details"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-oos.php:52
+msgid "Sorry, this flower is currently out of stock."
+msgstr "Sorry, deze bloem is momenteel niet op voorraad."
+
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:24
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:33
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:37
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:46
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:54
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:62
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:70
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:75
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:79
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:88
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:96
+#: includes/wpd-ecommerce-core-functions.php:1144
+#: includes/wpd-ecommerce-core-functions.php:1153
+#: includes/wpd-ecommerce-core-functions.php:1157
+#: includes/wpd-ecommerce-core-functions.php:1166
+#: includes/wpd-ecommerce-core-functions.php:1174
+#: includes/wpd-ecommerce-core-functions.php:1182
+#: includes/wpd-ecommerce-core-functions.php:1190
+#: includes/wpd-ecommerce-core-functions.php:1195
+#: includes/wpd-ecommerce-core-functions.php:1199
+#: includes/wpd-ecommerce-core-functions.php:1208
+#: includes/wpd-ecommerce-core-functions.php:1216
+msgid "out of stock"
+msgstr "uitverkocht"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:285
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:334
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:400
+msgid "THC: "
+msgstr "THC: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:293
+msgid "THCA: "
+msgstr "THCA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:301
+msgid "CBD: "
+msgstr "CBD: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:309
+msgid "CBA: "
+msgstr "CBA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:317
+msgid "CBN: "
+msgstr "CBN: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:325
+msgid "CBG: "
+msgstr "CBG: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:347
+msgid "Seeds:"
+msgstr "Zaden:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:357
+msgid "Clones:"
+msgstr "Klonen:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:365
+msgid "Size:"
+msgstr "Maat:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:371
+msgid "THC:"
+msgstr "THC:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:377
+msgid "CBD:"
+msgstr "CBD:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:387
+msgid "Weight:"
+msgstr "Gewicht:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:408
+msgid "Servings: "
+msgstr "Porties: "
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr "Locaties"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr "Locatie"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr "Zoek locaties"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr "Alle locaties"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr "Hoofd locatie"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr "Hoofd locatie:"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr "Bewerk locatie"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr "Locatie bijwerken"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr "Voeg nieuwe locatie toe"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr "Nieuwe locatie naam"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr "Geen locaties gevonden"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr "Locaties"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr "Apotheeklocaties"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr "Menu-items weergeven op locatie"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:219
+msgid "Dispensary location:"
+msgstr "Apotheek locatie:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:238
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:208
+msgid "Menu item type:"
+msgstr "Type menu-item:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:240
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:210
+msgid "All types"
+msgstr "Alle types"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:241
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:211
+msgid "Flowers"
+msgstr "Bloemen"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:242
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:212
+msgid "Concentrates"
+msgstr "Concentraten"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:243
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:213
+msgid "Edibles"
+msgstr "Eetwaren"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:244
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:214
+msgid "Pre-rolls"
+msgstr "Pre-rolls"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:245
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:215
+msgid "Topicals"
+msgstr "Onderwerpen"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:246
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:216
+msgid "Growers"
+msgstr "Kwekers"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:247
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:217
+msgid "Gear"
+msgstr "Tandwiel"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:248
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:218
+msgid "Tinctures"
+msgstr "Tincturen"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:253
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:223
+msgid "Amount of items to show:"
+msgstr "Aantal items om te laten zien:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:259
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:229
+msgid "Randomize output?"
+msgstr "Uitvoer willekeurig maken?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:264
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:234
+msgid "Display featured image?"
+msgstr "Toon uitgelichte afbeelding?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:269
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:239
+msgid "Display item name?"
+msgstr "Naam item weergeven?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:274
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:244
+msgid "Display item category?"
+msgstr "Artikelcategorie weergeven?"
+
+#: includes/extend/locations/wpd-locations.php:62
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Featured"
+msgstr "Uitgelicht"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:59
+msgid "This is a featured product"
+msgstr "Uitgelicht product"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr "Apotheek Topverkopers"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr "Toon uw best verkopende artikelen"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:248
+msgid "Image size:"
+msgstr "Afbeelding formaat"
+
+#: includes/wpd-ecommerce-activation.php:60
+msgid "Account"
+msgstr "Account"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:34
+#: includes/wpd-ecommerce-archive-items-functions.php:51
+#: includes/wpd-ecommerce-archive-items-functions.php:76
+#: includes/wpd-ecommerce-archive-items-functions.php:78
+#: includes/wpd-ecommerce-archive-items-functions.php:90
+#: includes/wpd-ecommerce-archive-items-functions.php:92
+#: includes/wpd-ecommerce-archive-items-functions.php:186
+#: includes/wpd-ecommerce-archive-items-functions.php:188
+#: includes/wpd-ecommerce-archive-items-functions.php:196
+msgid "Buy Now"
+msgstr "Koop Nu"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:36
+#: includes/wpd-ecommerce-archive-items-functions.php:53
+#: includes/wpd-ecommerce-archive-items-functions.php:74
+#: includes/wpd-ecommerce-archive-items-functions.php:88
+#: includes/wpd-ecommerce-archive-items-functions.php:184
+#: includes/wpd-ecommerce-archive-items-functions.php:198
+msgid "Select Options"
+msgstr "Selecteer opties"
+
+#: includes/wpd-ecommerce-core-functions.php:27
+msgid "View Cart"
+msgstr "Bekijk winkelwagen"
+
+#: includes/wpd-ecommerce-core-functions.php:36
+#: includes/wpd-ecommerce-core-functions.php:44
+msgid "Please select a weight in order to add the product to your cart"
+msgstr "Selecteer een gewicht om het product aan uw winkelwagen toe te voegen"
+
+#: includes/wpd-ecommerce-core-functions.php:52
+#: includes/wpd-ecommerce-core-functions.php:60
+#: includes/wpd-ecommerce-core-functions.php:68
+#: includes/wpd-ecommerce-core-functions.php:76
+#: includes/wpd-ecommerce-core-functions.php:84
+#: includes/wpd-ecommerce-core-functions.php:92
+msgid "Please select a quantity in order to add the product to your cart"
+msgstr "Selecteer een aantal om het product aan uw winkelwagen toe te voegen"
+
+#: includes/wpd-ecommerce-core-functions.php:205
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "There is not enough inventory for your purchase."
+msgstr "Er is onvoldoende voorraad voor uw aankoop."
+
+#: includes/wpd-ecommerce-core-functions.php:205
+msgid "Available"
+msgstr "Beschikbaar"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+msgid "This product has been successfully added to your cart"
+msgstr "Dit product is succesvol aan uw winkelwagen toegevoegd"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Continue Shopping"
+msgstr "Verder winkelen"
+
+#: includes/wpd-ecommerce-core-functions.php:448
+msgid "The username or password you entered is incorrect."
+msgstr "Uw gebruikersnaam of wachtwoord is incorrect."
+
+#: includes/wpd-ecommerce-core-functions.php:455
+msgid "The registration info you entered is incorrect."
+msgstr "De door u ingevoerde registratiegegevens zijn onjuist."
+
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "Thank You"
+msgstr "Bedankt"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "Item removed"
+msgstr "Item verwijderd"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "The item has been successfully removed."
+msgstr "Het item is succesvol verwijderd."
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Item added"
+msgstr "Artikel toegevoegd"
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "The item has been successfully added to your cart."
+msgstr "Het artikel is succesvol toegevoegd aan uw winkelwagen."
+
+#: includes/wpd-ecommerce-core-functions.php:531
+msgid "Required product is not in your cart"
+msgstr "Vereist product is niet in uw winkelwagentje"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Success"
+msgstr "Succes"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Coupon code has been applied"
+msgstr "Couponcode is toegepast"
+
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Please enter a coupon code"
+msgstr "Voer een couponcode in"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Details Saved"
+msgstr "Details zijn opgeslagen"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Your profile settings have been successfully saved"
+msgstr "Je profielinstellingen zijn succesvol opgeslagen"
+
+#: includes/wpd-ecommerce-core-functions.php:1045
+msgid "Pages"
+msgstr "Pagina's"
+
+#: includes/wpd-ecommerce-core-functions.php:1257
+msgid "Choose a weight"
+msgstr "Kies een gewicht"
+
+#: includes/wpd-ecommerce-core-functions.php:1429
+msgid "Choose quantity"
+msgstr "Kies aantal"
+
+#: includes/wpd-ecommerce-core-functions.php:1430
+msgid "each"
+msgstr "per stuk"
+
+#: includes/wpd-ecommerce-core-functions.php:1431
+msgid "pack"
+msgstr "pak"
+
+#: includes/wpd-ecommerce-core-functions.php:1676
+msgid "Add to cart"
+msgstr "In winkelwagen"
+
+#: includes/wpd-ecommerce-core-functions.php:1783
+msgid "Delivery"
+msgstr "Levering"
+
+#: includes/wpd-ecommerce-core-functions.php:1793
+msgid "In-store pickup"
+msgstr "Ophalen in de winkel"
+
+#: includes/wpd-ecommerce-core-functions.php:1803
+msgid "Shipping"
+msgstr "Verzending"
+
+#: includes/wpd-ecommerce-customers-functions.php:117
+msgid "The passwords you entered do not match.  Your password was not updated."
+msgstr ""
+"De ingevulde wachtwoorden komen niet overeen. Je wachtwoord is niet "
+"bijgewerkt."
+
+#: includes/wpd-ecommerce-customers-functions.php:264
+msgid "Drivers license or Valid ID"
+msgstr "Rijbewijs of geldig legitimatiebewijs"
+
+#: includes/wpd-ecommerce-customers-functions.php:314
+msgid "Expiration date"
+msgstr "Vervaldatum"
+
+#: includes/wpd-ecommerce-customers-functions.php:459
+#: includes/wpd-ecommerce-customers-functions.php:475
+msgid "Register"
+msgstr "Registreren"
+
+#: includes/wpd-ecommerce-customers-functions.php:464
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: includes/wpd-ecommerce-customers-functions.php:469
+#: orders/orders-metaboxes.php:140
+msgid "Email address"
+msgstr "E-mailadres"
+
+#: includes/wpd-ecommerce-customers-functions.php:473
+msgid "A password will be emailed to you."
+msgstr "Een wachtwoord wordt naar uw mailadres verzonden."
+
+#: includes/wpd-ecommerce-orders-functions.php:18
+msgctxt "Order status"
+msgid "Pending"
+msgstr "In afwachting"
+
+#: includes/wpd-ecommerce-orders-functions.php:19
+msgctxt "Order status"
+msgid "Processing"
+msgstr "In behandeling"
+
+#: includes/wpd-ecommerce-orders-functions.php:20
+msgctxt "Order status"
+msgid "On hold"
+msgstr "In de wacht"
+
+#: includes/wpd-ecommerce-orders-functions.php:21
+msgctxt "Order status"
+msgid "Completed"
+msgstr "Voltooid"
+
+#: includes/wpd-ecommerce-orders-functions.php:22
+msgctxt "Order status"
+msgid "Cancelled"
+msgstr "Geannuleerd"
+
+#: includes/wpd-ecommerce-orders-functions.php:23
+msgctxt "Order status"
+msgid "Refunded"
+msgstr "Terugbetaald"
+
+#: includes/wpd-ecommerce-orders-functions.php:24
+msgctxt "Order status"
+msgid "Failed"
+msgstr "Mislukt"
+
+#: includes/wpd-ecommerce-orders-functions.php:129
+#, php-format
+msgid "Order updated. <a href=\"%s\">View order</a>"
+msgstr "Bestelling bijgewerkt. <a href=\"%s\">Bestelling bekijken</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:130
+msgid "Custom field updated."
+msgstr "Aangepast veld bijgewerkt."
+
+#: includes/wpd-ecommerce-orders-functions.php:131
+msgid "Custom field deleted."
+msgstr "Aangepast veld verwijderd."
+
+#: includes/wpd-ecommerce-orders-functions.php:132
+msgid "Order updated."
+msgstr "Bestelling bijgewerkt."
+
+#: includes/wpd-ecommerce-orders-functions.php:133
+#, php-format
+msgid "Order restored to revision from %s"
+msgstr "Bestelling teruggezet naar revisie van %s"
+
+#: includes/wpd-ecommerce-orders-functions.php:134
+#, php-format
+msgid "Order published. <a href=\"%s\">View order</a>"
+msgstr "Bestelling gepubliceerd. <a href=\"%s\">Bestelling bekijken</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:135
+msgid "Order saved."
+msgstr "Donatie opgeslagen."
+
+#: includes/wpd-ecommerce-orders-functions.php:136
+#, php-format
+msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"Bestelling verzonden. <a target=\"_blank\" href=\"%s\">Voorbeeld van "
+"bestelling</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:137
+#, php-format
+msgid ""
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview order</a>"
+msgstr ""
+"Bestelling gepland voor: <strong>%1$s</strong>. <a target=\"_blank\" href="
+"\"%2$s\">Voorbeeld van bestelling</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:138
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/wpd-ecommerce-orders-functions.php:139
+#, php-format
+msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"Order concept bijgewerkt. <a target=\"_blank\" href=\"%s\">Voorbeeld van "
+"bestelling</a>"
+
+#: orders/orders-metaboxes.php:20
+msgid "Order details"
+msgstr "Bestelgegevens"
+
+#: orders/orders-metaboxes.php:76
+#, php-format
+msgid "Order #%1$s details"
+msgstr "Bestel #%1$s details"
+
+#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:99
+msgid "Customer"
+msgstr "Klant"
+
+#: orders/orders-metaboxes.php:136
+msgid "profile"
+msgstr "profiel"
+
+#: orders/orders-metaboxes.php:136
+msgid "view orders"
+msgstr "bekijk de orders"
+
+#: orders/orders-post-type.php:14
+msgctxt "Post Type General Name"
+msgid "Orders"
+msgstr "Bestellingen"
+
+#: orders/orders-post-type.php:15
+msgctxt "Post Type Singular Name"
+msgid "Order"
+msgstr "Bestelling"
+
+#: orders/orders-post-type.php:17 orders/orders-post-type.php:58
+msgid "Order"
+msgstr "Bestelling"
+
+#: orders/orders-post-type.php:18
+msgid "Order Archives"
+msgstr "Bestelling archief"
+
+#: orders/orders-post-type.php:19
+msgid "Order Attributes"
+msgstr "Bestelling attributen"
+
+#: orders/orders-post-type.php:20
+msgid "Parent Order:"
+msgstr "Huidige bestelling:"
+
+#: orders/orders-post-type.php:21
+msgid "All Orders"
+msgstr "Alle bestellingen"
+
+#: orders/orders-post-type.php:22
+msgid "Add New Order"
+msgstr "Nieuwe Bestelling Toevoegen"
+
+#: orders/orders-post-type.php:23
+msgid "Add New"
+msgstr "Nieuwe toevoegen"
+
+#: orders/orders-post-type.php:24
+msgid "New Order"
+msgstr "Nieuwe Bestelling"
+
+#: orders/orders-post-type.php:25
+msgid "Edit Order"
+msgstr "Bestelling wijzigen"
+
+#: orders/orders-post-type.php:26
+msgid "Update Order"
+msgstr "Bestelling bijwerken"
+
+#: orders/orders-post-type.php:27
+msgid "View Order"
+msgstr "Bekijk bestelling"
+
+#: orders/orders-post-type.php:28
+msgid "View Orders"
+msgstr "Bestellingen bekijken"
+
+#: orders/orders-post-type.php:29
+msgid "Search Order"
+msgstr "Zoek Bestelling"
+
+#: orders/orders-post-type.php:30
+msgid "Not found"
+msgstr "Niet gevonden"
+
+#: orders/orders-post-type.php:31
+msgid "Not found in Trash"
+msgstr "Niet gevonden in prullenbak"
+
+#: orders/orders-post-type.php:32
+msgid "Featured Image"
+msgstr "Uitgelichte afbeelding"
+
+#: orders/orders-post-type.php:33
+msgid "Set featured image"
+msgstr "Uitgelichte afbeelding instellen"
+
+#: orders/orders-post-type.php:34
+msgid "Remove featured image"
+msgstr "Verwijder uitgelichte afbeelding"
+
+#: orders/orders-post-type.php:35
+msgid "Use as featured image"
+msgstr "Gebruik als uitgelichte afbeelding"
+
+#: orders/orders-post-type.php:36
+msgid "Insert into order"
+msgstr "Invoegen in bestelling"
+
+#: orders/orders-post-type.php:37
+msgid "Uploaded to this order"
+msgstr "Geüpload naar deze bestelling"
+
+#: orders/orders-post-type.php:38
+msgid "Orders list"
+msgstr "Inschrijvingen lijst"
+
+#: orders/orders-post-type.php:39
+msgid "Orders list navigation"
+msgstr "Bestellijst navigatie"
+
+#: orders/orders-post-type.php:40
+msgid "Filter orders list"
+msgstr "Filter bestellingen"
+
+#: orders/orders-post-type.php:59
+msgid "View your store's order history"
+msgstr "Bekijk de bestelgeschiedenis van uw winkel"
+
+#: templates/single-order.php:93
+msgid "Order items"
+msgstr "Order items"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's eCommerce"
+msgstr "WP Dispensary’s eCommerce"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/ecommerce"
+msgstr "https://www.wpdispensary.com/product/ecommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"Adds shopping cart capabilities to the WP Dispensary menu management plugin."
+msgstr ""
+"Voegt winkelwagenmogelijkheden toe aan de plug-in voor menubeheer van WP "
+"Dispensary."
+
+#. Author of the plugin/theme
+msgid "WP Dispenary"
+msgstr "WP Dispensary"
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr "https://www.wpdispensary.com"
