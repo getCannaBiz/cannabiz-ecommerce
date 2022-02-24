@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2021-01-05 10:15-0500\n"
-"PO-Revision-Date: 2021-01-05 10:15-0500\n"
+"PO-Revision-Date: 2022-02-23 22:31-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wpd-ecommerce.php\n"
@@ -40,9 +40,8 @@ msgstr "Cantidad"
 #: cart/cart-shortcode.php:20 cart/cart-shortcode.php:132
 #: checkout/checkout-shortcode.php:193 checkout/checkout-shortcode.php:287
 #: checkout/checkout-shortcode.php:334
-#: includes/wpd-ecommerce-orders-functions.php:54
-#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
-#: customers/customer-account-shortcode.php:253
+#: includes/wpd-ecommerce-orders-functions.php:54 orders/orders-metaboxes.php:92
+#: orders/orders-post-type.php:100 customers/customer-account-shortcode.php:253
 #: customers/customer-account-shortcode.php:318 templates/single-order.php:137
 msgid "Total"
 msgstr "Total"
@@ -123,8 +122,8 @@ msgstr ""
 #: checkout/checkout-shortcode.php:35 customers/customer-account-shortcode.php:99
 msgid "This email is already used by another user. Try a different one."
 msgstr ""
-"Este correo electrónico ya está siendo utilizado por otro usuario. Pruebe "
-"uno diferente."
+"Este correo electrónico ya está siendo utilizado por otro usuario. Pruebe uno "
+"diferente."
 
 #: checkout/checkout-shortcode.php:89 checkout/checkout-shortcode.php:95
 #: checkout/checkout-shortcode.php:100
@@ -420,7 +419,7 @@ msgstr "unidades"
 
 #: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
 msgid "clones"
-msgstr "clones:"
+msgstr "clones"
 
 #: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
 #: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:115
@@ -781,7 +780,7 @@ msgstr "Disponible"
 #: includes/wpd-ecommerce-core-functions.php:386
 #: includes/wpd-ecommerce-core-functions.php:468
 msgid "This product has been successfully added to your cart"
-msgstr "Este producto se ha añadido correctamente a su carrito."
+msgstr "Este producto se ha añadido correctamente a su carrito"
 
 #: includes/wpd-ecommerce-core-functions.php:249
 #: includes/wpd-ecommerce-core-functions.php:321
@@ -935,8 +934,7 @@ msgstr "Pedido guardado."
 #: includes/wpd-ecommerce-orders-functions.php:103
 #, php-format
 msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
-msgstr ""
-"Orden enviada <a target=\"_blank\" href=\"%s\">Orden de vista previa</a>"
+msgstr "Orden enviada <a target=\"_blank\" href=\"%s\">Orden de vista previa</a>"
 
 #: includes/wpd-ecommerce-orders-functions.php:104
 #, php-format
@@ -1199,8 +1197,8 @@ msgid ""
 "From your account dashboard you can view your order history and account "
 "details."
 msgstr ""
-"Desde el panel de su cuenta, puede ver su historial de pedidos y los "
-"detalles de su cuenta."
+"Desde el panel de su cuenta, puede ver su historial de pedidos y los detalles "
+"de su cuenta."
 
 #: customers/customer-account-shortcode.php:241
 msgid "This Week"

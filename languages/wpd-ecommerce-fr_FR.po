@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2021-01-05 10:37-0500\n"
-"PO-Revision-Date: 2021-01-05 10:37-0500\n"
+"PO-Revision-Date: 2022-02-23 23:13-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.2\n"
+"X-Generator: Poedit 3.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wpd-ecommerce.php\n"
@@ -40,9 +40,8 @@ msgstr "Qté"
 #: cart/cart-shortcode.php:20 cart/cart-shortcode.php:132
 #: checkout/checkout-shortcode.php:193 checkout/checkout-shortcode.php:287
 #: checkout/checkout-shortcode.php:334
-#: includes/wpd-ecommerce-orders-functions.php:54
-#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
-#: customers/customer-account-shortcode.php:253
+#: includes/wpd-ecommerce-orders-functions.php:54 orders/orders-metaboxes.php:92
+#: orders/orders-post-type.php:100 customers/customer-account-shortcode.php:253
 #: customers/customer-account-shortcode.php:318 templates/single-order.php:137
 msgid "Total"
 msgstr "Total"
@@ -117,8 +116,8 @@ msgstr "Connexion"
 #: checkout/checkout-shortcode.php:33 customers/customer-account-shortcode.php:97
 msgid "The Email you entered is not valid. Please try again."
 msgstr ""
-"L’adresse e-mail que vous avez entré n’est pas valide. Essayez à nouveau "
-"s'il vous plait."
+"L’adresse e-mail que vous avez entré n’est pas valide. Essayez à nouveau s'il "
+"vous plait."
 
 #: checkout/checkout-shortcode.php:35 customers/customer-account-shortcode.php:99
 msgid "This email is already used by another user. Try a different one."
@@ -210,8 +209,7 @@ msgstr "Passer la commande"
 
 #: checkout/checkout-shortcode.php:302
 msgid "You can check out after adding some products to your cart"
-msgstr ""
-"Vous pouvez vérifier après avoir ajouté certains produits à votre panier"
+msgstr "Vous pouvez vérifier après avoir ajouté certains produits à votre panier"
 
 #: checkout/checkout-shortcode.php:318
 #: customers/customer-account-shortcode.php:250 templates/single-order.php:97
@@ -420,7 +418,7 @@ msgstr "unités"
 
 #: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
 msgid "clones"
-msgstr "Clones"
+msgstr "clones"
 
 #: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
 #: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:115
@@ -754,8 +752,7 @@ msgstr "Voir le panier"
 #: includes/wpd-ecommerce-core-functions.php:75
 #: includes/wpd-ecommerce-core-functions.php:83
 msgid "Please select a weight in order to add the product to your cart"
-msgstr ""
-"Veuillez sélectionner un poids afin d’ajouter le produit à votre panier"
+msgstr "Veuillez sélectionner un poids afin d’ajouter le produit à votre panier"
 
 #: includes/wpd-ecommerce-core-functions.php:91
 #: includes/wpd-ecommerce-core-functions.php:99
@@ -948,8 +945,8 @@ msgid ""
 "Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
 "\">Preview order</a>"
 msgstr ""
-"Commande prévue pour: <strong>%1$s</strong> . <a target=\"_blank\" href="
-"\"%2$s\">Aperçu de la commande</a>"
+"Commande prévue pour: <strong>%1$s</strong> . <a target=\"_blank\" href=\"%2$s"
+"\">Aperçu de la commande</a>"
 
 #: includes/wpd-ecommerce-orders-functions.php:105
 msgid "M j, Y @ G:i"
@@ -1177,8 +1174,8 @@ msgstr "Un mot de passe vous sera envoyé par email."
 #: customers/customer-account-shortcode.php:91
 msgid "The passwords you entered do not match.  Your password was not updated."
 msgstr ""
-"Le mot de passe saisi ne correspond pas. Votre mot de passe n’a pas été mis "
-"à jour."
+"Le mot de passe saisi ne correspond pas. Votre mot de passe n’a pas été mis à "
+"jour."
 
 #: customers/customer-account-shortcode.php:144
 msgid "Dashboard"
