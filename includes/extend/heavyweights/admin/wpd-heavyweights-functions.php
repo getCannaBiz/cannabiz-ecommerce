@@ -226,7 +226,7 @@ function wpd_heavyweights_flowers_weights_high() {
         // Do nothing.
 	}
 
-	$pricinghigh = wpd_currency_code() . str_ireplace( '.00', '', money_format( '%!n', $pricinghigh ) );
+	$pricinghigh = wpd_currency_code() . str_ireplace( '.00', '', money_format( '%!n', (float)$pricinghigh ) );
 
     return $pricinghigh;
 }
