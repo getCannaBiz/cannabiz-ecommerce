@@ -1,0 +1,1351 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Dispensary's eCommerce\n"
+"POT-Creation-Date: 2022-03-15 19:02-0400\n"
+"PO-Revision-Date: 2022-03-15 19:22-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: hr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-ecommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:192
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:56
+msgid "Product"
+msgstr "Proizvod"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:57
+msgid "Price"
+msgstr "Cijena"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:58
+msgid "Qty"
+msgstr "Kol"
+
+#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:135
+#: checkout/checkout-shortcode.php:192 checkout/checkout-shortcode.php:286
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:223
+#: classes/class-cart.php:224 customers/customer-account-shortcode.php:143
+#: customers/customer-account-shortcode.php:208
+#: includes/wpd-ecommerce-orders-functions.php:59
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: templates/single-order.php:85
+msgid "Total"
+msgstr "Ukupno"
+
+#: cart/cart-shortcode.php:84
+msgid "Coupon code"
+msgstr "Kod kupona"
+
+#: cart/cart-shortcode.php:85
+msgid "Apply Coupon"
+msgstr "Unesite kupon"
+
+#: cart/cart-shortcode.php:113
+msgid "Cart Totals"
+msgstr "Iznos košarice"
+
+#: cart/cart-shortcode.php:116 cart/cart-widget.php:157
+#: checkout/checkout-shortcode.php:266 orders/orders-metaboxes.php:79
+#: templates/single-order.php:72
+msgid "Subtotal"
+msgstr "Međuzbroj"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+#: orders/orders-metaboxes.php:81 templates/single-order.php:74
+msgid "Coupon"
+msgstr "Kupon"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+msgid "Remove"
+msgstr "Ukloni"
+
+#: cart/cart-shortcode.php:124 checkout/checkout-shortcode.php:273
+#: orders/orders-metaboxes.php:90 templates/single-order.php:77
+msgid "Sales tax"
+msgstr "Porez na promet"
+
+#: cart/cart-shortcode.php:128 checkout/checkout-shortcode.php:277
+#: orders/orders-metaboxes.php:87 templates/single-order.php:80
+msgid "Excise tax"
+msgstr "Trošarina"
+
+#: cart/cart-shortcode.php:138
+msgid "Proceed to Checkout"
+msgstr "Nastavi na naplatu"
+
+#: cart/cart-shortcode.php:148
+msgid "There is nothing in your cart."
+msgstr "Nema ništa u vašoj košarici."
+
+#: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:302
+msgid "Return to menu"
+msgstr "Povratak na izbornik"
+
+#: cart/cart-widget.php:25
+msgid "Shopping Cart"
+msgstr "Košarica"
+
+#: cart/cart-widget.php:27
+msgid "Display your cart details"
+msgstr "Prikažite detalje vaše košarice"
+
+#: cart/cart-widget.php:36 includes/wpd-ecommerce-activation.php:50
+msgid "Cart"
+msgstr "Košarica"
+
+#: cart/cart-widget.php:42
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:192
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:203
+msgid "Widget Title:"
+msgstr "Naslov widgeta:"
+
+#: cart/cart-widget.php:159 includes/wpd-ecommerce-activation.php:40
+msgid "Checkout"
+msgstr "Plaćanje"
+
+#: checkout/checkout-shortcode.php:19 checkout/checkout-shortcode.php:22
+#: includes/wpd-ecommerce-customers-functions.php:440
+msgid "Login"
+msgstr "Prijava"
+
+#: checkout/checkout-shortcode.php:21
+msgid "You must be logged in to checkout."
+msgstr "Morate biti prijavljeni za plaćanje."
+
+#: checkout/checkout-shortcode.php:40
+#: includes/wpd-ecommerce-customers-functions.php:123
+msgid "The Email you entered is not valid. Please try again."
+msgstr "E-mail koji ste unijeli nije valjan. Molim te pokušaj ponovno."
+
+#: checkout/checkout-shortcode.php:42
+#: includes/wpd-ecommerce-customers-functions.php:125
+msgid "This email is already used by another user. Try a different one."
+msgstr "Ovu e-poštu već koristi drugi korisnik. Pokušajte s drugim."
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:94
+#: checkout/checkout-shortcode.php:99
+#: includes/wpd-ecommerce-core-functions.php:448
+#: includes/wpd-ecommerce-core-functions.php:455
+#: includes/wpd-ecommerce-core-functions.php:514
+#: includes/wpd-ecommerce-core-functions.php:531
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Error"
+msgstr "Greška"
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:99
+msgid "Please select a payment type."
+msgstr "Molimo odaberite vrstu plaćanja."
+
+#: checkout/checkout-shortcode.php:94
+msgid "The minimum order amount required to checkout is"
+msgstr "Minimalni iznos narudžbe potreban za naplatu je"
+
+#: checkout/checkout-shortcode.php:114
+msgid "Billing details"
+msgstr "Detalji za naplatu"
+
+#: checkout/checkout-shortcode.php:119
+#: customers/customer-account-details.php:15
+#: customers/customer-account-details.php:46
+#: customers/customer-account-shortcode.php:271
+msgid "First Name"
+msgstr "Ime"
+
+#: checkout/checkout-shortcode.php:123
+#: customers/customer-account-shortcode.php:275
+msgid "Last Name"
+msgstr "Prezime"
+
+#: checkout/checkout-shortcode.php:128
+#: customers/customer-account-shortcode.php:280
+msgid "E-mail"
+msgstr "E-mail"
+
+#: checkout/checkout-shortcode.php:133
+#: customers/customer-account-details.php:74
+#: customers/customer-account-shortcode.php:285 orders/orders-metaboxes.php:145
+msgid "Phone number"
+msgstr "Broj telefona"
+
+#: checkout/checkout-shortcode.php:138
+msgid "Street address"
+msgstr "Ulica"
+
+#: checkout/checkout-shortcode.php:139
+msgid "House number and street name"
+msgstr "Broj kuće/stana i ulica"
+
+#: checkout/checkout-shortcode.php:140
+msgid "Apartment, unit, etc. (optional)"
+msgstr "Stan, jedinica itd. (opcionalno)"
+
+#: checkout/checkout-shortcode.php:144
+#: customers/customer-account-details.php:77
+#: customers/customer-account-shortcode.php:300
+msgid "City"
+msgstr "Grad"
+
+#: checkout/checkout-shortcode.php:149
+#: customers/customer-account-details.php:78
+#: customers/customer-account-shortcode.php:305
+msgid "State / County"
+msgstr "Županija"
+
+#: checkout/checkout-shortcode.php:154
+#: customers/customer-account-details.php:79
+#: customers/customer-account-shortcode.php:310
+msgid "Postcode / ZIP"
+msgstr "Poštanski broj"
+
+#: checkout/checkout-shortcode.php:159
+#: customers/customer-account-details.php:80
+#: customers/customer-account-shortcode.php:315
+msgid "Country"
+msgstr "Država"
+
+#: checkout/checkout-shortcode.php:185 checkout/checkout-shortcode.php:326
+msgid "Your order"
+msgstr "Vaša narudžba"
+
+#: checkout/checkout-shortcode.php:295
+msgid "Place Order"
+msgstr "Pošalji upit"
+
+#: checkout/checkout-shortcode.php:301
+msgid "You can check out after adding some products to your cart"
+msgstr "Možete izvršiti odjavu nakon što dodate neke proizvode u košaricu"
+
+#: checkout/checkout-shortcode.php:317 classes/class-csv-customer-export.php:96
+#: customers/customer-account-shortcode.php:140 templates/single-order.php:45
+msgid "Name"
+msgstr "Ime"
+
+#: checkout/checkout-shortcode.php:318 classes/class-csv-customer-export.php:97
+msgid "Email"
+msgstr "E-mail"
+
+#: checkout/checkout-shortcode.php:575
+msgid "New order: #"
+msgstr "Novi poredak: #"
+
+#: checkout/checkout-shortcode.php:578
+msgid "Hello Administrator"
+msgstr "Pozdrav administratoru"
+
+#: checkout/checkout-shortcode.php:579
+#, php-format
+msgid "#%1$s just received a new order from #%2$s #%3$s"
+msgstr "#%1$s upravo je primio novu narudžbu od #%2$s #%3$s"
+
+#: classes/class-csv-customer-export.php:74
+msgid "WP Dispensary's Customer Export"
+msgstr "Izvoz kupaca WP dispanzera"
+
+#: classes/class-csv-customer-export.php:75
+msgid ""
+"Export your WP Dispensary customers as a CSV file by clicking the button "
+"below."
+msgstr ""
+"Izvezite svoje klijente WP Dispensary kao CSV datoteku klikom na gumb u "
+"nastavku."
+
+#: classes/class-csv-customer-export.php:76
+msgid "Export"
+msgstr "Izvoz"
+
+#: classes/class-csv-customer-export.php:95
+#: customers/customer-account-shortcode.php:139
+#: customers/customer-account-shortcode.php:205
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:785
+msgid "ID"
+msgstr "ID oznaka"
+
+#: classes/class-csv-customer-export.php:98
+msgid "Phone"
+msgstr "Telefon"
+
+#: classes/class-csv-customer-export.php:99 orders/orders-metaboxes.php:120
+#: templates/single-order.php:49
+msgid "Address"
+msgstr "Adresa"
+
+#: classes/class-csv-customer-export.php:100
+#: customers/customer-account-shortcode.php:423
+#: includes/wpd-ecommerce-customers-functions.php:308
+msgid "Recommendation number"
+msgstr "Broj preporuke"
+
+#: classes/class-csv-customer-export.php:101
+msgid "Recommendation expiration"
+msgstr "Istek preporuke"
+
+#: classes/class-csv-customer-export.php:102
+msgid "Total orders"
+msgstr "Ukupne narudžbe"
+
+#: customers/customer-account-details.php:42
+msgid "Additional Details"
+msgstr "Dodatni detalji"
+
+#: customers/customer-account-details.php:75
+#: customers/customer-account-shortcode.php:290
+msgid "Address line 1"
+msgstr "Redak adrese 1"
+
+#: customers/customer-account-details.php:76
+#: customers/customer-account-shortcode.php:295
+msgid "Address line 2"
+msgstr "Redak adrese 2"
+
+#: customers/customer-account-details.php:107
+msgid "<strong>ERROR</strong>: Please enter your year of birth."
+msgstr "<strong>GREŠKA</strong>: Unesite svoju godinu rođenja."
+
+#: customers/customer-account-details.php:111
+msgid "<strong>ERROR</strong>: You must be born after 1900."
+msgstr "<strong>GREŠKA</strong>: Morate biti rođeni nakon 1900."
+
+#: customers/customer-account-shortcode.php:32
+msgid "Dashboard"
+msgstr "Kontrolna ploča"
+
+#: customers/customer-account-shortcode.php:35
+#: customers/customer-account-shortcode.php:133 orders/orders-post-type.php:16
+msgid "Orders"
+msgstr "Narudžbe"
+
+#: customers/customer-account-shortcode.php:38
+msgid "Details"
+msgstr "Detalji"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Hello"
+msgstr "Pozdrav"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Log out"
+msgstr "Odjava"
+
+#: customers/customer-account-shortcode.php:66
+msgid "Account dashboard"
+msgstr "Nadzorna ploča računa"
+
+#: customers/customer-account-shortcode.php:67
+msgid ""
+"From your account dashboard you can view your order history and account "
+"details."
+msgstr ""
+"Na nadzornoj ploči računa možete vidjeti povijest narudžbi i pojedinosti o "
+"računu."
+
+#: customers/customer-account-shortcode.php:134
+msgid "This Week"
+msgstr "Protekli tjedan"
+
+#: customers/customer-account-shortcode.php:136
+msgid "Recent Store Orders"
+msgstr "Nedavne narudžbe u trgovini"
+
+#: customers/customer-account-shortcode.php:141
+#: customers/customer-account-shortcode.php:206 orders/orders-post-type.php:97
+#: templates/single-order.php:28
+msgid "Date"
+msgstr "Datum"
+
+#: customers/customer-account-shortcode.php:142
+#: customers/customer-account-shortcode.php:207 orders/orders-metaboxes.php:102
+#: orders/orders-post-type.php:98
+msgid "Status"
+msgstr "Status"
+
+#: customers/customer-account-shortcode.php:202
+msgid "Order history"
+msgstr "Povijest Reda"
+
+#: customers/customer-account-shortcode.php:266
+msgid "Contact information"
+msgstr "Kontaktne informacije"
+
+#: customers/customer-account-shortcode.php:352
+#: includes/wpd-ecommerce-customers-functions.php:259
+msgid "Verification"
+msgstr "Verifikacija"
+
+#: customers/customer-account-shortcode.php:363
+msgid "Drivers License or Valid ID"
+msgstr "Vozačka dozvola ili važeći ID"
+
+#: customers/customer-account-shortcode.php:378
+#: customers/customer-account-shortcode.php:408
+#: includes/wpd-ecommerce-customers-functions.php:279
+#: includes/wpd-ecommerce-customers-functions.php:301
+msgid "x"
+msgstr "x"
+
+#: customers/customer-account-shortcode.php:393
+#: includes/wpd-ecommerce-customers-functions.php:286
+msgid "Doctor recommendation"
+msgstr "Preporuka liječnika"
+
+#: customers/customer-account-shortcode.php:436
+msgid "Expiration Date"
+msgstr "Datum isteka"
+
+#: customers/customer-account-shortcode.php:446
+msgid "Password change"
+msgstr "Promjena lozinke"
+
+#: customers/customer-account-shortcode.php:451
+msgid "Password"
+msgstr "Lozinka"
+
+#: customers/customer-account-shortcode.php:451
+#: customers/customer-account-shortcode.php:455
+msgid "Leave blank to keep unchanged"
+msgstr "Ostavite prazno da ostane nepromijenjeno"
+
+#: customers/customer-account-shortcode.php:455
+msgid "Repeat Password"
+msgstr "Ponovite lozinku"
+
+#: customers/customer-account-shortcode.php:460
+msgid "Update"
+msgstr "Ažuriraj"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr "Cijene teške kategorije"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:167
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr "2 oz"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:171
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr "1/4 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:175
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr "1/2 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:179
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr "1 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:183
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr "2 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:187
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr "3 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:191
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr "4 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:195
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr "5 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:199
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr "6 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:203
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr "7 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:207
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr "8 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:211
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr "9 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:215
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr "10 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:219
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr "11 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:223
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr "12 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:227
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr "13 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:231
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr "14 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:235
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr "15 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:239
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr "20 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:243
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr "25 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:247
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr "50 lbs"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr "3 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:269
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr "4 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:273
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr "5 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:277
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr "6 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:281
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr "7 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:285
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr "8 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:289
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr "9 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:293
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr "10 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:410
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr "Cijene teške kategorije"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr "Odaberi datoteku"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr "Odaberite sliku"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:713
+msgid "Inventory"
+msgstr "Inventar"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:786
+msgid "Type"
+msgstr "Vrsta"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:787
+msgid "Product name"
+msgstr "Ime proizvoda"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:788
+msgid "Categories"
+msgstr "Kategorije"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:789
+msgid "Stock"
+msgstr "Lager"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "In stock"
+msgstr "Na zalihi"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr "grama"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr "jedinice"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+msgid "seeds"
+msgstr "sjemenke"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr "klonova"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
+msgid "Inventory management"
+msgstr "Upravljanje zalihama"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:53
+msgid "Available Seeds (units)"
+msgstr "Dostupne sjemenke (jedinice)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:55
+msgid "Available Clones (units)"
+msgstr "Dostupni klonovi (jedinice)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:59
+msgid "Available grams"
+msgstr "Dostupni grama"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:63
+msgid "Available units"
+msgstr "Dostupne jedinice"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:67
+msgid "Display inventory in Details table"
+msgstr "Prikaži inventar u tablici s detaljima"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-oos.php:52
+msgid "Sorry, this flower is currently out of stock."
+msgstr "Žao nam je, ovog cvijeta trenutno nema na zalihama."
+
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:24
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:33
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:37
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:46
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:54
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:62
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:70
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:75
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:79
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:88
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:96
+#: includes/wpd-ecommerce-core-functions.php:1144
+#: includes/wpd-ecommerce-core-functions.php:1153
+#: includes/wpd-ecommerce-core-functions.php:1157
+#: includes/wpd-ecommerce-core-functions.php:1166
+#: includes/wpd-ecommerce-core-functions.php:1174
+#: includes/wpd-ecommerce-core-functions.php:1182
+#: includes/wpd-ecommerce-core-functions.php:1190
+#: includes/wpd-ecommerce-core-functions.php:1195
+#: includes/wpd-ecommerce-core-functions.php:1199
+#: includes/wpd-ecommerce-core-functions.php:1208
+#: includes/wpd-ecommerce-core-functions.php:1216
+msgid "out of stock"
+msgstr "nema na zalihama"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:236
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:285
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:351
+msgid "THC: "
+msgstr "THC: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:244
+msgid "THCA: "
+msgstr "THCA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:252
+msgid "CBD: "
+msgstr "CBD: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:260
+msgid "CBA: "
+msgstr "CBA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:268
+msgid "CBN: "
+msgstr "CBN: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:276
+msgid "CBG: "
+msgstr "CBG: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:298
+msgid "Seeds:"
+msgstr "Sjemenke:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:308
+msgid "Clones:"
+msgstr "Klonovi:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:316
+msgid "Size:"
+msgstr "Veličina:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:322
+msgid "THC:"
+msgstr "THC:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:328
+msgid "CBD:"
+msgstr "CBD:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:338
+msgid "Weight:"
+msgstr "Težina:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:359
+msgid "Servings: "
+msgstr "Porcije: "
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr "Lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr "Lokacija"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr "Traži lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr "Sve lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr "Roditelj lokacije:"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr "Roditelj lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr "Uredi lokaciju"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr "Ažuriraj lokaciju"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr "Dodaj novu lokaciju"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr "Ime nove lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr "Nije pronađena nijedna lokacija"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr "Lokacije"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr "Mjesta dispanzera"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr "Prikaži stavke izbornika po lokaciji"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:181
+msgid "Dispensary Items"
+msgstr "Dispanzerski artikli"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:196
+msgid "Dispensary location:"
+msgstr "Mjesto ambulante:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:214
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:208
+msgid "Menu item type:"
+msgstr "Vrsta stavke izbornika:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:216
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:210
+msgid "All types"
+msgstr "Svi tipovi"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:217
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:211
+msgid "Flowers"
+msgstr "Cvijeće"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:218
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:212
+msgid "Concentrates"
+msgstr "Koncentrati"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:219
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:213
+msgid "Edibles"
+msgstr "Jestiva"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:220
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:214
+msgid "Pre-rolls"
+msgstr "Prethodne rolne"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:221
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:215
+msgid "Topicals"
+msgstr "Aktualne teme"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:222
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:216
+msgid "Growers"
+msgstr "Uzgajivači"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:223
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:217
+msgid "Gear"
+msgstr "Oprema"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:224
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:218
+msgid "Tinctures"
+msgstr "Tinkture"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:229
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:223
+msgid "Amount of items to show:"
+msgstr "Količina stavki za prikaz:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:235
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:229
+msgid "Randomize output?"
+msgstr "Nasumično odabrati izlaz?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:240
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:234
+msgid "Display featured image?"
+msgstr "Prikaži istaknutu sliku?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:245
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:239
+msgid "Display item name?"
+msgstr "Prikaži naziv stavke?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:250
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:244
+msgid "Display item category?"
+msgstr "Prikaži kategoriju predmeta?"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Featured"
+msgstr "Istaknuto"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:59
+msgid "This is a featured product"
+msgstr "Ovo je istaknuti proizvod"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr "Najprodavaniji u ambulanti"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr "Prikažite svoje najprodavanije artikle"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:248
+msgid "Image size:"
+msgstr "Veličina slike:"
+
+#: includes/wpd-ecommerce-activation.php:60
+msgid "Account"
+msgstr "Račun"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:34
+#: includes/wpd-ecommerce-archive-items-functions.php:51
+#: includes/wpd-ecommerce-archive-items-functions.php:76
+#: includes/wpd-ecommerce-archive-items-functions.php:78
+#: includes/wpd-ecommerce-archive-items-functions.php:90
+#: includes/wpd-ecommerce-archive-items-functions.php:92
+#: includes/wpd-ecommerce-archive-items-functions.php:186
+#: includes/wpd-ecommerce-archive-items-functions.php:188
+#: includes/wpd-ecommerce-archive-items-functions.php:196
+msgid "Buy Now"
+msgstr "Kupi odmah"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:36
+#: includes/wpd-ecommerce-archive-items-functions.php:53
+#: includes/wpd-ecommerce-archive-items-functions.php:74
+#: includes/wpd-ecommerce-archive-items-functions.php:88
+#: includes/wpd-ecommerce-archive-items-functions.php:184
+#: includes/wpd-ecommerce-archive-items-functions.php:198
+msgid "Select Options"
+msgstr "Odaberite Opcije"
+
+#: includes/wpd-ecommerce-core-functions.php:27
+msgid "View Cart"
+msgstr "Pogledajte košaricu"
+
+#: includes/wpd-ecommerce-core-functions.php:36
+#: includes/wpd-ecommerce-core-functions.php:44
+msgid "Please select a weight in order to add the product to your cart"
+msgstr "Molimo odaberite težinu kako biste proizvod dodali u košaricu"
+
+#: includes/wpd-ecommerce-core-functions.php:52
+#: includes/wpd-ecommerce-core-functions.php:60
+#: includes/wpd-ecommerce-core-functions.php:68
+#: includes/wpd-ecommerce-core-functions.php:76
+#: includes/wpd-ecommerce-core-functions.php:84
+#: includes/wpd-ecommerce-core-functions.php:92
+msgid "Please select a quantity in order to add the product to your cart"
+msgstr "Molimo odaberite količinu kako biste proizvod dodali u košaricu"
+
+#: includes/wpd-ecommerce-core-functions.php:205
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "There is not enough inventory for your purchase."
+msgstr "Nema dovoljno zaliha za vašu kupnju."
+
+#: includes/wpd-ecommerce-core-functions.php:205
+msgid "Available"
+msgstr "Dostupno"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+msgid "This product has been successfully added to your cart"
+msgstr "Ovaj proizvod je uspješno dodan u vašu košaricu"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Continue Shopping"
+msgstr "Nastavite s kupnjom"
+
+#: includes/wpd-ecommerce-core-functions.php:448
+msgid "The username or password you entered is incorrect."
+msgstr "Korisničko ime ili lozinka koju ste unijeli je netočna."
+
+#: includes/wpd-ecommerce-core-functions.php:455
+msgid "The registration info you entered is incorrect."
+msgstr "Podaci o registraciji koje ste unijeli nisu točni."
+
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "Thank You"
+msgstr "Teşekkür ederim"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "Item removed"
+msgstr "Stavka je uklonjena"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "The item has been successfully removed."
+msgstr "Stavka je uspješno uklonjena."
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Item added"
+msgstr "Stavka je dodana"
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "The item has been successfully added to your cart."
+msgstr "Artikl je uspješno dodan u vašu košaricu."
+
+#: includes/wpd-ecommerce-core-functions.php:531
+msgid "Required product is not in your cart"
+msgstr "Potreban proizvod nije u vašoj košarici"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Success"
+msgstr "Uspješno"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Coupon code has been applied"
+msgstr "Kôd kupona je primijenjen"
+
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Please enter a coupon code"
+msgstr "Unesite kod kupona"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Details Saved"
+msgstr "Detalji spremljeni"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Your profile settings have been successfully saved"
+msgstr "Postavke vašeg profila uspješno su spremljene"
+
+#: includes/wpd-ecommerce-core-functions.php:1045
+msgid "Pages"
+msgstr "Stranice"
+
+#: includes/wpd-ecommerce-core-functions.php:1257
+msgid "Choose a weight"
+msgstr "Odaberite težinu"
+
+#: includes/wpd-ecommerce-core-functions.php:1429
+msgid "Choose quantity"
+msgstr "Odaberite količinu"
+
+#: includes/wpd-ecommerce-core-functions.php:1430
+msgid "each"
+msgstr "svaki"
+
+#: includes/wpd-ecommerce-core-functions.php:1431
+msgid "pack"
+msgstr "paket"
+
+#: includes/wpd-ecommerce-core-functions.php:1676
+msgid "Add to cart"
+msgstr "Dodaj u košaricu"
+
+#: includes/wpd-ecommerce-core-functions.php:1783
+msgid "Delivery"
+msgstr "Dostava"
+
+#: includes/wpd-ecommerce-core-functions.php:1793
+msgid "In-store pickup"
+msgstr "Preuzimanje u trgovini"
+
+#: includes/wpd-ecommerce-core-functions.php:1803
+msgid "Shipping"
+msgstr "Dostava"
+
+#: includes/wpd-ecommerce-customers-functions.php:117
+msgid "The passwords you entered do not match.  Your password was not updated."
+msgstr "Zaporke koje ste unijeli ne odgovaraju. Vaša lozinka nije ažurirana."
+
+#: includes/wpd-ecommerce-customers-functions.php:264
+msgid "Drivers license or Valid ID"
+msgstr "Vozačka dozvola ili važeći ID"
+
+#: includes/wpd-ecommerce-customers-functions.php:314
+msgid "Expiration date"
+msgstr "Datum isteka"
+
+#: includes/wpd-ecommerce-customers-functions.php:459
+#: includes/wpd-ecommerce-customers-functions.php:475
+msgid "Register"
+msgstr "Registracija"
+
+#: includes/wpd-ecommerce-customers-functions.php:464
+msgid "Username"
+msgstr "Korisničko ime"
+
+#: includes/wpd-ecommerce-customers-functions.php:469
+#: orders/orders-metaboxes.php:140
+msgid "Email address"
+msgstr "Email adresa"
+
+#: includes/wpd-ecommerce-customers-functions.php:473
+msgid "A password will be emailed to you."
+msgstr "Lozinka će vam biti poslana e-poštom."
+
+#: includes/wpd-ecommerce-orders-functions.php:18
+msgctxt "Order status"
+msgid "Pending"
+msgstr "U tijeku"
+
+#: includes/wpd-ecommerce-orders-functions.php:19
+msgctxt "Order status"
+msgid "Processing"
+msgstr "Obrada"
+
+#: includes/wpd-ecommerce-orders-functions.php:20
+msgctxt "Order status"
+msgid "On hold"
+msgstr "Na čekanju"
+
+#: includes/wpd-ecommerce-orders-functions.php:21
+msgctxt "Order status"
+msgid "Completed"
+msgstr "Obrađeno"
+
+#: includes/wpd-ecommerce-orders-functions.php:22
+msgctxt "Order status"
+msgid "Cancelled"
+msgstr "Otkazano"
+
+#: includes/wpd-ecommerce-orders-functions.php:23
+msgctxt "Order status"
+msgid "Refunded"
+msgstr "Refundiran"
+
+#: includes/wpd-ecommerce-orders-functions.php:24
+msgctxt "Order status"
+msgid "Failed"
+msgstr "Neuspjeh"
+
+#: includes/wpd-ecommerce-orders-functions.php:129
+#, php-format
+msgid "Order updated. <a href=\"%s\">View order</a>"
+msgstr "Narudžba je ažurirana. <a href=“%s”>Prikaži narudžbu</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:130
+msgid "Custom field updated."
+msgstr "Prilagođeno polje je ažurirano."
+
+#: includes/wpd-ecommerce-orders-functions.php:131
+msgid "Custom field deleted."
+msgstr "Prilagođeno polje je izbrisano."
+
+#: includes/wpd-ecommerce-orders-functions.php:132
+msgid "Order updated."
+msgstr "Narudžba je ažurirana (dopunjena)."
+
+#: includes/wpd-ecommerce-orders-functions.php:133
+#, php-format
+msgid "Order restored to revision from %s"
+msgstr "Narudžba je ažurirana na verziju od %s"
+
+#: includes/wpd-ecommerce-orders-functions.php:134
+#, php-format
+msgid "Order published. <a href=\"%s\">View order</a>"
+msgstr "Narudžba objavljena. <a href=“%s”>Prikaži narudžbu</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:135
+msgid "Order saved."
+msgstr "Narudžba je snimljena."
+
+#: includes/wpd-ecommerce-orders-functions.php:136
+#, php-format
+msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr "Narudžba poslana. <a target=“_blank” href=“%s”>Pregled narudžbe</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:137
+#, php-format
+msgid ""
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview order</a>"
+msgstr ""
+"Narudžba zakazana za: <strong>%1$s</strong>. <a target=“_blank” "
+"href=“%2$s”>Pregled narudžbe</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:138
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/wpd-ecommerce-orders-functions.php:139
+#, php-format
+msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"Nacrt narudžbe je ažuriran. <a target=“_blank” href=“%s”>Pregled narudžbe</a>"
+
+#: orders/orders-metaboxes.php:20
+msgid "Order details"
+msgstr "Detalji narudžbe"
+
+#: orders/orders-metaboxes.php:76
+#, php-format
+msgid "Order #%1$s details"
+msgstr "Detalji narudžbe #%1$s"
+
+#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:99
+msgid "Customer"
+msgstr "Kupac"
+
+#: orders/orders-metaboxes.php:136
+msgid "profile"
+msgstr "profil"
+
+#: orders/orders-metaboxes.php:136
+msgid "view orders"
+msgstr "pregledati narudžbe"
+
+#: orders/orders-post-type.php:14
+msgctxt "Post Type General Name"
+msgid "Orders"
+msgstr "Narudžbe"
+
+#: orders/orders-post-type.php:15
+msgctxt "Post Type Singular Name"
+msgid "Order"
+msgstr "Narudžba"
+
+#: orders/orders-post-type.php:17 orders/orders-post-type.php:58
+msgid "Order"
+msgstr "Narudžba"
+
+#: orders/orders-post-type.php:18
+msgid "Order Archives"
+msgstr "Arhiva narudžbi"
+
+#: orders/orders-post-type.php:19
+msgid "Order Attributes"
+msgstr "Atributi narudžbe"
+
+#: orders/orders-post-type.php:20
+msgid "Parent Order:"
+msgstr "Roditeljski redoslijed:"
+
+#: orders/orders-post-type.php:21
+msgid "All Orders"
+msgstr "Sve naruđbe"
+
+#: orders/orders-post-type.php:22
+msgid "Add New Order"
+msgstr "Dodaj novu narudžbu"
+
+#: orders/orders-post-type.php:23
+msgid "Add New"
+msgstr "Dodaj novi"
+
+#: orders/orders-post-type.php:24
+msgid "New Order"
+msgstr "Nova narudžba"
+
+#: orders/orders-post-type.php:25
+msgid "Edit Order"
+msgstr "Uredi narudžbu"
+
+#: orders/orders-post-type.php:26
+msgid "Update Order"
+msgstr "Redoslijed ažuriranja"
+
+#: orders/orders-post-type.php:27
+msgid "View Order"
+msgstr "Pogledaj nalog"
+
+#: orders/orders-post-type.php:28
+msgid "View Orders"
+msgstr "Pregledajte narudžbe"
+
+#: orders/orders-post-type.php:29
+msgid "Search Order"
+msgstr "Redoslijed pretraživanja"
+
+#: orders/orders-post-type.php:30
+msgid "Not found"
+msgstr "Nije pronađeno"
+
+#: orders/orders-post-type.php:31
+msgid "Not found in Trash"
+msgstr "Nije pronađeno u smeću"
+
+#: orders/orders-post-type.php:32
+msgid "Featured Image"
+msgstr "Istaknuta slika"
+
+#: orders/orders-post-type.php:33
+msgid "Set featured image"
+msgstr "Postavite istaknutu sliku"
+
+#: orders/orders-post-type.php:34
+msgid "Remove featured image"
+msgstr "Uklonite istaknutu sliku"
+
+#: orders/orders-post-type.php:35
+msgid "Use as featured image"
+msgstr "Koristi kao istaknutu sliku"
+
+#: orders/orders-post-type.php:36
+msgid "Insert into order"
+msgstr "Ubacite u red"
+
+#: orders/orders-post-type.php:37
+msgid "Uploaded to this order"
+msgstr "Učitano u ovu narudžbu"
+
+#: orders/orders-post-type.php:38
+msgid "Orders list"
+msgstr "Lista narudžbi"
+
+#: orders/orders-post-type.php:39
+msgid "Orders list navigation"
+msgstr "Navigacija popisom narudžbi"
+
+#: orders/orders-post-type.php:40
+msgid "Filter orders list"
+msgstr "Filtrirajte popis narudžbi"
+
+#: orders/orders-post-type.php:59
+msgid "View your store's order history"
+msgstr "Pregledajte povijest narudžbi svoje trgovine"
+
+#: templates/single-order.php:93
+msgid "Order items"
+msgstr "Stavke narudžbe"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's eCommerce"
+msgstr "WP Dispensary’s e-trgovina"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/ecommerce"
+msgstr "https://www.wpdispensary.com/product/ecommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"Adds shopping cart capabilities to the WP Dispensary menu management plugin."
+msgstr ""
+"Dodaje mogućnosti košarice u dodatak za upravljanje izbornikom WP Dispensary."
+
+#. Author of the plugin/theme
+msgid "WP Dispenary"
+msgstr "WP Dispenary"
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr "https://www.wpdispensary.com"
