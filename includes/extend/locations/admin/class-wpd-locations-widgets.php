@@ -109,58 +109,35 @@ class wpdlocations_widget extends WP_Widget {
 			global $post;
 
 			if ( 'on' == $instance['featuredimage'] ) {
-
-				echo "<div class='wpd-locations-widget'>";
-					echo "<a href='" . get_permalink( $post->ID ) ."'>";
+				echo '<div class="wpd-locations-widget">';
+					echo '<a href="' . get_permalink( $post->ID ) . '">';
 						the_post_thumbnail( 'wpd-locations-widget' );
 					echo "</a>";
 				if ( 'on' == $instance['itemname'] ) {
-					echo "<span class='wpd-locations-widget-title'><a href='" . get_permalink( $post->ID ) ."'>". get_the_title( $post->ID ) ."</a></span>";
+					echo '<span class="wpd-locations-widget-title"><a href="' . get_permalink( $post->ID ) . '">' . get_the_title( $post->ID ) . '</a></span>';
 				}
 				if ( 'on' == $instance['itemcategory'] ) {
-					if ( 'flowers' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'flowers_category' ) ."</a></span>";
-					} elseif ( 'concentrates' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'concentrates_category' ) ."</a></span>";
-					} elseif ( 'edibles' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'edibles_category' ) ."</a></span>";
-					} elseif ( 'prerolls' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'flowers_category' ) ."</a></span>";
-					} elseif ( 'topicals' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'topicals_category' ) ."</a></span>";
-					} elseif ( 'growers' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'flowers_category' ) ."</a></span>";
-					} elseif ( 'gear' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'wpd_gear_category' ) ."</a></span>";
-					} elseif ( 'tinctures' === get_post_type() ) {
-						echo "<span class='wpd-locations-widget-categories'>". get_the_term_list( $post->ID, 'wpd_tinctures_category' ) ."</a></span>";
-					} else {
-						// Do nothing.
-					}
+					echo '<span class="wpd-locations-widget-categories">' . get_the_term_list( $post->ID, 'wpd_categories' ) . '</a></span>';
 				}
 				echo "</div>";
-
 			} else {
-
-				echo "<li>";
+				echo '<li>';
 				if ( 'on' == $instance['itemname'] ) {
-					echo "<a href='" . get_permalink( $post->ID ) ."' class='wpd-locations-widget-link'>". get_the_title( $post->ID ) ."</a>";
+					echo '<a href="' . get_permalink( $post->ID ) . '" class="wpd-locations-widget-link">' . get_the_title( $post->ID ) . '</a>';
 				}
-				echo "</li>";
-
+				echo '</li>';
 			}
 
 			endwhile; // end loop
 
-			if ( ! 'on' == $instance['featuredimage'] ) {
-				echo "</ul>";
+			if ( 'on' !== $instance['featuredimage'] ) {
+				echo '</ul>';
 			}
 
         do_action( 'wpdlocations_after_widget' );
 
         echo $args['after_widget'];
     }
-
 
     /**
      * Update widget options
@@ -201,7 +178,7 @@ class wpdlocations_widget extends WP_Widget {
 	    $defaults = array(
 	        'type'          => '',
 	        'location'      => '',
-	        'title'         => 'Dispensary Items',
+	        'title'         => __( 'Dispensary Items', 'wpd-ecommerce' ),
 	        'limit'         => '5',
 	        'order'         => '',
 	        'featuredimage' => '',
@@ -222,12 +199,11 @@ class wpdlocations_widget extends WP_Widget {
 				if ( $terms ) {
 					printf( '<select name="%s" id="'. $this->get_field_id( 'location' ) .'" name="'. $this->get_field_name( 'location' ) .'" class="widefat">', esc_attr( $this->get_field_name( 'location' ) ) );
 					foreach ( $terms as $term ) {
+						$selected = '';
 						if ( esc_attr( $term->slug ) == $instance['location'] ) {
-							$locationinfo = 'selected="selected"';
-						} else {
-							$locationinfo = '';
+							$selected = 'selected="selected"';
 						}
-						printf( '<option value="%s" '. $locationinfo .'>%s</option>', esc_attr( $term->slug ), esc_html( $term->name ) );
+						printf( '<option value="%s" ' . $selected . '>%s</option>', esc_attr( $term->slug ), esc_html( $term->name ) );
 					}
 					print( '</select>' );
 				}

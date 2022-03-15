@@ -57,21 +57,6 @@ function run_wpd_locations() {
 }
 run_wpd_locations();
 
-// Add settings link on plugin page.
-function dispensary_locations_settings_link( $links ) {
-  $settings_link = '<a href="edit-tags.php?taxonomy=locations">' . __( 'Settings', 'wpd-ecommerce' ) . '</a>';
-  array_unshift( $links, $settings_link );
-  return $links;
-}
-
-$pluginname = plugin_basename(__FILE__);
-add_filter( "plugin_action_links_$pluginname", 'dispensary_locations_settings_link' );
-
-function dispensary_locations_add_admin_menu() {
-	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
-}
-add_action( 'admin_menu', 'dispensary_locations_add_admin_menu', 7 );
-
 // Keeps the WP Dispensary link list open when taxonomy submenu items are open.
 function wpd_locations_keep_taxonomy_menu_open( $parent_file ) {
 	global $current_screen;
@@ -85,3 +70,9 @@ function wpd_locations_keep_taxonomy_menu_open( $parent_file ) {
 	return $parent_file;
 }
 add_action( 'parent_file', 'wpd_locations_keep_taxonomy_menu_open' );
+
+// Adds Locations admin submenu link.
+function wpd_admin_menu_locations() {
+	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
+}
+add_action( 'admin_menu', 'wpd_admin_menu_locations', 6 );

@@ -23,10 +23,3 @@ function wpd_locations( $data, $post, $request ) {
 	return $data;
 }
 add_filter( 'rest_prepare_products', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_flowers', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_concentrates', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_edibles', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_prerolls', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_topicals', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_gear', 'wpd_locations', 10, 3 );
-add_filter( 'rest_prepare_tinctures', 'wpd_locations', 10, 3 );
