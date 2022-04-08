@@ -1,5 +1,74 @@
 # Changelog
 
+### 2.0
+* Added inventory, topsellers, locations and heavyweights add-ons directly to the eCommerce plugin
+* Added Spanish language translation in `languages/wpd-ecommerce-es_ES.po`
+* Added Italian language translation in `languages/wpd-ecommerce-it_IT.po`
+* Added German language translation in `languages/wpd-ecommerce-de_DE.po`
+* Added French language translation in `languages/wpd-ecommerce-fr_FR.po`
+* Added Croatian language translation in `languages/wpd-ecommerce-hr_HR.po`
+* Added French language translation in `languages/wpd-ecommerce-cs_CZ.po`
+* Added Georgian language translation in `languages/wpd-ecommerce-ka_GE.po`
+* Added Hebrew language translation in `languages/wpd-ecommerce-he_IL.po`
+* Added Maltese language translation in `languages/wpd-ecommerce-mt_MT.po`
+* Added Dutch language translation in `languages/wpd-ecommerce-nl_NL.po`
+* Added `wpd_ecommerce_cart_empty_message` filter in `cart/cart-shortcode.php`
+* Added `wpd_ecommerce_cart_empty_menu_url` and `wpd_ecommerce_empty_cart_return_to_menu_text` filters in `cart/cart-shortcode.php`
+* Added `wpd_ecommerce_locations_widget_post_types` filter in `includes/extend/locations/admin/class-wpd-locations-widgets.php`
+* Added `wpd_ecommerce_table_order_data_thead` and `wpd_ecommerce_table_order_data_tbody` filters in `includes/wpd-ecommerce-orders-functions.php`
+* Added `wpd_ecommerce_checkout_minimum_order` and `wpd_ecommerce_require_login_to_shop` helper functions in `includes/wpd-ecommerce-admin-settings-functions.php`
+* Added `wpd_ecommerce_register_form` and `wpd_ecommerce_login_form` helper functions in `includes/wpd-ecommerce-customers-functions.php`
+* Added `wpd_ecommerce_get_order_details` helper function in `includes/wpd-ecommerce-orders-functions.php`
+* Added `wpd_ecommerce_cart_subtotal` helper function in `includes/wpd-ecommerce-cart-functions.php`
+* Added `get_wpd_cookie_lifetime` helper function in `includes/wpd-ecommerce-core-functions.php`
+* Added `wpd_ecommerce_archive_template_data` helper function in `includes/wpd-ecommerce-archive-items-functions.php`
+* Added `wpd_ecommerce_customer_total_order_count` helper function in `includes/wpd-ecommerce-orders-functions.php`
+* Added `wpd_ecommerce_get_orders_details` helper function in `includes/wpd-ecommerce-orders-functions.php`
+* Added `wpd_ecommerce_templates_single_items_item_types_inside` action hook in `templates/single-item.php`
+* Added 'register' button to login notice on the checkout page in `checkout/checkout-shortcode.php`
+* Added 'continue shopping' button to item successfully added notification in `includes/wpd-ecommerce-core-functions.php`
+* Added new `wpd_categories` taxonomy display in single template in `templates/single-item.php`
+* Added success message when patient details are saved in `includes/wpd-ecommerce-core-functions.php`
+* Added `CSV_Customers_Export` class in `classes/csv-customer-export.php`
+* Added vendor logo to archive template in `templates/archive-items.php`
+* Bugfix pagination link error in taxonomy archives in `templates/archive-items.php`
+* Bugfix empty cart check in `wpd_cart` shortcode in `cart/cart-shortcode.php`
+* Bugfix 'Out of Stock' message on taxonomy archives for items with no inventory in `@TODO UPDATE FILE NAME`
+* Updated translation array to check if session is set in `wpd-ecommerce.php`
+* Updated checkout URL to use helper function in `cart/cart-shortcode.php`
+* Updated the `Item` Class to use `wpd_concentrates_prices_array` helper function in `classes/class-item.php`
+* Updated flower and concentrate weight calculations to use get_options values in `includes/wpd-ecommerce-core-functions.php`
+* Updated insufficient inventory messages in `includes/wpd-ecommerce-core-functions.php`
+* Updated taxonomies to keep WPD `admin_menu` open in `includes/extend/locations/wpd-locations.php`
+* Updated out of stock inventory check in `includes/wpd-ecommerce-core-functions.php`
+* Updated out of stock inventory check in `includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php`
+* Updated out of stock inventory check in `includes/wpd-ecommerce-archive-items-functions.php`
+* Updated single order redirect codes to use a separate action filter in `includes/wpd-ecommerce-orders-functions.php`
+* Updated heavyweights metabox to display in the Products post type in `includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php`
+* Updated session codes to be stored in their own file in `includes/wpd-ecommerce-sessions-functions.php`
+* Updated activation codes to be stored in their own file in `includes/wpd-ecommerce-activation.php`
+* Updated coupon check when customer tries applying a coupon in `@TODO FIND URL FOR HERE`
+* Updated customer user role creation in `includes/wpd-ecommerce-activation.php`
+* Updated 'buy now' button checks for topicals in `includes/wpd-ecommerce-archive-items-functions.php`
+* Updated single product template wrapper in `includes/wpd-ecommerce-core-functions.php`
+* Updated Item and Cart classes to calculate the correct sum for subtotal in `classes/class-cart.php` and `classes/class-item.php`
+* Updated account page URL helper functions in `includes/wpd-ecommerce-core-functions.php`
+* Updated inventory metaboxes to use a single metabox in `includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php`
+* Updated cookie creation to use new helper function time in `wpd-ecommerce.php`
+* Updated single template file to be used with new Products post type in `wpd-ecommerce.php`
+* Updated inventory 'out of stock' notice for Growers product type in `includes/extend/inventory/includes/wpd-inventory-functions.php`
+* Updated inventory 'out of stock' notice for Growers product type in `includes/wpd-ecommerce-archive-items-functions.php`
+* Updated inventory 'out of stock' notice for Growers product type in `includes/wpd-ecommerce-core-functions.php`
+* Updated quantity select box styles in `assets/css/wpd-ecommerce-publics.css`
+* Updated cart widget styles in `assets/css/wpd-ecommerce-public.css`
+* Updated product table styles to only apply to cart widget in `assets/css/wpd-ecommerce-public.css`
+* Updated product add to cart form field styles in `assets/css/wpd-ecommerce-public.css`
+* Updated `.pot` file with text strings for localization in `languages/wpd-ecommerce.pot`
+* Updated all instances of 'patients' to 'customers' in multiple files throughout the plugin
+* Updated variable checks to remove PHP notices in multiple files throughout the plugin
+* Updated meta keys to use the new name structure in multiple files throughout the plugin
+* General code cleanup throughout various files in the plugin
+
 ### 1.7
 * Added `wpd_ecommerce_archive_items_product_image_size` filter in `templates/archive-items.php`
 * Bugfix added the product details filter's missing arg in `templates/archive-items.php`

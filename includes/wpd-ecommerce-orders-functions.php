@@ -317,7 +317,7 @@ add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_
  * Get total orders per customer
  * 
  * @param  $customer_id 
- * @since  3.0
+ * @since  2.0
  * @return int
  */
 function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
@@ -353,7 +353,7 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
  * @param  int    $customer_id
  * @param  string $start_date
  * @param  string $end_date
- * @since  3.0
+ * @since  2.0
  * @return array
  */
 function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', $end_date = '' ) {
