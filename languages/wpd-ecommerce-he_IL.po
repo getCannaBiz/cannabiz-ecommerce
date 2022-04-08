@@ -1,0 +1,1347 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Dispensary's eCommerce\n"
+"POT-Creation-Date: 2022-04-07 19:48-0400\n"
+"PO-Revision-Date: 2022-04-07 20:31-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: he_IL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
+"2 : 3);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-ecommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:192
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:56
+msgid "Product"
+msgstr "מוצר"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:57
+msgid "Price"
+msgstr "מחיר"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:58
+msgid "Qty"
+msgstr "כמות"
+
+#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:135
+#: checkout/checkout-shortcode.php:192 checkout/checkout-shortcode.php:286
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:223
+#: classes/class-cart.php:224 customers/customer-account-shortcode.php:143
+#: customers/customer-account-shortcode.php:208
+#: includes/wpd-ecommerce-orders-functions.php:59
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: templates/single-order.php:85
+msgid "Total"
+msgstr "סה\"כ"
+
+#: cart/cart-shortcode.php:84
+msgid "Coupon code"
+msgstr "קוד קופון"
+
+#: cart/cart-shortcode.php:85
+msgid "Apply Coupon"
+msgstr "החל קופון"
+
+#: cart/cart-shortcode.php:113
+msgid "Cart Totals"
+msgstr "סה\"כ בסל הקניות"
+
+#: cart/cart-shortcode.php:116 cart/cart-widget.php:157
+#: checkout/checkout-shortcode.php:266 orders/orders-metaboxes.php:79
+#: templates/single-order.php:72
+msgid "Subtotal"
+msgstr "סה\"כ"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+#: orders/orders-metaboxes.php:81 templates/single-order.php:74
+msgid "Coupon"
+msgstr "קופון"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+msgid "Remove"
+msgstr "הסר"
+
+#: cart/cart-shortcode.php:124 checkout/checkout-shortcode.php:273
+#: orders/orders-metaboxes.php:90 templates/single-order.php:77
+msgid "Sales tax"
+msgstr "מס מכירה"
+
+#: cart/cart-shortcode.php:128 checkout/checkout-shortcode.php:277
+#: orders/orders-metaboxes.php:87 templates/single-order.php:80
+msgid "Excise tax"
+msgstr "מס בלו"
+
+#: cart/cart-shortcode.php:138
+msgid "Proceed to Checkout"
+msgstr "המשך לתשלום"
+
+#: cart/cart-shortcode.php:148
+msgid "There is nothing in your cart."
+msgstr "אין שום דבר בעגלה שלך."
+
+#: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:302
+msgid "Return to menu"
+msgstr "חזור לתפריט"
+
+#: cart/cart-widget.php:25
+msgid "Shopping Cart"
+msgstr "עגלת קניות"
+
+#: cart/cart-widget.php:27
+msgid "Display your cart details"
+msgstr "הצג את פרטי העגלה שלך"
+
+#: cart/cart-widget.php:36 includes/wpd-ecommerce-activation.php:50
+msgid "Cart"
+msgstr "סל קניות"
+
+#: cart/cart-widget.php:42
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:192
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:203
+msgid "Widget Title:"
+msgstr "כותרת וידג'ט:"
+
+#: cart/cart-widget.php:159 includes/wpd-ecommerce-activation.php:40
+msgid "Checkout"
+msgstr "לתשלום"
+
+#: checkout/checkout-shortcode.php:19 checkout/checkout-shortcode.php:22
+#: includes/wpd-ecommerce-customers-functions.php:440
+msgid "Login"
+msgstr "התחבר"
+
+#: checkout/checkout-shortcode.php:21
+msgid "You must be logged in to checkout."
+msgstr "עליך להתחבר על מנת לשלם."
+
+#: checkout/checkout-shortcode.php:40
+#: includes/wpd-ecommerce-customers-functions.php:123
+msgid "The Email you entered is not valid. Please try again."
+msgstr "הדוא\"ל שהזנת אינו חוקי. נא נסה שוב."
+
+#: checkout/checkout-shortcode.php:42
+#: includes/wpd-ecommerce-customers-functions.php:125
+msgid "This email is already used by another user. Try a different one."
+msgstr "האימייל הזה כבר בשימוש. יש לנסות אימייל אחר."
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:94
+#: checkout/checkout-shortcode.php:99
+#: includes/wpd-ecommerce-core-functions.php:448
+#: includes/wpd-ecommerce-core-functions.php:455
+#: includes/wpd-ecommerce-core-functions.php:514
+#: includes/wpd-ecommerce-core-functions.php:531
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Error"
+msgstr "שגיאה"
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:99
+msgid "Please select a payment type."
+msgstr "אנא בחר סוג תשלום."
+
+#: checkout/checkout-shortcode.php:94
+msgid "The minimum order amount required to checkout is"
+msgstr "כמות ההזמנה המינימלית הנדרשת לקופה היא"
+
+#: checkout/checkout-shortcode.php:114
+msgid "Billing details"
+msgstr "פרטי חיוב"
+
+#: checkout/checkout-shortcode.php:119
+#: customers/customer-account-details.php:15
+#: customers/customer-account-details.php:46
+#: customers/customer-account-shortcode.php:271
+msgid "First Name"
+msgstr "שם פרטי"
+
+#: checkout/checkout-shortcode.php:123
+#: customers/customer-account-shortcode.php:275
+msgid "Last Name"
+msgstr "שם משפחה"
+
+#: checkout/checkout-shortcode.php:128
+#: customers/customer-account-shortcode.php:280
+msgid "E-mail"
+msgstr "אימייל"
+
+#: checkout/checkout-shortcode.php:133
+#: customers/customer-account-details.php:74
+#: customers/customer-account-shortcode.php:285 orders/orders-metaboxes.php:145
+msgid "Phone number"
+msgstr "מספר טלפון"
+
+#: checkout/checkout-shortcode.php:138
+msgid "Street address"
+msgstr "כתובת"
+
+#: checkout/checkout-shortcode.php:139
+msgid "House number and street name"
+msgstr "שם הרחוב ומספר בית"
+
+#: checkout/checkout-shortcode.php:140
+msgid "Apartment, unit, etc. (optional)"
+msgstr "דירה, יחידה וכו’ (לא חובה)"
+
+#: checkout/checkout-shortcode.php:144
+#: customers/customer-account-details.php:77
+#: customers/customer-account-shortcode.php:300
+msgid "City"
+msgstr "עיר"
+
+#: checkout/checkout-shortcode.php:149
+#: customers/customer-account-details.php:78
+#: customers/customer-account-shortcode.php:305
+msgid "State / County"
+msgstr "מדינה / ארץ"
+
+#: checkout/checkout-shortcode.php:154
+#: customers/customer-account-details.php:79
+#: customers/customer-account-shortcode.php:310
+msgid "Postcode / ZIP"
+msgstr "מיקוד"
+
+#: checkout/checkout-shortcode.php:159
+#: customers/customer-account-details.php:80
+#: customers/customer-account-shortcode.php:315
+msgid "Country"
+msgstr "מדינה"
+
+#: checkout/checkout-shortcode.php:185 checkout/checkout-shortcode.php:326
+msgid "Your order"
+msgstr "ההזמנה שלך"
+
+#: checkout/checkout-shortcode.php:295
+msgid "Place Order"
+msgstr "בצע הזמנה"
+
+#: checkout/checkout-shortcode.php:301
+msgid "You can check out after adding some products to your cart"
+msgstr "אתה יכול לשלם לאחר הוספת כמה מוצרים לעגלת הקניות שלך"
+
+#: checkout/checkout-shortcode.php:317 classes/class-csv-customer-export.php:96
+#: customers/customer-account-shortcode.php:140 templates/single-order.php:45
+msgid "Name"
+msgstr "שם"
+
+#: checkout/checkout-shortcode.php:318 classes/class-csv-customer-export.php:97
+msgid "Email"
+msgstr "אימייל"
+
+#: checkout/checkout-shortcode.php:575
+msgid "New order: #"
+msgstr "הזמנה חדשה: #"
+
+#: checkout/checkout-shortcode.php:578
+msgid "Hello Administrator"
+msgstr "שלום מנהל"
+
+#: checkout/checkout-shortcode.php:579
+#, php-format
+msgid "#%1$s just received a new order from #%2$s #%3$s"
+msgstr "‫#%1$s קיבלה זה עתה הזמנה חדשה מ-#%2$s #%3$s"
+
+#: classes/class-csv-customer-export.php:74
+msgid "WP Dispensary's Customer Export"
+msgstr "ייצוא לקוחות של WP Dispensary"
+
+#: classes/class-csv-customer-export.php:75
+msgid ""
+"Export your WP Dispensary customers as a CSV file by clicking the button "
+"below."
+msgstr "ייצא את לקוחות WP Dispensary שלך כקובץ CSV על ידי לחיצה על הלחצן למטה."
+
+#: classes/class-csv-customer-export.php:76
+msgid "Export"
+msgstr "יְצוּא"
+
+#: classes/class-csv-customer-export.php:95
+#: customers/customer-account-shortcode.php:139
+#: customers/customer-account-shortcode.php:205
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:785
+msgid "ID"
+msgstr "מזהה"
+
+#: classes/class-csv-customer-export.php:98
+msgid "Phone"
+msgstr "טלפון"
+
+#: classes/class-csv-customer-export.php:99 orders/orders-metaboxes.php:120
+#: templates/single-order.php:49
+msgid "Address"
+msgstr "כתובת"
+
+#: classes/class-csv-customer-export.php:100
+#: customers/customer-account-shortcode.php:423
+#: includes/wpd-ecommerce-customers-functions.php:308
+msgid "Recommendation number"
+msgstr "מספר המלצה"
+
+#: classes/class-csv-customer-export.php:101
+msgid "Recommendation expiration"
+msgstr "תפוגה של המלצה"
+
+#: classes/class-csv-customer-export.php:102
+msgid "Total orders"
+msgstr "ההזמנות שנתקבלו"
+
+#: customers/customer-account-details.php:42
+msgid "Additional Details"
+msgstr "פרטים נוספים"
+
+#: customers/customer-account-details.php:75
+#: customers/customer-account-shortcode.php:290
+msgid "Address line 1"
+msgstr "כתובת רחוב"
+
+#: customers/customer-account-details.php:76
+#: customers/customer-account-shortcode.php:295
+msgid "Address line 2"
+msgstr "כתובת 2"
+
+#: customers/customer-account-details.php:107
+msgid "<strong>ERROR</strong>: Please enter your year of birth."
+msgstr "‫<strong>שגיאה</strong>: אנא הזן את שנת הלידה שלך."
+
+#: customers/customer-account-details.php:111
+msgid "<strong>ERROR</strong>: You must be born after 1900."
+msgstr "‫<strong>שגיאה</strong>: עליך להיוולד אחרי 1900."
+
+#: customers/customer-account-shortcode.php:32
+msgid "Dashboard"
+msgstr "לוח בקרה"
+
+#: customers/customer-account-shortcode.php:35
+#: customers/customer-account-shortcode.php:133 orders/orders-post-type.php:16
+msgid "Orders"
+msgstr "הזמנות"
+
+#: customers/customer-account-shortcode.php:38
+msgid "Details"
+msgstr "פרטים"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Hello"
+msgstr "שלום"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Log out"
+msgstr "יציאה"
+
+#: customers/customer-account-shortcode.php:66
+msgid "Account dashboard"
+msgstr "מרכז השליטה של ​​החשבון"
+
+#: customers/customer-account-shortcode.php:67
+msgid ""
+"From your account dashboard you can view your order history and account "
+"details."
+msgstr ""
+"ממרכז השליטה של החשבון שלך תוכל לראות את היסטוריית ההזמנות שלך ופרטי החשבון."
+
+#: customers/customer-account-shortcode.php:134
+msgid "This Week"
+msgstr "בשבוע האחרון"
+
+#: customers/customer-account-shortcode.php:136
+msgid "Recent Store Orders"
+msgstr "הזמנות אחרונות בחנות"
+
+#: customers/customer-account-shortcode.php:141
+#: customers/customer-account-shortcode.php:206 orders/orders-post-type.php:97
+#: templates/single-order.php:28
+msgid "Date"
+msgstr "תאריך"
+
+#: customers/customer-account-shortcode.php:142
+#: customers/customer-account-shortcode.php:207 orders/orders-metaboxes.php:102
+#: orders/orders-post-type.php:98
+msgid "Status"
+msgstr "סטטוס"
+
+#: customers/customer-account-shortcode.php:202
+msgid "Order history"
+msgstr "היסטוריית הזמנות"
+
+#: customers/customer-account-shortcode.php:266
+msgid "Contact information"
+msgstr "פרטי קשר"
+
+#: customers/customer-account-shortcode.php:352
+#: includes/wpd-ecommerce-customers-functions.php:259
+msgid "Verification"
+msgstr "אימות"
+
+#: customers/customer-account-shortcode.php:363
+msgid "Drivers License or Valid ID"
+msgstr "רישיון נהיגה או תעודה מזהה בתוקף"
+
+#: customers/customer-account-shortcode.php:378
+#: customers/customer-account-shortcode.php:408
+#: includes/wpd-ecommerce-customers-functions.php:279
+#: includes/wpd-ecommerce-customers-functions.php:301
+msgid "x"
+msgstr "עמוד X מתוך Y"
+
+#: customers/customer-account-shortcode.php:393
+#: includes/wpd-ecommerce-customers-functions.php:286
+msgid "Doctor recommendation"
+msgstr "המלצת רופא"
+
+#: customers/customer-account-shortcode.php:436
+msgid "Expiration Date"
+msgstr "תאריך סיום"
+
+#: customers/customer-account-shortcode.php:446
+msgid "Password change"
+msgstr "שינוי סיסמה"
+
+#: customers/customer-account-shortcode.php:451
+msgid "Password"
+msgstr "סיסמה"
+
+#: customers/customer-account-shortcode.php:451
+#: customers/customer-account-shortcode.php:455
+msgid "Leave blank to keep unchanged"
+msgstr "השאר ריק כדי להשאיר ללא שינוי"
+
+#: customers/customer-account-shortcode.php:455
+msgid "Repeat Password"
+msgstr "חזור על הסיסמה"
+
+#: customers/customer-account-shortcode.php:460
+msgid "Update"
+msgstr "עדכון"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr "מחירים במשקל כבד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:167
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr "2 אונקיות"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:171
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr "1/4 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:175
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr "1/2 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:179
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr "1 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:183
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr "2 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:187
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr "3 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:191
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr "4 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:195
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr "5 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:199
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr "6 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:203
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr "7 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:207
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr "8 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:211
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr "9 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:215
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr "10 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:219
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr "11 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:223
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr "12 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:227
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr "13 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:231
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr "14 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:235
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr "15 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:239
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr "20 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:243
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr "25 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:247
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr "50 פאונד"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr "3 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:269
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr "4 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:273
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr "5 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:277
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr "6 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:281
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr "7 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:285
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr "8 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:289
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr "9 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:293
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr "10 גרם"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:410
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr "תמחור במשקל כבד"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr "בחר קובץ"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr "בחרו תמונה"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:713
+msgid "Inventory"
+msgstr "מלאי"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:786
+msgid "Type"
+msgstr "סוג"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:787
+msgid "Product name"
+msgstr "שם המוצר"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:788
+msgid "Categories"
+msgstr "קטגוריות"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:789
+msgid "Stock"
+msgstr "מלאי"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "In stock"
+msgstr "במלאי"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr "גרמים"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr "יחידות"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+msgid "seeds"
+msgstr "זרעים"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr "שיבוטים"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
+msgid "Inventory management"
+msgstr "ניהול מלאי"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:53
+msgid "Available Seeds (units)"
+msgstr "זרעים זמינים (יחידות)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:55
+msgid "Available Clones (units)"
+msgstr "שיבוטים זמינים (יחידות)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:59
+msgid "Available grams"
+msgstr "גרמים זמינים"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:63
+msgid "Available units"
+msgstr "יחידות זמינות"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:67
+msgid "Display inventory in Details table"
+msgstr "הצג מלאי בטבלת פרטים"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-oos.php:52
+msgid "Sorry, this flower is currently out of stock."
+msgstr "מצטערים, הפרח הזה אזל כרגע מהמלאי."
+
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:24
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:33
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:37
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:46
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:54
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:62
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:70
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:75
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:79
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:88
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:96
+#: includes/wpd-ecommerce-core-functions.php:1144
+#: includes/wpd-ecommerce-core-functions.php:1153
+#: includes/wpd-ecommerce-core-functions.php:1157
+#: includes/wpd-ecommerce-core-functions.php:1166
+#: includes/wpd-ecommerce-core-functions.php:1174
+#: includes/wpd-ecommerce-core-functions.php:1182
+#: includes/wpd-ecommerce-core-functions.php:1190
+#: includes/wpd-ecommerce-core-functions.php:1195
+#: includes/wpd-ecommerce-core-functions.php:1199
+#: includes/wpd-ecommerce-core-functions.php:1208
+#: includes/wpd-ecommerce-core-functions.php:1216
+msgid "out of stock"
+msgstr "אזל במלאי"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:236
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:285
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:351
+msgid "THC: "
+msgstr "‫THC: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:244
+msgid "THCA: "
+msgstr "‫THCA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:252
+msgid "CBD: "
+msgstr "‫CBD: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:260
+msgid "CBA: "
+msgstr "‫CBA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:268
+msgid "CBN: "
+msgstr "‫CBN: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:276
+msgid "CBG: "
+msgstr "‫CBG: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:298
+msgid "Seeds:"
+msgstr "זרעים:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:308
+msgid "Clones:"
+msgstr "שיבוטים:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:316
+msgid "Size:"
+msgstr "גודל:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:322
+msgid "THC:"
+msgstr "‫THC:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:328
+msgid "CBD:"
+msgstr "‫CBD:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:338
+msgid "Weight:"
+msgstr "משקל:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:359
+msgid "Servings: "
+msgstr "מנות: "
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr "מיקומים"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr "מיקום"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr "חפש מיקומים"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr "כל המיקומים"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr "מיקום אב"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr "מיקום הורה:"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr "עריכת המיקום"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr "עדכן מיקום"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr "הוסף מיקום חדש"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr "שם כתובת חדשה"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr "לא נמצאו מיקומים"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr "מיקומים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr "מיקומי מרפא"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr "הצג פריטי תפריט לפי מיקום"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:181
+msgid "Dispensary Items"
+msgstr "פריטי מרפא"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:196
+msgid "Dispensary location:"
+msgstr "מיקום המרפאה:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:214
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:208
+msgid "Menu item type:"
+msgstr "סוג פריט בתפריט:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:216
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:210
+msgid "All types"
+msgstr "כל הסוגים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:217
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:211
+msgid "Flowers"
+msgstr "פרחים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:218
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:212
+msgid "Concentrates"
+msgstr "מתרכז"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:219
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:213
+msgid "Edibles"
+msgstr "מאכלים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:220
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:214
+msgid "Pre-rolls"
+msgstr "פרה רולס"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:221
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:215
+msgid "Topicals"
+msgstr "אקטואליה"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:222
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:216
+msgid "Growers"
+msgstr "מגדלים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:223
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:217
+msgid "Gear"
+msgstr "גלגל שיניים"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:224
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:218
+msgid "Tinctures"
+msgstr "טינקטורות"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:229
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:223
+msgid "Amount of items to show:"
+msgstr "כמות הפריטים להצגה:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:235
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:229
+msgid "Randomize output?"
+msgstr "לעשות אקראי פלט?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:240
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:234
+msgid "Display featured image?"
+msgstr "להציג תמונה מוצגת?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:245
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:239
+msgid "Display item name?"
+msgstr "להציג את שם הפריט?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:250
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:244
+msgid "Display item category?"
+msgstr "להציג קטגוריית פריט?"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Featured"
+msgstr "מומלצים"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:59
+msgid "This is a featured product"
+msgstr "זה מוצר נבחר"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr "מרכז המכירות המובילים"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr "הצג את הפריטים הנמכרים ביותר שלך"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:248
+msgid "Image size:"
+msgstr "גודל תמונה:"
+
+#: includes/wpd-ecommerce-activation.php:60
+msgid "Account"
+msgstr "חשבון"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:34
+#: includes/wpd-ecommerce-archive-items-functions.php:51
+#: includes/wpd-ecommerce-archive-items-functions.php:76
+#: includes/wpd-ecommerce-archive-items-functions.php:78
+#: includes/wpd-ecommerce-archive-items-functions.php:90
+#: includes/wpd-ecommerce-archive-items-functions.php:92
+#: includes/wpd-ecommerce-archive-items-functions.php:186
+#: includes/wpd-ecommerce-archive-items-functions.php:188
+#: includes/wpd-ecommerce-archive-items-functions.php:196
+msgid "Buy Now"
+msgstr "קנה עכשיו"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:36
+#: includes/wpd-ecommerce-archive-items-functions.php:53
+#: includes/wpd-ecommerce-archive-items-functions.php:74
+#: includes/wpd-ecommerce-archive-items-functions.php:88
+#: includes/wpd-ecommerce-archive-items-functions.php:184
+#: includes/wpd-ecommerce-archive-items-functions.php:198
+msgid "Select Options"
+msgstr "בחר אפשרויות"
+
+#: includes/wpd-ecommerce-core-functions.php:27
+msgid "View Cart"
+msgstr "הצג עגלת קניות"
+
+#: includes/wpd-ecommerce-core-functions.php:36
+#: includes/wpd-ecommerce-core-functions.php:44
+msgid "Please select a weight in order to add the product to your cart"
+msgstr "אנא בחר משקל על מנת להוסיף את המוצר לעגלת הקניות שלך"
+
+#: includes/wpd-ecommerce-core-functions.php:52
+#: includes/wpd-ecommerce-core-functions.php:60
+#: includes/wpd-ecommerce-core-functions.php:68
+#: includes/wpd-ecommerce-core-functions.php:76
+#: includes/wpd-ecommerce-core-functions.php:84
+#: includes/wpd-ecommerce-core-functions.php:92
+msgid "Please select a quantity in order to add the product to your cart"
+msgstr "אנא בחר כמות על מנת להוסיף את המוצר לעגלת הקניות שלך"
+
+#: includes/wpd-ecommerce-core-functions.php:205
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "There is not enough inventory for your purchase."
+msgstr "אין מספיק מלאי לרכישה שלך."
+
+#: includes/wpd-ecommerce-core-functions.php:205
+msgid "Available"
+msgstr "זמין"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+msgid "This product has been successfully added to your cart"
+msgstr "מוצר זה נוסף בהצלחה לעגלת הקניות שלך"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Continue Shopping"
+msgstr "המשך בקניות"
+
+#: includes/wpd-ecommerce-core-functions.php:448
+msgid "The username or password you entered is incorrect."
+msgstr "שם המשתמש או הסיסמה שהקשת אינם נכונים."
+
+#: includes/wpd-ecommerce-core-functions.php:455
+msgid "The registration info you entered is incorrect."
+msgstr "פרטי הרישום שהזנת שגויים."
+
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "Thank You"
+msgstr "תודה רבה !"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "Item removed"
+msgstr "הפריט הוסר"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "The item has been successfully removed."
+msgstr "הפריט הוסר בהצלחה."
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Item added"
+msgstr "פריט נוסף"
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "The item has been successfully added to your cart."
+msgstr "הפריט נוסף בהצלחה לעגלת הקניות שלך."
+
+#: includes/wpd-ecommerce-core-functions.php:531
+msgid "Required product is not in your cart"
+msgstr "המוצר הנדרש אינו בעגלה שלך"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Success"
+msgstr "הצלחה"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Coupon code has been applied"
+msgstr "קוד קופון הוחל"
+
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Please enter a coupon code"
+msgstr "נא להזין קוד קופון"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Details Saved"
+msgstr "הפרטים נשמרו"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Your profile settings have been successfully saved"
+msgstr "הגדרות הפרופיל שלך נשמרו בהצלחה"
+
+#: includes/wpd-ecommerce-core-functions.php:1045
+msgid "Pages"
+msgstr "עמודים"
+
+#: includes/wpd-ecommerce-core-functions.php:1257
+msgid "Choose a weight"
+msgstr "בחר משקל"
+
+#: includes/wpd-ecommerce-core-functions.php:1429
+msgid "Choose quantity"
+msgstr "בחר כמות"
+
+#: includes/wpd-ecommerce-core-functions.php:1430
+msgid "each"
+msgstr "כל אחד"
+
+#: includes/wpd-ecommerce-core-functions.php:1431
+msgid "pack"
+msgstr "מארז"
+
+#: includes/wpd-ecommerce-core-functions.php:1676
+msgid "Add to cart"
+msgstr "הוסף לסל"
+
+#: includes/wpd-ecommerce-core-functions.php:1783
+msgid "Delivery"
+msgstr "משלוח"
+
+#: includes/wpd-ecommerce-core-functions.php:1793
+msgid "In-store pickup"
+msgstr "איסוף בחנות"
+
+#: includes/wpd-ecommerce-core-functions.php:1803
+msgid "Shipping"
+msgstr "משלוח"
+
+#: includes/wpd-ecommerce-customers-functions.php:117
+msgid "The passwords you entered do not match.  Your password was not updated."
+msgstr "הסיסמאות שהקשת אינן תואמות."
+
+#: includes/wpd-ecommerce-customers-functions.php:264
+msgid "Drivers license or Valid ID"
+msgstr "רישיון נהיגה או תעודה מזהה בתוקף"
+
+#: includes/wpd-ecommerce-customers-functions.php:314
+msgid "Expiration date"
+msgstr "תאריך תפוגה"
+
+#: includes/wpd-ecommerce-customers-functions.php:459
+#: includes/wpd-ecommerce-customers-functions.php:475
+msgid "Register"
+msgstr "הירשם"
+
+#: includes/wpd-ecommerce-customers-functions.php:464
+msgid "Username"
+msgstr "שם משתמש"
+
+#: includes/wpd-ecommerce-customers-functions.php:469
+#: orders/orders-metaboxes.php:140
+msgid "Email address"
+msgstr "כתובת אימייל"
+
+#: includes/wpd-ecommerce-customers-functions.php:473
+msgid "A password will be emailed to you."
+msgstr "הסיסמה תישלח אליך בדואר אלקטרוני."
+
+#: includes/wpd-ecommerce-orders-functions.php:18
+msgctxt "Order status"
+msgid "Pending"
+msgstr "בהמתנה"
+
+#: includes/wpd-ecommerce-orders-functions.php:19
+msgctxt "Order status"
+msgid "Processing"
+msgstr "מעבד"
+
+#: includes/wpd-ecommerce-orders-functions.php:20
+msgctxt "Order status"
+msgid "On hold"
+msgstr "בהמתנה"
+
+#: includes/wpd-ecommerce-orders-functions.php:21
+msgctxt "Order status"
+msgid "Completed"
+msgstr "הושלם"
+
+#: includes/wpd-ecommerce-orders-functions.php:22
+msgctxt "Order status"
+msgid "Cancelled"
+msgstr "בוטל"
+
+#: includes/wpd-ecommerce-orders-functions.php:23
+msgctxt "Order status"
+msgid "Refunded"
+msgstr "זוכה"
+
+#: includes/wpd-ecommerce-orders-functions.php:24
+msgctxt "Order status"
+msgid "Failed"
+msgstr "נכשל"
+
+#: includes/wpd-ecommerce-orders-functions.php:129
+#, php-format
+msgid "Order updated. <a href=\"%s\">View order</a>"
+msgstr "ההזמנה עודכנה. <a href=“%s”>צפה בהזמנה</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:130
+msgid "Custom field updated."
+msgstr "שדה מותאם אישית עודכן."
+
+#: includes/wpd-ecommerce-orders-functions.php:131
+msgid "Custom field deleted."
+msgstr "שדה מותאם אישית נמחק."
+
+#: includes/wpd-ecommerce-orders-functions.php:132
+msgid "Order updated."
+msgstr "ההזמנה עודכנה."
+
+#: includes/wpd-ecommerce-orders-functions.php:133
+#, php-format
+msgid "Order restored to revision from %s"
+msgstr "הסדר שוחזר לגרסה מ-%s"
+
+#: includes/wpd-ecommerce-orders-functions.php:134
+#, php-format
+msgid "Order published. <a href=\"%s\">View order</a>"
+msgstr "ההזמנה פורסמה. <a href=“%s”>צפה בהזמנה</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:135
+msgid "Order saved."
+msgstr "הצעת מחיר נשמרה"
+
+#: includes/wpd-ecommerce-orders-functions.php:136
+#, php-format
+msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr "ההזמנה הוגשה. <a target=“_blank” href=“%s”>תצוגה מקדימה של סדר</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:137
+#, php-format
+msgid ""
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview order</a>"
+msgstr ""
+"הזמנה מתוזמנת ל: <strong>%1$s</strong>. <a target=“_blank” href=“%2$s”>תצוגה "
+"מקדימה של הזמנה</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:138
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/wpd-ecommerce-orders-functions.php:139
+#, php-format
+msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"טיוטת ההזמנה עודכנה. <a target=“_blank” href=“%s”>תצוגה מקדימה של סדר</a>"
+
+#: orders/orders-metaboxes.php:20
+msgid "Order details"
+msgstr "פרטי הזמנה"
+
+#: orders/orders-metaboxes.php:76
+#, php-format
+msgid "Order #%1$s details"
+msgstr "פרטי הזמנה #%1$s"
+
+#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:99
+msgid "Customer"
+msgstr "לקוח"
+
+#: orders/orders-metaboxes.php:136
+msgid "profile"
+msgstr "profile"
+
+#: orders/orders-metaboxes.php:136
+msgid "view orders"
+msgstr "להציג הזמנות"
+
+#: orders/orders-post-type.php:14
+msgctxt "Post Type General Name"
+msgid "Orders"
+msgstr "הזמנות"
+
+#: orders/orders-post-type.php:15
+msgctxt "Post Type Singular Name"
+msgid "Order"
+msgstr "הזמנה"
+
+#: orders/orders-post-type.php:17 orders/orders-post-type.php:58
+msgid "Order"
+msgstr "הזמנה"
+
+#: orders/orders-post-type.php:18
+msgid "Order Archives"
+msgstr "הזמנת ארכיון"
+
+#: orders/orders-post-type.php:19
+msgid "Order Attributes"
+msgstr "תכונות סדר"
+
+#: orders/orders-post-type.php:20
+msgid "Parent Order:"
+msgstr "סדר הורים:"
+
+#: orders/orders-post-type.php:21
+msgid "All Orders"
+msgstr "כל ההזמנות"
+
+#: orders/orders-post-type.php:22
+msgid "Add New Order"
+msgstr "הוסף הזמנה חדשה"
+
+#: orders/orders-post-type.php:23
+msgid "Add New"
+msgstr "הוסף חדש"
+
+#: orders/orders-post-type.php:24
+msgid "New Order"
+msgstr "הזמנה חדשה"
+
+#: orders/orders-post-type.php:25
+msgid "Edit Order"
+msgstr "לעריכת ההזמנה"
+
+#: orders/orders-post-type.php:26
+msgid "Update Order"
+msgstr "עדכן הזמנה"
+
+#: orders/orders-post-type.php:27
+msgid "View Order"
+msgstr "צפייה בהזמנה"
+
+#: orders/orders-post-type.php:28
+msgid "View Orders"
+msgstr "הצג הזמנות"
+
+#: orders/orders-post-type.php:29
+msgid "Search Order"
+msgstr "חפש הזמנה"
+
+#: orders/orders-post-type.php:30
+msgid "Not found"
+msgstr "לא נמצא"
+
+#: orders/orders-post-type.php:31
+msgid "Not found in Trash"
+msgstr "לא נמצא בפח זבל"
+
+#: orders/orders-post-type.php:32
+msgid "Featured Image"
+msgstr "תמונה ראשית"
+
+#: orders/orders-post-type.php:33
+msgid "Set featured image"
+msgstr "בחירת תמונה ראשית"
+
+#: orders/orders-post-type.php:34
+msgid "Remove featured image"
+msgstr "הסר תמונה ראשית"
+
+#: orders/orders-post-type.php:35
+msgid "Use as featured image"
+msgstr "השתמש כתמונה מייצגת"
+
+#: orders/orders-post-type.php:36
+msgid "Insert into order"
+msgstr "הכנס לפי הסדר"
+
+#: orders/orders-post-type.php:37
+msgid "Uploaded to this order"
+msgstr "הועלה להזמנה זו"
+
+#: orders/orders-post-type.php:38
+msgid "Orders list"
+msgstr "רשימת הזמנות"
+
+#: orders/orders-post-type.php:39
+msgid "Orders list navigation"
+msgstr "ניווט ברשימת ההזמנות"
+
+#: orders/orders-post-type.php:40
+msgid "Filter orders list"
+msgstr "סנן רשימת הזמנות"
+
+#: orders/orders-post-type.php:59
+msgid "View your store's order history"
+msgstr "הצג את היסטוריית ההזמנות של החנות שלך"
+
+#: templates/single-order.php:93
+msgid "Order items"
+msgstr "הזמנת מוצרים"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's eCommerce"
+msgstr "‫WP Dispensary’s מסחר אלקטרוני"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/ecommerce"
+msgstr "‫https://www.wpdispensary.com/product/ecommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"Adds shopping cart capabilities to the WP Dispensary menu management plugin."
+msgstr "מוסיף יכולות של עגלת קניות לתוסף ניהול תפריט WP Dispensary."
+
+#. Author of the plugin/theme
+msgid "WP Dispenary"
+msgstr "‫WP Dispensary"
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr "‫https://www.wpdispensary.com"
