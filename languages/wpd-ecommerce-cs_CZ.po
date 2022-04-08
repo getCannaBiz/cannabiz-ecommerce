@@ -1,0 +1,1353 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Dispensary's eCommerce\n"
+"POT-Creation-Date: 2022-04-07 17:20-0400\n"
+"PO-Revision-Date: 2022-04-07 18:46-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs_CZ\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: wpd-ecommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: cart/cart-shortcode.php:20 checkout/checkout-shortcode.php:192
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:56
+msgid "Product"
+msgstr "Produkt"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:57
+msgid "Price"
+msgstr "Cena"
+
+#: cart/cart-shortcode.php:20 classes/class-cart.php:205
+#: includes/wpd-ecommerce-orders-functions.php:58
+msgid "Qty"
+msgstr "Ks"
+
+#: cart/cart-shortcode.php:20 cart/cart-shortcode.php:135
+#: checkout/checkout-shortcode.php:192 checkout/checkout-shortcode.php:286
+#: checkout/checkout-shortcode.php:333 classes/class-cart.php:223
+#: classes/class-cart.php:224 customers/customer-account-shortcode.php:143
+#: customers/customer-account-shortcode.php:208
+#: includes/wpd-ecommerce-orders-functions.php:59
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: templates/single-order.php:85
+msgid "Total"
+msgstr "Celkem"
+
+#: cart/cart-shortcode.php:84
+msgid "Coupon code"
+msgstr "Kód kupónu"
+
+#: cart/cart-shortcode.php:85
+msgid "Apply Coupon"
+msgstr "Použít kupón"
+
+#: cart/cart-shortcode.php:113
+msgid "Cart Totals"
+msgstr "Celková hodnota košíku"
+
+#: cart/cart-shortcode.php:116 cart/cart-widget.php:157
+#: checkout/checkout-shortcode.php:266 orders/orders-metaboxes.php:79
+#: templates/single-order.php:72
+msgid "Subtotal"
+msgstr "Mezisoučet"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+#: orders/orders-metaboxes.php:81 templates/single-order.php:74
+msgid "Coupon"
+msgstr "Kupón"
+
+#: cart/cart-shortcode.php:120 checkout/checkout-shortcode.php:269
+msgid "Remove"
+msgstr "Odstranit"
+
+#: cart/cart-shortcode.php:124 checkout/checkout-shortcode.php:273
+#: orders/orders-metaboxes.php:90 templates/single-order.php:77
+msgid "Sales tax"
+msgstr "Prodejní daň"
+
+#: cart/cart-shortcode.php:128 checkout/checkout-shortcode.php:277
+#: orders/orders-metaboxes.php:87 templates/single-order.php:80
+msgid "Excise tax"
+msgstr "Spotřební daň"
+
+#: cart/cart-shortcode.php:138
+msgid "Proceed to Checkout"
+msgstr "Pokračovat k platbě"
+
+#: cart/cart-shortcode.php:148
+msgid "There is nothing in your cart."
+msgstr "Ve vašem košíku nic není."
+
+#: cart/cart-shortcode.php:150 checkout/checkout-shortcode.php:302
+msgid "Return to menu"
+msgstr "Návrat do menu"
+
+#: cart/cart-widget.php:25
+msgid "Shopping Cart"
+msgstr "Nákupní košík"
+
+#: cart/cart-widget.php:27
+msgid "Display your cart details"
+msgstr "Zobrazte podrobnosti o košíku"
+
+#: cart/cart-widget.php:36 includes/wpd-ecommerce-activation.php:50
+msgid "Cart"
+msgstr "Košík"
+
+#: cart/cart-widget.php:42
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:192
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:203
+msgid "Widget Title:"
+msgstr "Jméno widgetu:"
+
+#: cart/cart-widget.php:159 includes/wpd-ecommerce-activation.php:40
+msgid "Checkout"
+msgstr "Pokladna"
+
+#: checkout/checkout-shortcode.php:19 checkout/checkout-shortcode.php:22
+#: includes/wpd-ecommerce-customers-functions.php:440
+msgid "Login"
+msgstr "Přihlášení"
+
+#: checkout/checkout-shortcode.php:21
+msgid "You must be logged in to checkout."
+msgstr "Před pokračováním v objednávce je nutné být přihlášen."
+
+#: checkout/checkout-shortcode.php:40
+#: includes/wpd-ecommerce-customers-functions.php:123
+msgid "The Email you entered is not valid. Please try again."
+msgstr "Vámi zadaný e-mail je neplatný. Zkuste to znovu."
+
+#: checkout/checkout-shortcode.php:42
+#: includes/wpd-ecommerce-customers-functions.php:125
+msgid "This email is already used by another user. Try a different one."
+msgstr "Tento e-mail již používá jiný uživatel. Zkuste jiný."
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:94
+#: checkout/checkout-shortcode.php:99
+#: includes/wpd-ecommerce-core-functions.php:448
+#: includes/wpd-ecommerce-core-functions.php:455
+#: includes/wpd-ecommerce-core-functions.php:514
+#: includes/wpd-ecommerce-core-functions.php:531
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Error"
+msgstr "Chyba"
+
+#: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:99
+msgid "Please select a payment type."
+msgstr "Vyberte prosím typ platby."
+
+#: checkout/checkout-shortcode.php:94
+msgid "The minimum order amount required to checkout is"
+msgstr "Minimální částka objednávky nutná k placení je"
+
+#: checkout/checkout-shortcode.php:114
+msgid "Billing details"
+msgstr "Fakturační údaje"
+
+#: checkout/checkout-shortcode.php:119
+#: customers/customer-account-details.php:15
+#: customers/customer-account-details.php:46
+#: customers/customer-account-shortcode.php:271
+msgid "First Name"
+msgstr "Jméno"
+
+#: checkout/checkout-shortcode.php:123
+#: customers/customer-account-shortcode.php:275
+msgid "Last Name"
+msgstr "Příjmení"
+
+#: checkout/checkout-shortcode.php:128
+#: customers/customer-account-shortcode.php:280
+msgid "E-mail"
+msgstr "E-mail"
+
+#: checkout/checkout-shortcode.php:133
+#: customers/customer-account-details.php:74
+#: customers/customer-account-shortcode.php:285 orders/orders-metaboxes.php:145
+msgid "Phone number"
+msgstr "Telefonní číslo"
+
+#: checkout/checkout-shortcode.php:138
+msgid "Street address"
+msgstr "Ulice a čp."
+
+#: checkout/checkout-shortcode.php:139
+msgid "House number and street name"
+msgstr "Číslo domu a název ulice"
+
+#: checkout/checkout-shortcode.php:140
+msgid "Apartment, unit, etc. (optional)"
+msgstr "Byt, jednotka atd. (volitelné)"
+
+#: checkout/checkout-shortcode.php:144
+#: customers/customer-account-details.php:77
+#: customers/customer-account-shortcode.php:300
+msgid "City"
+msgstr "Město"
+
+#: checkout/checkout-shortcode.php:149
+#: customers/customer-account-details.php:78
+#: customers/customer-account-shortcode.php:305
+msgid "State / County"
+msgstr "Země"
+
+#: checkout/checkout-shortcode.php:154
+#: customers/customer-account-details.php:79
+#: customers/customer-account-shortcode.php:310
+msgid "Postcode / ZIP"
+msgstr "PSČ"
+
+#: checkout/checkout-shortcode.php:159
+#: customers/customer-account-details.php:80
+#: customers/customer-account-shortcode.php:315
+msgid "Country"
+msgstr "Země"
+
+#: checkout/checkout-shortcode.php:185 checkout/checkout-shortcode.php:326
+msgid "Your order"
+msgstr "Vaše objednávka"
+
+#: checkout/checkout-shortcode.php:295
+msgid "Place Order"
+msgstr "Seřazení míst"
+
+#: checkout/checkout-shortcode.php:301
+msgid "You can check out after adding some products to your cart"
+msgstr "Po přidání některých produktů do košíku můžete zkontrolovat"
+
+#: checkout/checkout-shortcode.php:317 classes/class-csv-customer-export.php:96
+#: customers/customer-account-shortcode.php:140 templates/single-order.php:45
+msgid "Name"
+msgstr "Jméno"
+
+#: checkout/checkout-shortcode.php:318 classes/class-csv-customer-export.php:97
+msgid "Email"
+msgstr "Email"
+
+#: checkout/checkout-shortcode.php:575
+msgid "New order: #"
+msgstr "Nová objednávka: #"
+
+#: checkout/checkout-shortcode.php:578
+msgid "Hello Administrator"
+msgstr "Dobrý den, správce"
+
+#: checkout/checkout-shortcode.php:579
+#, php-format
+msgid "#%1$s just received a new order from #%2$s #%3$s"
+msgstr "#%1$s právě obdržel novou objednávku od #%2$s #%3$s"
+
+#: classes/class-csv-customer-export.php:74
+msgid "WP Dispensary's Customer Export"
+msgstr "Zákaznický export WP Dispensary"
+
+#: classes/class-csv-customer-export.php:75
+msgid ""
+"Export your WP Dispensary customers as a CSV file by clicking the button "
+"below."
+msgstr ""
+"Exportujte své zákazníky WP Dispensary jako soubor CSV kliknutím na tlačítko "
+"níže."
+
+#: classes/class-csv-customer-export.php:76
+msgid "Export"
+msgstr "Export"
+
+#: classes/class-csv-customer-export.php:95
+#: customers/customer-account-shortcode.php:139
+#: customers/customer-account-shortcode.php:205
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:785
+msgid "ID"
+msgstr "ID"
+
+#: classes/class-csv-customer-export.php:98
+msgid "Phone"
+msgstr "Telefon"
+
+#: classes/class-csv-customer-export.php:99 orders/orders-metaboxes.php:120
+#: templates/single-order.php:49
+msgid "Address"
+msgstr "Adresa"
+
+#: classes/class-csv-customer-export.php:100
+#: customers/customer-account-shortcode.php:423
+#: includes/wpd-ecommerce-customers-functions.php:308
+msgid "Recommendation number"
+msgstr "Číslo doporučení"
+
+#: classes/class-csv-customer-export.php:101
+msgid "Recommendation expiration"
+msgstr "Vypršení platnosti doporučení"
+
+#: classes/class-csv-customer-export.php:102
+msgid "Total orders"
+msgstr "Celkový počet objednávek"
+
+#: customers/customer-account-details.php:42
+msgid "Additional Details"
+msgstr "Dodatečně podrobnosti"
+
+#: customers/customer-account-details.php:75
+#: customers/customer-account-shortcode.php:290
+msgid "Address line 1"
+msgstr "Řádek adresy 1"
+
+#: customers/customer-account-details.php:76
+#: customers/customer-account-shortcode.php:295
+msgid "Address line 2"
+msgstr "Adresa řádek 2"
+
+#: customers/customer-account-details.php:107
+msgid "<strong>ERROR</strong>: Please enter your year of birth."
+msgstr "<strong>CHYBA</strong>: Zadejte prosím rok narození."
+
+#: customers/customer-account-details.php:111
+msgid "<strong>ERROR</strong>: You must be born after 1900."
+msgstr "<strong>CHYBA</strong>: Musíte se narodit po roce 1900."
+
+#: customers/customer-account-shortcode.php:32
+msgid "Dashboard"
+msgstr "Ovládací panel"
+
+#: customers/customer-account-shortcode.php:35
+#: customers/customer-account-shortcode.php:133 orders/orders-post-type.php:16
+msgid "Orders"
+msgstr "Objednávky"
+
+#: customers/customer-account-shortcode.php:38
+msgid "Details"
+msgstr "Detaily"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Hello"
+msgstr "Ahoj"
+
+#: customers/customer-account-shortcode.php:60
+msgid "Log out"
+msgstr "Odhlásit se"
+
+#: customers/customer-account-shortcode.php:66
+msgid "Account dashboard"
+msgstr "Hlavní panel účtu"
+
+#: customers/customer-account-shortcode.php:67
+msgid ""
+"From your account dashboard you can view your order history and account "
+"details."
+msgstr ""
+"Na hlavním panelu svého účtu můžete zobrazit historii objednávek a "
+"podrobnosti o účtu."
+
+#: customers/customer-account-shortcode.php:134
+msgid "This Week"
+msgstr "Tento týden"
+
+#: customers/customer-account-shortcode.php:136
+msgid "Recent Store Orders"
+msgstr "Nedávné objednávky obchodu"
+
+#: customers/customer-account-shortcode.php:141
+#: customers/customer-account-shortcode.php:206 orders/orders-post-type.php:97
+#: templates/single-order.php:28
+msgid "Date"
+msgstr "Datum"
+
+#: customers/customer-account-shortcode.php:142
+#: customers/customer-account-shortcode.php:207 orders/orders-metaboxes.php:102
+#: orders/orders-post-type.php:98
+msgid "Status"
+msgstr "Stav"
+
+#: customers/customer-account-shortcode.php:202
+msgid "Order history"
+msgstr "Historie objednávek"
+
+#: customers/customer-account-shortcode.php:266
+msgid "Contact information"
+msgstr "Kontaktní informace"
+
+#: customers/customer-account-shortcode.php:352
+#: includes/wpd-ecommerce-customers-functions.php:259
+msgid "Verification"
+msgstr "Ověření"
+
+#: customers/customer-account-shortcode.php:363
+msgid "Drivers License or Valid ID"
+msgstr "Řidičský průkaz nebo platné ID"
+
+#: customers/customer-account-shortcode.php:378
+#: customers/customer-account-shortcode.php:408
+#: includes/wpd-ecommerce-customers-functions.php:279
+#: includes/wpd-ecommerce-customers-functions.php:301
+#, fuzzy
+msgid "x"
+msgstr "x"
+
+#: customers/customer-account-shortcode.php:393
+#: includes/wpd-ecommerce-customers-functions.php:286
+msgid "Doctor recommendation"
+msgstr "Doporučení lékaře"
+
+#: customers/customer-account-shortcode.php:436
+msgid "Expiration Date"
+msgstr "Datum vypršení platnosti"
+
+#: customers/customer-account-shortcode.php:446
+msgid "Password change"
+msgstr "Změna hesla"
+
+#: customers/customer-account-shortcode.php:451
+msgid "Password"
+msgstr "Heslo"
+
+#: customers/customer-account-shortcode.php:451
+#: customers/customer-account-shortcode.php:455
+msgid "Leave blank to keep unchanged"
+msgstr "Chcete-li zachovat nezměněné, ponechte prázdné"
+
+#: customers/customer-account-shortcode.php:455
+msgid "Repeat Password"
+msgstr "Zopakujte heslo"
+
+#: customers/customer-account-shortcode.php:460
+msgid "Update"
+msgstr "Aktualizovat"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:119
+msgid "Heavyweight Prices"
+msgstr "Ceny těžké váhy"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:167
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:415
+msgid "2 oz"
+msgstr "2 unce"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:171
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:418
+msgid "1/4 lb"
+msgstr "1/4 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:175
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:421
+msgid "1/2 lb"
+msgstr "1/2 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:179
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:424
+msgid "1 lb"
+msgstr "1 lb"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:183
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:427
+msgid "2 lbs"
+msgstr "2 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:187
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:430
+msgid "3 lbs"
+msgstr "3 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:191
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:433
+msgid "4 lbs"
+msgstr "4 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:195
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:438
+msgid "5 lbs"
+msgstr "5 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:199
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:441
+msgid "6 lbs"
+msgstr "6 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:203
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:444
+msgid "7 lbs"
+msgstr "7 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:207
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:447
+msgid "8 lbs"
+msgstr "8 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:211
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:450
+msgid "9 lbs"
+msgstr "9 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:215
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:453
+msgid "10 lbs"
+msgstr "10 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:219
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:456
+msgid "11 lbs"
+msgstr "11 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:223
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:461
+msgid "12 lbs"
+msgstr "12 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:227
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:464
+msgid "13 lbs"
+msgstr "13 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:231
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:467
+msgid "14 lbs"
+msgstr "14 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:235
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:470
+msgid "15 lbs"
+msgstr "15 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:239
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:473
+msgid "20 lbs"
+msgstr "20 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:243
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:476
+msgid "25 lbs"
+msgstr "25 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:247
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:479
+msgid "50 lbs"
+msgstr "50 liber"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:265
+msgid "3 g"
+msgstr "3 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:269
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:504
+msgid "4 g"
+msgstr "4 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:273
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:507
+msgid "5 g"
+msgstr "5 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:277
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:510
+msgid "6 g"
+msgstr "6 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:281
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:513
+msgid "7 g"
+msgstr "7 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:285
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:516
+msgid "8 g"
+msgstr "8 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:289
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:519
+msgid "9 g"
+msgstr "9 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:293
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:522
+msgid "10 g"
+msgstr "10 g"
+
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:410
+#: includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php:498
+msgid "Heavyweight Pricing"
+msgstr "Ceny těžké váhy"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:606
+msgid "Choose File"
+msgstr "Vybrat soubor"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:627
+msgid "Choose Image"
+msgstr "Vybrat obrázek"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:713
+msgid "Inventory"
+msgstr "Sklad"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:786
+msgid "Type"
+msgstr "Typ"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:787
+msgid "Product name"
+msgstr "Název produktu"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:788
+msgid "Categories"
+msgstr "Kategorie"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-admin-settings.php:789
+msgid "Stock"
+msgstr "Skladem"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "In stock"
+msgstr "Skladem"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:25
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:41
+msgid "grams"
+msgstr "gramy"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:44
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:60
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:76
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:92
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:131
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:147
+msgid "units"
+msgstr "jednotky"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:109
+msgid "seeds"
+msgstr "semena"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-data-output.php:114
+msgid "clones"
+msgstr "klony"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:24
+msgid "Inventory management"
+msgstr "Řízení zásob"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:53
+msgid "Available Seeds (units)"
+msgstr "Dostupná semena (jednotky)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:55
+msgid "Available Clones (units)"
+msgstr "Dostupné klony (jednotky)"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:59
+msgid "Available grams"
+msgstr "Dostupné gramy"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:63
+msgid "Available units"
+msgstr "Dostupné jednotky"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-metaboxes.php:67
+msgid "Display inventory in Details table"
+msgstr "Zobrazit inventář v tabulce Podrobnosti"
+
+#: includes/extend/inventory/admin/class-wpd-inventory-oos.php:52
+msgid "Sorry, this flower is currently out of stock."
+msgstr "Omlouváme se, ale tato květina momentálně není skladem."
+
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:24
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:33
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:37
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:46
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:54
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:62
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:70
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:75
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:79
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:88
+#: includes/extend/inventory/includes/wpd-inventory-functions.php:96
+#: includes/wpd-ecommerce-core-functions.php:1144
+#: includes/wpd-ecommerce-core-functions.php:1153
+#: includes/wpd-ecommerce-core-functions.php:1157
+#: includes/wpd-ecommerce-core-functions.php:1166
+#: includes/wpd-ecommerce-core-functions.php:1174
+#: includes/wpd-ecommerce-core-functions.php:1182
+#: includes/wpd-ecommerce-core-functions.php:1190
+#: includes/wpd-ecommerce-core-functions.php:1195
+#: includes/wpd-ecommerce-core-functions.php:1199
+#: includes/wpd-ecommerce-core-functions.php:1208
+#: includes/wpd-ecommerce-core-functions.php:1216
+msgid "out of stock"
+msgstr "vyprodáno"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:236
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:285
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:351
+msgid "THC: "
+msgstr "THC: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:244
+msgid "THCA: "
+msgstr "THCA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:252
+msgid "CBD: "
+msgstr "CBD: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:260
+msgid "CBA: "
+msgstr "CBA: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:268
+msgid "CBN: "
+msgstr "CBN: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:276
+msgid "CBG: "
+msgstr "CBG: "
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:298
+msgid "Seeds:"
+msgstr "Semena:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:308
+msgid "Clones:"
+msgstr "Klony:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:316
+msgid "Size:"
+msgstr "Velikost:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:322
+msgid "THC:"
+msgstr "THC:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:328
+msgid "CBD:"
+msgstr "CBD:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:338
+msgid "Weight:"
+msgstr "Hmotnost:"
+
+#: includes/extend/locations/admin/class-wpd-locations-shortcodes.php:359
+msgid "Servings: "
+msgstr "Porce: "
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:34
+msgctxt "taxonomy general name"
+msgid "Locations"
+msgstr "Lokality"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:35
+msgctxt "taxonomy singular name"
+msgid "Location"
+msgstr "Umístění"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:36
+msgid "Search Locations"
+msgstr "Hledat lokality"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:37
+msgid "All Locations"
+msgstr "Všechna místa"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:38
+msgid "Parent Location"
+msgstr "Nadřazené město nebo kraj"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:39
+msgid "Parent Location:"
+msgstr "Nadřazené město nebo kraj:"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:40
+msgid "Edit Location"
+msgstr "Upravit lokalitu"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:41
+msgid "Update Location"
+msgstr "Aktualizovat lokalitu"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:42
+msgid "Add New Location"
+msgstr "Přidat novou lokalitu"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:43
+msgid "New Location Name"
+msgstr "Název nové lokace"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
+msgid "No locations found"
+msgstr "Nebyla nalezena žádná místa"
+
+#: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
+msgid "Locations"
+msgstr "Lokality"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:39
+msgid "Dispensary Locations"
+msgstr "Místa výdejny"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:41
+msgid "Display menu items by location"
+msgstr "Zobrazte položky nabídky podle umístění"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:181
+msgid "Dispensary Items"
+msgstr "Výdejní předměty"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:196
+msgid "Dispensary location:"
+msgstr "Místo výdejny:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:214
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:208
+msgid "Menu item type:"
+msgstr "Typ položky menu:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:216
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:210
+msgid "All types"
+msgstr "Všechny typy"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:217
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:211
+msgid "Flowers"
+msgstr "Květiny"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:218
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:212
+msgid "Concentrates"
+msgstr "Koncentráty"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:219
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:213
+msgid "Edibles"
+msgstr "Poživatiny"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:220
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:214
+msgid "Pre-rolls"
+msgstr "Předvalky"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:221
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:215
+msgid "Topicals"
+msgstr "Témata"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:222
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:216
+msgid "Growers"
+msgstr "Pěstitelé"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:223
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:217
+msgid "Gear"
+msgstr "Zařízení"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:224
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:218
+msgid "Tinctures"
+msgstr "Tinktury"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:229
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:223
+msgid "Amount of items to show:"
+msgstr "Počet položek k zobrazení:"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:235
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:229
+msgid "Randomize output?"
+msgstr "Randomizovat výstup?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:240
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:234
+msgid "Display featured image?"
+msgstr "Zobrazit doporučený obrázek?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:245
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:239
+msgid "Display item name?"
+msgstr "Zobrazit název položky?"
+
+#: includes/extend/locations/admin/class-wpd-locations-widgets.php:250
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:244
+msgid "Display item category?"
+msgstr "Zobrazit kategorii položky?"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:46
+msgid "Featured"
+msgstr "Doporučené"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-metaboxes.php:59
+msgid "This is a featured product"
+msgstr "Toto je doporučený produkt"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:39
+msgid "Dispensary Top Sellers"
+msgstr "Nejprodávanější výdejna"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:41
+msgid "Display your top selling items"
+msgstr "Zobrazte své nejprodávanější položky"
+
+#: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:248
+msgid "Image size:"
+msgstr "Velikost obrázku:"
+
+#: includes/wpd-ecommerce-activation.php:60
+msgid "Account"
+msgstr "Účet"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:34
+#: includes/wpd-ecommerce-archive-items-functions.php:51
+#: includes/wpd-ecommerce-archive-items-functions.php:76
+#: includes/wpd-ecommerce-archive-items-functions.php:78
+#: includes/wpd-ecommerce-archive-items-functions.php:90
+#: includes/wpd-ecommerce-archive-items-functions.php:92
+#: includes/wpd-ecommerce-archive-items-functions.php:186
+#: includes/wpd-ecommerce-archive-items-functions.php:188
+#: includes/wpd-ecommerce-archive-items-functions.php:196
+msgid "Buy Now"
+msgstr "Koupit teď"
+
+#: includes/wpd-ecommerce-archive-items-functions.php:36
+#: includes/wpd-ecommerce-archive-items-functions.php:53
+#: includes/wpd-ecommerce-archive-items-functions.php:74
+#: includes/wpd-ecommerce-archive-items-functions.php:88
+#: includes/wpd-ecommerce-archive-items-functions.php:184
+#: includes/wpd-ecommerce-archive-items-functions.php:198
+msgid "Select Options"
+msgstr "Vybrat možnost"
+
+#: includes/wpd-ecommerce-core-functions.php:27
+msgid "View Cart"
+msgstr "Zobrazit košík"
+
+#: includes/wpd-ecommerce-core-functions.php:36
+#: includes/wpd-ecommerce-core-functions.php:44
+msgid "Please select a weight in order to add the product to your cart"
+msgstr "Pro přidání produktu do košíku vyberte prosím váhu"
+
+#: includes/wpd-ecommerce-core-functions.php:52
+#: includes/wpd-ecommerce-core-functions.php:60
+#: includes/wpd-ecommerce-core-functions.php:68
+#: includes/wpd-ecommerce-core-functions.php:76
+#: includes/wpd-ecommerce-core-functions.php:84
+#: includes/wpd-ecommerce-core-functions.php:92
+msgid "Please select a quantity in order to add the product to your cart"
+msgstr "Pro přidání produktu do košíku vyberte množství"
+
+#: includes/wpd-ecommerce-core-functions.php:205
+#: includes/wpd-ecommerce-core-functions.php:277
+#: includes/wpd-ecommerce-core-functions.php:342
+#: includes/wpd-ecommerce-core-functions.php:423
+msgid "There is not enough inventory for your purchase."
+msgstr "Pro váš nákup není dostatek zásob."
+
+#: includes/wpd-ecommerce-core-functions.php:205
+msgid "Available"
+msgstr "Dostupný"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+msgid "This product has been successfully added to your cart"
+msgstr "Tento produkt byl úspěšně přidán do vašeho košíku"
+
+#: includes/wpd-ecommerce-core-functions.php:210
+#: includes/wpd-ecommerce-core-functions.php:282
+#: includes/wpd-ecommerce-core-functions.php:347
+#: includes/wpd-ecommerce-core-functions.php:429
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Continue Shopping"
+msgstr "Pokračovat v nákupu"
+
+#: includes/wpd-ecommerce-core-functions.php:448
+msgid "The username or password you entered is incorrect."
+msgstr "Zadané uživatelské jméno nebo heslo je nesprávné."
+
+#: includes/wpd-ecommerce-core-functions.php:455
+msgid "The registration info you entered is incorrect."
+msgstr "Registrační údaje, které jste zadali, jsou nesprávné."
+
+#: includes/wpd-ecommerce-core-functions.php:462
+msgid "Thank You"
+msgstr "Děkujeme Vám"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "Item removed"
+msgstr "Položka odstraněna"
+
+#: includes/wpd-ecommerce-core-functions.php:469
+msgid "The item has been successfully removed."
+msgstr "Položka byla úspěšně odstraněna."
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "Item added"
+msgstr "Položka přidána"
+
+#: includes/wpd-ecommerce-core-functions.php:482
+msgid "The item has been successfully added to your cart."
+msgstr "Zboží bylo úspěšně přidáno do vašeho košíku."
+
+#: includes/wpd-ecommerce-core-functions.php:531
+msgid "Required product is not in your cart"
+msgstr "Požadovaný produkt není ve vašem košíku"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Success"
+msgstr "Úspěch"
+
+#: includes/wpd-ecommerce-core-functions.php:537
+msgid "Coupon code has been applied"
+msgstr "Kód kupónu byl použit"
+
+#: includes/wpd-ecommerce-core-functions.php:568
+msgid "Please enter a coupon code"
+msgstr "Zadejte prosím kód kupónu"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Details Saved"
+msgstr "Podrobnosti uloženy"
+
+#: includes/wpd-ecommerce-core-functions.php:573
+msgid "Your profile settings have been successfully saved"
+msgstr "Nastavení vašeho profilu bylo úspěšně uloženo"
+
+#: includes/wpd-ecommerce-core-functions.php:1045
+msgid "Pages"
+msgstr "Stránky"
+
+#: includes/wpd-ecommerce-core-functions.php:1257
+msgid "Choose a weight"
+msgstr "Vyberte váhu"
+
+#: includes/wpd-ecommerce-core-functions.php:1429
+msgid "Choose quantity"
+msgstr "Vyberte množství"
+
+#: includes/wpd-ecommerce-core-functions.php:1430
+msgid "each"
+msgstr "jednoho"
+
+#: includes/wpd-ecommerce-core-functions.php:1431
+msgid "pack"
+msgstr "balení"
+
+#: includes/wpd-ecommerce-core-functions.php:1676
+msgid "Add to cart"
+msgstr "Přidat do košíku"
+
+#: includes/wpd-ecommerce-core-functions.php:1783
+msgid "Delivery"
+msgstr "Dodání"
+
+#: includes/wpd-ecommerce-core-functions.php:1793
+msgid "In-store pickup"
+msgstr "Vyzvednutí na prodejně"
+
+#: includes/wpd-ecommerce-core-functions.php:1803
+msgid "Shipping"
+msgstr "Doprava"
+
+#: includes/wpd-ecommerce-customers-functions.php:117
+msgid "The passwords you entered do not match.  Your password was not updated."
+msgstr "Hesla se neshodují. Tvé heslo nebude upraveno."
+
+#: includes/wpd-ecommerce-customers-functions.php:264
+msgid "Drivers license or Valid ID"
+msgstr "Řidičský průkaz nebo platný průkaz totožnosti"
+
+#: includes/wpd-ecommerce-customers-functions.php:314
+msgid "Expiration date"
+msgstr "Datum expirace"
+
+#: includes/wpd-ecommerce-customers-functions.php:459
+#: includes/wpd-ecommerce-customers-functions.php:475
+msgid "Register"
+msgstr "Registrovat"
+
+#: includes/wpd-ecommerce-customers-functions.php:464
+msgid "Username"
+msgstr "Uživatelské jméno"
+
+#: includes/wpd-ecommerce-customers-functions.php:469
+#: orders/orders-metaboxes.php:140
+msgid "Email address"
+msgstr "Emailová adresa"
+
+#: includes/wpd-ecommerce-customers-functions.php:473
+msgid "A password will be emailed to you."
+msgstr "Heslo vám bude posláno emailem."
+
+#: includes/wpd-ecommerce-orders-functions.php:18
+msgctxt "Order status"
+msgid "Pending"
+msgstr "Čekající"
+
+#: includes/wpd-ecommerce-orders-functions.php:19
+msgctxt "Order status"
+msgid "Processing"
+msgstr "Zpracovává se"
+
+#: includes/wpd-ecommerce-orders-functions.php:20
+msgctxt "Order status"
+msgid "On hold"
+msgstr "Čeká na vyřízení"
+
+#: includes/wpd-ecommerce-orders-functions.php:21
+msgctxt "Order status"
+msgid "Completed"
+msgstr "Dokončeno"
+
+#: includes/wpd-ecommerce-orders-functions.php:22
+msgctxt "Order status"
+msgid "Cancelled"
+msgstr "Zrušeno"
+
+#: includes/wpd-ecommerce-orders-functions.php:23
+msgctxt "Order status"
+msgid "Refunded"
+msgstr "Vráceno"
+
+#: includes/wpd-ecommerce-orders-functions.php:24
+msgctxt "Order status"
+msgid "Failed"
+msgstr "Selhalo"
+
+#: includes/wpd-ecommerce-orders-functions.php:129
+#, php-format
+msgid "Order updated. <a href=\"%s\">View order</a>"
+msgstr "Objednávka aktualizována. <a href=“%s”>Zobrazit objednávku</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:130
+msgid "Custom field updated."
+msgstr "Uživatelské pole bylo aktualizováno."
+
+#: includes/wpd-ecommerce-orders-functions.php:131
+msgid "Custom field deleted."
+msgstr "Uživatelské pole bylo smazáno."
+
+#: includes/wpd-ecommerce-orders-functions.php:132
+msgid "Order updated."
+msgstr "Objednávka aktualizována."
+
+#: includes/wpd-ecommerce-orders-functions.php:133
+#, php-format
+msgid "Order restored to revision from %s"
+msgstr "Objednávka obnovena na revizi od %s"
+
+#: includes/wpd-ecommerce-orders-functions.php:134
+#, php-format
+msgid "Order published. <a href=\"%s\">View order</a>"
+msgstr "Objednávka zveřejněna. <a href=“%s”>Zobrazit objednávku</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:135
+msgid "Order saved."
+msgstr "Objednávka byla uložena."
+
+#: includes/wpd-ecommerce-orders-functions.php:136
+#, php-format
+msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"Objednávka odeslána. <a target=“_blank” href=“%s”>Náhled objednávky</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:137
+#, php-format
+msgid ""
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
+"\">Preview order</a>"
+msgstr ""
+"Objednávka naplánována na: <strong>%1$s</strong>. <a target=“_blank” "
+"href=“%2$s”>Náhled objednávky</a>"
+
+#: includes/wpd-ecommerce-orders-functions.php:138
+msgid "M j, Y @ G:i"
+msgstr "M j, Y @ G:i"
+
+#: includes/wpd-ecommerce-orders-functions.php:139
+#, php-format
+msgid "Order draft updated. <a target=\"_blank\" href=\"%s\">Preview order</a>"
+msgstr ""
+"Koncept objednávky byl aktualizován. <a target=“_blank” href=“%s”>Náhled "
+"objednávky</a>"
+
+#: orders/orders-metaboxes.php:20
+msgid "Order details"
+msgstr "Podrobnosti objednávky"
+
+#: orders/orders-metaboxes.php:76
+#, php-format
+msgid "Order #%1$s details"
+msgstr "Podrobnosti objednávky č. %1$s"
+
+#: orders/orders-metaboxes.php:136 orders/orders-post-type.php:99
+msgid "Customer"
+msgstr "Zákazník"
+
+#: orders/orders-metaboxes.php:136
+msgid "profile"
+msgstr "profil"
+
+#: orders/orders-metaboxes.php:136
+msgid "view orders"
+msgstr "zobrazit objednávky"
+
+#: orders/orders-post-type.php:14
+msgctxt "Post Type General Name"
+msgid "Orders"
+msgstr "Objednávky"
+
+#: orders/orders-post-type.php:15
+msgctxt "Post Type Singular Name"
+msgid "Order"
+msgstr "Objednávka"
+
+#: orders/orders-post-type.php:17 orders/orders-post-type.php:58
+msgid "Order"
+msgstr "Objednávka"
+
+#: orders/orders-post-type.php:18
+msgid "Order Archives"
+msgstr "Archiv objednávek"
+
+#: orders/orders-post-type.php:19
+msgid "Order Attributes"
+msgstr "Atributy pořadí"
+
+#: orders/orders-post-type.php:20
+msgid "Parent Order:"
+msgstr "Nadřazená objednávka:"
+
+#: orders/orders-post-type.php:21
+msgid "All Orders"
+msgstr "Všechny objednávky"
+
+#: orders/orders-post-type.php:22
+msgid "Add New Order"
+msgstr "Přidat novou objednávku"
+
+#: orders/orders-post-type.php:23
+msgid "Add New"
+msgstr "Přidat nový"
+
+#: orders/orders-post-type.php:24
+msgid "New Order"
+msgstr "Nová objednávka"
+
+#: orders/orders-post-type.php:25
+msgid "Edit Order"
+msgstr "Upravit objednávku"
+
+#: orders/orders-post-type.php:26
+msgid "Update Order"
+msgstr "Aktualizovat objednávku"
+
+#: orders/orders-post-type.php:27
+msgid "View Order"
+msgstr "Zobrazit objednávku"
+
+#: orders/orders-post-type.php:28
+msgid "View Orders"
+msgstr "Zobrazit Objednávky"
+
+#: orders/orders-post-type.php:29
+msgid "Search Order"
+msgstr "Vyhledat objednávku"
+
+#: orders/orders-post-type.php:30
+msgid "Not found"
+msgstr "Nenalezeno"
+
+#: orders/orders-post-type.php:31
+msgid "Not found in Trash"
+msgstr "V koši nebylo nic nalezeno"
+
+#: orders/orders-post-type.php:32
+msgid "Featured Image"
+msgstr "Náhledový obrázek"
+
+#: orders/orders-post-type.php:33
+msgid "Set featured image"
+msgstr "Zvolit náhledový obrázek"
+
+#: orders/orders-post-type.php:34
+msgid "Remove featured image"
+msgstr "Odstranit náhledový obrázek"
+
+#: orders/orders-post-type.php:35
+msgid "Use as featured image"
+msgstr "Použít jako náhledový obrázek"
+
+#: orders/orders-post-type.php:36
+msgid "Insert into order"
+msgstr "Vložit do objednávky"
+
+#: orders/orders-post-type.php:37
+msgid "Uploaded to this order"
+msgstr "Nahráno do této objednávky"
+
+#: orders/orders-post-type.php:38
+msgid "Orders list"
+msgstr "Seznam objednávek"
+
+#: orders/orders-post-type.php:39
+msgid "Orders list navigation"
+msgstr "Navigace v seznamu objednávek"
+
+#: orders/orders-post-type.php:40
+msgid "Filter orders list"
+msgstr "Filtrujte seznam objednávek"
+
+#: orders/orders-post-type.php:59
+msgid "View your store's order history"
+msgstr "Prohlédněte si historii objednávek vašeho obchodu"
+
+#: templates/single-order.php:93
+msgid "Order items"
+msgstr "Položky objednávky"
+
+#. Plugin Name of the plugin/theme
+msgid "WP Dispensary's eCommerce"
+msgstr "Elektronický obchod WP Dispensary"
+
+#. Plugin URI of the plugin/theme
+msgid "https://www.wpdispensary.com/product/ecommerce"
+msgstr "https://www.wpdispensary.com/product/ecommerce"
+
+#. Description of the plugin/theme
+msgid ""
+"Adds shopping cart capabilities to the WP Dispensary menu management plugin."
+msgstr ""
+"Přidává možnosti nákupního košíku do pluginu WP Dispensary pro správu menu."
+
+#. Author of the plugin/theme
+msgid "WP Dispenary"
+msgstr "WP Dispenary"
+
+#. Author URI of the plugin/theme
+msgid "https://www.wpdispensary.com"
+msgstr "https://www.wpdispensary.com"
