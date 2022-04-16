@@ -13,31 +13,31 @@ function wpd_orders() {
 	$labels = array(
 		'name'                  => _x( 'Orders', 'Post Type General Name', 'wpd-ecommerce' ),
 		'singular_name'         => _x( 'Order', 'Post Type Singular Name', 'wpd-ecommerce' ),
-		'menu_name'             => __( 'Orders', 'wpd-ecommerce' ),
-		'name_admin_bar'        => __( 'Order', 'wpd-ecommerce' ),
-		'archives'              => __( 'Order Archives', 'wpd-ecommerce' ),
-		'attributes'            => __( 'Order Attributes', 'wpd-ecommerce' ),
-		'parent_item_colon'     => __( 'Parent Order:', 'wpd-ecommerce' ),
-		'all_items'             => __( 'All Orders', 'wpd-ecommerce' ),
-		'add_new_item'          => __( 'Add New Order', 'wpd-ecommerce' ),
-		'add_new'               => __( 'Add New', 'wpd-ecommerce' ),
-		'new_item'              => __( 'New Order', 'wpd-ecommerce' ),
-		'edit_item'             => __( 'Edit Order', 'wpd-ecommerce' ),
-		'update_item'           => __( 'Update Order', 'wpd-ecommerce' ),
-		'view_item'             => __( 'View Order', 'wpd-ecommerce' ),
-		'view_items'            => __( 'View Orders', 'wpd-ecommerce' ),
-		'search_items'          => __( 'Search Order', 'wpd-ecommerce' ),
-		'not_found'             => __( 'Not found', 'wpd-ecommerce' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'wpd-ecommerce' ),
-		'featured_image'        => __( 'Featured Image', 'wpd-ecommerce' ),
-		'set_featured_image'    => __( 'Set featured image', 'wpd-ecommerce' ),
-		'remove_featured_image' => __( 'Remove featured image', 'wpd-ecommerce' ),
-		'use_featured_image'    => __( 'Use as featured image', 'wpd-ecommerce' ),
-		'insert_into_item'      => __( 'Insert into order', 'wpd-ecommerce' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this order', 'wpd-ecommerce' ),
-		'items_list'            => __( 'Orders list', 'wpd-ecommerce' ),
-		'items_list_navigation' => __( 'Orders list navigation', 'wpd-ecommerce' ),
-		'filter_items_list'     => __( 'Filter orders list', 'wpd-ecommerce' ),
+		'menu_name'             => esc_attr__( 'Orders', 'wpd-ecommerce' ),
+		'name_admin_bar'        => esc_attr__( 'Order', 'wpd-ecommerce' ),
+		'archives'              => esc_attr__( 'Order Archives', 'wpd-ecommerce' ),
+		'attributes'            => esc_attr__( 'Order Attributes', 'wpd-ecommerce' ),
+		'parent_item_colon'     => esc_attr__( 'Parent Order:', 'wpd-ecommerce' ),
+		'all_items'             => esc_attr__( 'All Orders', 'wpd-ecommerce' ),
+		'add_new_item'          => esc_attr__( 'Add New Order', 'wpd-ecommerce' ),
+		'add_new'               => esc_attr__( 'Add New', 'wpd-ecommerce' ),
+		'new_item'              => esc_attr__( 'New Order', 'wpd-ecommerce' ),
+		'edit_item'             => esc_attr__( 'Edit Order', 'wpd-ecommerce' ),
+		'update_item'           => esc_attr__( 'Update Order', 'wpd-ecommerce' ),
+		'view_item'             => esc_attr__( 'View Order', 'wpd-ecommerce' ),
+		'view_items'            => esc_attr__( 'View Orders', 'wpd-ecommerce' ),
+		'search_items'          => esc_attr__( 'Search Order', 'wpd-ecommerce' ),
+		'not_found'             => esc_attr__( 'Not found', 'wpd-ecommerce' ),
+		'not_found_in_trash'    => esc_attr__( 'Not found in Trash', 'wpd-ecommerce' ),
+		'featured_image'        => esc_attr__( 'Featured Image', 'wpd-ecommerce' ),
+		'set_featured_image'    => esc_attr__( 'Set featured image', 'wpd-ecommerce' ),
+		'remove_featured_image' => esc_attr__( 'Remove featured image', 'wpd-ecommerce' ),
+		'use_featured_image'    => esc_attr__( 'Use as featured image', 'wpd-ecommerce' ),
+		'insert_into_item'      => esc_attr__( 'Insert into order', 'wpd-ecommerce' ),
+		'uploaded_to_this_item' => esc_attr__( 'Uploaded to this order', 'wpd-ecommerce' ),
+		'items_list'            => esc_attr__( 'Orders list', 'wpd-ecommerce' ),
+		'items_list_navigation' => esc_attr__( 'Orders list navigation', 'wpd-ecommerce' ),
+		'filter_items_list'     => esc_attr__( 'Filter orders list', 'wpd-ecommerce' ),
 	);
 	$rewrite = array(
 		'slug'       => 'order',
@@ -55,8 +55,8 @@ function wpd_orders() {
 		'read_private_posts' => 'read_private_posts',
 	);
 	$args = array(
-		'label'               => __( 'Order', 'wpd-ecommerce' ),
-		'description'         => __( 'View your store\'s order history', 'wpd-ecommerce' ),
+		'label'               => esc_attr__( 'Order', 'wpd-ecommerce' ),
+		'description'         => esc_attr__( 'View your store\'s order history', 'wpd-ecommerce' ),
 		'labels'              => $labels,
 		'supports'            => false,
 		'taxonomies'          => array(),
@@ -94,10 +94,10 @@ add_action( 'admin_menu', 'wpd_admin_menu_orders', 4 );
 function set_custom_edit_wpd_orders_columns( $columns ) {
     unset( $columns['author'] );
     unset( $columns['date'] );
-    $columns['wpd_orders_date']     = __( 'Date', 'wpd-ecommerce' );
-    $columns['wpd_orders_status']   = __( 'Status', 'wpd-ecommerce' );
-    $columns['wpd_orders_customer'] = __( 'Customer', 'wpd-ecommerce' );
-    $columns['wpd_orders_total']    = __( 'Total', 'wpd-ecommerce' );
+    $columns['wpd_orders_date']     = esc_attr__( 'Date', 'wpd-ecommerce' );
+    $columns['wpd_orders_status']   = esc_attr__( 'Status', 'wpd-ecommerce' );
+    $columns['wpd_orders_customer'] = esc_attr__( 'Customer', 'wpd-ecommerce' );
+    $columns['wpd_orders_total']    = esc_attr__( 'Total', 'wpd-ecommerce' );
 
     return $columns;
 }

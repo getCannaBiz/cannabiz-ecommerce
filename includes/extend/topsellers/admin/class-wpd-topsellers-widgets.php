@@ -38,7 +38,7 @@ class wpdtopsellers_widget extends WP_Widget {
 			'wpdtopsellers_widget',
 			__( 'Dispensary Top Sellers', 'wpd-ecommerce' ),
 			array(
-				'description' => __( 'Display your top selling items', 'wpd-ecommerce' ),
+				'description' => esc_attr__( 'Display your top selling items', 'wpd-ecommerce' ),
 				'classname'   => 'wpd-topsellers-widget',
 			)
 		);

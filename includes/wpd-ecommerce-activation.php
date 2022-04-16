@@ -37,7 +37,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create checkout page.
 	$page_checkout = array(
-		'post_title'   => __( 'Checkout', 'wpd-ecommerce' ),
+		'post_title'   => esc_attr__( 'Checkout', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',
@@ -47,7 +47,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create cart page.
 	$page_cart = array(
-		'post_title'   => __( 'Cart', 'wpd-ecommerce' ),
+		'post_title'   => esc_attr__( 'Cart', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',
@@ -57,7 +57,7 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
 
 	// create account page.
 	$page_account = array(
-		'post_title'   => __( 'Account', 'wpd-ecommerce' ),
+		'post_title'   => esc_attr__( 'Account', 'wpd-ecommerce' ),
 		'post_status'  => 'publish',
 		'post_author'  => $current_user->ID,
 		'post_type'    => 'page',

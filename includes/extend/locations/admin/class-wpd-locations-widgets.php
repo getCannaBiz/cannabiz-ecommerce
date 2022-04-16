@@ -38,7 +38,7 @@ class wpdlocations_widget extends WP_Widget {
 			'wpdlocations_widget',
 			__( 'Dispensary Locations', 'wpd-ecommerce' ),
 			array(
-				'description' => __( 'Display menu items by location', 'wpd-ecommerce' ),
+				'description' => esc_attr__( 'Display menu items by location', 'wpd-ecommerce' ),
 				'classname'   => 'wpd-locations-widget',
 			)
 		);
@@ -178,7 +178,7 @@ class wpdlocations_widget extends WP_Widget {
 	    $defaults = array(
 	        'type'          => '',
 	        'location'      => '',
-	        'title'         => __( 'Dispensary Items', 'wpd-ecommerce' ),
+	        'title'         => esc_attr__( 'Dispensary Items', 'wpd-ecommerce' ),
 	        'limit'         => '5',
 	        'order'         => '',
 	        'featuredimage' => '',

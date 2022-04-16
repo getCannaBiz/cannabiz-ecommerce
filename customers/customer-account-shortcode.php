@@ -130,8 +130,8 @@ function wpd_customer_account_shortcode() {
 					}
 
 					echo '<div class="wpd-ecommerce account-administrator customers">' . $customer_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_customers_text', 'Customers' ) . '</span></div>';
-					echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . __( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
-					echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . __( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
+					echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . esc_attr__( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
+					echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . esc_attr__( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
 				?>
 				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce customer-orders">

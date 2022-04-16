@@ -114,15 +114,15 @@ function wpd_ecommerce_update_user_customer_dashboard() {
             if ( $_POST['pass1'] == $_POST['pass2'] )
                 wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( $_POST['pass1'] ) ) );
             else
-                $error[] = __( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
         }
 
         /* Update user email address */
         if ( ! empty( $_POST['email'] ) ) {
             if ( ! is_email( sanitize_text_field( $_POST['email'] ) ) )
-                $error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
             elseif( email_exists( sanitize_text_field( $_POST['email'] ) ) != $current_user->id )
-                $error[] = __( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
             else {
                 wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( $_POST['email'] ) ) );
             }
@@ -437,7 +437,7 @@ function wpd_ecommerce_login_form() {
     do_action( 'wpd_ecommerce_customer_account_login_form_before' );
     echo '<div class="wpd-ecommerce-login-form">';
     do_action( 'wpd_ecommerce_customer_account_login_form_before_inside' );
-    echo '<h3>' . __( 'Login', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3>' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</h3>';
     echo wp_login_form( $args );
     do_action( 'wpd_ecommerce_customer_account_login_form_after_inside' );
     echo '</div>';
@@ -456,7 +456,7 @@ function wpd_ecommerce_register_form() {
 
     echo '<div class="wpd-ecommerce-register-form">';
     do_action( 'wpd_ecommerce_customer_account_register_form_before_inside' );
-    echo '<h3>' . __( 'Register', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3>' . esc_attr__( 'Register', 'wpd-ecommerce' ) . '</h3>';
     ?>
     <form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_top' ); ?>

@@ -71,9 +71,9 @@ class CSV_Customers_Export {
 	 */
 	public function export_customers() {
 		echo '<div class="wrap">';
-		echo '<h2>' . __( 'WP Dispensary\'s Customer Export', 'wp-dispensary' ) . '</h2>';
-		echo '<p>' . __( 'Export your WP Dispensary customers as a CSV file by clicking the button below.', 'wp-dispensary' ) . '</p>';
-		echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . __( 'Export', 'wp-dispensary' ) . '</a></p>';
+		echo '<h2>' . esc_attr__( 'WP Dispensary\'s Customer Export', 'wp-dispensary' ) . '</h2>';
+		echo '<p>' . esc_attr__( 'Export your WP Dispensary customers as a CSV file by clicking the button below.', 'wp-dispensary' ) . '</p>';
+		echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'wp-dispensary' ) . '</a></p>';
 	}
 
 	/**

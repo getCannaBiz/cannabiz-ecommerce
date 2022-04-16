@@ -71,13 +71,13 @@ function wpd_ecommerce_show_contact_info_fields( $fields ) {
     unset( $fields['url'] );
 
 	// Add custom fields.
-	$fields['phone_number']   = __( 'Phone number', 'wpd-ecommerce' );
-	$fields['address_line_1'] = __( 'Address line 1', 'wpd-ecommerce' );
-	$fields['address_line_2'] = __( 'Address line 2', 'wpd-ecommerce' );
-	$fields['city']           = __( 'City', 'wpd-ecommerce' );
-	$fields['state_county']   = __( 'State / County', 'wpd-ecommerce' );
-	$fields['postcode_zip']   = __( 'Postcode / ZIP', 'wpd-ecommerce' );
-	$fields['country']        = __( 'Country', 'wpd-ecommerce' );
+	$fields['phone_number']   = esc_attr__( 'Phone number', 'wpd-ecommerce' );
+	$fields['address_line_1'] = esc_attr__( 'Address line 1', 'wpd-ecommerce' );
+	$fields['address_line_2'] = esc_attr__( 'Address line 2', 'wpd-ecommerce' );
+	$fields['city']           = esc_attr__( 'City', 'wpd-ecommerce' );
+	$fields['state_county']   = esc_attr__( 'State / County', 'wpd-ecommerce' );
+	$fields['postcode_zip']   = esc_attr__( 'Postcode / ZIP', 'wpd-ecommerce' );
+	$fields['country']        = esc_attr__( 'Country', 'wpd-ecommerce' );
 
     // Return the amended contact fields.
     return $fields;
@@ -104,11 +104,11 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
  */
 function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
 	if ( empty( $_POST['year_of_birth'] ) ) {
-		$errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', __( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) ) );
+		$errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) ) );
 	}
 
 	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
-		$errors->add( 'year_of_birth_error', __( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
+		$errors->add( 'year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
 	}
 }
 //add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );

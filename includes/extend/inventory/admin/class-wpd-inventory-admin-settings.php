@@ -782,11 +782,11 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 			$html .= '<table id="myTable" class="tablesorter wpd-inventory">
 						<thead>
 						<tr>
-							<th>' . __( 'ID', 'wpd-ecommerce' ) . '</th>
-							<th>' . __( 'Type', 'wpd-ecommerce' ) . '</th>
-							<th>' . __( 'Product name', 'wpd-ecommerce' ) . '</th>
-							<th>' . __( 'Categories', 'wpd-ecommerce' ) . '</th>
-							<th>' . __( 'Stock', 'wpd-ecommerce' ) . '</th>
+							<th>' . esc_attr__( 'ID', 'wpd-ecommerce' ) . '</th>
+							<th>' . esc_attr__( 'Type', 'wpd-ecommerce' ) . '</th>
+							<th>' . esc_attr__( 'Product name', 'wpd-ecommerce' ) . '</th>
+							<th>' . esc_attr__( 'Categories', 'wpd-ecommerce' ) . '</th>
+							<th>' . esc_attr__( 'Stock', 'wpd-ecommerce' ) . '</th>
 						</tr>
 						</thead>
 						<tbody>';

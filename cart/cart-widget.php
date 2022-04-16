@@ -24,7 +24,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 			'wpd_cart_widget',
 			__( 'Shopping Cart', 'wpd-ecommerce' ),
 			array(
-				'description' => __( 'Display your cart details', 'wpd-ecommerce' ),
+				'description' => esc_attr__( 'Display your cart details', 'wpd-ecommerce' ),
 				'classname'   => 'wp-dispensary-cart-widget',
 			)
 		);
@@ -33,7 +33,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
 
 	function form( $instance ) {
 		$defaults = array(
-			'title' => __( 'Cart', 'wpd-ecommerce' ),
+			'title' => esc_attr__( 'Cart', 'wpd-ecommerce' ),
 		);
 
 		$instance = wp_parse_args( (array) $instance, $defaults );
@@ -154,9 +154,9 @@ class WPD_eCommerce_Widget extends WP_Widget {
 				$str .= '</tbody>';
 				$str .= '</table>';
 		
-				$str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
+				$str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
 
-				$str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . __( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
+				$str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
 
 				echo $str;
 

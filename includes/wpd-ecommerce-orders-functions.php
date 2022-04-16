@@ -53,10 +53,10 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     // Table head.
     $thead = array(
         '',
-        __( 'Product', 'wpd-ecommerce' ),
-        __( 'Price', 'wpd-ecommerce' ),
-        __( 'Qty', 'wpd-ecommerce' ),
-        __( 'Total', 'wpd-ecommerce' ),
+        esc_attr__( 'Product', 'wpd-ecommerce' ),
+        esc_attr__( 'Price', 'wpd-ecommerce' ),
+        esc_attr__( 'Qty', 'wpd-ecommerce' ),
+        esc_attr__( 'Total', 'wpd-ecommerce' ),
     );
 
     // Filter table head.
@@ -126,17 +126,17 @@ function wpd_ecommerce_order_updated_messages( $messages ) {
     if ( 'wpd_orders' === get_post_type() ) {
         $messages['post'] = array(
             0 => '', // Unused. Messages start at index 1.
-            1 => sprintf( __( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post->ID ) ) ),
-            2 => __( 'Custom field updated.' ),
-            3 => __( 'Custom field deleted.' ),
-            4 => __( 'Order updated.' ),
-            5 => isset( $_GET['revision'] ) ? sprintf( __( 'Order restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
-            6 => sprintf( __( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post->ID ) ) ),
-            7 => __( 'Order saved.' ),
-            8 => sprintf( __( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
-            9 => sprintf( __( 'Order scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview order</a>' ),
-            date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
-            10 => sprintf( __( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            1 => sprintf( esc_attr__( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post->ID ) ) ),
+            2 => esc_attr__( 'Custom field updated.' ),
+            3 => esc_attr__( 'Custom field deleted.' ),
+            4 => esc_attr__( 'Order updated.' ),
+            5 => isset( $_GET['revision'] ) ? sprintf( esc_attr__( 'Order restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+            6 => sprintf( esc_attr__( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post->ID ) ) ),
+            7 => esc_attr__( 'Order saved.' ),
+            8 => sprintf( esc_attr__( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            9 => sprintf( esc_attr__( 'Order scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview order</a>' ),
+            date_i18n( esc_attr__( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
+            10 => sprintf( esc_attr__( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
         );
     }
     return $messages;

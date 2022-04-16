@@ -50,21 +50,21 @@ function wp_dispensary_inventory_management() {
 
 	/** Echo out the fields */
 	echo '<div class="wpd-inventory growers">';
-	echo '<p>' . __( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
+	echo '<p>' . esc_attr__( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="inventory_seeds" value="' . $inventory_seeds  . '" class="widefat" />';
-	echo '<p>' . __( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
+	echo '<p>' . esc_attr__( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="inventory_clones" value="' . $inventory_clones  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory grams">';
-	echo '<p>' . __( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
+	echo '<p>' . esc_attr__( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="inventory_grams" value="' . $inventory_grams  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory units">';
-	echo '<p>' . __( 'Available units', 'wpd-ecommerce' ) . ':</p>';
+	echo '<p>' . esc_attr__( 'Available units', 'wpd-ecommerce' ) . ':</p>';
 	echo '<input type="text" name="inventory_units" value="' . $inventory_each  . '" class="widefat" />';
 	echo '</div>';
 	echo '<div class="wpd-inventory display">';
-	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . __( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	echo '</div>';
 
 }

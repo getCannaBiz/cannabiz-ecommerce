@@ -24,7 +24,7 @@ function wpd_ecommerce_notifications() {
 
 		// Check if cart widget is active.
 		if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
-			$view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . __( 'View Cart', 'wpd-ecommerce' ) . '</a>';
+			$view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . esc_attr__( 'View Cart', 'wpd-ecommerce' ) . '</a>';
 		} else {
 			$view_cart_button = '';
 		}
@@ -33,7 +33,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && ! isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -41,7 +41,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && ! get_post_meta( get_the_ID(), 'price_each', TRUE ) && ! isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -49,7 +49,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -57,7 +57,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -65,7 +65,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -73,7 +73,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -81,7 +81,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -89,7 +89,7 @@ function wpd_ecommerce_notifications() {
 		if ( is_singular( 'products' ) && 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['add_me'] ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
-			$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
 			$str .= '</div>';
 		}
 
@@ -202,12 +202,12 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . __( 'Available', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</span></div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'Available', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</span></div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
@@ -274,12 +274,12 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
@@ -339,12 +339,12 @@ function wpd_ecommerce_notifications() {
 			if ( $inventory < $inventory_reduction ) {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+				$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 				$str .= '</div>';
 			} else {
 				// Begin wrapper around notifications.
 				$str .= '<div class="wpd-ecommerce-single-notifications">';
-				$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
 		} elseif ( isset( $_POST['qtty'] ) && ! empty( $_POST['qtty'] ) && isset( $_POST['add_me'] ) ) {
@@ -420,13 +420,13 @@ function wpd_ecommerce_notifications() {
 					if ( $inventory < $inventory_reduction ) {
 						// Begin wrapper around notifications.
 						$str .= '<div class="wpd-ecommerce-single-notifications">';
-						$str .= '<div class="wpd-ecommerce-notifications failed">' . __( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . __( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+						$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
 						$str .= '</div>';
 					} else {
 						if ( '' !== $single_price && NULL == $pack_price && NULL == $new_price && NULL == $concentrates_prices ) {
 							// Begin wrapper around notifications.
 							$str .= '<div class="wpd-ecommerce-single-notifications">';
-							$str .= '<div class="wpd-ecommerce-notifications success">' . __( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+							$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 							$str .= '</div>';
 						}
 					}
@@ -445,28 +445,28 @@ function wpd_ecommerce_notifications() {
 	// Display failed login message.
 	if ( ! empty( $_GET['login'] ) ) {
 		if ( 'failed' === $_GET['login'] ) {
-			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The username or password you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The username or password you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
 		}
 	}
 
 	// Display failed register message.
 	if ( ! empty( $_GET['register'] ) ) {
 		if ( 'failed' === $_GET['register'] ) {
-			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The registration info you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
+			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The registration info you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
 		}
 	}
 
 	// Display order thank you message.
 	if ( ! empty( $_GET['order'] ) ) {
 		if ( 'thank-you' === $_GET['order'] ) {
-			$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Thank You', 'wpd-ecommerce' ) . ':</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
+			$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Thank You', 'wpd-ecommerce' ) . ':</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
 		}
 	}
 
 	// Remove an item from the cart
 	if ( ! empty( $_GET['remove_item'] ) ) {
 		$_SESSION['wpd_ecommerce']->remove_item( $_GET['remove_item'] );
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Item removed', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The item has been successfully removed.', 'wpd-ecommerce' ) .'</div>';
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item removed', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The item has been successfully removed.', 'wpd-ecommerce' ) .'</div>';
 	}
 
 	// Add an item to the cart
@@ -479,7 +479,7 @@ function wpd_ecommerce_notifications() {
 			$_SESSION['wpd_ecommerce']->add_item( $_GET['add_item'], 1, '', '', '' );
 		endif;
 		$str .= '<div class="wpd-ecommerce-single-notifications">';
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Item added', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The item has been successfully added to your cart.', 'wpd-ecommerce' ) . ' <a href="' . wpd_ecommerce_menu_url() . '" class="button">' . __( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item added', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The item has been successfully added to your cart.', 'wpd-ecommerce' ) . ' <a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 		$str .= '</div>';
 	}
 
@@ -511,7 +511,7 @@ function wpd_ecommerce_notifications() {
 		//print_r( $coupons_loop );
 
 		if ( 0 == count( $coupons_loop ) ) {
-			$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> Coupon code "' . $_POST['coupon_code'] . '" does not exist</div>';
+			$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> Coupon code "' . $_POST['coupon_code'] . '" does not exist</div>';
 		}
 
 		foreach( $coupons_loop as $coupon ) : setup_postdata( $coupon );
@@ -528,13 +528,13 @@ function wpd_ecommerce_notifications() {
 			// @todo display error notice if the selected product is not in the cart.
 			if ( $product_selected && '' != $product_selected ) {
 				// Display error notification.
-				echo '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Required product is not in your cart', 'wpd-ecommerce' ) . '</div>';
+				echo '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Required product is not in your cart', 'wpd-ecommerce' ) . '</div>';
 			} else {
 				// Add coupon to the cart.
 				$_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
 				
 				// Display success notification.
-				echo '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
+				echo '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
 			}
 
 		endforeach;
@@ -565,12 +565,12 @@ function wpd_ecommerce_notifications() {
 
 	// If the coupon code form is submitted but no code was input.
 	if ( isset( $_POST['coupon_code'] ) && empty( $_POST['coupon_code'] ) && isset( $_POST['add_coupon'] ) ) {
-		$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
+		$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
 	}
 
 	// Display order thank you message.
 	if ( isset( $_GET['profile_saved'] ) ) {
-		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . __( 'Details Saved', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Your profile settings have been successfully saved', 'wpd-ecommerce' ) . '</div>';
+		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Details Saved', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Your profile settings have been successfully saved', 'wpd-ecommerce' ) . '</div>';
 	}
 
 	return $str;
@@ -1042,7 +1042,7 @@ function wpd_admin_settings_section_after() {
 	$wpdas_object = $wpdas_obj->add_section(
 		array(
 			'id'    => 'wpdas_pages',
-			'title' => __( 'Pages', 'wpd-ecommerce' ),
+			'title' => esc_attr__( 'Pages', 'wpd-ecommerce' ),
 		)
 	);
 
@@ -1141,7 +1141,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'flowers' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_grams', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_grams', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1150,11 +1150,11 @@ function wpd_ecommerce_add_to_cart_form() {
         // Add out of stock notice to output string.
         if ( '' != $price_each ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
             }
         } else {
             if ( ! get_post_meta( get_the_ID(), 'inventory_grams', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_grams', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
             }
         }
     }
@@ -1163,7 +1163,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'edibles' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1171,7 +1171,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'prerolls' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1179,7 +1179,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'topicals' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1187,16 +1187,16 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'growers' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // If no clone or seed count has been added.
 		if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) && ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-			$out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+			$out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
 		}
         // Add out of stock notice to output string.
         if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         } elseif ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
             }
         }
     }
@@ -1205,7 +1205,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'tinctures' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1213,7 +1213,7 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'gear' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // Add out of stock notice to output string.
         if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) || 0 >= get_post_meta( get_the_ID(), 'inventory_units', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . __( 'out of stock', 'wpd-inventory' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-inventory' ) . '</span>';
         }
     }
 
@@ -1254,7 +1254,7 @@ function wpd_ecommerce_add_to_cart_form() {
 
 			// Select a weight.
 			printf( '<select name="wpd_ecommerce_flowers_prices" id="wpd_ecommerce_flowers_prices" class="widefat">' );
-			printf( '<option value="" disabled selected>' . __( 'Choose a weight', 'wpd-ecommerce' ) . '</option>' );
+			printf( '<option value="" disabled selected>' . esc_attr__( 'Choose a weight', 'wpd-ecommerce' ) . '</option>' );
 			foreach ( $regular_price as $name => $price ) {
 				if ( '' != $price ) {
 					printf( '<option value="'. esc_html( $price ) . '">' . CURRENCY . esc_html( $price ) . ' - ' . esc_html( $name ) . '</option>' );
@@ -1426,9 +1426,9 @@ function wpd_ecommerce_add_to_cart_form() {
 			if ( ! empty( $pack_price ) ) {
 				// Select a quantity.
 				print( '<select name="wpd_ecommerce_product_prices" id="wpd_ecommerce_product_prices" class="widefat">' );
-				printf( '<option value="" disabled selected>' . __( 'Choose quantity', 'wpd-ecommerce' ) . '</option>' );
-				printf( '<option value="'. esc_html( $regular_price ) . '">' . CURRENCY . esc_html( $regular_price ) . ' - ' . __( 'each', 'wpd-ecommerce' ) . '</option>' );
-				printf( '<option value="'. esc_html( $pack_price ) . '">' . CURRENCY . esc_html( $pack_price ) . ' - ' . esc_html( $pack_units ) . ' ' . __( 'pack', 'wpd-ecommerce' ) . '</option>' );
+				printf( '<option value="" disabled selected>' . esc_attr__( 'Choose quantity', 'wpd-ecommerce' ) . '</option>' );
+				printf( '<option value="'. esc_html( $regular_price ) . '">' . CURRENCY . esc_html( $regular_price ) . ' - ' . esc_attr__( 'each', 'wpd-ecommerce' ) . '</option>' );
+				printf( '<option value="'. esc_html( $pack_price ) . '">' . CURRENCY . esc_html( $pack_price ) . ' - ' . esc_html( $pack_units ) . ' ' . esc_attr__( 'pack', 'wpd-ecommerce' ) . '</option>' );
 				print( '</select>' );
 
 				$price_each     = get_post_meta( get_the_ID(), 'price_each', true );
@@ -1673,7 +1673,7 @@ function wpd_ecommerce_add_to_cart_form() {
 	}
 	?>
 		<input type="number" name="qtty" id="qtty" value="1" class="item_Quantity" />
-		<input type="submit" class="item_add" id="add_item_btn" value="<?php echo __( 'Add to cart', 'wpd-ecommerce' ); ?>" name="add_me" />
+		<input type="submit" class="item_add" id="add_item_btn" value="<?php echo esc_attr__( 'Add to cart', 'wpd-ecommerce' ); ?>" name="add_me" />
 	</fieldset>
 	<?php } ?>
 	</form>
@@ -1780,7 +1780,7 @@ function wpd_ecommerce_payment_types() {
 			// Create payment amount.
 			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_cod'];
 			// Add payment method to array.
-			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', __( 'Delivery', 'wpd-ecommerce' ) )] = $payment_amount;
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', esc_attr__( 'Delivery', 'wpd-ecommerce' ) )] = $payment_amount;
 		}
 	}
 	// Check if WP Dispensary setting is set.
@@ -1790,7 +1790,7 @@ function wpd_ecommerce_payment_types() {
 			// Create payment amount.
 			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
 			// Add payment method to array.
-			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', __( 'In-store pickup', 'wpd-ecommerce' ) )] = $payment_amount;
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', esc_attr__( 'In-store pickup', 'wpd-ecommerce' ) )] = $payment_amount;
 		}
 	}
 	// Check if WP Dispensary setting is set.
@@ -1800,7 +1800,7 @@ function wpd_ecommerce_payment_types() {
 			// Create payment amount.
 			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
 			// Add payment method to array.
-			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_ground', __( 'Shipping', 'wpd-ecommerce' ) )] = $payment_amount;
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_ground', esc_attr__( 'Shipping', 'wpd-ecommerce' ) )] = $payment_amount;
 		}
 	}
 

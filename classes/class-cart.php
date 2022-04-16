@@ -202,7 +202,7 @@ class Cart {
 	public function wpd_ecommerce_page() {
 		$str = '<table class="wpd-ecommerce">';
 
-		$str .= '<thead><tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Price', 'wpd-ecommerce' ) . '</td><td>' . __( 'Qty', 'wpd-ecommerce' ) . '</td></tr></thead>';
+		$str .= '<thead><tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Price', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Qty', 'wpd-ecommerce' ) . '</td></tr></thead>';
 		$str .= '<tbody>';
 		foreach( $this->item_array as $id=>$amount ):
 			$i = new Item( $id, '', '', '' );
@@ -220,8 +220,8 @@ class Cart {
 
 		$str .= '<ul id="cart_totals">';
 		$str .= '<li class="cart_sum">Sum: ' . CURRENCY . $this->sum . '</li>';
-		$str .= '<li class="cart_sales_tax">' . __( 'Total', 'wpd-ecommerce' ) . ': ' . CURRENCY . $this->sales_tax . '</li>';
-		$str .= '<li class="cart_total"><span class="caption">' . __( 'Total', 'wpd-ecommerce' ) . ':</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
+		$str .= '<li class="cart_sales_tax">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ': ' . CURRENCY . $this->sales_tax . '</li>';
+		$str .= '<li class="cart_total"><span class="caption">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
 		$str .= '</ul>';
 
 		return $str;

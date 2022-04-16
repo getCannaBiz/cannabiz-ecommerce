@@ -16,10 +16,10 @@ function wpd_ecommerce_checkout_shortcode() {
 if ( ! is_user_logged_in() ) {
     if ( get_option( 'users_can_register' ) ) {
         // Register button.
-        $register_button = ' <a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce register">' . __( 'Login', 'wpd-ecommerce' ) . '</a>';
+        $register_button = ' <a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
     }
-    echo '<p>' . __( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
-    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . __( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
+    echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
+    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
 } else {
     // Verify that there's an active session.
 	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
@@ -37,9 +37,9 @@ if ( ! is_user_logged_in() ) {
             /** Update Email Address */
             if ( isset( $_POST['email'] ) ) {
                 if ( ! is_email( esc_attr( $_POST['email'] ) ) )
-                    $error[] = __( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
+                    $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
                 elseif( email_exists( esc_attr( $_POST['email'] ) ) != $current_user->ID )
-                    $error[] = __( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
+                    $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
                 else {
                     wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => esc_attr( $_POST['email'] ) ) );
                 }
@@ -85,18 +85,18 @@ if ( ! is_user_logged_in() ) {
             if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
                     if ( ! isset( $_POST['payment-type'] ) ) {
-                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
+                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
                         wpd_ecommerce_checkout_success();
                     }
                 } else {
-                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
+                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
                     echo $str;
                 }
             } else {
                 if ( ! isset( $_POST['payment-type'] ) ) {
-                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . __( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . __( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
+                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                     echo $str;
                 } else {
                     wpd_ecommerce_checkout_success();
@@ -189,7 +189,7 @@ if ( ! is_user_logged_in() ) {
         <?php
         $str  = '<table class="wpd-ecommerce widget checkout">';
         $str .= '<thead>';
-        $str .= '<tr><td>' . __( 'Product', 'wpd-ecommerce' ) . '</td><td>' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
+        $str .= '<tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
         $str .= '</thead>';
         $str .= '<tbody>';
 
@@ -263,18 +263,18 @@ if ( ! is_user_logged_in() ) {
         }
 
         // Subtotal.
-        $str .= '<tr><td><strong>' . __( 'Subtotal', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
+        $str .= '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
         // Coupon code.
         if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-			$str .= '<tr><td><strong>' . __( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . __( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
+			$str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
 		}
         // Sales tax.
         if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
-            $str .= '<tr><td><strong>' . __( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
+            $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
         }
         // Excise tax.
         if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
-            $str .= '<tr><td><strong>' . __( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
+            $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
         }
 
         // Payment type.
@@ -283,7 +283,7 @@ if ( ! is_user_logged_in() ) {
         }
 
         // Total.
-        $str .= '<tr class="total"><td><strong>' . __( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
+        $str .= '<tr class="total"><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
         $str .= '</tbody>';
         $str .= '</table>';
@@ -292,14 +292,14 @@ if ( ! is_user_logged_in() ) {
 
         do_action( 'wpd_ecommerce_checkout_after_order_details' );
 
-        $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . __( 'Place Order', 'wpd-ecommerce' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
+        $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . esc_attr__( 'Place Order', 'wpd-ecommerce' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
         $str2 .= '</form>';
 
         echo $str2;
 
 	} else {
-        echo '<p>' . __( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
-        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', __( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
+        echo '<p>' . esc_attr__( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
+        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', esc_attr__( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
 	}
 } // is user logged in
 }
@@ -314,8 +314,8 @@ function wpd_ecommerce_checkout_success() {
     $current_user = wp_get_current_user();
 
     $customer_details  = '';
-    $customer_details .= '<p><strong>' . __( 'Name', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
-    $customer_details .= '<p><strong>' . __( 'Email', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->user_email . '</p>';
+    $customer_details .= '<p><strong>' . esc_attr__( 'Name', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
+    $customer_details .= '<p><strong>' . esc_attr__( 'Email', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->user_email . '</p>';
 
     $customer_id = $current_user->ID;
 
@@ -323,14 +323,14 @@ function wpd_ecommerce_checkout_success() {
     $wpd_orders_data      = array();
     $wpd_orders_item_data = array();
 
-    echo '<h3 class="wpd-ecommerce customer-order">' . __( 'Your order', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3 class="wpd-ecommerce customer-order">' . esc_attr__( 'Your order', 'wpd-ecommerce' ) . '</h3>';
 
     do_action( 'wpd_ecommerce_checkout_success_your_order_table_before' );
 
     $str  = '';
     $str  = '<table style="border-collapse: collapse;width: 100%;max-width: 600px;margin: 0 auto;" class="wpd-ecommerce widget checkout">';
     $str .= '<thead style="border: 1px solid #DDD;">';
-    $str .= '<tr style="font-weight: 700;"><td style="text-align: left; padding: 10px;">' . __( 'Product', 'wpd-ecommerce' ) . '</td><td style="text-align: left;">' . __( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
+    $str .= '<tr style="font-weight: 700;"><td style="text-align: left; padding: 10px;">' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td style="text-align: left;">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
     $str .= '</thead>';
     $str .= '<tbody style="border-bottom: 1px solid #DDD;">';
 
@@ -572,10 +572,10 @@ function wpd_ecommerce_checkout_success() {
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
     $to                = get_option( 'admin_email' );
-    $subject           = __( 'New order: #', 'wpd-ecommerce' ) . $order;
+    $subject           = esc_attr__( 'New order: #', 'wpd-ecommerce' ) . $order;
 
     // Create message for the email.
-    $message   = '<p>' . __( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
+    $message   = '<p>' . esc_attr__( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
     $message  .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'wpd-ecommerce' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
 
     // Add order details to message.
