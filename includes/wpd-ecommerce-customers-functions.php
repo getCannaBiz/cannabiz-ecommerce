@@ -95,60 +95,60 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     $error = array();
 
     /* If account details were saved, update customer account. */
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && !empty( $_POST['action'] ) && $_POST['action'] == 'update-user' ) {
+    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['action'] ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
 
         // Remove valid ID file from user profile.
-        if ( isset( $_POST['remove_valid_id'] ) ) {
+        if ( null !== filter_input( INPUT_POST, 'remove_valid_id' ) ) {
             // Update user meta.
             update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_valid_id', '' );
         }
     
         // Remove doctor recommendation file from user profile.
-        if ( isset( $_POST['remove_recommendation_doc'] ) ) {
+        if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
             // Update user meta.
             update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
         }
     
         /* Update user password. */
         if ( ! empty( $_POST['pass1'] ) && ! empty( $_POST['pass2'] ) ) {
-            if ( $_POST['pass1'] == $_POST['pass2'] )
-                wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( $_POST['pass1'] ) ) );
+            if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) )
+                wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( filter_input( INPUT_POST, 'pass1' ) ) ) );
             else
                 $error[] = esc_attr__( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
         }
 
         /* Update user email address */
         if ( ! empty( $_POST['email'] ) ) {
-            if ( ! is_email( sanitize_text_field( $_POST['email'] ) ) )
+            if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) )
                 $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
-            elseif( email_exists( sanitize_text_field( $_POST['email'] ) ) != $current_user->id )
+            elseif( email_exists( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) != $current_user->id )
                 $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
             else {
-                wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( $_POST['email'] ) ) );
+                wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) );
             }
         }
 
         /* Update user information */
         if ( ! empty( $_POST['first-name'] ) )
-            update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( $_POST['first-name'] ) );
+            update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( filter_input( INPUT_POST, 'first-name' ) ) );
         if ( ! empty( $_POST['last-name'] ) )
-            update_user_meta($current_user->ID, 'last_name', sanitize_text_field( $_POST['last-name'] ) );
+            update_user_meta($current_user->ID, 'last_name', sanitize_text_field( filter_input( INPUT_POST, 'last-name' ) ) );
         if ( ! empty( $_POST['phone_number'] ) )
-            update_user_meta( $current_user->ID, 'phone_number', sanitize_text_field( $_POST['phone_number'] ) );
+            update_user_meta( $current_user->ID, 'phone_number', sanitize_text_field( filter_input( INPUT_POST, 'phone_number' ) ) );
         if ( ! empty( $_POST['address_line_1'] ) )
-            update_user_meta( $current_user->ID, 'address_line_1', sanitize_text_field( $_POST['address_line_1'] ) );
+            update_user_meta( $current_user->ID, 'address_line_1', sanitize_text_field( filter_input( INPUT_POST, 'address_line_1' ) ) );
         if ( ! empty( $_POST['address_line_2'] ) )
-            update_user_meta( $current_user->ID, 'address_line_2', sanitize_text_field( $_POST['address_line_2'] ) );
+            update_user_meta( $current_user->ID, 'address_line_2', sanitize_text_field( filter_input( INPUT_POST, 'address_line_2' ) ) );
         if ( ! empty( $_POST['city'] ) )
-            update_user_meta( $current_user->ID, 'city', sanitize_text_field( $_POST['city'] ) );
+            update_user_meta( $current_user->ID, 'city', sanitize_text_field( filter_input( INPUT_POST, 'city' ) ) );
         if ( ! empty( $_POST['state_county'] ) )
-            update_user_meta( $current_user->ID, 'state_county', sanitize_text_field( $_POST['state_county'] ) );
+            update_user_meta( $current_user->ID, 'state_county', sanitize_text_field( filter_input( INPUT_POST, 'state_county' ) ) );
         if ( ! empty( $_POST['postal_zip'] ) )
-            update_user_meta( $current_user->ID, 'postal_zip', sanitize_text_field( $_POST['postal_zip'] ) );
+            update_user_meta( $current_user->ID, 'postal_zip', sanitize_text_field( filter_input( INPUT_POST, 'postal_zip' ) ) );
         if ( ! empty( $_POST['country'] ) )
-            update_user_meta( $current_user->ID, 'country', sanitize_text_field( $_POST['country'] ) );
+            update_user_meta( $current_user->ID, 'country', sanitize_text_field( filter_input( INPUT_POST, 'country' ) ) );
         if ( ! empty( $_POST['description'] ) )
-            update_user_meta( $current_user->ID, 'description', sanitize_text_field( $_POST['description'] ) );
+            update_user_meta( $current_user->ID, 'description', sanitize_text_field( filter_input( INPUT_POST, 'description' ) ) );
 
         /**
          * Redirect so the page will show updated info.
@@ -233,21 +233,21 @@ add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_cust
  */
 function wpd_ecommerce_add_profile_options( $profileuser ) {
     // Update recommendation number.
-    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_num'] ) ) {
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', $_POST['wpd_ecommerce_customer_recommendation_num'] );
+    if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_num' ) ) {
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_num' ) );
     }
     // Update recommendation expiration date.
-    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) ) {
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) );
+    if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_exp' ) ) {
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_exp' ) ) );
     }
     // Remove valid ID file from user profile.
-    if ( isset( $_POST['remove_valid_id'] ) ) {
+    if ( null !== filter_input( INPUT_POST, 'remove_valid_id' ) ) {
         // Update user meta.
         update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', '' );
     }
 
     // Remove doctor recommendation file from user profile.
-    if ( isset( $_POST['remove_recommendation_doc'] ) ) {
+    if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
         // Update user meta.
         update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
     }
@@ -332,7 +332,7 @@ add_action( 'edit_user_profile', 'wpd_ecommerce_add_profile_options' );
 function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
 
     // Update recommendation number.
-    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_num'] ) ) {
+    if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_num' ) ) {
         update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_num', $_POST['wpd_ecommerce_customer_recommendation_num'] );
     }
     // Update recommendation expiration date.

@@ -76,8 +76,8 @@ add_action( 'wpd_ecommerce_checkout_after_order_details', 'wpd_ecommerce_checkou
  */
 function wpd_ecommerce_checkout_settings() {
 	// Get metavalue (payment type cost).
-	$metavalue = $_POST['metavalue'];
-	$metaname  = $_POST['metaname'];
+	$metavalue = filter_input( INPUT_POST, 'metavalue' );
+	$metaname  = filter_input( INPUT_POST, 'metaname' );
 	$_SESSION['wpd_ecommerce']->payment_type_amount = $metavalue;
 	$_SESSION['wpd_ecommerce']->payment_type_name   = $metaname;
     exit;

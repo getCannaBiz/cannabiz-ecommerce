@@ -23,8 +23,8 @@ function wpd_ecommerce_registration_form() { ?>
  */
 function wpd_ecommerce_user_register( $user_id ) {
 	// First name.
-	if ( ! empty( $_POST['first_name'] ) ) {
-		update_user_meta( $user_id, 'first_name', sanitize_text_field( $_POST['first_name'] ) );
+	if ( ! empty( filter_input( INPUT_POST, 'first_name' ) ) ) {
+		update_user_meta( $user_id, 'first_name', sanitize_text_field( filter_input( INPUT_POST, 'first_name' ) ) );
 	}
 }
 //add_action( 'user_register', 'wpd_ecommerce_user_register' );
@@ -92,8 +92,8 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
 		return false;
 	}
 
-	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) >= 1900 ) {
-		update_user_meta( $user_id, 'year_of_birth', intval( $_POST['year_of_birth'] ) );
+	if ( ! empty( filter_input( INPUT_POST, 'year_of_birth' ) ) && intval( filter_input( INPUT_POST, 'year_of_birth' ) ) >= 1900 ) {
+		update_user_meta( $user_id, 'year_of_birth', intval( filter_input( INPUT_POST, 'year_of_birth' ) ) );
 	}
 }
 //add_action( 'personal_options_update', 'wpd_ecommerce_update_profile_fields' );
@@ -103,11 +103,11 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
  * User Profile - Update Errors
  */
 function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
-	if ( empty( $_POST['year_of_birth'] ) ) {
+	if ( empty( filter_input( INPUT_POST, 'year_of_birth' ) ) ) {
 		$errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) ) );
 	}
 
-	if ( ! empty( $_POST['year_of_birth'] ) && intval( $_POST['year_of_birth'] ) < 1900 ) {
+	if ( ! empty( filter_input( INPUT_POST, 'year_of_birth' ) ) && intval( filter_input( INPUT_POST, 'year_of_birth' ) ) < 1900 ) {
 		$errors->add( 'year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
 	}
 }
