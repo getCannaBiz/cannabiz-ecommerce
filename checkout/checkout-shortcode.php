@@ -32,46 +32,46 @@ if ( ! is_user_logged_in() ) {
         $error = array();
 
         /* If checkout is submitted, do something specific . */
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && isset( $_POST['action'] ) && $_POST['action'] == 'wpd-ecommerce-checkout' ) {
+        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
 
             /** Update Email Address */
-            if ( isset( $_POST['email'] ) ) {
-                if ( ! is_email( esc_attr( $_POST['email'] ) ) )
+            if ( null !== filter_input( INPUT_POST, 'email' ) ) {
+                if ( ! is_email( filter_input( INPUT_POST, 'email' ) ) )
                     $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
-                elseif( email_exists( esc_attr( $_POST['email'] ) ) != $current_user->ID )
+                elseif( email_exists( filter_input( INPUT_POST, 'email' ) ) != $current_user->ID )
                     $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
                 else {
-                    wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => esc_attr( $_POST['email'] ) ) );
+                    wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => filter_input( INPUT_POST, 'email' ) ) );
                 }
             }
 
             // Update First Name.
-            if ( isset( $_POST['first-name'] ) )
-                update_user_meta( $current_user->ID, 'first_name', esc_attr( $_POST['first-name'] ) );
+            if ( null !== filter_input( INPUT_POST, 'first-name' ) )
+                update_user_meta( $current_user->ID, 'first_name', esc_attr( filter_input( INPUT_POST, 'first-name' ) ) );
             // Update Last Name.
-            if ( isset( $_POST['last-name'] ) )
-                update_user_meta( $current_user->ID, 'last_name', esc_attr( $_POST['last-name'] ) );
+            if ( null !== filter_input( INPUT_POST, 'last-name' ) )
+                update_user_meta( $current_user->ID, 'last_name', esc_attr( filter_input( INPUT_POST, 'last-name' ) ) );
             // Update Phone Number.
-            if ( isset( $_POST['phone_number'] ) )
-                update_user_meta( $current_user->ID, 'phone_number', esc_attr( $_POST['phone_number'] ) );
+            if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
+                update_user_meta( $current_user->ID, 'phone_number', esc_attr( filter_input( INPUT_POST, 'phone_number' ) ) );
             // Update Address Line 1.
-            if ( isset( $_POST['address_line_1'] ) )
-                update_user_meta( $current_user->ID, 'address_line_1', esc_attr( $_POST['address_line_1'] ) );
+            if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
+                update_user_meta( $current_user->ID, 'address_line_1', esc_attr( filter_input( INPUT_POST, 'address_line_1' ) ) );
             // Update Address Line 2.
-            if ( isset( $_POST['address_line_2'] ) )
-                update_user_meta( $current_user->ID, 'address_line_2', esc_attr( $_POST['address_line_2'] ) );
+            if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
+                update_user_meta( $current_user->ID, 'address_line_2', esc_attr( filter_input( INPUT_POST, 'address_line_2' ) ) );
             // Update City.
-            if ( isset( $_POST['city'] ) )
-                update_user_meta( $current_user->ID, 'city', esc_attr( $_POST['city'] ) );
+            if ( null !== filter_input( INPUT_POST, 'city' ) )
+                update_user_meta( $current_user->ID, 'city', esc_attr( filter_input( INPUT_POST, 'city' ) ) );
             // Update State/County.
-            if ( isset( $_POST['state_county'] ) )
-                update_user_meta( $current_user->ID, 'state_county', esc_attr( $_POST['state_county'] ) );
+            if ( null !== filter_input( INPUT_POST, 'state_country' ) )
+                update_user_meta( $current_user->ID, 'state_county', esc_attr( filter_input( INPUT_POST, 'state_county' ) ) );
             // Update Postcode/Zip.
-            if ( isset( $_POST['postcode_zip'] ) )
-                update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( $_POST['postcode_zip'] ) );
+            if ( null !== filter_input( INPUT_POST, 'postcode_zip' ) )
+                update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( filter_input( INPUT_POST, 'postcode_zip' ) ) );
             // Update Country.
-            if ( isset( $_POST['country'] ) )
-                update_user_meta( $current_user->ID, 'country', esc_attr( $_POST['country'] ) );
+            if ( null !== filter_input( INPUT_POST, 'country' ) )
+                update_user_meta( $current_user->ID, 'country', esc_attr( filter_input( INPUT_POST, 'country' ) ) );
 
             /**
              * Redirect so the page will show updated info.
@@ -84,7 +84,7 @@ if ( ! is_user_logged_in() ) {
             // Minimum checkout check.
             if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
                 if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
-                    if ( ! isset( $_POST['payment-type'] ) ) {
+                    if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
                         $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
@@ -95,7 +95,7 @@ if ( ! is_user_logged_in() ) {
                     echo $str;
                 }
             } else {
-                if ( ! isset( $_POST['payment-type'] ) ) {
+                if ( filter_input( INPUT_POST, 'payment-type' ) ) {
                     $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                     echo $str;
                 } else {

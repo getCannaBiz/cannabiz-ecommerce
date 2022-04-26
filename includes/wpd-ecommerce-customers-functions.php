@@ -71,7 +71,7 @@ function wpd_ecommerce_prevent_wp_login() {
     if ( 'customer' === $role[0] ) {
 
         // Check if a $_GET['action'] is set, and if so, load it into $action variable
-        $action = ( isset( $_GET['action'] ) ) ? $_GET['action'] : '';
+        $action = ( null !== filter_input( INPUT_GET, 'action' ) ) ? filter_input( INPUT_GET, 'action' ) : '';
 
         // Check if we're on the login page, and ensure the action is not 'logout'
         if ( $pagenow == 'wp-login.php' && ( ! $action || ( $action && ! in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass' ) ) ) ) ) {
@@ -118,7 +118,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         }
 
         /* Update user email address */
-        if ( ! empty( $_POST['email'] ) ) {
+        if ( null !== filter_input( INPUT_POST, 'email' ) ) {
             if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) )
                 $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
             elseif( email_exists( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) != $current_user->id )
@@ -129,25 +129,25 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         }
 
         /* Update user information */
-        if ( ! empty( $_POST['first-name'] ) )
+        if ( null !== filter_input( INPUT_POST, 'first-name' ) )
             update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( filter_input( INPUT_POST, 'first-name' ) ) );
-        if ( ! empty( $_POST['last-name'] ) )
+        if ( null !== filter_input( INPUT_POST, 'last-name' ) )
             update_user_meta($current_user->ID, 'last_name', sanitize_text_field( filter_input( INPUT_POST, 'last-name' ) ) );
-        if ( ! empty( $_POST['phone_number'] ) )
+        if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
             update_user_meta( $current_user->ID, 'phone_number', sanitize_text_field( filter_input( INPUT_POST, 'phone_number' ) ) );
-        if ( ! empty( $_POST['address_line_1'] ) )
+        if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
             update_user_meta( $current_user->ID, 'address_line_1', sanitize_text_field( filter_input( INPUT_POST, 'address_line_1' ) ) );
-        if ( ! empty( $_POST['address_line_2'] ) )
+        if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
             update_user_meta( $current_user->ID, 'address_line_2', sanitize_text_field( filter_input( INPUT_POST, 'address_line_2' ) ) );
-        if ( ! empty( $_POST['city'] ) )
+        if ( null !== filter_input( INPUT_POST, 'city' ) )
             update_user_meta( $current_user->ID, 'city', sanitize_text_field( filter_input( INPUT_POST, 'city' ) ) );
-        if ( ! empty( $_POST['state_county'] ) )
+        if ( null !== filter_input( INPUT_POST, 'state_country' ) )
             update_user_meta( $current_user->ID, 'state_county', sanitize_text_field( filter_input( INPUT_POST, 'state_county' ) ) );
-        if ( ! empty( $_POST['postal_zip'] ) )
+        if ( null !== filter_input( INPUT_POST, 'postal_zip' ) )
             update_user_meta( $current_user->ID, 'postal_zip', sanitize_text_field( filter_input( INPUT_POST, 'postal_zip' ) ) );
-        if ( ! empty( $_POST['country'] ) )
+        if ( null !== filter_input( INPUT_POST, 'country' ) )
             update_user_meta( $current_user->ID, 'country', sanitize_text_field( filter_input( INPUT_POST, 'country' ) ) );
-        if ( ! empty( $_POST['description'] ) )
+        if ( null !== filter_input( INPUT_POST, 'description' ) )
             update_user_meta( $current_user->ID, 'description', sanitize_text_field( filter_input( INPUT_POST, 'description' ) ) );
 
         /**
@@ -333,11 +333,11 @@ function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
 
     // Update recommendation number.
     if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_num' ) ) {
-        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_num', $_POST['wpd_ecommerce_customer_recommendation_num'] );
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_num', filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_num' ) );
     }
     // Update recommendation expiration date.
-    if ( isset( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) ) {
-        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( $_POST['wpd_ecommerce_customer_recommendation_exp'] ) );
+    if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_exp' ) ) {
+        update_user_meta( $user_id, 'wpd_ecommerce_customer_recommendation_exp', sanitize_text_field( filter_input( INPUT_POST, 'wpd_ecommerce_customer_recommendation_exp' ) ) );
     }
 
     // If no new files are uploaded, return.

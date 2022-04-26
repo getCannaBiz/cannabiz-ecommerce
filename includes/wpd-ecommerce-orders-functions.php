@@ -130,7 +130,7 @@ function wpd_ecommerce_order_updated_messages( $messages ) {
             2 => esc_attr__( 'Custom field updated.' ),
             3 => esc_attr__( 'Custom field deleted.' ),
             4 => esc_attr__( 'Order updated.' ),
-            5 => isset( $_GET['revision'] ) ? sprintf( esc_attr__( 'Order restored to revision from %s' ), wp_post_revision_title( (int) $_GET['revision'], false ) ) : false,
+            5 => null !== filter_input( INPUT_GET, 'revision' ) ? sprintf( esc_attr__( 'Order restored to revision from %s' ), wp_post_revision_title( (int) filter_input( INPUT_GET, 'revision' ), false ) ) : false,
             6 => sprintf( esc_attr__( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post->ID ) ) ),
             7 => esc_attr__( 'Order saved.' ),
             8 => sprintf( esc_attr__( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),

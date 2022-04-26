@@ -320,35 +320,35 @@ function wpdispensary_save_heavyweight_prices_meta( $post_id, $post ) {
 	 * We'll put it into an array to make it easier to loop though.
 	 */
 
-	$heavyweightprices_meta['price_three_grams']        = esc_html( $_POST['price_three_grams'] );
-	$heavyweightprices_meta['price_four_grams']         = esc_html( $_POST['price_four_grams'] );
-	$heavyweightprices_meta['price_five_grams']         = esc_html( $_POST['price_five_grams'] );
-	$heavyweightprices_meta['price_six_grams']          = esc_html( $_POST['price_six_grams'] );
-	$heavyweightprices_meta['price_seven_grams']        = esc_html( $_POST['price_seven_grams'] );
-	$heavyweightprices_meta['price_eight_grams']        = esc_html( $_POST['price_eight_grams'] );
-	$heavyweightprices_meta['price_nine_grams']         = esc_html( $_POST['price_nine_grams'] );
-	$heavyweightprices_meta['price_ten_grams']          = esc_html( $_POST['price_ten_grams'] );
-	$heavyweightprices_meta['price_two_ounces']         = esc_html( $_POST['price_two_ounces'] );
-	$heavyweightprices_meta['price_quarter_pound']      = esc_html( $_POST['price_quarter_pound'] );
-	$heavyweightprices_meta['price_half_pound']         = esc_html( $_POST['price_half_pound'] );
-	$heavyweightprices_meta['price_one_pound']          = esc_html( $_POST['price_one_pound'] );
-	$heavyweightprices_meta['price_two_pounds']         = esc_html( $_POST['price_two_pounds'] );
-	$heavyweightprices_meta['price_three_pounds']       = esc_html( $_POST['price_three_pounds'] );
-	$heavyweightprices_meta['price_four_pounds']        = esc_html( $_POST['price_four_pounds'] );
-	$heavyweightprices_meta['price_five_pounds']        = esc_html( $_POST['price_five_pounds'] );
-	$heavyweightprices_meta['price_six_pounds']         = esc_html( $_POST['price_six_pounds'] );
-	$heavyweightprices_meta['price_seven_pounds']       = esc_html( $_POST['price_seven_pounds'] );
-	$heavyweightprices_meta['price_eight_pounds']       = esc_html( $_POST['price_eight_pounds'] );
-	$heavyweightprices_meta['price_nine_pounds']        = esc_html( $_POST['price_nine_pounds'] );
-	$heavyweightprices_meta['price_ten_pounds']         = esc_html( $_POST['price_ten_pounds'] );
-	$heavyweightprices_meta['price_eleven_pounds']      = esc_html( $_POST['price_eleven_pounds'] );
-	$heavyweightprices_meta['price_twelve_pounds']      = esc_html( $_POST['price_twelve_pounds'] );
-	$heavyweightprices_meta['price_thirteen_pounds']    = esc_html( $_POST['price_thirteen_pounds'] );
-	$heavyweightprices_meta['price_fourteen_pounds']    = esc_html( $_POST['price_fourteen_pounds'] );
-	$heavyweightprices_meta['price_fifteen_pounds']     = esc_html( $_POST['price_fifteen_pounds'] );
-	$heavyweightprices_meta['price_twenty_pounds']      = esc_html( $_POST['price_twenty_pounds'] );
-	$heavyweightprices_meta['price_twenty_five_pounds'] = esc_html( $_POST['price_twenty_five_pounds'] );
-	$heavyweightprices_meta['price_fifty_pounds']       = esc_html( $_POST['price_fifty_pounds'] );
+	$heavyweightprices_meta['price_three_grams']        = filter_input( INPUT_POST, 'price_three_grams' );
+	$heavyweightprices_meta['price_four_grams']         = filter_input( INPUT_POST, 'price_four_grams' );
+	$heavyweightprices_meta['price_five_grams']         = filter_input( INPUT_POST, 'price_five_grams' );
+	$heavyweightprices_meta['price_six_grams']          = filter_input( INPUT_POST, 'price_six_grams' );
+	$heavyweightprices_meta['price_seven_grams']        = filter_input( INPUT_POST, 'price_seven_grams' );
+	$heavyweightprices_meta['price_eight_grams']        = filter_input( INPUT_POST, 'price_eight_grams' );
+	$heavyweightprices_meta['price_nine_grams']         = filter_input( INPUT_POST, 'price_nine_grams' );
+	$heavyweightprices_meta['price_ten_grams']          = filter_input( INPUT_POST, 'price_ten_grams' );
+	$heavyweightprices_meta['price_two_ounces']         = filter_input( INPUT_POST, 'price_two_ounces' );
+	$heavyweightprices_meta['price_quarter_pound']      = filter_input( INPUT_POST, 'price_quarter_pound' );
+	$heavyweightprices_meta['price_half_pound']         = filter_input( INPUT_POST, 'price_half_pound' );
+	$heavyweightprices_meta['price_one_pound']          = filter_input( INPUT_POST, 'price_one_pound' );
+	$heavyweightprices_meta['price_two_pounds']         = filter_input( INPUT_POST, 'price_two_pounds' );
+	$heavyweightprices_meta['price_three_pounds']       = filter_input( INPUT_POST, 'price_three_pounds' );
+	$heavyweightprices_meta['price_four_pounds']        = filter_input( INPUT_POST, 'price_four_pounds' );
+	$heavyweightprices_meta['price_five_pounds']        = filter_input( INPUT_POST, 'price_five_pounds' );
+	$heavyweightprices_meta['price_six_pounds']         = filter_input( INPUT_POST, 'price_six_pounds' );
+	$heavyweightprices_meta['price_seven_pounds']       = filter_input( INPUT_POST, 'price_seven_pounds' );
+	$heavyweightprices_meta['price_eight_pounds']       = filter_input( INPUT_POST, 'price_eight_pounds' );
+	$heavyweightprices_meta['price_nine_pounds']        = filter_input( INPUT_POST, 'price_nine_pounds' );
+	$heavyweightprices_meta['price_ten_pounds']         = filter_input( INPUT_POST, 'price_ten_pounds' );
+	$heavyweightprices_meta['price_eleven_pounds']      = filter_input( INPUT_POST, 'price_eleven_pounds' );
+	$heavyweightprices_meta['price_twelve_pounds']      = filter_input( INPUT_POST, 'price_twelve_pounds' );
+	$heavyweightprices_meta['price_thirteen_pounds']    = filter_input( INPUT_POST, 'price_thirteen_pounds' );
+	$heavyweightprices_meta['price_fourteen_pounds']    = filter_input( INPUT_POST, 'price_fourteen_pounds' );
+	$heavyweightprices_meta['price_fifteen_pounds']     = filter_input( INPUT_POST, 'price_fifteen_pounds' );
+	$heavyweightprices_meta['price_twenty_pounds']      = filter_input( INPUT_POST, 'price_twenty_pounds' );
+	$heavyweightprices_meta['price_twenty_five_pounds'] = filter_input( INPUT_POST, 'price_twenty_five_pounds' );
+	$heavyweightprices_meta['price_fifty_pounds']       = filter_input( INPUT_POST, 'price_fifty_pounds' );
 
 	/** Add values of $prices_meta as custom fields */
 

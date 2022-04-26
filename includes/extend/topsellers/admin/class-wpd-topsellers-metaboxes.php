@@ -63,11 +63,11 @@ function top_sellers_html( $post ) {
 
 function top_sellers_save( $post_id ) {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	if ( ! isset( $_POST['top_sellers_nonce'] ) || ! wp_verify_nonce( $_POST['top_sellers_nonce'], 'product_featured_nonce' ) ) return;
+	if ( null == filter_input( INPUT_POST, 'top_sellers_nonce' ) || ! wp_verify_nonce( filter_input( INPUT_POST, 'top_sellers_nonce' ), 'product_featured_nonce' ) ) return;
 	if ( ! current_user_can( 'edit_post', $post_id ) ) return;
 
-	if ( isset( $_POST['product_featured'] ) )
-		update_post_meta( $post_id, 'product_featured', esc_attr( $_POST['product_featured'] ) );
+	if ( null !== filter_input( INPUT_POST, 'product_featured' ) )
+		update_post_meta( $post_id, 'product_featured', esc_attr( filter_input( INPUT_POST, 'product_featured' ) ) );
 	else
 		update_post_meta( $post_id, 'product_featured', null );
 }

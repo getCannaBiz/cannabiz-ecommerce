@@ -26,7 +26,7 @@ class CSV_Customers_Export {
 	* Constructor
 	*/
 	public function __construct() {
-		if ( isset( $_GET['export_customers'] ) ) {
+		if ( null !== filter_input( INPUT_GET, 'export_customers' ) ) {
 
 			// Run generate CSV function.
 			$csv = $this->generate_csv();
@@ -71,9 +71,9 @@ class CSV_Customers_Export {
 	 */
 	public function export_customers() {
 		echo '<div class="wrap">';
-		echo '<h2>' . esc_attr__( 'WP Dispensary\'s Customer Export', 'wp-dispensary' ) . '</h2>';
-		echo '<p>' . esc_attr__( 'Export your WP Dispensary customers as a CSV file by clicking the button below.', 'wp-dispensary' ) . '</p>';
-		echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'wp-dispensary' ) . '</a></p>';
+		echo '<h2>' . esc_attr__( 'WP Dispensary\'s Customer Export', 'wpd-ecommerce' ) . '</h2>';
+		echo '<p>' . esc_attr__( 'Export your WP Dispensary customers as a CSV file by clicking the button below.', 'wpd-ecommerce' ) . '</p>';
+		echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'wpd-ecommerce' ) . '</a></p>';
 	}
 
 	/**
@@ -92,14 +92,14 @@ class CSV_Customers_Export {
 
 		// Set the headers.
 		$header_row = array(
-			__( 'ID', 'wp-dispensary' ),
-			__( 'Name', 'wp-dispensary' ),
-			__( 'Email', 'wp-dispensary' ),
-			__( 'Phone', 'wp-dispensary' ),
-			__( 'Address', 'wp-dispensary' ),
-			__( 'Recommendation number', 'wp-dispensary' ),
-			__( 'Recommendation expiration', 'wp-dispensary' ),
-			__( 'Total orders', 'wp-dispensary' ),
+			esc_attr__( 'ID', 'wpd-ecommerce' ),
+			esc_attr__( 'Name', 'wpd-ecommerce' ),
+			esc_attr__( 'Email', 'wpd-ecommerce' ),
+			esc_attr__( 'Phone', 'wpd-ecommerce' ),
+			esc_attr__( 'Address', 'wpd-ecommerce' ),
+			esc_attr__( 'Recommendation number', 'wpd-ecommerce' ),
+			esc_attr__( 'Recommendation expiration', 'wpd-ecommerce' ),
+			esc_attr__( 'Total orders', 'wpd-ecommerce' ),
 		);
 
 		// Filter headers.

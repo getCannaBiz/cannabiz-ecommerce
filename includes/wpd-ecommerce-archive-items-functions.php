@@ -258,7 +258,7 @@ function wpd_ecommerce_archive_template_data() {
      * @since 1.0
      */
     if ( ! empty( $_GET['vendors'] ) ) {
-        $vendor_name    = get_term_by( 'slug', $_GET['vendors'], 'vendors' );
+        $vendor_name    = get_term_by( 'slug', filter_input( INPUT_GET, 'vendors' ), 'vendors' );
         $page_title     = $vendor_name->name;
         $menu_type_name = $page_title;
     } elseif ( is_tax() ) {

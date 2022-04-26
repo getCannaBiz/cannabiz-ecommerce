@@ -78,7 +78,7 @@ function wp_dispensary_save_inventory_management_meta( $post_id, $post ) {
 	 * Verify this came from the our screen and with proper authorization,
 	 * because save_post can be triggered at other times
 	 */
-	if ( ! isset( $_POST['inventory_management_meta_noncename' ] ) || ! wp_verify_nonce( $_POST['inventory_management_meta_noncename'], plugin_basename( __FILE__ ) ) ) {
+	if ( null == filter_input( INPUT_POST, 'inventory_management_meta_noncename' ) || ! wp_verify_nonce( filter_input( INPUT_POST, 'inventory_management_meta_noncename' ), plugin_basename( __FILE__ ) ) ) {
 		return $post->ID;
 	}
 
@@ -91,11 +91,11 @@ function wp_dispensary_save_inventory_management_meta( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$inventory_meta['inventory_seeds']   = $_POST['inventory_seeds'];
-	$inventory_meta['inventory_clones']  = $_POST['inventory_clones'];
-	$inventory_meta['inventory_grams']   = $_POST['inventory_grams'];
-	$inventory_meta['inventory_units']   = $_POST['inventory_units'];
-	$inventory_meta['inventory_display'] = $_POST['inventory_display'];
+	$inventory_meta['inventory_seeds']   = filter_input( INPUT_POST, 'inventory_seeds' );
+	$inventory_meta['inventory_clones']  = filter_input( INPUT_POST, 'inventory_clones' );
+	$inventory_meta['inventory_grams']   = filter_input( INPUT_POST, 'inventory_grams' );
+	$inventory_meta['inventory_units']   = filter_input( INPUT_POST, 'inventory_units' );
+	$inventory_meta['inventory_display'] = filter_input( INPUT_POST, 'inventory_display' );
 
 	/** Add values of $inventory_meta as custom fields */
 

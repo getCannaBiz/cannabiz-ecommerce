@@ -1136,9 +1136,9 @@ endif;
  */
 function wpd_inventory_settings() {
 
-	$wpd_item_id = $_POST['wpd_item_id'];
-	$metakey     = $_POST['metakey'];
-	$metavalue   = $_POST['metavalue'];
+	$wpd_item_id = filter_input( INPUT_POST, 'wpd_item_id' );
+	$metakey     = filter_input( INPUT_POST, 'metakey' );
+	$metavalue   = filter_input( INPUT_POST, 'metavalue' );
 
 	// Update inventory for WP Dispensary product.
 	update_post_meta( $wpd_item_id, $metakey, $metavalue );

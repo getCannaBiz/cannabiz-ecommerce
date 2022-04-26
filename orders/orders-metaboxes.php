@@ -164,8 +164,8 @@ function wpd_ecommerce_save_order_item_details( $post_id, $post ) {
 	 * because save_post can be triggered at other times
 	 */
 	if (
-		! isset( $_POST['wpd_ecommerce_order_item_details_meta_noncename' ] ) ||
-		! wp_verify_nonce( $_POST['wpd_ecommerce_order_item_details_meta_noncename'], plugin_basename( __FILE__ ) )
+		null == filter_input( INPUT_POST, 'wpd_ecommerce_order_item_details_meta_noncename' ) ||
+		! wp_verify_nonce( filter_input( INPUT_POST, 'wpd_ecommerce_order_item_details_meta_noncename' ), plugin_basename( __FILE__ ) )
 	) {
 		return $post->ID;
 	}
@@ -179,9 +179,9 @@ function wpd_ecommerce_save_order_item_details( $post_id, $post ) {
 	 * OK, we're authenticated: we need to find and save the data
 	 * We'll put it into an array to make it easier to loop though.
 	 */
-	$order_meta['wpd_order_status']           = $_POST['wpd_order_status'];
-	$order_meta['wpd_order_customer_id']      = $_POST['wpd_order_customer_id'];
-	$order_meta['wpd_order_customer_address'] = $_POST['wpd_order_customer_address'];
+	$order_meta['wpd_order_status']           = filter_input( INPUT_POST, 'wpd_order_status' );
+	$order_meta['wpd_order_customer_id']      = filter_input( INPUT_POST, 'wpd_order_customer_id' );
+	$order_meta['wpd_order_customer_address'] = filter_input( INPUT_POST, 'wpd_order_customer_address' );
 
 	/** Add values of $order_meta as custom fields */
 
