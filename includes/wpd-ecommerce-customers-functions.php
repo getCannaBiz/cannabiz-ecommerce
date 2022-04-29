@@ -95,7 +95,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     $error = array();
 
     /* If account details were saved, update customer account. */
-    if ( 'POST' == $_SERVER['REQUEST_METHOD'] && ! empty( $_POST['action'] ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
+    if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && ! empty( $_POST['action'] ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
 
         // Remove valid ID file from user profile.
         if ( null !== filter_input( INPUT_POST, 'remove_valid_id' ) ) {
@@ -170,7 +170,7 @@ add_action( 'init', 'wpd_ecommerce_update_user_customer_dashboard' );
  */
 function wpd_ecommerce_login_failed() {
     $login_page = wpd_ecommerce_account_url();
-    $ref_link   = $_SERVER['HTTP_REFERER'];
+    $ref_link   = filter_input( INPUT_SERVER, 'HTTP_REFERER' );
 
     // Redirect logins from account page.
     if ( $login_page === $ref_link ) {
@@ -189,7 +189,7 @@ function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
     $user         = wp_get_current_user();
     $role         = ( array ) $user->roles;
     $login_page   = wpd_ecommerce_account_url();
-    $ref_link     = $_SERVER['HTTP_REFERER'];
+    $ref_link     = filter_input( INPUT_SERVER, 'HTTP_REFERER' );
 
     // If user is customer.
     if ( 'customer' === $role[0] ) {
@@ -256,12 +256,12 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     $valid_id = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true );
     ?>
     <?php do_action( 'wpd_ecommerce_verification_title_before' ); ?>
-    <h2><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h2>
+    <h2><?php esc_html_e( 'Verification', 'wpd-ecommerce' ); ?></h2>
     <?php do_action( 'wpd_ecommerce_verification_table_before' ); ?>
 	<table class="form-table">
     <?php do_action( 'wpd_ecommerce_verification_table_top' ); ?>
     <tr>
-        <th scope="row"><?php _e( 'Drivers license or Valid ID', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Drivers license or Valid ID', 'wpd-ecommerce' ); ?></th>
         <td class="wpd-details-valid-id">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
             <div class="valid-id">
@@ -276,14 +276,14 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $valid_id. '<br />';
                 }
             ?>
-			<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+			<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.valid-id -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_valid_id" value="" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></th>
         <td class="wpd-details-recommendation-doc">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
@@ -298,20 +298,20 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $doc_rec. '<br />';
                 }
             ?>
-			<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+			<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.recommendation-doc -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_recommendation_doc" value="" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Recommendation number', 'wpd-ecommerce' ); ?></th>
         <td>
             <input class="regular-text" type="text" name="wpd_ecommerce_customer_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', true ); ?>" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php _e( 'Expiration date', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Expiration date', 'wpd-ecommerce' ); ?></th>
         <td>
             <input class="regular-text" type="date" name="wpd_ecommerce_customer_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', true ); ?>" />
         </td>
@@ -461,18 +461,18 @@ function wpd_ecommerce_register_form() {
     <form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_top' ); ?>
     <p class="register-username">
-    <label for="user_login"><?php _e( 'Username', 'wpd-ecommerce' ); ?></label>
+    <label for="user_login"><?php esc_html_e( 'Username', 'wpd-ecommerce' ); ?></label>
     <input type="text" name="user_login" value="" id="user_login" class="input" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_username' ); ?>
     <p class="register-email-address">
-    <label for="user_email"><?php _e( 'Email address', 'wpd-ecommerce' ); ?></label>
+    <label for="user_email"><?php esc_html_e( 'Email address', 'wpd-ecommerce' ); ?></label>
     <input type="text" name="user_email" value="" id="user_email" class="input" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_email' ); ?>
-    <p class="statement"><?php _e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
+    <p class="statement"><?php esc_html_e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
     <p class="register-submit">
-    <input type="submit" value="<?php _e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
+    <input type="submit" value="<?php esc_html_e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_bottom' ); ?>
     </form>

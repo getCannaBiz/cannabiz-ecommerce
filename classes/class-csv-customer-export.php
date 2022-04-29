@@ -84,8 +84,8 @@ class CSV_Customers_Export {
 
 		$domain = 'domain';
 
-		if ( isset( $_SERVER['SERVER_NAME'] ) ) {
-			$domain = $_SERVER['SERVER_NAME'];
+		if ( null !== filter_input( INPUT_SERVER, 'SERVER_NAME' ) ) {
+			$domain = filter_input( INPUT_SERVER, 'SERVER_NAME' );
 		}
 		// Create file name.
 		$file_name = 'wpd-customers-' . $domain . '-' . time() . '.csv';

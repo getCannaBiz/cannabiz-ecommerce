@@ -212,7 +212,7 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
  */
 function wpd_ecommerce_archive_template_data() {
     if ( ! empty( $_GET['vendors'] ) ) {
-        $vendor_name = get_term_by( 'slug', $_GET['vendors'], 'vendors' );
+        $vendor_name = get_term_by( 'slug', filter_input( INPUT_GET, 'vendors' ), 'vendors' );
         $title       = $vendor_name->name;
     }
     

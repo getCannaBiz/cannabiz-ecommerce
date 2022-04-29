@@ -21,7 +21,7 @@
 function wp_dispensary_add_inventory_metaboxes() {
 	add_meta_box(
 		'wp_dispensary_inventory_management',
-		__( 'Inventory management', 'wpd-ecommerce' ),
+		esc_attr__( 'Inventory management', 'wpd-ecommerce' ),
 		'wp_dispensary_inventory_management',
 		'products',
 		'normal',
@@ -45,27 +45,29 @@ function wp_dispensary_inventory_management() {
 	$inventory_each    = get_post_meta( $post->ID, 'inventory_units', true );
 	$inventory_seeds   = get_post_meta( $post->ID, 'inventory_seeds', true );
 	$inventory_clones  = get_post_meta( $post->ID, 'inventory_clones', true );
-    $inventory_display = get_post_meta( $post->ID , 'inventory_display', true );
+  $inventory_display = get_post_meta( $post->ID , 'inventory_display', true );
 	$inventory_check   = checked( $inventory_display, 'add_inventory_display', false );
 
 	/** Echo out the fields */
-	echo '<div class="wpd-inventory growers">';
-	echo '<p>' . esc_attr__( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
-	echo '<input type="text" name="inventory_seeds" value="' . $inventory_seeds  . '" class="widefat" />';
-	echo '<p>' . esc_attr__( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
-	echo '<input type="text" name="inventory_clones" value="' . $inventory_clones  . '" class="widefat" />';
-	echo '</div>';
-	echo '<div class="wpd-inventory grams">';
-	echo '<p>' . esc_attr__( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
-	echo '<input type="text" name="inventory_grams" value="' . $inventory_grams  . '" class="widefat" />';
-	echo '</div>';
-	echo '<div class="wpd-inventory units">';
-	echo '<p>' . esc_attr__( 'Available units', 'wpd-ecommerce' ) . ':</p>';
-	echo '<input type="text" name="inventory_units" value="' . $inventory_each  . '" class="widefat" />';
-	echo '</div>';
-	echo '<div class="wpd-inventory display">';
-	echo '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
-	echo '</div>';
+	$string  = '<div class="wpd-inventory growers">';
+	$string .= '<p>' . esc_attr__( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
+	$string .= '<input type="text" name="inventory_seeds" value="' . $inventory_seeds  . '" class="widefat" />';
+	$string .= '<p>' . esc_attr__( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
+	$string .= '<input type="text" name="inventory_clones" value="' . $inventory_clones  . '" class="widefat" />';
+	$string .= '</div>';
+	$string .= '<div class="wpd-inventory grams">';
+	$string .= '<p>' . esc_attr__( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
+	$string .= '<input type="text" name="inventory_grams" value="' . $inventory_grams  . '" class="widefat" />';
+	$string .= '</div>';
+	$string .= '<div class="wpd-inventory units">';
+	$string .= '<p>' . esc_attr__( 'Available units', 'wpd-ecommerce' ) . ':</p>';
+	$string .= '<input type="text" name="inventory_units" value="' . $inventory_each  . '" class="widefat" />';
+	$string .= '</div>';
+	$string .= '<div class="wpd-inventory display">';
+	$string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+	$string .= '</div>';
+
+	echo wp_kses( $string, wp_kses_allowed_html( 'post' ) );
 
 }
 

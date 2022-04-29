@@ -31,16 +31,16 @@ function wpd_out_of_stock_content( $content ) {
 	/**
 	 * Adding the WP Dispensary out of stock data
 	 */
+
+	$original = '';
+	$content = $content;
+
 	if ( in_array( get_post_type(), array( 'products' ) ) ) {
 		$original = $content;
-	} else {
-		$original = '';
 	}
 
 	if ( in_array( get_post_type(), array( 'products' ) ) ) {
 		$content = '';
-	} else {
-		$content = $content;
 	}
 
 	// Flowers.

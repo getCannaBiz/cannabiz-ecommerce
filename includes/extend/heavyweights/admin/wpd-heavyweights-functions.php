@@ -72,75 +72,75 @@ function wpd_heavyweights_flowers_weights_low() {
     // Currency code.
 	$currency_code = wpd_currency_code();
 
-	$pricinglow = '';
+	$pricing_low = '';
 
     if ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_gram', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_gram', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_two_grams', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_two_grams', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eighth', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_eighth', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_eighth', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_five_grams', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_five_grams', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_ounce', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_half_ounce', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_half_ounce', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_half_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_ounce', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_ounce', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_ounces', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_two_ounces', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_two_ounces', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_three_ounces', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_three_ounces', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_three_ounces', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_pound', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_quarter_pound', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_quarter_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_half_pound', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_half_pound', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_half_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_one_pound', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_one_pound', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_one_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_two_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_two_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_three_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_three_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_three_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_four_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_four_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_four_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_five_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_five_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_five_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_six_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_six_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_six_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_seven_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_seven_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_seven_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eight_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_eight_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_eight_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_nine_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_nine_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_nine_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_ten_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_ten_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_ten_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eleven_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_eleven_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_eleven_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twelve_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_twelve_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_twelve_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_thirteen_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_thirteen_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_thirteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_fourteen_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_fourteen_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_fourteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_fifteen_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_fifteen_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_fifteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twenty_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_twenty_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_twenty_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_fifty_pounds', true ) ) {
-		$pricinglow = get_post_meta( get_the_ID(), 'price_fifty_pounds', true );
+		$pricing_low = get_post_meta( get_the_ID(), 'price_fifty_pounds', true );
 	} else {
         // Do nothing.
     }
 
 	setlocale( LC_MONETARY, 'en_US' );
 
-	$pricinglow = $currency_code . str_ireplace( '.00', '', money_format( '%!n', $pricinglow ) );
+	$pricing_low = $currency_code . str_ireplace( '.00', '', money_format( '%!n', $pricing_low ) );
 
-	return $pricinglow;
+	return $pricing_low;
 }
 add_filter( 'wpd_flowers_pricing_low', 'wpd_heavyweights_flowers_weights_low' );
 
@@ -162,73 +162,73 @@ function wpd_heavyweights_flowers_weights_high() {
     // Currency code.
 	$currency_code = wpd_currency_code();
 
-	$pricinghigh = '';
+	$pricing_high = '';
 
-    if ( get_post_meta( get_the_ID(), 'price_fifty_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_fifty_pounds', true );
+  if ( get_post_meta( get_the_ID(), 'price_fifty_pounds', true ) ) {
+		$pricing_high = get_post_meta( get_the_ID(), 'price_fifty_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_twenty_five_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twenty_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_twenty_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_twenty_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_fifteen_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_fifteen_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_fifteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_fourteen_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_fourteen_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_fourteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_thirteen_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_thirteen_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_thirteen_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_twelve_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_twelve_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_twelve_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eleven_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_eleven_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_eleven_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_ten_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_ten_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_ten_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_nine_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_nine_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_nine_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eight_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_eight_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_eight_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_seven_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_seven_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_seven_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_six_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_six_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_six_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_five_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_five_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_five_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_four_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_four_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_four_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_three_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_three_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_three_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_pounds', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_two_pounds', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_two_pounds', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_one_pound', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_one_pound', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_one_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_half_pound', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_half_pound', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_half_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_pound', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_quarter_pound', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_quarter_pound', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_three_ounces', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_three_ounces', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_three_ounces', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_ounces', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_two_ounces', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_two_ounces', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_ounce', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_ounce', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_half_ounce', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_half_ounce', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_half_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_quarter_ounce', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_quarter_ounce', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_five_grams', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_five_grams', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_eighth', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_eigth', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_eigth', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_two_grams', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_two_grams', true );
 	} elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
-		$pricinghigh = get_post_meta( get_the_ID(), 'price_gram', true );
+		$pricing_high = get_post_meta( get_the_ID(), 'price_gram', true );
 	} else {
         // Do nothing.
 	}
 
-	$pricinghigh = wpd_currency_code() . str_ireplace( '.00', '', money_format( '%!n', (float)$pricinghigh ) );
+	$pricing_high = wpd_currency_code() . str_ireplace( '.00', '', money_format( '%!n', (float)$pricing_high ) );
 
-    return $pricinghigh;
+	return $pricing_high;
 }
 add_filter( 'wpd_flowers_pricing_high', 'wpd_heavyweights_flowers_weights_high' );
 
@@ -242,35 +242,35 @@ function wpd_heavyweights_concentrates_weights_low() {
     // Currency code.
 	$currency_code = wpd_currency_code();
 
-	$pricinglow = '';
+	$pricing_low = '';
 
-    if ( get_post_meta( get_the_ID(), 'price_half_gram', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_half_gram', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_three_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_three_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_four_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_four_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_five_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_six_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_six_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_seven_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_seven_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_eight_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_eight_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_nine_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_nine_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_ten_grams', true ) ) {
-        $pricinglow = $currency_code . get_post_meta( get_the_ID(), 'price_ten_grams', true );
-    } else {
-        // Do nothing.
-    }
+	if ( get_post_meta( get_the_ID(), 'price_half_gram', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_half_gram', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_three_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_three_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_four_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_four_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_five_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_six_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_six_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_seven_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_seven_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_eight_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_eight_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_nine_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_nine_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_ten_grams', true ) ) {
+			$pricing_low = $currency_code . get_post_meta( get_the_ID(), 'price_ten_grams', true );
+	} else {
+			// Do nothing.
+	}
 
-    return $pricinglow;
+	return $pricing_low;
 }
 add_filter( 'wpd_concentrates_pricing_low', 'wpd_heavyweights_concentrates_weights_low' );
 
@@ -281,35 +281,35 @@ add_filter( 'wpd_concentrates_pricing_low', 'wpd_heavyweights_concentrates_weigh
  */
 function wpd_heavyweights_concentrates_weights_high() {
 
-    // Currency code.
-    $currency_code = wpd_currency_code();
+	// Currency code.
+	$currency_code = wpd_currency_code();
 
-	$pricinghigh = '';
+	$pricing_high = '';
 
-    if ( get_post_meta( get_the_ID(), 'price_ten_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_ten_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_nine_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_nine_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_eight_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_eight_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_seven_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_seven_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_six_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_six_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_five_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_four_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_four_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_three_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_three_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
-    } elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
-        $pricinghigh = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
-    } else {
-        // Do nothing.
-    }
+	if ( get_post_meta( get_the_ID(), 'price_ten_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_ten_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_nine_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_nine_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_eight_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_eight_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_seven_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_seven_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_six_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_six_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_five_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_five_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_four_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_four_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_three_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_three_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_two_grams', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_two_grams', true );
+	} elseif ( get_post_meta( get_the_ID(), 'price_gram', true ) ) {
+			$pricing_high = $currency_code . get_post_meta( get_the_ID(), 'price_gram', true );
+	} else {
+			// Do nothing.
+	}
 
-    return $pricinghigh;
+	return $pricing_high;
 }
 add_filter( 'wpd_concentrates_pricing_high', 'wpd_heavyweights_concentrates_weights_high' );

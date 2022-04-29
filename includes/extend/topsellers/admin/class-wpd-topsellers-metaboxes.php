@@ -56,7 +56,7 @@ function top_sellers_html( $post ) {
 	wp_nonce_field( 'product_featured_nonce', 'top_sellers_nonce' ); ?>
 	<p>
 		<input type="checkbox" name="product_featured" id="product_featured" value="product_featured" <?php echo ( wpd_topsellers_meta( 'product_featured' ) === 'product_featured' ) ? 'checked' : ''; ?>>
-		<label for="product_featured"><?php _e( 'This is a featured product', 'wpd-ecommerce' ); ?></label>
+		<label for="product_featured"><?php esc_html_e( 'This is a featured product', 'wpd-ecommerce' ); ?></label>
 	</p>
 	<?php
 }

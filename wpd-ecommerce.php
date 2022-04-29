@@ -20,7 +20,7 @@
 
 /* Exit if accessed directly */
 if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+	wp_die();
 }
 
 // Development mode.

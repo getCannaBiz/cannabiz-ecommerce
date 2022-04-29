@@ -22,7 +22,7 @@ function add_wpd_inventory_data_flowers() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'flowers' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_grams', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_grams', true ); ?> <?php _e( 'grams', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_grams', true ) ); ?> <?php esc_html_e( 'grams', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -38,10 +38,10 @@ function add_wpd_inventory_data_concentrates() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'concentrates' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_grams', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_grams', true ); ?> <?php _e( 'grams', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_grams', true ) ); ?> <?php esc_html_e( 'grams', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -57,7 +57,7 @@ function add_wpd_inventory_data_edibles() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'edibles' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -73,7 +73,7 @@ function add_wpd_inventory_data_topicals() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'topicals' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -89,7 +89,7 @@ function add_wpd_inventory_data_prerolls() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'prerolls' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -106,12 +106,12 @@ function add_wpd_inventory_data_growers() {
 		if ( in_array( get_post_type(), array( 'growers' ) ) ) {
 			if ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
 				if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) { } else { ?>
-					<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_seeds', true ); ?> <?php _e( 'seeds', 'wpd-ecommerce' ); ?></td></tr>
+					<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_seeds', true ) ); ?> <?php esc_html_e( 'seeds', 'wpd-ecommerce' ); ?></td></tr>
 				<?php }
 			}
 			if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
 				if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) { } else { ?>
-					<td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_clones', true ); ?> <?php _e( 'clones', 'wpd-ecommerce' ); ?></td>
+					<td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?></span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_clones', true ) ); ?> <?php esc_html_e( 'clones', 'wpd-ecommerce' ); ?></td>
 				<?php }
 			}
 		}
@@ -128,7 +128,7 @@ function add_wpd_inventory_data_tinctures() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'tinctures' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}
@@ -144,7 +144,7 @@ function add_wpd_inventory_data_gear() {
 	if ( get_post_meta( get_the_ID(), 'wpd_inventory_display', true ) ) {
 		if ( in_array( get_post_type(), array( 'gear' ) ) ) {
 			if ( ! get_post_meta( get_the_ID(), 'inventory_units', true ) ) { } else { ?>
-				<tr><td><span><?php _e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php echo get_post_meta( get_the_ID(), 'inventory_units', true ); ?> <?php _e( 'units', 'wpd-ecommerce' ); ?></td></tr>
+				<tr><td><span><?php esc_html_e( 'In stock', 'wpd-ecommerce' ); ?>:</span></td><td><?php esc_html_e( get_post_meta( get_the_ID(), 'inventory_units', true ) ); ?> <?php esc_html_e( 'units', 'wpd-ecommerce' ); ?></td></tr>
 			<?php }
 		}
 	}

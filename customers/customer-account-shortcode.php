@@ -29,13 +29,13 @@ function wpd_customer_account_shortcode() {
 
 		<div class="wpd-ecommerce customer-account">
 			<input class="account-links" id="tab1" type="radio" name="tabs" checked>
-			<label class="account-links" for="tab1"><?php _e( 'Dashboard', 'wpd-ecommerce' ); ?></label>
+			<label class="account-links" for="tab1"><?php esc_html_e( 'Dashboard', 'wpd-ecommerce' ); ?></label>
 
 			<input class="account-links" id="tab2" type="radio" name="tabs">
-			<label class="account-links" for="tab2"><?php _e( 'Orders', 'wpd-ecommerce' ); ?></label>
+			<label class="account-links" for="tab2"><?php esc_html_e( 'Orders', 'wpd-ecommerce' ); ?></label>
 
 			<input class="account-links" id="tab3" type="radio" name="tabs">
-			<label class="account-links" for="tab3"><?php _e( 'Details', 'wpd-ecommerce' ); ?></label>
+			<label class="account-links" for="tab3"><?php esc_html_e( 'Details', 'wpd-ecommerce' ); ?></label>
 
 	<!--
 			<input class="account-links" id="tab4" type="radio" name="tabs">
@@ -57,14 +57,14 @@ function wpd_customer_account_shortcode() {
 						$customer_name = $user->user_nicename;
 					}
 					?>
-				<p><?php _e( 'Hello', 'wpd-ecommerce' ); ?> <strong><?php echo $customer_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php _e( 'Log out', 'wpd-ecommerce' ); ?></a>)</p>
+				<p><?php esc_html_e( 'Hello', 'wpd-ecommerce' ); ?> <strong><?php echo $customer_name; ?></strong> (<a href="<?php echo wp_logout_url( get_permalink() ); ?>"><?php esc_html_e( 'Log out', 'wpd-ecommerce' ); ?></a>)</p>
 
 				<?php					
 				// If user is administrator.
 				if ( 'administrator' !== $role[0] ) {
 				?>
-					<h3 class="wpd-ecommerce customer-title"><?php _e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
-					<p><?php _e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
+					<h3 class="wpd-ecommerce customer-title"><?php esc_html_e( 'Account dashboard', 'wpd-ecommerce' ); ?></h3>
+					<p><?php esc_html_e( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ); ?></p>
 				<?php
 				}
 
@@ -133,14 +133,14 @@ function wpd_customer_account_shortcode() {
 					echo '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . esc_attr__( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
 					echo '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . esc_attr__( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
 				?>
-				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php esc_html_e( 'Recent Store Orders', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce customer-orders">
 					<thead>
-						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Name', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Date', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Status', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Total', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'ID', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Name', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Date', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Status', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Total', 'wpd-ecommerce' ); ?></td>
 					</thead>
 					<tbody>
 					<?php
@@ -199,13 +199,13 @@ function wpd_customer_account_shortcode() {
 			</section>
 
 			<section id="content2">
-				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Order history', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php esc_html_e( 'Order history', 'wpd-ecommerce' ); ?></h3>
 				<table class="wpd-ecommerce customer-orders">
 					<thead>
-						<td><?php _e( 'ID', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Date', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Status', 'wpd-ecommerce' ); ?></td>
-						<td><?php _e( 'Total', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'ID', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Date', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Status', 'wpd-ecommerce' ); ?></td>
+						<td><?php esc_html_e( 'Total', 'wpd-ecommerce' ); ?></td>
 					</thead>
 					<tbody>
 					<?php
@@ -263,56 +263,56 @@ function wpd_customer_account_shortcode() {
 
 				<?php do_action( 'wpd_ecommerce_customer_account_form_before_inside' ); ?>
 
-				<h3 class='wpd-ecommerce customer-title'><?php _e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
+				<h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Contact information', 'wpd-ecommerce' ); ?></h3>
 
 				<?php do_action( 'wpd_ecommerce_customer_account_contact_information_before' ); ?>
 
 				<p class="form-row first form-first-name">
-					<label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 					<input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
 				</p><!-- .form-first-name -->
 				<p class="form-row last form-last-name">
-					<label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 					<input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
 				</p><!-- .form-last-name -->
 
 				<p class="form-row form-email">
-					<label for="email"><?php _e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+					<label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
 					<input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
 				</p><!-- .form-email -->
 
 				<p class="form-row form-phone-number">
-					<label for="email"><?php _e( 'Phone number', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
 				</p><!-- .form-phone-number -->
 
 				<p class="form-row form-address-line-1">
-					<label for="email"><?php _e( 'Address line 1', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'Address line 1', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" />
 				</p><!-- .form-address-line-1 -->
 
 				<p class="form-row form-address-line-2">
-					<label for="email"><?php _e( 'Address line 2', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'Address line 2', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" />
 				</p><!-- .form-address-line-2 -->
 
 				<p class="form-row form-city">
-					<label for="email"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'City', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
 				</p><!-- .form-city -->
 
 				<p class="form-row form-state-county">
-					<label for="email"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'State / County', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="state-county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
 				</p><!-- .form-state-county -->
 
 				<p class="form-row form-postcode-zip">
-					<label for="email"><?php _e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
 					<input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
 				</p><!-- .form-postcode-zip -->
 
 				<p class="form-row form-country">
-					<label for="email"><?php _e( 'Country', 'wpd-ecommerce' ); ?></label>
+					<label for="email"><?php esc_html_e( 'Country', 'wpd-ecommerce' ); ?></label>
 					<select id="country" name="country" class="form-control">
 						<?php
 						// Current user's country.
@@ -349,7 +349,7 @@ function wpd_customer_account_shortcode() {
 					'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_num'] && 
 					'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_exp'] ) {
 				} else { ?>
-				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Verification', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php esc_html_e( 'Verification', 'wpd-ecommerce' ); ?></h3>
 
 				<?php do_action( 'wpd_ecommerce_customer_account_verification_before' ); ?>
 
@@ -360,7 +360,7 @@ function wpd_customer_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_customer_valid_id"><?php _e( 'Drivers License or Valid ID', 'wpd-ecommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_customer_valid_id"><?php esc_html_e( 'Drivers License or Valid ID', 'wpd-ecommerce' ); ?></label>
 					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
 					<div class="valid-id">
 						<?php
@@ -375,7 +375,7 @@ function wpd_customer_account_shortcode() {
 							echo $valid_id. '<br />';
 						}
 						?>
-						<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+						<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
 					</div><!-- /.valid-id -->
 					<?php } ?>
 					<input type="file" name="wpd_ecommerce_customer_valid_id" id="reg_wpd_ecommerce_customer_valid_id" value="" />
@@ -390,7 +390,7 @@ function wpd_customer_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_customer_recommendation_doc"><?php _e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_customer_recommendation_doc"><?php esc_html_e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></label>
 					<?php if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
 					<div class="recommendation-doc">
 						<?php
@@ -405,7 +405,7 @@ function wpd_customer_account_shortcode() {
 							echo $doc_rec. '<br />';
 						}
 						?>
-						<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php _e( 'x', 'wpd-ecommerce' ); ?>" />
+						<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
 					</div><!-- /.recommendation-doc -->
 					<?php } ?>
 					<input type="file" name="wpd_ecommerce_customer_recommendation_doc" id="reg_wpd_ecommerce_customer_recommendation_doc" value="" />
@@ -420,7 +420,7 @@ function wpd_customer_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_customer_recommendation_num"><?php _e( 'Recommendation number', 'wpd-ecommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_customer_recommendation_num"><?php esc_html_e( 'Recommendation number', 'wpd-ecommerce' ); ?></label>
 					<input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_num', true ); ?>" />
 				</p>
 
@@ -433,7 +433,7 @@ function wpd_customer_account_shortcode() {
 				?>
 
 				<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-					<label for="reg_wpd_ecommerce_customer_recommendation_exp"><?php _e( 'Expiration Date', 'wpd-ecommerce' ); ?></label>
+					<label for="reg_wpd_ecommerce_customer_recommendation_exp"><?php esc_html_e( 'Expiration Date', 'wpd-ecommerce' ); ?></label>
 					<input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="<?php echo get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ); ?>" />
 				</p>
 
@@ -443,21 +443,21 @@ function wpd_customer_account_shortcode() {
 
 				<?php } // if all verifications are hidden ?>
 
-				<h3 class="wpd-ecommerce customer-title"><?php _e( 'Password change', 'wpd-ecommerce' ); ?></h3>
+				<h3 class="wpd-ecommerce customer-title"><?php esc_html_e( 'Password change', 'wpd-ecommerce' ); ?></h3>
 
 				<?php do_action( 'wpd_ecommerce_customer_account_password_change_before' ); ?>
 
 				<p class="form-row form-first form-password">
-					<label for="pass1"><?php _e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
+					<label for="pass1"><?php esc_html_e( 'Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php esc_html_e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
 					<input class="text-input" name="pass1" type="password" id="pass1" />
 				</p><!-- .form-password -->
 				<p class="form-row form-last form-password">
-					<label for="pass2"><?php _e( 'Repeat Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php _e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
+					<label for="pass2"><?php esc_html_e( 'Repeat Password', 'wpd-ecommerce' ); ?><span class="required">*</span> <em><?php esc_html_e( 'Leave blank to keep unchanged', 'wpd-ecommerce' ); ?></em></label>
 					<input class="text-input" name="pass2" type="password" id="pass2" />
 				</p><!-- .form-password -->
 
 				<p class="form-submit">
-					<input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php _e( 'Update', 'wpd-ecommerce' ); ?>" />
+					<input name="updateuser" type="submit" id="updateuser" class="submit button" value="<?php esc_html_e( 'Update', 'wpd-ecommerce' ); ?>" />
 					<?php wp_nonce_field( 'update-user' ) ?>
 					<input name="action" type="hidden" id="action" value="update-user" />
 				</p><!-- .form-submit -->

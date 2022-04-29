@@ -30,7 +30,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a weight notification for flowers.
-		if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && ! isset( $_POST['wpd_ecommerce_flowers_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -38,7 +38,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a weight notification for concentrates.
-		if ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && ! get_post_meta( get_the_ID(), 'price_each', TRUE ) && ! isset( $_POST['wpd_ecommerce_concentrates_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && ! get_post_meta( get_the_ID(), 'price_each', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -46,7 +46,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for edibles.
-		if ( is_singular( 'products' ) && 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -54,7 +54,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for prerolls.
-		if ( is_singular( 'products' ) && 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -62,7 +62,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for topicals.
-		if ( is_singular( 'products' ) && 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -70,7 +70,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for growers.
-		if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -78,7 +78,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for gear.
-		if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
@@ -86,7 +86,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Please select a quantity notification for tinctures.
-		if ( is_singular( 'products' ) && 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && ! isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		if ( is_singular( 'products' ) && 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', TRUE ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 			// Begin wrapper around notifications.
 			$str .= '<div class="wpd-ecommerce-single-notifications">';
 			$str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';

@@ -32,7 +32,7 @@ if ( ! is_user_logged_in() ) {
         $error = array();
 
         /* If checkout is submitted, do something specific . */
-        if ( 'POST' == $_SERVER['REQUEST_METHOD'] && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
+        if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
 
             /** Update Email Address */
             if ( null !== filter_input( INPUT_POST, 'email' ) ) {
@@ -111,52 +111,52 @@ if ( ! is_user_logged_in() ) {
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
 
-		<h3 class='wpd-ecommerce customer-title'><?php _e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
+		<h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
         <p class="form-row first form-first-name">
-            <label for="first-name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+            <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
         </p><!-- .form-first-name -->
         <p class="form-row last form-last-name">
-            <label for="last-name"><?php _e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+            <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
         </p><!-- .form-last-name -->
 
         <p class="form-row form-email">
-            <label for="email"><?php _e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+            <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
             <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
         </p><!-- .form-email -->
 
         <p class="form-row form-phone-number">
-            <label for="phone-number"><?php _e( 'Phone number', 'wpd-ecommerce' ); ?></label>
+            <label for="phone-number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
         </p><!-- .form-phone-number -->
 
         <p class="form-row form-address-line">
-            <label for="address-line"><?php _e( 'Street address', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php _e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
-            <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php _e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
+            <label for="address-line"><?php esc_html_e( 'Street address', 'wpd-ecommerce' ); ?></label>
+            <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
+            <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
         </p><!-- .form-address-line -->
 
         <p class="form-row form-city">
-            <label for="city"><?php _e( 'City', 'wpd-ecommerce' ); ?></label>
+            <label for="city"><?php esc_html_e( 'City', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
         </p><!-- .form-city -->
 
         <p class="form-row form-state-county">
-            <label for="state-county"><?php _e( 'State / County', 'wpd-ecommerce' ); ?></label>
+            <label for="state-county"><?php esc_html_e( 'State / County', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="state_county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
         </p><!-- .form-state-county -->
 
         <p class="form-row form-postcode-zip">
-            <label for="email"><?php _e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
+            <label for="email"><?php esc_html_e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
             <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
         </p><!-- .form-postcode-zip -->
 
         <p class="form-row form-country">
-            <label for="email"><?php _e( 'Country', 'wpd-ecommerce' ); ?></label>
+            <label for="email"><?php esc_html_e( 'Country', 'wpd-ecommerce' ); ?></label>
             <select id="country" name="country" class="form-control">
                 <?php
                 // Current user's country.
@@ -182,7 +182,7 @@ if ( ! is_user_logged_in() ) {
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
 
-		<h3 class='wpd-ecommerce customer-order'><?php _e( 'Your order', 'wpd-ecommerce' ); ?></h3>
+		<h3 class='wpd-ecommerce customer-order'><?php esc_html_e( 'Your order', 'wpd-ecommerce' ); ?></h3>
 
 		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
 

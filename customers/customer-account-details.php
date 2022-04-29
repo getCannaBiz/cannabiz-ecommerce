@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_registration_form() { ?>
 	<p class="register-first-name">
-		<label for="first_name"><?php _e( 'First Name', 'wpd-ecommerce' ); ?></label>
+		<label for="first_name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?></label>
 		<input type="text" name="first_name" value="" id="first_name" class="input" />
 	</p>
 <?php }
