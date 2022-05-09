@@ -16,7 +16,7 @@ function wpd_ecommerce_checkout_shortcode() {
 if ( ! is_user_logged_in() ) {
     if ( get_option( 'users_can_register' ) ) {
         // Register button.
-        $register_button = ' <a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
+        $register_button = ' <a href="' . apply_filters( 'wpd_ecommerce_login_to_checkout_register_button_url', wpd_ecommerce_account_url() ) . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
     }
     echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
     echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
