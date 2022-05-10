@@ -102,3 +102,4 @@ function wpd_inventory_oos_shortcode_warnings() {
 
 }
 add_action( 'wpd_shortcode_inside_bottom', 'wpd_inventory_oos_shortcode_warnings', 9 );
+add_action( 'wpd_ecommerce_archive_items_product_inside_after', 'wpd_inventory_oos_shortcode_warnings', 9 );
