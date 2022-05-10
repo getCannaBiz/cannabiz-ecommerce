@@ -24,21 +24,21 @@ class Item {
 
 		$item_ids = array();
 
-        if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
+		if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 			// Create array of item ID's.
-            foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$value ) {
-                $item_ids[] = $id;
-            }
+			foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$value ) {
+					$item_ids[] = $id;
+			}
 
 			// Loop through items ID's.
-            foreach( $item_ids as $item=>$value ) {
+			foreach( $item_ids as $item=>$value ) {
 				// item ID's match.
-                if ( $value == $item_id ) {
+				if ( $value == $item_id ) {
 					// Set the product price.
-                    $product_price = get_post_meta( $item_old_id, $item_meta_key, true );
-                }
-            }
-        } else {
+					$product_price = get_post_meta( $item_old_id, $item_meta_key, true );
+				}
+			}
+		} else {
 			// Do something.
 		}
 
@@ -65,7 +65,7 @@ class Item {
 		$this->product_id = $item_old_id;
 		$this->title      = $my_post->post_title;
 		$this->permalink  = get_the_permalink( $item_id );
-		$this->thumbnail  = get_the_post_thumbnail( $item_id, array( 30, 30 ), '' );
+		$this->thumbnail  = get_wpd_product_image( $item_id, 'wpd-thumbnail' );
 		// Set prices.
 		$this->price              = $regular_price;
 		$this->price_per_pack     = $pack_price;

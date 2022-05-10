@@ -93,7 +93,8 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
 
         // Table body rows.
         $tbody = array(
-            '<img src="' . $newArray['item_image_url_thumb'] . '" alt ="' . $newArray['order_item_name'] . '" class="wpd-ecommerce-orders-table-image" / >',
+            //'<img src="' . $newArray['item_image_url_thumb'] . '" alt ="' . $newArray['order_item_name'] . '" class="wpd-ecommerce-orders-table-image" / >',
+            get_wpd_product_image( $newArray['item_id'], 'wpd-thumbnail' ),
             '<a href="' . $newArray['item_url'] . '">' . $newArray['order_item_name'] . $var_name . '</a>',
             CURRENCY . number_format( (float)$newArray['single_price'], 2, '.', ',' ),
             $newArray['quantity'],
