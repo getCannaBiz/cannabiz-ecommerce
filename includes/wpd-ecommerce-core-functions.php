@@ -1794,6 +1794,16 @@ function wpd_ecommerce_payment_types() {
 		}
 	}
 	// Check if WP Dispensary setting is set.
+	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_curbside_checkbox'] ) {
+		// Check if payment method is available.
+		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_curbside'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_curbside'] ) {
+			// Create payment amount.
+			$payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_curbside'];
+			// Add payment method to array.
+			$payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_curbside', esc_attr__( 'Curbside pickup', 'wpd-ecommerce' ) )] = $payment_amount;
+		}
+	}
+	// Check if WP Dispensary setting is set.
 	if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
 		// Check if payment method is available.
 		if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && NULL !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {

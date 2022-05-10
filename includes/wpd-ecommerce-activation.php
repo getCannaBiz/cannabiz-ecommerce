@@ -135,12 +135,14 @@ function wpd_ecommerce_add_options() {
 	add_option( 'wpd_ecommerce_weight_concentrates_tengrams', '10' );
 
 	$wpdas_payments = array(
-		'wpd_ecommerce_checkout_payments_cod_checkbox'    => 'off',
-		'wpd_ecommerce_checkout_payments_cod'             => '',
-		'wpd_ecommerce_checkout_payments_pop_checkbox'    => 'on',
-		'wpd_ecommerce_checkout_payments_pop'             => '',
-		'wpd_ecommerce_checkout_payments_ground_checkbox' => 'off',
-		'wpd_ecommerce_checkout_payments_ground'          => '',
+		'wpd_ecommerce_checkout_payments_cod_checkbox'      => 'off',
+		'wpd_ecommerce_checkout_payments_cod'               => '',
+		'wpd_ecommerce_checkout_payments_pop_checkbox'      => 'on',
+		'wpd_ecommerce_checkout_payments_pop'               => '',
+		'wpd_ecommerce_checkout_payments_curbside_checkbox' => 'on',
+		'wpd_ecommerce_checkout_payments_curbside'          => '',
+		'wpd_ecommerce_checkout_payments_ground_checkbox'   => 'off',
+		'wpd_ecommerce_checkout_payments_ground'            => '',
 	);
 
 	update_option( 'wpdas_payments', $wpdas_payments );
