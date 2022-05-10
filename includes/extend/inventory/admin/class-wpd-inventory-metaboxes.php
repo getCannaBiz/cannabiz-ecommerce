@@ -67,7 +67,7 @@ function wp_dispensary_inventory_management() {
 	$string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
 	$string .= '</div>';
 
-	echo wp_kses( $string, wp_kses_allowed_html( 'post' ) );
+	echo wp_kses( $string, wpd_ecommerce_allowed_tags() );
 
 }
 
