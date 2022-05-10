@@ -13,295 +13,295 @@ function wpd_ecommerce_checkout_shortcode() {
     // Register button.
     $register_button = '';
 
-if ( ! is_user_logged_in() ) {
-    if ( get_option( 'users_can_register' ) ) {
-        // Register button.
-        $register_button = ' <a href="' . apply_filters( 'wpd_ecommerce_login_to_checkout_register_button_url', wpd_ecommerce_account_url() ) . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
-    }
-    echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
-    echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
-} else {
-    // Verify that there's an active session.
-	if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
+    if ( ! is_user_logged_in() && 'on' == wpd_ecommerce_require_login_to_shop() ) {
+        if ( get_option( 'users_can_register' ) ) {
+            // Register button.
+            $register_button = ' <a href="' . apply_filters( 'wpd_ecommerce_login_to_checkout_register_button_url', wpd_ecommerce_account_url() ) . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
+        }
+        echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
+        echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
+    } else {
+        // Verify that there's an active session.
+        if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
 
-		// Include notifications.
-		echo wpd_ecommerce_notifications();
+            // Include notifications.
+            echo wpd_ecommerce_notifications();
 
-        global $current_user, $wp_roles;
+            global $current_user, $wp_roles;
 
-        $error = array();
+            $error = array();
 
-        /* If checkout is submitted, do something specific . */
-        if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
+            /* If checkout is submitted, do something specific . */
+            if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
 
-            /** Update Email Address */
-            if ( null !== filter_input( INPUT_POST, 'email' ) ) {
-                if ( ! is_email( filter_input( INPUT_POST, 'email' ) ) )
-                    $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
-                elseif( email_exists( filter_input( INPUT_POST, 'email' ) ) != $current_user->ID )
-                    $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
-                else {
-                    wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => filter_input( INPUT_POST, 'email' ) ) );
+                /** Update Email Address */
+                if ( null !== filter_input( INPUT_POST, 'email' ) ) {
+                    if ( ! is_email( filter_input( INPUT_POST, 'email' ) ) )
+                        $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
+                    elseif( email_exists( filter_input( INPUT_POST, 'email' ) ) != $current_user->ID )
+                        $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
+                    else {
+                        wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => filter_input( INPUT_POST, 'email' ) ) );
+                    }
                 }
-            }
 
-            // Update First Name.
-            if ( null !== filter_input( INPUT_POST, 'first-name' ) )
-                update_user_meta( $current_user->ID, 'first_name', esc_attr( filter_input( INPUT_POST, 'first-name' ) ) );
-            // Update Last Name.
-            if ( null !== filter_input( INPUT_POST, 'last-name' ) )
-                update_user_meta( $current_user->ID, 'last_name', esc_attr( filter_input( INPUT_POST, 'last-name' ) ) );
-            // Update Phone Number.
-            if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
-                update_user_meta( $current_user->ID, 'phone_number', esc_attr( filter_input( INPUT_POST, 'phone_number' ) ) );
-            // Update Address Line 1.
-            if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
-                update_user_meta( $current_user->ID, 'address_line_1', esc_attr( filter_input( INPUT_POST, 'address_line_1' ) ) );
-            // Update Address Line 2.
-            if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
-                update_user_meta( $current_user->ID, 'address_line_2', esc_attr( filter_input( INPUT_POST, 'address_line_2' ) ) );
-            // Update City.
-            if ( null !== filter_input( INPUT_POST, 'city' ) )
-                update_user_meta( $current_user->ID, 'city', esc_attr( filter_input( INPUT_POST, 'city' ) ) );
-            // Update State/County.
-            if ( null !== filter_input( INPUT_POST, 'state_country' ) )
-                update_user_meta( $current_user->ID, 'state_county', esc_attr( filter_input( INPUT_POST, 'state_county' ) ) );
-            // Update Postcode/Zip.
-            if ( null !== filter_input( INPUT_POST, 'postcode_zip' ) )
-                update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( filter_input( INPUT_POST, 'postcode_zip' ) ) );
-            // Update Country.
-            if ( null !== filter_input( INPUT_POST, 'country' ) )
-                update_user_meta( $current_user->ID, 'country', esc_attr( filter_input( INPUT_POST, 'country' ) ) );
+                // Update First Name.
+                if ( null !== filter_input( INPUT_POST, 'first-name' ) )
+                    update_user_meta( $current_user->ID, 'first_name', esc_attr( filter_input( INPUT_POST, 'first-name' ) ) );
+                // Update Last Name.
+                if ( null !== filter_input( INPUT_POST, 'last-name' ) )
+                    update_user_meta( $current_user->ID, 'last_name', esc_attr( filter_input( INPUT_POST, 'last-name' ) ) );
+                // Update Phone Number.
+                if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
+                    update_user_meta( $current_user->ID, 'phone_number', esc_attr( filter_input( INPUT_POST, 'phone_number' ) ) );
+                // Update Address Line 1.
+                if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
+                    update_user_meta( $current_user->ID, 'address_line_1', esc_attr( filter_input( INPUT_POST, 'address_line_1' ) ) );
+                // Update Address Line 2.
+                if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
+                    update_user_meta( $current_user->ID, 'address_line_2', esc_attr( filter_input( INPUT_POST, 'address_line_2' ) ) );
+                // Update City.
+                if ( null !== filter_input( INPUT_POST, 'city' ) )
+                    update_user_meta( $current_user->ID, 'city', esc_attr( filter_input( INPUT_POST, 'city' ) ) );
+                // Update State/County.
+                if ( null !== filter_input( INPUT_POST, 'state_country' ) )
+                    update_user_meta( $current_user->ID, 'state_county', esc_attr( filter_input( INPUT_POST, 'state_county' ) ) );
+                // Update Postcode/Zip.
+                if ( null !== filter_input( INPUT_POST, 'postcode_zip' ) )
+                    update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( filter_input( INPUT_POST, 'postcode_zip' ) ) );
+                // Update Country.
+                if ( null !== filter_input( INPUT_POST, 'country' ) )
+                    update_user_meta( $current_user->ID, 'country', esc_attr( filter_input( INPUT_POST, 'country' ) ) );
 
-            /**
-             * Redirect so the page will show updated info.
-             */
-            if ( 0 == count( $error ) ) {
-                //action hook for plugins and extra fields saving
-                do_action( 'edit_user_profile_update', $current_user->ID );
-            }
+                /**
+                 * Redirect so the page will show updated info.
+                 */
+                if ( 0 == count( $error ) ) {
+                    //action hook for plugins and extra fields saving
+                    do_action( 'edit_user_profile_update', $current_user->ID );
+                }
 
-            // Minimum checkout check.
-            if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
-                if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
-                    if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
+                // Minimum checkout check.
+                if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
+                    if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
+                        if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
+                            $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
+                            echo $str;
+                        } else {
+                            wpd_ecommerce_checkout_success();
+                        }
+                    } else {
+                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
+                        echo $str;
+                    }
+                } else {
+                    if ( filter_input( INPUT_POST, 'payment-type' ) ) {
                         $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
                         wpd_ecommerce_checkout_success();
                     }
-                } else {
-                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
-                    echo $str;
-                }
-            } else {
-                if ( filter_input( INPUT_POST, 'payment-type' ) ) {
-                    $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
-                    echo $str;
-                } else {
-                    wpd_ecommerce_checkout_success();
                 }
             }
-        }
-        ?>
+            ?>
 
-		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_before' ); ?>
+            <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_before' ); ?>
 
-        <form method="post" id="checkout" class="wpd-ecommerce form checkout" action="<?php the_permalink(); ?>">
+            <form method="post" id="checkout" class="wpd-ecommerce form checkout" action="<?php the_permalink(); ?>">
 
-		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
+            <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
 
-		<h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
+            <h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
-		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
+            <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
-        <p class="form-row first form-first-name">
-            <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-            <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
-        </p><!-- .form-first-name -->
-        <p class="form-row last form-last-name">
-            <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-            <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
-        </p><!-- .form-last-name -->
+            <p class="form-row first form-first-name">
+                <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
+            </p><!-- .form-first-name -->
+            <p class="form-row last form-last-name">
+                <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
+            </p><!-- .form-last-name -->
 
-        <p class="form-row form-email">
-            <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
-            <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
-        </p><!-- .form-email -->
+            <p class="form-row form-email">
+                <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
+            </p><!-- .form-email -->
 
-        <p class="form-row form-phone-number">
-            <label for="phone-number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
-        </p><!-- .form-phone-number -->
+            <p class="form-row form-phone-number">
+                <label for="phone-number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
+            </p><!-- .form-phone-number -->
 
-        <p class="form-row form-address-line">
-            <label for="address-line"><?php esc_html_e( 'Street address', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
-            <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
-        </p><!-- .form-address-line -->
+            <p class="form-row form-address-line">
+                <label for="address-line"><?php esc_html_e( 'Street address', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
+                <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
+            </p><!-- .form-address-line -->
 
-        <p class="form-row form-city">
-            <label for="city"><?php esc_html_e( 'City', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
-        </p><!-- .form-city -->
+            <p class="form-row form-city">
+                <label for="city"><?php esc_html_e( 'City', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
+            </p><!-- .form-city -->
 
-        <p class="form-row form-state-county">
-            <label for="state-county"><?php esc_html_e( 'State / County', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="state_county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
-        </p><!-- .form-state-county -->
+            <p class="form-row form-state-county">
+                <label for="state-county"><?php esc_html_e( 'State / County', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="state_county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
+            </p><!-- .form-state-county -->
 
-        <p class="form-row form-postcode-zip">
-            <label for="email"><?php esc_html_e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
-            <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
-        </p><!-- .form-postcode-zip -->
+            <p class="form-row form-postcode-zip">
+                <label for="email"><?php esc_html_e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
+            </p><!-- .form-postcode-zip -->
 
-        <p class="form-row form-country">
-            <label for="email"><?php esc_html_e( 'Country', 'wpd-ecommerce' ); ?></label>
-            <select id="country" name="country" class="form-control">
-                <?php
-                // Current user's country.
-                $current_user_country = get_the_author_meta( 'country', $current_user->ID );
+            <p class="form-row form-country">
+                <label for="email"><?php esc_html_e( 'Country', 'wpd-ecommerce' ); ?></label>
+                <select id="country" name="country" class="form-control">
+                    <?php
+                    // Current user's country.
+                    $current_user_country = get_the_author_meta( 'country', $current_user->ID );
 
-                // Countries output as select fields.
-                $options = array( 'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegowina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, the Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia (Hrvatska)', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'France Metropolitan', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and Mc Donald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran (Islamic Republic of)', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, Democratic People\'s Republic of', 'Korea, Republic of', 'Kuwait', 'Kyrgyzstan', 'Lao, People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia, The Former Yugoslav Republic of', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia, Federated States of', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia (Slovak Republic)', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'St. Helena', 'St. Pierre and Miquelon', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen Islands', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan, Province of China', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands (British)', 'Virgin Islands (U.S.)', 'Wallis and Futuna Islands', 'Western Sahara', 'Yemen', 'Yugoslavia', 'Zambia', 'Zimbabwe' );
+                    // Countries output as select fields.
+                    $options = array( 'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegowina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, the Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia (Hrvatska)', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'France Metropolitan', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and Mc Donald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran (Islamic Republic of)', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, Democratic People\'s Republic of', 'Korea, Republic of', 'Kuwait', 'Kyrgyzstan', 'Lao, People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia, The Former Yugoslav Republic of', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia, Federated States of', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia (Slovak Republic)', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'St. Helena', 'St. Pierre and Miquelon', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen Islands', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan, Province of China', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands (British)', 'Virgin Islands (U.S.)', 'Wallis and Futuna Islands', 'Western Sahara', 'Yemen', 'Yugoslavia', 'Zambia', 'Zimbabwe' );
 
-                // Filter countries options.
-                $options = apply_filters( 'wpd_ecommerce_checkout_billing_details_form_countries', $options );
+                    // Filter countries options.
+                    $options = apply_filters( 'wpd_ecommerce_checkout_billing_details_form_countries', $options );
 
-                // Create country select list.
-                foreach( $options as $value=>$name ) {
-                    if ( $name == $current_user_country ) {
-                            echo '<option selected="selected" value="' . $name . '">' . $name . '</option>';
+                    // Create country select list.
+                    foreach( $options as $value=>$name ) {
+                        if ( $name == $current_user_country ) {
+                                echo '<option selected="selected" value="' . $name . '">' . $name . '</option>';
+                        } else {
+                                echo '<option value="' . $name . '">' . $name . '</option>';
+                        }
+                    }
+                    ?>
+                </select>
+            </p><!-- .form-phone-country -->
+
+            <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
+
+            <h3 class='wpd-ecommerce customer-order'><?php esc_html_e( 'Your order', 'wpd-ecommerce' ); ?></h3>
+
+            <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
+
+            <?php
+            $str  = '<table class="wpd-ecommerce widget checkout">';
+            $str .= '<thead>';
+            $str .= '<tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
+            $str .= '</thead>';
+            $str .= '<tbody>';
+
+            foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
+                $i             = new Item( $id, '', '', '' );
+                $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
+                $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
+
+                if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+
+                    $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
+
+                    $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
+                    $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
+
+                    if ( 'price_per_pack' === $item_meta_key ) {
+                        $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
+                        $weight_name   = $units_per_pack . ' pack';
                     } else {
-                            echo '<option value="' . $name . '">' . $name . '</option>';
+                        $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
+                        $weight_name = '';
                     }
-                }
-                ?>
-            </select>
-        </p><!-- .form-phone-country -->
 
-		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
+                } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
+                    $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
+                    $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
-		<h3 class='wpd-ecommerce customer-order'><?php esc_html_e( 'Your order', 'wpd-ecommerce' ); ?></h3>
+                    foreach ( wpd_flowers_weights_array() as $key=>$value ) {
+                        if ( $value == $flower_weight_cart ) {
+                            $weight_name   = ' - ' . $key;
+                            $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
+                        }
+                    }
 
-		<?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
+                } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
+                    $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
+                    $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
 
-        <?php
-        $str  = '<table class="wpd-ecommerce widget checkout">';
-        $str .= '<thead>';
-        $str .= '<tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
-        $str .= '</thead>';
-        $str .= '<tbody>';
-
-        foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
-            $i             = new Item( $id, '', '', '' );
-            $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
-            $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
-
-            if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
-
-                $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
-
-                $item_old_id   = preg_replace( '/[^0-9.]+/', '', $i->id );
-                $item_meta_key = preg_replace( '/[0-9]+/', '', $i->id );
-
-                if ( 'price_per_pack' === $item_meta_key ) {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
-                    $weight_name   = $units_per_pack . ' pack';
+                    foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
+                        if ( $value == $concentrate_weight_cart ) {
+                            $weight_name   = ' - ' . $key;
+                            $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
+                        }
+                    }
+                    if ( 'price_each' === $concentrate_weight_cart ) {
+                        $weight_name   = '';
+                        $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
+                    }
                 } else {
-                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
-                    $weight_name = '';
+                    // Do nothing.
                 }
 
-            } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
-                $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
-                $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
+                // print_r( $i );
 
-                foreach ( wpd_flowers_weights_array() as $key=>$value ) {
-                    if ( $value == $flower_weight_cart ) {
-                        $weight_name   = ' - ' . $key;
-                        $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
-                    }
-                }
+                $total_price = $amount * $regular_price;
 
-            } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
-                $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
-                $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
+                $str .=	'<tr><td>' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
-                foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
-                    if ( $value == $concentrate_weight_cart ) {
-                        $weight_name   = ' - ' . $key;
-                        $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
-                    }
-                }
-                if ( 'price_each' === $concentrate_weight_cart ) {
-                    $weight_name   = '';
-                    $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
-                }
-            } else {
-                // Do nothing.
+            endforeach;
+
+            // Get taxes (if any).
+            $wpd_sales_tax  = number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );
+            $wpd_excise_tax = number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' );
+
+            // Set total price.
+            $total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format( (float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+
+            // Reduce coupon cost from total price.
+            if ( $_SESSION['wpd_ecommerce']->coupon_amount ) {
+                $total_price = $total_price - number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' );
             }
 
-            // print_r( $i );
+            // Subtotal.
+            $str .= '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
+            // Coupon code.
+            if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
+                $str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
+            }
+            // Sales tax.
+            if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
+                $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
+            }
+            // Excise tax.
+            if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
+                $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
+            }
 
-            $total_price = $amount * $regular_price;
+            // Payment type.
+            foreach ( wpd_ecommerce_payment_types() as $name => $value ) {
+                $str .= '<tr class="payment-type"><td><input type="radio" name="payment-type" id="' . $name . '" value="' . $value . '"/> <strong>' . $name . '</strong></td><td>' . CURRENCY . number_format((float)$value, 2, '.', ',' ) . '</td></tr>';
+            }
 
-            $str .=	'<tr><td>' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
+            // Total.
+            $str .= '<tr class="total"><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
-        endforeach;
+            $str .= '</tbody>';
+            $str .= '</table>';
 
-        // Get taxes (if any).
-        $wpd_sales_tax  = number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );
-        $wpd_excise_tax = number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' );
+            echo $str;
 
-        // Set total price.
-        $total_price = ( str_replace( ',', '', $wpd_sales_tax ) + str_replace( ',', '', $wpd_excise_tax ) + number_format( (float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) + $_SESSION['wpd_ecommerce']->sum );
+            do_action( 'wpd_ecommerce_checkout_after_order_details' );
 
-		// Reduce coupon cost from total price.
-		if ( $_SESSION['wpd_ecommerce']->coupon_amount ) {
-			$total_price = $total_price - number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' );
+            $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . esc_attr__( 'Place Order', 'wpd-ecommerce' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
+            $str2 .= '</form>';
+
+            echo $str2;
+
+        } else {
+            echo '<p>' . esc_attr__( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
+            echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', esc_attr__( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
         }
-
-        // Subtotal.
-        $str .= '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
-        // Coupon code.
-        if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-			$str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
-		}
-        // Sales tax.
-        if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
-            $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
-        }
-        // Excise tax.
-        if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
-            $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
-        }
-
-        // Payment type.
-        foreach ( wpd_ecommerce_payment_types() as $name => $value ) {
-            $str .= '<tr class="payment-type"><td><input type="radio" name="payment-type" id="' . $name . '" value="' . $value . '"/> <strong>' . $name . '</strong></td><td>' . CURRENCY . number_format((float)$value, 2, '.', ',' ) . '</td></tr>';
-        }
-
-        // Total.
-        $str .= '<tr class="total"><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
-
-        $str .= '</tbody>';
-        $str .= '</table>';
-
-        echo $str;
-
-        do_action( 'wpd_ecommerce_checkout_after_order_details' );
-
-        $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . esc_attr__( 'Place Order', 'wpd-ecommerce' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
-        $str2 .= '</form>';
-
-        echo $str2;
-
-	} else {
-        echo '<p>' . esc_attr__( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
-        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', esc_attr__( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
-	}
-} // is user logged in
+    } // is user logged in
 }
 add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
 
