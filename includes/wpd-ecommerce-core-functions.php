@@ -1806,3 +1806,63 @@ function wpd_ecommerce_payment_types() {
 
 	return $payment_types;
 }
+
+/**
+ * Allowed HTML tags
+ * 
+ * This function extends the wp_kses_allowed_html function to include
+ * a handful of additional HTML fields that are used throughout
+ * this plugin
+ * 
+ * @since 2.1
+ */
+function wpd_ecommerce_allowed_tags() {
+	$my_allowed = wp_kses_allowed_html( 'post' );
+	// iframe
+	$my_allowed['iframe'] = array(
+		'src'             => array(),
+		'height'          => array(),
+		'width'           => array(),
+		'frameborder'     => array(),
+		'allowfullscreen' => array(),
+	);
+	// form fields - input
+	$my_allowed['input'] = array(
+		'class' => array(),
+		'id'    => array(),
+		'name'  => array(),
+		'value' => array(),
+		'type'  => array(),
+	);
+	// select
+	$my_allowed['select'] = array(
+		'class'  => array(),
+		'id'     => array(),
+		'name'   => array(),
+		'value'  => array(),
+		'type'   => array(),
+	);
+	// select options
+	$my_allowed['option'] = array(
+		'selected' => array(),
+	);
+	// style
+	$my_allowed['style'] = array(
+		'types' => array(),
+	);
+	// SVG.
+	$my_allowed['svg'] = array(
+		'xmlns'          => array(),
+		'width'          => array(),
+		'height'         => array(),
+		'viewbox'        => array(),
+		'class'          => array(),
+		'aria-hidden'    => array(),
+		'aria-labeledby' => array()
+	);
+	$my_allowed['path'] = array(
+		'd'    => array(),
+		'fill' => array()
+	);
+	return $my_allowed;
+}
