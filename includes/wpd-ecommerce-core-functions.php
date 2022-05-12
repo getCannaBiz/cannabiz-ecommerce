@@ -94,7 +94,7 @@ function wpd_ecommerce_notifications() {
 		}
 
 		// Successfully added item to cart.
-		if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
+		if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
 
 			$qtty = filter_input( INPUT_POST, 'qtty' );
 
@@ -210,7 +210,7 @@ function wpd_ecommerce_notifications() {
 				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
-		} elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
+		} elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
 
 			$qtty = filter_input( INPUT_POST, 'qtty' );
 
@@ -282,7 +282,7 @@ function wpd_ecommerce_notifications() {
 				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
-		} elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && isset( $_POST['wpd_ecommerce_product_prices'] ) ) {
+		} elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 
 			$qtty = filter_input( INPUT_POST, 'qtty' );
 
@@ -347,7 +347,7 @@ function wpd_ecommerce_notifications() {
 				$str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
 				$str .= '</div>';
 			}
-		} elseif ( null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) ) {
+		} elseif ( null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) ) {
 			// ID.
 			$old_id = $post->ID;
 
@@ -443,28 +443,28 @@ function wpd_ecommerce_notifications() {
 	}
 
 	// Display failed login message.
-	if ( ! empty( $_GET['login'] ) ) {
+	if ( ! empty( filter_input( INPUT_GET, 'login' ) ) ) {
 		if ( 'failed' === filter_input( INPUT_POST, 'login' ) ) {
 			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The username or password you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
 		}
 	}
 
 	// Display failed register message.
-	if ( ! empty( $_GET['register'] ) ) {
+	if ( ! empty( filter_input( INPUT_GET, 'register' ) ) ) {
 		if ( 'failed' === filter_input( INPUT_GET, 'register' ) ) {
 			$str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The registration info you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
 		}
 	}
 
 	// Display order thank you message.
-	if ( ! empty( $_GET['order'] ) ) {
+	if ( ! empty( filter_input( INPUT_GET, 'order' ) ) ) {
 		if ( 'thank-you' === filter_input( INPUT_GET, 'order' ) ) {
 			$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Thank You', 'wpd-ecommerce' ) . ':</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
 		}
 	}
 
 	// Remove an item from the cart
-	if ( ! empty( $_GET['remove_item'] ) ) {
+	if ( ! empty( filter_input( INPUT_GET, 'remove_item' ) ) ) {
 		$_SESSION['wpd_ecommerce']->remove_item( filter_input( INPUT_GET, 'remove_item' ) );
 		$str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item removed', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The item has been successfully removed.', 'wpd-ecommerce' ) .'</div>';
 	}
@@ -497,7 +497,7 @@ function wpd_ecommerce_notifications() {
 	 * 
 	 * @since 1.0
 	 */
-	if ( null !== filter_input( INPUT_POST, 'coupon_code' ) && ! empty( $_POST['coupon_code'] ) && null !== filter_input( INPUT_POST, 'add_coupon' ) ) {
+	if ( null !== filter_input( INPUT_POST, 'coupon_code' ) && ! empty( filter_input( INPUT_POST, 'coupon_code' ) ) && null !== filter_input( INPUT_POST, 'add_coupon' ) ) {
 
 		 // Loop through coupons.
 		$coupons_args = array(
@@ -544,7 +544,7 @@ function wpd_ecommerce_notifications() {
 	if ( ! empty( $_SESSION['wpd_ecommerce']->coupon_code ) ) {
 
 		// Get the coupon code to remove.
-		if ( ! empty( $_GET['remove_coupon'] ) ) {
+		if ( ! empty( filter_input( INPUT_GET, 'remove_coupon' ) ) ) {
 			$remove_coupon = filter_input( INPUT_GET, 'remove_coupon' );
 		} else {
 			$remove_coupon = '';
@@ -555,7 +555,7 @@ function wpd_ecommerce_notifications() {
 			// Remove coupon.
 			$_SESSION['wpd_ecommerce']->remove_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
 			// Redirect back.
-			wp_redirect( get_the_permalink() );
+			wp_safe_redirect( get_the_permalink() );
 		} else {
 			// Do nothing.
 		}
@@ -564,7 +564,7 @@ function wpd_ecommerce_notifications() {
 	}
 
 	// If the coupon code form is submitted but no code was input.
-	if ( null !== filter_input( INPUT_POST, 'coupon_code' ) && empty( $_POST['coupon_code'] ) && filter_input( INPUT_POST, 'add_coupon' ) ) {
+	if ( null !== filter_input( INPUT_POST, 'coupon_code' ) && empty( filter_input( INPUT_POST, 'coupon_code' ) ) && filter_input( INPUT_POST, 'add_coupon' ) ) {
 		$str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
 	}
 
@@ -1435,7 +1435,7 @@ function wpd_ecommerce_add_to_cart_form() {
 				$price_topical  = get_post_meta( get_the_ID(), 'price_each', true );
 				$price_per_pack = get_post_meta( get_the_ID(), 'price_per_pack', true );
 
-				if ( ! empty( $_POST['wpd_ecommerce_product_prices'] ) ) {
+				if ( ! empty( filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) ) {
 					if ( $price_each === filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 						$wpd_product_meta_key = 'price_each';
 					} elseif ( $price_topical === filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
@@ -1459,7 +1459,7 @@ function wpd_ecommerce_add_to_cart_form() {
 	/**
 	 * Add Items to Cart
 	 */
-	if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
+	if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
 		$qtty = filter_input( INPUT_POST, 'qtty' );
 
 		/**
@@ -1487,7 +1487,7 @@ function wpd_ecommerce_add_to_cart_form() {
 			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 		}
 
-	} elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
+	} elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
 		$qtty = filter_input( INPUT_POST, 'qtty' );
 
 		/**
@@ -1519,7 +1519,7 @@ function wpd_ecommerce_add_to_cart_form() {
 			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 		}
 
-	} elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
+	} elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 		$qtty = filter_input( INPUT_POST, 'qtty' );
 
 		// Prices.
@@ -1579,7 +1579,7 @@ function wpd_ecommerce_add_to_cart_form() {
 			wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
 		}
 
-	} elseif ( null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( $_POST['qtty'] ) && null !== filter_input( INPUT_POST, 'add_me' ) ) {
+	} elseif ( null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) ) {
 		$qtty = filter_input( INPUT_POST, 'qtty' );
 
 		// ID.
@@ -1614,7 +1614,7 @@ function wpd_ecommerce_add_to_cart_form() {
 				$price_each     = get_post_meta( get_the_ID(), 'price_each', true );
 				$price_per_pack = get_post_meta( get_the_ID(), 'price_per_pack', true );
 
-				if ( ! empty( $_POST['wpd_ecommerce_product_prices'] ) ) {
+				if ( ! empty( filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) ) {
 					if ( $price_each === filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
 						$wpd_product_meta_key = 'price_each';
 					} elseif ( $price_per_pack === filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {

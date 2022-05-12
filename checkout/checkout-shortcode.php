@@ -622,7 +622,7 @@ function wpd_ecommerce_checkout_success() {
     wpd_ecommerce_destroy_session();
 
     // Redirect to the order page.
-    wp_redirect( get_bloginfo( 'url' ) . '/order/' . $wpd_order_id . '?order=thank-you' );
+    wp_safe_redirect( get_bloginfo( 'url' ) . '/order/' . $wpd_order_id . '?order=thank-you' );
 
     exit;
 }

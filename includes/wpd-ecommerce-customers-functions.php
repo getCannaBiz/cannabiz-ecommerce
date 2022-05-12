@@ -40,14 +40,14 @@ function wpd_ecommerce_disable_admin_dashboard() {
 
     // Redirect customers from any wp-admin page to account page.
     if ( is_admin() && 'customer' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
-        wp_redirect( wpd_ecommerce_account_url() );
+        wp_safe_redirect( wpd_ecommerce_account_url() );
         exit;
     } elseif ( is_user_logged_in() ) {
         // Do nothing for any other logged in user.
     } else {
         // Redirect admin for non-logged in users.
         if ( ! is_user_logged_in() && is_admin() ) {
-            wp_redirect( wpd_ecommerce_account_url() );
+            wp_safe_redirect( wpd_ecommerce_account_url() );
             exit;
         }
     }
@@ -75,7 +75,7 @@ function wpd_ecommerce_prevent_wp_login() {
 
         // Check if we're on the login page, and ensure the action is not 'logout'
         if ( $pagenow == 'wp-login.php' && ( ! $action || ( $action && ! in_array( $action, array( 'logout', 'lostpassword', 'rp', 'resetpass' ) ) ) ) ) {
-            wp_redirect( wpd_ecommerce_account_url() );
+            wp_safe_redirect( wpd_ecommerce_account_url() );
             exit;
         }
     }
@@ -95,7 +95,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     $error = array();
 
     /* If account details were saved, update customer account. */
-    if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && ! empty( $_POST['action'] ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
+    if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && ! empty( filter_input( INPUT_POST, 'action' ) ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
 
         // Remove valid ID file from user profile.
         if ( null !== filter_input( INPUT_POST, 'remove_valid_id' ) ) {
@@ -110,7 +110,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         }
     
         /* Update user password. */
-        if ( ! empty( $_POST['pass1'] ) && ! empty( $_POST['pass2'] ) ) {
+        if ( ! empty( filter_input( INPUT_POST, 'pass1' ) ) && ! empty( filter_input( INPUT_POST, 'pass2' ) ) ) {
             if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) )
                 wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( filter_input( INPUT_POST, 'pass1' ) ) ) );
             else
@@ -156,7 +156,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         if ( 0 == count( $error ) ) {
             // Action hook for plugins and extra fields saving
             do_action( 'edit_user_profile_update', $current_user->ID );
-            wp_redirect( wpd_ecommerce_account_url() . '?profile_saved' );
+            wp_safe_redirect( wpd_ecommerce_account_url() . '?profile_saved' );
             exit;
         }
     }
@@ -174,7 +174,7 @@ function wpd_ecommerce_login_failed() {
 
     // Redirect logins from account page.
     if ( $login_page === $ref_link ) {
-        wp_redirect( $login_page . '?login=failed' );
+        wp_safe_redirect( $login_page . '?login=failed' );
         exit;
     }
 }
@@ -218,7 +218,7 @@ function wpd_ecommerce_disable_author_archives_for_customers() {
         $role = ( array ) $user->roles;
 
 		if ( 'customer' === $role[0] ) {
-			wp_redirect( wpd_ecommerce_menu_url() );
+			wp_safe_redirect( wpd_ecommerce_menu_url() );
 		} else {
 			// Do nothing.
         }

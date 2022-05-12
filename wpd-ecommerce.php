@@ -193,43 +193,43 @@ add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
 
-	 // WP Dispensary products.
+	// WP Dispensary products.
 	if ( 'products' === get_post_type() ) {
-        if ( is_single() ) {
-            // checks if the file exists in the theme first,
-            // otherwise serve the file from the plugin
-            if ( $theme_file = locate_template( array( 'single-item.php' ) ) ) {
-                $template_path = $theme_file;
-            } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/templates/single-item.php';
-            }
-        } elseif ( is_archive() ) {
-            if ( $theme_file = locate_template( array( 'archive-items.php' ) ) ) {
-                $template_path = $theme_file;
-            } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-items.php';
-            }
-        }
+		if ( is_single() ) {
+			// checks if the file exists in the theme first,
+			// otherwise serve the file from the plugin
+			if ( $theme_file = locate_template( array( 'single-item.php' ) ) ) {
+				$template_path = $theme_file;
+			} else {
+				$template_path = plugin_dir_path( __FILE__ ) . '/templates/single-item.php';
+			}
+		} elseif ( is_archive() ) {
+			if ( $theme_file = locate_template( array( 'archive-items.php' ) ) ) {
+				$template_path = $theme_file;
+			} else {
+				$template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-items.php';
+			}
+		}
 	}
 
 	// Orders templates.
 	if ( 'wpd_orders' === get_post_type() ) {
-        if ( is_single() ) {
-            // checks if the file exists in the theme first,
-            // otherwise serve the file from the plugin
-            if ( $theme_file = locate_template( array ( 'single-order.php' ) ) ) {
-                $template_path = $theme_file;
-            } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/templates/single-order.php';
-            }
-        } elseif ( is_archive() ) {
-            if ( $theme_file = locate_template( array ( 'archive-orders.php' ) ) ) {
-                $template_path = $theme_file;
-            } else {
-                $template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-orders.php';
-            }
-        }
-    }
+		if ( is_single() ) {
+			// checks if the file exists in the theme first,
+			// otherwise serve the file from the plugin
+			if ( $theme_file = locate_template( array ( 'single-order.php' ) ) ) {
+				$template_path = $theme_file;
+			} else {
+				$template_path = plugin_dir_path( __FILE__ ) . '/templates/single-order.php';
+			}
+		} elseif ( is_archive() ) {
+			if ( $theme_file = locate_template( array ( 'archive-orders.php' ) ) ) {
+				$template_path = $theme_file;
+			} else {
+				$template_path = plugin_dir_path( __FILE__ ) . '/templates/archive-orders.php';
+			}
+		}
+	}
 
 	return $template_path;
 }

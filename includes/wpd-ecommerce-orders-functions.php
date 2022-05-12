@@ -286,7 +286,7 @@ function wpd_ecommerce_get_order_details( $order_id ) {
 function wpd_ecommerce_templates_single_order_redirects() {
     if ( ! is_user_logged_in() ) {
         // Redirect non-logged in users.
-        wp_redirect( wpd_ecommerce_account_url() );
+        wp_safe_redirect( wpd_ecommerce_account_url() );
     } else {
         // Get user details.
         $user = wp_get_current_user();
@@ -301,13 +301,13 @@ function wpd_ecommerce_templates_single_order_redirects() {
             // Administrators who ARE the customer
         } elseif ( $user->ID != $order_details['customer_id'] && 'customer' === $role[0] ) {
             // Customers who are ARE NOT the customer.
-            wp_redirect( wpd_ecommerce_account_url() );
+            wp_safe_redirect( wpd_ecommerce_account_url() );
         } elseif ( $user->ID == $order_details['customer_id'] ) {
             // If current user IS the customer.
         } else {
             // If not customer or admin, redirect to account page.
             if ( 'customer' != $role[0] && 'administrator' != $role[0] ) {
-                wp_redirect( wpd_ecommerce_account_url() );
+                wp_safe_redirect( wpd_ecommerce_account_url() );
             }
         }
     }

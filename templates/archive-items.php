@@ -22,9 +22,9 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                 <div class="vendor-logo">
                     <?php echo wp_get_attachment_image( get_term_meta( get_queried_object_id(), 'vendor_logo', true ), 'full' ); ?>
                 </div><!-- /.vendor-logo -->
-                <h2 class="wpd-title" style="display:none;"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
+                <h2 class="wpd-title" style="display:none;"><?php esc_attr_e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
             <?php } else { ?>
-                <h2 class="wpd-title"><?php _e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
+                <h2 class="wpd-title"><?php esc_attr_e( $archive_data['menu_type_name'], 'wpd-ecommerce' ); ?></h2>
             <?php } ?>
             <div class="item-wrapper">
                 <div class="wpd-row">
@@ -97,7 +97,7 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                                 $link_format  = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : '/page/%#%/';
                                 // Display pagination links.
                                 echo paginate_links( array(
-                                    'base'      => get_pagenum_link(1) . '%_%',
+                                    'base'      => get_pagenum_link( 1 ) . '%_%',
                                     'format'    => $link_format,
                                     'current'   => $current_page,
                                     'total'     => $total,

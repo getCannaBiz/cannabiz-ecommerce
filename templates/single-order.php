@@ -13,7 +13,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
     <?php while ( have_posts() ) : the_post(); ?>
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="entry-header">
-            <h1 class="item_name"><?php the_title(); ?><?php echo $order_details['status']['status_display']; ?></h1>
+            <h1 class="item_name"><?php the_title(); ?><?php esc_html_e( $order_details['status']['status_display'] ); ?></h1>
             <?php
                 // Include notifications.
                 echo wpd_ecommerce_notifications();
@@ -96,7 +96,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
             } elseif ( 'administrator' === $role[0] ) {
                 echo wpd_ecommerce_table_order_data( get_the_ID(), $order_details['customer_id'] );
             } else {
-                wp_redirect( wpd_ecommerce_account_url() );
+                wp_safe_redirect( wpd_ecommerce_account_url() );
             }
         ?>
         </div>

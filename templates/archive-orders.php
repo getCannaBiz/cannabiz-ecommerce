@@ -8,20 +8,18 @@ get_header(); ?>
         <?php
             // Redirect visitors.
             if ( is_user_logged_in() ) {
-
                 // Get user info.
                 $user = wp_get_current_user();
                 $role = ( array ) $user->roles;
-
                 // Redirect customer.
                 if ( 'customer' === $role[0] ) {
-                    wp_redirect( wpd_ecommerce_account_url() );
+                    wp_safe_redirect( wpd_ecommerce_account_url() );
                 } else {
-                    wp_redirect( wpd_ecommerce_menu_url() );
+                    wp_safe_redirect( wpd_ecommerce_menu_url() );
                 }
             } else {
                 // Redirect non-logged in users to menu page.
-                wp_redirect( wpd_ecommerce_menu_url() );
+                wp_safe_redirect( wpd_ecommerce_menu_url() );
             }
         ?>
     </div>

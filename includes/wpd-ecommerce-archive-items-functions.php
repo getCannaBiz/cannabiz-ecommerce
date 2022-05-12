@@ -211,7 +211,7 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
  * @return array
  */
 function wpd_ecommerce_archive_template_data() {
-    if ( ! empty( $_GET['vendors'] ) ) {
+    if ( null !== filter_input( INPUT_GET, 'vendors' ) ) {
         $vendor_name = get_term_by( 'slug', filter_input( INPUT_GET, 'vendors' ), 'vendors' );
         $title       = $vendor_name->name;
     }
@@ -257,7 +257,7 @@ function wpd_ecommerce_archive_template_data() {
      * 
      * @since 1.0
      */
-    if ( ! empty( $_GET['vendors'] ) ) {
+    if ( null !== filter_input( INPUT_GET, 'vendors' ) ) {
         $vendor_name    = get_term_by( 'slug', filter_input( INPUT_GET, 'vendors' ), 'vendors' );
         $page_title     = $vendor_name->name;
         $menu_type_name = $page_title;
