@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-04-07 20:51-0400\n"
-"PO-Revision-Date: 2022-04-07 22:53-0400\n"
+"PO-Revision-Date: 2022-05-24 23:46-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: mt\n"
@@ -187,7 +187,7 @@ msgstr "Numru tat-telefon"
 
 #: checkout/checkout-shortcode.php:138
 msgid "Street address"
-msgstr "indirizz ta ’t-triq"
+msgstr "Indirizz ta ’t-triq"
 
 #: checkout/checkout-shortcode.php:139
 msgid "House number and street name"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-04-07 19:48-0400\n"
-"PO-Revision-Date: 2022-04-07 20:31-0400\n"
+"PO-Revision-Date: 2022-05-24 23:43-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: he_IL\n"
@@ -992,7 +992,7 @@ msgstr "פרטי הרישום שהזנת שגויים."
 
 #: includes/wpd-ecommerce-core-functions.php:462
 msgid "Thank You"
-msgstr "תודה רבה !"
+msgstr "תודה"
 
 #: includes/wpd-ecommerce-core-functions.php:469
 msgid "Item removed"
@@ -1164,7 +1164,7 @@ msgstr "ההזמנה פורסמה. <a href=“%s”>צפה בהזמנה</a>"
 
 #: includes/wpd-ecommerce-orders-functions.php:135
 msgid "Order saved."
-msgstr "הצעת מחיר נשמרה"
+msgstr "ההזמנה נשמרה."
 
 #: includes/wpd-ecommerce-orders-functions.php:136
 #, php-format

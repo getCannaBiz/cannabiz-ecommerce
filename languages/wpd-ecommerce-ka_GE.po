@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-04-07 18:51-0400\n"
-"PO-Revision-Date: 2022-04-07 19:43-0400\n"
+"PO-Revision-Date: 2022-05-24 23:46-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ka_GE\n"
@@ -306,12 +306,12 @@ msgstr "დამატებითი მონაცემები"
 #: customers/customer-account-details.php:75
 #: customers/customer-account-shortcode.php:290
 msgid "Address line 1"
-msgstr "მისამართი 1."
+msgstr "მისამართის ხაზი 1"
 
 #: customers/customer-account-details.php:76
 #: customers/customer-account-shortcode.php:295
 msgid "Address line 2"
-msgstr "მისამართი 2."
+msgstr "მისამართის ხაზი 2"
 
 #: customers/customer-account-details.php:107
 msgid "<strong>ERROR</strong>: Please enter your year of birth."
@@ -1187,7 +1187,7 @@ msgstr ""
 
 #: includes/wpd-ecommerce-orders-functions.php:138
 msgid "M j, Y @ G:i"
-msgstr "d.m.Y в H:i"
+msgstr "M j, Y @ G:i"
 
 #: includes/wpd-ecommerce-orders-functions.php:139
 #, php-format

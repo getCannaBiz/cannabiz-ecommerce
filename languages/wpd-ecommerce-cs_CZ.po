@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-04-07 17:20-0400\n"
-"PO-Revision-Date: 2022-04-07 18:46-0400\n"
+"PO-Revision-Date: 2022-05-24 23:41-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: cs_CZ\n"
@@ -185,7 +185,7 @@ msgstr "Telefonní číslo"
 
 #: checkout/checkout-shortcode.php:138
 msgid "Street address"
-msgstr "Ulice a čp."
+msgstr "Ulice a čp"
 
 #: checkout/checkout-shortcode.php:139
 msgid "House number and street name"
@@ -395,7 +395,6 @@ msgstr "Řidičský průkaz nebo platné ID"
 #: customers/customer-account-shortcode.php:408
 #: includes/wpd-ecommerce-customers-functions.php:279
 #: includes/wpd-ecommerce-customers-functions.php:301
-#, fuzzy
 msgid "x"
 msgstr "x"
 

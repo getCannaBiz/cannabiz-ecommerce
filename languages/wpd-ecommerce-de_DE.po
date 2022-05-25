@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-02-23 22:52-0500\n"
-"PO-Revision-Date: 2022-02-23 23:12-0500\n"
+"PO-Revision-Date: 2022-05-24 23:42-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -78,7 +78,7 @@ msgstr "Entfernen"
 #: cart/cart-shortcode.php:124 checkout/checkout-shortcode.php:273
 #: orders/orders-metaboxes.php:90 templates/single-order.php:77
 msgid "Sales tax"
-msgstr "MwSt."
+msgstr "Mehrwertsteuer"
 
 #: cart/cart-shortcode.php:128 checkout/checkout-shortcode.php:277
 #: orders/orders-metaboxes.php:87 templates/single-order.php:80

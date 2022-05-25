@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-02-23 22:32-0500\n"
-"PO-Revision-Date: 2022-02-23 22:49-0500\n"
+"PO-Revision-Date: 2022-05-24 23:45-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it_IT\n"
@@ -799,7 +799,7 @@ msgstr "Nome del nuovo Luogo"
 
 #: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:44
 msgid "No locations found"
-msgstr "Nessuna località extra trovata!"
+msgstr "Nessuna località trovata"
 
 #: includes/extend/locations/admin/class-wpd-locations-taxonomies.php:45
 msgid "Locations"
@@ -1216,7 +1216,7 @@ msgstr "profilo"
 
 #: orders/orders-metaboxes.php:136
 msgid "view orders"
-msgstr "Vedi ordini"
+msgstr "visualizzare gli ordini"
 
 #: orders/orders-post-type.php:14
 msgctxt "Post Type General Name"
@@ -1238,7 +1238,7 @@ msgstr "Ordina Archivi"
 
 #: orders/orders-post-type.php:19
 msgid "Order Attributes"
-msgstr "Ordine Attributi "
+msgstr "Attributi dell’ordine"
 
 #: orders/orders-post-type.php:20
 msgid "Parent Order:"

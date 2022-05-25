@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-02-23 23:16-0500\n"
-"PO-Revision-Date: 2022-02-23 23:32-0500\n"
+"PO-Revision-Date: 2022-05-24 23:47-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -152,11 +152,11 @@ msgstr "Fout"
 
 #: checkout/checkout-shortcode.php:88 checkout/checkout-shortcode.php:99
 msgid "Please select a payment type."
-msgstr "Selecteer een betaalmethode"
+msgstr "Selecteer een betaalmethode."
 
 #: checkout/checkout-shortcode.php:94
 msgid "The minimum order amount required to checkout is"
-msgstr "Het minimale bestelbedrag dat nodig is om af te rekenen is:"
+msgstr "Het minimale bestelbedrag dat nodig is om af te rekenen is"
 
 #: checkout/checkout-shortcode.php:114
 msgid "Billing details"
@@ -916,7 +916,7 @@ msgstr "Toon uw best verkopende artikelen"
 
 #: includes/extend/topsellers/admin/class-wpd-topsellers-widgets.php:248
 msgid "Image size:"
-msgstr "Afbeelding formaat"
+msgstr "Afbeelding formaat:"
 
 #: includes/wpd-ecommerce-activation.php:60
 msgid "Account"
