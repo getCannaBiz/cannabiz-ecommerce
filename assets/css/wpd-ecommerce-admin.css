@@ -23,22 +23,22 @@ table.wpd-ecommerce tbody tr td:first-child {
 /** Cart Style */
 
 table.wpd-ecommerce thead {
-	border: 1px solid #DDD;
+    border: 1px solid #DDD;
 }
 
 table.wpd-ecommerce tbody tr {
     border-bottom: 1px solid #DDD;
-	border-left: 1px solid #DDD;
-	border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
 }
 
 table.wpd-ecommerce td {
-	padding: 12px 12px;
-	vertical-align: middle;
+    padding: 12px 12px;
+    vertical-align: middle;
 }
 
 table.wpd-ecommerce thead tr {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 table.wpd-ecommerce tbody td input[type="number"] {
@@ -147,9 +147,9 @@ td.wpd-ecommerce-recommendation-doc input[type="file"] {
 
 img.wpd-ecommerce-valid-id,
 img.wpd-ecommerce-recommendation-doc {
-	height: auto;
+    height: auto;
     margin-bottom: 12px;
-	width: 100%;
+    width: 100%;
 }
 
 input[type="submit"].remove-valid-id,
@@ -175,9 +175,9 @@ input[type="submit"].remove-valid-id:hover,
 input[type="submit"].remove-recommendation-doc:active,
 input[type="submit"].remove-recommendation-doc:focus,
 input[type="submit"].remove-recommendation-doc:hover {
-	cursor: pointer;
-	background: #F00000;
-	color: #FFF;
+    cursor: pointer;
+    background: #F00000;
+    color: #FFF;
 }
 
 /** Orders page statuses */

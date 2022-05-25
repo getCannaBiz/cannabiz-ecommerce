@@ -10,23 +10,23 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 if ( ! defined( 'WPD_INVENTORY_VERSION' ) ) {
-	define( 'WPD_INVENTORY_VERSION', '1.8.1' );
+    define( 'WPD_INVENTORY_VERSION', '1.8.1' );
 }
 
 if ( ! defined( 'WPD_INVENTORY_NAME' ) ) {
-	define( 'WPD_INVENTORY_NAME', trim( dirname( plugin_basename( __FILE__ ) ), '/' ) );
+    define( 'WPD_INVENTORY_NAME', trim( dirname( plugin_basename( __FILE__ ) ), '/' ) );
 }
 
 if ( ! defined( 'WPD_INVENTORY_DIR' ) ) {
-	define( 'WPD_INVENTORY_DIR', WP_PLUGIN_DIR . '/' . WPD_INVENTORY_NAME );
+    define( 'WPD_INVENTORY_DIR', WP_PLUGIN_DIR . '/' . WPD_INVENTORY_NAME );
 }
 
 if ( ! defined( 'WPD_INVENTORY_URL' ) ) {
-	define( 'WPD_INVENTORY_URL', WP_PLUGIN_URL . '/' . WPD_INVENTORY_NAME );
+    define( 'WPD_INVENTORY_URL', WP_PLUGIN_URL . '/' . WPD_INVENTORY_NAME );
 }
 
 /**
@@ -34,8 +34,8 @@ if ( ! defined( 'WPD_INVENTORY_URL' ) ) {
  * This action is documented in includes/class-wpd-inventory-activator.php
  */
 function activate_wpd_inventory() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-activator.php';
-	WPD_Inventory_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-activator.php';
+    WPD_Inventory_Activator::activate();
 }
 
 /**
@@ -43,8 +43,8 @@ function activate_wpd_inventory() {
  * This action is documented in includes/class-wpd-inventory-deactivator.php
  */
 function deactivate_wpd_inventory() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-deactivator.php';
-	WPD_Inventory_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-deactivator.php';
+    WPD_Inventory_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wpd_inventory' );
@@ -67,8 +67,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory.php';
  */
 function run_wpd_inventory() {
 
-	$plugin = new WPD_Inventory();
-	$plugin->run();
+    $plugin = new WPD_Inventory();
+    $plugin->run();
 
 }
 run_wpd_inventory();
@@ -81,11 +81,11 @@ run_wpd_inventory();
  * @since  1.0.0
  */
 if ( class_exists( 'WPD_INVENTORY_SETTINGS' ) ) {
-	/**
-	 * Object Instantiation.
-	 *
-	 * Object for the class `WPD_INVENTORY_SETTINGS`.
-	 */
-	$wpd_inventory_obj = new WPD_INVENTORY_SETTINGS();
+    /**
+     * Object Instantiation.
+     *
+     * Object for the class `WPD_INVENTORY_SETTINGS`.
+     */
+    $wpd_inventory_obj = new WPD_INVENTORY_SETTINGS();
 
 }

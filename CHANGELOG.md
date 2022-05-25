@@ -86,7 +86,7 @@
 * Bugfix total price in cart when a coupon is applied in `cart/cart-shortcode.php`
 * Bugfix total price in checkout when a coupon is applied in `checkout/checkout-shortcode.php`
 * Bugfix critical error in the `wpd_ecommerce_menu_url` helper function in `inclused/wpd-ecommerce-core-functions.php`
-* Updated excise and sales tax checks to hide them if they're NULL or 0 in `cart/cart-shortcode.php`
+* Updated excise and sales tax checks to hide them if they're null or 0 in `cart/cart-shortcode.php`
 * Updated payment name check to only display if `payment_type_name` is set in session in `cart/cart-shortcode.php`
 * Updated checkout page to only show instructions text if Ground Shipping is activated in `includes/wpd-ecommerce-core-functions.php`
 * Updated checkout to include all active payment types as selectable options that update total price in `checkout/checkout-shortcode.php`
@@ -142,7 +142,7 @@
 * Added notifications when no weight/quantity are selected when adding to cart in `includes/wpd-ecommerce-core-functions.php`
 * Bugfix the misspelled `_threepounds` meta key in `includes/wpd-ecommerce-core-functions.php`
 * Updated filters for concentrates prices to include heavyweights in `includes/wpd-ecommerce-core-functions.php`
-* Updated notifications for Flowers and Concentrates to use `isset` instead of `!= NULL` in `includes/wpd-ecommerce-core-functions.php`
+* Updated notifications for Flowers and Concentrates to use `isset` instead of `!= null` in `includes/wpd-ecommerce-core-functions.php`
 * Updated single product images with a link to the full size image in `templates/single-item.php`
 * Updated order archive redirects to use the Pages selected in WPD Settings in `templates/archive-orders.php`
 * Updated patient account "Country" from input field to select box in `patients/patient-account-shortcode.php`
@@ -151,7 +151,7 @@
 * Updated `wpd_ecommerce_box_notifications_array` filter to use `wpd_menu_types_simple` for array in `includes/wpd-ecommerce-core-functions.php`
 * Updated various links to `account`, `cart` and `menu` to user selection options in `includes/wpd-ecommerce-core-functions.php`
 * Updated `$new_price` and `$concentrate_prices` variables with default values in `includes/wpd-ecommerce-core-functions.php`
-* Updated notifications checks for Flowers and Concentrates to use `isset` instead of `!= NULL` in `includes/wpd-ecommerce-core-functions.php`
+* Updated notifications checks for Flowers and Concentrates to use `isset` instead of `!= null` in `includes/wpd-ecommerce-core-functions.php`
 * Updated `is_singular` check to use `wpd_menu_types_simple` helper function in `includes/wpd-ecommerce-core-functions.php`
 * Updated the `add_to_cart` form to check if `require login to shop` setting is `on` in `includes/wpd-ecommerce-core-functions.php`
 * Updated checkout page to hide sales tax and excise tax if they return `0.00` in `checkout/checkout-shortcode.php`

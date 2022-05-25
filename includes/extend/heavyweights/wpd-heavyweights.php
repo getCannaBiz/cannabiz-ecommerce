@@ -10,7 +10,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /**
@@ -23,8 +23,8 @@ define( 'WPD_HEAVYWEIGHTS_VERSION', '1.4' );
  * This action is documented in includes/class-wpd-heavyweights-activator.php
  */
 function activate_wpd_heavyweights() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-activator.php';
-	WPD_Heavyweights_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-activator.php';
+    WPD_Heavyweights_Activator::activate();
 }
 
 /**
@@ -32,8 +32,8 @@ function activate_wpd_heavyweights() {
  * This action is documented in includes/class-wpd-heavyweights-deactivator.php
  */
 function deactivate_wpd_heavyweights() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-deactivator.php';
-	WPD_Heavyweights_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-deactivator.php';
+    WPD_Heavyweights_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wpd_heavyweights' );
@@ -56,8 +56,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights.php';
  */
 function run_wpd_heavyweights() {
 
-	$plugin = new WPD_Heavyweights();
-	$plugin->run();
+    $plugin = new WPD_Heavyweights();
+    $plugin->run();
 
 }
 run_wpd_heavyweights();

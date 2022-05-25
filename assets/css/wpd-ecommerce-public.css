@@ -11,7 +11,7 @@ p.wpd-ecommerce.price span.wpd-productinfo {
 
 /** Return to Cart button */
 a.button.wpd-ecommerce.return {
-	padding: 7px 15px;
+    padding: 7px 15px;
 }
 
 /** Cart Remove Button */
@@ -44,22 +44,22 @@ table.wpd-ecommerce tbody tr td:first-child {
 /** Cart Style */
 
 table.wpd-ecommerce thead {
-	border: 1px solid #DDD;
+    border: 1px solid #DDD;
 }
 
 table.wpd-ecommerce tbody tr {
     border-bottom: 1px solid #DDD;
-	border-left: 1px solid #DDD;
-	border-right: 1px solid #DDD;
+    border-left: 1px solid #DDD;
+    border-right: 1px solid #DDD;
 }
 
 table.wpd-ecommerce td {
-	padding: 12px 12px;
-	vertical-align: middle;
+    padding: 12px 12px;
+    vertical-align: middle;
 }
 
 table.wpd-ecommerce thead tr {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 table.wpd-ecommerce tbody td input[type="number"] {
@@ -71,9 +71,9 @@ table.wpd-ecommerce tbody td input[type="number"] {
 /** Cart Page Totals Box */
 
 .wpd-ecommerce-wrap {
-	float: left;
-	position: relative;
-	width: 100%;
+    float: left;
+    position: relative;
+    width: 100%;
 }
 
 .wpd-ecommerce-wrap .cart-totals {
@@ -115,7 +115,7 @@ table.wpd-ecommerce.widget {
 }
 
 table.wpd-ecommerce.widget a {
-	font-weight: 700;
+    font-weight: 700;
 }
 
 table.wpd-ecommerce.widget tbody {
@@ -139,23 +139,23 @@ table.wpd-ecommerce.widget tbody tr {
 /** Cart Widget Text Align */
 
 table.wpd-ecommerce.widget tbody tr td {
-	text-align: left;
-	padding: 12px 0;
+    text-align: left;
+    padding: 12px 0;
 }
 
 table.wpd-ecommerce.widget tbody tr td:first-child {
-	padding: 12px 12px 12px 0;
+    padding: 12px 12px 12px 0;
 }
 
 table.wpd-ecommerce.widget tbody tr td:last-child {
-	padding: 12px 0 12px 12px;
+    padding: 12px 0 12px 12px;
     text-align: right;
 }
 
 /** Cart Widget Amount */
 
 table.wpd-ecommerce.widget tbody td span.amount {
-	color: #999;
+    color: #999;
 }
 
 /** Cart Widget Buttons */
@@ -207,7 +207,7 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
     color: #454545;
     display: inline-block;
     font-size: 13px;
-	line-height: 33px;
+    line-height: 33px;
     list-style: none outside;
     margin: 0;
     padding: 1em 1.5em 1em 1.5em;
@@ -262,10 +262,10 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 }
 
 .entry-header.wpd-ecommerce-shelfItem {
-	border: 0;
+    border: 0;
     float: left;
     padding: 24px 24px 0 24px;
-	text-align: left;
+    text-align: left;
     width: 100%;
 }
 
@@ -286,7 +286,7 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 }
 
 .wpd-ecommerce-shelfItem .product-details header.entry-header form.wpd-ecommerce {
-	text-align: left;
+    text-align: left;
 }
 
 .wpd-ecommerce-shelfItem .product-details header.entry-header h1 {
@@ -489,18 +489,18 @@ span.wpd-ecommerce.prices-flowers {
 
 /** Single item - Out of stock */
 form.wpd-ecommerce span.wpd-inventory.warning {
-	background: #EEE;
-	border: 1px solid #DDD;
-	border-radius: 3px;
-	color: #999;
-	font-weight: 600;
-	float: left;
+    background: #EEE;
+    border: 1px solid #DDD;
+    border-radius: 3px;
+    color: #999;
+    font-weight: 600;
+    float: left;
     margin-top: 0;
     margin-bottom: 12px;
     position: relative;
     padding: 10px 10px;
-	text-align: center;
-	width: 100%;
+    text-align: center;
+    width: 100%;
 }
 
 
@@ -518,7 +518,7 @@ form.wpd-ecommerce.form .form-row.last {
 }
 
 form.wpd-ecommerce.form .form-row.last {
-	float: right;
+    float: right;
 }
 
 /** Form Required Label */
@@ -1185,9 +1185,9 @@ input[type="submit"].remove-valid-id:hover,
 input[type="submit"].remove-recommendation-doc:active,
 input[type="submit"].remove-recommendation-doc:focus,
 input[type="submit"].remove-recommendation-doc:hover {
-	cursor: pointer;
-	background: #F00000;
-	color: #FFF;
+    cursor: pointer;
+    background: #F00000;
+    color: #FFF;
 }
 
 /* WooCommerce Customer Verification File upload */
@@ -1196,7 +1196,7 @@ img.wpd-ecommerce-recommendation-doc,
 .entry-content img.wpd-ecommerce-recommendation-doc:last-child,
 img.wpd-ecommerce-valid-id,
 .entry-content img.wpd-ecommerce-valid-id:last-child {
-	height: auto;
+    height: auto;
     margin-bottom: 12px;
     width: 100%;
 }

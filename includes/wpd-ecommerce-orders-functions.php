@@ -14,16 +14,16 @@ defined( 'ABSPATH' ) || exit;
  * @return array
  */
 function wpd_ecommerce_get_order_statuses() {
-	$order_statuses = array(
-		'wpd-pending'    => _x( 'Pending', 'Order status', 'wpd-ecommerce' ),
-		'wpd-processing' => _x( 'Processing', 'Order status', 'wpd-ecommerce' ),
-		'wpd-on-hold'    => _x( 'On hold', 'Order status', 'wpd-ecommerce' ),
-		'wpd-completed'  => _x( 'Completed', 'Order status', 'wpd-ecommerce' ),
-		'wpd-cancelled'  => _x( 'Cancelled', 'Order status', 'wpd-ecommerce' ),
-		'wpd-refunded'   => _x( 'Refunded', 'Order status', 'wpd-ecommerce' ),
-		'wpd-failed'     => _x( 'Failed', 'Order status', 'wpd-ecommerce' ),
-	);
-	return apply_filters( 'wpd_ecommerce_order_statuses', $order_statuses );
+    $order_statuses = array(
+        'wpd-pending'    => _x( 'Pending', 'Order status', 'wpd-ecommerce' ),
+        'wpd-processing' => _x( 'Processing', 'Order status', 'wpd-ecommerce' ),
+        'wpd-on-hold'    => _x( 'On hold', 'Order status', 'wpd-ecommerce' ),
+        'wpd-completed'  => _x( 'Completed', 'Order status', 'wpd-ecommerce' ),
+        'wpd-cancelled'  => _x( 'Cancelled', 'Order status', 'wpd-ecommerce' ),
+        'wpd-refunded'   => _x( 'Refunded', 'Order status', 'wpd-ecommerce' ),
+        'wpd-failed'     => _x( 'Failed', 'Order status', 'wpd-ecommerce' ),
+    );
+    return apply_filters( 'wpd_ecommerce_order_statuses', $order_statuses );
 }
 
 /**
@@ -105,7 +105,7 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
         $tbody = apply_filters( 'wpd_ecommerce_table_order_data_tbody', $tbody, $newArray );
 
         // Table rows for tbody.
-        $str .=	'<tr>';
+        $str .=    '<tr>';
         foreach ( $tbody as $tbody ) {
             $str .= '<td>' . $tbody . '</td>';
         }
@@ -152,19 +152,19 @@ add_filter( 'post_updated_messages', 'wpd_ecommerce_order_updated_messages' );
  * @since 1.0
  * @return string
  */
-function wpd_ecommerce_order_statuses( $order_id, $display = NULL, $classes = NULL ) {
+function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = null ) {
 
     // Order ID.
-    if ( NULL == $order_id ) {
+    if ( null == $order_id ) {
         //$order_id = $post->ID;
     }
 
-    $wpd_order_status = get_post_meta( $order_id, 'wpd_order_status', TRUE );
+    $wpd_order_status = get_post_meta( $order_id, 'wpd_order_status', true );
     $status_names     = wpd_ecommerce_get_order_statuses();
     //$classes          = '';
 
     // Default style.
-    if ( NULL === $display ) {
+    if ( null === $display ) {
         $display = 'span';
     }
 
@@ -219,8 +219,8 @@ function wpd_ecommerce_get_order_details( $order_id ) {
     $order_items_table = wpd_ecommerce_table_order_data( $order_id, $order_customer_id );
 
     $status_names      = wpd_ecommerce_get_order_statuses();
-    $status            = get_post_meta( $order_id, 'wpd_order_status', TRUE );
-    $status_display    = wpd_ecommerce_order_statuses( $order_id, NULL, NULL );
+    $status            = get_post_meta( $order_id, 'wpd_order_status', true );
+    $status_display    = wpd_ecommerce_order_statuses( $order_id, null, null );
 
     $get_order_amount    = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'details' AND order_key = 'order_coupon_amount'", ARRAY_A );
     $order_coupon_amount = $get_order_amount[0]['order_value'];
@@ -326,24 +326,24 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
     if ( ! $customer_id ) { return ''; }
 
     $args = array(
-		'post_type' => 'wpd_orders',
-	);
-	$the_query = new WP_Query( $args );
+        'post_type' => 'wpd_orders',
+    );
+    $the_query = new WP_Query( $args );
 
     // Order count.
-	$count = 0;
+    $count = 0;
 
-	if ( $the_query->have_posts() ) :
-		while ( $the_query->have_posts() ) : $the_query->the_post();
+    if ( $the_query->have_posts() ) :
+        while ( $the_query->have_posts() ) : $the_query->the_post();
             // Get customer ID from order.
             $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
             // Check if customer ID from order is the same as the arg passed through.
-			if ( $customer_id == $order_customer_id ) {
+            if ( $customer_id == $order_customer_id ) {
                 // Add to the count.
-				$count++;
-			}
-		endwhile;
-	endif;
+                $count++;
+            }
+        endwhile;
+    endif;
 
     return $count;
 }
@@ -359,13 +359,13 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
  */
 function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', $end_date = '' ) {
 
-	// Return data.
-	$return = array();
+    // Return data.
+    $return = array();
 
-	// Loop args.
-	$args = array(
-		'post_type'      => 'wpd_orders',
-		'posts_per_page' => -1,
+    // Loop args.
+    $args = array(
+        'post_type'      => 'wpd_orders',
+        'posts_per_page' => -1,
     );
 
     if ( $customer_id ) {
@@ -381,15 +381,15 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
     $loop = new WP_Query( $args );
     $loop = $loop->get_posts();
 
-	// Order totals.
-	$order_totals = array();
-	// Product count.
-	$product_count = array();
-	// Product data array.
-	$product_data = array();
+    // Order totals.
+    $order_totals = array();
+    // Product count.
+    $product_count = array();
+    // Product data array.
+    $product_data = array();
     // Product types.
     $product_types = array();
-	// Product vendors array.
+    // Product vendors array.
     $product_taxonomies = array();
     // Customer counts array.
     $order_customers = array();
@@ -398,21 +398,21 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
     // Product taxonomies.
     $taxonomies = array( 'vendors', 'shelf_types', 'strain_types', 'wpd_categories' );
 
-	// Loop through each product.
-	foreach ( $loop as $item ) {
+    // Loop through each product.
+    foreach ( $loop as $item ) {
         $order_details = wpd_ecommerce_get_order_details( $item->ID );
-		// Add order total to array.
-		$order_totals[] = $order_details['total'];
-		// Add order product count to array.
+        // Add order total to array.
+        $order_totals[] = $order_details['total'];
+        // Add order product count to array.
         $product_count[] = $order_details['order_items']['count'];
         // Add customer to array.
         $order_customers[] = $order_details['customer_id'];
         // Add customer sales totals to array.
         $order_customers_sales[$order_details['customer_id']] += $order_details['total'];
 
-		// Loop products.
-		foreach( $order_details['order_items']['products'] as $product ) {
-			// Add item quantity to array.
+        // Loop products.
+        foreach( $order_details['order_items']['products'] as $product ) {
+            // Add item quantity to array.
             $product_data[] = array( 'id' => $product['item_id'], 'qty' => $product['quantity'] );
             // Add product type to array.
             $product_types[] = get_post_meta( $product['item_id'], 'product_type', true );
@@ -439,30 +439,30 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
     $item_counts = array();
 
     // Loop through product data.
-	foreach ( $product_data as $item ) {
-		if ( ! isset( $item_counts[$item['id']] ) ) {
-			$item_counts[$item['id']] = intval( $item['qty'] );
-		} else {
-			$item_counts[$item['id']] += intval( $item['qty'] );
-		}
-	}
+    foreach ( $product_data as $item ) {
+        if ( ! isset( $item_counts[$item['id']] ) ) {
+            $item_counts[$item['id']] = intval( $item['qty'] );
+        } else {
+            $item_counts[$item['id']] += intval( $item['qty'] );
+        }
+    }
 
-	// Descending order.
-	//arsort( $item_counts );
+    // Descending order.
+    //arsort( $item_counts );
 
-	// Get total orders.
-	$orders = count( $order_totals );
-	// Get total spent in all orders.
-	$total_spent = array_sum( $order_totals );
-	// Get average spent in all orders.
-	$avg_spent = $total_spent / $orders;
-	// Total product count.
-	$total_products = array_sum( $product_count );
+    // Get total orders.
+    $orders = count( $order_totals );
+    // Get total spent in all orders.
+    $total_spent = array_sum( $order_totals );
+    // Get average spent in all orders.
+    $avg_spent = $total_spent / $orders;
+    // Total product count.
+    $total_products = array_sum( $product_count );
 
     // Add order data to the return variable.
-	$return['orders_count']                 = $orders;
-	$return['orders_total_spent']           = $total_spent;
-	$return['orders_average_spent']         = number_format( $total_spent / $orders, 2, '.', '' );
+    $return['orders_count']                 = $orders;
+    $return['orders_total_spent']           = $total_spent;
+    $return['orders_average_spent']         = number_format( $total_spent / $orders, 2, '.', '' );
     $return['orders_average_product_count'] = round( $total_products / $orders );
     $return['orders_customers']             = $order_customers;
     $return['orders_customers_sales']       = $order_customers_sales;

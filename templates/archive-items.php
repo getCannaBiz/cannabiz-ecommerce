@@ -2,8 +2,11 @@
 /** 
  * Copy this file into your theme to customize
  * 
- * @version 1.0
- * @since 1.0
+ * @package WPD_eCommerce
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @license GPL-2.0+ 
+ * @link    https://www.wpdispensary.com
+ * @since   1.0.0
  */
 get_header();
 
@@ -46,13 +49,13 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                     while ( $loop->have_posts() ) : $loop->the_post();
 
                     echo ( $count % $perrow === 0 && $count > 0 ) ? '</div><div class="wpd-row">' : '';
-                ?>
+                    ?>
                     <?php do_action( 'wpd_ecommerce_archive_items_product_before' ); ?>
                     <div class="wpdshortcode item">
                         <?php do_action( 'wpd_ecommerce_archive_items_product_inside_before' ); ?>
                         <?php echo wpd_product_image( get_the_ID(), apply_filters( 'wpd_ecommerce_archive_items_product_image_size', 'wpd-small' ) ); ?>
                         <p class="wpd-producttitle"><strong><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></strong></p>
-                        <?php wpd_all_prices_simple( get_the_ID(), TRUE, TRUE ); ?>
+                        <?php wpd_all_prices_simple( get_the_ID(), true, true ); ?>
                         <?php
                             // Get product details.
                             $product_details = array(
@@ -82,32 +85,32 @@ do_action( 'wpd_ecommerce_templates_archive_items_wrap_before' );
                     <?php do_action( 'wpd_ecommerce_archive_items_product_after' ); ?>
                     <?php
                         $count++;
-                        endwhile;
-                    ?>
+                    endwhile;
+                ?>
                     <div class="wpd-page-numbers">
                     <?php
-                        // Get total number of pages
-                        global $wp_query;
-                        $total = $wp_query->max_num_pages;
-                        // Only paginate if we have more than one page.
-                        if ( $total > 1 )  {
-                            // Get the current page.
-                            if ( ! $current_page = get_query_var( 'paged' ) ) {
-                                $current_page = 1;
-                                $link_format  = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : '/page/%#%/';
-                                // Display pagination links.
-                                echo paginate_links( array(
-                                    'base'      => get_pagenum_link( 1 ) . '%_%',
-                                    'format'    => $link_format,
-                                    'current'   => $current_page,
-                                    'total'     => $total,
-                                    'mid_size'  => 4,
-                                    'prev_text' => '&larr;',
-                                    'next_text' => '&rarr;',
-                                    'type'      => 'list'
-                                ) );
-                            }
+                    // Get total number of pages
+                    global $wp_query;
+                    $total = $wp_query->max_num_pages;
+                    // Only paginate if we have more than one page.
+                    if ( $total > 1 ) {
+                        // Get the current page.
+                        if ( ! $current_page = get_query_var( 'paged' ) ) {
+                            $current_page = 1;
+                            $link_format  = empty( get_option( 'permalink_structure' ) ) ? '&page=%#%' : '/page/%#%/';
+                            // Display pagination links.
+                            echo paginate_links( array(
+                                'base'      => get_pagenum_link( 1 ) . '%_%',
+                                'format'    => $link_format,
+                                'current'   => $current_page,
+                                'total'     => $total,
+                                'mid_size'  => 4,
+                                'prev_text' => '&larr;',
+                                'next_text' => '&rarr;',
+                                'type'      => 'list'
+                            ) );
                         }
+                    }
                     ?>
                     </div><!-- // .wpd-page-links -->
                 </div><!-- // .row -->

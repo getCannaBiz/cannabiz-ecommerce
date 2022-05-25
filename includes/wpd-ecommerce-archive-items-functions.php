@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_archive_items_buttons( $product_id ) {
 
-    if ( NULL == $product_id ) {
+    if ( null == $product_id ) {
         $product_id = get_the_ID();
     } else {
         $product_id = $product_id;
@@ -70,7 +70,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
 
     // Edibles, Pre-rolls, Topicals, Tinctures, Gear.
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'tinctures', 'gear' ) ) ) {
-    	if ( '' != $price_each && '' != $price_per_pack ) {
+        if ( '' != $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
@@ -84,7 +84,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     // Growers.
     if ( 'growers' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Create button.
-    	if ( '' != $price_each && '' != $price_per_pack ) {
+        if ( '' != $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
             $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
@@ -143,7 +143,7 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
 function wpd_ecommerce_item_buttons() {
 
     // Check if user is required to login to shop.
-	if ( ! is_user_logged_in() && 'on' == wpd_ecommerce_require_login_to_shop() ) {
+    if ( ! is_user_logged_in() && 'on' == wpd_ecommerce_require_login_to_shop() ) {
         // Do nothing.
     } else {
         // Add buttons to the various shortcodes, archives, and widgets.
@@ -180,7 +180,7 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
     $str = '';
 
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'tinctures', 'gear' ) ) ) {
-    	if ( '' != $price_each && '' != $price_per_pack ) {
+        if ( '' != $price_each && '' != $price_per_pack ) {
             $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
             $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';

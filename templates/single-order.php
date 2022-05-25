@@ -1,6 +1,12 @@
 <?php
-/*
+/**
  * Copy this file into your theme to customize
+ * 
+ * @package WPD_eCommerce
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @license GPL-2.0+ 
+ * @link    https://www.wpdispensary.com
+ * @since   1.0.0
  */
 get_header(); ?>
 <?php
@@ -21,72 +27,71 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
         </header>
         <div class="entry-content order-details">
             <?php
-                // Get user info.
-                $user_info = get_userdata( $order_details['customer_id'] );
+            // Get user info.
+            $user_info = get_userdata( $order_details['customer_id'] );
 
-                echo '<div class="order-info">';
-                echo '<p><strong>' . esc_attr__( 'Date', 'wpd-ecommerce' ) . ':</strong></p>';
-                echo '<p>' . get_the_date() . '</p>';
-                if ( isset( $user_info ) ) {
-                    if ( '' != $user_info->first_name ) {
-                        $first_name = $user_info->first_name;
-                    } else {
-                        $first_name = '';
-                    }
-                    if ( '' != $user_info->last_name ) {
-                        $last_name = $user_info->last_name;
-                    } else {
-                        $last_name = '';
-                    }
+            echo '<div class="order-info">';
+            echo '<p><strong>' . esc_attr__( 'Date', 'wpd-ecommerce' ) . ':</strong></p>';
+            echo '<p>' . get_the_date() . '</p>';
+            if ( isset( $user_info ) ) {
+                if ( '' != $user_info->first_name ) {
+                    $first_name = $user_info->first_name;
                 } else {
                     $first_name = '';
-                    $last_name  = '';
                 }
-                echo '<p><strong>' . esc_attr__( 'Name', 'wpd-ecommerce' ) . ':</strong></p>';
-                echo '<p>' . $first_name . ' ' . $last_name . '</p>';
-                echo '</div>';
-                echo '<div class="customer-address">';
-                echo '<p><strong>' . esc_attr__( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
+                if ( '' != $user_info->last_name ) {
+                    $last_name = $user_info->last_name;
+                } else {
+                    $last_name = '';
+                }
+            } else {
+                $first_name = '';
+                $last_name  = '';
+            }
+            echo '<p><strong>' . esc_attr__( 'Name', 'wpd-ecommerce' ) . ':</strong></p>';
+            echo '<p>' . $first_name . ' ' . $last_name . '</p>';
+            echo '</div>';
+            echo '<div class="customer-address">';
+            echo '<p><strong>' . esc_attr__( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
 
-                if ( '' != $user_info->address_line_1 ) {
-                    echo $user_info->address_line_1 . '<br />';
-                }
+            if ( '' != $user_info->address_line_1 ) {
+                echo $user_info->address_line_1 . '<br />';
+            }
 
-                if ( '' != $user_info->address_line_2 ) {
-                    echo $user_info->address_line_2 . '<br />';
-                }
-                echo $user_info->city . ', ' . $user_info->state_county . ' ' . $user_info->postcode_zip . '<br />';
-                echo '<p>';
-                if ( '' != $user_info->user_email ) {
-                    echo '<a class="email-address" href="mailto:' . $user_info->user_email . '">' . $user_info->user_email . '</a><br />';
-                }
+            if ( '' != $user_info->address_line_2 ) {
+                echo $user_info->address_line_2 . '<br />';
+            }
+            echo $user_info->city . ', ' . $user_info->state_county . ' ' . $user_info->postcode_zip . '<br />';
+            echo '<p>';
+            if ( '' != $user_info->user_email ) {
+                echo '<a class="email-address" href="mailto:' . $user_info->user_email . '">' . $user_info->user_email . '</a><br />';
+            }
 
-                if ( '' != $user_info->phone_number ) {
-                    echo '<a class="phone-number" href="tel:' . $user_info->phone_number . '">' . $user_info->phone_number . '</a>';
-                }
-                echo '</p>';
-                echo '</div>';
+            if ( '' != $user_info->phone_number ) {
+                echo '<a class="phone-number" href="tel:' . $user_info->phone_number . '">' . $user_info->phone_number . '</a>';
+            }
+            echo '</p>';
+            echo '</div>';
 
-                echo '<div class="customer-contact">';
-                echo '<table class="wpd-ecommerce order-details"><tbody>';
-                echo '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['subtotal'] . '</td></tr>';
-                if ( isset( $order_details['coupon_amount'] ) && '0.00' !== $order_details['coupon_amount'] ) {
-                    echo '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_details['coupon_amount'] . '</td></tr>';
-                }
-                if ( isset( $order_details['sales_tax'] ) && '0.00' !== $order_details['sales_tax'] ) {
-                    echo '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['sales_tax'] . '</td></tr>';
-                }
-                if ( isset( $order_details['excise_tax'] ) && '0.00' !== $order_details['excise_tax'] ) {
-                    echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['excise_tax'] . '</td></tr>';
-                }
-                if ( isset( $order_details['payment_type']['amount'] ) && '0.00' !== $order_details['payment_type']['amount'] ) {
-                    echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
-                }
-                echo '<tr><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['total'] . '</td></tr>';
-                echo '</tbody></table>';
-                echo '</div>';
-            ?>
-        <?php
+            echo '<div class="customer-contact">';
+            echo '<table class="wpd-ecommerce order-details"><tbody>';
+            echo '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['subtotal'] . '</td></tr>';
+            if ( isset( $order_details['coupon_amount'] ) && '0.00' !== $order_details['coupon_amount'] ) {
+                echo '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_details['coupon_amount'] . '</td></tr>';
+            }
+            if ( isset( $order_details['sales_tax'] ) && '0.00' !== $order_details['sales_tax'] ) {
+                echo '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['sales_tax'] . '</td></tr>';
+            }
+            if ( isset( $order_details['excise_tax'] ) && '0.00' !== $order_details['excise_tax'] ) {
+                echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['excise_tax'] . '</td></tr>';
+            }
+            if ( isset( $order_details['payment_type']['amount'] ) && '0.00' !== $order_details['payment_type']['amount'] ) {
+                echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
+            }
+            echo '<tr><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['total'] . '</td></tr>';
+            echo '</tbody></table>';
+            echo '</div>';
+
             $user = wp_get_current_user();
             $role = ( array ) $user->roles;
 
@@ -98,7 +103,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
             } else {
                 wp_safe_redirect( wpd_ecommerce_account_url() );
             }
-        ?>
+            ?>
         </div>
     </div>
     <?php endwhile; ?>

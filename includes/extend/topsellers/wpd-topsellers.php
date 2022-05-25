@@ -22,7 +22,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /**
@@ -30,8 +30,8 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-wpd-topsellers-activator.php
  */
 function activate_wpd_topsellers() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-topsellers-activator.php';
-	WPD_TopSellers_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-topsellers-activator.php';
+    WPD_TopSellers_Activator::activate();
 }
 
 /**
@@ -39,8 +39,8 @@ function activate_wpd_topsellers() {
  * This action is documented in includes/class-wpd-topsellers-deactivator.php
  */
 function deactivate_wpd_topsellers() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-topsellers-deactivator.php';
-	WPD_TopSellers_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-topsellers-deactivator.php';
+    WPD_TopSellers_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wpd_topsellers' );
@@ -63,8 +63,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-topsellers.php';
  */
 function run_wpd_topsellers() {
 
-	$plugin = new WPD_TopSellers();
-	$plugin->run();
+    $plugin = new WPD_TopSellers();
+    $plugin->run();
 
 }
 run_wpd_topsellers();

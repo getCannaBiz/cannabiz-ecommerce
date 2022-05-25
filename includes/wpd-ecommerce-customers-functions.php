@@ -21,9 +21,9 @@ function wpd_ecommerce_disable_admin_bar() {
 
         // Hide admin bar for customers.
         if ( 'customer' === $role[0] ) {
-            show_admin_bar( FALSE );
+            show_admin_bar( false );
         } else {
-            show_admin_bar( TRUE );
+            show_admin_bar( true );
         }
     }
 }
@@ -106,7 +106,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         // Remove doctor recommendation file from user profile.
         if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
             // Update user meta.
-            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );        
         }
     
         /* Update user password. */
@@ -213,16 +213,16 @@ add_filter( 'login_redirect', 'wpd_ecommerce_login_redirect', 10, 3 );
  */
 function wpd_ecommerce_disable_author_archives_for_customers() {
     global $author;
-	if ( is_author() ) {
+    if ( is_author() ) {
         $user = get_user_by( 'id', $author );
         $role = ( array ) $user->roles;
 
-		if ( 'customer' === $role[0] ) {
-			wp_safe_redirect( wpd_ecommerce_menu_url() );
-		} else {
-			// Do nothing.
+        if ( 'customer' === $role[0] ) {
+            wp_safe_redirect( wpd_ecommerce_menu_url() );
+        } else {
+            // Do nothing.
         }
-	}
+    }
 }
 add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_customers' );
 
@@ -249,7 +249,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     // Remove doctor recommendation file from user profile.
     if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
         // Update user meta.
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );		
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );        
     }
 
     $doc_rec  = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
@@ -258,7 +258,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     <?php do_action( 'wpd_ecommerce_verification_title_before' ); ?>
     <h2><?php esc_html_e( 'Verification', 'wpd-ecommerce' ); ?></h2>
     <?php do_action( 'wpd_ecommerce_verification_table_before' ); ?>
-	<table class="form-table">
+    <table class="form-table">
     <?php do_action( 'wpd_ecommerce_verification_table_top' ); ?>
     <tr>
         <th scope="row"><?php esc_html_e( 'Drivers license or Valid ID', 'wpd-ecommerce' ); ?></th>
@@ -276,7 +276,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $valid_id. '<br />';
                 }
             ?>
-			<input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
+            <input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.valid-id -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_valid_id" value="" />
@@ -298,7 +298,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $doc_rec. '<br />';
                 }
             ?>
-			<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
+            <input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.recommendation-doc -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_recommendation_doc" value="" />
@@ -415,7 +415,7 @@ add_action( 'wpd_ecommerce_customer_account_verification_before', 'wpd_ecommerce
  * @since 1.5
  */
 function wpd_ecommerce_customers_registration_redirect( $registration_redirect ) {
-    if ( TRUE == wpd_settings_customers_registration_redirect() ) {
+    if ( true == wpd_settings_customers_registration_redirect() ) {
         // Return new redirect URL.
         return wpd_settings_customers_registration_redirect();
     } else {

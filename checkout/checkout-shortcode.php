@@ -2,12 +2,20 @@
 /**
  * WP Dispensary eCommerce checkout shortcode
  *
- * @since 1.0
+ * @package WPD_eCommerce
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @license GPL-2.0+ 
+ * @link    https://www.wpdispensary.com
+ * @since   1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
-// Add Checkout Shortcode.
+/**
+ * Add Checkout Shortcode.
+ * 
+ * @return string
+ */
 function wpd_ecommerce_checkout_shortcode() {
 
     // Register button.
@@ -34,7 +42,7 @@ function wpd_ecommerce_checkout_shortcode() {
             /* If checkout is submitted, do something specific . */
             if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
 
-                /** Update Email Address */
+                /* Update Email Address */
                 if ( null !== filter_input( INPUT_POST, 'email' ) ) {
                     if ( ! is_email( filter_input( INPUT_POST, 'email' ) ) )
                         $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
@@ -46,32 +54,41 @@ function wpd_ecommerce_checkout_shortcode() {
                 }
 
                 // Update First Name.
-                if ( null !== filter_input( INPUT_POST, 'first-name' ) )
+                if ( null !== filter_input( INPUT_POST, 'first-name' ) ) {
                     update_user_meta( $current_user->ID, 'first_name', esc_attr( filter_input( INPUT_POST, 'first-name' ) ) );
+                }
                 // Update Last Name.
-                if ( null !== filter_input( INPUT_POST, 'last-name' ) )
+                if ( null !== filter_input( INPUT_POST, 'last-name' ) ) {
                     update_user_meta( $current_user->ID, 'last_name', esc_attr( filter_input( INPUT_POST, 'last-name' ) ) );
+                }
                 // Update Phone Number.
-                if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
+                if ( null !== filter_input( INPUT_POST, 'phone_number' ) ) {
                     update_user_meta( $current_user->ID, 'phone_number', esc_attr( filter_input( INPUT_POST, 'phone_number' ) ) );
+                }
                 // Update Address Line 1.
-                if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
+                if ( null !== filter_input( INPUT_POST, 'address_line_1' ) ) {
                     update_user_meta( $current_user->ID, 'address_line_1', esc_attr( filter_input( INPUT_POST, 'address_line_1' ) ) );
+                }
                 // Update Address Line 2.
-                if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
+                if ( null !== filter_input( INPUT_POST, 'address_line_2' ) ) {
                     update_user_meta( $current_user->ID, 'address_line_2', esc_attr( filter_input( INPUT_POST, 'address_line_2' ) ) );
+                }
                 // Update City.
-                if ( null !== filter_input( INPUT_POST, 'city' ) )
+                if ( null !== filter_input( INPUT_POST, 'city' ) ) {
                     update_user_meta( $current_user->ID, 'city', esc_attr( filter_input( INPUT_POST, 'city' ) ) );
+                }
                 // Update State/County.
-                if ( null !== filter_input( INPUT_POST, 'state_country' ) )
+                if ( null !== filter_input( INPUT_POST, 'state_country' ) ) {
                     update_user_meta( $current_user->ID, 'state_county', esc_attr( filter_input( INPUT_POST, 'state_county' ) ) );
+                }
                 // Update Postcode/Zip.
-                if ( null !== filter_input( INPUT_POST, 'postcode_zip' ) )
+                if ( null !== filter_input( INPUT_POST, 'postcode_zip' ) ) {
                     update_user_meta( $current_user->ID, 'postcode_zip', esc_attr( filter_input( INPUT_POST, 'postcode_zip' ) ) );
+                }
                 // Update Country.
-                if ( null !== filter_input( INPUT_POST, 'country' ) )
+                if ( null !== filter_input( INPUT_POST, 'country' ) ) {
                     update_user_meta( $current_user->ID, 'country', esc_attr( filter_input( INPUT_POST, 'country' ) ) );
+                }
 
                 /**
                  * Redirect so the page will show updated info.
@@ -116,16 +133,22 @@ function wpd_ecommerce_checkout_shortcode() {
             <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
             <p class="form-row first form-first-name">
-                <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?>
+                    <span class="required">*</span>
+                </label>
                 <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
             </p><!-- .form-first-name -->
             <p class="form-row last form-last-name">
-                <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?>
+                    <span class="required">*</span>
+                </label>
                 <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
             </p><!-- .form-last-name -->
 
             <p class="form-row form-email">
-                <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?><span class="required">*</span></label>
+                <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?>
+                    <span class="required">*</span>
+                </label>
                 <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
             </p><!-- .form-email -->
 
@@ -169,11 +192,11 @@ function wpd_ecommerce_checkout_shortcode() {
                     $options = apply_filters( 'wpd_ecommerce_checkout_billing_details_form_countries', $options );
 
                     // Create country select list.
-                    foreach( $options as $value=>$name ) {
+                    foreach ( $options as $value=>$name ) {
                         if ( $name == $current_user_country ) {
-                                echo '<option selected="selected" value="' . $name . '">' . $name . '</option>';
+                            echo '<option selected="selected" value="' . $name . '">' . $name . '</option>';
                         } else {
-                                echo '<option value="' . $name . '">' . $name . '</option>';
+                            echo '<option value="' . $name . '">' . $name . '</option>';
                         }
                     }
                     ?>
@@ -246,7 +269,7 @@ function wpd_ecommerce_checkout_shortcode() {
 
                 $total_price = $amount * $regular_price;
 
-                $str .=	'<tr><td>' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
+                $str .=    '<tr><td>' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
             endforeach;
 
@@ -269,11 +292,11 @@ function wpd_ecommerce_checkout_shortcode() {
                 $str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
             }
             // Sales tax.
-            if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
+            if ( null !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
                 $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
             }
             // Excise tax.
-            if ( NULL !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
+            if ( null !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
                 $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
             }
 
@@ -307,6 +330,8 @@ add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
 
 /**
  * Fire this off when the order is a success.
+ * 
+ * @return string
  */
 function wpd_ecommerce_checkout_success() {
 
@@ -417,7 +442,7 @@ function wpd_ecommerce_checkout_success() {
         // Add item quantity to array.
         $total_items[] = $amount;
 
-        $str .=	'<tr style="border-bottom: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD;"><td style="padding: 12px 12px; vertical-align: middle;">' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td style="padding: 12px 12px; vertical-align: middle;"><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
+        $str .= '<tr style="border-bottom: 1px solid #DDD; border-left: 1px solid #DDD; border-right: 1px solid #DDD;"><td style="padding: 12px 12px; vertical-align: middle;">' . $i->thumbnail . '<a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> x <strong>' . $amount . '</strong></td><td style="padding: 12px 12px; vertical-align: middle;"><span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
     endforeach;
 
@@ -575,11 +600,11 @@ function wpd_ecommerce_checkout_success() {
     $subject           = esc_attr__( 'New order: #', 'wpd-ecommerce' ) . $order;
 
     // Create message for the email.
-    $message   = '<p>' . esc_attr__( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
-    $message  .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'wpd-ecommerce' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
+    $message  = '<p>' . esc_attr__( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
+    $message .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'wpd-ecommerce' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
 
     // Add order details to message.
-    $message  .= $str;
+    $message .= $str;
 
     // Create headers for the email.
     $headers[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';
@@ -600,12 +625,12 @@ function wpd_ecommerce_checkout_success() {
     $subject_customer  = 'Thank you for your order: #' . $order;
 
     // Create message for the email.
-    $message   = '<p>Hello ' . $user_info->first_name . ',</p>';
-    $message  .= '<p>Thank you for your order. You can see details of your order below as well as in your account at ' . get_bloginfo( 'name' ) . '</p>';
-    $message  .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
+    $message  = '<p>Hello ' . $user_info->first_name . ',</p>';
+    $message .= '<p>Thank you for your order. You can see details of your order below as well as in your account at ' . get_bloginfo( 'name' ) . '</p>';
+    $message .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
 
     // Add order details to message.
-    $message  .= $str;
+    $message .= $str;
 
     // Create headers for the email.
     $headers_customer[] = 'From: ' . get_bloginfo( 'name' ) . ' <' . get_option( 'admin_email' ) . '>';

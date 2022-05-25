@@ -10,7 +10,7 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
 }
 
 /**
@@ -18,8 +18,8 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-wpd-locations-activator.php
  */
 function activate_wpd_locations() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-locations-activator.php';
-	WPD_Locations_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-locations-activator.php';
+    WPD_Locations_Activator::activate();
 }
 
 /**
@@ -27,8 +27,8 @@ function activate_wpd_locations() {
  * This action is documented in includes/class-wpd-locations-deactivator.php
  */
 function deactivate_wpd_locations() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-locations-deactivator.php';
-	WPD_Locations_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-locations-deactivator.php';
+    WPD_Locations_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_wpd_locations' );
@@ -51,28 +51,28 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-locations.php';
  */
 function run_wpd_locations() {
 
-	$plugin = new WPD_Locations();
-	$plugin->run();
+    $plugin = new WPD_Locations();
+    $plugin->run();
 
 }
 run_wpd_locations();
 
 // Keeps the WP Dispensary link list open when taxonomy submenu items are open.
 function wpd_locations_keep_taxonomy_menu_open( $parent_file ) {
-	global $current_screen;
-	// Get current screen taxonomy.
-	$taxonomy = $current_screen->taxonomy;
-	// Check taxonomies.
-	if ( 'locations' == $taxonomy ) {
-		$parent_file = 'wpd-settings';
-	}
+    global $current_screen;
+    // Get current screen taxonomy.
+    $taxonomy = $current_screen->taxonomy;
+    // Check taxonomies.
+    if ( 'locations' == $taxonomy ) {
+        $parent_file = 'wpd-settings';
+    }
 
-	return $parent_file;
+    return $parent_file;
 }
 add_action( 'parent_file', 'wpd_locations_keep_taxonomy_menu_open' );
 
 // Adds Locations admin submenu link.
 function wpd_admin_menu_locations() {
-	add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
+    add_submenu_page( 'wpd-settings', 'WP Dispensary\'s Locations', 'Locations', 'manage_options', 'edit-tags.php?taxonomy=locations', null );
 }
 add_action( 'admin_menu', 'wpd_admin_menu_locations', 6 );

@@ -1,6 +1,12 @@
 <?php
-/*
+/**
  * Copy this file into your theme to customize
+ * 
+ * @package WPD_eCommerce
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @license GPL-2.0+ 
+ * @link    https://www.wpdispensary.com
+ * @since   1.0.0
  */
 get_header();
 

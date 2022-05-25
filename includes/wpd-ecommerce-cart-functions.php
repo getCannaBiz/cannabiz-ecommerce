@@ -36,13 +36,13 @@ function wpd_ecommerce_clear_cart() {
  * @since 1.0
  */
 function wpd_ecommerce_add_items_to_cart( $item_id, $count, $old_id, $new_price, $old_price ) {
-	if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
-		$c = new Cart;
-		$c->add_item( $item_id, $count, $old_id, $new_price, $old_price );
-		$_SESSION['wpd_ecommerce'] = $c;
-	else:
-		$_SESSION['wpd_ecommerce']->add_item( $item_id, $count, $old_id, $new_price, $old_price );
-	endif;
+    if ( empty( $_SESSION['wpd_ecommerce'] ) || ! isset( $_SESSION['wpd_ecommerce'] ) ):
+        $c = new Cart;
+        $c->add_item( $item_id, $count, $old_id, $new_price, $old_price );
+        $_SESSION['wpd_ecommerce'] = $c;
+    else:
+        $_SESSION['wpd_ecommerce']->add_item( $item_id, $count, $old_id, $new_price, $old_price );
+    endif;
 }
 
 /**
@@ -61,7 +61,7 @@ function wpd_ecommerce_checkout_ground_shipping() {
             $ground_shipping = esc_html( $wpd_payments['wpd_ecommerce_checkout_payments_ground_textarea'] );
             echo '<p class="form-directions">' . $ground_shipping . '</p>';
         } else {
-            $ground_shipping = NULL;
+            $ground_shipping = null;
         }
     }
 
@@ -75,11 +75,11 @@ add_action( 'wpd_ecommerce_checkout_after_order_details', 'wpd_ecommerce_checkou
  * @return void
  */
 function wpd_ecommerce_checkout_settings() {
-	// Get metavalue (payment type cost).
-	$metavalue = filter_input( INPUT_POST, 'metavalue' );
-	$metaname  = filter_input( INPUT_POST, 'metaname' );
-	$_SESSION['wpd_ecommerce']->payment_type_amount = $metavalue;
-	$_SESSION['wpd_ecommerce']->payment_type_name   = $metaname;
+    // Get metavalue (payment type cost).
+    $metavalue = filter_input( INPUT_POST, 'metavalue' );
+    $metaname  = filter_input( INPUT_POST, 'metaname' );
+    $_SESSION['wpd_ecommerce']->payment_type_amount = $metavalue;
+    $_SESSION['wpd_ecommerce']->payment_type_name   = $metaname;
     exit;
 }
 add_action( 'wp_ajax_wpd_ecommerce_checkout_settings', 'wpd_ecommerce_checkout_settings' );

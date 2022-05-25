@@ -929,7 +929,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 					if ( get_post_meta( get_the_id(), 'inventory_seeds', true ) ) {
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_seeds', true );
 						$inventory        = '<input id="inventory_seeds" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> seeds';
-					} elseif ( get_post_meta( get_the_ID(), 'inventory_clones', TRUE ) ) {
+					} elseif ( get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
 						$inventory_number = get_post_meta( get_the_id(), 'inventory_clones', true );
 						$inventory        = '<input id="inventory_clones" name="' . get_the_id() . '" type="number" class="qty" value="' . $inventory_number . '" /> clones';
 					} else {

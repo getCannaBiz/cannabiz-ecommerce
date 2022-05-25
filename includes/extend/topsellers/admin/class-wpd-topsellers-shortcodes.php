@@ -15,125 +15,125 @@
  */
 function wpdispensary_topsellers_shortcode( $atts ) {
 
-	// Menu types (array).
-	$array_types = wpd_menu_types();
+    // Menu types (array).
+    $array_types = wpd_menu_types();
 
-	// Loop through menu types.
-	foreach ( $array_types as $key=>$value ) {
-		// Strip wpd- from the menu type name.
-		$name = str_replace( 'wpd-', '', $key );
-		// Add menu type name to new array.
-		$menu_types_simple[] = $name;
-	}
+    // Loop through menu types.
+    foreach ( $array_types as $key=>$value ) {
+        // Strip wpd- from the menu type name.
+        $name = str_replace( 'wpd-', '', $key );
+        // Add menu type name to new array.
+        $menu_types_simple[] = $name;
+    }
 
-	// Menu types (string).
-	$menu_types = implode ( ', ', $menu_types_simple );
-	
-	/* Attributes */
-	extract( shortcode_atts(
-		array(
-			'posts'       => '100',
-			'class'       => '',
-			'id'          => '',
-			'title'       => 'Top Sellers',
-			'name'        => 'show',
-			'info'        => 'show',
-			'price'       => 'show',
-			'thc'         => 'show',
-			'thca'        => '',
-			'cbd'         => '',
-			'cba'         => '',
-			'cbn'         => '',
-			'cbg'         => '',
-			'aroma'       => '',
-			'flavor'      => '',
-			'effect'      => '',
-			'symptom'     => '',
-			'condition'   => '',
-			'vendor'      => '',
-			'shelf_type'  => '',
-			'strain_type' => '',
-			'category'    => '',
-			'seed_count'  => 'show',
-			'clone_count' => 'show',
-			'total_thc'   => 'show',
-			'size'        => 'show',
-			'weight'      => 'show',
-			'servings'    => '',
-			'order'       => 'DESC',
-			'orderby'     => '',
-			'type'        => $menu_types,
-			'image'       => 'show',
-			'imgsize'     => 'wpd-small',
-			'viewall'     => ''
-		),
-		$atts,
-		'wpd_topsellers'
-	) );
+    // Menu types (string).
+    $menu_types = implode ( ', ', $menu_types_simple );
+    
+    /* Attributes */
+    extract( shortcode_atts(
+        array(
+            'posts'       => '100',
+            'class'       => '',
+            'id'          => '',
+            'title'       => 'Top Sellers',
+            'name'        => 'show',
+            'info'        => 'show',
+            'price'       => 'show',
+            'thc'         => 'show',
+            'thca'        => '',
+            'cbd'         => '',
+            'cba'         => '',
+            'cbn'         => '',
+            'cbg'         => '',
+            'aroma'       => '',
+            'flavor'      => '',
+            'effect'      => '',
+            'symptom'     => '',
+            'condition'   => '',
+            'vendor'      => '',
+            'shelf_type'  => '',
+            'strain_type' => '',
+            'category'    => '',
+            'seed_count'  => 'show',
+            'clone_count' => 'show',
+            'total_thc'   => 'show',
+            'size'        => 'show',
+            'weight'      => 'show',
+            'servings'    => '',
+            'order'       => 'DESC',
+            'orderby'     => '',
+            'type'        => $menu_types,
+            'image'       => 'show',
+            'imgsize'     => 'wpd-small',
+            'viewall'     => ''
+        ),
+        $atts,
+        'wpd_topsellers'
+    ) );
 
-	// Create $tax_query variable.
-	$tax_query = array(
-		'relation' => 'AND',
-	);
+    // Create $tax_query variable.
+    $tax_query = array(
+        'relation' => 'AND',
+    );
 
-	// Add aromas to $tax_query.
-	if ( '' !== $aroma ) {
-		$tax_query[] = array(
-			'taxonomy' => 'aroma',
-			'field'    => 'slug',
-			'terms'    => $aroma,
-		);
-	}
+    // Add aromas to $tax_query.
+    if ( '' !== $aroma ) {
+        $tax_query[] = array(
+            'taxonomy' => 'aroma',
+            'field'    => 'slug',
+            'terms'    => $aroma,
+        );
+    }
 
-	// Add flavors to $tax_query.
-	if ( '' !== $flavor ) {
-		$tax_query[] = array(
-			'taxonomy' => 'flavor',
-			'field'    => 'slug',
-			'terms'    => $flavor,
-		);
-	}
+    // Add flavors to $tax_query.
+    if ( '' !== $flavor ) {
+        $tax_query[] = array(
+            'taxonomy' => 'flavor',
+            'field'    => 'slug',
+            'terms'    => $flavor,
+        );
+    }
 
-	// Add effects to $tax_query.
-	if ( '' !== $effect ) {
-		$tax_query[] = array(
-			'taxonomy' => 'effect',
-			'field'    => 'slug',
-			'terms'    => $effect,
-		);
-	}
+    // Add effects to $tax_query.
+    if ( '' !== $effect ) {
+        $tax_query[] = array(
+            'taxonomy' => 'effect',
+            'field'    => 'slug',
+            'terms'    => $effect,
+        );
+    }
 
-	// Add symptoms to $tax_query.
-	if ( '' !== $symptom ) {
-		$tax_query[] = array(
-			'taxonomy' => 'symptom',
-			'field'    => 'slug',
-			'terms'    => $symptom,
-		);
-	}
+    // Add symptoms to $tax_query.
+    if ( '' !== $symptom ) {
+        $tax_query[] = array(
+            'taxonomy' => 'symptom',
+            'field'    => 'slug',
+            'terms'    => $symptom,
+        );
+    }
 
-	// Add conditions to $tax_query.
-	if ( '' !== $condition ) {
-		$tax_query[] = array(
-			'taxonomy' => 'condition',
-			'field'    => 'slug',
-			'terms'    => $condition,
-		);
-	}
+    // Add conditions to $tax_query.
+    if ( '' !== $condition ) {
+        $tax_query[] = array(
+            'taxonomy' => 'condition',
+            'field'    => 'slug',
+            'terms'    => $condition,
+        );
+    }
 
-	// Add vendors to $tax_query.
-	if ( '' !== $vendor ) {
-		$tax_query[] = array(
-			'taxonomy' => 'vendor',
-			'field'    => 'slug',
-			'terms'    => $vendor,
-		);
-	}
+    // Add vendors to $tax_query.
+    if ( '' !== $vendor ) {
+        $tax_query[] = array(
+            'taxonomy' => 'vendor',
+            'field'    => 'slug',
+            'terms'    => $vendor,
+        );
+    }
 
-	// Add shelf types to $tax_query.
-	if ( '' !== $shelf_type ) {
-		$tax_query[] = array(
-			'taxonomy' => 'shelf_type',
+    // Add shelf types to $tax_query.
+    if ( '' !== $shelf_type ) {
+        $tax_query[] = array(
+    		'taxonomy' => 'shelf_type',
 			'field'    => 'slug',
 			'terms'    => $shelf_type,
 		);
