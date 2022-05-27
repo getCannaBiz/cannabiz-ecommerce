@@ -19,7 +19,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
     <?php while ( have_posts() ) : the_post(); ?>
     <div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
         <header class="entry-header">
-            <h1 class="item_name"><?php the_title(); ?><?php esc_html_e( $order_details['status']['status_display'] ); ?></h1>
+            <h1 class="item_name"><?php the_title(); ?><?php echo wp_kses( $order_details['status']['status_display'], wpd_ecommerce_allowed_tags() ); ?></h1>
             <?php
                 // Include notifications.
                 echo wpd_ecommerce_notifications();
