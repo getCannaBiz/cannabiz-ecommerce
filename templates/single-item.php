@@ -22,7 +22,7 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
 
                 <div class="image-wrapper">
                     <?php wpd_product_image( get_the_ID(), 'wpd-medium' ); ?>
-                </div><!-- // .image-wrapper -->
+                </div><!-- /.image-wrapper -->
 
                 <div class="product-details">
 
@@ -72,8 +72,8 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
                     do_action( 'wpd_ecommerce_item_details_after' );
                     ?>
 
-                </div><!-- / .product-details -->
-            </div><!-- / .wpd-ecommerce-shelfItem -->
+                </div><!-- /.product-details -->
+            </div><!-- /.wpd-ecommerce-shelfItem -->
 
             <?php do_action( 'wpd_ecommerce_templates_single_items_entry_header_after' ); ?>
 
@@ -81,11 +81,16 @@ do_action( 'wpd_ecommerce_templates_single_items_wrap_before' );
 
             <div class="entry-content wpd-ecommerce-shelfContent">
                 <?php
-                    do_action( 'wpd_ecommerce_single_item_content_before' );
-                    the_content();
-                    do_action( 'wpd_ecommerce_single_item_content_after' );
-                ?>
-            </div><!-- / wpd-ecommerce-shelfContent -->
+                do_action( 'wpd_ecommerce_single_item_content_before' );
+                the_content();
+                do_action( 'wpd_ecommerce_single_item_content_after' );
+                if ( comments_open() || get_comments_number() ) { ?>
+                    <div class="comments">
+                        <?php comments_template(); ?>
+                    </div><!-- /.comments -->
+                <?php } ?>
+
+            </div><!-- /.wpd-ecommerce-shelfContent -->
 
             <?php do_action( 'wpd_ecommerce_templates_single_items_entry_content_after' ); ?>
 
