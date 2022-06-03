@@ -2,7 +2,12 @@
 /**
  * WP Dispensary eCommerce customer helper functions
  *
- * @since 1.0
+ * @package    WPD_eCommerce
+ * @subpackage WPD_eCommerce/includes
+ * @author     WP Dispensary <contact@wpdispensary.com>
+ * @license    GPL-2.0+ 
+ * @link       https://www.wpdispensary.com
+ * @since      1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -10,7 +15,8 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Disable admin bar for customers.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function wpd_ecommerce_disable_admin_bar() {
 
@@ -32,7 +38,8 @@ add_action( 'after_setup_theme', 'wpd_ecommerce_disable_admin_bar' );
 /**
  * Disable wp-admin for customers.
  *
- * @since 1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function wpd_ecommerce_disable_admin_dashboard() {
     $user = wp_get_current_user();
@@ -57,6 +64,9 @@ add_action( 'init', 'wpd_ecommerce_disable_admin_dashboard' );
 
 /**
  * Prevent wp-login.php for customers
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function wpd_ecommerce_prevent_wp_login() {
 
@@ -86,6 +96,7 @@ add_action( 'init', 'wpd_ecommerce_prevent_wp_login' );
 /**
  * Customer dashboard - update user data
  * 
+ * @since  1.0.0
  * @return void
  */
 function wpd_ecommerce_update_user_customer_dashboard() {
@@ -111,44 +122,55 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     
         /* Update user password. */
         if ( ! empty( filter_input( INPUT_POST, 'pass1' ) ) && ! empty( filter_input( INPUT_POST, 'pass2' ) ) ) {
-            if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) )
+            if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) ) {
                 wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( filter_input( INPUT_POST, 'pass1' ) ) ) );
-            else
+            } else {
                 $error[] = esc_attr__( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
+            }
         }
 
         /* Update user email address */
         if ( null !== filter_input( INPUT_POST, 'email' ) ) {
-            if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) )
+            if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) ) {
                 $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
-            elseif( email_exists( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) != $current_user->id )
+            } elseif( email_exists( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) != $current_user->id ) {
                 $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
-            else {
+            } else {
                 wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) );
             }
         }
 
         /* Update user information */
-        if ( null !== filter_input( INPUT_POST, 'first-name' ) )
+        if ( null !== filter_input( INPUT_POST, 'first-name' ) ) {
             update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( filter_input( INPUT_POST, 'first-name' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'last-name' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'last-name' ) ) {
             update_user_meta($current_user->ID, 'last_name', sanitize_text_field( filter_input( INPUT_POST, 'last-name' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'phone_number' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'phone_number' ) ) {
             update_user_meta( $current_user->ID, 'phone_number', sanitize_text_field( filter_input( INPUT_POST, 'phone_number' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'address_line_1' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'address_line_1' ) ) {
             update_user_meta( $current_user->ID, 'address_line_1', sanitize_text_field( filter_input( INPUT_POST, 'address_line_1' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'address_line_2' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'address_line_2' ) ) {
             update_user_meta( $current_user->ID, 'address_line_2', sanitize_text_field( filter_input( INPUT_POST, 'address_line_2' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'city' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'city' ) ) {
             update_user_meta( $current_user->ID, 'city', sanitize_text_field( filter_input( INPUT_POST, 'city' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'state_country' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'state_country' ) ) {
             update_user_meta( $current_user->ID, 'state_county', sanitize_text_field( filter_input( INPUT_POST, 'state_county' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'postal_zip' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'postal_zip' ) ) {
             update_user_meta( $current_user->ID, 'postal_zip', sanitize_text_field( filter_input( INPUT_POST, 'postal_zip' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'country' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'country' ) ) {
             update_user_meta( $current_user->ID, 'country', sanitize_text_field( filter_input( INPUT_POST, 'country' ) ) );
-        if ( null !== filter_input( INPUT_POST, 'description' ) )
+        }
+        if ( null !== filter_input( INPUT_POST, 'description' ) ) {
             update_user_meta( $current_user->ID, 'description', sanitize_text_field( filter_input( INPUT_POST, 'description' ) ) );
+        }
 
         /**
          * Redirect so the page will show updated info.
@@ -166,7 +188,8 @@ add_action( 'init', 'wpd_ecommerce_update_user_customer_dashboard' );
 /**
  * Login failed redirect
  * 
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_login_failed() {
     $login_page = wpd_ecommerce_account_url();
@@ -183,7 +206,12 @@ add_action( 'wp_login_failed', 'wpd_ecommerce_login_failed' );
 /**
  * Login success redirect
  * 
- * @since 1.0
+ * @param string           $redirect_to 
+ * @param string           $request      
+ * @param WP_User|WP_Error $user        
+ * 
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
     $user         = wp_get_current_user();
@@ -209,7 +237,8 @@ add_filter( 'login_redirect', 'wpd_ecommerce_login_redirect', 10, 3 );
 /**
  * Disable author archives for customers.
  *
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_disable_author_archives_for_customers() {
     global $author;
@@ -229,7 +258,10 @@ add_action( 'template_redirect', 'wpd_ecommerce_disable_author_archives_for_cust
 /**
  * Add profile options to Edit User screen
  * 
- * @since 1.1
+ * @param int $profileuser 
+ * 
+ * @since  1.1
+ * @return void
  */
 function wpd_ecommerce_add_profile_options( $profileuser ) {
     // Update recommendation number.
@@ -287,7 +319,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
         <td class="wpd-details-recommendation-doc">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
-            <?php //var_dump( $doc_rec );
+                <?php //var_dump( $doc_rec );
                 if ( ! isset( $doc_rec['error'] ) ) {
                     if ( ! empty( $doc_rec ) ) {
                         $doc_rec = $doc_rec['url'];
@@ -297,7 +329,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     $doc_rec = $doc_rec['error'];
                     echo $doc_rec. '<br />';
                 }
-            ?>
+                ?>
             <input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.recommendation-doc -->
             <?php } ?>
@@ -327,7 +359,10 @@ add_action( 'edit_user_profile', 'wpd_ecommerce_add_profile_options' );
 /**
  * Save File upload in user profile.
  * 
- * @since 1.1
+ * @param int $user_id 
+ * 
+ * @since  1.1
+ * @return void
  */
 function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
 
@@ -341,8 +376,9 @@ function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
     }
 
     // If no new files are uploaded, return.
-    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_ecommerce_customer_recommendation_doc'] ) &&  ! isset( $_FILES['wpd_ecommerce_customer_valid_id'] ) )
+    if ( ! isset( $_FILES ) || empty( $_FILES ) || ! isset( $_FILES['wpd_ecommerce_customer_recommendation_doc'] ) &&  ! isset( $_FILES['wpd_ecommerce_customer_valid_id'] ) ) {
         return;
+    }
 
     // Include file for wp_handle_upload.
     if ( ! function_exists( 'wp_handle_upload' ) ) {
@@ -412,7 +448,10 @@ add_action( 'wpd_ecommerce_customer_account_verification_before', 'wpd_ecommerce
 /**
  * Redirect customers on successful registration.
  * 
- * @since 1.5
+ * @param [type] $registration_redirect 
+ * 
+ * @since  1.5
+ * @return void
  */
 function wpd_ecommerce_customers_registration_redirect( $registration_redirect ) {
     if ( true == wpd_settings_customers_registration_redirect() ) {
@@ -481,5 +520,4 @@ function wpd_ecommerce_register_form() {
     echo '</div>';
 
     do_action( 'wpd_ecommerce_customer_account_register_form_after' );
-
 }
