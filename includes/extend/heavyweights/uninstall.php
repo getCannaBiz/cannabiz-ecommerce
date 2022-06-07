@@ -20,6 +20,7 @@
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
  * @package WPD_Heavyweights
+ * @author  WP Dispensary <contact@wpdispensary.com>
  * @link    https://www.wpdispensary.com
  * @since   1.0.0
  */

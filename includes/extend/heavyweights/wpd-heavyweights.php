@@ -3,24 +3,25 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com
- * @since             4.0.0
- * @package           WPD_Heavyweights
+ * @package WPD_Heavyweights
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @link    https://www.wpdispensary.com
+ * @since   4.0.0
  */
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-    die;
+    wp_die();
 }
 
-/**
- * Current plugin version.
- */
+// Current plugin version.
 define( 'WPD_HEAVYWEIGHTS_VERSION', '1.4' );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wpd-heavyweights-activator.php
+ * 
+ * @return void
  */
 function activate_wpd_heavyweights() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-activator.php';
@@ -30,6 +31,8 @@ function activate_wpd_heavyweights() {
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wpd-heavyweights-deactivator.php
+ * 
+ * @return void
  */
 function deactivate_wpd_heavyweights() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights-deactivator.php';
@@ -52,7 +55,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-heavyweights.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function run_wpd_heavyweights() {
 
