@@ -30,3 +30,7 @@ body.post-type-concentrates #wpdispensary_heavyweight_prices .inside .pricebox {
 		width: 23%;
 	}
 }
+
+div#wp_dispensary_product_prices .inside div.input-field.flower-price {
+    flex-basis: 12% !important;
+}
