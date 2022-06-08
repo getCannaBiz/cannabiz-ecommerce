@@ -3,9 +3,10 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com/
- * @since             4.0.0
- * @package           WPD_Inventory
+ * @package WPD_Inventory
+ * @author  WP Dispensary <contact@wpdispensary.com>
+ * @link    https://www.wpdispensary.com/
+ * @since   4.0.0
  */
 
 // If this file is called directly, abort.
@@ -32,6 +33,8 @@ if ( ! defined( 'WPD_INVENTORY_URL' ) ) {
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wpd-inventory-activator.php
+ * 
+ * @return void
  */
 function activate_wpd_inventory() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-activator.php';
@@ -41,6 +44,8 @@ function activate_wpd_inventory() {
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-wpd-inventory-deactivator.php
+ * 
+ * @return void
  */
 function deactivate_wpd_inventory() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory-deactivator.php';
@@ -63,7 +68,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-wpd-inventory.php';
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since  1.0.0
+ * @return void
  */
 function run_wpd_inventory() {
 
@@ -79,6 +85,7 @@ run_wpd_inventory();
  * Related to all settings API.
  *
  * @since  1.0.0
+ * @return void
  */
 if ( class_exists( 'WPD_INVENTORY_SETTINGS' ) ) {
     /**
@@ -87,5 +94,4 @@ if ( class_exists( 'WPD_INVENTORY_SETTINGS' ) ) {
      * Object for the class `WPD_INVENTORY_SETTINGS`.
      */
     $wpd_inventory_obj = new WPD_INVENTORY_SETTINGS();
-
 }

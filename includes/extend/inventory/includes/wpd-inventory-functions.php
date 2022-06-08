@@ -1,11 +1,19 @@
 <?php
-
+/**
+ * Helper functions
+ * 
+ * @package    WPD_Inventory
+ * @subpackage WPD_Inventory/includes
+ * @author     WP Dispensary <contact@wpdispensary.com>
+ * @link       https://www.wpdispensary.com/
+ * @since      4.0.0
+ */
 
 /**
  * Out of Stock warnings in shortcodes.
  *
- * @return    string
- * @since     1.8
+ * @since  1.8
+ * @return string
  */
 function wpd_inventory_oos_shortcode_warnings() {
 
