@@ -281,7 +281,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     // Remove doctor recommendation file from user profile.
     if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
         // Update user meta.
-        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );        
+        update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', '' ); 
     }
 
     $doc_rec  = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
@@ -297,7 +297,7 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
         <td class="wpd-details-valid-id">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
             <div class="valid-id">
-            <?php //var_dump( $valid_id );
+                <?php //var_dump( $valid_id );
                 if ( ! isset( $valid_id['error'] ) ) {
                     if ( ! empty( $valid_id ) ) {
                         $valid_id = $valid_id['url'];
@@ -307,8 +307,8 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     $valid_id = $valid_id['error'];
                     echo $valid_id. '<br />';
                 }
-            ?>
-            <input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
+                ?>
+                <input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
             </div><!-- /.valid-id -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_valid_id" value="" />

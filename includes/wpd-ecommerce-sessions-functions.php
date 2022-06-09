@@ -10,7 +10,10 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Destroy Session
  * 
- * @since       1.0.0
+ * @param bool $eat_cookies 
+ * 
+ * @since  1.0.0
+ * @return void
  */
 function wpd_ecommerce_destroy_session( $eat_cookies = null ) {
     // Unset all of the session variables.
@@ -39,7 +42,8 @@ function wpd_ecommerce_destroy_session( $eat_cookies = null ) {
 /**
  * Destroy Session Logout
  *
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_logout() {
     wpd_ecommerce_destroy_session( true );
@@ -100,7 +104,8 @@ function get_wpd_cookie_lifetime() {
 /**
  * Load Session
  * 
- * @since       1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_load_session() {
     if ( ! isset( $_SESSION ) ) {
@@ -131,7 +136,7 @@ function wpd_ecommerce_cart_session() {
     wpd_ecommerce_load_session();
 
     /**
-     * initialise the cart session, if it exist, unserialize it, otherwise make it.
+     * Initialise the cart session, if it exist, unserialize it, otherwise make it.
      */
     if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
         if ( is_object( $_SESSION['wpd_ecommerce'] ) ) {

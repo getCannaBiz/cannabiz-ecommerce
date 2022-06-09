@@ -12,7 +12,8 @@ defined( 'ABSPATH' ) || exit;
  * 
  * Add to cart functionality for blocks, shortcodes, and widgets
  * 
- * @since 1.0
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_archive_items_buttons( $product_id ) {
 
@@ -129,7 +130,6 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     }
 
     echo apply_filters( 'wpd_ecommerce_archive_items_buttons', $button );
-
 }
 
 /**
@@ -138,7 +138,8 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
  * This will hide the add to cart functionality if option is 
  * selected in the admin settings
  * 
- * @since 1.3
+ * @since  1.3
+ * @return void
  */
 function wpd_ecommerce_item_buttons() {
 
@@ -169,7 +170,10 @@ add_action( 'plugins_loaded', 'wpd_ecommerce_item_buttons' );
  * 
  * This function gets the buy buttons for products
  * 
- * @since 1.0
+ * @param int $product_id 
+ * 
+ * @since  1.0
+ * @return string $str
  */
 function get_wpd_ecommerce_product_buttons( $product_id ) {
 
@@ -274,7 +278,6 @@ function wpd_ecommerce_archive_template_data() {
             $post_type_slug = $post_type_data->rewrite['slug'];
             $menu_type_name = $post_type_name;
         }
-    
     }
 
     // Build data array.

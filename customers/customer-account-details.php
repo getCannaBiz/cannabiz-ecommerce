@@ -2,11 +2,12 @@
 /**
  * WP Dispensary eCommerce customer account details
  *
- * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
- * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
- * @since   1.0.0
+ * @package    WPD_eCommerce
+ * @subpackage WPD_eCommerce/customers
+ * @author     WP Dispensary <contact@wpdispensary.com>
+ * @license    GPL-2.0+ 
+ * @link       https://www.wpdispensary.com
+ * @since      1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;

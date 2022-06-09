@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * WP Dispensary eCommerce notifications.
  *
- * @since 1.0
+ * @since  1.0
  * @return string
  */
 function wpd_ecommerce_notifications() {
@@ -22,11 +22,11 @@ function wpd_ecommerce_notifications() {
 
     if ( in_array( get_post_type(), apply_filters( 'wpd_ecommerce_box_notifications_array', array( 'products' ) ) ) ) {
 
+        $view_cart_button = '';
+
         // Check if cart widget is active.
         if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
             $view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . esc_attr__( 'View Cart', 'wpd-ecommerce' ) . '</a>';
-        } else {
-            $view_cart_button = '';
         }
 
         // Please select a weight notification for flowers.
@@ -582,7 +582,8 @@ function wpd_ecommerce_notifications() {
  * 
  * Updated inventory count when an order is placed.
  * 
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_inventory_management_updates( $get_id ) {
     global $wpdb;
@@ -966,7 +967,8 @@ function wpd_ecommerce_inventory_management_updates( $get_id ) {
 /**
  * Template wrap - before
  * 
- * @since 1.0
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_wrap_before() {
     echo '<div id="primary" class="col-lg-12 content-area">
@@ -977,7 +979,8 @@ add_action( 'wpd_ecommerce_templates_archive_items_wrap_before', 'wpd_ecommerce_
 /**
  * Template wrap - before (single templates)
  * 
- * @since 4.0
+ * @since  2.0
+ * @return string
  */
 function wpd_ecommerce_wrap_before_single() {
     echo '<div id="primary" class="col-lg-8 content-area">
@@ -989,7 +992,8 @@ add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_
 /**
  * Template wrap - after
  * 
- * @since 1.0
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_wrap_after() {
     echo '</main>
@@ -1013,7 +1017,8 @@ if ( 'twentyseventeen' == $template_name ) {
     /**
      * Template wrap - before
      * 
-     * @since 1.0
+     * @since  1.0
+     * @return string
      */
     function wpd_ecommerce_wrap_before_twentyseventeen() {
         echo '<div class="wrap"><div id="primary" class="content-area">
@@ -1037,6 +1042,11 @@ if ( 'twentyseventeen' == $template_name ) {
 
 } // if twentyseventeen theme
 
+/**
+ * Admin settings section after
+ * 
+ * @return object
+ */
 function wpd_admin_settings_section_after() {
     // Section: Pages.
     $wpdas_object = $wpdas_obj->add_section(
@@ -1060,12 +1070,12 @@ function wpd_ecommerce_single_items_vendors() {
 
     // Get vendors.
     if ( get_the_term_list( get_the_ID(), 'vendors', true ) ) {
-        $wpdvendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendors', '', ', ', '' ) . '</span>';
+        $wpd_vendors = '<span class="wpd-ecommerce vendors">' . get_the_term_list( $post->ID, 'vendors', '', ', ', '' ) . '</span>';
     } else {
-        $wpdvendors = '';
+        $wpd_vendors = '';
     }
     // Display vendors.
-    echo $wpdvendors;
+    echo $wpd_vendors;
 
 }
 add_action( 'wpd_ecommerce_templates_single_items_entry_title_before', 'wpd_ecommerce_single_items_vendors' );
@@ -1073,7 +1083,8 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_title_before', 'wpd_ecom
 /**
  * Single items - Notifications
  * 
- * @since 1.0
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_single_items_notifications(){
     echo wpd_ecommerce_notifications();
@@ -1098,10 +1109,10 @@ add_action( 'wpd_ecommerce_templates_single_items_item_types_inside', 'wpd_ecomm
 /**
  * Single items - Add to cart form
  * 
- * @since 1.0
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_add_to_cart_form() {
-
     // Set prices.
     if ( in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
         $regular_price = esc_html( get_post_meta( get_the_ID(), 'price_each', true ) );
@@ -1765,7 +1776,7 @@ function wpd_ecommerce_menu_url() {
  * 
  * Get an array of the available payment types.
  * 
- * @since 1.6
+ * @since  1.6
  * @return array $payment_types
  */
 function wpd_ecommerce_payment_types() {
@@ -1824,7 +1835,8 @@ function wpd_ecommerce_payment_types() {
  * a handful of additional HTML fields that are used throughout
  * this plugin
  * 
- * @since 2.1
+ * @since  2.1
+ * @return array
  */
 function wpd_ecommerce_allowed_tags() {
     $my_allowed = wp_kses_allowed_html( 'post' );

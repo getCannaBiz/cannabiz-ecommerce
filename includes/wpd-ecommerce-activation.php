@@ -7,7 +7,11 @@
 
 defined( 'ABSPATH' ) || exit;
 
-// Add Customer user role.
+/**
+ * Add Customer user role.
+ * 
+ * @return void
+ */
 function wpd_ecommerce_add_customer_user_role_activation() {
     $role_set = get_option( 'wpd_ecommerce_customer_role_set' );
     if ( ! $role_set ) {
@@ -20,7 +24,8 @@ add_action( 'plugins_loaded', 'wpd_ecommerce_add_customer_user_role_activation' 
 /**
  * Add custom pages on plugin activation.
  * 
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_add_ecommerce_pages_activation() {
     /**
@@ -28,7 +33,9 @@ function wpd_ecommerce_add_ecommerce_pages_activation() {
      *
      * @since 1.0
      */
-    if ( ! current_user_can( 'activate_plugins' ) ) return;
+    if ( ! current_user_can( 'activate_plugins' ) ) {
+        return;
+    }
 
     global $wpdb;
 
@@ -71,7 +78,8 @@ register_activation_hook( __FILE__, 'wpd_ecommerce_add_ecommerce_pages_activatio
 /**
  * Create orders database table on install
  * 
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_db_install() {
     // Run function.
@@ -82,7 +90,8 @@ register_activation_hook( __FILE__, 'wpd_ecommerce_db_install' );
 /**
  * Custom database options
  * 
- * @since 1.0
+ * @since  1.0
+ * @return void
  */
 function wpd_ecommerce_add_options() {
     // Add page link options.

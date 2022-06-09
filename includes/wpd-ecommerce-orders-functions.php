@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Get all order statuses.
  *
- * @since 1.0
+ * @since  1.0
  * @return array
  */
 function wpd_ecommerce_get_order_statuses() {
@@ -29,7 +29,11 @@ function wpd_ecommerce_get_order_statuses() {
 /**
  * Helper function - display order item details in table format
  * 
- * @since 1.0
+ * @param int $order_id 
+ * @param int $user_id 
+ * 
+ * @since  1.0
+ * @return string
  */
 function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     // Get customer ID from order.
@@ -120,7 +124,10 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
 /**
  * Customize the filter for orders updated messages.
  * 
- * @since 1.0
+ * @param array $messages 
+ * 
+ * @since  1.0
+ * @return array
  */
 function wpd_ecommerce_order_updated_messages( $messages ) {
     global $post;
@@ -149,7 +156,11 @@ add_filter( 'post_updated_messages', 'wpd_ecommerce_order_updated_messages' );
  * 
  * If passing 'span' to $display, make sure to add an $order_id
  * 
- * @since 1.0
+ * @param int         $order_id 
+ * @param bool|string $display 
+ * @param bool|string $classes 
+ * 
+ * @since  1.0
  * @return string
  */
 function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = null ) {
@@ -171,7 +182,7 @@ function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = nu
     /**
      * Span style.
      * 
-     * @since 1.0
+     * @since  1.0
      * @return string
      */
     if ( 'span' === $display ) {
@@ -182,7 +193,7 @@ function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = nu
     /**
      * Select style.
      * 
-     * @since 1.0
+     * @since  1.0
      * @return string
      */
     if ( 'select' === $display ) {
@@ -206,7 +217,8 @@ function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = nu
 /**
  * Get order details
  * 
- * @param  int $order_id
+ * @param int $order_id 
+ * 
  * @since  1.0
  * @return array
  */
@@ -317,7 +329,8 @@ add_action( 'wpd_ecommerce_templates_single_orders_wrap_before', 'wpd_ecommerce_
 /**
  * Get total orders per customer
  * 
- * @param  $customer_id 
+ * @param int $customer_id 
+ * 
  * @since  2.0
  * @return int
  */
@@ -351,9 +364,10 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
 /**
  * Get order details
  * 
- * @param  int    $customer_id
- * @param  string $start_date
- * @param  string $end_date
+ * @param int    $customer_id 
+ * @param string $start_date 
+ * @param string $end_date 
+ * 
  * @since  2.0
  * @return array
  */
