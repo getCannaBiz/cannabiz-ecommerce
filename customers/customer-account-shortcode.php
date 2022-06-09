@@ -38,19 +38,26 @@ function wpd_customer_account_shortcode() {
         ?>
 
         <div class="wpd-ecommerce customer-account">
-            <input class="account-links" id="tab1" type="radio" name="tabs" checked>
-            <label class="account-links" for="tab1"><?php esc_html_e( 'Dashboard', 'wpd-ecommerce' ); ?></label>
+            <?php
+            // Variable.
+            $number = 1;
+            // Create tabs.
+            $account_tabs = array(
+                esc_attr__( 'Dashboard', 'wpd-ecommerce' ),
+                esc_attr__( 'Orders', 'wpd-ecommerce' ),
+                esc_attr__( 'Details', 'wpd-ecommerce' ),
+            );
 
-            <input class="account-links" id="tab2" type="radio" name="tabs">
-            <label class="account-links" for="tab2"><?php esc_html_e( 'Orders', 'wpd-ecommerce' ); ?></label>
+            $account_tabs = apply_filters( 'wpd_ecommerce_customer_account_shortcode_tabs', $account_tabs );
 
-            <input class="account-links" id="tab3" type="radio" name="tabs">
-            <label class="account-links" for="tab3"><?php esc_html_e( 'Details', 'wpd-ecommerce' ); ?></label>
-
-    <!--
-            <input class="account-links" id="tab4" type="radio" name="tabs">
-            <label class="account-links" for="tab4">Another One</label>
-    -->
+            // Loop through account tabs.
+            foreach ( $account_tabs as $tab ) {
+                // Output the tab.
+                echo '<input class="account-links" id="tab' . $number . '" type="radio" name="tabs" checked>
+                <label class="account-links" for="tab' . $number . '">' . esc_html__( $tab, 'wpd-ecommerce' ) . '</label>';
+                $number++;
+            }
+            ?>
 
             <section id="content1">
 
