@@ -277,7 +277,6 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
         // Update user meta.
         update_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', '' );
     }
-
     // Remove doctor recommendation file from user profile.
     if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
         // Update user meta.
@@ -521,3 +520,41 @@ function wpd_ecommerce_register_form() {
 
     do_action( 'wpd_ecommerce_customer_account_register_form_after' );
 }
+
+/**
+ * Restrict media upload visibility
+ * 
+ * This function updates the media library to only display files that 
+ * have been uploaded by the current user.
+ * 
+ * Please note: Administrators do not have these restrictions, so they 
+ * can still view all media on the site. 
+ * 
+ * You can alter which user roles are unrestricted by using the
+ * wpd_ecommerce_restrict_media_user_roles filter.
+ * 
+ * @since  2.2.0
+ * @return string $where
+ */
+function wpd_ecommerce_wpquery_where( $where ) {
+    global $current_user;
+
+    // Very that a user is logged in.
+    if ( is_user_logged_in() ){
+        // logged in user, but are we viewing the library?
+        if ( isset( $_POST['action'] ) && ( $_POST['action'] == 'query-attachments' ) ) {
+            // Get user roles.
+            $roles = ( array ) $current_user->roles;
+            // Get allowed user roles.
+            $allowed_roles = apply_filters( 'wpd_ecommerce_restrict_media_user_roles', array( 'administrator' ) );
+            // Check if the current user is in the allowed list.
+            if ( ! array_intersect( $allowed_roles, $roles ) ) {
+                // here you can add some extra logic if you'd want to.
+                $where .= " AND post_author=" . $current_user->data->ID;
+            }
+        }
+    }
+
+    return $where;
+}
+add_filter( 'posts_where', 'wpd_ecommerce_wpquery_where' );
