@@ -196,7 +196,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
              *
              * @since 1.0.0
              */
-            foreach ( $this->sections_array as $section ) {
+            foreach ( $this->_sections_array as $section ) {
                 if ( false == get_option( $section['id'] ) ) {
                     // Add a new field as section ID.
                     add_option( $section['id'] );
@@ -252,7 +252,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
              *
              * @since 1.0.0
              */
-            foreach ( $this->fields_array as $section => $field_array ) {
+            foreach ( $this->_fields_array as $section => $field_array ) {
                 foreach ( $field_array as $field ) {
                     // ID.
                     $id = isset( $field['id'] ) ? $field['id'] : false;
@@ -325,7 +325,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
             } // foreach ended.
 
             // Creates our settings in the fields table.
-            foreach ( $this->sections_array as $section ) {
+            foreach ( $this->_sections_array as $section ) {
                 /**
                  * Registers a setting and its sanitization callback.
                  *
