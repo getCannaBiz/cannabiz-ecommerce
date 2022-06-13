@@ -307,6 +307,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
                      * @param string   $page
                      * @param string   $section = 'default'
                      * @param array    $args = array()
+                     * 
                      * @since 1.0.0
                      */
 
@@ -329,9 +330,10 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
                 /**
                  * Registers a setting and its sanitization callback.
                  *
-                 * @param string $field_group   | A settings group name.
-                 * @param string $field_name    | The name of an option to sanitize and save.
-                 * @param callable  $sanitize_callback = ''
+                 * @param string   $field_group | A settings group name.
+                 * @param string   $field_name  | The name of an option to sanitize and save.
+                 * @param callable $sanitize_callback = ''
+                 * 
                  * @since 1.0.0
                  */
                 register_setting( $section['id'], $section['id'], array( $this, 'sanitize_fields' ) );

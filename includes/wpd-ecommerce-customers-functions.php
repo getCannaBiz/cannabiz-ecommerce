@@ -117,7 +117,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
         // Remove doctor recommendation file from user profile.
         if ( null !== filter_input( INPUT_POST, 'remove_recommendation_doc' ) ) {
             // Update user meta.
-            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );        
+            update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );
         }
     
         /* Update user password. */
@@ -356,6 +356,53 @@ add_action( 'show_user_profile', 'wpd_ecommerce_add_profile_options' );
 add_action( 'edit_user_profile', 'wpd_ecommerce_add_profile_options' );
 
 /**
+ * Generate a random string, using a cryptographically secure 
+ * pseudorandom number generator (random_int)
+ *
+ * This function uses type hints now (PHP 7+ only), but it was originally
+ * written for PHP 5 as well.
+ * 
+ * For PHP 7, random_int is a PHP core function
+ * For PHP 5.x, depends on https://github.com/paragonie/random_compat
+ * 
+ * @param int    $length   - How many characters do we want?
+ * @param string $keyspace - A string of all possible characters to select from
+ * 
+ * @return string
+ */
+function wpd_ecommerce_random_str(
+    int $length = 64,
+    string $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+): string {
+    if ( $length < 1 ) {
+        throw new \RangeException("Length must be a positive integer");
+    }
+    $pieces = [];
+    $max    = mb_strlen( $keyspace, '8bit' ) - 1;
+
+    for ( $i = 0; $i < $length; ++$i ) {
+        $pieces []= $keyspace[random_int(0, $max)];
+    }
+
+    return implode( '', $pieces );
+}
+
+/**
+ * Customize customer file upload names
+ * 
+ * This function creates a random string that will be used
+ * by wp_handle_upload to create a unique filename for the 
+ * uploaded file
+ * 
+ * @since  2.2.0
+ * @return string
+ */
+function wpd_ecommerce_customer_upload_customize_file_name() {
+    // Create random string.
+    return wpd_ecommerce_random_str();
+}
+
+/**
  * Save File upload in user profile.
  * 
  * @param int $user_id 
@@ -392,8 +439,14 @@ function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
     // Handle the upload.
     $_POST['action'] = 'wp_handle_upload';
 
+    // Register our upload path override.
+    add_filter( 'upload_dir', 'wpd_ecommerce_custom_upload_dir' );
+
     // Get doctor recommendation file upload (if any).
-    $doc_rec = wp_handle_upload( $_FILES['wpd_ecommerce_customer_recommendation_doc'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+    $doc_rec = wp_handle_upload( $_FILES['wpd_ecommerce_customer_recommendation_doc'], array( 'test_form' => false, 'unique_filename_callback' => 'wpd_ecommerce_customer_upload_customize_file_name', 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+
+    // Deregister our upload path override.
+    remove_filter( 'upload_dir', 'wpd_ecommerce_custom_upload_dir' );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $doc_rec['file'] ) ) {
@@ -416,8 +469,14 @@ function wpd_ecommerce_customer_save_custom_profile_fields( $user_id ) {
         wp_update_attachment_metadata( $attach_id, $attach_data );
     }
 
+    // Register our upload path override.
+    add_filter( 'upload_dir', 'wpd_ecommerce_custom_upload_dir' );
+
     // Get valid ID file upload (if any).
-    $valid_id = wp_handle_upload( $_FILES['wpd_ecommerce_customer_valid_id'], array( 'test_form' => false, 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+    $valid_id = wp_handle_upload( $_FILES['wpd_ecommerce_customer_valid_id'], array( 'test_form' => false, 'unique_filename_callback' => 'wpd_ecommerce_customer_upload_customize_file_name', 'mimes' => array( 'jpg' => 'image/jpeg', 'gif' => 'image/gif', 'png' => 'image/png', 'jpeg' => 'image/jpeg' ) ) );
+
+    // Deregister our upload path override.
+    remove_filter( 'upload_dir', 'wpd_ecommerce_custom_upload_dir' );
 
     // Take doctor recommendation upload, add to media library.
     if ( isset( $valid_id['file'] ) ) {
@@ -456,8 +515,6 @@ function wpd_ecommerce_customers_registration_redirect( $registration_redirect )
     if ( true == wpd_settings_customers_registration_redirect() ) {
         // Return new redirect URL.
         return wpd_settings_customers_registration_redirect();
-    } else {
-        // Do nothing.
     }
 }
 add_filter( 'registration_redirect', 'wpd_ecommerce_customers_registration_redirect' );
@@ -520,41 +577,3 @@ function wpd_ecommerce_register_form() {
 
     do_action( 'wpd_ecommerce_customer_account_register_form_after' );
 }
-
-/**
- * Restrict media upload visibility
- * 
- * This function updates the media library to only display files that 
- * have been uploaded by the current user.
- * 
- * Please note: Administrators do not have these restrictions, so they 
- * can still view all media on the site. 
- * 
- * You can alter which user roles are unrestricted by using the
- * wpd_ecommerce_restrict_media_user_roles filter.
- * 
- * @since  2.2.0
- * @return string $where
- */
-function wpd_ecommerce_wpquery_where( $where ) {
-    global $current_user;
-
-    // Very that a user is logged in.
-    if ( is_user_logged_in() ){
-        // logged in user, but are we viewing the library?
-        if ( isset( $_POST['action'] ) && ( $_POST['action'] == 'query-attachments' ) ) {
-            // Get user roles.
-            $roles = ( array ) $current_user->roles;
-            // Get allowed user roles.
-            $allowed_roles = apply_filters( 'wpd_ecommerce_restrict_media_user_roles', array( 'administrator' ) );
-            // Check if the current user is in the allowed list.
-            if ( ! array_intersect( $allowed_roles, $roles ) ) {
-                // here you can add some extra logic if you'd want to.
-                $where .= " AND post_author=" . $current_user->data->ID;
-            }
-        }
-    }
-
-    return $where;
-}
-add_filter( 'posts_where', 'wpd_ecommerce_wpquery_where' );

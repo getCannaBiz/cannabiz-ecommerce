@@ -1888,3 +1888,148 @@ function wpd_ecommerce_allowed_tags() {
     );
     return $my_allowed;
 }
+
+/**
+ * Restrict media upload visibility in editor media modal
+ * 
+ * This function updates the media library to only display files that 
+ * have been uploaded by the current user.
+ * 
+ * Please note: Administrators do not have these restrictions, so they 
+ * can still view all media on the site. 
+ * 
+ * You can alter which user roles are unrestricted by adding them via
+ * the wpd_ecommerce_restrict_media_user_roles filter.
+ * 
+ * @since  2.2.0
+ * @return string $where
+ */
+function wpd_ecommerce_wpquery_where( $where ) {
+    global $current_user;
+
+    // Verify that a user is logged in.
+    if ( is_user_logged_in() ) {
+        // User is logged in, but are we viewing the library?
+        if ( isset( $_POST['action'] ) && ( 'query-attachments' == $_POST['action'] ) ) {
+            // Get user roles.
+            $roles = ( array ) $current_user->roles;
+            // Get allowed user roles.
+            $allowed_roles = apply_filters( 'wpd_ecommerce_restrict_media_user_roles', array( 'administrator' ) );
+            // Check if the current user is in the allowed list.
+            if ( ! array_intersect( $allowed_roles, $roles ) ) {
+                // Add post_author with the current user's ID.
+                $where .= " AND post_author=" . $current_user->data->ID;
+            }
+        }
+    }
+
+    return $where;
+}
+add_filter( 'posts_where', 'wpd_ecommerce_wpquery_where' );
+
+/**
+ * Restrict media upload visibility in media libray page
+ * 
+ * This function updates the media library to only display files that 
+ * have been uploaded by the current user.
+ * 
+ * Please note: Administrators do not have these restrictions, so they 
+ * can still view all media on the site. 
+ * 
+ * You can alter which user roles are unrestricted by using the
+ * wpd_ecommerce_restrict_media_user_roles filter.
+ * 
+ * @param [type] $query 
+ * 
+ * @since  2.2.0
+ * @return [type]
+ */
+function wpd_ecommerce_restrict_media_visibility( $query ) {
+	global $pagenow;
+    global $wp_the_query;
+    global $current_user;
+
+    // Bail if not on upload.php page in admin dashboard.
+	if ( ( 'upload.php' != $pagenow ) || ! $query->is_admin ) {
+		return $query;
+	}
+
+    // Only run on the main query.
+    if ( $wp_the_query === $query ) {
+        // Get user roles.
+        $roles = ( array ) $current_user->roles;
+        // Get allowed user roles.
+        $allowed_roles = apply_filters( 'wpd_ecommerce_restrict_media_user_roles', array( 'administrator' ) );
+        // Check if the current user is in the allowed list.
+        if ( ! array_intersect( $allowed_roles, $roles ) ) {
+            global $user_ID;
+            $query->set( 'author', $user_ID );
+        }
+    }
+
+    return $query;
+}
+add_filter( 'pre_get_posts', 'wpd_ecommerce_restrict_media_visibility' );
+
+/**
+ * Restrict direct media links with .htaccess
+ * 
+ * @since  2.2.0
+ * @return string
+ */
+function wpd_ecommerce_restrict_media_htaccess() {
+    // Get .htaccess path.
+    $home_path     = get_home_path();
+    $htaccess_file = $home_path . '.htaccess';
+
+    // Restrict cannabiz_uploads folder.
+    $lines = array(
+        'RewriteCond %{REQUEST_FILENAME} -s',
+        //'RewriteRule ^wp-content/cannabiz_uploads/(.*)$ ^wp-content/plugins/wpd-ecommerce/dl-file.php?file=$1 [QSA,L]',
+        //'RedirectMatch 301 ^wp-content/uploads/cannabiz_uploads/?$ ^/$',
+//        'RewriteRule ^/?wp-content/cannabiz_uploads/(.\*)$ /location/$1 [R,L]'
+        'RewriteRule (^|/)wp-content/uploads/cannabiz_uploads(/|$) - [F]'
+    );
+
+    // Insert lines into .htaccess file.
+    if ( insert_with_markers( $htaccess_file, 'CANNABIZ SOFTWARE - MEDIA UPLOAD RESTRICTIONS', $lines ) ) {
+        // Celebrate your success.
+        // @TODO add_option here so we can check against it to not re-run this insert_with_markers over and over.
+    } else {
+        // Deal with your failure.
+    }
+}
+add_action( 'admin_init', 'wpd_ecommerce_restrict_media_htaccess' );
+
+/**
+ * Create custom uploads subdirectory
+ * 
+ * @since  2.2.0
+ * @return void
+ */
+function wpd_ecommerce_create_custom_upload_dir() {
+    $upload     = wp_upload_dir();
+    $upload_dir = $upload['basedir'];
+    $upload_dir = $upload_dir . '/cannabiz_uploads';
+    // Create the directory.
+    if ( ! is_dir( $upload_dir ) ) {
+        mkdir( $upload_dir, 0777 );
+    }
+}
+register_activation_hook( __FILE__, 'wpd_ecommerce_create_custom_upload_dir' );
+
+/**
+ * Override the default upload path.
+ * 
+ * @param array $dir
+ * 
+ * @since  2.2.0
+ * @return array
+ */
+function wpd_ecommerce_custom_upload_dir( $dir ) {
+    return array(
+        'path'   => $dir['basedir'] . '/cannabiz_uploads',
+        'url'    => $dir['baseurl'] . '/cannabiz_uploads',
+        'subdir' => '/cannabiz_uploads',
+    ) + $dir;
+}
