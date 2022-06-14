@@ -1985,9 +1985,6 @@ function wpd_ecommerce_restrict_media_htaccess() {
     // Restrict cannabiz_uploads folder.
     $lines = array(
         'RewriteCond %{REQUEST_FILENAME} -s',
-        //'RewriteRule ^wp-content/cannabiz_uploads/(.*)$ ^wp-content/plugins/wpd-ecommerce/dl-file.php?file=$1 [QSA,L]',
-        //'RedirectMatch 301 ^wp-content/uploads/cannabiz_uploads/?$ ^/$',
-//        'RewriteRule ^/?wp-content/cannabiz_uploads/(.\*)$ /location/$1 [R,L]'
         'RewriteRule (^|/)wp-content/uploads/cannabiz_uploads(/|$) - [F]'
     );
 
