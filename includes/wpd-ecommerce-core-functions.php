@@ -2035,3 +2035,20 @@ function wpd_ecommerce_custom_upload_dir( $dir ) {
         'subdir' => '/cannabiz_uploads',
     ) + $dir;
 }
+
+
+/**
+ * Add star ratings to single item
+ * 
+ * @param string $display_price 
+ * 
+ * @since  4.2.0
+ * @return string
+ */
+function wpd_ecommerce_single_item_stars( $display_price ) {
+    // Update the display price with the star ratings.
+    $display_price = '<p class="wpd-ecommerce price">' . get_wpd_all_prices_simple( get_the_ID(), false ) . ' ' . get_wpd_product_ratings_stars( get_the_ID() ) . '</p>';
+
+    return $display_price;
+}
+add_filter( 'wpd_ecommerce_single_item_price', 'wpd_ecommerce_single_item_stars', 10, 1 );
