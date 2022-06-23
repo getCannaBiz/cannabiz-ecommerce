@@ -139,17 +139,17 @@ function wpd_ecommerce_order_updated_messages( $messages ) {
     if ( 'wpd_orders' === get_post_type() ) {
         $messages['post'] = array(
             0 => '', // Unused. Messages start at index 1.
-            1 => sprintf( esc_attr__( 'Order updated. <a href="%s">View order</a>'), esc_url( get_permalink( $post->ID ) ) ),
-            2 => esc_attr__( 'Custom field updated.' ),
-            3 => esc_attr__( 'Custom field deleted.' ),
-            4 => esc_attr__( 'Order updated.' ),
+            1 => sprintf( esc_attr__( 'Order updated.', 'wpd-ecommerce' ) . '<a href="%s">' . esc_attr__( 'View order', 'wpd-ecommerce' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
+            2 => esc_attr__( 'Custom field updated.', 'wpd-ecommerce' ),
+            3 => esc_attr__( 'Custom field deleted.', 'wpd-ecommerce' ),
+            4 => esc_attr__( 'Order updated.', 'wpd-ecommerce' ),
             5 => null !== filter_input( INPUT_GET, 'revision' ) ? sprintf( esc_attr__( 'Order restored to revision from %s' ), wp_post_revision_title( (int) filter_input( INPUT_GET, 'revision' ), false ) ) : false,
-            6 => sprintf( esc_attr__( 'Order published. <a href="%s">View order</a>' ), esc_url( get_permalink( $post->ID ) ) ),
-            7 => esc_attr__( 'Order saved.' ),
-            8 => sprintf( esc_attr__( 'Order submitted. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
-            9 => sprintf( esc_attr__( 'Order scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview order</a>' ),
+            6 => sprintf( esc_attr__( 'Order published.', 'wpd-ecommerce' ) . ' <a href="%s">' . esc_attr__( 'View order', 'wpd-ecommerce' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
+            7 => esc_attr__( 'Order saved.', 'wpd-ecommerce' ),
+            8 => sprintf( esc_attr__( 'Order submitted.', 'wpd-ecommerce' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            9 => sprintf( esc_attr__( 'Order scheduled for: ' ) . '<strong>%1$s</strong>. <a target="_blank" href="%2$s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>',
             date_i18n( esc_attr__( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
-            10 => sprintf( esc_attr__( 'Order draft updated. <a target="_blank" href="%s">Preview order</a>' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            10 => sprintf( esc_attr__( 'Order draft updated.', 'wpd-ecommerce' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
         );
     }
     return $messages;
