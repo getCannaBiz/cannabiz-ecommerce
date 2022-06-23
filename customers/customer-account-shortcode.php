@@ -429,19 +429,19 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
             <label for="reg_wpd_ecommerce_customer_recommendation_doc">' . esc_html__( 'Doctor recommendation', 'wpd-ecommerce' ) . '</label>';
             if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) {
                 $string .= '<div class="recommendation-doc">';
-                    $doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
-                    if ( ! isset( $doc_rec['error'] ) ) {
-                        if ( ! empty( $doc_rec ) ) {
-                            $doc_rec = $doc_rec['url'];
-                            $string .= '<a href="' . $doc_rec . '" target="_blank"><img src="' . $doc_rec . '" width="100" height="100" class="wpd-ecommerce-recommendation-doc" /></a><br />';
-                        }
-                    } else {
-                        $doc_rec = $doc_rec['error'];
-                        $string .= $doc_rec. '<br />';
+                $doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
+                if ( ! isset( $doc_rec['error'] ) ) {
+                    if ( ! empty( $doc_rec ) ) {
+                        $doc_rec = $doc_rec['url'];
+                        $string .= '<a href="' . $doc_rec . '" target="_blank"><img src="' . $doc_rec . '" width="100" height="100" class="wpd-ecommerce-recommendation-doc" /></a><br />';
                     }
+                } else {
+                    $doc_rec = $doc_rec['error'];
+                    $string .= $doc_rec . '<br />';
                 }
-                    $string .= '<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="' . esc_html__( 'x', 'wpd-ecommerce' ) . '" />
+                $string .= '<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="' . esc_html__( 'x', 'wpd-ecommerce' ) . '" />
                 </div><!-- /.recommendation-doc -->';
+            }
             $string .= '<input type="file" name="wpd_ecommerce_customer_recommendation_doc" id="reg_wpd_ecommerce_customer_recommendation_doc" value="" />
         </p>';
         }
@@ -450,10 +450,10 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
             // Do nothing.
         } else {
 
-        $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_ecommerce_customer_recommendation_num">' . esc_html__( 'Recommendation number', 'wpd-ecommerce' ) .'</label>
-            <input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_num', true ) .'" />
-        </p>';
+            $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                <label for="reg_wpd_ecommerce_customer_recommendation_num">' . esc_html__( 'Recommendation number', 'wpd-ecommerce' ) .'</label>
+                <input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_num', true ) . '" />
+            </p>';
 
         }
 
@@ -461,10 +461,10 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
             // Do nothing.
         } else {
 
-        $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_ecommerce_customer_recommendation_exp">' . esc_html__( 'Expiration Date', 'wpd-ecommerce' ) . '</label>
-            <input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ) .'" />
-        </p>';
+            $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                <label for="reg_wpd_ecommerce_customer_recommendation_exp">' . esc_html__( 'Expiration Date', 'wpd-ecommerce' ) . '</label>
+                <input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ) . '" />
+            </p>';
 
         } // recommendation_exp.
 
