@@ -1,6 +1,22 @@
 # Changelog
 
-### 2.1
+### 2.2.0
+*   Added media library restrictions to only display user uploads in `includes/wpd-ecommerce-customers-functions.php`
+*   Added new `cannabiz_uploads` folder to `wp-content/uploads/` in `includes/wpd-ecommerce-core-functions.php`
+*   Added file name randomizer for files uploaded through the User Verification settings in `includes/wpd-ecommerce-customers-functions.php`
+*   Added `wpd_ecommerce_cart_details` helper function in `includes/wpd-ecommerce-cart-functions.php`
+*   Added `wpd_heavyweights_flowers_product_prices` helper function in `includes/extend/heavyweights/admin/wpd-heavyweights-functions.php`
+*   Added `wpd_heavyweights_prices_metabox_save_price_keys` helper function in `includes/extend/heavyweights/admin/wpd-heavyweights-functions.php`
+*   Added `wpd_ecommerce_customer_account_shortcode_tabs` filter in `customers/customer-account-shortcode.php`
+*   Added `wpd_ecommerce_customer_account_shortcode_sections` filter in `customers/customer-account-shortcode.php`
+*   Bugfix for order status html output display on single order page in `templates/single-order.php`
+*   Updated single product template to include star ratings in `includes/wpd-ecommerce-core-functions.php`
+*   Updated single item template to include comments form in `templates/single-item.php`
+*   Updated metaboxes to remove the Heavyweights Prices metabox in `includes/extend/heavyweights/admin/class-wpd-heavyweights-admin.php`
+*   WordPress Coding Standards updates in multiple files throughout the plugin
+*   General code cleanup throughout various files in the plugin
+
+### 2.1.0
 *   Added `wpd_ecommerce_login_to_checkout_register_button_url` filter in `checkout/checkout-shortcode.php`
 *   Added `wpd_ecommerce_allowed_tags` helper function in `includes/wpd-ecommerce-core-functions.php`
 *   Added 'Curbside pickup' option to payment options in `includes/wpd-ecommerce-activation.php`

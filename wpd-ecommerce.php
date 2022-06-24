@@ -11,7 +11,7 @@
  * Plugin Name:  WP Dispensary's eCommerce
  * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
  * Description:  Adds eCommerce capabilities to the WP Dispensary menu management plugin.
- * Version:      2.1
+ * Version:      2.2.0
  * Author:       WP Dispenary
  * Author URI:   https://www.wpdispensary.com
  * License:      GPL-2.0+
@@ -163,7 +163,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
 function wpd_ecommerce_load_public_scripts() {
     wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css' );
     wp_enqueue_style( 'wpd-ecommerce-fontawesome', plugin_dir_url( __FILE__ ) . 'assets/css/fontawesome.min.css' );
-    wp_enqueue_script( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/js/wpd-ecommerce-public.js', array( 'jquery' ), '1.6', false );
+    wp_enqueue_script( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/js/wpd-ecommerce-public.js', array( 'jquery' ), '2.2.0', false );
 
     if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
         // Translation array data.
