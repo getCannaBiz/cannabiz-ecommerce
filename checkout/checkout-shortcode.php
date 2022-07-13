@@ -335,6 +335,8 @@ add_shortcode( 'wpd_checkout', 'wpd_ecommerce_checkout_shortcode' );
  */
 function wpd_ecommerce_checkout_success() {
 
+    do_action( 'wpd_ecommerce_checkout_success_before' );
+
     $page_date    = date( 'Y-m-d H:i:s' );
     $current_user = wp_get_current_user();
 
@@ -638,6 +640,8 @@ function wpd_ecommerce_checkout_success() {
     $headers_customer[] = 'charset=UTF-8';
 
     wp_mail( $to_customer, apply_filters( 'wpd_ecommerce_checkout_email_subject_customer', $subject_customer ), apply_filters( 'wpd_ecommerce_checkout_email_message_customer', $message ), $headers_customer, '' );
+
+    do_action( 'wpd_ecommerce_checkout_success_after' );
 
     /**
      * Destroy session
