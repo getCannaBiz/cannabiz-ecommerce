@@ -42,6 +42,10 @@ class Item {
 
         $item_ids = array();
 
+        $product_price      = '';
+        $concentrate_prices = '';
+        $flower_prices      = '';
+
         if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
             // Create array of item ID's.
             foreach ( $_SESSION['wpd_ecommerce']->item_array as $id=>$value ) {
