@@ -613,7 +613,7 @@ function wpd_ecommerce_checkout_success() {
     $headers[] = 'Content-Type: text/html';
     $headers[] = 'charset=UTF-8';
 
-    wp_mail( apply_filters( 'wpd_ecommerce_checkout_email_to_admin', $to ), apply_filters( 'wpd_ecommerce_checkout_email_subject_admin', $subject ), apply_filters( 'wpd_ecommerce_checkout_email_message_admin', $message ), $headers, '' );
+    wp_mail( apply_filters( 'wpd_ecommerce_checkout_email_to_admin', $to ), apply_filters( 'wpd_ecommerce_checkout_email_subject_admin', $subject ), apply_filters( 'wpd_ecommerce_checkout_email_message_admin', $message ), apply_filters( 'wpd_ecommerce_checkout_email_headers_admin', $headers ), '' );
 
     /**
      * Email order details to Customer.
