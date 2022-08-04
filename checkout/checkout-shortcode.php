@@ -620,15 +620,14 @@ function wpd_ecommerce_checkout_success() {
      * 
      * @since 1.0
      */
-    $order             = $wpd_order_id;
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
     $to_customer       = $user_info->user_email;
-    $subject_customer  = 'Thank you for your order: #' . $order;
+    $subject_customer  = esc_attr__( 'Thank you for your order', 'wpd-ecommerce' ) . ': #' . $wpd_order_id;
 
     // Create message for the email.
     $message  = '<p>Hello ' . $user_info->first_name . ',</p>';
-    $message .= '<p>Thank you for your order. You can see details of your order below as well as in your account at ' . get_bloginfo( 'name' ) . '</p>';
+    $message .= '<p>' . esc_attr__( 'Thank you for your order. You can see details of your order below as well as in your account on our website.', 'wpd-ecommerce' ) . '</p>';
     $message .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
 
     // Add order details to message.
