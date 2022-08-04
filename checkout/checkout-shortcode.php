@@ -641,7 +641,7 @@ function wpd_ecommerce_checkout_success() {
 
     wp_mail( $to_customer, apply_filters( 'wpd_ecommerce_checkout_email_subject_customer', $subject_customer ), apply_filters( 'wpd_ecommerce_checkout_email_message_customer', $message ), $headers_customer, '' );
 
-    do_action( 'wpd_ecommerce_checkout_success_after' );
+    do_action( 'wpd_ecommerce_checkout_success_after', $wpd_order_id );
 
     /**
      * Destroy session
