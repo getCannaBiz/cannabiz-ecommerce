@@ -529,7 +529,6 @@ function wpd_ecommerce_checkout_success() {
                 'order_value' => $name,
             ) );
         }
-
     endforeach;
 
     // Get order details.
