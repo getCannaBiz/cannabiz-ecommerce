@@ -638,7 +638,7 @@ function wpd_ecommerce_checkout_success() {
     $headers_customer[] = 'Content-Type: text/html';
     $headers_customer[] = 'charset=UTF-8';
 
-    wp_mail( $to_customer, apply_filters( 'wpd_ecommerce_checkout_email_subject_customer', $subject_customer ), apply_filters( 'wpd_ecommerce_checkout_email_message_customer', $message ), $headers_customer, '' );
+    wp_mail( $to_customer, apply_filters( 'wpd_ecommerce_checkout_email_subject_customer', $subject_customer ), apply_filters( 'wpd_ecommerce_checkout_email_message_customer', $message ), apply_filters( 'wpd_ecommerce_checkout_email_headers_customer', $headers_customer ), '' );
 
     do_action( 'wpd_ecommerce_checkout_success_after', $wpd_order_id );
 
