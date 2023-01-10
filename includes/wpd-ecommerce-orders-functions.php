@@ -540,7 +540,7 @@ function wpd_ecommerce_did_customer_purchase_product( $customer_id, $product_id 
                 // Loop through each product in the database.
                 foreach( $get_order_data as $order_item ) {
                     // Get item number.
-                    $order_item_meta_id = (int)filter_var( $order_item['order_key'], FILTER_SANITIZE_NUMBER_INT);
+                    $order_item_meta_id = (int)filter_var( $order_item['order_key'], FILTER_SANITIZE_NUMBER_INT );
                     // Check if item ID is the same as the product ID arg.
                     if ( $order_item_meta_id == $product_id ) {
                         $is_found = true;
@@ -570,7 +570,8 @@ function wpd_ecommerce_did_customer_purchase_product( $customer_id, $product_id 
  * @return string
  */
 function wpd_ecommerce_modify_comment_author_link( $return, $author, $comment_id ) {
-    $user = get_user_by('login', $author );
+    $comment = get_comment( $comment_id );
+    $user    = get_user_by( 'email', $comment->comment_author_email );
 
     $did_purchase = wpd_ecommerce_did_customer_purchase_product( $user->ID, get_the_ID() );
 
