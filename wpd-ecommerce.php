@@ -81,21 +81,21 @@ function wpd_ecommerce_include_addons() {
         // Include inventory management.
         include_once( dirname( __FILE__ ) . '/includes/extend/inventory/wpd-inventory.php' );
     }
-    
+
     if ( ! function_exists( 'run_wpd_topsellers' ) ) {
         // Include top sellers management.
         include_once( dirname( __FILE__ ) . '/includes/extend/topsellers/wpd-topsellers.php' );
     }
-    
+
     if ( ! function_exists( 'run_wpd_locations' ) ) {
         // Include location management.
         include_once( dirname( __FILE__ ) . '/includes/extend/locations/wpd-locations.php' );
     }
-    
+
     if ( ! function_exists( 'run_wpd_heavyweights' ) ) {
         // Include heavyweights management.
         include_once( dirname( __FILE__ ) . '/includes/extend/heavyweights/wpd-heavyweights.php' );
-    }    
+    }
 }
 add_action( 'init', 'wpd_ecommerce_include_addons' );
 

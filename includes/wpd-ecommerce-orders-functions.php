@@ -558,3 +558,27 @@ function wpd_ecommerce_did_customer_purchase_product( $customer_id, $product_id 
 
     return false;
 }
+
+/**
+ * Add verified purchase notice to comment
+ * 
+ * @param string $return     - The comment text
+ * @param string $author     - Author nicename
+ * @param int    $comment_id - The comment ID
+ * 
+ * @since  4.4.0
+ * @return string
+ */
+function wpd_ecommerce_modify_comment_author_link( $return, $author, $comment_id ) {
+    $user = get_user_by('login', $author );
+
+    $did_purchase = wpd_ecommerce_did_customer_purchase_product( $user->ID, get_the_ID() );
+
+    if ( $did_purchase ) {
+        $verified = apply_filters( 'wpd_comment_author_verified_purchase', '<span class="verified-purchase">' . esc_html__( 'Verified purchase', 'wp-dispensary' ) . '</span>' );
+        $return   = $return . $verified;
+    }
+
+    return $return;
+}
+add_filter( 'get_comment_author_link', 'wpd_ecommerce_modify_comment_author_link', 10, 3 );
