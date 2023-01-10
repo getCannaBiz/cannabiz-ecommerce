@@ -502,3 +502,59 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
 
     return apply_filters( 'wpd_ecommerce_get_orders_details', $return );
 }
+
+/**
+ * Check if a customer purchased a specific product
+ * 
+ * @param int $customer_id - The ID of the customer
+ * @param int $product_id  - The ID of the product
+ * 
+ * @since  2.3.0
+ * @return bool
+ */
+function wpd_ecommerce_did_customer_purchase_product( $customer_id, $product_id ) {
+    // Bail early?
+    if ( ! $customer_id || ! $product_id ) { return false; }
+
+    global $wpdb;
+
+    $is_found = false;
+
+    // Query args.
+    $args = array(
+        'post_type' => 'wpd_orders',
+    );
+    // Get the query.
+    $the_query = new WP_Query( $args );
+
+    if ( $the_query->have_posts() ) :
+        while ( $the_query->have_posts() ) : $the_query->the_post();
+            // Get the order ID.
+            $order_id = get_the_ID();
+            // Get customer ID from order.
+            $order_customer_id = get_post_meta( $order_id, 'wpd_order_customer_id', true );
+            // Check if customer ID from order is the same as the arg passed through.
+            if ( $customer_id == $order_customer_id ) {
+                // Get row's from database with current $wpd_order_id.
+                $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'product'", ARRAY_A );
+                // Loop through each product in the database.
+                foreach( $get_order_data as $order_item ) {
+                    // Get item number.
+                    $order_item_meta_id = (int)filter_var( $order_item['order_key'], FILTER_SANITIZE_NUMBER_INT);
+                    // Check if item ID is the same as the product ID arg.
+                    if ( $order_item_meta_id == $product_id ) {
+                        $is_found = true;
+                    }
+                }
+            }
+        endwhile;
+    endif;
+
+    wp_reset_postdata();
+
+    if ( $is_found ) {
+        return true;
+    }
+
+    return false;
+}
