@@ -34,7 +34,6 @@ function wpd_customer_account_shortcode() {
             wpd_ecommerce_register_form();
         }
     } else {
-        // @todo make the input fields below filterable so new tabs can be added
         ?>
 
         <div class="wpd-ecommerce customer-account">
@@ -76,9 +75,7 @@ function wpd_customer_account_shortcode() {
                 $section_number++;
             }
             ?>
-
         </div>
-
         <?php
     }
 }
@@ -174,63 +171,63 @@ function wpd_ecommerce_customer_account_shortcode_section1() {
         $string .= '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . esc_attr__( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
         $string .= '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . esc_attr__( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
         $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Recent Store Orders', 'wpd-ecommerce' ) . '</h3>
-    <table class="wpd-ecommerce customer-orders">
-        <thead>
-            <td>' . esc_html__( 'ID', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Name', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Date', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Status', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Total', 'wpd-ecommerce' ) .'</td>
-        </thead>
-        <tbody>';
-            $user = wp_get_current_user();
-            $args = array(
-                'post_type' => 'wpd_orders',
-            );
-            $the_query = new WP_Query( $args );
-            // Create empty table_admin variable.
-            $table_admin = '';
+        <table class="wpd-ecommerce customer-orders">
+            <thead>
+                <td>' . esc_html__( 'ID', 'wpd-ecommerce' ) . '</td>
+                <td>' . esc_html__( 'Name', 'wpd-ecommerce' ) . '</td>
+                <td>' . esc_html__( 'Date', 'wpd-ecommerce' ) . '</td>
+                <td>' . esc_html__( 'Status', 'wpd-ecommerce' ) . '</td>
+                <td>' . esc_html__( 'Total', 'wpd-ecommerce' ) .'</td>
+            </thead>
+            <tbody>';
+                $user = wp_get_current_user();
+                $args = array(
+                    'post_type' => 'wpd_orders',
+                );
+                $the_query = new WP_Query( $args );
+                // Create empty table_admin variable.
+                $table_admin = '';
+                ?>
+            <?php if ( $the_query->have_posts() ) : ?>
+        
+                <!-- the loop -->
+                <?php
+                while ( $the_query->have_posts() ) : $the_query->the_post();
+
+                    $total             = get_post_meta( get_the_ID(), 'wpd_order_total_price', true );
+                    $status_names      = wpd_ecommerce_get_order_statuses();
+                    $status            = get_post_meta( get_the_ID(), 'wpd_order_status', true );
+                    $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), null, null );
+                    $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
+                    $customer          = get_userdata( $order_customer_id );
+
+                    if ( isset( $customer ) ) {
+                        $customer_name = $customer->first_name . ' ' . $customer->last_name;
+                    } else {
+                        $customer_name = '';
+                    }
+
+                    if ( empty( $status ) ) {
+                        $status = 'wpd-pending';
+                    }
+
+                    $table_admin .= '<tr>
+                        <td><a href="' . get_the_permalink() . '">#' . get_the_ID() . '</a></td>
+                        <td>' . $customer_name . '</td>
+                        <td>' . get_the_date() . '<td>' . $status_display . '</td>
+                        <td>' . CURRENCY . number_format( (float)$total, 2, '.', ',' ) . '</td>
+                    </tr>';
+
+                endwhile;
+            endif;
             ?>
-        <?php if ( $the_query->have_posts() ) : ?>
-    
-            <!-- the loop -->
-            <?php
-            while ( $the_query->have_posts() ) : $the_query->the_post();
+            <!-- end of the loop -->
 
-                $total             = get_post_meta( get_the_ID(), 'wpd_order_total_price', true );
-                $status_names      = wpd_ecommerce_get_order_statuses();
-                $status            = get_post_meta( get_the_ID(), 'wpd_order_status', true );
-                $status_display    = wpd_ecommerce_order_statuses( get_the_ID(), null, null );
-                $order_customer_id = get_post_meta( get_the_ID(), 'wpd_order_customer_id', true );
-                $customer          = get_userdata( $order_customer_id );
+            <?php wp_reset_postdata(); ?>
 
-                if ( isset( $customer ) ) {
-                    $customer_name = $customer->first_name . ' ' . $customer->last_name;
-                } else {
-                    $customer_name = '';
-                }
-
-                if ( empty( $status ) ) {
-                    $status = 'wpd-pending';
-                }
-
-                $table_admin .= '<tr>
-                    <td><a href="' . get_the_permalink() . '">#' . get_the_ID() . '</a></td>
-                    <td>' . $customer_name . '</td>
-                    <td>' . get_the_date() . '<td>' . $status_display . '</td>
-                    <td>' . CURRENCY . number_format( (float)$total, 2, '.', ',' ) . '</td>
-                </tr>';
-
-            endwhile;
-        endif;
-        ?>
-        <!-- end of the loop -->
-
-        <?php wp_reset_postdata(); ?>
-
-        <?php $string .= $table_admin . '
-        </tbody>
-    </table>';
+            <?php $string .= $table_admin . '
+            </tbody>
+        </table>';
 
     } // end if is administrator.
 
@@ -361,11 +358,8 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         // Current user's country.
         $current_user_country = get_the_author_meta( 'country', $current_user->ID );
 
-        // Countries output as select fields.
-        $options = array( 'Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antarctica', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegowina', 'Botswana', 'Bouvet Island', 'Brazil', 'British Indian Ocean Territory', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo', 'Congo, the Democratic Republic of the', 'Cook Islands', 'Costa Rica', 'Cote d\'Ivoire', 'Croatia (Hrvatska)', 'Cuba', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands (Malvinas)', 'Faroe Islands', 'Fiji', 'Finland', 'France', 'France Metropolitan', 'French Guiana', 'French Polynesia', 'French Southern Territories', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and Mc Donald Islands', 'Holy See (Vatican City State)', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran (Islamic Republic of)', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Korea, Democratic People\'s Republic of', 'Korea, Republic of', 'Kuwait', 'Kyrgyzstan', 'Lao, People\'s Democratic Republic', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libyan Arab Jamahiriya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia, The Former Yugoslav Republic of', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Micronesia, Federated States of', 'Moldova, Republic of', 'Monaco', 'Mongolia', 'Montserrat', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'Netherlands Antilles', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'Reunion', 'Romania', 'Russian Federation', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia (Slovak Republic)', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia and the South Sandwich Islands', 'Spain', 'Sri Lanka', 'St. Helena', 'St. Pierre and Miquelon', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen Islands', 'Swaziland', 'Sweden', 'Switzerland', 'Syrian Arab Republic', 'Taiwan, Province of China', 'Tajikistan', 'Tanzania, United Republic of', 'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela', 'Vietnam', 'Virgin Islands (British)', 'Virgin Islands (U.S.)', 'Wallis and Futuna Islands', 'Western Sahara', 'Yemen', 'Yugoslavia', 'Zambia', 'Zimbabwe' );
-
         // Filter countries options.
-        $options = apply_filters( 'wpd_ecommerce_customer_account_details_form_countries', $options );
+        $options = apply_filters( 'wpd_ecommerce_customer_account_details_form_countries', wpd_ecommerce_countries_list() );
 
         // Create country select list.
         foreach ( $options as $value=>$name ) {
