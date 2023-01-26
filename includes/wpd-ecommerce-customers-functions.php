@@ -25,11 +25,12 @@ function wpd_ecommerce_disable_admin_bar() {
         $user = wp_get_current_user();
         $role = ( array ) $user->roles;
 
+        // Show admin bar.
+        show_admin_bar( true );
+
         // Hide admin bar for customers.
         if ( 'customer' === $role[0] ) {
             show_admin_bar( false );
-        } else {
-            show_admin_bar( true );
         }
     }
 }
@@ -105,7 +106,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     // Create array.
     $error = array();
 
-    /* If account details were saved, update customer account. */
+    // If account details were saved, update customer account.
     if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && ! empty( filter_input( INPUT_POST, 'action' ) ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {
 
         // Remove valid ID file from user profile.
@@ -120,7 +121,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
             update_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', '' );
         }
     
-        /* Update user password. */
+        // Update user password.
         if ( ! empty( filter_input( INPUT_POST, 'pass1' ) ) && ! empty( filter_input( INPUT_POST, 'pass2' ) ) ) {
             if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) ) {
                 wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( filter_input( INPUT_POST, 'pass1' ) ) ) );
@@ -129,7 +130,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
             }
         }
 
-        /* Update user email address */
+        // Update user email address.
         if ( null !== filter_input( INPUT_POST, 'email' ) ) {
             if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) ) {
                 $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
@@ -140,7 +141,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
             }
         }
 
-        /* Update user information */
+        // Update user information.
         if ( null !== filter_input( INPUT_POST, 'first-name' ) ) {
             update_user_meta( $current_user->ID, 'first_name', sanitize_text_field( filter_input( INPUT_POST, 'first-name' ) ) );
         }
@@ -248,8 +249,6 @@ function wpd_ecommerce_disable_author_archives_for_customers() {
 
         if ( 'customer' === $role[0] ) {
             wp_safe_redirect( wpd_ecommerce_menu_url() );
-        } else {
-            // Do nothing.
         }
     }
 }

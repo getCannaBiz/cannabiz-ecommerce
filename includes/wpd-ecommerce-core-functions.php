@@ -263,9 +263,8 @@ function wpd_ecommerce_notifications() {
                     } else {
                         $wpd_concentrate_meta_key = '';
                     }
-                } else {
-                    // Do nothing.
                 }
+
                 // Get inventory.
                 $inventory = get_post_meta( get_the_ID(), 'inventory_grams',  true );
 
