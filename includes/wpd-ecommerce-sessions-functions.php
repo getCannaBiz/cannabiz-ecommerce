@@ -30,7 +30,7 @@ function wpd_ecommerce_destroy_session( $eat_cookies = null ) {
      * If it's desired to kill the session, also delete the session cookie.
      */
     if ( true == $eat_cookies ) {
-        if ( ini_get("session.use_cookies" ) ) {
+        if ( ini_get( 'session.use_cookies' ) ) {
             $params = session_get_cookie_params();
             setcookie( session_name(), '', time() - 42000,
                 $params["path"], $params["domain"],
