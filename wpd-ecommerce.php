@@ -96,6 +96,11 @@ function wpd_ecommerce_include_addons() {
         // Include heavyweights management.
         include_once( dirname( __FILE__ ) . '/includes/extend/heavyweights/wpd-heavyweights.php' );
     }
+
+    if ( ! function_exists( 'run_wpd_styles' ) ) {
+        // Include styles.
+        include_once( dirname( __FILE__ ) . '/includes/extend/styles/wpd-styles.php' );
+    }
 }
 add_action( 'init', 'wpd_ecommerce_include_addons' );
 
