@@ -279,7 +279,7 @@ function add_wpd_bottom_stuff() {
 		}
 	}
 
-    if ( in_array( get_post_meta( $post->ID, 'product_type', true ), array( 'gear', 'tinctures', 'growers', 'topcials', 'edibles', 'prerolls' ) ) ) {
+    if ( in_array( get_post_meta( $post->ID, 'product_type', true ), array( 'gear', 'tinctures', 'growers', 'topicals', 'edibles', 'prerolls' ) ) ) {
 		echo '<div class="wpd-styles-price-wrap">'. $wpdpriceeach . $wpdpriceperpack . '</div>';
 	}
 
