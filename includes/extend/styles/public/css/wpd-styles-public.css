@@ -24,6 +24,8 @@
 .wpd-styles-item-details {
     text-align: left;
     flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .entry-content .wpdshortcode.display-list p,
@@ -83,25 +85,31 @@ span.wpd-styles-list-images {
     margin-right: 12px;
 }
 
+/** Ratings */
+
+.wpd-menu-item.display-list .product-ratings {
+    margin-top: 0;
+}
+
 @media (max-width: 600px) {
-    span.wpd-styles-list-images {
-        display: none;
+    .wpd-menu-item.display-list h2.wpd-producttitle {
+        font-size: 18px;
+    }
+    .wpd-menu-item.display-list p.comment-rating i {
+        font-size: 12px;
     }
 }
 
 /** Prices */
-
-.wpd-styles-price-wrap {
-}
 
 .wpd-styles-price {
     float: left;
     padding: 10px;
     text-align: center;
     font-size: 24px;
-    background: transparent;
+    background: #EEE;
     font-weight: 700;
-    padding: 0 10px;
+    padding: 6px 10px;
     margin-left: 12px;
     min-width: 75px;
     border-radius: 5px;
@@ -233,6 +241,7 @@ p.wpd-wooconnect {
 .wpdshortcode.display-list h2.wpd-producttitle,
 .wpd-menu-item.display-list h2.wpd-producttitle {
     margin-top: 0;
+    flex: initial;
 }
 
 /** List display out of stock warning */
@@ -241,5 +250,5 @@ p.wpd-wooconnect {
 .wpdshortcode.display-list span.wpd-inventory.warning {
     padding: 5px 10px;
     margin-top: 12px;
-    width: auto;
+    width: fit-content;
 }
