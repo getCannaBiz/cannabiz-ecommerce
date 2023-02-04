@@ -145,7 +145,7 @@ function wpd_heavyweights_flowers_weights_low() {
 
     setlocale( LC_MONETARY, 'en_US' );
 
-    $pricing_low = $currency_code . str_ireplace( '.00', '', money_format( '%!n', $pricing_low ) );
+    $pricing_low = $currency_code . str_ireplace( '.00', '', number_format( $pricing_low, 2, '.', '' ) );
 
     return $pricing_low;
 }
@@ -234,7 +234,7 @@ function wpd_heavyweights_flowers_weights_high() {
         // Do nothing.
     }
 
-    $pricing_high = wpd_currency_code() . str_ireplace( '.00', '', money_format( '%!n', (float)$pricing_high ) );
+    $pricing_high = wpd_currency_code() . str_ireplace( '.00', '', number_format( (float)$pricing_high, 2, '.', '' ) );
 
     return $pricing_high;
 }

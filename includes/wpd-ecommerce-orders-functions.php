@@ -572,11 +572,13 @@ function wpd_ecommerce_modify_comment_author_link( $return, $author, $comment_id
     $comment = get_comment( $comment_id );
     $user    = get_user_by( 'email', $comment->comment_author_email );
 
-    $did_purchase = wpd_ecommerce_did_customer_purchase_product( $user->ID, get_the_ID() );
+    if ( $user ) {
+        $did_purchase = wpd_ecommerce_did_customer_purchase_product( $user->ID, get_the_ID() );
 
-    if ( $did_purchase ) {
-        $verified = apply_filters( 'wpd_comment_author_verified_purchase', '<span class="verified-purchase">' . esc_html__( 'Verified purchase', 'wp-dispensary' ) . '</span>' );
-        $return   = $return . $verified;
+        if ( $did_purchase ) {
+            $verified = apply_filters( 'wpd_comment_author_verified_purchase', '<span class="verified-purchase">' . esc_html__( 'Verified purchase', 'wp-dispensary' ) . '</span>' );
+            $return   = $return . $verified;
+        }
     }
 
     return $return;

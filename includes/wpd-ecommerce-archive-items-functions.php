@@ -33,6 +33,8 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     $price_each     = get_post_meta( $product_id, 'price_each', true );
     $price_per_pack = get_post_meta( $product_id, 'price_per_pack', true );
 
+    $button = '';
+
     // Flowers.
     if ( 'flowers' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Create button.
@@ -260,6 +262,8 @@ function wpd_ecommerce_archive_template_data() {
     } else {
         $tax_query = '';
     }
+
+    $post_type = '';
     
     /**
      * Set vendor page title.

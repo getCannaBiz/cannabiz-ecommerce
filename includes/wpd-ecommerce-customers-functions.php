@@ -47,7 +47,7 @@ function wpd_ecommerce_disable_admin_dashboard() {
     $role = ( array ) $user->roles;
 
     // Redirect customers from any wp-admin page to account page.
-    if ( is_admin() && 'customer' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+    if ( ! empty( $role ) && is_admin() && 'customer' === $role[0] && ! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
         wp_safe_redirect( wpd_ecommerce_account_url() );
         exit;
     } elseif ( is_user_logged_in() ) {
@@ -55,8 +55,10 @@ function wpd_ecommerce_disable_admin_dashboard() {
     } else {
         // Redirect admin for non-logged in users.
         if ( ! is_user_logged_in() && is_admin() ) {
+            ob_start();
             wp_safe_redirect( wpd_ecommerce_account_url() );
-            exit;
+            ob_end_clean();
+            //exit;
         }
     }
 
@@ -79,7 +81,7 @@ function wpd_ecommerce_prevent_wp_login() {
     /**
      * This locks down wp-login.php for customers only
      */
-    if ( 'customer' === $role[0] ) {
+    if ( ! empty( $role ) && 'customer' === $role[0] ) {
 
         // Check if a $_GET['action'] is set, and if so, load it into $action variable
         $action = ( null !== filter_input( INPUT_GET, 'action' ) ) ? filter_input( INPUT_GET, 'action' ) : '';
@@ -220,10 +222,12 @@ function wpd_ecommerce_login_redirect( $redirect_to, $request, $user ) {
     $login_page   = wpd_ecommerce_account_url();
     $ref_link     = filter_input( INPUT_SERVER, 'HTTP_REFERER' );
 
-    // If user is customer.
-    if ( 'customer' === $role[0] ) {
-        // redirect them to another URL, in this case, the homepage 
-        $redirect_to =  $login_page;
+    if ( $role ) {
+        // If user is customer.
+        if ( 'customer' === $role[0] ) {
+            // redirect them to another URL, in this case, the homepage 
+            $redirect_to =  $login_page;
+        }
     }
 
     // Redirect logins from account page.

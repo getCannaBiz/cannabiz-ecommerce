@@ -114,76 +114,75 @@ class WPD_eCommerce_Widget extends WP_Widget {
 
                 if ( $title ) {
                     echo $before_title . $title . $after_title; 
-                } else {
-                    $title = '';
                 }
 
-                $str  = '<table class="wpd-ecommerce widget">';
-                $str .= '<tbody>';
+                if ( ! empty( $_SESSION ) && isset( $_SESSION['wpd_ecommerce'] ) && isset( $_SESSION['wpd_ecommerce']->item_array ) ) {
+                    $str  = '<table class="wpd-ecommerce widget">';
+                    $str .= '<tbody>';
 
-                foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
-                    $i             = new Item( $id, '', '', '' );
-                    $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
-                    $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
+                    foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
+                        $i             = new Item( $id, '', '', '' );
+                        $item_old_id   = preg_replace( '/[^0-9.]+/', '', $id );
+                        $item_meta_key = preg_replace( '/[0-9]+/', '', $id );
 
-                    if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
+                        if ( in_array( get_post_meta( $item_old_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) ) {
 
-                        $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
-                        $item_old_id    = preg_replace( '/[^0-9.]+/', '', $i->id );
-                        $item_meta_key  = preg_replace( '/[0-9]+/', '', $i->id );
+                            $units_per_pack = esc_html( get_post_meta( $item_old_id, 'units_per_pack', true ) );
+                            $item_old_id    = preg_replace( '/[^0-9.]+/', '', $i->id );
+                            $item_meta_key  = preg_replace( '/[0-9]+/', '', $i->id );
 
-                        // Set the regular price.
-                        if ( 'price_per_pack' === $item_meta_key ) {
-                            $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
+                            // Set the regular price.
+                            if ( 'price_per_pack' === $item_meta_key ) {
+                                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_per_pack', true ) );
+                            } else {
+                                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
+                            }
+
+                            // Weight name.
+                            $weight_name = '';
+
+                            // Set the weight name.
+                            if ( 'price_per_pack' === $item_meta_key ) {
+                                $weight_name = ' - ' . $units_per_pack . ' pack';
+                            }
+
+                        } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
+                            $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
+                            $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
+        
+                            // Loop through all registered flower weights.
+                            foreach ( wpd_flowers_weights_array() as $key=>$value ) {
+                                if ( $value == $flower_weight_cart ) {
+                                    $weight_name   = ' - ' . $key;
+                                    $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
+                                }
+                            }
+                        } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
+                            $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
+                            $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
+
+                            // Loop through all registered concentrate weights.    
+                            foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
+                                if ( $value == $concentrate_weight_cart ) {
+                                    $weight_name   = ' - ' . $key;
+                                    $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
+                                }
+                            }
+
+                            // Price each.
+                            if ( 'price_each' === $concentrate_weight_cart ) {
+                                $weight_name   = '';
+                                $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
+                            }
                         } else {
-                            $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
+                            // Do nothing.
                         }
 
-                        // Weight name.
-                        $weight_name = '';
+                        // Get the total price.
+                        $total_price = $amount * $regular_price;
 
-                        // Set the weight name.
-                        if ( 'price_per_pack' === $item_meta_key ) {
-                            $weight_name = ' - ' . $units_per_pack . ' pack';
-                        }
-
-                    } elseif ( 'flowers' === get_post_meta( $item_old_id, 'product_type', true ) ) {
-                        $item_old_id        = preg_replace( '/[^0-9.]+/', '', $i->id );
-                        $flower_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
-    
-                        // Loop through all registered flower weights.
-                        foreach ( wpd_flowers_weights_array() as $key=>$value ) {
-                            if ( $value == $flower_weight_cart ) {
-                                $weight_name   = ' - ' . $key;
-                                $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
-                            }
-                        }
-                    } elseif ( 'concentrates' === get_post_meta( $item_old_id, 'product_type', true ) ) {
-                        $item_old_id             = preg_replace( '/[^0-9.]+/', '', $i->id );
-                        $concentrate_weight_cart = preg_replace( '/[0-9]+/', '', $i->id );
-
-                        // Loop through all registered concentrate weights.    
-                        foreach ( wpd_concentrates_weights_array() as $key=>$value ) {
-                            if ( $value == $concentrate_weight_cart ) {
-                                $weight_name   = ' - ' . $key;
-                                $regular_price = esc_html( get_post_meta( $item_old_id, $value, true ) );
-                            }
-                        }
-
-                        // Price each.
-                        if ( 'price_each' === $concentrate_weight_cart ) {
-                            $weight_name   = '';
-                            $regular_price = esc_html( get_post_meta( $item_old_id, 'price_each', true ) );
-                        }
-                    } else {
-                        // Do nothing.
-                    }
-
-                    // Get the total price.
-                    $total_price = $amount * $regular_price;
-
-                    $str .= '<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
-                endforeach;
+                        $str .= '<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
+                    endforeach;
                 $str .= '</tbody>';
                 $str .= '</table>';
         
@@ -192,6 +191,7 @@ class WPD_eCommerce_Widget extends WP_Widget {
                 $str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
 
                 echo $str;
+                }
 
                 echo $after_widget;
 
