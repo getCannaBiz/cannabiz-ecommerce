@@ -805,6 +805,11 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
             $user    = wp_get_current_user();
             $user_id = $user->ID;
 
+            $menutype         = '';
+            $categories       = '';
+            $inventory        = '';
+            $inventory_number = '';
+
             // Start loop.
             if ( $loop->have_posts() ) :
             while ( $loop->have_posts() ) : $loop->the_post();

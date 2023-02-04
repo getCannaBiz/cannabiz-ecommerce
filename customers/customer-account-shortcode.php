@@ -297,7 +297,7 @@ function wpd_ecommerce_customer_account_shortcode_section2() {
  * @return string
  */
 function wpd_ecommerce_customer_account_shortcode_section3() {
-    
+    global $current_user;
     $string = do_action( 'wpd_ecommerce_customer_account_form_before' );
 
     $string .= '<form method="post" id="customers" class="wpd-ecommerce form customer-account" action="' . get_the_permalink() . '" enctype="multipart/form-data">' .
@@ -395,9 +395,9 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="reg_wpd_ecommerce_customer_valid_id">' . esc_html__( 'Drivers License or Valid ID', 'wpd-ecommerce' ) . '</label>';
 
-            if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_valid_id', true ) ) {
+            if ( get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_valid_id', true ) ) {
                 $string .= '<div class="valid-id">';
-                $valid_id = get_user_meta( $user->ID, 'wpd_ecommerce_customer_valid_id', true );
+                $valid_id = get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_valid_id', true );
                 if ( ! isset( $valid_id['error'] ) ) {
                     if ( ! empty( $valid_id ) ) {
                         $valid_id = $valid_id['url'];
@@ -421,9 +421,9 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
             <label for="reg_wpd_ecommerce_customer_recommendation_doc">' . esc_html__( 'Doctor recommendation', 'wpd-ecommerce' ) . '</label>';
-            if ( get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) {
+            if ( get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) {
                 $string .= '<div class="recommendation-doc">';
-                $doc_rec = get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
+                $doc_rec = get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
                 if ( ! isset( $doc_rec['error'] ) ) {
                     if ( ! empty( $doc_rec ) ) {
                         $doc_rec = $doc_rec['url'];
@@ -446,7 +446,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="reg_wpd_ecommerce_customer_recommendation_num">' . esc_html__( 'Recommendation number', 'wpd-ecommerce' ) .'</label>
-                <input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_num', true ) . '" />
+                <input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="' . get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_num', true ) . '" />
             </p>';
 
         }
@@ -457,7 +457,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                 <label for="reg_wpd_ecommerce_customer_recommendation_exp">' . esc_html__( 'Expiration Date', 'wpd-ecommerce' ) . '</label>
-                <input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="' . get_user_meta( $user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ) . '" />
+                <input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="' . get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ) . '" />
             </p>';
 
         } // recommendation_exp.

@@ -66,7 +66,7 @@ function wp_dispensary_inventory_management() {
     $string .= '<input type="text" name="inventory_units" value="' . $inventory_each  . '" class="widefat" />';
     $string .= '</div>';
     $string .= '<div class="wpd-inventory display">';
-    $string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventorycheck .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+    $string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventory_check .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
     $string .= '</div>';
 
     echo wp_kses( $string, wpd_ecommerce_allowed_tags() );
