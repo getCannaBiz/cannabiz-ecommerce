@@ -112,7 +112,7 @@ function wpd_ecommerce_checkout_shortcode() {
                         echo $str;
                     }
                 } else {
-                    if ( filter_input( INPUT_POST, 'payment-type' ) ) {
+                    if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
                         $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
