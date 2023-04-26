@@ -85,9 +85,7 @@ $order_details = wpd_ecommerce_get_order_details( get_the_ID() );
             if ( isset( $order_details['excise_tax'] ) && '0.00' !== $order_details['excise_tax'] ) {
                 echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['excise_tax'] . '</td></tr>';
             }
-            if ( isset( $order_details['payment_type']['amount'] ) && '0.00' !== $order_details['payment_type']['amount'] ) {
-                echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
-            }
+            echo '<tr><td><strong>' . $order_details['payment_type']['name'] . ':</strong></td><td>' . CURRENCY . $order_details['payment_type']['amount'] . '</td></tr>';
             echo '<tr><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_details['total'] . '</td></tr>';
             echo '</tbody></table>';
             echo '</div>';
