@@ -16,7 +16,7 @@ defined( 'ABSPATH' ) || exit;
  * 
  * @return void
  */
-function wpd_orders() {
+function wpd_orders_post_type() {
 
     $labels = array(
         'name'                  => _x( 'Orders', 'Post Type General Name', 'wpd-ecommerce' ),
@@ -54,13 +54,14 @@ function wpd_orders() {
         'feeds'      => true,
     );
     $capabilities = array(
-        'edit_post'          => 'edit_post',
-        'read_post'          => 'read_post',
-        'delete_post'        => 'delete_post',
-        'edit_posts'         => 'edit_posts',
-        'edit_others_posts'  => 'edit_others_posts',
-        'publish_posts'      => 'publish_posts',
-        'read_private_posts' => 'read_private_posts',
+        'edit_post'          => 'edit_shop_order',
+        'read_post'          => 'read_shop_order',
+        'delete_post'        => 'delete_shop_order',
+        'edit_posts'         => 'edit_shop_orders',
+        'edit_others_posts'  => 'edit_others_shop_orders',
+        'publish_posts'      => 'publish_shop_orders',
+        'read_private_posts' => 'read_private_shop_orders',
+        'create_posts'       => 'edit_shop_orders',
     );
     $args = array(
         'label'               => esc_attr__( 'Order', 'wpd-ecommerce' ),
@@ -80,13 +81,12 @@ function wpd_orders() {
         'exclude_from_search' => true,
         'publicly_queryable'  => true,
         'rewrite'             => $rewrite,
-        //'capabilities'        => $capabilities,
-        'show_in_rest'        => true,
+        'capabilities'        => $capabilities,
+        'show_in_rest'        => false,
     );
     register_post_type( 'wpd_orders', $args );
-
 }
-add_action( 'init', 'wpd_orders', 0 );
+add_action( 'init', 'wpd_orders_post_type', 0 );
 
 /**
  * Adds Orders admin submenu link.
@@ -94,6 +94,7 @@ add_action( 'init', 'wpd_orders', 0 );
  * @return void
  */
 function wpd_admin_menu_orders() {
+    // Add submenu page.
     add_submenu_page( 'wpd-settings', 'WP Dispensary\'s eCommerce orders', 'Orders', 'manage_options', 'edit.php?post_type=wpd_orders', null );
 }
 add_action( 'admin_menu', 'wpd_admin_menu_orders', 4 );
@@ -164,3 +165,16 @@ function custom_wpd_orders_column( $column, $post_id ) {
     }
 }
 add_action( 'manage_wpd_orders_posts_custom_column', 'custom_wpd_orders_column', 10, 2 );
+
+/**
+ * Restrict pages for new user roles
+ * 
+ * @since 2.3.0
+ * @return void
+ */
+function wpd_ecommerce_restrict_wpd_orders_by_user_role() {
+    if ( ! current_user_can( 'administrator' ) && ! current_user_can( 'shop_owner' ) && ! current_user_can( 'shop_manager' ) ) {
+        wp_die( 'You are not allowed to access this page.' );
+    }
+}
+add_action( 'load-edit.php?post_type=wpd_orders', 'wpd_ecommerce_restrict_wpd_orders_by_user_role' );
