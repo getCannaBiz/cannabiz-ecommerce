@@ -86,15 +86,13 @@ function wpd_ecommerce_order_item_details_build() {
     if ( isset( $order_coupon_amount ) && '0.00' !== $order_coupon_amount ) {
         echo '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
     }
-    if ( isset( $order_payment_type_amount ) && '0.00' !== $order_payment_type_amount ) {
-        echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
-    }
     if ( isset( $order_excise_tax ) && '0.00' !== $order_excise_tax ) {
         echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
     }
     if ( isset( $order_sales_tax ) && '0.00' !== $order_sales_tax ) {
         echo '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
     }
+    echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
     echo '<tr><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
     echo '</tbody></table>';
 
