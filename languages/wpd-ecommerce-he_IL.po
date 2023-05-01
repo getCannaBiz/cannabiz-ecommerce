@@ -2,16 +2,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2022-04-07 19:48-0400\n"
-"PO-Revision-Date: 2022-05-24 23:43-0400\n"
+"PO-Revision-Date: 2023-04-26 20:37-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: he_IL\n"
+"Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==2 ? 1 : n>10 && n%10==0 ? "
 "2 : 3);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wpd-ecommerce.php\n"
@@ -266,7 +266,7 @@ msgstr "ייצא את לקוחות WP Dispensary שלך כקובץ CSV על יד
 
 #: classes/class-csv-customer-export.php:76
 msgid "Export"
-msgstr "יְצוּא"
+msgstr "ייצא"
 
 #: classes/class-csv-customer-export.php:95
 #: customers/customer-account-shortcode.php:139
@@ -1174,8 +1174,8 @@ msgstr "ההזמנה הוגשה. <a target=“_blank” href=“%s”>תצוגה
 #: includes/wpd-ecommerce-orders-functions.php:137
 #, php-format
 msgid ""
-"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
-"\">Preview order</a>"
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Preview order</a>"
 msgstr ""
 "הזמנה מתוזמנת ל: <strong>%1$s</strong>. <a target=“_blank” href=“%2$s”>תצוגה "
 "מקדימה של הזמנה</a>"

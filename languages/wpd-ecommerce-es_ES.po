@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WP Dispensary's eCommerce\n"
 "POT-Creation-Date: 2021-01-05 10:15-0500\n"
-"PO-Revision-Date: 2022-05-24 23:42-0400\n"
+"PO-Revision-Date: 2023-04-27 23:28-0400\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es_ES\n"
+"Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.2.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-Flags-xgettext: --add-comments=translators:\n"
 "X-Poedit-WPHeader: wpd-ecommerce.php\n"
@@ -40,8 +40,9 @@ msgstr "Cantidad"
 #: cart/cart-shortcode.php:20 cart/cart-shortcode.php:132
 #: checkout/checkout-shortcode.php:193 checkout/checkout-shortcode.php:287
 #: checkout/checkout-shortcode.php:334
-#: includes/wpd-ecommerce-orders-functions.php:54 orders/orders-metaboxes.php:92
-#: orders/orders-post-type.php:100 customers/customer-account-shortcode.php:253
+#: includes/wpd-ecommerce-orders-functions.php:54
+#: orders/orders-metaboxes.php:92 orders/orders-post-type.php:100
+#: customers/customer-account-shortcode.php:253
 #: customers/customer-account-shortcode.php:318 templates/single-order.php:137
 msgid "Total"
 msgstr "Total"
@@ -109,21 +110,24 @@ msgstr "Pagar"
 msgid "You must be logged in to checkout."
 msgstr "Debes iniciar sesión para realizar el pago."
 
-#: checkout/checkout-shortcode.php:15 customers/customer-account-shortcode.php:28
+#: checkout/checkout-shortcode.php:15
+#: customers/customer-account-shortcode.php:28
 msgid "Login"
 msgstr "Iniciar sesión"
 
-#: checkout/checkout-shortcode.php:33 customers/customer-account-shortcode.php:97
+#: checkout/checkout-shortcode.php:33
+#: customers/customer-account-shortcode.php:97
 msgid "The Email you entered is not valid. Please try again."
 msgstr ""
 "El correo electrónico que has introducido no es válido. Por favor, vuelva a "
 "intentarlo ."
 
-#: checkout/checkout-shortcode.php:35 customers/customer-account-shortcode.php:99
+#: checkout/checkout-shortcode.php:35
+#: customers/customer-account-shortcode.php:99
 msgid "This email is already used by another user. Try a different one."
 msgstr ""
-"Este correo electrónico ya está siendo utilizado por otro usuario. Pruebe uno "
-"diferente."
+"Este correo electrónico ya está siendo utilizado por otro usuario. Pruebe "
+"uno diferente."
 
 #: checkout/checkout-shortcode.php:89 checkout/checkout-shortcode.php:95
 #: checkout/checkout-shortcode.php:100
@@ -146,7 +150,8 @@ msgstr "La cantidad mínima de pedido requerida para pagar es"
 msgid "Billing details"
 msgstr "Detalles de facturación"
 
-#: checkout/checkout-shortcode.php:120 customers/customer-account-details.php:15
+#: checkout/checkout-shortcode.php:120
+#: customers/customer-account-details.php:15
 #: customers/customer-account-details.php:46
 #: customers/customer-account-shortcode.php:381
 msgid "First Name"
@@ -180,22 +185,26 @@ msgstr "Nombre de la Calle, Número Exterior e Interior"
 msgid "Apartment, unit, etc. (optional)"
 msgstr "Apartamento, unidad, etc. (opcional)"
 
-#: checkout/checkout-shortcode.php:145 customers/customer-account-details.php:77
+#: checkout/checkout-shortcode.php:145
+#: customers/customer-account-details.php:77
 #: customers/customer-account-shortcode.php:410
 msgid "City"
 msgstr "Ciudad"
 
-#: checkout/checkout-shortcode.php:150 customers/customer-account-details.php:78
+#: checkout/checkout-shortcode.php:150
+#: customers/customer-account-details.php:78
 #: customers/customer-account-shortcode.php:415
 msgid "State / County"
 msgstr "Estado / Provincia"
 
-#: checkout/checkout-shortcode.php:155 customers/customer-account-details.php:79
+#: checkout/checkout-shortcode.php:155
+#: customers/customer-account-details.php:79
 #: customers/customer-account-shortcode.php:420
 msgid "Postcode / ZIP"
 msgstr "Código postal"
 
-#: checkout/checkout-shortcode.php:160 customers/customer-account-details.php:80
+#: checkout/checkout-shortcode.php:160
+#: customers/customer-account-details.php:80
 #: customers/customer-account-shortcode.php:425
 msgid "Country"
 msgstr "País"
@@ -934,16 +943,17 @@ msgstr "Pedido guardado."
 #: includes/wpd-ecommerce-orders-functions.php:103
 #, php-format
 msgid "Order submitted. <a target=\"_blank\" href=\"%s\">Preview order</a>"
-msgstr "Orden enviada <a target=\"_blank\" href=\"%s\">Orden de vista previa</a>"
+msgstr ""
+"Orden enviada <a target=\"_blank\" href=\"%s\">Orden de vista previa</a>"
 
 #: includes/wpd-ecommerce-orders-functions.php:104
 #, php-format
 msgid ""
-"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s"
-"\">Preview order</a>"
+"Order scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" "
+"href=\"%2$s\">Preview order</a>"
 msgstr ""
-"Pedido programado para: <strong>%1$s</strong> . <a target=\"_blank\" href="
-"\"%2$s\">Orden de vista previa</a>"
+"Pedido programado para: <strong>%1$s</strong> . <a target=\"_blank\" "
+"href=\"%2$s\">Orden de vista previa</a>"
 
 #: includes/wpd-ecommerce-orders-functions.php:105
 msgid "M j, Y @ G:i"
@@ -1197,8 +1207,8 @@ msgid ""
 "From your account dashboard you can view your order history and account "
 "details."
 msgstr ""
-"Desde el panel de su cuenta, puede ver su historial de pedidos y los detalles "
-"de su cuenta."
+"Desde el panel de su cuenta, puede ver su historial de pedidos y los "
+"detalles de su cuenta."
 
 #: customers/customer-account-shortcode.php:241
 msgid "This Week"
