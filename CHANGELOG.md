@@ -1,5 +1,23 @@
 # Changelog
 
+### 2.3.0
+*   Added `wpd_ecommerce_checkout_success_before` action hook in `checkout/checkout-shortcode.php`
+*   Added `wpd_ecommerce_checkout_success_after` action hook in `checkout/checkout-shortcode.php`
+*   Added `wpd_ecommerce_checkout_email_headers_customer` filter in `checkout/checkout-shortcode.php`
+*   Added `wpd_ecommerce_checkout_email_headers_admin` filter in `checkout/checkout-shortcode.php`
+*   Added verified purchase badge to comments in `includes/wpd-ecommerce-orders-functions.php`
+*   Added `wpd_ecommerce_countries_list` function and filter in `checkout/checkout-shortcode.php`
+*   Bugfix for the list menu style price display for topicals in `includes/extend/styles/admin/class-wpd-styles-filters.php`
+*   Bugfix for payment type check during checkout in `checkout/checkout-shortcode.php`
+*   Updated payment type display in order metabox in `orders/orders-metaboxes.php`
+*   Updated payment type display in order thank you page details in `templates/single-order.php`
+*   Updated orders post type capabilities and restrictions in `orders/orders-post-type.php`
+*   Updated plugin to include the `wpd-styles` add-on directly
+*   Updated language translation files for all included translations
+*   Updated for PHP 8 compatibility in multiple files throughout the plugin
+*   WordPress Coding Standards updates in multiple files throughout the plugin
+*   General code cleanup throughout various files in the plugin
+
 ### 2.2.0
 *   Added media library restrictions to only display user uploads in `includes/wpd-ecommerce-customers-functions.php`
 *   Added new `cannabiz_uploads` folder to `wp-content/uploads/` in `includes/wpd-ecommerce-core-functions.php`
