@@ -14,8 +14,13 @@
 /** Warning style */
 
 .wpd-inventory.warning {
-	background: #f0a2a2;
-	border: 1px solid #ee8b8b;
+    background: #f0a2a2;
+    border: 1px solid #ee8b8b;
+    padding: 10px 15px;
+    margin-top: 12px;
+    border-radius: 3px;
+    line-height: 1.3;
+    font-weight: 600;
 }
 
 .wpd-inventory.warning p {
