@@ -511,6 +511,18 @@ form.wpd-ecommerce.form p:first-child {
     margin-top: 18px;
 }
 
+form.wpd-ecommerce.form .form-row {
+    float: left;
+    width: 48%;
+    margin-right: 2%;
+}
+
+form.wpd-ecommerce.form .form-row label {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+}
+
 form.wpd-ecommerce.form .form-row.first,
 form.wpd-ecommerce.form .form-row.last {
     float: left;
@@ -518,8 +530,8 @@ form.wpd-ecommerce.form .form-row.last {
     width: 48%;
 }
 
-form.wpd-ecommerce.form .form-row.last {
-    float: right;
+form.wpd-ecommerce.form .form-row input {
+    width: 100%;
 }
 
 /** Form Required Label */
@@ -534,13 +546,11 @@ form.wpd-ecommerce.form .form-row label span.required {
 form.wpd-ecommerce.form .form-row label em {
     color: #AAA;
     font-weight: 400;
+    font-size: 13px;
 }
 
 /** Form Address line */
 
-input#address_line_2 {
-    margin-top: 12px;
-}
 
 /** Orders Table image */
 
@@ -617,12 +627,11 @@ div.wpd-ecommerce.customer-account label.account-links {
 
 div.wpd-ecommerce.customer-account label.account-links:before {
     font-family: 'Font Awesome 5 Free';
-    font-weight: normal;
     margin-right: 10px;
 }
 
 div.wpd-ecommerce.customer-account label.account-links[for*='1']:before { content: "\f015"; }
-div.wpd-ecommerce.customer-account label.account-links[for*='2']:before { content: "\f0d6"; }
+div.wpd-ecommerce.customer-account label.account-links[for*='2']:before { content: "\f07a"; }
 div.wpd-ecommerce.customer-account label.account-links[for*='3']:before { content: "\f007"; }
 div.wpd-ecommerce.customer-account label.account-links[for*='4']:before { content: "\f138"; }
 
@@ -726,6 +735,7 @@ table.wpd-ecommerce.customer-orders tbody td span.status:before {
     margin-right: 6px;
     padding-right: 2px;
     -webkit-font-smoothing: antialiased;
+    font-weight: bold;
 }
 
 table.wpd-ecommerce.customer-orders tbody td span.status.wpd-pending:before {
@@ -840,7 +850,6 @@ body.single-wpd_orders .entry-header h1 {
 
 body.single-wpd_orders .entry-header h1 span.status {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-    font-weight: 400;
     font-size: 16px;
     padding: 10px 0;
     top: 6px;

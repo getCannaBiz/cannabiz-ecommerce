@@ -113,6 +113,7 @@ div#wpd_ecommerce_order_status .inside {
 
 /** Order details h2 title removal */
 
+#wpd_ecommerce_order_item_details .postbox-header,
 div#wpd_ecommerce_order_item_details h2.ui-sortable-handle,
 div#wpd_ecommerce_order_item_details button.handlediv {
     display: none;
