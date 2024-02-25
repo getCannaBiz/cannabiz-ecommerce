@@ -355,14 +355,6 @@ function wpd_ecommerce_notifications() {
             // ID.
             $old_id = $post->ID;
 
-            // Setup ID if SOMETHING is not done.
-            // This is where the check for adding to cart should come into play.
-            if ( empty( $new_id ) ) {
-                $new_id = $post->ID . 'price_each';
-            } else {
-                $new_id = $post->ID . $wpd_product_meta_key;
-            }
-
             // Pricing.
             if ( null !== filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
                 $new_price = filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' );
@@ -435,7 +427,7 @@ function wpd_ecommerce_notifications() {
                     }
                 }
             } else {
-                $old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
+                // $old_price = get_post_meta( $old_id, $wpd_product_meta_key, true );
                 // wpd_ecommerce_add_items_to_cart( $new_id, $qtty, $old_id, $new_price, $old_price );
             }
         } else {
@@ -1048,6 +1040,9 @@ if ( 'twentyseventeen' == $template_name ) {
  * @return object
  */
 function wpd_admin_settings_section_after() {
+
+    global $wpdas_obj;
+
     // Section: Pages.
     $wpdas_object = $wpdas_obj->add_section(
         array(
@@ -1515,7 +1510,7 @@ function wpd_ecommerce_add_to_cart_form() {
         // Get inventory.
         $inventory       = get_post_meta( $old_id, 'inventory_grams',  true );
         $inventory_units = get_post_meta( $old_id, 'inventory_units',  true );
-        if ( ! $inventory_units ) {
+        if ( $inventory_units ) {
             $inventory = $inventory_units;
         }
 
