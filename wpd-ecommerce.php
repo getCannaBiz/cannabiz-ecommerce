@@ -154,7 +154,6 @@ add_action( 'init', 'wpd_ecommerce_output_buffer' );
  * @return void
  */
 function wpd_ecommerce_load_admin_scripts() {
-    wp_enqueue_style( 'wpd-ecommerce-fontawesome', plugin_dir_url( __FILE__ ) . 'assets/css/fontawesome.min.css' );
     wp_enqueue_style( 'wpd-ecommerce-admin', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-admin.min.css' );
 }
 add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
@@ -166,8 +165,7 @@ add_action( 'admin_enqueue_scripts', 'wpd_ecommerce_load_admin_scripts' );
  * @return void
  */
 function wpd_ecommerce_load_public_scripts() {
-    wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css' );
-    wp_enqueue_style( 'wpd-ecommerce-fontawesome', plugin_dir_url( __FILE__ ) . 'assets/css/fontawesome.min.css' );
+    wp_enqueue_style( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/css/wpd-ecommerce-public.min.css', array( 'wp-dispensary-font-awesome' ) );
     wp_enqueue_script( 'wpd-ecommerce-public', plugin_dir_url( __FILE__ ) . 'assets/js/wpd-ecommerce-public.js', array( 'jquery' ), '2.3.0', false );
 
     if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
