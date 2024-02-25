@@ -189,10 +189,12 @@ td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status:before {
     margin-right: 6px;
     padding-right: 2px;
     -webkit-font-smoothing: antialiased;
+    font-weight: bold;
 }
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-pending:before {
     content: "\f017";
+    font-weight: 400;
 }
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-processing:before {
@@ -201,10 +203,12 @@ td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-processi
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-on-hold:before {
     content: "\f256";
+    font-weight: 400;
 }
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-completed:before {
     content: "\f058";
+    font-weight: 400;
 }
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-cancelled:before {
@@ -213,8 +217,10 @@ td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-cancelle
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-refunded:before {
     content: "\f119";
+    font-weight: 400;
 }
 
 td.wpd_orders_status.column-wpd_orders_status .wpd-ecommerce.status.wpd-failed:before {
     content: "\f00d";
+    font-weight: 400;
 }
