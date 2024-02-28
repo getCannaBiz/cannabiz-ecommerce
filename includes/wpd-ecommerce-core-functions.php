@@ -1093,7 +1093,7 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_header_before', 'wpd_eco
  */
 function wpd_ecommerce_single_items_taxonomies() {
     // Display Strain Type.
-    echo '<span class="wpd-ecommerce strain-type">' . get_the_term_list( get_the_ID(), 'strain_types', '', '' ) . '</span>';
+    echo '<span class="wpd-ecommerce strain-type">' . wpd_product_strain_types( get_the_ID() ) . '</span>';
     // Display Shelf Type.
     echo '<span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_types', '', '' ) . '</span>';
     // Display Categories.
