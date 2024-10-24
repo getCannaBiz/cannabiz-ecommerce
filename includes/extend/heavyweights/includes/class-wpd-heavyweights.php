@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
  * @package    WPD_Heavyweights
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    WPD_Heavyweights
  * @subpackage WPD_Heavyweights/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
 class WPD_Heavyweights {
 

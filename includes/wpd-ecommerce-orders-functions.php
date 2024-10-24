@@ -4,9 +4,9 @@
  *
  * @package    WPD_eCommerce
  * @subpackage WPD_eCommerce/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  * @license    GPL-2.0+ 
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  */
 
@@ -202,7 +202,7 @@ function wpd_ecommerce_order_statuses( $order_id, $display = null, $classes = nu
      */
     if ( 'select' === $display ) {
         if ( $status_names ) {
-            $str .= '<select name="wpd_order_status classes' . $classes . '" id="wpd_order_status" class="widefat">';
+            $str = '<select name="wpd_order_status classes' . $classes . '" id="wpd_order_status" class="widefat">';
             foreach ( $status_names as $key=>$value ) {
                 if ( esc_html( $key ) != $wpd_order_status ) {
                     $order_status_selected = '';

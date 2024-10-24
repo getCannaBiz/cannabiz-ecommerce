@@ -5,8 +5,8 @@
  *
  * @package    WPD_Heavyweights
  * @subpackage WPD_Heavyweights/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
- * @link       https://www.wpdispensary.com
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  */
 
@@ -19,8 +19,8 @@
  *
  * @package    WPD_Heavyweights
  * @subpackage WPD_Heavyweights/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
- * @link       https://www.wpdispensary.com
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
+ * @link       https://cannabizsoftware.com
  */
 class WPD_Heavyweights_Loader {
 

@@ -6,7 +6,7 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
  * @package    WPD_TopSellers
@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    WPD_TopSellers
  * @subpackage WPD_TopSellers/includes
- * @author     WP Dispensary <deviodigital@gmail.co>
+ * @author     CannaBiz Software <deviodigital@gmail.co>
  */
 class WPD_TopSellers {
 

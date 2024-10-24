@@ -3,17 +3,17 @@
  * The plugin bootstrap file
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  *
- * Plugin Name:  WP Dispensary's eCommerce
- * Plugin URI:   https://www.wpdispensary.com/product/ecommerce
- * Description:  Adds eCommerce capabilities to the WP Dispensary menu management plugin.
+ * Plugin Name:  CannaBiz eCommerce
+ * Plugin URI:   https://cannabizsoftware.com/product/ecommerce
+ * Description:  Adds eCommerce capabilities to CannaBiz Software's menu management plugin.
  * Version:      2.3.0
- * Author:       WP Dispenary
- * Author URI:   https://www.wpdispensary.com
+ * Author:       CannaBiz Software
+ * Author URI:   https://cannabizsoftware.com
  * License:      GPL-2.0+
  * License URI:  http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:  wpd-ecommerce
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'DEV', false );
 
 /**
- * WP Dispensary eCommerce
+ * CannaBiz eCommerce
  * 
  * @since  1.0
  * @return void
@@ -206,7 +206,7 @@ add_action( 'wp_enqueue_scripts', 'wpd_ecommerce_load_public_scripts' );
  */
 function wpd_ecommerce_include_template_function( $template_path ) {
 
-    // WP Dispensary products.
+    // CannaBiz Menu products.
     if ( 'products' === get_post_type() ) {
         if ( is_single() ) {
             // checks if the file exists in the theme first,

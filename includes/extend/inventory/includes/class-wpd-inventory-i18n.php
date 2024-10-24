@@ -8,8 +8,8 @@
  *
  * @package    WPD_Inventory
  * @subpackage WPD_Inventory/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
- * @link       https://www.wpdispensary.com/
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
+ * @link       https://cannabizsoftware.com/
  * @since      4.0.0
  */
 
@@ -21,8 +21,8 @@
  *
  * @package    WPD_Inventory
  * @subpackage WPD_Inventory/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
- * @link       https://www.wpdispensary.com/
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
+ * @link       https://cannabizsoftware.com/
  * @since      4.0.0
  */
 class WPD_Inventory_i18n {

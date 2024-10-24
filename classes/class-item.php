@@ -1,11 +1,11 @@
 <?php
 /**
- * WP Dispensary eCommerce item class
+ * CannaBiz eCommerce item class
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 
@@ -15,9 +15,9 @@ defined( 'ABSPATH' ) || exit;
  * Item class
  * 
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 class Item {

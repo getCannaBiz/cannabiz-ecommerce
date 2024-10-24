@@ -18,7 +18,7 @@
  *
  * @package    WPD_Locations
  * @subpackage WPD_Locations/admin
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
 class WPD_Locations_Admin {
 

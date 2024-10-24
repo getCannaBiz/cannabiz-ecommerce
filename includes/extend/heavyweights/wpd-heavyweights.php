@@ -4,8 +4,8 @@
  * The plugin bootstrap file
  *
  * @package WPD_Heavyweights
- * @author  WP Dispensary <contact@wpdispensary.com>
- * @link    https://www.wpdispensary.com
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
+ * @link    https://cannabizsoftware.com
  * @since   4.0.0
  */
 

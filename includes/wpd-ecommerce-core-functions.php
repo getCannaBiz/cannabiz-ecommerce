@@ -4,9 +4,9 @@
  *
  * @package    WPD_eCommerce
  * @subpackage WPD_eCommerce/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  * @license    GPL-2.0+ 
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  */
 
@@ -1056,11 +1056,11 @@ function wpd_admin_settings_section_after() {
 add_action( 'wp_dispensary_admin_settings_sections_before', 'wpd_admin_settings_section_after' );
 
 /**
- * Single items - Vendors
+ * Single items - Vendors and shelf types
  * 
  * @since 1.0
  */
-function wpd_ecommerce_single_items_vendors() {
+function wpd_ecommerce_single_items_vendors_shelf_types() {
     global $post;
 
     $wpd_vendors = '';
@@ -1072,9 +1072,16 @@ function wpd_ecommerce_single_items_vendors() {
     // Display vendors.
     echo $wpd_vendors;
 
-}
-add_action( 'wpd_ecommerce_templates_single_items_entry_title_before', 'wpd_ecommerce_single_items_vendors' );
+    $shelf_types = '';
 
+    // Display Shelf Types.
+    if ( get_the_term_list( get_the_ID(), 'shelf_types', true ) ) {
+        echo ' &middot; <span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_types', '', '' ) . '</span>';
+    }
+
+}
+add_action( 'wpd_ecommerce_templates_single_items_entry_title_before', 'wpd_ecommerce_single_items_vendors_shelf_types' );
+ 
 /**
  * Single items - Notifications
  * 
@@ -1094,8 +1101,6 @@ add_action( 'wpd_ecommerce_templates_single_items_entry_header_before', 'wpd_eco
 function wpd_ecommerce_single_items_taxonomies() {
     // Display Strain Type.
     echo '<span class="wpd-ecommerce strain-type">' . wpd_product_strain_types( get_the_ID() ) . '</span>';
-    // Display Shelf Type.
-    echo '<span class="wpd-ecommerce shelf-type">' . get_the_term_list( get_the_ID(), 'shelf_types', '', '' ) . '</span>';
     // Display Categories.
     echo '<span class="wpd-ecommerce category">' . get_the_term_list( get_the_ID(), 'wpd_categories', '', '' ) . '</span>';
 }
@@ -1778,7 +1783,7 @@ function wpd_ecommerce_payment_types() {
     $wpd_payments = get_option( 'wpdas_payments' );
     // Set empty array for payment types.
     $payment_types = array();
-    // Check if WP Dispensary setting is set.
+    // Check if CannaBiz Menu setting is set.
     if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_cod_checkbox'] ) {
         // Check if payment method is available.
         if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] && null !== $wpd_payments['wpd_ecommerce_checkout_payments_cod'] ) {
@@ -1788,7 +1793,7 @@ function wpd_ecommerce_payment_types() {
             $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', esc_attr__( 'Delivery', 'wpd-ecommerce' ) )] = $payment_amount;
         }
     }
-    // Check if WP Dispensary setting is set.
+    // Check if CannaBiz Menu setting is set.
     if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_pop_checkbox'] ) {
         // Check if payment method is available.
         if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] && null !== $wpd_payments['wpd_ecommerce_checkout_payments_pop'] ) {
@@ -1798,7 +1803,7 @@ function wpd_ecommerce_payment_types() {
             $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', esc_attr__( 'In-store pickup', 'wpd-ecommerce' ) )] = $payment_amount;
         }
     }
-    // Check if WP Dispensary setting is set.
+    // Check if CannaBiz Menu setting is set.
     if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_curbside_checkbox'] ) {
         // Check if payment method is available.
         if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_curbside'] && null !== $wpd_payments['wpd_ecommerce_checkout_payments_curbside'] ) {
@@ -1808,7 +1813,7 @@ function wpd_ecommerce_payment_types() {
             $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_curbside', esc_attr__( 'Curbside pickup', 'wpd-ecommerce' ) )] = $payment_amount;
         }
     }
-    // Check if WP Dispensary setting is set.
+    // Check if CannaBiz Menu setting is set.
     if ( 'on' === $wpd_payments['wpd_ecommerce_checkout_payments_ground_checkbox'] ) {
         // Check if payment method is available.
         if ( '' !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] && null !== $wpd_payments['wpd_ecommerce_checkout_payments_ground'] ) {

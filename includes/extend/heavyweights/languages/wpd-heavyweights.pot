@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: WP Dispensary's Heavyweights\n"
+"Project-Id-Version: CannaBiz eCommerce's Heavyweights\n"
 "POT-Creation-Date: 2019-04-21 11:45-0400\n"
 "PO-Revision-Date: 2019-04-21 11:45-0400\n"
 "Last-Translator: \n"
@@ -175,11 +175,11 @@ msgid "Heavyweight Pricing"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
-msgid "WP Dispensary's Heavyweights"
+msgid "CannaBiz eCommerce's Heavyweights"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/product/dispensary-heavyweights/"
+msgid "https://cannabizsoftware.com/product/dispensary-heavyweights/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -187,9 +187,9 @@ msgid "Add heavier weight options to your Flowers menu items"
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "WP Dispensary"
+msgid "CannaBiz Software"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.wpdispensary.com"
+msgid "https://cannabizsoftware.com"
 msgstr ""

@@ -1337,8 +1337,8 @@ msgid "WP Dispensary's eCommerce"
 msgstr "Kummerċ elettroniku ta’ WP Dispensary"
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/product/ecommerce"
-msgstr "https://www.wpdispensary.com/product/ecommerce"
+msgid "https://cannabizsoftware.com/product/ecommerce"
+msgstr "https://cannabizsoftware.com/product/ecommerce"
 
 #. Description of the plugin/theme
 msgid ""
@@ -1352,5 +1352,5 @@ msgid "WP Dispenary"
 msgstr "WP Dispenary"
 
 #. Author URI of the plugin/theme
-msgid "https://www.wpdispensary.com"
-msgstr "https://www.wpdispensary.com"
+msgid "https://cannabizsoftware.com"
+msgstr "https://cannabizsoftware.com"

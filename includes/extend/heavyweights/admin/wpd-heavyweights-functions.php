@@ -5,8 +5,8 @@
  *
  * @package    WPD_Heavyweights
  * @subpackage WPD_Heavyweights/admin
- * @author     WP Dispensary <contact@wpdispensary.com>
- * @link       https://www.wpdispensary.com
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
+ * @link       https://cannabizsoftware.com
  * @since      1.2
  */
 

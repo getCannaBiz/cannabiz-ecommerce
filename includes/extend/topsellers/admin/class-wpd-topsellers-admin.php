@@ -3,7 +3,7 @@
 /**
  * The admin-specific functionality of the plugin.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
  * @package    WPD_TopSellers
@@ -18,7 +18,7 @@
  *
  * @package    WPD_TopSellers
  * @subpackage WPD_TopSellers/admin
- * @author     WP Dispensary <deviodigital@gmail.co>
+ * @author     CannaBiz Software <deviodigital@gmail.co>
  */
 class WPD_TopSellers_Admin {
 

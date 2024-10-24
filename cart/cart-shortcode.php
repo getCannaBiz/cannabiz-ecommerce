@@ -1,11 +1,11 @@
 <?php
 /**
- * WP Dispensary eCommerce cart shortcode
+ * CannaBiz eCommerce cart shortcode
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 
@@ -81,7 +81,7 @@ function wpd_ecommerce_shortcode() {
         $wpd_general = get_option( 'wpdas_general' );
 
         if ( ! empty( $wpd_general['wpd_ecommerce_checkout_coupons'] ) ) {
-            // Check if WP Dispensary setting is set.
+            // Check if CannaBiz Menu setting is set.
             if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
                 $str .= '<tr><td colspan="6">
                 <form class="wpd-ecommerce-apply-coupon" name="apply_coupon" method="post">

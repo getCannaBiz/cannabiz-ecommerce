@@ -3,7 +3,7 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com/
+ * @link              https://cannabizsoftware.com/
  * @since             4.0.0
  * @package           WPD_Locations
  */

@@ -4,9 +4,9 @@
  *
  * @package    WPD_eCommerce
  * @subpackage WPD_eCommerce/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  * @license    GPL-2.0+ 
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  */
 
@@ -63,7 +63,7 @@ add_action( 'wp_logout', 'wpd_ecommerce_logout' );
  * @return int
  */
 function get_wpd_cookie_lifetime() {
-    // Access all WP Dispensary Advanced Settings.
+    // Access all CannaBiz Menu Advanced Settings.
     $wpd_settings = get_option( 'wpdas_advanced' );
 
     // Check cookie lifetime settings.
@@ -118,15 +118,17 @@ function wpd_ecommerce_load_session() {
     }
 
     if ( ( ! is_array( $_SESSION ) ) xor ( ! isset( $_SESSION['wpd_ecommerce'] ) ) xor ( ! $_SESSION ) ) {
-
         // Set session name.
         session_name( 'wpd_ecommerce' );
-
         // Start session and set cookie time from WPD Settings.
         session_start( [
             'cookie_lifetime' => apply_filters( 'wpd_ecommerce_cookie_lifetime', get_wpd_cookie_lifetime() ),
         ] );
-
+    } else {
+        // Close the session to avoid interference with REST API and loopback requests.
+        if ( session_status() === PHP_SESSION_ACTIVE ) {
+            session_write_close();
+        }
     }
 }
 

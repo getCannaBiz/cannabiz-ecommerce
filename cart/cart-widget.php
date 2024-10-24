@@ -1,23 +1,23 @@
 <?php
 /**
- * WP Dispensary eCommerce cart widget
+ * CannaBiz eCommerce cart widget
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * WP Dispensary's Cart Widget
+ * CannaBiz eCommerce Cart Widget
  * 
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 class WPD_eCommerce_Widget extends WP_Widget {
@@ -106,17 +106,17 @@ class WPD_eCommerce_Widget extends WP_Widget {
             // If cart isn't empty, display the widget.
             if ( 0 != $line_check ) {
         
-                do_action( 'wpd_ecommerce_widget_before' );
-
-                echo $before_widget;
-
-                $title = apply_filters( 'widget_title', $instance['title'] );
-
-                if ( $title ) {
-                    echo $before_title . $title . $after_title; 
-                }
-
                 if ( ! empty( $_SESSION ) && isset( $_SESSION['wpd_ecommerce'] ) && isset( $_SESSION['wpd_ecommerce']->item_array ) ) {
+                    do_action( 'wpd_ecommerce_widget_before' );
+
+                    echo $before_widget;
+
+                    $title = apply_filters( 'widget_title', $instance['title'] );
+
+                    if ( $title ) {
+                        echo $before_title . $title . $after_title; 
+                    }
+
                     $str  = '<table class="wpd-ecommerce widget">';
                     $str .= '<tbody>';
 
@@ -178,25 +178,21 @@ class WPD_eCommerce_Widget extends WP_Widget {
                             // Do nothing.
                         }
 
-                        // Get the total price.
-                        $total_price = $amount * $regular_price;
-
                         $str .= '<tr><td><a href="' . $i->permalink . '" class="wpd-ecommerce-widget title">' . $i->title . $weight_name . '</a> - ' . $amount . ' x <span class="wpd-ecommerce-widget amount">' . CURRENCY . number_format( $regular_price, 2, '.', ',' ) . '</span></td><td>' . $i->thumbnail . '</td></tr>';
                     endforeach;
-                $str .= '</tbody>';
-                $str .= '</table>';
-        
-                $str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
+                    $str .= '</tbody>';
+                    $str .= '</table>';
+            
+                    $str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
 
-                $str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
+                    $str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
 
-                echo $str;
+                    echo $str;
+
+                    echo $after_widget;
+
+                    do_action( 'wpd_ecommerce_widget_after' );
                 }
-
-                echo $after_widget;
-
-                do_action( 'wpd_ecommerce_widget_after' );
-
             } else {
                 // Do nothing.
             }

@@ -110,7 +110,7 @@ msgid "WP Dispensary's Top Sellers"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/downloads/dispensary-top-sellers"
+msgid "https://cannabizsoftware.com/downloads/dispensary-top-sellers"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -122,5 +122,5 @@ msgid "WP Dispensary"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.wpdispensary.com/"
+msgid "https://cannabizsoftware.com/"
 msgstr ""

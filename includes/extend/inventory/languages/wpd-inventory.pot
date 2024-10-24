@@ -177,7 +177,7 @@ msgid "WP Dispensary's Inventory Management"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/product/dispensary-inventory-management/"
+msgid "https://cannabizsoftware.com/product/dispensary-inventory-management/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -189,5 +189,5 @@ msgid "WP Dispensary"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.wpdispensary.com/"
+msgid "https://cannabizsoftware.com/"
 msgstr ""

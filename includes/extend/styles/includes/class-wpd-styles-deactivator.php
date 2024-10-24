@@ -3,7 +3,7 @@
 /**
  * Fired during plugin deactivation
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
  * @package    WPD_Styles
@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    WPD_Styles
  * @subpackage WPD_Styles/includes
- * @author     WP Dispensary <deviodigital@gmail.com>
+ * @author     CannaBiz Software <deviodigital@gmail.com>
  */
 class WPD_Styles_Deactivator {
 

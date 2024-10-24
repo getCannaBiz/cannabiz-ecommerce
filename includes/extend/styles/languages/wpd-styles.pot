@@ -37,7 +37,7 @@ msgid "WP Dispensary's Menu Styles"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/product/styles"
+msgid "https://cannabizsoftware.com/product/styles"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -50,5 +50,5 @@ msgid "WP Dispensary"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "https://www.wpdispensary.com"
+msgid "https://cannabizsoftware.com"
 msgstr ""

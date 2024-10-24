@@ -3,9 +3,9 @@
  * The admin-specific functionality of the plugin.
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 
@@ -18,9 +18,9 @@ defined( 'ABSPATH' ) || exit;
  * enqueue the admin-specific stylesheet and JavaScript.
  *
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 class CSV_Customers_Export {
@@ -79,14 +79,14 @@ class CSV_Customers_Export {
     }
 
     /**
-     * Export WP Dispensary customers
+     * Export CannaBiz eCommerce customers
      * 
      * @return string
      */
     public function export_customers() {
         echo '<div class="wrap">';
-        echo '<h2>' . esc_attr__( 'WP Dispensary\'s Customer Export', 'wpd-ecommerce' ) . '</h2>';
-        echo '<p>' . esc_attr__( 'Export your WP Dispensary customers as a CSV file by clicking the button below.', 'wpd-ecommerce' ) . '</p>';
+        echo '<h2>' . esc_attr__( 'CannaBiz eCommerce\'s Customer Export', 'wpd-ecommerce' ) . '</h2>';
+        echo '<p>' . esc_attr__( 'Export your CannaBiz eCommerce customers as a CSV file by clicking the button below.', 'wpd-ecommerce' ) . '</p>';
         echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'wpd-ecommerce' ) . '</a></p>';
     }
 

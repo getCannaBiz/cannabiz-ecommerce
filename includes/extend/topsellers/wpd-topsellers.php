@@ -3,17 +3,17 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com/
+ * @link              https://cannabizsoftware.com/
  * @since             1.0.0
  * @package           WPD_TopSellers
  *
  * @wordpress-plugin
  * Plugin Name:       WP Dispensary's Top Sellers
- * Plugin URI:        https://www.wpdispensary.com/downloads/dispensary-top-sellers
+ * Plugin URI:        https://cannabizsoftware.com/downloads/dispensary-top-sellers
  * Description:       Easily select and display your menu's top selling items.
  * Version:           1.6
  * Author:            WP Dispensary
- * Author URI:        https://www.wpdispensary.com/
+ * Author URI:        https://cannabizsoftware.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wpd-topsellers

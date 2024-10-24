@@ -724,7 +724,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
 
         public function plugin_page() {
             echo '<div class="wrap">';
-            echo '<h1>WP Dispensary\'s Inventory Management <span style="font-size:50%;">v' . WPD_INVENTORY_VERSION . '</span></h1>';
+            echo '<h1>CannaBiz Software\'s Inventory Management <span style="font-size:50%;">v' . WPD_INVENTORY_VERSION . '</span></h1>';
             $this->show_table();
             echo '</div>';
         }
@@ -782,7 +782,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
          */
         function show_table() {
             $html  = '';
-            $html .= '<p>Brought to you by <a href="https://www.wpdispensary.com" target="_blank">WP Dispensary</a> &middot; <a href="https://www.wpdispensary.com/documentation" target="_blank">Documentation</a></p>';
+            $html .= '<p>Brought to you by <a href="https://cannabizsoftware.com" target="_blank">WP Dispensary</a> &middot; <a href="https://cannabizsoftware.com/documentation" target="_blank">Documentation</a></p>';
             $html .= '<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by product name">';
             $html .= '<table id="myTable" class="tablesorter wpd-inventory">
                         <thead>

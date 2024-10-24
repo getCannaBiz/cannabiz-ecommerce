@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       https://www.wpdispensary.com
+ * @link       https://cannabizsoftware.com
  * @since      1.0.0
  *
  * @package    WPD_TopSellers
@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    WPD_TopSellers
  * @subpackage WPD_TopSellers/includes
- * @author     WP Dispensary <deviodigital@gmail.co>
+ * @author     CannaBiz Software <deviodigital@gmail.co>
  */
 class WPD_TopSellers_i18n {
 

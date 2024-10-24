@@ -1,11 +1,11 @@
 <?php
 /**
- * WP Dispensary eCommerce cart class
+ * CannaBiz eCommerce cart class
  * 
  * @package WPD_eCommerce
- * @author  WP Dispensary <contact@wpdispensary.com>
+ * @author  CannaBiz Software <contact@cannabizsoftware.com>
  * @license GPL-2.0+ 
- * @link    https://www.wpdispensary.com
+ * @link    https://cannabizsoftware.com
  * @since   1.0.0
  */
 
@@ -161,7 +161,7 @@ class Cart {
             $regular_price = $i->price_quantity;
 
             if ( ! empty( $regular_price ) ) {
-                $this->sum += ( $regular_price ) * $item_count;
+                $this->sum += $regular_price * $item_count;
             }
 
         endforeach;

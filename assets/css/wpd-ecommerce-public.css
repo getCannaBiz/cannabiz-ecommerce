@@ -1,5 +1,5 @@
 /**
- * WP Dispensary's eCommerce CSS
+ * CannaBiz eCommerce CSS
  * For the public facing website.
  */
 
@@ -13,6 +13,13 @@ p.wpd-ecommerce.price span.wpd-productinfo {
 /** Return to Cart button */
 a.button.wpd-ecommerce.return {
     padding: 7px 15px;
+}
+
+/** Table */
+
+table.wpd-ecommerce {
+    max-width: 100%;
+    width: 100%;
 }
 
 /** Cart Remove Button */
@@ -45,13 +52,13 @@ table.wpd-ecommerce tbody tr td:first-child {
 /** Cart Style */
 
 table.wpd-ecommerce thead {
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
 }
 
 table.wpd-ecommerce tbody tr {
-    border-bottom: 1px solid #DDD;
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 table.wpd-ecommerce td {
@@ -91,10 +98,11 @@ table.wpd-ecommerce tbody td input[type="number"] {
 
 table.wpd-ecommerce.totals th {
     padding: 10px;
+    text-align: left;
 }
 
 table.wpd-ecommerce.totals tbody {
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #ddd;
 }
 
 .wpd-ecommerce-wrap .cart-totals p.wpd-ecommerce.buttons a {
@@ -120,7 +128,7 @@ table.wpd-ecommerce.widget a {
 }
 
 table.wpd-ecommerce.widget tbody {
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid #ddd;
 }
 
 .wp-dispensary-cart-widget table.wpd-ecommerce.widget tbody {
@@ -168,9 +176,9 @@ p.wpd-ecommerce-widget.buttons a.button {
 /** Cart Checkout */
 
 table.wpd-ecommerce.widget.checkout tbody tr {
-    border-bottom: 1px solid #DDD;
-    border-left: 1px solid #DDD;
-    border-right: 1px solid #DDD;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
 }
 
 table.wpd-ecommerce.widget.checkout tbody tr td:first-child img {
@@ -179,6 +187,9 @@ table.wpd-ecommerce.widget.checkout tbody tr td:first-child img {
 
 table.wpd-ecommerce.widget.checkout tbody tr td:first-child {
     padding: 12px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
 
 table.wpd-ecommerce.widget.checkout tbody tr td:last-child {
@@ -258,7 +269,8 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 
 .wpd-ecommerce-single-notifications {
     display: block;
-    padding: 24px 24px 0 24px;
+    padding: 0;
+    margin-bottom: 24px;
     width: 100%;
 }
 
@@ -310,7 +322,8 @@ table.wpd-ecommerce.widget.checkout tbody tr.payment-type.active {
 .wpd-ecommerce.vendors a,
 .wpd-ecommerce.vendors a:visited {
     font-size: 0.85em;
-    color: #AAA;
+    font-weight: bold;
+    color: #aaa;
 }
 
 .wpd-ecommerce.vendors a:hover {
@@ -427,19 +440,11 @@ p.wpd-ecommerce-sale-price {
 }
 
 /** Single item - Shelf type */
-span.wpd-ecommerce.shelf-type {
-    position: absolute;
-    top: 24px;
-    left: 24px;
-}
-
 span.wpd-ecommerce.shelf-type a,
 span.wpd-ecommerce.shelf-type a:visited {
-    background: rgba(0,0,0,0.05);
-    border-radius: 3px;
-    color: #999;
-    display: inline-block;
-    padding: 10px;
+    font-size: 0.85em;
+    font-weight: 400;
+    color: #aaa;
 }
 
 span.wpd-ecommerce.shelf-type a:active,
@@ -452,11 +457,11 @@ span.wpd-ecommerce.shelf-type a:hover {
 
 span.wpd-ecommerce.strain-type a,
 span.wpd-ecommerce.strain-type a:visited {
-    background: rgba(0,0,0,0.05);
+    background: #f2f2f2;
     border-radius: 3px;
     color: #999;
     display: inline-block;
-    padding: 10px;
+    padding: 6px 12px;
 }
 
 span.wpd-ecommerce.strain-type a:active,
@@ -469,22 +474,28 @@ span.wpd-ecommerce.strain-type a:hover {
 
 span.wpd-ecommerce.category a,
 span.wpd-ecommerce.category a:visited {
-    background: rgba(0,0,0,0.05);
+    background: #f2f2f2;
     border-radius: 3px;
-    color: #999;
+    color: #454545;
     display: inline-block;
-    padding: 10px;
+    padding: 6px 12px;
 }
 
 span.wpd-ecommerce.category a:active,
 span.wpd-ecommerce.category a:focus,
 span.wpd-ecommerce.category a:hover {
-    color: #454545;
+    color: #999;
 }
 
 /** Single item - Compounds */
 .wpd-ecommerce.item-details {
     margin-top: 6px;
+}
+
+.wpd-ecommerce.item-details span.wpd-pricing,
+.wpd-ecommerce.item-details span.wpd-productinfo,
+.wpd-ecommerce.item-details span.wpd-thc {
+    margin: 0 6px 0 0;
 }
 
 /** Single item - Prices (flowers) */
@@ -498,7 +509,7 @@ span.wpd-ecommerce.prices-flowers {
 /** Single item - Out of stock */
 form.wpd-ecommerce span.wpd-inventory.warning {
     background: #EEE;
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
     border-radius: 3px;
     color: #999;
     font-weight: 600;
@@ -551,7 +562,7 @@ form.wpd-ecommerce.form .form-row label span.required {
 /** Form Password Label */
 
 form.wpd-ecommerce.form .form-row label em {
-    color: #AAA;
+    color: #aaa;
     font-weight: 400;
     font-size: 13px;
 }
@@ -585,7 +596,7 @@ form#wpd-ecommerce-register {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    border: 1px solid #DDD;
+    border: 1px solid #ddd;
 }
 
 @media screen and (max-width:768px) {
@@ -628,7 +639,7 @@ div.wpd-ecommerce.customer-account label.account-links {
     padding: 10px 15px;
     font-weight: 600;
     text-align: center;
-    color: #AAA;
+    color: #aaa;
     border: 1px solid transparent;
 }
 
@@ -685,6 +696,7 @@ form.wpd-ecommerce.form.checkout p.form-row.form-country select#country,
 form.wpd-ecommerce.form.customer-account p.form-row.form-country select#country {
     padding: 10px;
     height: auto;
+    width: 100%;
 }
 
 /** Account page - orders table */
@@ -797,7 +809,7 @@ table.wpd-ecommerce.customer-orders tbody td span.status.wpd-failed:before {
 .wpd-ecommerce.account-administrator.orders {
     box-sizing: border-box;
     border-radius: 3px;
-    background: #DDD;
+    background: #ddd;
     color: #454545;
     float: left;
     font-size: 24px;
@@ -816,7 +828,7 @@ table.wpd-ecommerce.customer-orders tbody td span.status.wpd-failed:before {
 .wpd-ecommerce.account-administrator.customers {
     box-sizing: border-box;
     border-radius: 3px;
-    background: #DDD;
+    background: #ddd;
     color: #454545;
     float: left;
     font-size: 24px;
@@ -847,6 +859,8 @@ table.wpd-ecommerce.customer-orders tbody td span.status.wpd-failed:before {
 body.single-wpd_orders .entry-header {
     border-top: 0;
     text-align: left;
+    padding: 0;
+    margin-bottom: 24px;
 }
 
 body.single-wpd_orders .entry-header h1 {
@@ -858,18 +872,20 @@ body.single-wpd_orders .entry-header h1 {
 body.single-wpd_orders .entry-header h1 span.status {
     font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0;
     padding: 10px 0;
     top: 6px;
     position: absolute;
     border-radius: 3px;
-    color: #AAA;
+    color: #aaa;
     margin-left: 24px;
     display: inline-block;
     box-sizing: border-box;
 }
 
 body.single-wpd_orders .entry-header h1 span.status:before {
-    color: #AAA;
+    color: #aaa;
     font-family: 'Font Awesome 5 Free';
     font-size: 16px;
     margin-right: 6px;
@@ -1040,7 +1056,7 @@ table.wpd-ecommerce.order-details td:last-child {
 }
 
 table.wpd-ecommerce.order-details tbody {
-    border-top: 1px solid #DDD;
+    border-top: 1px solid #ddd;
 }
 
 /**
@@ -1164,7 +1180,7 @@ a.button.wpd-buy-btn:hover {
     color: #FFF;
 }
 
-/** WP Dispensary Widget - Buy Now Buttons */
+/** CannaBiz Menu Widget - Buy Now Buttons */
 
 .widget-area .widget.wp-dispensary-widget {
     display: inline-block;

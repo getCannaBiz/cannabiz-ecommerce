@@ -18,7 +18,7 @@
  * @since      1.0.0
  * @package    WPD_Locations
  * @subpackage WPD_Locations/includes
- * @author     WP Dispensary <contact@wpdispensary.com>
+ * @author     CannaBiz Software <contact@cannabizsoftware.com>
  */
 class WPD_Locations_Activator {
 

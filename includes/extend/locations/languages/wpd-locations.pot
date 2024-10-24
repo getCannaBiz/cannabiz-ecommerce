@@ -206,7 +206,7 @@ msgid "WP Dispensary's Locations"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.wpdispensary.com/downloads/dispensary-locations"
+msgid "https://cannabizsoftware.com/downloads/dispensary-locations"
 msgstr ""
 
 #. Description of the plugin/theme

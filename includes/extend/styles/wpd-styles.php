@@ -3,17 +3,17 @@
 /**
  * The plugin bootstrap file
  *
- * @link              https://www.wpdispensary.com
+ * @link              https://cannabizsoftware.com
  * @since             1.0.0
  * @package           WPD_Styles
  *
  * @wordpress-plugin
  * Plugin Name:       WP Dispensary's Menu Styles
- * Plugin URI:        https://www.wpdispensary.com/product/styles
+ * Plugin URI:        https://cannabizsoftware.com/product/styles
  * Description:       Take complete creative control over your WP Dispensary powered cannabis menu.
  * Version:           1.5
  * Author:            WP Dispensary
- * Author URI:        https://www.wpdispensary.com
+ * Author URI:        https://cannabizsoftware.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wpd-styles
