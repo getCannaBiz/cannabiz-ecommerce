@@ -40,7 +40,7 @@ class Item {
         $my_post       = get_post( $item_old_id );
         $item_meta_key = preg_replace( '/[0-9]+/', '', $item_id );
 
-        $item_ids = array();
+        $item_ids = [];
 
         $product_price      = '';
         $concentrate_prices = '';

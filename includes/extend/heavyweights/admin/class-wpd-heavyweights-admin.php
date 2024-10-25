@@ -64,7 +64,7 @@ class WPD_Heavyweights_Admin {
     public function enqueue_styles() {
 
         // Admin CSS.
-        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-heavyweights-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-heavyweights-admin.css', [], $this->version, 'all' );
 
     }
 

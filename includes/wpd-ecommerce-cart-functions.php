@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_clear_cart() {
     // Unset all of the session variables.
-    $_SESSION = array();
+    $_SESSION = [];
 
     // If it's desired to kill the session, also delete the session cookie.
     // Note: This will destroy the session, and not just the session data!
@@ -117,7 +117,7 @@ function wpd_ecommerce_cart_subtotal() {
  */
 function wpd_ecommerce_cart_details() {
     // Create array.
-    $cart_details = array();
+    $cart_details = [];
 
     // Get taxes (if any).
     $wpd_sales_tax  = number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' );

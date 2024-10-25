@@ -106,7 +106,7 @@ function wpd_ecommerce_update_user_customer_dashboard() {
     global $current_user;
 
     // Create array.
-    $error = array();
+    $error = [];
 
     // If account details were saved, update customer account.
     if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && ! empty( filter_input( INPUT_POST, 'action' ) ) && filter_input( INPUT_POST, 'action' ) == 'update-user' ) {

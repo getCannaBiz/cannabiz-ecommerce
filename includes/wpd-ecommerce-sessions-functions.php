@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_destroy_session( $eat_cookies = null ) {
     // Unset all of the session variables.
-    $_SESSION = array();
+    $_SESSION = [];
 
     /**
      * Destroy cookies

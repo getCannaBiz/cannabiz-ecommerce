@@ -48,8 +48,8 @@ class WPD_Locations_Loader {
 	 */
 	public function __construct() {
 
-		$this->actions = array();
-		$this->filters = array();
+		$this->actions = [];
+		$this->filters = [];
 
 	}
 

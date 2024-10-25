@@ -68,7 +68,7 @@ function wpd_orders_post_type() {
         'description'         => esc_attr__( 'View your store\'s order history', 'cannabiz-menu' ),
         'labels'              => $labels,
         'supports'            => false,
-        'taxonomies'          => array(),
+        'taxonomies'          => [],
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,

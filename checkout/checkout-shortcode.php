@@ -24,10 +24,10 @@ function wpd_ecommerce_checkout_shortcode() {
     if ( ! is_user_logged_in() && 'on' == wpd_ecommerce_require_login_to_shop() ) {
         if ( get_option( 'users_can_register' ) ) {
             // Register button.
-            $register_button = ' <a href="' . apply_filters( 'wpd_ecommerce_login_to_checkout_register_button_url', wpd_ecommerce_account_url() ) . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'cannabiz-menu' ) . '</a>';
+            $register_button = ' <a href="' . apply_filters( 'wpd_ecommerce_login_to_checkout_register_button_url', wpd_ecommerce_account_url() ) . '" class="button wpd-ecommerce register">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>';
         }
-        echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'cannabiz-menu' ) . '</p>';
-        echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'cannabiz-menu' ) . '</a>' . $register_button . '</p>';
+        echo '<p>' . esc_attr__( 'You must be logged in to checkout.', 'wpd-ecommerce' ) . '</p>';
+        echo '<p><a href="' . wpd_ecommerce_account_url() . '" class="button wpd-ecommerce login">' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</a>' . $register_button . '</p>';
     } else {
         // Verify that there's an active session.
         if ( isset( $_SESSION['wpd_ecommerce'] ) ) {
@@ -37,7 +37,7 @@ function wpd_ecommerce_checkout_shortcode() {
 
             global $current_user, $wp_roles;
 
-            $error = array();
+            $error = [];
 
             /* If checkout is submitted, do something specific . */
             if ( 'POST' == filter_input( INPUT_SERVER, 'REQUEST_METHOD' ) && null !== filter_input( INPUT_POST, 'action' ) && filter_input( INPUT_POST, 'action' ) == 'wpd-ecommerce-checkout' ) {
@@ -45,9 +45,9 @@ function wpd_ecommerce_checkout_shortcode() {
                 /* Update Email Address */
                 if ( null !== filter_input( INPUT_POST, 'email' ) ) {
                     if ( ! is_email( filter_input( INPUT_POST, 'email' ) ) )
-                        $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'cannabiz-menu' );
+                        $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
                     elseif( email_exists( filter_input( INPUT_POST, 'email' ) ) != $current_user->ID )
-                        $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'cannabiz-menu' );
+                        $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
                     else {
                         wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => filter_input( INPUT_POST, 'email' ) ) );
                     }
@@ -102,18 +102,18 @@ function wpd_ecommerce_checkout_shortcode() {
                 if ( '' !== wpd_ecommerce_checkout_minimum_order() ) {
                     if ( $_SESSION['wpd_ecommerce']->sum >= wpd_ecommerce_checkout_minimum_order() ) {
                         if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
-                            $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'cannabiz-menu' ) . '</div>';
+                            $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                             echo $str;
                         } else {
                             wpd_ecommerce_checkout_success();
                         }
                     } else {
-                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'The minimum order amount required to checkout is', 'cannabiz-menu' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
+                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The minimum order amount required to checkout is', 'wpd-ecommerce' ) . ' ' . wpd_currency_code() . wpd_ecommerce_checkout_minimum_order() . '</div>';
                         echo $str;
                     }
                 } else {
                     if ( null == filter_input( INPUT_POST, 'payment-type' ) ) {
-                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'cannabiz-menu' ) . '</div>';
+                        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please select a payment type.', 'wpd-ecommerce' ) . '</div>';
                         echo $str;
                     } else {
                         wpd_ecommerce_checkout_success();
@@ -128,58 +128,58 @@ function wpd_ecommerce_checkout_shortcode() {
 
             <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_inside_before' ); ?>
 
-            <h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Billing details', 'cannabiz-menu' ); ?></h3>
+            <h3 class='wpd-ecommerce customer-title'><?php esc_html_e( 'Billing details', 'wpd-ecommerce' ); ?></h3>
 
             <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details_title' ); ?>
 
             <p class="form-row first form-first-name">
-                <label for="first-name"><?php esc_html_e( 'First Name', 'cannabiz-menu' ); ?>
+                <label for="first-name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?>
                     <span class="required">*</span>
                 </label>
                 <input class="text-input" name="first-name" type="text" id="first-name" value="<?php the_author_meta( 'first_name', $current_user->ID ); ?>" />
             </p><!-- .form-first-name -->
             <p class="form-row last form-last-name">
-                <label for="last-name"><?php esc_html_e( 'Last Name', 'cannabiz-menu' ); ?>
+                <label for="last-name"><?php esc_html_e( 'Last Name', 'wpd-ecommerce' ); ?>
                     <span class="required">*</span>
                 </label>
                 <input class="text-input" name="last-name" type="text" id="last-name" value="<?php the_author_meta( 'last_name', $current_user->ID ); ?>" />
             </p><!-- .form-last-name -->
 
             <p class="form-row form-email">
-                <label for="email"><?php esc_html_e( 'E-mail', 'cannabiz-menu' ); ?>
+                <label for="email"><?php esc_html_e( 'E-mail', 'wpd-ecommerce' ); ?>
                     <span class="required">*</span>
                 </label>
                 <input class="text-input" name="email" type="text" id="email" value="<?php the_author_meta( 'user_email', $current_user->ID ); ?>" />
             </p><!-- .form-email -->
 
             <p class="form-row form-phone-number">
-                <label for="phone-number"><?php esc_html_e( 'Phone number', 'cannabiz-menu' ); ?></label>
+                <label for="phone-number"><?php esc_html_e( 'Phone number', 'wpd-ecommerce' ); ?></label>
                 <input class="text-input" name="phone_number" type="text" id="phone_number" value="<?php the_author_meta( 'phone_number', $current_user->ID ); ?>" />
             </p><!-- .form-phone-number -->
 
             <p class="form-row form-address-line">
-                <label for="address-line"><?php esc_html_e( 'Street address', 'cannabiz-menu' ); ?></label>
-                <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'House number and street name', 'cannabiz-menu' ); ?>" />
-                <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'Apartment, unit, etc. (optional)', 'cannabiz-menu' ); ?>" />
+                <label for="address-line"><?php esc_html_e( 'Street address', 'wpd-ecommerce' ); ?></label>
+                <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="<?php the_author_meta( 'address_line_1', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'House number and street name', 'wpd-ecommerce' ); ?>" />
+                <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="<?php the_author_meta( 'address_line_2', $current_user->ID ); ?>" placeholder="<?php esc_html_e( 'Apartment, unit, etc. (optional)', 'wpd-ecommerce' ); ?>" />
             </p><!-- .form-address-line -->
 
             <p class="form-row form-city">
-                <label for="city"><?php esc_html_e( 'City', 'cannabiz-menu' ); ?></label>
+                <label for="city"><?php esc_html_e( 'City', 'wpd-ecommerce' ); ?></label>
                 <input class="text-input" name="city" type="text" id="city" value="<?php the_author_meta( 'city', $current_user->ID ); ?>" />
             </p><!-- .form-city -->
 
             <p class="form-row form-state-county">
-                <label for="state-county"><?php esc_html_e( 'State / County', 'cannabiz-menu' ); ?></label>
+                <label for="state-county"><?php esc_html_e( 'State / County', 'wpd-ecommerce' ); ?></label>
                 <input class="text-input" name="state_county" type="text" id="state_county" value="<?php the_author_meta( 'state_county', $current_user->ID ); ?>" />
             </p><!-- .form-state-county -->
 
             <p class="form-row form-postcode-zip">
-                <label for="email"><?php esc_html_e( 'Postcode / ZIP', 'cannabiz-menu' ); ?></label>
+                <label for="email"><?php esc_html_e( 'Postcode / ZIP', 'wpd-ecommerce' ); ?></label>
                 <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="<?php the_author_meta( 'postcode_zip', $current_user->ID ); ?>" />
             </p><!-- .form-postcode-zip -->
 
             <p class="form-row form-country">
-                <label for="email"><?php esc_html_e( 'Country', 'cannabiz-menu' ); ?></label>
+                <label for="email"><?php esc_html_e( 'Country', 'wpd-ecommerce' ); ?></label>
                 <select id="country" name="country" class="form-control">
                     <?php
                     // Current user's country.
@@ -202,14 +202,14 @@ function wpd_ecommerce_checkout_shortcode() {
 
             <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_billing_details' ); ?>
 
-            <h3 class='wpd-ecommerce customer-order'><?php esc_html_e( 'Your order', 'cannabiz-menu' ); ?></h3>
+            <h3 class='wpd-ecommerce customer-order'><?php esc_html_e( 'Your order', 'wpd-ecommerce' ); ?></h3>
 
             <?php do_action( 'wpd_ecommerce_checkout_billing_details_form_after_your_order_title' ); ?>
 
             <?php
             $str  = '<table class="wpd-ecommerce widget checkout">';
             $str .= '<thead>';
-            $str .= '<tr><td>' . esc_attr__( 'Product', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Total', 'cannabiz-menu' ) . '</td></tr>';
+            $str .= '<tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
             $str .= '</thead>';
             $str .= '<tbody>';
 
@@ -283,18 +283,18 @@ function wpd_ecommerce_checkout_shortcode() {
             }
 
             // Subtotal.
-            $str .= '<tr><td><strong>' . esc_attr__( 'Subtotal', 'cannabiz-menu' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
+            $str .= '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ) . '</td></tr>';
             // Coupon code.
             if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-                $str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'cannabiz-menu' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'cannabiz-menu' ) . "?</a>)</td></tr>";
+                $str .= '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</strong></td><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . " (<a href='" . get_the_permalink() . "?remove_coupon=". $_SESSION['wpd_ecommerce']->coupon_code . "'>" . esc_attr__( 'Remove', 'wpd-ecommerce' ) . "?</a>)</td></tr>";
             }
             // Sales tax.
             if ( null !== $wpd_sales_tax && '0.00' !== $wpd_sales_tax ) {
-                $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'cannabiz-menu' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
+                $str .= '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
             }
             // Excise tax.
             if ( null !== $wpd_sales_tax && '0.00' !== $wpd_excise_tax ) {
-                $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'cannabiz-menu' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
+                $str .= '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</strong></td><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
             }
 
             // Payment type.
@@ -303,7 +303,7 @@ function wpd_ecommerce_checkout_shortcode() {
             }
 
             // Total.
-            $str .= '<tr class="total"><td><strong>' . esc_attr__( 'Total', 'cannabiz-menu' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
+            $str .= '<tr class="total"><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</strong></td><td class="total-price"><span class="total-price">' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</span></td></tr>';
 
             $str .= '</tbody>';
             $str .= '</table>';
@@ -312,14 +312,14 @@ function wpd_ecommerce_checkout_shortcode() {
 
             do_action( 'wpd_ecommerce_checkout_after_order_details' );
 
-            $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . esc_attr__( 'Place Order', 'cannabiz-menu' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
+            $str2  = '<p class="form-submit"><input name="checkout-submit" type="submit" id="checkoutsubmit" class="submit button" value="' . esc_attr__( 'Place Order', 'wpd-ecommerce' ) . '" />' . wp_nonce_field( 'wpd-ecommerce-checkout' ) . '<input name="action" type="hidden" id="action" value="wpd-ecommerce-checkout" /></p>';
             $str2 .= '</form>';
 
             echo $str2;
 
         } else {
-            echo '<p>' . esc_attr__( 'You can check out after adding some products to your cart', 'cannabiz-menu' ) . '</p>';
-            echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', esc_attr__( 'Return to menu', 'cannabiz-menu' ) ) . '</a></p>';
+            echo '<p>' . esc_attr__( 'You can check out after adding some products to your cart', 'wpd-ecommerce' ) . '</p>';
+            echo '<p><a href="' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_checkout_return_to_menu_text', esc_attr__( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
         }
     } // is user logged in
 }
@@ -338,23 +338,23 @@ function wpd_ecommerce_checkout_success() {
     $current_user = wp_get_current_user();
 
     $customer_details  = '';
-    $customer_details .= '<p><strong>' . esc_attr__( 'Name', 'cannabiz-menu' ) . ':</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
-    $customer_details .= '<p><strong>' . esc_attr__( 'Email', 'cannabiz-menu' ) . ':</strong> ' . $current_user->user_email . '</p>';
+    $customer_details .= '<p><strong>' . esc_attr__( 'Name', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->first_name . ' ' . $current_user->last_name . '</p>';
+    $customer_details .= '<p><strong>' . esc_attr__( 'Email', 'wpd-ecommerce' ) . ':</strong> ' . $current_user->user_email . '</p>';
 
     $customer_id = $current_user->ID;
 
     // Order database variables.
-    $wpd_orders_data      = array();
-    $wpd_orders_item_data = array();
+    $wpd_orders_data      = [];
+    $wpd_orders_item_data = [];
 
-    echo '<h3 class="wpd-ecommerce customer-order">' . esc_attr__( 'Your order', 'cannabiz-menu' ) . '</h3>';
+    echo '<h3 class="wpd-ecommerce customer-order">' . esc_attr__( 'Your order', 'wpd-ecommerce' ) . '</h3>';
 
     do_action( 'wpd_ecommerce_checkout_success_your_order_table_before' );
 
     $str  = '';
     $str  = '<table style="border-collapse: collapse;width: 100%;max-width: 600px;margin: 0 auto;" class="wpd-ecommerce widget checkout">';
     $str .= '<thead style="border: 1px solid #DDD;">';
-    $str .= '<tr style="font-weight: 700;"><td style="text-align: left; padding: 10px;">' . esc_attr__( 'Product', 'cannabiz-menu' ) . '</td><td style="text-align: left;">' . esc_attr__( 'Total', 'cannabiz-menu' ) . '</td></tr>';
+    $str .= '<tr style="font-weight: 700;"><td style="text-align: left; padding: 10px;">' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td style="text-align: left;">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr>';
     $str .= '</thead>';
     $str .= '<tbody style="border-bottom: 1px solid #DDD;">';
 
@@ -462,7 +462,7 @@ function wpd_ecommerce_checkout_success() {
     }
 
     // Create orders array.
-    $orders_insert   = array();
+    $orders_insert   = [];
     $orders_insert[] = array(
         'order_subtotal'            => number_format( (float)$_SESSION['wpd_ecommerce']->sum, 2, '.', ',' ),
         'order_coupon_code'         => $_SESSION['wpd_ecommerce']->coupon_code,
@@ -595,11 +595,11 @@ function wpd_ecommerce_checkout_success() {
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
     $to                = get_option( 'admin_email' );
-    $subject           = esc_attr__( 'New order: #', 'cannabiz-menu' ) . $order;
+    $subject           = esc_attr__( 'New order: #', 'wpd-ecommerce' ) . $order;
 
     // Create message for the email.
-    $message  = '<p>' . esc_attr__( 'Hello Administrator', 'cannabiz-menu' ) . ',</p>';
-    $message .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'cannabiz-menu' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
+    $message  = '<p>' . esc_attr__( 'Hello Administrator', 'wpd-ecommerce' ) . ',</p>';
+    $message .= '<p>' . sprintf( esc_attr__( '#%1$s just received a new order from #%2$s #%3$s', 'wpd-ecommerce' ), bloginfo( 'name' ), $user_info->first_name, $user_info->last_name ) . '</p>';
 
     // Add order details to message.
     $message .= $str;
@@ -619,11 +619,11 @@ function wpd_ecommerce_checkout_success() {
     $order_customer_id = get_post_meta( $wpd_order_id, 'wpd_order_customer_id', true );
     $user_info         = get_userdata( $order_customer_id );
     $to_customer       = $user_info->user_email;
-    $subject_customer  = esc_attr__( 'Thank you for your order', 'cannabiz-menu' ) . ': #' . $wpd_order_id;
+    $subject_customer  = esc_attr__( 'Thank you for your order', 'wpd-ecommerce' ) . ': #' . $wpd_order_id;
 
     // Create message for the email.
     $message  = '<p>Hello ' . $user_info->first_name . ',</p>';
-    $message .= '<p>' . esc_attr__( 'Thank you for your order. You can see details of your order below as well as in your account on our website.', 'cannabiz-menu' ) . '</p>';
+    $message .= '<p>' . esc_attr__( 'Thank you for your order. You can see details of your order below as well as in your account on our website.', 'wpd-ecommerce' ) . '</p>';
     $message .= '<p>- ' . get_bloginfo( 'name' ) . '<br />' . get_bloginfo( 'url' ) . '</p>';
 
     // Add order details to message.

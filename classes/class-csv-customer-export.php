@@ -122,7 +122,7 @@ class CSV_Customers_Export {
         $header_row = apply_filters( 'wpd_csv_customers_export_header_row', $header_row );
 
         // Data rows.
-        $data_rows = array();
+        $data_rows = [];
 
         $args = array(
             'role'    => 'customer',

@@ -42,7 +42,7 @@ class Cart {
         $this->coupon_amount       = 0;
         $this->lines               = 0;
         $this->items               = 0;
-        $this->item_array          = array();        
+        $this->item_array          = [];        
     }
     
     private $_method = '_POST';
@@ -258,7 +258,7 @@ class Cart {
     public function wpd_ecommerce_page() {
         $str = '<table class="wpd-ecommerce">';
 
-        $str .= '<thead><tr><td>' . esc_attr__( 'Product', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Price', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Qty', 'cannabiz-menu' ) . '</td></tr></thead>';
+        $str .= '<thead><tr><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Price', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Qty', 'wpd-ecommerce' ) . '</td></tr></thead>';
         $str .= '<tbody>';
         foreach( $this->item_array as $id=>$amount ):
             $i = new Item( $id, '', '', '' );
@@ -276,8 +276,8 @@ class Cart {
 
         $str .= '<ul id="cart_totals">';
         $str .= '<li class="cart_sum">Sum: ' . CURRENCY . $this->sum . '</li>';
-        $str .= '<li class="cart_sales_tax">' . esc_attr__( 'Total', 'cannabiz-menu' ) . ': ' . CURRENCY . $this->sales_tax . '</li>';
-        $str .= '<li class="cart_total"><span class="caption">' . esc_attr__( 'Total', 'cannabiz-menu' ) . ':</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
+        $str .= '<li class="cart_sales_tax">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ': ' . CURRENCY . $this->sales_tax . '</li>';
+        $str .= '<li class="cart_total"><span class="caption">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</span>' . CURRENCY . ( $this->sales_tax + $this->sum ) . '</li>';
         $str .= '</ul>';
 
         return $str;

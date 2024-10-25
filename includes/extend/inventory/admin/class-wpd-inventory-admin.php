@@ -66,7 +66,7 @@ class WPD_Inventory_Admin {
      */
     public function enqueue_styles() {
         // Enqueue the admin stylesheet.
-        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-inventory-admin.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-inventory-admin.css', [], $this->version, 'all' );
     }
 
     /**

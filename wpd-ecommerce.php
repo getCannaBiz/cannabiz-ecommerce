@@ -65,11 +65,26 @@ function wpd_ecommerce() {
         define( 'EXCISE_TAX', $excise_tax );
     }
 
-    // Define currency code.
-    define( 'CURRENCY', wpd_currency_code() );
+    //if ( function_exists( 'wpd_currency_code' ) ) {
+        // Define currency code.
+        define( 'CURRENCY', wpd_currency_code() );
+    //} else {
+    //    define( 'CURRENCY', '' );
+    //}
 
 }
-wpd_ecommerce();
+
+/**
+ * Run CannaBiz eCommerce
+ * 
+ * @return void
+ */
+function run_wpd_ecommerce() {
+    // Do something.
+    wpd_ecommerce();
+}
+add_action( 'plugins_loaded', 'run_wpd_ecommerce' );
+
 
 /**
  * Include add-ons directly

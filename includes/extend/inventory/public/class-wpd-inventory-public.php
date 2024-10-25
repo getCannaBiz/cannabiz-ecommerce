@@ -65,7 +65,7 @@ class WPD_Inventory_Public {
      * @return void
      */
     public function enqueue_styles() {
-        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-inventory-public.min.css', array(), $this->version, 'all' );
+        wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpd-inventory-public.min.css', [], $this->version, 'all' );
     }
 
     /**

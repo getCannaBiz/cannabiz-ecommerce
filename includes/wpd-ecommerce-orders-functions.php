@@ -277,7 +277,7 @@ function wpd_ecommerce_get_order_details( $order_id ) {
     $get_order_data = $wpdb->get_results( "SELECT * FROM {$wpdb->prefix}wpd_orders WHERE order_id = {$order_id} AND order_type = 'product'", ARRAY_A );
 
     // Order products.
-    $order_products = array();
+    $order_products = [];
 
     // Loop through each product from $get_order_data.
     foreach( $get_order_data as $order_item ) {
@@ -398,7 +398,7 @@ function wpd_ecommerce_customer_total_order_count( $customer_id = '' ) {
 function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', $end_date = '' ) {
 
     // Return data.
-    $return = array();
+    $return = [];
 
     // Loop args.
     $args = array(
@@ -420,19 +420,19 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
     $loop = $loop->get_posts();
 
     // Order totals.
-    $order_totals = array();
+    $order_totals = [];
     // Product count.
-    $product_count = array();
+    $product_count = [];
     // Product data array.
-    $product_data = array();
+    $product_data = [];
     // Product types.
-    $product_types = array();
+    $product_types = [];
     // Product vendors array.
-    $product_taxonomies = array();
+    $product_taxonomies = [];
     // Customer counts array.
-    $order_customers = array();
+    $order_customers = [];
     // Customer sales array.
-    $order_customers_sales = array();
+    $order_customers_sales = [];
     // Product taxonomies.
     $taxonomies = array( 'vendors', 'shelf_types', 'strain_types', 'wpd_categories' );
 
@@ -478,7 +478,7 @@ function wpd_ecommerce_get_orders_details( $customer_id = '', $start_date = '', 
     }
 
     // Item counts.
-    $item_counts = array();
+    $item_counts = [];
 
     // Loop through product data.
     foreach ( $product_data as $item ) {
