@@ -333,27 +333,27 @@ add_filter( 'wpd_concentrates_pricing_high', 'wpd_heavyweights_concentrates_weig
  * @return string
  */
 function wpd_heavyweights_flowers_product_prices( $product_prices ) {
-    $product_prices['price_two_ounces']         = esc_attr__( '2 oz', 'wpd-ecommerce' );
-    $product_prices['price_quarter_pound']      = esc_attr__( '1/4 lb', 'wpd-ecommerce' );
-    $product_prices['price_half_pound']         = esc_attr__( '1/2 lb', 'wpd-ecommerce' );
-    $product_prices['price_one_pound']          = esc_attr__( '1 lb', 'wpd-ecommerce' );
-    $product_prices['price_two_pounds']         = esc_attr__( '2 lb', 'wpd-ecommerce' );
-    $product_prices['price_three_pounds']       = esc_attr__( '3 lb', 'wpd-ecommerce' );
-    $product_prices['price_four_pounds']        = esc_attr__( '4 lb', 'wpd-ecommerce' );
-    $product_prices['price_five_pounds']        = esc_attr__( '5 lb', 'wpd-ecommerce' );
-    $product_prices['price_six_pounds']         = esc_attr__( '6 lb', 'wpd-ecommerce' );
-    $product_prices['price_seven_pounds']       = esc_attr__( '7 lb', 'wpd-ecommerce' );
-    $product_prices['price_eight_pounds']       = esc_attr__( '8 lb', 'wpd-ecommerce' );
-    $product_prices['price_nine_pounds']        = esc_attr__( '9 lb', 'wpd-ecommerce' );
-    $product_prices['price_ten_pounds']         = esc_attr__( '10 lb', 'wpd-ecommerce' );
-    $product_prices['price_eleven_pounds']      = esc_attr__( '11 lb', 'wpd-ecommerce' );
-    $product_prices['price_twelve_pounds']      = esc_attr__( '12 lb', 'wpd-ecommerce' );
-    $product_prices['price_thirteen_pounds']    = esc_attr__( '13 lb', 'wpd-ecommerce' );
-    $product_prices['price_fourteen_pounds']    = esc_attr__( '14 lb', 'wpd-ecommerce' );
-    $product_prices['price_fifteen_pounds']     = esc_attr__( '15 lb', 'wpd-ecommerce' );
-    $product_prices['price_twenty_pounds']      = esc_attr__( '20 lb', 'wpd-ecommerce' );
-    $product_prices['price_twenty_five_pounds'] = esc_attr__( '25 lb', 'wpd-ecommerce' );
-    $product_prices['price_fifty_pounds']       = esc_attr__( '50 lb', 'wpd-ecommerce' );
+    $product_prices['price_two_ounces']         = esc_attr__( '2 oz', 'cannabiz-menu' );
+    $product_prices['price_quarter_pound']      = esc_attr__( '1/4 lb', 'cannabiz-menu' );
+    $product_prices['price_half_pound']         = esc_attr__( '1/2 lb', 'cannabiz-menu' );
+    $product_prices['price_one_pound']          = esc_attr__( '1 lb', 'cannabiz-menu' );
+    $product_prices['price_two_pounds']         = esc_attr__( '2 lb', 'cannabiz-menu' );
+    $product_prices['price_three_pounds']       = esc_attr__( '3 lb', 'cannabiz-menu' );
+    $product_prices['price_four_pounds']        = esc_attr__( '4 lb', 'cannabiz-menu' );
+    $product_prices['price_five_pounds']        = esc_attr__( '5 lb', 'cannabiz-menu' );
+    $product_prices['price_six_pounds']         = esc_attr__( '6 lb', 'cannabiz-menu' );
+    $product_prices['price_seven_pounds']       = esc_attr__( '7 lb', 'cannabiz-menu' );
+    $product_prices['price_eight_pounds']       = esc_attr__( '8 lb', 'cannabiz-menu' );
+    $product_prices['price_nine_pounds']        = esc_attr__( '9 lb', 'cannabiz-menu' );
+    $product_prices['price_ten_pounds']         = esc_attr__( '10 lb', 'cannabiz-menu' );
+    $product_prices['price_eleven_pounds']      = esc_attr__( '11 lb', 'cannabiz-menu' );
+    $product_prices['price_twelve_pounds']      = esc_attr__( '12 lb', 'cannabiz-menu' );
+    $product_prices['price_thirteen_pounds']    = esc_attr__( '13 lb', 'cannabiz-menu' );
+    $product_prices['price_fourteen_pounds']    = esc_attr__( '14 lb', 'cannabiz-menu' );
+    $product_prices['price_fifteen_pounds']     = esc_attr__( '15 lb', 'cannabiz-menu' );
+    $product_prices['price_twenty_pounds']      = esc_attr__( '20 lb', 'cannabiz-menu' );
+    $product_prices['price_twenty_five_pounds'] = esc_attr__( '25 lb', 'cannabiz-menu' );
+    $product_prices['price_fifty_pounds']       = esc_attr__( '50 lb', 'cannabiz-menu' );
     return $product_prices;
 }
 add_filter( 'wpd_flowers_product_prices', 'wpd_heavyweights_flowers_product_prices' );

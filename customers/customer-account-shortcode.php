@@ -42,9 +42,9 @@ function wpd_customer_account_shortcode() {
             $tab_number = 1;
             // Create tabs.
             $account_tabs = array(
-                esc_attr__( 'Dashboard', 'wpd-ecommerce' ),
-                esc_attr__( 'Orders', 'wpd-ecommerce' ),
-                esc_attr__( 'Details', 'wpd-ecommerce' ),
+                esc_attr__( 'Dashboard', 'cannabiz-menu' ),
+                esc_attr__( 'Orders', 'cannabiz-menu' ),
+                esc_attr__( 'Details', 'cannabiz-menu' ),
             );
 
             $account_tabs = apply_filters( 'wpd_ecommerce_customer_account_shortcode_tabs', $account_tabs );
@@ -53,7 +53,7 @@ function wpd_customer_account_shortcode() {
             foreach ( $account_tabs as $tab ) {
                 // Output the tab.
                 echo '<input class="account-links" id="tab' . $tab_number . '" type="radio" name="tabs" checked>
-                <label class="account-links" for="tab' . $tab_number . '">' . esc_html__( $tab, 'wpd-ecommerce' ) . '</label>';
+                <label class="account-links" for="tab' . $tab_number . '">' . esc_html__( $tab, 'cannabiz-menu' ) . '</label>';
                 $tab_number++;
             }
 
@@ -98,12 +98,12 @@ function wpd_ecommerce_customer_account_shortcode_section1() {
     } else {
         $customer_name = $user->user_nicename;
     }
-    $string = '<p>' . esc_html__( 'Hello', 'wpd-ecommerce' ) . ' <strong>' . $customer_name . '</strong> (<a href="' . wp_logout_url( get_permalink() ) . '">' . esc_html__( 'Log out', 'wpd-ecommerce' ) . '</a>)</p>';
+    $string = '<p>' . esc_html__( 'Hello', 'cannabiz-menu' ) . ' <strong>' . $customer_name . '</strong> (<a href="' . wp_logout_url( get_permalink() ) . '">' . esc_html__( 'Log out', 'cannabiz-menu' ) . '</a>)</p>';
 
     // If user is administrator.
     if ( 'administrator' !== $role[0] ) {
-        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Account dashboard', 'wpd-ecommerce' ) . '</h3>
-        <p>' . esc_html__( 'From your account dashboard you can view your order history and account details.', 'wpd-ecommerce' ) . '</p>';
+        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Account dashboard', 'cannabiz-menu' ) . '</h3>
+        <p>' . esc_html__( 'From your account dashboard you can view your order history and account details.', 'cannabiz-menu' ) . '</p>';
     }
 
     // If user is administrator.
@@ -168,16 +168,16 @@ function wpd_ecommerce_customer_account_shortcode_section1() {
         }
 
         $string .= '<div class="wpd-ecommerce account-administrator customers">' . $customer_count . '<span>' . apply_filters( 'wpd_ecommerce_account_admin_customers_text', 'Customers' ) . '</span></div>';
-        $string .= '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . esc_attr__( 'Orders', 'wpd-ecommerce' ) . '</span></div>';
-        $string .= '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . esc_attr__( 'This Week', 'wpd-ecommerce' ) . '</span></div>';
-        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Recent Store Orders', 'wpd-ecommerce' ) . '</h3>
+        $string .= '<div class="wpd-ecommerce account-administrator orders">' . $order_count . '<span>' . esc_attr__( 'Orders', 'cannabiz-menu' ) . '</span></div>';
+        $string .= '<div class="wpd-ecommerce account-administrator earnings">' . CURRENCY . number_format( (float)$total_final, 2, '.', ',' ) . '<span>' . esc_attr__( 'This Week', 'cannabiz-menu' ) . '</span></div>';
+        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Recent Store Orders', 'cannabiz-menu' ) . '</h3>
         <table class="wpd-ecommerce customer-orders">
             <thead>
-                <td>' . esc_html__( 'ID', 'wpd-ecommerce' ) . '</td>
-                <td>' . esc_html__( 'Name', 'wpd-ecommerce' ) . '</td>
-                <td>' . esc_html__( 'Date', 'wpd-ecommerce' ) . '</td>
-                <td>' . esc_html__( 'Status', 'wpd-ecommerce' ) . '</td>
-                <td>' . esc_html__( 'Total', 'wpd-ecommerce' ) .'</td>
+                <td>' . esc_html__( 'ID', 'cannabiz-menu' ) . '</td>
+                <td>' . esc_html__( 'Name', 'cannabiz-menu' ) . '</td>
+                <td>' . esc_html__( 'Date', 'cannabiz-menu' ) . '</td>
+                <td>' . esc_html__( 'Status', 'cannabiz-menu' ) . '</td>
+                <td>' . esc_html__( 'Total', 'cannabiz-menu' ) .'</td>
             </thead>
             <tbody>';
                 $user = wp_get_current_user();
@@ -240,13 +240,13 @@ function wpd_ecommerce_customer_account_shortcode_section1() {
  * @return string
  */
 function wpd_ecommerce_customer_account_shortcode_section2() {
-    $string = '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Order history', 'wpd-ecommerce' ) . '</h3>
+    $string = '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Order history', 'cannabiz-menu' ) . '</h3>
     <table class="wpd-ecommerce customer-orders">
         <thead>
-            <td>' . esc_html__( 'ID', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Date', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Status', 'wpd-ecommerce' ) . '</td>
-            <td>' . esc_html__( 'Total', 'wpd-ecommerce' ) . '</td>
+            <td>' . esc_html__( 'ID', 'cannabiz-menu' ) . '</td>
+            <td>' . esc_html__( 'Date', 'cannabiz-menu' ) . '</td>
+            <td>' . esc_html__( 'Status', 'cannabiz-menu' ) . '</td>
+            <td>' . esc_html__( 'Total', 'cannabiz-menu' ) . '</td>
         </thead>
         <tbody>';
 
@@ -304,56 +304,56 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
 
     do_action( 'wpd_ecommerce_customer_account_form_before_inside' ) . '
 
-    <h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Contact information', 'wpd-ecommerce' ) . '</h3>' .
+    <h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Contact information', 'cannabiz-menu' ) . '</h3>' .
 
     do_action( 'wpd_ecommerce_customer_account_contact_information_before' ) . '
 
     <p class="form-row first form-first-name">
-        <label for="first-name">' . esc_html__( 'First Name', 'wpd-ecommerce' ) . '<span class="required">*</span></label>
+        <label for="first-name">' . esc_html__( 'First Name', 'cannabiz-menu' ) . '<span class="required">*</span></label>
         <input class="text-input" name="first-name" type="text" id="first-name" value="' . get_the_author_meta( 'first_name', $current_user->ID ) . '" />
     </p><!-- .form-first-name -->
     <p class="form-row last form-last-name">
-        <label for="last-name">' . esc_html__( 'Last Name', 'wpd-ecommerce' ) . '<span class="required">*</span></label>
+        <label for="last-name">' . esc_html__( 'Last Name', 'cannabiz-menu' ) . '<span class="required">*</span></label>
         <input class="text-input" name="last-name" type="text" id="last-name" value="' . get_the_author_meta( 'last_name', $current_user->ID ) . '" />
     </p><!-- .form-last-name -->
 
     <p class="form-row form-email">
-        <label for="email">' . esc_html__( 'E-mail', 'wpd-ecommerce' ) . '<span class="required">*</span></label>
+        <label for="email">' . esc_html__( 'E-mail', 'cannabiz-menu' ) . '<span class="required">*</span></label>
         <input class="text-input" name="email" type="text" id="email" value="' . get_the_author_meta( 'user_email', $current_user->ID ) . '" />
     </p><!-- .form-email -->
 
     <p class="form-row form-phone-number">
-        <label for="email">' . esc_html__( 'Phone number', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'Phone number', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="phone_number" type="text" id="phone_number" value="' . get_the_author_meta( 'phone_number', $current_user->ID ) . '" />
     </p><!-- .form-phone-number -->
 
     <p class="form-row form-address-line-1">
-        <label for="email">' . esc_html__( 'Address line 1', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'Address line 1', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="address_line_1" type="text" id="address_line_1" value="' . get_the_author_meta( 'address_line_1', $current_user->ID ) . '" />
     </p><!-- .form-address-line-1 -->
 
     <p class="form-row form-address-line-2">
-        <label for="email">' . esc_html__( 'Address line 2', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'Address line 2', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="address_line_2" type="text" id="address_line_2" value="' . get_the_author_meta( 'address_line_2', $current_user->ID ) . '" />
     </p><!-- .form-address-line-2 -->
 
     <p class="form-row form-city">
-        <label for="email">' . esc_html__( 'City', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'City', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="city" type="text" id="city" value="' . get_the_author_meta( 'city', $current_user->ID ) . '" />
     </p><!-- .form-city -->
 
     <p class="form-row form-state-county">
-        <label for="email">' . esc_html__( 'State / County', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'State / County', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="state-county" type="text" id="state_county" value="' . get_the_author_meta( 'state_county', $current_user->ID ) . '" />
     </p><!-- .form-state-county -->
 
     <p class="form-row form-postcode-zip">
-        <label for="email">' . esc_html__( 'Postcode / ZIP', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'Postcode / ZIP', 'cannabiz-menu' ) . '</label>
         <input class="text-input" name="postcode_zip" type="text" id="postcode_zip" value="' . get_the_author_meta( 'postcode_zip', $current_user->ID ) . '" />
     </p><!-- .form-postcode-zip -->
 
     <p class="form-row form-country">
-        <label for="email">' . esc_html__( 'Country', 'wpd-ecommerce' ) . '</label>
+        <label for="email">' . esc_html__( 'Country', 'cannabiz-menu' ) . '</label>
         <select id="country" name="country" class="form-control">';
         // Current user's country.
         $current_user_country = get_the_author_meta( 'country', $current_user->ID );
@@ -384,7 +384,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_num'] && 
         'on' == $wpd_customers['wpd_settings_customers_verification_recommendation_exp'] ) {
     } else {
-        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Verification', 'wpd-ecommerce' ) . '</h3>' .
+        $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Verification', 'cannabiz-menu' ) . '</h3>' .
 
         do_action( 'wpd_ecommerce_customer_account_verification_before' );
 
@@ -393,7 +393,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         } else {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                <label for="reg_wpd_ecommerce_customer_valid_id">' . esc_html__( 'Drivers License or Valid ID', 'wpd-ecommerce' ) . '</label>';
+                <label for="reg_wpd_ecommerce_customer_valid_id">' . esc_html__( 'Drivers License or Valid ID', 'cannabiz-menu' ) . '</label>';
 
             if ( get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_valid_id', true ) ) {
                 $string .= '<div class="valid-id">';
@@ -407,7 +407,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
                     $valid_id = $valid_id['error'];
                     $string .= $valid_id. '<br />';
                 }
-                $string .= '<input type="submit" class="remove-valid-id" name="remove_valid_id" value="' . esc_html__( 'x', 'wpd-ecommerce' ) .'" />
+                $string .= '<input type="submit" class="remove-valid-id" name="remove_valid_id" value="' . esc_html__( 'x', 'cannabiz-menu' ) .'" />
             </div><!-- /.valid-id -->';
             }
             $string .= '<input type="file" name="wpd_ecommerce_customer_valid_id" id="reg_wpd_ecommerce_customer_valid_id" value="" />
@@ -420,7 +420,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         } else {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-            <label for="reg_wpd_ecommerce_customer_recommendation_doc">' . esc_html__( 'Doctor recommendation', 'wpd-ecommerce' ) . '</label>';
+            <label for="reg_wpd_ecommerce_customer_recommendation_doc">' . esc_html__( 'Doctor recommendation', 'cannabiz-menu' ) . '</label>';
             if ( get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) {
                 $string .= '<div class="recommendation-doc">';
                 $doc_rec = get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_doc', true );
@@ -433,7 +433,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
                     $doc_rec = $doc_rec['error'];
                     $string .= $doc_rec . '<br />';
                 }
-                $string .= '<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="' . esc_html__( 'x', 'wpd-ecommerce' ) . '" />
+                $string .= '<input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="' . esc_html__( 'x', 'cannabiz-menu' ) . '" />
                 </div><!-- /.recommendation-doc -->';
             }
             $string .= '<input type="file" name="wpd_ecommerce_customer_recommendation_doc" id="reg_wpd_ecommerce_customer_recommendation_doc" value="" />
@@ -445,7 +445,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         } else {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                <label for="reg_wpd_ecommerce_customer_recommendation_num">' . esc_html__( 'Recommendation number', 'wpd-ecommerce' ) .'</label>
+                <label for="reg_wpd_ecommerce_customer_recommendation_num">' . esc_html__( 'Recommendation number', 'cannabiz-menu' ) .'</label>
                 <input type="text" class="input-text" name="wpd_ecommerce_customer_recommendation_num" id="reg_wpd_ecommerce_customer_recommendation_num" value="' . get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_num', true ) . '" />
             </p>';
 
@@ -456,7 +456,7 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
         } else {
 
             $string .= '<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                <label for="reg_wpd_ecommerce_customer_recommendation_exp">' . esc_html__( 'Expiration Date', 'wpd-ecommerce' ) . '</label>
+                <label for="reg_wpd_ecommerce_customer_recommendation_exp">' . esc_html__( 'Expiration Date', 'cannabiz-menu' ) . '</label>
                 <input type="date" class="input-date" name="wpd_ecommerce_customer_recommendation_exp" id="reg_wpd_ecommerce_customer_recommendation_exp" value="' . get_user_meta( $current_user->ID, 'wpd_ecommerce_customer_recommendation_exp', true ) . '" />
             </p>';
 
@@ -466,21 +466,21 @@ function wpd_ecommerce_customer_account_shortcode_section3() {
 
     } // if all verifications are hidden.
 
-    $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Password change', 'wpd-ecommerce' ) . '</h3>';
+    $string .= '<h3 class="wpd-ecommerce customer-title">' . esc_html__( 'Password change', 'cannabiz-menu' ) . '</h3>';
 
     $string .= do_action( 'wpd_ecommerce_customer_account_password_change_before' );
 
     $string .= '<p class="form-row form-first form-password">
-        <label for="pass1">' . esc_html__( 'Password', 'wpd-ecommerce' ) . '<span class="required">*</span> <em>' . esc_html__( 'Leave blank to keep unchanged', 'wpd-ecommerce' ) . '</em></label>
+        <label for="pass1">' . esc_html__( 'Password', 'cannabiz-menu' ) . '<span class="required">*</span> <em>' . esc_html__( 'Leave blank to keep unchanged', 'cannabiz-menu' ) . '</em></label>
         <input class="text-input" name="pass1" type="password" id="pass1" />
     </p><!-- .form-password -->
     <p class="form-row form-last form-password">
-        <label for="pass2">' . esc_html__( 'Repeat Password', 'wpd-ecommerce' ) .'<span class="required">*</span> <em>' . esc_html__( 'Leave blank to keep unchanged', 'wpd-ecommerce' ) . '</em></label>
+        <label for="pass2">' . esc_html__( 'Repeat Password', 'cannabiz-menu' ) .'<span class="required">*</span> <em>' . esc_html__( 'Leave blank to keep unchanged', 'cannabiz-menu' ) . '</em></label>
         <input class="text-input" name="pass2" type="password" id="pass2" />
     </p><!-- .form-password -->
 
     <p class="form-submit">
-        <input name="updateuser" type="submit" id="updateuser" class="submit button" value=" ' . esc_html__( 'Update', 'wpd-ecommerce' ) . '" />' .
+        <input name="updateuser" type="submit" id="updateuser" class="submit button" value=" ' . esc_html__( 'Update', 'cannabiz-menu' ) . '" />' .
         wp_nonce_field( 'update-user' ) . '
         <input name="action" type="hidden" id="action" value="update-user" />
     </p><!-- .form-submit -->';

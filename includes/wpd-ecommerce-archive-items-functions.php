@@ -39,9 +39,9 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     if ( 'flowers' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Create button.
         if ( '' != $price_each ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         }
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
@@ -56,9 +56,9 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     if ( 'concentrates' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Create button.
         if ( '' != $price_each ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         }
         // Inventory management check.
         if ( function_exists( 'run_wpd_inventory' ) ) {
@@ -79,11 +79,11 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     // Edibles, Pre-rolls, Topicals, Tinctures, Gear.
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'tinctures', 'gear' ) ) ) {
         if ( '' != $price_each && '' != $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' != $price_each && '' === $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
             // Do nothing.
         }
@@ -93,11 +93,11 @@ function wpd_ecommerce_archive_items_buttons( $product_id ) {
     if ( 'growers' == get_post_meta( $product_id, 'product_type', true ) ) {
         // Create button.
         if ( '' != $price_each && '' != $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' != $price_each && '' === $price_per_pack ) {
-            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $button = '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
             // Do nothing.
         }
@@ -192,11 +192,11 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
 
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'tinctures', 'gear' ) ) ) {
         if ( '' != $price_each && '' != $price_per_pack ) {
-            $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' === $price_each && '' != $price_per_pack ) {
-            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_per_pack" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } elseif ( '' != $price_each && '' === $price_per_pack ) {
-            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
             // Do nothing.
         }
@@ -204,9 +204,9 @@ function get_wpd_ecommerce_product_buttons( $product_id ) {
 
     if ( in_array( get_post_meta( $product_id, 'product_type', true ), array( 'flowers', 'concentrates' ) ) ) {
         if ( '' != $price_each ) {
-            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'wpd-ecommerce' ) . '</a>';
+            $str .= '<a href="' . get_the_permalink( $product_id ) . '?add_item=' . $product_id . 'price_each" class="button wpd-buy-btn">' . esc_attr__( 'Buy Now', 'cannabiz-menu' ) . '</a>';
         } else {
-            $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'wpd-ecommerce' ) . '</a>';
+            $str .= '<a href="' . get_the_permalink( $product_id ) . '" class="button wpd-buy-btn">' . esc_attr__( 'Select Options', 'cannabiz-menu' ) . '</a>';
         }
     }
 

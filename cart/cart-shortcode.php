@@ -21,7 +21,7 @@ function wpd_ecommerce_shortcode() {
         $str  = '';
         $str .= do_action( 'wpd_ecommerce_cart_table_before' );
         $str .= '<table class="wpd-ecommerce cart">';
-        $str .= '<thead><tr><td></td><td></td><td>' . esc_attr__( 'Product', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Price', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Qty', 'wpd-ecommerce' ) . '</td><td>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</td></tr></thead>';
+        $str .= '<thead><tr><td></td><td></td><td>' . esc_attr__( 'Product', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Price', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Qty', 'cannabiz-menu' ) . '</td><td>' . esc_attr__( 'Total', 'cannabiz-menu' ) . '</td></tr></thead>';
         $str .= '<tbody>';
         $str .= do_action( 'wpd_ecommerce_cart_table_inside_body_before' );
         foreach( $_SESSION['wpd_ecommerce']->item_array as $id=>$amount ):
@@ -85,8 +85,8 @@ function wpd_ecommerce_shortcode() {
             if ( 'on' === $wpd_general['wpd_ecommerce_checkout_coupons'] ) {
                 $str .= '<tr><td colspan="6">
                 <form class="wpd-ecommerce-apply-coupon" name="apply_coupon" method="post">
-                <input type="text" name="coupon_code" value="" placeholder="' . esc_attr__( 'Coupon code', 'wpd-ecommerce' ) . '" />
-                <input type="submit" class="button" name="add_coupon" value="' . esc_attr__( 'Apply Coupon', 'wpd-ecommerce' ) . '" />'
+                <input type="text" name="coupon_code" value="" placeholder="' . esc_attr__( 'Coupon code', 'cannabiz-menu' ) . '" />
+                <input type="submit" class="button" name="add_coupon" value="' . esc_attr__( 'Apply Coupon', 'cannabiz-menu' ) . '" />'
                 . wp_nonce_field( 'wpd-ecommerce-coupon-code' ) . 
                 '</form>
                 </td></tr>';
@@ -114,32 +114,32 @@ function wpd_ecommerce_shortcode() {
         $str .= do_action( 'wpd_ecommerce_cart_totals_before' );
         $str .= '<div class="cart-totals">';
         $str .= do_action( 'wpd_ecommerce_cart_totals_inside_before' );
-        $str .= '<h2>' . esc_attr__( 'Cart Totals', 'wpd-ecommerce' ) . '</h2>';
+        $str .= '<h2>' . esc_attr__( 'Cart Totals', 'cannabiz-menu' ) . '</h2>';
         $str .= '<table class="wpd-ecommerce totals">';
         $str .= '<tbody>';
-        $str .= '<tr><th class="cart_sum"><span class="subtotal">' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . '</span></th><td>' . wpd_ecommerce_cart_subtotal() . '</td></tr>';
+        $str .= '<tr><th class="cart_sum"><span class="subtotal">' . esc_attr__( 'Subtotal', 'cannabiz-menu' ) . '</span></th><td>' . wpd_ecommerce_cart_subtotal() . '</td></tr>';
 
         // Add the coupon.
         if ( 0 !== $_SESSION['wpd_ecommerce']->coupon_code ) {
-            $str .= '<tr><th class="cart_coupon"><span class="coupon_code">' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</span></th><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . ' (<a href="' . get_the_permalink() . '?remove_coupon=' . $_SESSION['wpd_ecommerce']->coupon_code . '">' . esc_attr__( 'Remove', 'wpd-ecommerce' ) . '?</a>)</td></tr>';
+            $str .= '<tr><th class="cart_coupon"><span class="coupon_code">' . esc_attr__( 'Coupon', 'cannabiz-menu' ) . ':<br />' . $_SESSION['wpd_ecommerce']->coupon_code . '</span></th><td>-' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->coupon_amount, 2, '.', ',' ) . ' (<a href="' . get_the_permalink() . '?remove_coupon=' . $_SESSION['wpd_ecommerce']->coupon_code . '">' . esc_attr__( 'Remove', 'cannabiz-menu' ) . '?</a>)</td></tr>';
         }
         // Add the sales tax.
         if ( null !== $_SESSION['wpd_ecommerce']->sales_tax && 0 != $_SESSION['wpd_ecommerce']->sales_tax ) {
-            $str .= '<tr><th class="cart_sales_tax"><span class="sales_tax">' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
+            $str .= '<tr><th class="cart_sales_tax"><span class="sales_tax">' . esc_attr__( 'Sales tax', 'cannabiz-menu' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->sales_tax, 2, '.', ',' ) . '</td></tr>';
         }
         // Add the excise tax.
         if ( null !== $_SESSION['wpd_ecommerce']->excise_tax && 0 != $_SESSION['wpd_ecommerce']->excise_tax ) {
-            $str .= '<tr><th class="cart_excise_tax"><span class="excise_tax">' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
+            $str .= '<tr><th class="cart_excise_tax"><span class="excise_tax">' . esc_attr__( 'Excise tax', 'cannabiz-menu' ) . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->excise_tax, 2, '.', ',' ) . '</td></tr>';
         }
         // Add the payment type / amount.
         if ( isset( $_SESSION['wpd_ecommerce']->payment_type_name ) ) {
             $str .= '<tr><th class="cart_payment_type"><span class="payment_type_amount">' . $_SESSION['wpd_ecommerce']->payment_type_name . '</span></th><td>' . CURRENCY . number_format( (float)$_SESSION['wpd_ecommerce']->payment_type_amount, 2, '.', ',' ) . '</td></tr>';
         }
 
-        $str .= '<tr><th class="cart_total"><span class="total">' . esc_attr__( 'Total', 'wpd-ecommerce' ) . '</span></th><td>' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</td></tr>';
+        $str .= '<tr><th class="cart_total"><span class="total">' . esc_attr__( 'Total', 'cannabiz-menu' ) . '</span></th><td>' . CURRENCY . number_format( $total_price, 2, '.', ',' ) . '</td></tr>';
         $str .= '</tbody>';
         $str .= '</table>';
-        $str .= '<p class="wpd-ecommerce buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Proceed to Checkout', 'wpd-ecommerce' ) . '</a></p>';
+        $str .= '<p class="wpd-ecommerce buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Proceed to Checkout', 'cannabiz-menu' ) . '</a></p>';
         $str .= do_action( 'wpd_ecommerce_cart_totals_inside_after' );
         $str .= '</div>';
         $str .= do_action( 'wpd_ecommerce_cart_totals_after' );
@@ -149,9 +149,9 @@ function wpd_ecommerce_shortcode() {
         return $str;
 
     } else {
-        echo '<p>' . apply_filters( 'wpd_ecommerce_cart_empty_message', esc_attr__( 'There is nothing in your cart.', 'wpd-ecommerce' ) ) . '</p>';
+        echo '<p>' . apply_filters( 'wpd_ecommerce_cart_empty_message', esc_attr__( 'There is nothing in your cart.', 'cannabiz-menu' ) ) . '</p>';
 
-        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_cart_empty_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_empty_cart_return_to_menu_text', esc_attr__( 'Return to menu', 'wpd-ecommerce' ) ) . '</a></p>';
+        echo '<p><a href="' . apply_filters( 'wpd_ecommerce_cart_empty_menu_url', wpd_ecommerce_menu_url() ) . '" class="button wpd-ecommerce return">' . apply_filters( 'wpd_ecommerce_empty_cart_return_to_menu_text', esc_attr__( 'Return to menu', 'cannabiz-menu' ) ) . '</a></p>';
     }
 }
 add_shortcode( 'wpd_cart', 'wpd_ecommerce_shortcode' );

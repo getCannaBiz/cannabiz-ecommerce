@@ -21,7 +21,7 @@
 function wp_dispensary_add_inventory_metaboxes() {
     add_meta_box(
         'wp_dispensary_inventory_management',
-        esc_attr__( 'Inventory management', 'wpd-ecommerce' ),
+        esc_attr__( 'Inventory management', 'cannabiz-menu' ),
         'wp_dispensary_inventory_management',
         'products',
         'normal',
@@ -52,21 +52,21 @@ function wp_dispensary_inventory_management() {
 
     // Echo out the fields.
     $string  = '<div class="wpd-inventory growers">';
-    $string .= '<p>' . esc_attr__( 'Available Seeds (units)', 'wpd-ecommerce' ) . ':</p>';
+    $string .= '<p>' . esc_attr__( 'Available Seeds (units)', 'cannabiz-menu' ) . ':</p>';
     $string .= '<input type="text" name="inventory_seeds" value="' . $inventory_seeds  . '" class="widefat" />';
-    $string .= '<p>' . esc_attr__( 'Available Clones (units)', 'wpd-ecommerce' ) . ':</p>';
+    $string .= '<p>' . esc_attr__( 'Available Clones (units)', 'cannabiz-menu' ) . ':</p>';
     $string .= '<input type="text" name="inventory_clones" value="' . $inventory_clones  . '" class="widefat" />';
     $string .= '</div>';
     $string .= '<div class="wpd-inventory grams">';
-    $string .= '<p>' . esc_attr__( 'Available grams', 'wpd-ecommerce' ) . ':</p>';
+    $string .= '<p>' . esc_attr__( 'Available grams', 'cannabiz-menu' ) . ':</p>';
     $string .= '<input type="text" name="inventory_grams" value="' . $inventory_grams  . '" class="widefat" />';
     $string .= '</div>';
     $string .= '<div class="wpd-inventory units">';
-    $string .= '<p>' . esc_attr__( 'Available units', 'wpd-ecommerce' ) . ':</p>';
+    $string .= '<p>' . esc_attr__( 'Available units', 'cannabiz-menu' ) . ':</p>';
     $string .= '<input type="text" name="inventory_units" value="' . $inventory_each  . '" class="widefat" />';
     $string .= '</div>';
     $string .= '<div class="wpd-inventory display">';
-    $string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventory_check .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'wpd-ecommerce' ) . '</label></p>';
+    $string .= '<p><input type="checkbox" name="inventory_display" id="inventory_display" value="add_inventory_display" '. $inventory_check .'><label for="inventory_display">' . esc_attr__( 'Display inventory in Details table', 'cannabiz-menu' ) . '</label></p>';
     $string .= '</div>';
 
     echo wp_kses( $string, wpd_ecommerce_allowed_tags() );

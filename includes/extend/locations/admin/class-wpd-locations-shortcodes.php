@@ -240,37 +240,37 @@ function wp_dispensary_locations_shortcode( $atts ) {
 
 		if ( 'show' === $thc ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_thc', true ) ) {
-				$thcinfo = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) . '%</span>';
+				$thcinfo = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) . '%</span>';
 			}
 		}
 
 		if ( 'show' === $thca ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_thca', true ) ) {
-				$thcainfo = '<span class="wpd-productinfo thca"><strong>' . esc_attr__( 'THCA: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thca', true ) . '%</span>';
+				$thcainfo = '<span class="wpd-productinfo thca"><strong>' . esc_attr__( 'THCA: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thca', true ) . '%</span>';
 			}
 		}
 
 		if ( 'show' === $cbd ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_cbd', true ) ) {
-				$cbdinfo = '<span class="wpd-productinfo cbd"><strong>' . esc_attr__( 'CBD: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbd', true ) . '%</span>';
+				$cbdinfo = '<span class="wpd-productinfo cbd"><strong>' . esc_attr__( 'CBD: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbd', true ) . '%</span>';
 			}
 		}
 
 		if ( 'show' === $cba ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_cba', true ) ) {
-				$cbainfo = '<span class="wpd-productinfo cba"><strong>' . esc_attr__( 'CBA: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cba', true ) . '%</span>';
+				$cbainfo = '<span class="wpd-productinfo cba"><strong>' . esc_attr__( 'CBA: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cba', true ) . '%</span>';
 			}
 		}
 
 		if ( 'show' === $cbn ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_cbn', true ) ) {
-				$cbninfo = '<span class="wpd-productinfo cbn"><strong>' . esc_attr__( 'CBN: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbn', true ) . '%</span>';
+				$cbninfo = '<span class="wpd-productinfo cbn"><strong>' . esc_attr__( 'CBN: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbn', true ) . '%</span>';
 			}
 		}
 
 		if ( 'show' === $cbg ) {
 			if ( get_post_meta( get_the_ID(), 'compounds_cbg', true ) ) {
-				$cbginfo = '<span class="wpd-productinfo cbg"><strong>' . esc_attr__( 'CBG: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbg', true ) . '%</span>';
+				$cbginfo = '<span class="wpd-productinfo cbg"><strong>' . esc_attr__( 'CBG: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_cbg', true ) . '%</span>';
 			}
 		}
 
@@ -279,7 +279,7 @@ function wp_dispensary_locations_shortcode( $atts ) {
 		// Total THC (Servings X THC).
 		if ( 'show' === $totalthc ) {
 			if ( '' != get_post_meta( get_the_id(), 'compounds_thc', true ) && '' != get_post_meta( get_the_id(), 'product_servings', true ) ) {
-				$total_thc = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) * get_post_meta( get_the_id(), 'product_servings', true ) . 'mg</span>';
+				$total_thc = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) * get_post_meta( get_the_id(), 'product_servings', true ) . 'mg</span>';
 			}
 		} else {
 			$total_thc = '';
@@ -292,7 +292,7 @@ function wp_dispensary_locations_shortcode( $atts ) {
 		$wpdseedcount = '';
 
 		if ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
-			$wpdseedcount = '<span class="wpd-productinfo seeds"><strong>' . esc_attr__( 'Seeds:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'seed_count', true );
+			$wpdseedcount = '<span class="wpd-productinfo seeds"><strong>' . esc_attr__( 'Seeds:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'seed_count', true );
 		}
 
 		/*
@@ -302,7 +302,7 @@ function wp_dispensary_locations_shortcode( $atts ) {
 		$wpdclonecount = '';
 
 		if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
-			$wpdclonecount = '<span class="wpd-productinfo clones"><strong>' . esc_attr__( 'Clones:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'clone_count', true );
+			$wpdclonecount = '<span class="wpd-productinfo clones"><strong>' . esc_attr__( 'Clones:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'clone_count', true );
 		}
 
 		/** Get the details for Topicals */
@@ -310,19 +310,19 @@ function wp_dispensary_locations_shortcode( $atts ) {
 		$topicalsize = '';
 
 		if ( get_post_meta( get_the_ID(), 'product_size', true ) ) {
-			$topicalsize = '<span class="wpd-productinfo size"><strong>' . esc_attr__( 'Size:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'product_size', true ) . 'oz</span>';
+			$topicalsize = '<span class="wpd-productinfo size"><strong>' . esc_attr__( 'Size:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'product_size', true ) . 'oz</span>';
 		}
 
 		$topicalthc = '';
 
 		if ( get_post_meta( get_the_ID(), 'compounds_thc', true ) ) {
-			$topicalthc = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'compounds_thc', true ) . 'mg</span>';
+			$topicalthc = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'compounds_thc', true ) . 'mg</span>';
 		}
 
 		$topicalcbd = '';
 
 		if ( get_post_meta( get_the_ID(), 'compounds_cbd', true ) ) {
-			$topicalcbd = '<span class="wpd-productinfo cbd"><strong>' . esc_attr__( 'CBD:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'compounds_cbd', true ) . 'mg</span>';
+			$topicalcbd = '<span class="wpd-productinfo cbd"><strong>' . esc_attr__( 'CBD:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'compounds_cbd', true ) . 'mg</span>';
 		}
 
 		/*
@@ -333,7 +333,7 @@ function wp_dispensary_locations_shortcode( $atts ) {
 
 		if ( 'show' === $weight ) {
 			if ( get_post_meta( get_the_ID(), 'product_weight', true ) ) {
-				$prerollweight = '<span class="wpd-productinfo weight"><strong>' . esc_attr__( 'Weight:', 'wpd-ecommerce' ) . '</strong> ' . get_post_meta( get_the_id(), 'product_weight', true ) . 'g</span>';
+				$prerollweight = '<span class="wpd-productinfo weight"><strong>' . esc_attr__( 'Weight:', 'cannabiz-menu' ) . '</strong> ' . get_post_meta( get_the_id(), 'product_weight', true ) . 'g</span>';
 			}
 		}
 
@@ -346,11 +346,11 @@ function wp_dispensary_locations_shortcode( $atts ) {
 		$servingcount = '';
 
 		if ( get_post_meta( get_the_ID(), 'compounds_thc', true ) ) {
-			$thcmg = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) . 'mg</span>';
+			$thcmg = '<span class="wpd-productinfo thc"><strong>' . esc_attr__( 'THC: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'compounds_thc', true ) . 'mg</span>';
 		}
 
 		if ( get_post_meta( get_the_ID(), 'product_servings', true ) ) {
-			$servingcount = '<span class="wpd-productinfo servings"><strong>' . esc_attr__( 'Servings: ', 'wpd-ecommerce' ) . '</strong>' . get_post_meta( get_the_id(), 'product_servings', true ) . '</span>';
+			$servingcount = '<span class="wpd-productinfo servings"><strong>' . esc_attr__( 'Servings: ', 'cannabiz-menu' ) . '</strong>' . get_post_meta( get_the_id(), 'product_servings', true ) . '</span>';
 		}
 
 		/** Check shortcode options input by user */
@@ -408,13 +408,13 @@ function wp_dispensary_locations_shortcode( $atts ) {
 
 		// Image display codes.
 		if ( null === $thumbnail_url && 'full' === $imagesize ) {
-			$wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/wp-dispensary/public/images/wpd-large.jpg';
+			$wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/cannabiz-menu/public/images/wpd-large.jpg';
 			$defaultimg                   = apply_filters( 'wpd_shortcodes_default_image', $wpd_shortcodes_default_image );
 			$showimage                    = '<a href="' . get_permalink() . '"><img src="' . $defaultimg . '" alt="Menu item" /></a>';
 		} elseif ( null !== $thumbnail_url ) {
 			$showimage = '<a href="' . get_permalink() . '"><img src="' . $thumbnail_url . '" alt="Menu item" /></a>';
 		} else {
-			$wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/wp-dispensary/public/images/' . $imagesize . '.jpg';
+			$wpd_shortcodes_default_image = site_url() . '/wp-content/plugins/cannabiz-menu/public/images/' . $imagesize . '.jpg';
 			$defaultimg                   = apply_filters( 'wpd_shortcodes_default_image', $wpd_shortcodes_default_image );
 			$showimage                    = '<a href="' . get_permalink() . '"><img src="' . $defaultimg . '" alt="Menu item" /></a>';
 		}

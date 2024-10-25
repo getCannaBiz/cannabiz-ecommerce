@@ -31,18 +31,18 @@
 function wp_dispensary_locations() {
 
 	$labels = array(
-		'name'              => _x( 'Locations', 'taxonomy general name', 'wpd-ecommerce' ),
-		'singular_name'     => _x( 'Location', 'taxonomy singular name', 'wpd-ecommerce' ),
-		'search_items'      => esc_attr__( 'Search Locations', 'wpd-ecommerce' ),
-		'all_items'         => esc_attr__( 'All Locations', 'wpd-ecommerce' ),
-		'parent_item'       => esc_attr__( 'Parent Location', 'wpd-ecommerce' ),
-		'parent_item_colon' => esc_attr__( 'Parent Location:', 'wpd-ecommerce' ),
-		'edit_item'         => esc_attr__( 'Edit Location', 'wpd-ecommerce' ), 
-		'update_item'       => esc_attr__( 'Update Location', 'wpd-ecommerce' ),
-		'add_new_item'      => esc_attr__( 'Add New Location', 'wpd-ecommerce' ),
-		'new_item_name'     => esc_attr__( 'New Location Name', 'wpd-ecommerce' ),
-		'not_found'         => esc_attr__( 'No locations found', 'wpd-ecommerce' ),
-		'menu_name'         => esc_attr__( 'Locations', 'wpd-ecommerce' ),
+		'name'              => _x( 'Locations', 'taxonomy general name', 'cannabiz-menu' ),
+		'singular_name'     => _x( 'Location', 'taxonomy singular name', 'cannabiz-menu' ),
+		'search_items'      => esc_attr__( 'Search Locations', 'cannabiz-menu' ),
+		'all_items'         => esc_attr__( 'All Locations', 'cannabiz-menu' ),
+		'parent_item'       => esc_attr__( 'Parent Location', 'cannabiz-menu' ),
+		'parent_item_colon' => esc_attr__( 'Parent Location:', 'cannabiz-menu' ),
+		'edit_item'         => esc_attr__( 'Edit Location', 'cannabiz-menu' ), 
+		'update_item'       => esc_attr__( 'Update Location', 'cannabiz-menu' ),
+		'add_new_item'      => esc_attr__( 'Add New Location', 'cannabiz-menu' ),
+		'new_item_name'     => esc_attr__( 'New Location Name', 'cannabiz-menu' ),
+		'not_found'         => esc_attr__( 'No locations found', 'cannabiz-menu' ),
+		'menu_name'         => esc_attr__( 'Locations', 'cannabiz-menu' ),
 	); 	
 
 	register_taxonomy( 'locations', 'products', array(

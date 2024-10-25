@@ -20,13 +20,13 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_get_order_statuses() {
     $order_statuses = array(
-        'wpd-pending'    => _x( 'Pending', 'Order status', 'wpd-ecommerce' ),
-        'wpd-processing' => _x( 'Processing', 'Order status', 'wpd-ecommerce' ),
-        'wpd-on-hold'    => _x( 'On hold', 'Order status', 'wpd-ecommerce' ),
-        'wpd-completed'  => _x( 'Completed', 'Order status', 'wpd-ecommerce' ),
-        'wpd-cancelled'  => _x( 'Cancelled', 'Order status', 'wpd-ecommerce' ),
-        'wpd-refunded'   => _x( 'Refunded', 'Order status', 'wpd-ecommerce' ),
-        'wpd-failed'     => _x( 'Failed', 'Order status', 'wpd-ecommerce' ),
+        'wpd-pending'    => _x( 'Pending', 'Order status', 'cannabiz-menu' ),
+        'wpd-processing' => _x( 'Processing', 'Order status', 'cannabiz-menu' ),
+        'wpd-on-hold'    => _x( 'On hold', 'Order status', 'cannabiz-menu' ),
+        'wpd-completed'  => _x( 'Completed', 'Order status', 'cannabiz-menu' ),
+        'wpd-cancelled'  => _x( 'Cancelled', 'Order status', 'cannabiz-menu' ),
+        'wpd-refunded'   => _x( 'Refunded', 'Order status', 'cannabiz-menu' ),
+        'wpd-failed'     => _x( 'Failed', 'Order status', 'cannabiz-menu' ),
     );
     return apply_filters( 'wpd_ecommerce_order_statuses', $order_statuses );
 }
@@ -62,10 +62,10 @@ function wpd_ecommerce_table_order_data( $order_id, $user_id ) {
     // Table head.
     $thead = array(
         '',
-        esc_attr__( 'Product', 'wpd-ecommerce' ),
-        esc_attr__( 'Price', 'wpd-ecommerce' ),
-        esc_attr__( 'Qty', 'wpd-ecommerce' ),
-        esc_attr__( 'Total', 'wpd-ecommerce' ),
+        esc_attr__( 'Product', 'cannabiz-menu' ),
+        esc_attr__( 'Price', 'cannabiz-menu' ),
+        esc_attr__( 'Qty', 'cannabiz-menu' ),
+        esc_attr__( 'Total', 'cannabiz-menu' ),
     );
 
     // Filter table head.
@@ -138,17 +138,17 @@ function wpd_ecommerce_order_updated_messages( $messages ) {
     if ( 'wpd_orders' === get_post_type() ) {
         $messages['post'] = array(
             0 => '', // Unused. Messages start at index 1.
-            1 => sprintf( esc_attr__( 'Order updated.', 'wpd-ecommerce' ) . '<a href="%s">' . esc_attr__( 'View order', 'wpd-ecommerce' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
-            2 => esc_attr__( 'Custom field updated.', 'wpd-ecommerce' ),
-            3 => esc_attr__( 'Custom field deleted.', 'wpd-ecommerce' ),
-            4 => esc_attr__( 'Order updated.', 'wpd-ecommerce' ),
+            1 => sprintf( esc_attr__( 'Order updated.', 'cannabiz-menu' ) . '<a href="%s">' . esc_attr__( 'View order', 'cannabiz-menu' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
+            2 => esc_attr__( 'Custom field updated.', 'cannabiz-menu' ),
+            3 => esc_attr__( 'Custom field deleted.', 'cannabiz-menu' ),
+            4 => esc_attr__( 'Order updated.', 'cannabiz-menu' ),
             5 => null !== filter_input( INPUT_GET, 'revision' ) ? sprintf( esc_attr__( 'Order restored to revision from %s' ), wp_post_revision_title( (int) filter_input( INPUT_GET, 'revision' ), false ) ) : false,
-            6 => sprintf( esc_attr__( 'Order published.', 'wpd-ecommerce' ) . ' <a href="%s">' . esc_attr__( 'View order', 'wpd-ecommerce' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
-            7 => esc_attr__( 'Order saved.', 'wpd-ecommerce' ),
-            8 => sprintf( esc_attr__( 'Order submitted.', 'wpd-ecommerce' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
-            9 => sprintf( esc_attr__( 'Order scheduled for: ' ) . '<strong>%1$s</strong>. <a target="_blank" href="%2$s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>',
+            6 => sprintf( esc_attr__( 'Order published.', 'cannabiz-menu' ) . ' <a href="%s">' . esc_attr__( 'View order', 'cannabiz-menu' ) . '</a>', esc_url( get_permalink( $post->ID ) ) ),
+            7 => esc_attr__( 'Order saved.', 'cannabiz-menu' ),
+            8 => sprintf( esc_attr__( 'Order submitted.', 'cannabiz-menu' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'cannabiz-menu' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            9 => sprintf( esc_attr__( 'Order scheduled for: ' ) . '<strong>%1$s</strong>. <a target="_blank" href="%2$s">' . esc_attr__( 'Preview order', 'cannabiz-menu' ) . '</a>',
             date_i18n( esc_attr__( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink( $post->ID ) ) ),
-            10 => sprintf( esc_attr__( 'Order draft updated.', 'wpd-ecommerce' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'wpd-ecommerce' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
+            10 => sprintf( esc_attr__( 'Order draft updated.', 'cannabiz-menu' ) . ' <a target="_blank" href="%s">' . esc_attr__( 'Preview order', 'cannabiz-menu' ) . '</a>', esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
         );
     }
     return $messages;
@@ -600,7 +600,7 @@ function wpd_ecommerce_modify_comment_author_link( $return, $author, $comment_id
         $did_purchase = wpd_ecommerce_did_customer_purchase_product( $user->ID, get_the_ID() );
 
         if ( $did_purchase ) {
-            $verified = apply_filters( 'wpd_comment_author_verified_purchase', '<span class="verified-purchase">' . esc_html__( 'Verified purchase', 'wp-dispensary' ) . '</span>' );
+            $verified = apply_filters( 'wpd_comment_author_verified_purchase', '<span class="verified-purchase">' . esc_html__( 'Verified purchase', 'cannabiz-ecommerce' ) . '</span>' );
             $return   = $return . $verified;
         }
     }

@@ -32,9 +32,9 @@ class WPD_eCommerce_Widget extends WP_Widget {
 
         parent::__construct(
             'wpd_cart_widget',
-            esc_attr__( 'Shopping Cart', 'wpd-ecommerce' ),
+            esc_attr__( 'Shopping Cart', 'cannabiz-menu' ),
             array(
-                'description' => esc_attr__( 'Display your cart details', 'wpd-ecommerce' ),
+                'description' => esc_attr__( 'Display your cart details', 'cannabiz-menu' ),
                 'classname'   => 'wp-dispensary-cart-widget',
             )
         );
@@ -50,13 +50,13 @@ class WPD_eCommerce_Widget extends WP_Widget {
      */
     function form( $instance ) {
         $defaults = array(
-            'title' => esc_attr__( 'Cart', 'wpd-ecommerce' ),
+            'title' => esc_attr__( 'Cart', 'cannabiz-menu' ),
         );
 
         $instance = wp_parse_args( (array) $instance, $defaults );
         ?>
         <p>
-            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Widget Title:', 'wpd-ecommerce' ); ?></label>
+            <label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Widget Title:', 'cannabiz-menu' ); ?></label>
             <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_html( $instance['title'] ); ?>" />
         </p>
         <?php
@@ -183,9 +183,9 @@ class WPD_eCommerce_Widget extends WP_Widget {
                     $str .= '</tbody>';
                     $str .= '</table>';
             
-                    $str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
+                    $str .= '<p class="wpd-ecommerce-widget subtotal"><strong>' . esc_attr__( 'Subtotal', 'cannabiz-menu' ) . ':</strong> ' . wpd_ecommerce_cart_subtotal() . '</p>';
 
-                    $str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'wpd-ecommerce' ) . '</a></p>';
+                    $str .= '<p class="wpd-ecommerce-widget buttons"><a href="' . wpd_ecommerce_checkout_url() . '" class="button">' . esc_attr__( 'Checkout', 'cannabiz-menu' ) . '</a></p>';
 
                     echo $str;
 

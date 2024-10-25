@@ -50,7 +50,7 @@ function wpd_out_of_stock_content( $content ) {
         // Out of stock message.
         if ( 'flowers' == $product_type && ! get_post_meta( get_the_ID(), 'inventory_grams', true ) ) {
             $content .= '<div class="wpd-inventory ' . $product_type . ' warning">';
-            $content .= '<p>' . esc_attr__( 'Sorry, this flower is currently out of stock.', 'wpd-ecommerce' ) . '</p>';
+            $content .= '<p>' . esc_attr__( 'Sorry, this flower is currently out of stock.', 'cannabiz-menu' ) . '</p>';
             $content .= '</div>';
         }
     }

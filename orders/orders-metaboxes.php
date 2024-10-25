@@ -22,7 +22,7 @@ defined( 'ABSPATH' ) || exit;
 function wpd_ecommerce_order_item_details_metaboxes() {
     add_meta_box(
         'wpd_ecommerce_order_item_details',
-        esc_attr__( 'Order details', 'wpd-ecommerce' ),
+        esc_attr__( 'Order details', 'cannabiz-menu' ),
         'wpd_ecommerce_order_item_details_build',
         'wpd_orders',
         'normal',
@@ -79,21 +79,21 @@ function wpd_ecommerce_order_item_details_build() {
     // @todo add filters to all content output here, before/after table, etc.
 
     echo '<div class="order-item-details-box first">';
-    echo '<h1>' . sprintf( esc_attr__( 'Order #%1$s details', 'wpd-ecommerce' ), $post->ID ) . '</h1>';
+    echo '<h1>' . sprintf( esc_attr__( 'Order #%1$s details', 'cannabiz-menu' ), $post->ID ) . '</h1>';
 
     echo '<table class="wpd-ecommerce order-details"><tbody>';
-    echo '<tr><td><strong>' . esc_attr__( 'Subtotal', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
+    echo '<tr><td><strong>' . esc_attr__( 'Subtotal', 'cannabiz-menu' ) . ':</strong></td><td>' . CURRENCY . $order_subtotal . '</td></tr>';
     if ( isset( $order_coupon_amount ) && '0.00' !== $order_coupon_amount ) {
-        echo '<tr><td><strong>' . esc_attr__( 'Coupon', 'wpd-ecommerce' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
+        echo '<tr><td><strong>' . esc_attr__( 'Coupon', 'cannabiz-menu' ) . ':</strong></td><td>-' . CURRENCY . $order_coupon_amount . '</td></tr>';
     }
     if ( isset( $order_excise_tax ) && '0.00' !== $order_excise_tax ) {
-        echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
+        echo '<tr><td><strong>' . esc_attr__( 'Excise tax', 'cannabiz-menu' ) . ':</strong></td><td>' . CURRENCY . $order_excise_tax . '</td></tr>';
     }
     if ( isset( $order_sales_tax ) && '0.00' !== $order_sales_tax ) {
-        echo '<tr><td><strong>' . esc_attr__( 'Sales tax', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
+        echo '<tr><td><strong>' . esc_attr__( 'Sales tax', 'cannabiz-menu' ) . ':</strong></td><td>' . CURRENCY . $order_sales_tax . '</td></tr>';
     }
     echo '<tr><td><strong>' . $order_payment_type_name . ':</strong></td><td>' . CURRENCY . $order_payment_type_amount . '</td></tr>';
-    echo '<tr><td><strong>' . esc_attr__( 'Total', 'wpd-ecommerce' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
+    echo '<tr><td><strong>' . esc_attr__( 'Total', 'cannabiz-menu' ) . ':</strong></td><td>' . CURRENCY . $order_total . '</td></tr>';
     echo '</tbody></table>';
 
     echo '</div>';
@@ -103,7 +103,7 @@ function wpd_ecommerce_order_item_details_build() {
     $order_customer_id = get_post_meta( $post->ID, 'wpd_order_customer_id', true );
 
     echo '<div class="order-item-details-box">';
-    echo '<p><strong>' . esc_attr__( 'Status', 'wpd-ecommerce' ) . ':</strong></p>';
+    echo '<p><strong>' . esc_attr__( 'Status', 'cannabiz-menu' ) . ':</strong></p>';
 
     // Get array of order statuses.
     $status_names = wpd_ecommerce_get_order_statuses();
@@ -121,7 +121,7 @@ function wpd_ecommerce_order_item_details_build() {
         print( '</select>' );
     }
 
-    echo '<p><strong>' . esc_attr__( 'Address', 'wpd-ecommerce' ) . ':</strong></p>';
+    echo '<p><strong>' . esc_attr__( 'Address', 'cannabiz-menu' ) . ':</strong></p>';
 
     $user_info = get_userdata( $order_customer_id );
 
@@ -137,16 +137,16 @@ function wpd_ecommerce_order_item_details_build() {
     echo '</div>';
 
     echo '<div class="order-details-box">';
-    echo '<p><strong>' . esc_attr__( 'Customer', 'wpd-ecommerce' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">' . esc_attr__( 'profile', 'wpd-ecommerce' ) . '</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">' . esc_attr__( 'view orders', 'wpd-ecommerce' ) . ' &rarr;</a></p>';
+    echo '<p><strong>' . esc_attr__( 'Customer', 'cannabiz-menu' ) . ':</strong> (<a href="' . get_bloginfo( 'url' ) . '/wp-admin/user-edit.php?user_id=' . $order_customer_id . '">' . esc_attr__( 'profile', 'cannabiz-menu' ) . '</a>) <a href="' . get_bloginfo( 'url' ) . '/wp-admin/edit.php?post_status=all&post_type=wpd_orders&wpd_order_customer_id=' . $order_customer_id . '">' . esc_attr__( 'view orders', 'cannabiz-menu' ) . ' &rarr;</a></p>';
     wp_dropdown_users( array( 'name' => 'wpd_order_customer_id', 'id' => 'wpd_order_customer_id', 'selected' => $order_customer_id, 'class' => 'widefat', 'show' => 'display_name_with_login' ) );
 
     if ( '' != $user_info->user_email ) {
-        echo '<p><strong>' . esc_attr__( 'Email address', 'wpd-ecommerce' ) . ':</strong></p>';
+        echo '<p><strong>' . esc_attr__( 'Email address', 'cannabiz-menu' ) . ':</strong></p>';
         echo '<a href="mailto:' . $user_info->user_email . '">' . $user_info->user_email . '</a>';
     }
 
     if ( '' != $user_info->phone_number ) {
-        echo '<p><strong>' . esc_attr__( 'Phone number', 'wpd-ecommerce' ) . ':</strong></p>';
+        echo '<p><strong>' . esc_attr__( 'Phone number', 'cannabiz-menu' ) . ':</strong></p>';
         echo '<a href="tel:' . $user_info->phone_number . '">' . $user_info->phone_number . '</a>';
     }
 

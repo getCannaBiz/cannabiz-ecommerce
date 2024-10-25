@@ -31,14 +31,14 @@ function wpd_ecommerce_notifications() {
 
         // Check if cart widget is active.
         if ( ! is_active_widget( false, false, 'wpd_cart_widget', true ) ) {
-            $view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . esc_attr__( 'View Cart', 'wpd-ecommerce' ) . '</a>';
+            $view_cart_button = '<a href="' . wpd_ecommerce_cart_url() . '" class="button">' . esc_attr__( 'View Cart', 'cannabiz-menu' ) . '</a>';
         }
 
         // Please select a weight notification for flowers.
         if ( is_singular( 'products' ) && 'flowers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_flowers_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -46,7 +46,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && ! get_post_meta( get_the_ID(), 'price_each', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a weight in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -54,7 +54,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'edibles' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -62,7 +62,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'prerolls' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -70,7 +70,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'topicals' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -78,7 +78,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'growers' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -86,7 +86,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'gear' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -94,7 +94,7 @@ function wpd_ecommerce_notifications() {
         if ( is_singular( 'products' ) && 'tinctures' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'add_me' ) && get_post_meta( get_the_ID(), 'price_per_pack', true ) && null == filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
             // Begin wrapper around notifications.
             $str .= '<div class="wpd-ecommerce-single-notifications">';
-            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'Please select a quantity in order to add the product to your cart', 'cannabiz-menu' ) . '</div>';
             $str .= '</div>';
         }
 
@@ -207,12 +207,12 @@ function wpd_ecommerce_notifications() {
             if ( $inventory < $inventory_reduction ) {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'Available', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</span></div>';
+                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'cannabiz-menu' ) . ' <span class="in-stock">' . esc_attr__( 'Available', 'cannabiz-menu' ) . ': ' . $inventory . ' grams</span></div>';
                 $str .= '</div>';
             } else {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'cannabiz-menu' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'cannabiz-menu' ) . '</a></div>';
                 $str .= '</div>';
             }
         } elseif ( is_singular( 'products' ) && 'concentrates' == get_post_meta( get_the_ID(), 'product_type', true ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_concentrates_prices' ) ) {
@@ -278,12 +278,12 @@ function wpd_ecommerce_notifications() {
             if ( $inventory < $inventory_reduction ) {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' grams</div>';
+                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'cannabiz-menu' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'cannabiz-menu' ) . ': ' . $inventory . ' grams</div>';
                 $str .= '</div>';
             } else {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'cannabiz-menu' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'cannabiz-menu' ) . '</a></div>';
                 $str .= '</div>';
             }
         } elseif ( is_singular( 'products' ) && in_array( get_post_meta( get_the_ID(), 'product_type', true ), array( 'edibles', 'prerolls', 'topicals', 'growers', 'gear', 'tinctures' ) ) && null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) && null !== filter_input( INPUT_POST, 'wpd_ecommerce_product_prices' ) ) {
@@ -343,12 +343,12 @@ function wpd_ecommerce_notifications() {
             if ( $inventory < $inventory_reduction ) {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+                $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'cannabiz-menu' ) . ' <span class="in-stock">' . esc_attr__( 'In stock', 'cannabiz-menu' ) . ': ' . $inventory . ' units</div>';
                 $str .= '</div>';
             } else {
                 // Begin wrapper around notifications.
                 $str .= '<div class="wpd-ecommerce-single-notifications">';
-                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+                $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'cannabiz-menu' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'cannabiz-menu' ) . '</a></div>';
                 $str .= '</div>';
             }
         } elseif ( null !== filter_input( INPUT_POST, 'qtty' ) && ! empty( filter_input( INPUT_POST, 'qtty' ) ) && null !== filter_input( INPUT_POST, 'add_me' ) ) {
@@ -415,13 +415,13 @@ function wpd_ecommerce_notifications() {
                     if ( $inventory < $inventory_reduction ) {
                         // Begin wrapper around notifications.
                         $str .= '<div class="wpd-ecommerce-single-notifications">';
-                        $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'wpd-ecommerce' ) . '<span class="in-stock">' . esc_attr__( 'In stock', 'wpd-ecommerce' ) . ': ' . $inventory . ' units</div>';
+                        $str .= '<div class="wpd-ecommerce-notifications failed">' . esc_attr__( 'There is not enough inventory for your purchase.', 'cannabiz-menu' ) . '<span class="in-stock">' . esc_attr__( 'In stock', 'cannabiz-menu' ) . ': ' . $inventory . ' units</div>';
                         $str .= '</div>';
                     } else {
                         if ( '' !== $single_price && null == $pack_price && null == $new_price && null == $concentrates_prices ) {
                             // Begin wrapper around notifications.
                             $str .= '<div class="wpd-ecommerce-single-notifications">';
-                            $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'wpd-ecommerce' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+                            $str .= '<div class="wpd-ecommerce-notifications success">' . esc_attr__( 'This product has been successfully added to your cart', 'cannabiz-menu' ) . ' ' . $view_cart_button . '<a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'cannabiz-menu' ) . '</a></div>';
                             $str .= '</div>';
                         }
                     }
@@ -438,28 +438,28 @@ function wpd_ecommerce_notifications() {
     // Display failed login message.
     if ( ! empty( filter_input( INPUT_GET, 'login' ) ) ) {
         if ( 'failed' === filter_input( INPUT_POST, 'login' ) ) {
-            $str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The username or password you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'The username or password you entered is incorrect.', 'cannabiz-menu' ) . '</div>';
         }
     }
 
     // Display failed register message.
     if ( ! empty( filter_input( INPUT_GET, 'register' ) ) ) {
         if ( 'failed' === filter_input( INPUT_GET, 'register' ) ) {
-            $str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The registration info you entered is incorrect.', 'wpd-ecommerce' ) . '</div>';
+            $str .= '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'The registration info you entered is incorrect.', 'cannabiz-menu' ) . '</div>';
         }
     }
 
     // Display order thank you message.
     if ( ! empty( filter_input( INPUT_GET, 'order' ) ) ) {
         if ( 'thank-you' === filter_input( INPUT_GET, 'order' ) ) {
-            $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Thank You', 'wpd-ecommerce' ) . ':</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
+            $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Thank You', 'cannabiz-menu' ) . ':</strong> Your order #' . get_the_ID() . ' has been submitted.</div>';
         }
     }
 
     // Remove an item from the cart
     if ( ! empty( filter_input( INPUT_GET, 'remove_item' ) ) ) {
         $_SESSION['wpd_ecommerce']->remove_item( filter_input( INPUT_GET, 'remove_item' ) );
-        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item removed', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The item has been successfully removed.', 'wpd-ecommerce' ) .'</div>';
+        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item removed', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'The item has been successfully removed.', 'cannabiz-menu' ) .'</div>';
     }
 
     // Add an item to the cart
@@ -472,7 +472,7 @@ function wpd_ecommerce_notifications() {
             $_SESSION['wpd_ecommerce']->add_item( filter_input( INPUT_GET, 'add_item' ), 1, '', '', '' );
         endif;
         $str .= '<div class="wpd-ecommerce-single-notifications">';
-        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item added', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'The item has been successfully added to your cart.', 'wpd-ecommerce' ) . ' <a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'wpd-ecommerce' ) . '</a></div>';
+        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Item added', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'The item has been successfully added to your cart.', 'cannabiz-menu' ) . ' <a href="' . wpd_ecommerce_menu_url() . '" class="button">' . esc_attr__( 'Continue Shopping', 'cannabiz-menu' ) . '</a></div>';
         $str .= '</div>';
     }
 
@@ -504,7 +504,7 @@ function wpd_ecommerce_notifications() {
         //print_r( $coupons_loop );
 
         if ( 0 == count( $coupons_loop ) ) {
-            $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> Coupon code "' . filter_input( INPUT_POST, 'coupon_code' ) . '" does not exist</div>';
+            $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> Coupon code "' . filter_input( INPUT_POST, 'coupon_code' ) . '" does not exist</div>';
         }
 
         foreach( $coupons_loop as $coupon ) : setup_postdata( $coupon );
@@ -521,13 +521,13 @@ function wpd_ecommerce_notifications() {
             // @todo display error notice if the selected product is not in the cart.
             if ( $product_selected && '' != $product_selected ) {
                 // Display error notification.
-                echo '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Required product is not in your cart', 'wpd-ecommerce' ) . '</div>';
+                echo '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Required product is not in your cart', 'cannabiz-menu' ) . '</div>';
             } else {
                 // Add coupon to the cart.
                 $_SESSION['wpd_ecommerce']->add_coupon( $coupon_code, $coupon_amount, $coupon_type, $coupon_exp );
                 
                 // Display success notification.
-                echo '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Success', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Coupon code has been applied', 'wpd-ecommerce' ) . '</div>';
+                echo '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Success', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Coupon code has been applied', 'cannabiz-menu' ) . '</div>';
             }
 
         endforeach;
@@ -558,12 +558,12 @@ function wpd_ecommerce_notifications() {
 
     // If the coupon code form is submitted but no code was input.
     if ( null !== filter_input( INPUT_POST, 'coupon_code' ) && empty( filter_input( INPUT_POST, 'coupon_code' ) ) && filter_input( INPUT_POST, 'add_coupon' ) ) {
-        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Please enter a coupon code', 'wpd-ecommerce' ) . '</div>';
+        $str = '<div class="wpd-ecommerce-notifications failed"><strong>' . esc_attr__( 'Error', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Please enter a coupon code', 'cannabiz-menu' ) . '</div>';
     }
 
     // Display order thank you message.
     if ( null !== filter_input( INPUT_GET, 'profile_saved' ) ) {
-        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Details Saved', 'wpd-ecommerce' ) . ':</strong> ' . esc_attr__( 'Your profile settings have been successfully saved', 'wpd-ecommerce' ) . '</div>';
+        $str .= '<div class="wpd-ecommerce-notifications success"><strong>' . esc_attr__( 'Details Saved', 'cannabiz-menu' ) . ':</strong> ' . esc_attr__( 'Your profile settings have been successfully saved', 'cannabiz-menu' ) . '</div>';
     }
 
     return $str;
@@ -1047,7 +1047,7 @@ function wpd_admin_settings_section_after() {
     $wpdas_object = $wpdas_obj->add_section(
         array(
             'id'    => 'wpdas_pages',
-            'title' => esc_attr__( 'Pages', 'wpd-ecommerce' ),
+            'title' => esc_attr__( 'Pages', 'cannabiz-menu' ),
         )
     );
 
@@ -1198,16 +1198,16 @@ function wpd_ecommerce_add_to_cart_form() {
     if ( 'products' == get_post_type( get_the_ID() ) && 'growers' === get_post_meta( get_the_ID(), 'product_type', true ) ) {
         // If no clone or seed count has been added.
         if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) && ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+            $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'cannabiz-menu' ) . '</span>';
         }
         // Add out of stock notice to output string.
         if ( get_post_meta( get_the_ID(), 'clone_count', true ) ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_clones', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'cannabiz-menu' ) . '</span>';
             }
         } elseif ( get_post_meta( get_the_ID(), 'seed_count', true ) ) {
             if ( ! get_post_meta( get_the_ID(), 'inventory_seeds', true ) ) {
-                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'wpd-ecommerce' ) . '</span>';
+                $out_of_stock .= '<span class="wpd-inventory warning">' . esc_attr__( 'out of stock', 'cannabiz-menu' ) . '</span>';
             }
         }
     }
@@ -1264,7 +1264,7 @@ function wpd_ecommerce_add_to_cart_form() {
 
             // Select a weight.
             printf( '<select name="wpd_ecommerce_flowers_prices" id="wpd_ecommerce_flowers_prices" class="widefat">' );
-            printf( '<option value="" disabled selected>' . esc_attr__( 'Choose a weight', 'wpd-ecommerce' ) . '</option>' );
+            printf( '<option value="" disabled selected>' . esc_attr__( 'Choose a weight', 'cannabiz-menu' ) . '</option>' );
             foreach ( $regular_price as $name => $price ) {
                 if ( '' != $price ) {
                     printf( '<option value="'. esc_html( $price ) . '">' . CURRENCY . esc_html( $price ) . ' - ' . esc_html( $name ) . '</option>' );
@@ -1436,9 +1436,9 @@ function wpd_ecommerce_add_to_cart_form() {
             if ( ! empty( $pack_price ) ) {
                 // Select a quantity.
                 print( '<select name="wpd_ecommerce_product_prices" id="wpd_ecommerce_product_prices" class="widefat">' );
-                printf( '<option value="" disabled selected>' . esc_attr__( 'Choose quantity', 'wpd-ecommerce' ) . '</option>' );
-                printf( '<option value="'. esc_html( $regular_price ) . '">' . CURRENCY . esc_html( $regular_price ) . ' - ' . esc_attr__( 'each', 'wpd-ecommerce' ) . '</option>' );
-                printf( '<option value="'. esc_html( $pack_price ) . '">' . CURRENCY . esc_html( $pack_price ) . ' - ' . esc_html( $pack_units ) . ' ' . esc_attr__( 'pack', 'wpd-ecommerce' ) . '</option>' );
+                printf( '<option value="" disabled selected>' . esc_attr__( 'Choose quantity', 'cannabiz-menu' ) . '</option>' );
+                printf( '<option value="'. esc_html( $regular_price ) . '">' . CURRENCY . esc_html( $regular_price ) . ' - ' . esc_attr__( 'each', 'cannabiz-menu' ) . '</option>' );
+                printf( '<option value="'. esc_html( $pack_price ) . '">' . CURRENCY . esc_html( $pack_price ) . ' - ' . esc_html( $pack_units ) . ' ' . esc_attr__( 'pack', 'cannabiz-menu' ) . '</option>' );
                 print( '</select>' );
 
                 $price_each     = get_post_meta( get_the_ID(), 'price_each', true );
@@ -1683,7 +1683,7 @@ function wpd_ecommerce_add_to_cart_form() {
     }
     ?>
         <input type="number" name="qtty" id="qtty" value="1" class="item_Quantity" />
-        <input type="submit" class="item_add" id="add_item_btn" value="<?php echo esc_attr__( 'Add to cart', 'wpd-ecommerce' ); ?>" name="add_me" />
+        <input type="submit" class="item_add" id="add_item_btn" value="<?php echo esc_attr__( 'Add to cart', 'cannabiz-menu' ); ?>" name="add_me" />
     </fieldset>
     <?php } ?>
     </form>
@@ -1790,7 +1790,7 @@ function wpd_ecommerce_payment_types() {
             // Create payment amount.
             $payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_cod'];
             // Add payment method to array.
-            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', esc_attr__( 'Delivery', 'wpd-ecommerce' ) )] = $payment_amount;
+            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_delivery', esc_attr__( 'Delivery', 'cannabiz-menu' ) )] = $payment_amount;
         }
     }
     // Check if CannaBiz Menu setting is set.
@@ -1800,7 +1800,7 @@ function wpd_ecommerce_payment_types() {
             // Create payment amount.
             $payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_pop'];
             // Add payment method to array.
-            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', esc_attr__( 'In-store pickup', 'wpd-ecommerce' ) )] = $payment_amount;
+            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_pop', esc_attr__( 'In-store pickup', 'cannabiz-menu' ) )] = $payment_amount;
         }
     }
     // Check if CannaBiz Menu setting is set.
@@ -1810,7 +1810,7 @@ function wpd_ecommerce_payment_types() {
             // Create payment amount.
             $payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_curbside'];
             // Add payment method to array.
-            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_curbside', esc_attr__( 'Curbside pickup', 'wpd-ecommerce' ) )] = $payment_amount;
+            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_curbside', esc_attr__( 'Curbside pickup', 'cannabiz-menu' ) )] = $payment_amount;
         }
     }
     // Check if CannaBiz Menu setting is set.
@@ -1820,7 +1820,7 @@ function wpd_ecommerce_payment_types() {
             // Create payment amount.
             $payment_amount = $wpd_payments['wpd_ecommerce_checkout_payments_ground'];
             // Add payment method to array.
-            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_ground', esc_attr__( 'Shipping', 'wpd-ecommerce' ) )] = $payment_amount;
+            $payment_types[apply_filters( 'wpd_ecommerce_payment_type_name_ground', esc_attr__( 'Shipping', 'cannabiz-menu' ) )] = $payment_amount;
         }
     }
 

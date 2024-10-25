@@ -19,33 +19,33 @@ defined( 'ABSPATH' ) || exit;
 function wpd_orders_post_type() {
 
     $labels = array(
-        'name'                  => _x( 'Orders', 'Post Type General Name', 'wpd-ecommerce' ),
-        'singular_name'         => _x( 'Order', 'Post Type Singular Name', 'wpd-ecommerce' ),
-        'menu_name'             => esc_attr__( 'Orders', 'wpd-ecommerce' ),
-        'name_admin_bar'        => esc_attr__( 'Order', 'wpd-ecommerce' ),
-        'archives'              => esc_attr__( 'Order Archives', 'wpd-ecommerce' ),
-        'attributes'            => esc_attr__( 'Order Attributes', 'wpd-ecommerce' ),
-        'parent_item_colon'     => esc_attr__( 'Parent Order:', 'wpd-ecommerce' ),
-        'all_items'             => esc_attr__( 'All Orders', 'wpd-ecommerce' ),
-        'add_new_item'          => esc_attr__( 'Add New Order', 'wpd-ecommerce' ),
-        'add_new'               => esc_attr__( 'Add New', 'wpd-ecommerce' ),
-        'new_item'              => esc_attr__( 'New Order', 'wpd-ecommerce' ),
-        'edit_item'             => esc_attr__( 'Edit Order', 'wpd-ecommerce' ),
-        'update_item'           => esc_attr__( 'Update Order', 'wpd-ecommerce' ),
-        'view_item'             => esc_attr__( 'View Order', 'wpd-ecommerce' ),
-        'view_items'            => esc_attr__( 'View Orders', 'wpd-ecommerce' ),
-        'search_items'          => esc_attr__( 'Search Order', 'wpd-ecommerce' ),
-        'not_found'             => esc_attr__( 'Not found', 'wpd-ecommerce' ),
-        'not_found_in_trash'    => esc_attr__( 'Not found in Trash', 'wpd-ecommerce' ),
-        'featured_image'        => esc_attr__( 'Featured Image', 'wpd-ecommerce' ),
-        'set_featured_image'    => esc_attr__( 'Set featured image', 'wpd-ecommerce' ),
-        'remove_featured_image' => esc_attr__( 'Remove featured image', 'wpd-ecommerce' ),
-        'use_featured_image'    => esc_attr__( 'Use as featured image', 'wpd-ecommerce' ),
-        'insert_into_item'      => esc_attr__( 'Insert into order', 'wpd-ecommerce' ),
-        'uploaded_to_this_item' => esc_attr__( 'Uploaded to this order', 'wpd-ecommerce' ),
-        'items_list'            => esc_attr__( 'Orders list', 'wpd-ecommerce' ),
-        'items_list_navigation' => esc_attr__( 'Orders list navigation', 'wpd-ecommerce' ),
-        'filter_items_list'     => esc_attr__( 'Filter orders list', 'wpd-ecommerce' ),
+        'name'                  => _x( 'Orders', 'Post Type General Name', 'cannabiz-menu' ),
+        'singular_name'         => _x( 'Order', 'Post Type Singular Name', 'cannabiz-menu' ),
+        'menu_name'             => esc_attr__( 'Orders', 'cannabiz-menu' ),
+        'name_admin_bar'        => esc_attr__( 'Order', 'cannabiz-menu' ),
+        'archives'              => esc_attr__( 'Order Archives', 'cannabiz-menu' ),
+        'attributes'            => esc_attr__( 'Order Attributes', 'cannabiz-menu' ),
+        'parent_item_colon'     => esc_attr__( 'Parent Order:', 'cannabiz-menu' ),
+        'all_items'             => esc_attr__( 'All Orders', 'cannabiz-menu' ),
+        'add_new_item'          => esc_attr__( 'Add New Order', 'cannabiz-menu' ),
+        'add_new'               => esc_attr__( 'Add New', 'cannabiz-menu' ),
+        'new_item'              => esc_attr__( 'New Order', 'cannabiz-menu' ),
+        'edit_item'             => esc_attr__( 'Edit Order', 'cannabiz-menu' ),
+        'update_item'           => esc_attr__( 'Update Order', 'cannabiz-menu' ),
+        'view_item'             => esc_attr__( 'View Order', 'cannabiz-menu' ),
+        'view_items'            => esc_attr__( 'View Orders', 'cannabiz-menu' ),
+        'search_items'          => esc_attr__( 'Search Order', 'cannabiz-menu' ),
+        'not_found'             => esc_attr__( 'Not found', 'cannabiz-menu' ),
+        'not_found_in_trash'    => esc_attr__( 'Not found in Trash', 'cannabiz-menu' ),
+        'featured_image'        => esc_attr__( 'Featured Image', 'cannabiz-menu' ),
+        'set_featured_image'    => esc_attr__( 'Set featured image', 'cannabiz-menu' ),
+        'remove_featured_image' => esc_attr__( 'Remove featured image', 'cannabiz-menu' ),
+        'use_featured_image'    => esc_attr__( 'Use as featured image', 'cannabiz-menu' ),
+        'insert_into_item'      => esc_attr__( 'Insert into order', 'cannabiz-menu' ),
+        'uploaded_to_this_item' => esc_attr__( 'Uploaded to this order', 'cannabiz-menu' ),
+        'items_list'            => esc_attr__( 'Orders list', 'cannabiz-menu' ),
+        'items_list_navigation' => esc_attr__( 'Orders list navigation', 'cannabiz-menu' ),
+        'filter_items_list'     => esc_attr__( 'Filter orders list', 'cannabiz-menu' ),
     );
     $rewrite = array(
         'slug'       => 'order',
@@ -64,8 +64,8 @@ function wpd_orders_post_type() {
         'create_posts'       => 'edit_shop_orders',
     );
     $args = array(
-        'label'               => esc_attr__( 'Order', 'wpd-ecommerce' ),
-        'description'         => esc_attr__( 'View your store\'s order history', 'wpd-ecommerce' ),
+        'label'               => esc_attr__( 'Order', 'cannabiz-menu' ),
+        'description'         => esc_attr__( 'View your store\'s order history', 'cannabiz-menu' ),
         'labels'              => $labels,
         'supports'            => false,
         'taxonomies'          => array(),
@@ -108,10 +108,10 @@ add_action( 'admin_menu', 'wpd_admin_menu_orders', 4 );
 function set_custom_edit_wpd_orders_columns( $columns ) {
     unset( $columns['author'] );
     unset( $columns['date'] );
-    $columns['wpd_orders_date']     = esc_attr__( 'Date', 'wpd-ecommerce' );
-    $columns['wpd_orders_status']   = esc_attr__( 'Status', 'wpd-ecommerce' );
-    $columns['wpd_orders_customer'] = esc_attr__( 'Customer', 'wpd-ecommerce' );
-    $columns['wpd_orders_total']    = esc_attr__( 'Total', 'wpd-ecommerce' );
+    $columns['wpd_orders_date']     = esc_attr__( 'Date', 'cannabiz-menu' );
+    $columns['wpd_orders_status']   = esc_attr__( 'Status', 'cannabiz-menu' );
+    $columns['wpd_orders_customer'] = esc_attr__( 'Customer', 'cannabiz-menu' );
+    $columns['wpd_orders_total']    = esc_attr__( 'Total', 'cannabiz-menu' );
 
     return $columns;
 }

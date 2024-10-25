@@ -715,7 +715,7 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
             add_submenu_page(
                 'wpd-settings',
                 'WP Dispensary\'s Inventory Management',
-                __( 'Inventory', 'wpd-ecommerce' ),
+                __( 'Inventory', 'cannabiz-menu' ),
                 'manage_options',
                 'wpd-inventory',
                 array( $this, 'plugin_page' )
@@ -787,11 +787,11 @@ if ( ! class_exists( 'WPD_INVENTORY_SETTINGS' ) ) :
             $html .= '<table id="myTable" class="tablesorter wpd-inventory">
                         <thead>
                         <tr>
-                            <th>' . esc_attr__( 'ID', 'wpd-ecommerce' ) . '</th>
-                            <th>' . esc_attr__( 'Type', 'wpd-ecommerce' ) . '</th>
-                            <th>' . esc_attr__( 'Product name', 'wpd-ecommerce' ) . '</th>
-                            <th>' . esc_attr__( 'Categories', 'wpd-ecommerce' ) . '</th>
-                            <th>' . esc_attr__( 'Stock', 'wpd-ecommerce' ) . '</th>
+                            <th>' . esc_attr__( 'ID', 'cannabiz-menu' ) . '</th>
+                            <th>' . esc_attr__( 'Type', 'cannabiz-menu' ) . '</th>
+                            <th>' . esc_attr__( 'Product name', 'cannabiz-menu' ) . '</th>
+                            <th>' . esc_attr__( 'Categories', 'cannabiz-menu' ) . '</th>
+                            <th>' . esc_attr__( 'Stock', 'cannabiz-menu' ) . '</th>
                         </tr>
                         </thead>
                         <tbody>';

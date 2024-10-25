@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
  */
 function wpd_ecommerce_registration_form() { ?>
     <p class="register-first-name">
-        <label for="first_name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?></label>
+        <label for="first_name"><?php esc_html_e( 'First Name', 'cannabiz-menu' ); ?></label>
         <input type="text" name="first_name" value="" id="first_name" class="input"/>
     </p>
 <?php }
@@ -54,12 +54,12 @@ function wpd_ecommerce_admin_registration_form( $operation ) {
         return;
     }
     ?>
-    <h3><?php esc_html_e( 'Additional Details', 'wpd-ecommerce' ); ?></h3>
+    <h3><?php esc_html_e( 'Additional Details', 'cannabiz-menu' ); ?></h3>
 
     <table class="form-table">
         <tr>
             <th>
-                <label for="first_name"><?php esc_html_e( 'First Name', 'wpd-ecommerce' ); ?></label>
+                <label for="first_name"><?php esc_html_e( 'First Name', 'cannabiz-menu' ); ?></label>
             </th>
             <td>
                 <input type="text" id="first_name" name="first_name" value="" class="regular-text" />
@@ -94,13 +94,13 @@ function wpd_ecommerce_show_contact_info_fields( $fields ) {
     unset( $fields['url'] );
 
     // Add custom fields.
-    $fields['phone_number']   = esc_attr__( 'Phone number', 'wpd-ecommerce' );
-    $fields['address_line_1'] = esc_attr__( 'Address line 1', 'wpd-ecommerce' );
-    $fields['address_line_2'] = esc_attr__( 'Address line 2', 'wpd-ecommerce' );
-    $fields['city']           = esc_attr__( 'City', 'wpd-ecommerce' );
-    $fields['state_county']   = esc_attr__( 'State / County', 'wpd-ecommerce' );
-    $fields['postcode_zip']   = esc_attr__( 'Postcode / ZIP', 'wpd-ecommerce' );
-    $fields['country']        = esc_attr__( 'Country', 'wpd-ecommerce' );
+    $fields['phone_number']   = esc_attr__( 'Phone number', 'cannabiz-menu' );
+    $fields['address_line_1'] = esc_attr__( 'Address line 1', 'cannabiz-menu' );
+    $fields['address_line_2'] = esc_attr__( 'Address line 2', 'cannabiz-menu' );
+    $fields['city']           = esc_attr__( 'City', 'cannabiz-menu' );
+    $fields['state_county']   = esc_attr__( 'State / County', 'cannabiz-menu' );
+    $fields['postcode_zip']   = esc_attr__( 'Postcode / ZIP', 'cannabiz-menu' );
+    $fields['country']        = esc_attr__( 'Country', 'cannabiz-menu' );
 
     // Return the amended contact fields.
     return $fields;
@@ -137,11 +137,11 @@ function wpd_ecommerce_update_profile_fields( $user_id ) {
  */
 function wpd_ecommerce_user_profile_update_errors( $errors, $update, $user ) {
     if ( empty( filter_input( INPUT_POST, 'year_of_birth' ) ) ) {
-        $errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: Please enter your year of birth.', 'wpd-ecommerce' ) ) );
+        $errors->add( 'year_of_birth_error', apply_filters( 'wpd_ecommerce_user_profile_update_year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: Please enter your year of birth.', 'cannabiz-menu' ) ) );
     }
 
     if ( ! empty( filter_input( INPUT_POST, 'year_of_birth' ) ) && intval( filter_input( INPUT_POST, 'year_of_birth' ) ) < 1900 ) {
-        $errors->add( 'year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: You must be born after 1900.', 'wpd-ecommerce' ) );
+        $errors->add( 'year_of_birth_error', esc_attr__( '<strong>ERROR</strong>: You must be born after 1900.', 'cannabiz-menu' ) );
     }
 }
 //add_action( 'user_profile_update_errors', 'wpd_ecommerce_user_profile_update_errors', 10, 3 );

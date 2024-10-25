@@ -128,16 +128,16 @@ function wpd_ecommerce_update_user_customer_dashboard() {
             if ( filter_input( INPUT_POST, 'pass1' ) == filter_input( INPUT_POST, 'pass2' ) ) {
                 wp_update_user( array( 'ID' => $current_user->ID, 'user_pass' => sanitize_text_field( filter_input( INPUT_POST, 'pass1' ) ) ) );
             } else {
-                $error[] = esc_attr__( 'The passwords you entered do not match.  Your password was not updated.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'The passwords you entered do not match.  Your password was not updated.', 'cannabiz-menu' );
             }
         }
 
         // Update user email address.
         if ( null !== filter_input( INPUT_POST, 'email' ) ) {
             if ( ! is_email( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) ) {
-                $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'The Email you entered is not valid. Please try again.', 'cannabiz-menu' );
             } elseif( email_exists( sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) != $current_user->id ) {
-                $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'wpd-ecommerce' );
+                $error[] = esc_attr__( 'This email is already used by another user. Try a different one.', 'cannabiz-menu' );
             } else {
                 wp_update_user( array ( 'ID' => $current_user->ID, 'user_email' => sanitize_text_field( filter_input( INPUT_POST, 'email' ) ) ) );
             }
@@ -290,12 +290,12 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
     $valid_id = get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true );
     ?>
     <?php do_action( 'wpd_ecommerce_verification_title_before' ); ?>
-    <h2><?php esc_html_e( 'Verification', 'wpd-ecommerce' ); ?></h2>
+    <h2><?php esc_html_e( 'Verification', 'cannabiz-menu' ); ?></h2>
     <?php do_action( 'wpd_ecommerce_verification_table_before' ); ?>
     <table class="form-table">
     <?php do_action( 'wpd_ecommerce_verification_table_top' ); ?>
     <tr>
-        <th scope="row"><?php esc_html_e( 'Drivers license or Valid ID', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Drivers license or Valid ID', 'cannabiz-menu' ); ?></th>
         <td class="wpd-details-valid-id">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_valid_id', true ) ) { ?>
             <div class="valid-id">
@@ -310,14 +310,14 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $valid_id. '<br />';
                 }
                 ?>
-                <input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
+                <input type="submit" class="remove-valid-id" name="remove_valid_id" value="<?php esc_html_e( 'x', 'cannabiz-menu' ); ?>" />
             </div><!-- /.valid-id -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_valid_id" value="" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php esc_html_e( 'Doctor recommendation', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Doctor recommendation', 'cannabiz-menu' ); ?></th>
         <td class="wpd-details-recommendation-doc">
             <?php if ( get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_doc', true ) ) { ?>
             <div class="recommendation-doc">
@@ -332,20 +332,20 @@ function wpd_ecommerce_add_profile_options( $profileuser ) {
                     echo $doc_rec. '<br />';
                 }
                 ?>
-            <input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'wpd-ecommerce' ); ?>" />
+            <input type="submit" class="remove-recommendation-doc" name="remove_recommendation_doc" value="<?php esc_html_e( 'x', 'cannabiz-menu' ); ?>" />
             </div><!-- /.recommendation-doc -->
             <?php } ?>
             <input type="file" name="wpd_ecommerce_recommendation_doc" value="" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php esc_html_e( 'Recommendation number', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Recommendation number', 'cannabiz-menu' ); ?></th>
         <td>
             <input class="regular-text" type="text" name="wpd_ecommerce_customer_recommendation_num" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_num', true ); ?>" />
         </td>
     </tr>
     <tr>
-        <th scope="row"><?php esc_html_e( 'Expiration date', 'wpd-ecommerce' ); ?></th>
+        <th scope="row"><?php esc_html_e( 'Expiration date', 'cannabiz-menu' ); ?></th>
         <td>
             <input class="regular-text" type="date" name="wpd_ecommerce_customer_recommendation_exp" value="<?php echo get_user_meta( $profileuser->ID, 'wpd_ecommerce_customer_recommendation_exp', true ); ?>" />
         </td>
@@ -535,7 +535,7 @@ function wpd_ecommerce_login_form() {
     do_action( 'wpd_ecommerce_customer_account_login_form_before' );
     echo '<div class="wpd-ecommerce-login-form">';
     do_action( 'wpd_ecommerce_customer_account_login_form_before_inside' );
-    echo '<h3>' . esc_attr__( 'Login', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3>' . esc_attr__( 'Login', 'cannabiz-menu' ) . '</h3>';
     echo wp_login_form( $args );
     do_action( 'wpd_ecommerce_customer_account_login_form_after_inside' );
     echo '</div>';
@@ -554,23 +554,23 @@ function wpd_ecommerce_register_form() {
 
     echo '<div class="wpd-ecommerce-register-form">';
     do_action( 'wpd_ecommerce_customer_account_register_form_before_inside' );
-    echo '<h3>' . esc_attr__( 'Register', 'wpd-ecommerce' ) . '</h3>';
+    echo '<h3>' . esc_attr__( 'Register', 'cannabiz-menu' ) . '</h3>';
     ?>
     <form id="wpd-ecommerce-register" action="<?php echo site_url( 'wp-login.php?action=register', 'login_post' ) ?>" method="post">
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_top' ); ?>
     <p class="register-username">
-    <label for="user_login"><?php esc_html_e( 'Username', 'wpd-ecommerce' ); ?></label>
+    <label for="user_login"><?php esc_html_e( 'Username', 'cannabiz-menu' ); ?></label>
     <input type="text" name="user_login" value="" id="user_login" class="input" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_username' ); ?>
     <p class="register-email-address">
-    <label for="user_email"><?php esc_html_e( 'Email address', 'wpd-ecommerce' ); ?></label>
+    <label for="user_email"><?php esc_html_e( 'Email address', 'cannabiz-menu' ); ?></label>
     <input type="text" name="user_email" value="" id="user_email" class="input" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_after_email' ); ?>
-    <p class="statement"><?php esc_html_e( 'A password will be emailed to you.', 'wpd-ecommerce' ); ?></p>
+    <p class="statement"><?php esc_html_e( 'A password will be emailed to you.', 'cannabiz-menu' ); ?></p>
     <p class="register-submit">
-    <input type="submit" value="<?php esc_html_e( 'Register', 'wpd-ecommerce' ); ?>" id="register" />
+    <input type="submit" value="<?php esc_html_e( 'Register', 'cannabiz-menu' ); ?>" id="register" />
     </p>
     <?php do_action( 'wpd_ecommerce_customer_account_register_form_inside_bottom' ); ?>
     </form>

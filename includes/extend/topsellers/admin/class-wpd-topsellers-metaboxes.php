@@ -43,7 +43,7 @@ function wpd_topsellers_meta( $value ) {
 function top_sellers_add_meta_box() {
 	add_meta_box(
 		'wpd_featured_product',
-		__( 'Featured', 'wpd-ecommerce' ),
+		__( 'Featured', 'cannabiz-menu' ),
 		'top_sellers_html',
 		apply_filters( 'wpd_product_featured_metabox', 'products' ),
 		'side',
@@ -56,7 +56,7 @@ function top_sellers_html( $post ) {
 	wp_nonce_field( 'product_featured_nonce', 'top_sellers_nonce' ); ?>
 	<p>
 		<input type="checkbox" name="product_featured" id="product_featured" value="product_featured" <?php echo ( wpd_topsellers_meta( 'product_featured' ) === 'product_featured' ) ? 'checked' : ''; ?>>
-		<label for="product_featured"><?php esc_html_e( 'This is a featured product', 'wpd-ecommerce' ); ?></label>
+		<label for="product_featured"><?php esc_html_e( 'This is a featured product', 'cannabiz-menu' ); ?></label>
 	</p>
 	<?php
 }

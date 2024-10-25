@@ -40,7 +40,7 @@ class CSV_Customers_Export {
             header( "Cache-Control: must-revalidate, post-check=0, pre-check=0" );
             header( "Cache-Control: private", false );
             header( "Content-Type: application/octet-stream" );
-            header( "Content-Disposition: attachment; filename=\"wp-dispensary-customers.csv\";" );
+            header( "Content-Disposition: attachment; filename=\"cannabiz-menu-customers.csv\";" );
             header( "Content-Transfer-Encoding: binary" );
 
             echo $csv;
@@ -85,9 +85,9 @@ class CSV_Customers_Export {
      */
     public function export_customers() {
         echo '<div class="wrap">';
-        echo '<h2>' . esc_attr__( 'CannaBiz eCommerce\'s Customer Export', 'wpd-ecommerce' ) . '</h2>';
-        echo '<p>' . esc_attr__( 'Export your CannaBiz eCommerce customers as a CSV file by clicking the button below.', 'wpd-ecommerce' ) . '</p>';
-        echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'wpd-ecommerce' ) . '</a></p>';
+        echo '<h2>' . esc_attr__( 'CannaBiz eCommerce\'s Customer Export', 'cannabiz-menu' ) . '</h2>';
+        echo '<p>' . esc_attr__( 'Export your CannaBiz eCommerce customers as a CSV file by clicking the button below.', 'cannabiz-menu' ) . '</p>';
+        echo '<p><a class="button" href="admin.php?page=export_customers&export_customers&_wpnonce=' . wp_create_nonce( 'download_csv' ) . '">' . esc_attr__( 'Export', 'cannabiz-menu' ) . '</a></p>';
     }
 
     /**
@@ -108,14 +108,14 @@ class CSV_Customers_Export {
 
         // Set the headers.
         $header_row = array(
-            esc_attr__( 'ID', 'wpd-ecommerce' ),
-            esc_attr__( 'Name', 'wpd-ecommerce' ),
-            esc_attr__( 'Email', 'wpd-ecommerce' ),
-            esc_attr__( 'Phone', 'wpd-ecommerce' ),
-            esc_attr__( 'Address', 'wpd-ecommerce' ),
-            esc_attr__( 'Recommendation number', 'wpd-ecommerce' ),
-            esc_attr__( 'Recommendation expiration', 'wpd-ecommerce' ),
-            esc_attr__( 'Total orders', 'wpd-ecommerce' ),
+            esc_attr__( 'ID', 'cannabiz-menu' ),
+            esc_attr__( 'Name', 'cannabiz-menu' ),
+            esc_attr__( 'Email', 'cannabiz-menu' ),
+            esc_attr__( 'Phone', 'cannabiz-menu' ),
+            esc_attr__( 'Address', 'cannabiz-menu' ),
+            esc_attr__( 'Recommendation number', 'cannabiz-menu' ),
+            esc_attr__( 'Recommendation expiration', 'cannabiz-menu' ),
+            esc_attr__( 'Total orders', 'cannabiz-menu' ),
         );
 
         // Filter headers.
